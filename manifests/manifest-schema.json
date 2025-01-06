@@ -3,6 +3,9 @@
   "title": "TCAdmin v3 Plugin Manifest",
   "type": "object",
   "properties": {
+    "identifier": {
+      "type": "string"
+    },
     "author": {
       "type": "string"
     },
@@ -54,8 +57,11 @@
     }
   },
   "required": [
+    "identifier",
     "author",
     "name",
+    "icon",
+    "images",
     "description",
     "version",
     "tags",
