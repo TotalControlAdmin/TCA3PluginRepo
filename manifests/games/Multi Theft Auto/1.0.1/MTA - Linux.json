@@ -2,7 +2,7 @@
   "gameId": 0,
   "name": "Multi Theft Auto",
   "shortName": "MTA",
-  "operatingSystem": "Windows",
+  "operatingSystem": "Linux",
   "gameIcon": "https://avatars.githubusercontent.com/u/123869?s=280\u0026v=4",
   "backgroundImage": "https://cdn2.steamgriddb.com/file/sgdb-cdn/hero/6b5bf4d4122957763ce3b07201e4003e.png",
   "minSlots": 0,
@@ -13,10 +13,8 @@
     ".txt",
     ".cfg",
     ".json",
-    ".xml",
-    ".conf"
+    ".xml"
   ],
-  "maxEditableSize": 102400,
   "queryRconProtocolConfig": {
     "queryProtocol": "eye",
     "rconProtocol": "",
@@ -26,7 +24,7 @@
   },
   "consoleConfig": {
     "enabled": true,
-    "outputSource": "MemoryWrapper",
+    "outputSource": "LogFile",
     "logFile": "mods/deathmatch/logs/server.log",
     "inputSource": "ConsoleCommands",
     "outputFilters": "",
@@ -45,16 +43,17 @@
     "rconPortExpression": "",
     "customPorts": [
       {
-        "expression": "GamePort\u002B1",
+        "port": 0,
+        "expression": "GamePort \u002B 1",
         "description": "HTTP Port"
       }
     ],
     "portIncrement": 10
   },
   "fileAndDirectoryConfig": {
-    "relativeExecutable": "MTA Server.exe",
+    "relativeExecutable": "mta-server64",
     "relativeWorkingDirectory": "",
-    "autoSetupFolderName": "mta-windows",
+    "autoSetupFolderName": "multitheftauto_linux_x64",
     "failOnMissingExecutable": true,
     "externalDownloadEnable": false,
     "externalDownloadUrl": "",
@@ -126,56 +125,8 @@
       ]
     }
   ],
-  "fileSystemPermissions": [
-    {
-      "gameId": 0,
-      "roleId": 2,
-      "rootPermission": {
-        "permissionMode": "Basic",
-        "defaultPermissions": "ReadFile, WriteFile, DeleteFile, RenameFile, ListDirectory, CreateDirectory, DeleteDirectory, RenameDirectory",
-        "skipListingSecurityCheck": false,
-        "additionalPermissions": []
-      }
-    },
-    {
-      "gameId": 0,
-      "roleId": 3,
-      "rootPermission": {
-        "permissionMode": "Basic",
-        "defaultPermissions": "ReadFile, WriteFile, DeleteFile, RenameFile, ListDirectory, CreateDirectory, DeleteDirectory, RenameDirectory",
-        "skipListingSecurityCheck": false,
-        "additionalPermissions": []
-      }
-    }
-  ],
+  "fileSystemPermissions": [],
   "gameScripts": [
-    {
-      "gameId": 0,
-      "scriptId": 0,
-      "script": {
-        "scriptId": 0,
-        "allGames": false,
-        "global": false,
-        "scriptEngine": "CSharp",
-        "operatingSystem": [
-          "Windows"
-        ],
-        "scriptEvents": [
-          "DownloadGameFiles"
-        ],
-        "name": "Download Windows game files",
-        "code": "using System.Runtime.CompilerServices;\r\nusing System.IO;\r\nusing System.IO.Compression;\r\nusing System.Net.Http;\r\nusing TCAdmin.SDK.Misc.Extensions;\r\n\r\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGlobals(); // DO NOT MODIFY THIS LINE\r\n\r\nvar gameFilesPath = Path.Combine(Globals.ThisServer.Configuration.GameFilesPath, Globals.ThisGame.FileAndDirectoryConfig.AutoSetupFolderName);\r\nvar zipFile = Path.Combine(gameFilesPath, \u0022mta-files.zip\u0022);\r\nif(!Directory.Exists(gameFilesPath)) Directory.CreateDirectory(gameFilesPath);\r\n\r\n\r\n\r\nusing(HttpClient downloadClient = new HttpClient())\r\n{\r\n await downloadClient.DownloadFile(\u0022http://downloads.tcadmin.com/games/mta-windows.aspx\u0022, zipFile, Globals.ThisCancellationToken);   \r\n}\r\n\r\nusing(ZipArchive archive = ZipFile.OpenRead(zipFile))\r\n{\r\n    foreach (ZipArchiveEntry entry in archive.Entries)\r\n    {\r\n        string destinationPath = Path.Combine(gameFilesPath, entry.FullName);\r\n\r\n        // Create directories if necessary\r\n        Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));\r\n\r\n        // Extract file if it\u0027s not a directory\r\n        if (!entry.FullName.EndsWith(\u0022/\u0022))\r\n        {\r\n            entry.ExtractToFile(destinationPath, overwrite: true);\r\n        }\r\n    }\r\n}\r\n\r\nFile.Delete(zipFile);",
-        "runImpersonated": false,
-        "stopService": false,
-        "ignoreErrors": false,
-        "order": 0,
-        "icon": "\u003Cg\u003E\u003Crect fill=\u0022none\u0022 height=\u002224\u0022 width=\u002224\u0022/\u003E\u003C/g\u003E\u003Cg\u003E\u003Cpath d=\u0022M12,2C6.49,2,2,6.49,2,12s4.49,10,10,10s10-4.49,10-10S17.51,2,12,2z M11,10V6h2v4h3l-4,4l-4-4H11z M17,17H7v-2h10V17z\u0022/\u003E\u003C/g\u003E",
-        "scriptInputVariables": [],
-        "scriptRoles": [],
-        "editor": [],
-        "identifier": "0c342d81-6b79-444a-a232-de0346367a61"
-      }
-    },
     {
       "gameId": 0,
       "scriptId": 0,
@@ -200,190 +151,75 @@
         "scriptInputVariables": [],
         "scriptRoles": [],
         "editor": [],
-        "identifier": "efa7dc22-4183-4e32-b467-2df14f262ef7"
+        "identifier": "e9b15d87-826b-4d84-89d3-fc91552ebcfa"
+      }
+    },
+    {
+      "gameId": 0,
+      "scriptId": 0,
+      "script": {
+        "scriptId": 0,
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "DownloadGameFiles"
+        ],
+        "name": "Download Windows game files",
+        "code": "using System.Runtime.CompilerServices;\r\nusing System.IO;\r\nusing System.IO.Compression;\r\nusing System.Net.Http;\r\nusing TCAdmin.SDK.Misc.Extensions;\r\n\r\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGlobals(); // DO NOT MODIFY THIS LINE\r\n\r\nvar gameFilesPath = Path.Combine(Globals.ThisServer.Configuration.GameFilesPath, Globals.ThisGame.FileAndDirectoryConfig.AutoSetupFolderName);\r\nvar zipFile = Path.Combine(gameFilesPath, \u0022mta-files.zip\u0022);\r\nif(!Directory.Exists(gameFilesPath)) Directory.CreateDirectory(gameFilesPath);\r\n\r\n\r\n\r\nusing(HttpClient downloadClient = new HttpClient())\r\n{\r\n await downloadClient.DownloadFile(\u0022http://downloads.tcadmin.com/games/mta-windows.aspx\u0022, zipFile, Globals.ThisCancellationToken);   \r\n}\r\n\r\nusing(ZipArchive archive = ZipFile.OpenRead(zipFile))\r\n{\r\n    foreach (ZipArchiveEntry entry in archive.Entries)\r\n    {\r\n        string destinationPath = Path.Combine(gameFilesPath, entry.FullName);\r\n\r\n        // Create directories if necessary\r\n        Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));\r\n\r\n        // Extract file if it\u0027s not a directory\r\n        if (!entry.FullName.EndsWith(\u0022/\u0022))\r\n        {\r\n            entry.ExtractToFile(destinationPath, overwrite: true);\r\n        }\r\n    }\r\n}\r\n\r\nFile.Delete(zipFile);",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 0,
+        "icon": "\u003Cg\u003E\u003Crect fill=\u0022none\u0022 height=\u002224\u0022 width=\u002224\u0022/\u003E\u003C/g\u003E\u003Cg\u003E\u003Cpath d=\u0022M12,2C6.49,2,2,6.49,2,12s4.49,10,10,10s10-4.49,10-10S17.51,2,12,2z M11,10V6h2v4h3l-4,4l-4-4H11z M17,17H7v-2h10V17z\u0022/\u003E\u003C/g\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "2bc5b39f-4b7c-4a84-bb9b-102181694484"
+      }
+    },
+    {
+      "gameId": 0,
+      "scriptId": 0,
+      "script": {
+        "scriptId": 0,
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceIcon"
+        ],
+        "name": "Find Process",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\r\nusing System;\r\nusing System.IO;\r\nusing System.Collections.Generic;\r\nusing System.Linq;\r\nusing TCAdmin.Scripting.Engines.Addons;\r\n\r\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGlobals(); // DO NOT MODIFY THIS LINE\r\n\r\nstatic List\u003Cint\u003E FindWineProcess(CSharpGlobals Globals, string targetPath, string exe)\r\n{\r\n    var matchingPids = new List\u003Cint\u003E();\r\n    var procDirectory = new DirectoryInfo(\u0022/proc\u0022);\r\n\r\n    foreach (var dir in procDirectory.GetDirectories())\r\n    {\r\n        // Only consider directories with numeric names (i.e. process IDs)\r\n        if (int.TryParse(dir.Name, out int pid))\r\n        {\r\n            string cwdLinkPath = Path.Combine(dir.FullName, \u0022cwd\u0022);\r\n            try\r\n            {\r\n                // Create a FileInfo object for the \u0022cwd\u0022 symlink.\r\n                var cwdInfo = new DirectoryInfo(cwdLinkPath);\r\n\r\n                // If the symlink exists, resolve its target.\r\n                if (cwdInfo.Exists)\r\n                {\r\n                    // ResolveLinkTarget(true) follows the symlink.\r\n                    var targetInfo = cwdInfo.ResolveLinkTarget(true);\r\n                    if (targetInfo != null)\r\n                    {\r\n                        // Compare the full path of the symlink target with the desired targetPath.\r\n                        if (string.Equals(targetInfo.FullName, targetPath, StringComparison.Ordinal))\r\n                        {\r\n                            var exeInfo = (new FileInfo(Path.Combine(dir.FullName, \u0022exe\u0022)).ResolveLinkTarget(true));\r\n                            var cmdline = File.ReadAllText(Path.Combine(dir.FullName, \u0022cmdline\u0022));\r\n                            if(exeInfo.FullName == exe)\r\n                            {\r\n                                matchingPids.Add(pid);\r\n                            }\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n            catch (Exception)\r\n            {\r\n                // Exceptions (e.g., due to permission issues) are ignored.\r\n            }\r\n        }\r\n    }\r\n\r\n    return matchingPids;\r\n}\r\n\r\nGlobals.Console.WriteLine(\u0022Looking for \u0022 \u002B Path.Combine(Globals.ThisService.RootDirectory, Globals.ThisService.Executable));\r\nforeach(var pid in FindWineProcess(Globals, Globals.ThisService.WorkingDirectory, Path.Combine(Globals.ThisService.RootDirectory, Globals.ThisService.Executable) /*\u0022IcarusServer-Win64-Shipping.exe\u0022*/))\r\n{\r\n    Globals.Console.WriteLine($\u0022found pid: {pid}\u0022);\r\n}",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 0,
+        "icon": "\u003Cpath d=\u0022M0 0h24v24H0V0z\u0022 fill=\u0022none\u0022/\u003E\u003Cpath d=\u0022M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "56ed6310-e079-45d6-bbbb-8f2a69e74e3a"
       }
     }
   ],
   "customModProviderConfigs": [],
-  "createdDate": "2025-04-07T19:03:52.918032",
-  "modifiedDate": "2025-07-28T01:22:45.529004",
+  "createdDate": "2025-04-07T19:04:00.481555",
   "metadata": {
-    "Notes": "Game imported from plugin TCA.Games.MTA version 1.0.1."
+    "Notes": ""
   },
   "rolePermissions": [
     {
       "roleId": 3,
       "id": 0,
-      "module": "GameFeature",
-      "permission": "SteamUpdate",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "ServiceSettings",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "ScheduledTasks",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "Reinstall",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "PredefCmdlines",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "PlayerStats",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "NetworkStats",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "MemoryStats",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "LiveStats",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "FTP",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "FileManager",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "Delete",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "CustomCmdlines",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "Create",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "CpuStats",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "Control",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "Console",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "id": 0,
       "module": "GameEditFeature",
-      "permission": "Variables",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameEditFeature",
-      "permission": "Steam",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameEditFeature",
-      "permission": "Scripts",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "id": 0,
-      "module": "GameEditFeature",
-      "permission": "RunAs",
+      "permission": "GeneralSettings",
       "moduleData": "0",
       "granted": false
     },
@@ -392,6 +228,30 @@
       "id": 0,
       "module": "GameEditFeature",
       "permission": "RconAndQuery",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameEditFeature",
+      "permission": "Cmdlines",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameEditFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameEditFeature",
+      "permission": "Console",
       "moduleData": "0",
       "granted": false
     },
@@ -415,7 +275,7 @@
       "roleId": 3,
       "id": 0,
       "module": "GameEditFeature",
-      "permission": "GeneralSettings",
+      "permission": "RunAs",
       "moduleData": "0",
       "granted": false
     },
@@ -423,7 +283,23 @@
       "roleId": 3,
       "id": 0,
       "module": "GameEditFeature",
-      "permission": "FileSystem",
+      "permission": "Scripts",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameEditFeature",
+      "permission": "Variables",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameEditFeature",
+      "permission": "Steam",
       "moduleData": "0",
       "granted": false
     },
@@ -439,60 +315,28 @@
       "roleId": 3,
       "id": 0,
       "module": "GameEditFeature",
-      "permission": "Console",
+      "permission": "FileSystem",
       "moduleData": "0",
       "granted": false
     },
     {
       "roleId": 3,
       "id": 0,
-      "module": "GameEditFeature",
+      "module": "GameFeature",
+      "permission": "Control",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameFeature",
       "permission": "ConfigFiles",
       "moduleData": "0",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
-      "id": 0,
-      "module": "GameEditFeature",
-      "permission": "Cmdlines",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "SteamUpdate",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "ServiceSettings",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "ScheduledTasks",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "Reinstall",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 2,
       "id": 0,
       "module": "GameFeature",
       "permission": "PredefCmdlines",
@@ -500,47 +344,15 @@
       "granted": false
     },
     {
-      "roleId": 2,
+      "roleId": 3,
       "id": 0,
       "module": "GameFeature",
-      "permission": "PlayerStats",
+      "permission": "CustomCmdlines",
       "moduleData": "0",
-      "granted": true
+      "granted": false
     },
     {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "NetworkStats",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "MemoryStats",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "LiveStats",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "FTP",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 2,
+      "roleId": 3,
       "id": 0,
       "module": "GameFeature",
       "permission": "FileManager",
@@ -548,7 +360,95 @@
       "granted": true
     },
     {
-      "roleId": 2,
+      "roleId": 3,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "FTP",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "Console",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "PlayerStats",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "CpuStats",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "MemoryStats",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "NetworkStats",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "LiveStats",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "Reinstall",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "Create",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 3,
       "id": 0,
       "module": "GameFeature",
       "permission": "Delete",
@@ -558,80 +458,8 @@
     {
       "roleId": 2,
       "id": 0,
-      "module": "GameFeature",
-      "permission": "CustomCmdlines",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "Create",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "CpuStats",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "Control",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "Console",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "0",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "id": 0,
       "module": "GameEditFeature",
-      "permission": "Variables",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameEditFeature",
-      "permission": "Steam",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameEditFeature",
-      "permission": "Scripts",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameEditFeature",
-      "permission": "RunAs",
+      "permission": "GeneralSettings",
       "moduleData": "0",
       "granted": false
     },
@@ -640,6 +468,30 @@
       "id": 0,
       "module": "GameEditFeature",
       "permission": "RconAndQuery",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameEditFeature",
+      "permission": "Cmdlines",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameEditFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameEditFeature",
+      "permission": "Console",
       "moduleData": "0",
       "granted": false
     },
@@ -663,7 +515,7 @@
       "roleId": 2,
       "id": 0,
       "module": "GameEditFeature",
-      "permission": "GeneralSettings",
+      "permission": "RunAs",
       "moduleData": "0",
       "granted": false
     },
@@ -671,7 +523,23 @@
       "roleId": 2,
       "id": 0,
       "module": "GameEditFeature",
-      "permission": "FileSystem",
+      "permission": "Scripts",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameEditFeature",
+      "permission": "Variables",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameEditFeature",
+      "permission": "Steam",
       "moduleData": "0",
       "granted": false
     },
@@ -687,23 +555,7 @@
       "roleId": 2,
       "id": 0,
       "module": "GameEditFeature",
-      "permission": "Console",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameEditFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "0",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "id": 0,
-      "module": "GameEditFeature",
-      "permission": "Cmdlines",
+      "permission": "FileSystem",
       "moduleData": "0",
       "granted": false
     },
@@ -712,6 +564,150 @@
       "id": 0,
       "module": "GameEditFeature",
       "permission": "Mods",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "Control",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "FileManager",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "FTP",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "Console",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "PlayerStats",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "CpuStats",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "MemoryStats",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "NetworkStats",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "LiveStats",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "Reinstall",
+      "moduleData": "0",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "Create",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "Delete",
       "moduleData": "0",
       "granted": false
     },
@@ -752,6 +748,14 @@
       "id": 0,
       "module": "GameEditFeature",
       "permission": "Updates",
+      "moduleData": "0",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "id": 0,
+      "module": "GameFeature",
+      "permission": "ServiceSettings",
       "moduleData": "0",
       "granted": false
     },
