@@ -22,10 +22,10 @@ files:
     type: GameScript
     optional: true
   - identifier: "docker_add_rules"
-    path: "[DockerBlueprintScript] Windows firewall - Add rules.json"
+    path: "[DockerScript] Windows firewall - Add rules.json"
     type: DockerScript
     optional: true
   - identifier: "docker_remove_rules"
-    path: "[DockerBlueprintScript] Windows firewall - Remove rules.json"
+    path: "[DockerScript] Windows firewall - Remove rules.json"
     type: DockerScript
     optional: true
