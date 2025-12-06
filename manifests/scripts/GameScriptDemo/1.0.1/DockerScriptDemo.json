@@ -12,7 +12,7 @@
   ],
   "name": "DockerScriptDemo",
   "description": "Global script demo for Docker services. SVG icon from https://www.svgrepo.com/",
-  "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, Docker.DotNet.dll\r\nusing System;\r\nusing System.Collections.Generic;\r\nusing System.Linq;\r\nusing TCAdmin.SDK.Misc.Extensions;\r\n\r\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals(); // DO NOT MODIFY THIS LINE\r\n\r\nGlobals.ScriptConsole.WriteLine($\u0022Hello World! Current service id is { Globals.ThisService.ServiceId }\u0022);\r\nGlobals.ScriptConsole.WriteLine($\u0022Your value is { Globals.Variables[\u0022Demo_Input\u0022] }\u0022);\r\n//Globals.ScriptConsole.WriteLine($\u0022Your value is { Globals.Variables.Keys.ToJson() }\u0022);",
+  "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, Docker.DotNet.dll\r\nusing System;\r\nusing System.Collections.Generic;\r\nusing System.Linq;\r\nusing TCAdmin.SDK.Misc.Extensions;\r\n\r\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals(); // DO NOT MODIFY THIS LINE\r\n\r\nGlobals.ScriptConsole.WriteLine($\u0022Hello World! Current service id is { Globals.ThisService.ServiceId }\u0022);\r\nGlobals.ScriptConsole.WriteLine($\u0022Your value is { Globals.Variables[\u0022Demo_Input\u0022] }\u0022);",
   "runImpersonated": true,
   "stopService": false,
   "ignoreErrors": false,
