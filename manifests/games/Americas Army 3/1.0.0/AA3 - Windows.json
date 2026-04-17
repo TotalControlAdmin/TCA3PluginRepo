@@ -1,0 +1,1280 @@
+{
+  "__TCA:ExportVersion": "3.2.34.21134",
+  "__TCA:ExportedAt": "2026-04-17T03:04:28.8211577Z",
+  "name": "America\u0027s Army 3",
+  "shortName": "AA3",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Americasarmy-logo.svg/1280px-Americasarmy-logo.svg.png",
+  "backgroundImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/13140/header.jpg",
+  "minSlots": 0,
+  "maxSlots": 128,
+  "defaultSlots": 8,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "queryRconProtocolConfig": {
+    "queryProtocol": "gs4",
+    "rconProtocol": "",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": []
+  },
+  "consoleConfig": {
+    "enabled": false,
+    "outputSource": "LogFile",
+    "logFile": "",
+    "inputSource": "RconProtocol",
+    "printRconResponse": false,
+    "outputFilters": "\t\t\t\t\t\t",
+    "stopCommand": "\t\t\t\t\t\t",
+    "waitAfterStopCommand": 1000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": true,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 8777,
+        "expression": ""
+      },
+      {
+        "id": "QueryPort",
+        "port": 8877,
+        "expression": "GamePort \u002B 100"
+      },
+      {
+        "id": "RConPort",
+        "port": 8777,
+        "expression": ""
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "Binaries\\AA3Game.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "aa3",
+    "failOnMissingExecutable": false,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": ""
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 13180,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "storeId": 13140,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": true,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "server Pipeline_dawn_clear?GLOBAL?MissionType=ad?MissionSize=large?MissionVariant=classic?MaxPlayers=${Slots}?MaxSpectators=0 MULTIHOME=${IPAddress}",
+    "defaultCustomCommandline": "server ${UserCommandLine}?MissionSize=large?MaxPlayers=${Slots}?MaxSpectators=0 MULTIHOME=${IPAddress}",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "server Pipeline_dawn_clear?GLOBAL?MissionType=ad?MissionSize=large?MissionVariant=classic?MaxPlayers=${Slots}?MaxSpectators=0 MULTIHOME=${IPAddress}"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": true,
+    "elevated": false
+  },
+  "gameVariables": [
+    {
+      "name": "AlleydaycloudyGLOBALMissionTypevipMissionVariantdev",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AlleydaycloudyGLOBALMissionTypevipMissionVariantdev}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Alley_day_cloudy?GLOBAL?MissionType=vip?MissionVariant=dev",
+        "uncheckedValue": "",
+        "id": "AlleydaycloudyGLOBALMissionTypevipMissionVariantdev",
+        "defaultValue": "",
+        "label": "AlleydaycloudyGLOBALMissionTypevipMissionVariantdev",
+        "description": "Ally VIP Escort",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.239393",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "AlleydaycloudyGLOBALMissionTypecoMissionVariantdev",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AlleydaycloudyGLOBALMissionTypecoMissionVariantdev}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Alley_day_cloudy?GLOBAL?MissionType=co?MissionVariant=dev",
+        "uncheckedValue": "",
+        "id": "AlleydaycloudyGLOBALMissionTypecoMissionVariantdev",
+        "defaultValue": "",
+        "label": "AlleydaycloudyGLOBALMissionTypecoMissionVariantdev",
+        "description": "Ally Carryable Objective",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.240313",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "AlleydaycloudyGLOBALMissionTypetahMissionVarianteast",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AlleydaycloudyGLOBALMissionTypetahMissionVarianteast}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Alley_day_cloudy?GLOBAL?MissionType=tah?MissionVariant=east",
+        "uncheckedValue": "",
+        "id": "AlleydaycloudyGLOBALMissionTypetahMissionVarianteast",
+        "defaultValue": "",
+        "label": "AlleydaycloudyGLOBALMissionTypetahMissionVarianteast",
+        "description": "Ally Take and Hold",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.240839",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "BridgenightclearGLOBALMissionTypeclassicMissionVariantdev",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BridgenightclearGLOBALMissionTypeclassicMissionVariantdev}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Bridge_night_clear?GLOBAL?MissionType=classic?MissionVariant=dev",
+        "uncheckedValue": "",
+        "id": "BridgenightclearGLOBALMissionTypeclassicMissionVariantdev",
+        "defaultValue": "",
+        "label": "BridgenightclearGLOBALMissionTypeclassicMissionVariantdev",
+        "description": "Bridge Classic Play",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.241404",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "BridgenightclearGLOBALMissionTypedpMissionVariantdev1",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BridgenightclearGLOBALMissionTypedpMissionVariantdev1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Bridge_night_clear?GLOBAL?MissionType=dp?MissionVariant=dev1",
+        "uncheckedValue": "",
+        "id": "BridgenightclearGLOBALMissionTypedpMissionVariantdev1",
+        "defaultValue": "",
+        "label": "BridgenightclearGLOBALMissionTypedpMissionVariantdev1",
+        "description": "Bridge Destroy and Extract",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.242246",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "BridgenightclearGLOBALMissionTypecoMissionVariantdev1",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BridgenightclearGLOBALMissionTypecoMissionVariantdev1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Bridge_night_clear?GLOBAL?MissionType=co?MissionVariant=dev1",
+        "uncheckedValue": "",
+        "id": "BridgenightclearGLOBALMissionTypecoMissionVariantdev1",
+        "defaultValue": "",
+        "label": "BridgenightclearGLOBALMissionTypecoMissionVariantdev1",
+        "description": "Bridge Carryable Objective",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.242852",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "ImpactdaycloudyGLOBALMissionTypevipMissionVariantdev",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ImpactdaycloudyGLOBALMissionTypevipMissionVariantdev}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Impact_day_cloudy?GLOBAL?MissionType=vip?MissionVariant=dev",
+        "uncheckedValue": "",
+        "id": "ImpactdaycloudyGLOBALMissionTypevipMissionVariantdev",
+        "defaultValue": "",
+        "label": "ImpactdaycloudyGLOBALMissionTypevipMissionVariantdev",
+        "description": "Impact VIP Escort",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.24364",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "ImpactdaycloudyGLOBALMissionTypetahMissionVariantdev",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ImpactdaycloudyGLOBALMissionTypetahMissionVariantdev}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Impact_day_cloudy?GLOBAL?MissionType=tah?MissionVariant=dev",
+        "uncheckedValue": "",
+        "id": "ImpactdaycloudyGLOBALMissionTypetahMissionVariantdev",
+        "defaultValue": "",
+        "label": "ImpactdaycloudyGLOBALMissionTypetahMissionVariantdev",
+        "description": "Impact Take and Hold",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.24429",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "ImpactdaycloudyGLOBALMissionTypeaoMissionVariantdev1",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ImpactdaycloudyGLOBALMissionTypeaoMissionVariantdev1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Impact_day_cloudy?GLOBAL?MissionType=ao?MissionVariant=dev1",
+        "uncheckedValue": "",
+        "id": "ImpactdaycloudyGLOBALMissionTypeaoMissionVariantdev1",
+        "defaultValue": "",
+        "label": "ImpactdaycloudyGLOBALMissionTypeaoMissionVariantdev1",
+        "description": "Impact Activated Object",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.245086",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "PipelinedawnclearGLOBALMissionTypevipMissionVariantdev1",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PipelinedawnclearGLOBALMissionTypevipMissionVariantdev1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Pipeline_dawn_clear?GLOBAL?MissionType=vip?MissionVariant=dev1",
+        "uncheckedValue": "",
+        "id": "PipelinedawnclearGLOBALMissionTypevipMissionVariantdev1",
+        "defaultValue": "",
+        "label": "PipelinedawnclearGLOBALMissionTypevipMissionVariantdev1",
+        "description": "Pipeline VIP Escort",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.245833",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "PipelinedawnclearGLOBALMissionTypeadMissionVariantclassic",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PipelinedawnclearGLOBALMissionTypeadMissionVariantclassic}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Pipeline_dawn_clear?GLOBAL?MissionType=ad?MissionVariant=classic",
+        "uncheckedValue": "",
+        "id": "PipelinedawnclearGLOBALMissionTypeadMissionVariantclassic",
+        "defaultValue": "",
+        "label": "PipelinedawnclearGLOBALMissionTypeadMissionVariantclassic",
+        "description": "Pipeline Assault/Defense ",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.246409",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "PipelinedawnclearGLOBALMissionTypetahMissionVariantdev",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PipelinedawnclearGLOBALMissionTypetahMissionVariantdev}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Pipeline_dawn_clear?GLOBAL?MissionType=tah?MissionVariant=dev",
+        "uncheckedValue": "",
+        "id": "PipelinedawnclearGLOBALMissionTypetahMissionVariantdev",
+        "defaultValue": "",
+        "label": "PipelinedawnclearGLOBALMissionTypetahMissionVariantdev",
+        "description": "Pipeline Take and Hold",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.247328",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "RanchdayfogGLOBALMissionTypevipMissionVariantdev1",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RanchdayfogGLOBALMissionTypevipMissionVariantdev1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Ranch_day_fog?GLOBAL?MissionType=vip?MissionVariant=dev1",
+        "uncheckedValue": "",
+        "id": "RanchdayfogGLOBALMissionTypevipMissionVariantdev1",
+        "defaultValue": "",
+        "label": "RanchdayfogGLOBALMissionTypevipMissionVariantdev1",
+        "description": "Ranch VIP Escort",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.248032",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "RanchdayfogGLOBALMissionTypeaoMissionVariantdev1",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RanchdayfogGLOBALMissionTypeaoMissionVariantdev1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Ranch_day_fog?GLOBAL?MissionType=ao?MissionVariant=dev1",
+        "uncheckedValue": "",
+        "id": "RanchdayfogGLOBALMissionTypeaoMissionVariantdev1",
+        "defaultValue": "",
+        "label": "RanchdayfogGLOBALMissionTypeaoMissionVariantdev1",
+        "description": "Ranch Activated Object",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.248586",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "RanchdayfogGLOBALMissionTypecoMissionVariantdev1",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RanchdayfogGLOBALMissionTypecoMissionVariantdev1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "Ranch_day_fog?GLOBAL?MissionType=co?MissionVariant=dev1",
+        "uncheckedValue": "",
+        "id": "RanchdayfogGLOBALMissionTypecoMissionVariantdev1",
+        "defaultValue": "",
+        "label": "RanchdayfogGLOBALMissionTypecoMissionVariantdev1",
+        "description": "Ranch Carryable Objective",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-04-16T07:13:27.249532",
+      "metadata": {},
+      "variableRoles": []
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 62,
+      "relativePath": "AA3Game\\Config\\DefaultGame.ini",
+      "description": "DefaultGame.ini",
+      "template": "${Configuration}\nBasedOn=..\\Engine\\Config\\BaseGame.ini\n\n[Engine.GameInfo]\nDefaultGame=AA3Game.AGP_GameInfo\nDefaultServerGame=AA3Game.AGP_GameInfo\nHUDType=AA3Game.AGP_HUD\n\n; AA3 supports max of 26 players (13 per team)\nMaxPlayers=${Slots}\n\n[Engine.WorldInfo]\nEmitterPoolClassPath=Engine.EmitterPool\n\n[AA3Baseline.AA_BaseGameInfo]\niMinNetPlayers=1\n\n[Engine.GameReplicationInfo]\nServerName=\u0022${Hostname}\u0022\nShortName=\u0022${Hostname}\u0022\nMessageOfTheDay=\u0022${MessageOfTheDay}\u0022\n\n[Engine.DecalManager]\nDecalLifeSpan=60.0\nMaxActiveDecals=200\n\n[Engine.AccessControl]\nIPPolicies=\u0022ACCEPT;*\u0022\nAdminPassword=${RconPassword}\nPlayerAdmin=${playeradmin1}\n\n[AA3Baseline.AA_GameInfo]\nfpMovementTrackingFrequency=1.000000\nbWeaponStay=False\nbAdjustSkill=False\nNetWait=0\nSpawnProtectionTime=0.000000\nLateEntryLives=0\nResetTimeDelay=0\nGoalScore=0\nMaxLives=0\nTimeLimit=${roundtimelimit}\niScoreboardDisplayTimeSeconds=20\nbKickIdlePlayers=${KickIdlePlayers}\niMaxIdlePlayerRounds=${MaxIdlePlayerRounds}\nfIdleCheckRate=20.000000\nfWaitToUpdateIdleTime=60.0\nfMinIdlePlayerRoundTime=180.000000\n\n\u002BMapRotation=(Map=\u0022Alley_day_cloudy\u0022,MissionType=\u0022tah\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022east\u0022,LevelName=\u0022Alley\u0022,MissionName=\u0022Take\u0026Hold\u0022)              \n\u002BMapRotation=(Map=\u0022Alley_day_cloudy\u0022,MissionType=\u0022vip\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022dev\u0022,LevelName=\u0022Alley\u0022,MissionName=\u0022VIP\u0022)\n\u002BMapRotation=(Map=\u0022Alley_day_cloudy\u0022,MissionType=\u0022co\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022dev\u0022,LevelName=\u0022Alley\u0022,MissionName=\u0022Extraction\u0022)\n\u002BMapRotation=(Map=\u0022bridge_night_clear\u0022,MissionType=\u0022classic\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022dev\u0022,LevelName=\u0022Bridge\u0022,MissionName=\u0022Classic\u0022)\n\u002BMapRotation=(Map=\u0022bridge_night_clear\u0022,MissionType=\u0022ao\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022dev1\u0022,LevelName=\u0022Bridge\u0022,MissionName=\u0022Assault\u0022)\n\u002BMapRotation=(Map=\u0022bridge_night_clear\u0022,MissionType=\u0022co\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022dev1\u0022,LevelName=\u0022Bridge\u0022,MissionName=\u0022Extraction\u0022)\n\u002BMapRotation=(Map=\u0022Impact_day_cloudy\u0022,MissionType=\u0022vip\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022dev\u0022,LevelName=\u0022Impact\u0022,MissionName=\u0022VIP\u0022)\n\u002BMapRotation=(Map=\u0022Impact_day_cloudy\u0022,MissionType=\u0022tah\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022dev\u0022,LevelName=\u0022Impact\u0022,MissionName=\u0022Take\u0026Hold\u0022)\n\u002BMapRotation=(Map=\u0022Impact_day_cloudy\u0022,MissionType=\u0022ao\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022dev1\u0022,LevelName=\u0022Impact\u0022,MissionName=\u0022Assault\u0022)\n\u002BMapRotation=(Map=\u0022Pipeline_dawn_clear\u0022,MissionType=\u0022ad\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022classic\u0022,LevelName=\u0022Pipeline\u0022,MissionName=\u0022Classic\u0022)\n\u002BMapRotation=(Map=\u0022Pipeline_dawn_clear\u0022,MissionType=\u0022tah\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022dev\u0022,LevelName=\u0022Pipeline\u0022,MissionName=\u0022Take\u0026Hold\u0022)\n\u002BMapRotation=(Map=\u0022Pipeline_dawn_clear\u0022,MissionType=\u0022vip\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022dev1\u0022,LevelName=\u0022Pipeline\u0022,MissionName=\u0022VIP\u0022)\n\u002BMapRotation=(Map=\u0022Ranch_day_fog\u0022,MissionType=\u0022vip\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022dev1\u0022,LevelName=\u0022Ranch\u0022,MissionName=\u0022VIP\u0022)\n\u002BMapRotation=(Map=\u0022Ranch_day_fog\u0022,MissionType=\u0022ao\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022dev1\u0022,LevelName=\u0022Ranch\u0022,MissionName=\u0022Assault\u0022)\n\u002BMapRotation=(Map=\u0022Ranch_day_fog\u0022,MissionType=\u0022co\u0022,Size=\u0022large\u0022,TourID=\u0022inf\u0022,Variant=\u0022dev1\u0022,LevelName=\u0022Ranch\u0022,MissionName=\u0022Extraction\u0022)\niMatchesPerRotation=${MatchesPerRotation}\niCurrentMapRotationIndex=0\nbEnableMapRotation=false\n\n; Cheat manager related variables\nbCheatNotifications=${CheatNotifications}\n\n; # of authorization access objects to pre-allocate to improve performance (generally on the server 1 per player with a few spare is sufficient)\niInitialAuthAccessPoolSize=16\n\n; 3.0.6 - These are no longer user customizable as changing these may break the server functionality. [07/13/2009]\n; 6 rounds per match, switch sides after 3, use OT to break ties (auto-switch randomly for OT), show Mission Pre-planning after switch\n; iMaxRoundsPerMatch=${MaxRoundsPerMatch}\n; iAutoSwitchSidesRound=${AutoSwitchSidesRound}\n; bAllowOTRoundOnTies=${AllowOTRoundOnTies}\n\nbMissionPrePlanningAfterSideSwitching=true\nbAutoSwitchOnOTRoundRandomly=${AutoSwitchOnOTRoundRandomly}\nbAutoBalanceTeamsSizes=${AutoBalanceTeamsSizes}\n\n; 3.0.6 - This is now locked to 10 seconds to avoid interrupting critical round setup actions. [07/13/2009]\n;iStartRoleSelectionDelayTimeSeconds=${StartRole}\t\t; Time delay when server is in pending match (meaning no one yet on a team) after first players joins\n\t\t\t\t\t\t; to allow other players time to pick a side before being forced onto a team.\nbDisableForceJoinTeam=${DisableForceJoinTeam}\t\t\t; If false, this will force all players to one team or the other if not specifically a spectator\n\n; Requires 1 player on a team to start (set to 0 to allow zero-sized teams which will let player join instantly)\niMinTeamSize=${MinTeamSize}\n\n; For MC based missions, always use kismet based rules for spawning (ignore spawning customization options)\nbMissionSpawnRules=${MissionSpawnRules}\nbDisableRandomSpawning=${DisableRandomSpawning}\nbPlayerSelectOnly=false\nbUseForcedGroups=false\niTeam0ForcedGroup=0\niTeam0ForcedGroup=1\niMaxBattlePlanningTime=${MaxBattlePlanningTime}\niMaxRoleSelectionTime=${MaxRoleSelectionTime}\niRoundPreparationTime=${RoundPreparationTime}\n\n; The number of seconds after a ROE event occurs the victim has to \u0022forgive\u0022 the player who committed the violation\niROEForgivenessTimeSeconds=${ROEForgivenessTimeSeconds}\n\n; Defaults for Mission Controller mission options\nsMissionType=defend\nsMissionTourID=inf\nsMissionSize=medium\n\n\n; Teamspeak enable for server\nbUseTS3VOIP=${UseTS3VOIP}\n\n; Available codec values:\n;\n; 0 = 8Khz Speex Narrow band (uses least bandwidth)\n; 1 = 16Khz Speex Wide band \n; 2 = 32Khz Speex Ultra wide band (uses most bandwidth, best quality)\n;\n; Voice quality range: 0 (worst) -\u003E 10 (best)\nTeamSpeakCodec=${TeamSpeakCodec}\nTeamSpeakVoiceQuality=7\nTeamSpeakSpectatorCodec=1\nTeamSpeakSpectatorVoiceQuality=7\n\n[AA3Baseline.AA_MCMissionManager]\n; Temporarily (during development and until training completed) always ignore qualification requirements for\n; weapon/loadout usage.\nbIgnoreQualifications=false\nbDebugMCSnapshot=false\nbDebugEnableMCLogging=false\nbDisableLeaderTeamReadyRequirement=false\n\n\n\n[AA3Baseline.AA_TeamInfo]\nSelectionQueueWaitIncrement=2\nbRestrictFTRolesByTeamSize=${allweaponslots}\n\n[AA3Baseline.AA_BaseGameInfo]\niMaxRoundsPerMatch=${MaxRoundsPerMatch}\nRestartWait=5\n\n${DefaultPlayer}\nName=Player\nteam=0\n\n\n\n[Engine.HUD]\nbShowHud=false\nbShowDebugInfo=true\n\n[AA3Game.SampleClass]\nMyString=Test\n\n[AA3Game.AA_UIMapObjectSAI]\nbShowNames=true\nbShowElevation=false\nbSAIActive=true\nbRotateWithPlayer=True\nCurrentZoomLevel=4\nLeftPosition=0.007811\nTopPosition=0.645837\nLastEditorLeft=0.000000\nLastEditorTop=0.000000\nRightPosition=0.257808\nBottomPosition=0.343742\nLastEditorRight=0.257808\nLastEditorBottom=0.343742\nFSLeftPosition=0.140626\nFSTopPosition=0.042954\nFSRightPosition=0.732427\nFSBottomPosition=0.914063\nbFullScreen=False\nbMMRotateWithPlayer=True\nSAIScale=1.000000\nbToggle=True\n\u002BDefaultSAIZoomLevels=100.000000\n\u002BDefaultSAIZoomLevels=250.000000\n\u002BDefaultSAIZoomLevels=500.000000\n\u002BDefaultSAIZoomLevels=1000.000000\n\u002BDefaultSAIZoomLevels=2000.000000\n\u002BDefaultSAIZoomLevels=5000.000000\n\n[AA3GameInfoSummary UIGameInfoSummary]\nClassName=AA3Baseline.AA_GameInfo\nGameAcronym=EX\nMapPrefix=EX\nbIsTeamGame=False\nGameName=AA3 Game\nDescription=AA3 Game Description\n\n[SampleGameInfoSummary UIGameInfoSummary]\nClassName=AA3Baseline.SampleGameInfo\nGameAcronym=SAM\nMapPrefix=SAM\nbIsTeamGame=False\nGameName=Sample Game\nDescription=Sample Game Description\n\n[TestDisabledGameInfo UIGameInfoSummary]\nClassName=SomePackage.DisabledGameInfo\nGameAcronym=DIS\nMapPrefix=DS\nbIsTeamGame=true\nGameName=Disabled Game\nDescription=This gametype does not really exist.  It is merely used for testing the functionality for displaying disabled or locked items in UILists.\nbIsDisabled=true\n\n[AA3Baseline.AA_RadialMenu]\nfRadialSelectionThreshold=100.0\nfOuterBladeSelectionBias=0.10\nbPassOnMouseMovement=false\nbSelectNestedMenusImmediately=false\nbHoldMenu=true\nbSelectOnClose=false\nbGesturingEnabled=false\nfPressMenuActivationDelay=0.2\nfGesturingVelocityThreshold=15.0\nbSelectByVelocity=false\nfMouseSelectionVelocity=75.0\nfGesturingVelocityThreshold=20.0\nbSelectByTime=false\nfCommandSelectionTime=1.0\nfNestedMenuSelectionTime=0.5\nfMaximumOpacity=0.75\nfFadeInTime=0.25\nfFadeOutTime=0.15\ncMenuColor=(R=0.05,G=0.05,B=0.05,A=0.0)\ncHighlightColor=(R=0.8784,G=0.6314,B=0.0,A=0.0)\ncTextColor=(R=1.0,G=1.0,B=1.0,A=0.0);\ncIconColor=(R=1.0,G=1.0,B=1.0,A=0.0);\n\n[AA3Baseline.AA_UIDataStore_StringList]\n\u002BStringData=(Tag=\u0022SecondaryMOS\u0022,DefaultValueIndex=0,Strings=(\u0022Combat Medic\u0022,\u0022None\u0022, \u0022three\u0022, \u0022four\u0022))\n\u002BStringData=(Tag=\u0022MasterGraphicsQuality\u0022,DefaultValueIndex=0,Strings=(\u0022LOW\u0022,\u0022LOW\u0022))\n\u002BStringData=(Tag=\u0022GraphicsQuality\u0022,DefaultValueIndex=0,Strings=(\u0022LOW\u0022,\u0022LOW\u0022))\n\u002BStringData=(Tag=\u0022WorldDetail\u0022,DefaultValueIndex=0,Strings=(\u0022LOW\u0022,\u0022LOW\u0022))\n\u002BStringData=(Tag=\u0022FXDetail\u0022,DefaultValueIndex=0,Strings=(\u0022LOW\u0022,\u0022LOW\u0022))\n\u002BStringData=(Tag=\u0022DecalQuality\u0022,DefaultValueIndex=0,Strings=(\u0022LOW\u0022,\u0022LOW\u0022))\n\u002BStringData=(Tag=\u0022LightingQuality\u0022,DefaultValueIndex=0,Strings=(\u0022LOW\u0022,\u0022LOW\u0022))\n\u002BStringData=(Tag=\u0022ShadowQuality\u0022,DefaultValueIndex=0,Strings=(\u0022LOW\u0022,\u0022LOW\u0022))\n\u002BStringData=(Tag=\u0022VerticalSync\u0022,DefaultValueIndex=0,Strings=(\u0022DISABLED\u0022,\u0022DISABLED\u0022))\n\u002BStringData=(Tag=\u0022Fullscreen\u0022,DefaultValueIndex=0,Strings=(\u00221\u0022,\u00220\u0022));\n\u002BStringData=(Tag=\u0022ScreenResolutions\u0022,DefaultValueIndex=0)\n\u002BStringData=(Tag=\u0022CurrentScreenResolution\u0022,DefaultValueIndex=0,Strings=(\u00221024x768\u0022,\u00221024x768\u0022))\n\u002BStringData=(Tag=\u0022CurrentAspectRatio\u0022,DefaultValueIndex=0,Strings=(\u00224:3 (NORMAL)\u0022,\u00224:3 (NORMAL)\u0022))\n\u002BStringData=(Tag=\u0022AspectRatio\u0022,DefaultValueIndex=0)\n\u002BStringData=(Tag=\u0022C_4:3\u0022,DefaultValueIndex=0,Strings=(\u00221024x768\u0022,\u00221152x864\u0022,\u00221400x1050\u0022,\u00221600x1200\u0022))\n\u002BStringData=(Tag=\u0022C_16:9\u0022,DefaultValueIndex=0,Strings=(\u00221280x720\u0022,\u00221920x1080\u0022))\n\u002BStringData=(Tag=\u0022C_16:10\u0022,DefaultValueIndex=0,Strings=(\u00221024x640\u0022,\u00221280x800\u0022,\u00221440x900\u0022,\u00221680x1050\u0022,\u00221920x1200\u0022,\u00222560x1600\u0022))\n\u002BStringData=(Tag=\u0022HeadList\u0022,DefaultValueIndex=0,Strings=(\u0022Hair 1 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 3\u003CStyles:/\u003E\u0022, \u0022Hair 2 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 3\u003CStyles:/\u003E\u0022, \u0022Hair 3 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 3\u003CStyles:/\u003E\u0022))\n\u002BStringData=(Tag=\u0022EyeMorph\u0022,DefaultValueIndex=0,Strings=(\u0022Eyes 1 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 2\u003CStyles:/\u003E\u0022,\u0022Eyes 2 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 2\u003CStyles:/\u003E\u0022))\n\u002BStringData=(Tag=\u0022NoseMorph\u0022,DefaultValueIndex=0,Strings=(\u0022Nose 1 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 2\u003CStyles:/\u003E\u0022,\u0022Nose 2 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 2\u003CStyles:/\u003E\u0022))\n\u002BStringData=(Tag=\u0022MouthMorph\u0022,DefaultValueIndex=0,Strings=(\u0022Mouth 1 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 2\u003CStyles:/\u003E\u0022,\u0022Mouth 2 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 2\u003CStyles:/\u003E\u0022))\n\u002BStringData=(Tag=\u0022JawMorph\u0022,DefaultValueIndex=0,Strings=(\u0022Jaw 1 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 2\u003CStyles:/\u003E\u0022,\u0022Jaw 2 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 2\u003CStyles:/\u003E\u0022))\n\u002BStringData=(Tag=\u0022ChinMorph\u0022,DefaultValueIndex=0,Strings=(\u0022Chin 1 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 2\u003CStyles:/\u003E\u0022,\u0022Chin 2 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 2\u003CStyles:/\u003E\u0022))\n\u002BStringData=(Tag=\u0022BrowMorph\u0022,DefaultValueIndex=0,Strings=(\u0022Brow 1 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 2\u003CStyles:/\u003E\u0022,\u0022Brow 2 \u003CStyles:Text_ToggleTabButton_Medium_Style_Transparent\u003Eof 2\u003CStyles:/\u003E\u0022))\n; role selection UI\n\u002BStringData=(Tag=\u0022MPClassRoleNames\u0022,DefaultValueIndex=0,Strings=(\u0022Rifleman\u0022,\u0022Grenadier\u0022))\n\n[AA3Baseline.AA_UIDataStore_AccountSettings]\n\u002BStringData=(Tag=\u0022DISPLAY MODE\u0022,DefaultValueIndex=0,Strings=(\u0022DISPLAY MODE: \u0022,\u0022FULL SCREEN\u0022,\u0022WINDOWED\u0022))\n\n[AA3Baseline.AA_UIDataStore_AudioSettings]\n\u002BStringData=(Tag=\u0022VOLUME\u0022,DefaultValueIndex=0,Strings=(\u0022GAME VOLUME: \u0022,\u0022MUSIC VOLUME: \u0022))\n\u002BStringData=(Tag=\u0022SOUND QUALITY\u0022,DefaultValueIndex=0,Strings=(\u0022SOUND QUALITY: \u0022,\u0022LOW\u0022,\u0022MEDIUM\u0022,\u0022HIGH\u0022))\n\u002BStringData=(Tag=\u0022SPEAKER CONFIGURATION\u0022,DefaultValueIndex=0,Strings=(\u0022SPEAKER CONFIGURATION: \u0022,\u0022HEADPHONES\u0022,\u00222/2.1 SETUP\u0022,\u00224/4.1 SETUP\u0022,\u00225.1 SETUP\u0022,\u00227.1 SETUP\u0022))\n\u002BStringData=(Tag=\u0022SPOKEN LANGUAGE\u0022,DefaultValueIndex=0,Strings=(\u0022SPOKEN LANGUAGE: \u0022,\u0022ENGLISH\u0022,\u0022SPANISH\u0022))\n\u002BStringData=(Tag=\u0022SUBTITLES\u0022,DefaultValueIndex=0,Strings=(\u0022SUBTITLES: \u0022,\u0022DISABLED\u0022,\u0022ENABLED\u0022))\n\u002BStringData=(Tag=\u0022VOICE CHAT\u0022,DefaultValueIndex=0,Strings=(\u0022VOICE CHAT: \u0022,\u0022DISABLED\u0022,\u0022ENABLED\u0022))\n\u002BStringData=(Tag=\u0022NAVIGATION\u0022,DefaultValueIndex=0,Strings=(\u0022CONFIGURE VOICE SETTINGS\u0022,\u0022DEFAULTS\u0022,\u0022ACCEPT\u0022,\u0022CANCEL\u0022))\n\u002BStringData=(Tag=\u0022KEY\u0022,DefaultValueIndex=0,Strings=(\u0022*Settings recommended for your system\u0022))\n\n[AA3Baseline.AA_UIDataStore_ControlsSettings]\n\u002BStringData=(Tag=\u0022\u0022,DefaultValueIndex=0,Strings=(\u0022\u0022))\n\n[AA3Baseline.AA_UIDataStore_InterfaceSettings]\n\u002BStringData=(Tag=\u0022GLOBAL TRANSPARENCY\u0022,DefaultValueIndex=0,Strings=(\u0022GLOBAL TRANSPARENCY: \u0022,\u00221.0\u0022))\n\u002BStringData=(Tag=\u0022BFT SETTINGS\u0022,DefaultValueIndex=0,Strings=(\u0022TO BE DETERMINED\u0022))\n\u002BStringData=(Tag=\u0022LC MESSAGE TYPE 1\u0022,DefaultValueIndex=0,Strings=(\u0022LINES: \u0022,\u00220\u0022, \u0022COLORS: \u0022,\u0022RED\u0022))\n\u002BStringData=(Tag=\u0022HUD TYPE\u0022,DefaultValueIndex=0,Strings=(\u0022HUD TYPE\u0022,\u0022NO HUD\u0022,\u0022MINIMALIST HUD\u0022,\u0022DEFAULT HUD\u0022,\u0022RADIAL MENU USER HUD\u0022,\u0022KEYBOARD USER HUD\u0022,\u0022MAXIMUM HUD\u0022,\u0022CUSTOM HUD\u0022))\n\u002BStringData=(Tag=\u0022ADVANCED\u0022,DefaultValueIndex=0,Strings=(\u0022COMPONENT\u0022,\u0022ON\u0022,\u0022OFF\u0022,\u0022CONTEXTUAL\u0022))\n\u002BStringData=(Tag=\u0022HEALTH/STAMINA BAR\u0022,DefaultValueIndex=0,Strings=(\u0022HEALTH/STAMINA BAR: \u0022,\u0022ON\u0022,\u0022OFF\u0022,\u0022CONTEXTUAL\u0022))\n\u002BStringData=(Tag=\u0022FIRE MODE BOX\u0022,DefaultValueIndex=0,Strings=(\u0022FIRE MODE BOX\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022POSTURE BOX\u0022,DefaultValueIndex=0,Strings=(\u0022POSTURE BOX\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022BFT\u0022,DefaultValueIndex=0,Strings=(\u0022BFT\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022LOCATION BAR\u0022,DefaultValueIndex=0,Strings=(\u0022LOCATION BAR\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022OBJECTIVE ICON\u0022,DefaultValueIndex=0,Strings=(\u0022OBJECTIVE ICON\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022RANK ICON\u0022,DefaultValueIndex=0,Strings=(\u0022RANK ICON\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022CLASS ICON\u0022,DefaultValueIndex=0,Strings=(\u0022CLASS ICON\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022MORALE METER\u0022,DefaultValueIndex=0,Strings=(\u0022MORALE METER\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022INVENTORY BAR\u0022,DefaultValueIndex=0,Strings=(\u0022INVENTORY BAR\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022WEAPONS BAR\u0022,DefaultValueIndex=0,Strings=(\u0022WEAPONS BAR\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022DAMAGE MODEL\u0022,DefaultValueIndex=0,Strings=(\u0022DAMAGE MODEL\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022CONTEXTUAL ACTION\u0022,DefaultValueIndex=0,Strings=(\u0022CONTEXTUAL ACTION\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022VOICE OVER SUBTITLES\u0022,DefaultValueIndex=0,Strings=(\u0022VOICE OVER SUBTITLES\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022FRIENDLY RETICLE\u0022,DefaultValueIndex=0,Strings=(\u0022FRIENDLY RETICLE\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022EVENT MESSAGES\u0022,DefaultValueIndex=0,Strings=(\u0022EVENT MESSAGES\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022VOIP ICONS\u0022,DefaultValueIndex=0,Strings=(\u0022VOIP ICONS\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022SERVER MESSAGES\u0022,DefaultValueIndex=0,Strings=(\u0022SERVER MESSAGES\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022VOTE/KICK MESSAGES\u0022,DefaultValueIndex=0,Strings=(\u0022VOTE/KICK MESSAGES\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\u002BStringData=(Tag=\u0022TRAINING TIPS\u0022,DefaultValueIndex=0,Strings=(\u0022TRAINING TIPS\u0022,\u0022TRUE\u0022,\u0022TRUE\u0022,\u0022FALSE\u0022))\n\n[AA3Baseline.AA_UIDataStore_ParentalSettings]\n\u002BStringData=(Tag=\u0022LANGUAGE FILTER\u0022,DefaultValueIndex=0,Strings=(\u0022LANGUAGE FILTER: \u0022,\u0022ON\u0022,\u0022OFF\u0022))\n\u002BStringData=(Tag=\u0022NO BLOOD\u0022,DefaultValueIndex=0,Strings=(\u0022NO BLOOD: \u0022,\u0022ON\u0022,\u0022OFF\u0022))\n\u002BStringData=(Tag=\u0022SIMUNITION ONLY\u0022,DefaultValueIndex=0,Strings=(\u0022SIMUNITION ONLY: \u0022,\u0022ON\u0022,\u0022OFF\u0022))\n\u002BStringData=(Tag=\u0022PASSWORD\u0022,DefaultValueIndex=0,Strings=(\u0022ENTER PASSWORD: \u0022,\u0022SUBMIT\u0022))\n\n[AA3Baseline.AA_UIDataStore_TrainingBCTSettings]\n\u002BStringData=(Tag=\u0022FTW_INFO\u0022,DefaultValueIndex=0,Strings=(\u0022TRAINING EXERCISE: \u0022, \u0022Fit To Win Obstacle Course\u0022))\n\u002BStringData=(Tag=\u0022FTW_PREREQ\u0022,DefaultValueIndex=0,Strings=(\u0022PREREQUISITE: \u0022,\u0022Prereq_1\u0022,\u0022Prereq2\u0022))\n\u002BStringData=(Tag=\u0022FTW_UNLOCKS\u0022,DefaultValueIndex=0,Strings=(\u0022Unlock 1\u0022, \u0022Unlock 2\u0022))\n\u002BStringData=(Tag=\u0022FTW_DESC\u0022,DefaultValueIndex=0,Strings=(\u0022DESCRIPTION: \u0022, \u0022This training exercise teaches recruits common firing principles, weapon proficiency, and confidence in applying their firing skills both on a long range and in actual combat.\u0022))\n\u002BStringData=(Tag=\u0022FTW_REQ\u0022,DefaultValueIndex=0,Strings=(\u0022MINIMUM QUALIFICATION REQUIREMENTS: \u0022,\u0022The player must successfully hit 24 out of 40 range targets.\u0022))\n\u002BStringData=(Tag=\u0022FTW_LAST\u0022,DefaultValueIndex=0,Strings=(\u0022LAST ATTEMPT: \u0022,\u0022No Data\u0022,\u0022Gold\u0022))\n\u002BStringData=(Tag=\u0022FTW_STATUS\u0022,DefaultValueIndex=0,Strings=(\u0022Complete\u0022,\u0022100\u0022))\n\u002BStringData=(Tag=\u0022BRM_INFO\u0022,DefaultValueIndex=0,Strings=(\u0022TRAINING EXERCISE: \u0022, \u0022Fit To Win Obstacle Course\u0022))\n\u002BStringData=(Tag=\u0022BRM_PREREQ\u0022,DefaultValueIndex=0,Strings=(\u0022PREREQUISITE: \u0022,\u0022Prereq_1\u0022,\u0022Prereq2\u0022))\n\u002BStringData=(Tag=\u0022BRM_UNLOCKS\u0022,DefaultValueIndex=0,Strings=(\u0022Unlock 1\u0022, \u0022Unlock 2\u0022))\n\u002BStringData=(Tag=\u0022BRM_DESC\u0022,DefaultValueIndex=0,Strings=(\u0022DESCRIPTION: \u0022, \u0022This training exercise teaches recruits common firing principles, weapon proficiency, and confidence in applying their firing skills both on a long range and in actual combat.\u0022))\n\u002BStringData=(Tag=\u0022BRM_REQ\u0022,DefaultValueIndex=0,Strings=(\u0022MINIMUM QUALIFICATION REQUIREMENTS: \u0022,\u0022The player must successfully hit 24 out of 40 range targets.\u0022))\n\u002BStringData=(Tag=\u0022BRM_LAST\u0022,DefaultValueIndex=0,Strings=(\u0022LAST ATTEMPT: \u0022,\u0022No Data\u0022))\n\u002BStringData=(Tag=\u0022BRM_STATUS\u0022,DefaultValueIndex=0,Strings=(\u0022Incomplete\u0022,\u002280\u0022))\n\n[AA3Baseline.AA_UIDataStore_TrainingCTTSettings]\n\u002BStringData=(Tag=\u0022\u0022,DefaultValueIndex=0,Strings=(\u0022\u0022))\n\n[AA3Baseline.AA_UIDataStore_TrainingMOSSettings]\n\u002BStringData=(Tag=\u0022PLAYER_INFO\u0022,DefaultValueIndex=0,Strings=(\u0022Bodeman: \u0022,\u0022236 pts.\u0022))\n\u002BStringData=(Tag=\u0022AIT_INFO\u0022,DefaultValueIndex=0,Strings=(\u0022TRAINING EXERCISE: \u0022, \u0022Advanced Individual Training (AIT)\u0022))\n\u002BStringData=(Tag=\u0022AIT_PREREQ\u0022,DefaultValueIndex=0,Strings=(\u0022PREREQUISITE: \u0022,\u0022BCT Graduation\u0022))\n\u002BStringData=(Tag=\u0022AIT_UNLOCKS\u0022,DefaultValueIndex=0,Strings=(\u0022Faster 40mm Reload\u0022))\n\u002BStringData=(Tag=\u0022AIT_DESC\u0022,DefaultValueIndex=0,Strings=(\u0022DESCRIPTION: \u0022, \u0022This training exercise teaches the basic uses of the M320 Grenade Launcher with an emphasis on efficient 40mm reloading.  Soldiers will also learn basic target acqueisition and ranging skills.\u0022))\n\u002BStringData=(Tag=\u0022AIT_REQ\u0022,DefaultValueIndex=0,Strings=(\u0022MINIMUM QUALIFICATION REQUIREMENTS: \u0022,\u0022Requirements...\u0022))\n\u002BStringData=(Tag=\u0022AIT_LAST\u0022,DefaultValueIndex=0,Strings=(\u0022LAST ATTEMPT: \u0022,\u0022No Data\u0022,\u0022Silver\u0022))\n\u002BStringData=(Tag=\u0022AIT_STATUS\u0022,DefaultValueIndex=0,Strings=(\u0022Complete\u0022,\u0022100\u0022))\n\n[AA3Baseline.AA_UIDataStore_TrainingOverviewSettings]\n\u002BStringData=(Tag=\u0022LAST_MISSION\u0022,DefaultValueIndex=0,Strings=(\u0022BRM\u0022))\n\u002BStringData=(Tag=\u0022NEXT_MISSION\u0022,DefaultValueIndex=0,Strings=(\u0022AIT\u0022))\n\n[AA3Baseline.AA_UIDataStore_VideoSettings]hehe\n\u002BStringData=(Tag=\u0022DISPLAY MODE\u0022,DefaultValueIndex=0,Strings=(\u0022DISPLAY MODE: \u0022,\u0022FULL SCREEN\u0022,\u0022WINDOWED\u0022))\n\u002BStringData=(Tag=\u0022ASPECT RATIO\u0022,DefaultValueIndex=0,Strings=(\u0022ASPECT RATIO: \u0022,\u00224:3(NORMAL)\u0022,\u002216:9(WIDE)\u0022,\u002216:10(WIDE)\u0022))\n\u002BStringData=(Tag=\u0022SCREEN RESOLUTION\u0022,DefaultValueIndex=0,Strings=(\u0022SCREEN RESOLUTION: \u0022))\n\u002BStringData=(Tag=\u0022RES_4:3\u0022,DefaultValueIndex=0,Strings=(\u00221024x768\u0022,\u00221152x864\u0022,\u00221400x1050\u0022,\u00221600x1200\u0022))\n\u002BStringData=(Tag=\u0022RES_16:9\u0022,DefaultValueIndex=0,Strings=(\u00221280x720\u0022,\u00221920x1080\u0022))\n\u002BStringData=(Tag=\u0022RES_16:10\u0022,DefaultValueIndex=0,Strings=(\u00221024x640\u0022,\u00221280x800\u0022,\u00221440x900\u0022,\u00221680x1050\u0022,\u00221920x1200\u0022,\u00222560x1600\u0022))\n\u002BStringData=(Tag=\u0022GRAPHICS QUALITY\u0022,DefaultValueIndex=0,Strings=(\u0022LOW\u0022,\u0022MEDIUM\u0022,\u0022HIGH\u0022))\n\u002BStringData=(Tag=\u0022ADVANCED SETTINGS\u0022,DefaultValueIndex=0,Strings=(\u0022ADVANCED SETTINGS\u0022,\u0022Click to view advanced video settings\u0022))\n\u002BStringData=(Tag=\u0022ADJUST PICTURE\u0022,DefaultValueIndex=0,Strings=(\u0022ADJUST PICTURE\u0022, \u0022Click to adjust picture settings\u0022))\n\u002BStringData=(Tag=\u0022TEST PERFORMANCE\u0022,DefaultValueIndex=0,Strings=(\u0022TEST PERFORMANCE\u0022, \u0022Click to benchmark AA on your system\u0022))\n\u002BStringData=(Tag=\u0022NAVIGATION\u0022,DefaultValueIndex=0,Strings=(\u0022DEFAULTS\u0022,\u0022ACCEPT\u0022,\u0022CANCEL\u0022))\n\u002BStringData=(Tag=\u0022KEY\u0022,DefaultValueIndex=0,Strings=(\u0022*Settings recommended for your system\u0022))\n\n[Engine.UIDataStore_GameResource]\n\u002BElementProviderTypes=(ProviderTag=\u0022KeyBindings\u0022,ProviderClassName=\u0022AA3Baseline.AA_UIDataProvider_KeyBinding\u0022)\n\n;*******************************************************\n; Event/scoring system options\n;*******************************************************\n[AA3Baseline.AA_EventList]\n\n; Event Simulator support.  If bSimulateinRealTime set then events are replayed at the same rate as originally recorded.\n; If not set, then the fpSimulationDelayBetweenEvents time is used between every event (note setting this to a large value \n; could result in very slow playback during simulation).\n; If bRealTimeDelayForFirstEvent (used only if bSimulateInRealTime is true) is set then the simulation pauses until the original\n; time of the first event before starting event simulation.  If false, starts immediately after loading of the level.\nbRealTimeDelayForFirstEvent=false\nbSimulateInRealTime=true\nfpSimulationDelayBetweenEvents=0.5\nbDebugSimulationLoading=false\nbDebugSimulationPlayback=true\n\n\n; Under fire tracking - how long in seconds since last bullet buzz/wound will player be considered under fire\nfpUnderFireDuration=20\n\n; Distance enemy and friendly players must be within to be considered in the \u0022surrounded\u0022 ratio (in UU, default about 50m)\nfpSurroundedMaxDistance=2750\n\n; Ratio of enemy players to friendly players player must be near to be considered \u0022surrounded\u0022\n; (e.g. Enemy / Friendly (including player) \u003E= ratio)\nfpSurroundedEnemyToFriendlyRatio=2.0\n\n; \u0022pressed for time\u0022 - percentage of time left in round to be considered \u0022pressed for time\u0022\nfpPFTRemainingTimePercent=0.85\n\n\n\n; Event Debugging support\nbDebugWeaponShotsFiredStats=false\nbDebugWeaponShotsHitStats=false\nbDebugROEEvents=false\nbDebugStdEvents=false\n\n; Event logging support (XML option generates simulator compatible XML file)\nbLogXML=false\nbLogText=false\n\n\n; This is a list of predefined event types (See TDD for valid list).  It is only used when bUseSimulationEventList is # true and if used, ; will only simulate the events in this list.\nbUseSimulationEventList=false\n; asSimulationEventList${0}=\n\n; ROE forgiveness options (near \u0022max\u0022 distance is set to @25 meters, using 55UU/m and is set in UU)\n; Note that for release this should probably be moved to the default properties.\nfpROEForgivenessTestFrequency=1.0\nfpROEViolationNearMaxDistance=1375\nfpMaxROEAutoKick=250\n\n; Under Fire duration (how long player can go without being buzzed before they are no longer considered under fire)\n; Note that for release this should probably be moved to the default properties.\nfpUnderFireDuration=20.0\n\n\n\n[AA3Baseline.AA_PlayerController]\n; Set to true to use scaleform login \u0026 auth UI (eventually this flag will be deprecated once the scaleform UI\n; is more functional).\nbUseScaleformLogin=true\n; All our default saved settings values\nbFullScreen=True\nbVerticalSync=False\nCurAspectRatio=AspectRatio_43\nGraphicsQuality=-1\nWorldDetail=0\nFXDetail=0\nDecalQuality=0\nLowQualityMaxDecals=50\nMedQualityMaxDecals=100\nHighQualityMaxDecals=200\nLowQualityDecalLifetime=30.0\nMedQualityDecalLifetime=60.0\nHighQualityDecalLifetime=120.0\nLightingQuality=0\nShadowQuality=0\nGameVolume=7.000000\nMusicVolume=7.000000\n; Parental settings defaults\nbBlood=True\nbParentalControlsChatAllowed=True\nbParentalControlsVOIPAllowed=True\nbParentalControlsLanguageFilterEnabled=False\nszParentalPassword=\n;  settings interface\nHUDTransparencyLevel=75\nHealthBarSetting=1\nDamageModelSetting=2\nFireModeSetting=0\nPostureBoxSetting=1\nBlueForceSetting=1\nLocationBarSetting=1\nWeaponIconsSetting=2\nEquipmentIconsSetting=2\nStaminaBarSetting=2\nMessageBoxSetting=1\nMissionClockSetting=1\nVOIPSetting=1\nCrosshairSetting=1\nVoteMessageSetting=1\nContextualTextSetting=1\nHelpTextSetting=1\nDialogSubSetting=1\nTeamSayColor=(R=6.000000,G=144.000000,B=82.000000,A=0.750000)\nGlobalChat=(R=255.000000,G=255.000000,B=255.000000,A=0.750000)\nAdminColor=(R=213.000000,G=40.000000,B=30.000000,A=0.750000)\nGoodNewsColor=(R=0.000000,G=169.000000,B=238.000000,A=0.750000)\nBadNewsColor=(R=213.000000,G=40.000000,B=30.000000,A=0.750000)\nScoreColor=(R=250.000000,G=190.000000,B=32.000000,A=0.750000)\nServerColor=(R=147.000000,G=147.000000,B=147.000000,A=0.750000)\nBladeColor=(R=0.000000,G=0.000000,B=0.000000,A=0.750000)\nSelectColor=(R=253.000000,G=190.000000,B=18.000000,A=0.750000)\nTextColor=(R=255.000000,G=255.000000,B=255.000000,A=0.750000)\nbIsGestureControled=false\nGestureSensitivity=75\nRadialTransparency=75\nbFloatingScoreboard=True\n\n; Set this to true to use a cached internet server list in the browser to \n; speed up changing servers (makes refresh optional after first refresh).\n; Default: true (enabled)\nbUseSavedInternetList=true\n\n; This enables the scaleform UI as the default UI for out of game menuing\nbUseScaleformUI=true\n\n; Client uses TS3 for voice\nbUseTS3VOIP=true\nbTS3UseVOX=False\n\n; AGC Level (default of 16000)\niTS3AGCLevel=16000\n\n; AGC Max Gain (default of 30)\niTS3AGCMaxGain=30\n\n; Voice activation level - default of zero should work for most situations.  Range -50 to 50\niTS3VOXLevel=0\n\n; TS3 voice output level.  Range 0 (no sound) to 50.  Default value of 1 should work for most users.\niTS3VolumeLevel=1\n\n;MessageBox layout...\nMessageBoxLayout${0}=(MessageType=2,NumLines=5)\nMessageBoxLayout${1}=(MessageType=1,NumLines=2)\nMessageBoxLayout${2}=(MessageType=3,NumLines=2)\nMessageBoxLayout${3}=(MessageType=4,NumLines=1)\n\n; scoring modifiers for determining priority that a player gets for role selection\n[AA3Baseline.AA_PlayerReplicationGameInfo]\nSelectionQueueWaitTimeScalar_Honor=1.5f\nSelectionQueueWaitTimeScalar_PrevScore=0.5f\n; currently in minutes\nSelectionQueueWaitTimeScalar_Servertime=1.0f\n\n[AA3Game.AGP_GameInfo]\nVOIPServerMode=${TS3VoiceMode}\nCommDisciplineMaxTime=10.000000\nCommDisciplineMinTime=10.000000\nVOIPQuality=VQ_HIGH\nbVOIPEnabled=True\n\n[AA3Game.AGP_PlayerController]\nbFireteamVoicePriority=True\nEnableVOIP=True\nInteractDistance=512.000000\nbEnableHotbox=True\nHBAimBounds=(Yaw=5000,Pitch=3000)\nHBScreenBounds=(X=0.05,Y=0.05)\nHBHightReadyRandRange=(Pitch=20,Yaw=45)\nHBCameraFollowRatio=0.7\nHBBoundsShapeType=HBT_Ellipse\nbHotBoxActive=True\nHBTetherDecayRate=5\nHBTetherTolerance=7\nbShowCenterCrossHair=true\nbAutoCenterHBOnWeaponRaise=True\nbEnableTTS=false\n\n[AA3Baseline.AA_HUD]\nbDrawGameInfoOnHud=false\n\n[AA3Baseline.AA_HUD_Icon]\nIconScaleUpRate=0.1\nIconScaleUpStartValue=1.0\nIconScaleUpEndValue=1.25\nIconScaleDownRate=0.2\nIconScaleDownStartValue=1.25\nIconScaleDownEndValue=1.0\nIconInsertionScaleUpRate=0.2\nIconInsertionScaleUpStartValue=0.0\nIconInsertionScaleUpEndValue=1.0\nIconRemovalScaleDownRate=0.2\nIconRemovalScaleDownStartValue=1.25\nIconRemovalScaleDownEndValue=0.0\nIconInsertionScaleUpActiveRate=0.2\nIconInsertionScaleUpActiveStartValue=0.0\nIconInsertionScaleUpActiveEndValue=1.25\nIconRemovalScaleDownActiveRate=0.5\nIconRemovalScaleDownActiveStartValue=1.0\nIconRemovalScaleDownActiveEndValue=0.0\n\n\n[AA3Game.AGP_UIInventoryList_Weapons]\nDefaultXOffset=0.0\nDefaultYOffset=0.88\n\n[AA3Game.AGP_UIInventoryList_Miscellaneous]\nDefaultXOffset=0.9444\nDefaultYOffset=0.04\n\n[AA3Baseline.AA_UIWorldObjectWidget]\nYellowColor=(R=0.673049f,G=1.0f,B=0.0f,A=1.0f)\nBlackColor=(R=0.0f,G=0.0f,B=0.0f,A=1.0f)\nWhiteColor=(R=1.0f,G=1.0f,B=1.0f,A=1.0f)\nRedColor=(R=0.673049f,G=0.0f,B=0.0f,A=1.0f)\nGreenColor=(R=0.0f,G=0.219520f,B=0.0f,A=1.0f)\nDarkGreenColor=(R=0.047f,G=0.212f,B=0.918f,A=1.0f)\nLightGreenColor=(R=0.05f,G=0.67f,B=0.0f,A=1.0f)\nGreyColor=(R=0.219520f,G=0.219520f,B=0.219520f,A=1.0f)\nGoldColor=(R=1.0,G=0.612066,B=0.028991,A=1)\n\n[AA3Baseline.AA_UIInventoryListItemComponent]\nFillColor=(R=0.6, G=0.6, B=0.6, A=0.7)\nSelectedColor=(R=0.6, G=0.6, B=0.6)\nBorderColor=(R=0.0, G=1.0, B=0.0)\nHighlightColor=(R=1.0, G=0.0, B=0.0)\n\n[AA3Baseline.AA_UIMultiLabel]\nScoreColor=(R=1.0,G=0.8,B=0.0,A=1.0)\nROEColor=(R=1.0,G=0.0,B=0.0,A=1.0)\nSayColor=(R=1.0,G=1.0,B=1.0,A=01.0)\nFireTeamColor=(R=0.0,G=1.0,B=0.0,A=1.0)\nTeamSayColor=(R=0.0,G=0.0,B=1.0,A=1.0)\nDeathColor=(R=1.0,G=0.0,B=0.0,A=1.0)\nEnemyConfirmColor=(R=1.0,G=1.0,B=1.0,A=1.0)\nRulesColor=(R=0.0,G=1.0,B=0.0,A=1.0)\nInfoColor=(R=0.0,G=1.0,B=0.0,A=1.0)\nJoinLeaveColor=(R=1.0,G=1.0,B=1.0,A=1.0)\nPunkBusterColor=(R=0.0,G=1.0,B=0.0,A=1.0)\nAdminColor=(R=1.0,G=0.0,B=0.0,A=1.0)\nDefaultColor=(R=1.0,G=1.0,B=1.0,A=1.0)\n\u002BCustumOrder=(Group=2,MaxMessageDisplay=4)\n\u002BCustumOrder=(Group=1,MaxMessageDisplay=2)\n\u002BCustumOrder=(Group=3,MaxMessageDisplay=3)\n\u002BCustumOrder=(Group=0,MaxMessageDisplay=1)\n\n;///////////////\n; Possible Key Bindings\n;///////////////\n[MoveForward AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_MoveForward\u0022\nbIsCrucialBind=true\n\n[MoveBackward AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_Backward\u0022\nbIsCrucialBind=true\n\n[StrafeLeft AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_StrafeLeft\u0022\nbIsCrucialBind=true\n\n[StrafeRight AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_StrafeRight\u0022\nbIsCrucialBind=true\n\n[TurnLeft AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_TurnLeft\u0022\n\n[TurnRight AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_TurnRight\u0022\n\n[RadialMenu AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_RadialMenu\u0022\nbIsCrucialBind=true\n\n[Crouch AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_Crouch\u0022\nbIsCrucialBind=true\n\n[IncreaseRateOfFire AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_ChangeRateOfFireUp\u0022\nbIsCrucialBind=true\n\n[DecreaseRateOfFire AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_ChangeRateOfFireDown\u0022\nbIsCrucialBind=true\n\n[LeanLeft AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_LeanLeft\u0022\nbIsCrucialBind=true\n\n[LeanRight AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_LeanRight\u0022\nbIsCrucialBind=true\n\n[Fire AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_Fire\u0022\nbIsCrucialBind=true\n\n[Use AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_Use\u0022\nbIsCrucialBind=true\n\n[ShowMenu AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_ShowMenu\u0022\nbIsCrucialBind=true\n\n[TogglePhysicsMode AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_TogglePhysicsMode\u0022\n\n[ToggleSpeaking AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_ToggleSpeaking\u0022\n\n[Talk AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_Talk\u0022\nbRemoveOnPS3=True\n\n[TeamTalk AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_TeamTalk\u0022\nbRemoveOnPS3=True\n\n[ToggleProne AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_ToggleProne\u0022\n\n[MeleeAttack AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_MeleeAttack\u0022\nbIsCrucialBind=true\n\n[ToggleSights AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_ToggleSights\u0022\n\n[ToggleRunSprint AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_ToggleRunSprint\u0022\nbIsCrucialBind=true\n\n[ToggleStance AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_ToggleStance\u0022\n\n[ToggleWeaponContextMenu AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_ToggleWeaponContextMenu\u0022\n\n[ToggleWeaponFlashlight AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_ToggleWeaponFlashlight\u0022\nbIsCrucialBind=True\n\n[CameraDefault AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_CameraDefault\u0022\n\n[CameraFirstPerson AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_CameraFirstPerson\u0022\n\n[CameraThirdPerson AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_CameraThirdPerson\u0022\n\n[CameraFixed AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_CameraFixed\u0022\n\n[CameraFixedTracking AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_CameraFixedTracking\u0022\n\n[CameraFreeCam AA_UIDataProvider_KeyBinding]\nCommand=\u0022GBA_CameraFreeCam\u0022\n\n[AA3Game.AGP_HUD]\nNotificationMessageDisplayTime=5.000000\nbShowHUD=True\nbShowDebugMessages=False\n\n[AA3Baseline.AA_PostProcessController]\nbEnableWeaponPostProcess=true\n\n\n[AA3Baseline.AA_GameReplicationInfo]\nbMPCheatsEnabled=false\n; Spectator Modes\n; SpecMode_All - Can spectate players (3rd and 1st person) and viewpoints\n; SpecMode_PlayersOnly - Players only (3rd and 1st person)\n; SpecMode_FirstPersonOnly - Players only in 1st person\nSpectatorMode=${specmode}\n; TS3 VOIP voice rules.  \n; TS3SM_TEAM_CHAT_DEADRULES - live players chat with live players on team, dead players with dead players on team, spectators with spectators.\n; TS3SM_TEAM_CHAT - players on each team talk separately from each other (but live and dead may talk).  \n; TS3SM_ALL_CHAT - all players share one channel for chatting.\nTS3ServerMode=${TS3VoiceMode}\nsServerOwnerName=${ServerOwnerName}\nsServerOwnerWebsite=\nsServerHostingCompany=\nsAdminName=${AdminName}\nsAdminEmail=${AdminEmail}\n\n\n;*************************************\n; MBS Browser Options\n;*************************************\n\n\n; Client support for MBS\n[AA3Baseline.AA_Authorization]\n; IP of MBS Server\nsMBSServerIPAddress=mbs.aa3.americasarmy.com \n\n; Port of MBS Server\niMBSServerPort=3040\n\n;LAN Browser Client listener port (must be different from iMBSLANServerListenerPort).\niLANServerListenerPort=9001\n\n\n;*************************************\n; Game Server MBS options\n;*************************************\n[AA3Baseline.AA_ServerAuthorization]\nbDisableMBSUpdatingMessage=true\n\n; IP of auth server\nsAuthHostServerIPAddress=auth.aa3.americasarmy.com \n\n; IP of MBS server for authorized/official servers\nsMBSServerIPAddress=mbs.aa3.americasarmy.com\n\n; Port of MBS Server\niMBSServerPort=3040\n\n;This is used when your server is behind a firewall and you want to allow incoming connections via \n;the MBS browser.  Set this value to your cable or DSL modem\u0027s IP address.  Leave blank to use\n;the game server IP used to authorize the server.\n; sMBSExternalGameServerIP=\n\n; This is the LAN server IP Address if a LAN server is being used.  If this isn\u0027t used the sMBSExternalGameServerIP is \n; tested and if valid, used.  If that isn\u0027t valid then the server defaults to the sAuthServerIPAddress (which can be\n; set on the command line.  Generally for any LAN (?LAN on command line) should set this value here.\n;sMBSLANGameServerIP=\n\n; Base Port to use for querying game server from game clients and MBS for MBS information (must be open in firewall)\n; The iMBSServerQueryPortRange field specifies how many sequential ports will be used by MBS.\niMBSBaseGameServerQueryPort=39300\n\n; How many sequential ports queries will be accepted on?  Maybe...have to ask Josh\niMBSServerQueryPortRange=39400\n\n;LAN Browser server port to listen on\niMBSLANServerListenerPort=9000\n\nbAuthAlwaysAllowUserGroup=true\n\n\n\n;*************************************\n; ATS and Auth Options\n;*************************************\n\n; IP and port of game server (reported to auth \u0026 MBS so must be cable/dsl modem and not local LAN IP)\n; This can be set with the server command line \u0022?AuthServerIP=x.x.x.x\u0022 and it will override this INI value.\n; Note the port must match the BaseEngine.ini\u0027s ${URL} port value.\nsAuthServerIPAddress=${IPAddress}\niAuthServerGamePort=8777\n\nsServerOwnerName=${ServerOwnerName}\n\n\n\n;**************************************************************************\n; These values should not be changed or your server will not authorize properly\n;**************************************************************************\n[OnlineSubsystemAA3.OnlineSubsystemAA3]\nATSServerIPAddress=ats.aa3.americasarmy.com\nSTSServerIPAddress=sts.aa3.americasarmy.com\nAuthServerIPAddress=auth.aa3.americasarmy.com\nMBSServerIPAddress=mbs.aa3.americasarmy.com\n\nAuthenticationPort=8338\nATSPort=3030\nATSUseLocalRules=0\n\nMBSQueryTimeoutMS=1000\nMBSMaxPingMS=500\nMBSMaxQueryThreads=16\n\n\n\n[AA3Game.AGP_UIManager_MPGame]\nbUseFlashUI=true\n\n; default parental control settings\n[AA3Game.AGP_PlayerController]\nbNoBlood=False\nbDisableChat=False\nbDisableVOIP=False\nszParentalPassword=\u0022\u0022\n\n[AA3Baseline.AA_PlayerController]\n\u002BLoadoutPrefs=(KeyName=\u0022SQUAD LEADERAA_BulletWeapon_M16A4\u0022,LoadoutPref=1,TopRailPref=1)\n\u002BLoadoutPrefs=(KeyName=\u0022SQUAD LEADERAA_BulletWeapon_M4A1\u0022,LoadoutPref=1,TopRailPref=1)\n\u002BLoadoutPrefs=(KeyName=\u0022FIRETEAM LEADERAA_BulletWeapon_M16A4\u0022,LoadoutPref=1,TopRailPref=1)\n\u002BLoadoutPrefs=(KeyName=\u0022FIRETEAM LEADERAA_BulletWeapon_M4A1\u0022,LoadoutPref=1,TopRailPref=1)\n\u002BLoadoutPrefs=(KeyName=\u0022RIFLEMANAA_BulletWeapon_M16A4\u0022,LoadoutPref=1,TopRailPref=0)\n\u002BLoadoutPrefs=(KeyName=\u0022RIFLEMANAA_BulletWeapon_M4A1\u0022,LoadoutPref=1,TopRailPref=0)\n\u002BLoadoutPrefs=(KeyName=\u0022AUTOMATIC RIFLEMANAA_BulletWeapon_M249_HardBoxAmmo\u0022,LoadoutPref=1,TopRailPref=0)\n\u002BLoadoutPrefs=(KeyName=\u0022AUTOMATIC RIFLEMANAA_BulletWeapon_M249_SoftBagAmmo\u0022,LoadoutPref=1,TopRailPref=0)\n\u002BLoadoutPrefs=(KeyName=\u0022GRENADIERM16A4_M320\u0022,LoadoutPref=1,TopRailPref=0)\n\u002BLoadoutPrefs=(KeyName=\u0022SQUAD DESIGNATED MARKSMANAA_BulletWeapon_M16DMR\u0022,LoadoutPref=1,TopRailPref=2)\n\u002BLoadoutPrefs=(KeyName=\u0022VIPAA_BulletWeapon_ObranKNP\u0022,LoadoutPref=1,TopRailPref=0)\n\u002BWeaponPrefs=(KeyName=\u0022SQUAD LEADERWeapPref\u0022,WeaponIndex=1)\n\u002BWeaponPrefs=(KeyName=\u0022FIRETEAM LEADERWeapPref\u0022,WeaponIndex=1)\n\u002BWeaponPrefs=(KeyName=\u0022RIFLEMANWeapPref\u0022,WeaponIndex=0)\n\u002BWeaponPrefs=(KeyName=\u0022AUTOMATIC RIFLEMANWeapPref\u0022,WeaponIndex=0)\n\u002BWeaponPrefs=(KeyName=\u0022GRENADIERWeapPref\u0022,WeaponIndex=0)\n\u002BWeaponPrefs=(KeyName=\u0022SQUAD DESIGNATED MARKSMANWeapPref\u0022,WeaponIndex=0)\n\u002BWeaponPrefs=(KeyName=\u0022VIPWeapPref\u0022,WeaponIndex=0)",
+      "order": 0,
+      "enableEditor": true,
+      "editor": [
+        {
+          "id": "Header_1",
+          "label": "Server Info",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "label": "Hostname",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "RconPassword",
+          "label": "RCON Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "id": "Header_6",
+          "label": "Player Kick Settings",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "id": "Header_9",
+          "label": "Match and Round Settings",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "id": "Header_17",
+          "label": "In-Game TeamSpeak3 Settings",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "id": "Header_26",
+          "label": "Map Settings",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "id": "Header_28",
+          "label": "Player Control Settings",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "id": "Header_39",
+          "label": "Misc. Settings",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [],
+  "gamesScripts": [],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "createdDate": "2026-04-16T07:13:27.264321",
+  "metadata": {},
+  "rolePermissions": [
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Variables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Variables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Steam",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Steam",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Scripts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Scripts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "RunAs",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "RunAs",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "RconAndQuery",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "RconAndQuery",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Paths",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Paths",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Monitoring",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Monitoring",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Limits",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Limits",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "IpAndPorts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "IpAndPorts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "GeneralSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "GeneralSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FileSystem",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "FileSystem",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FeaturePermissions",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "FeaturePermissions",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "EnvironmentVariables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "EnvironmentVariables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "CustomLinks",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "CustomLinks",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Cmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Cmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": false
+    }
+  ]
+}
