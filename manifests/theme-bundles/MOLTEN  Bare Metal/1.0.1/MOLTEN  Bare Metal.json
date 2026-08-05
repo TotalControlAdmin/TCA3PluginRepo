@@ -1,0 +1,751 @@
+{
+  "__TCA:ExportVersion": "3.17.2.0",
+  "__TCA:ExportedAt": "2026-08-05T21:02:10.6495421Z",
+  "themeId": 0,
+  "name": "MOLTEN \u2014 Bare Metal",
+  "titlePrefix": "Molten | ",
+  "titlePostfix": "",
+  "hostname": "",
+  "isDefault": false,
+  "isEnabled": true,
+  "lightPalette": {
+    "consoleBackground": {
+      "r": 14,
+      "g": 16,
+      "b": 20,
+      "a": 255
+    },
+    "consoleForeground": {
+      "r": 230,
+      "g": 227,
+      "b": 220,
+      "a": 255
+    },
+    "consoleCursor": {
+      "r": 255,
+      "g": 122,
+      "b": 46,
+      "a": 255
+    },
+    "consoleSelection": {
+      "r": 255,
+      "g": 122,
+      "b": 46,
+      "a": 70
+    },
+    "consoleBlack": {
+      "r": 26,
+      "g": 30,
+      "b": 38,
+      "a": 255
+    },
+    "consoleRed": {
+      "r": 255,
+      "g": 84,
+      "b": 112,
+      "a": 255
+    },
+    "consoleGreen": {
+      "r": 61,
+      "g": 220,
+      "b": 151,
+      "a": 255
+    },
+    "consoleYellow": {
+      "r": 255,
+      "g": 193,
+      "b": 72,
+      "a": 255
+    },
+    "consoleBlue": {
+      "r": 90,
+      "g": 169,
+      "b": 230,
+      "a": 255
+    },
+    "consoleMagenta": {
+      "r": 217,
+      "g": 138,
+      "b": 230,
+      "a": 255
+    },
+    "consoleCyan": {
+      "r": 77,
+      "g": 208,
+      "b": 196,
+      "a": 255
+    },
+    "consoleWhite": {
+      "r": 230,
+      "g": 227,
+      "b": 220,
+      "a": 255
+    },
+    "black": {
+      "r": 39,
+      "g": 44,
+      "b": 52,
+      "a": 255
+    },
+    "white": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "primary": {
+      "r": 209,
+      "g": 78,
+      "b": 21,
+      "a": 255
+    },
+    "primaryContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "secondary": {
+      "r": 176,
+      "g": 121,
+      "b": 28,
+      "a": 255
+    },
+    "secondaryContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "tertiary": {
+      "r": 42,
+      "g": 127,
+      "b": 212,
+      "a": 255
+    },
+    "tertiaryContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "info": {
+      "r": 42,
+      "g": 127,
+      "b": 212,
+      "a": 255
+    },
+    "infoContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "success": {
+      "r": 15,
+      "g": 157,
+      "b": 106,
+      "a": 255
+    },
+    "successContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "warning": {
+      "r": 180,
+      "g": 83,
+      "b": 9,
+      "a": 255
+    },
+    "warningContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "error": {
+      "r": 214,
+      "g": 56,
+      "b": 85,
+      "a": 255
+    },
+    "errorContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "dark": {
+      "r": 66,
+      "g": 66,
+      "b": 66,
+      "a": 255
+    },
+    "darkContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "textPrimary": {
+      "r": 33,
+      "g": 29,
+      "b": 25,
+      "a": 255
+    },
+    "textSecondary": {
+      "r": 94,
+      "g": 88,
+      "b": 80,
+      "a": 255
+    },
+    "textDisabled": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 96
+    },
+    "actionDefault": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 137
+    },
+    "actionDisabled": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 66
+    },
+    "actionDisabledBackground": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 30
+    },
+    "background": {
+      "r": 241,
+      "g": 239,
+      "b": 235,
+      "a": 255
+    },
+    "backgroundGray": {
+      "r": 232,
+      "g": 229,
+      "b": 223,
+      "a": 255
+    },
+    "surface": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "drawerBackground": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "drawerText": {
+      "r": 52,
+      "g": 47,
+      "b": 41,
+      "a": 255
+    },
+    "drawerIcon": {
+      "r": 209,
+      "g": 78,
+      "b": 21,
+      "a": 255
+    },
+    "appbarBackground": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "appbarText": {
+      "r": 33,
+      "g": 29,
+      "b": 25,
+      "a": 255
+    },
+    "linesDefault": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 24
+    },
+    "linesInputs": {
+      "r": 189,
+      "g": 189,
+      "b": 189,
+      "a": 255
+    },
+    "tableLines": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 24
+    },
+    "tableStriped": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 5
+    },
+    "tableHover": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 10
+    },
+    "divider": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 24
+    },
+    "dividerLight": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 204
+    },
+    "skeleton": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 28
+    },
+    "primaryDarken": "rgb(178,62,14)",
+    "primaryLighten": "rgb(232,109,52)",
+    "secondaryDarken": "rgb(146,98,18)",
+    "secondaryLighten": "rgb(203,146,52)",
+    "tertiaryDarken": "rgb(30,101,176)",
+    "tertiaryLighten": "rgb(83,148,219)",
+    "infoDarken": "rgb(12,128,223)",
+    "infoLighten": "rgb(71,167,245)",
+    "successDarken": "rgb(0,163,68)",
+    "successLighten": "rgb(0,235,98)",
+    "warningDarken": "rgb(214,129,0)",
+    "warningLighten": "rgb(255,167,36)",
+    "errorDarken": "rgb(242,28,13)",
+    "errorLighten": "rgb(246,96,85)",
+    "darkDarken": "rgb(46,46,46)",
+    "darkLighten": "rgb(87,87,87)",
+    "borderOpacity": 1,
+    "hoverOpacity": 0.06,
+    "rippleOpacity": 0.1,
+    "rippleOpacitySecondary": 0.2,
+    "grayDefault": "#9E9E9E",
+    "grayLight": "#BDBDBD",
+    "grayLighter": "#E0E0E0",
+    "grayDark": "#757575",
+    "grayDarker": "#616161",
+    "overlayDark": "rgba(33,33,33,0.4980392156862745)",
+    "overlayLight": "rgba(255,255,255,0.4980392156862745)"
+  },
+  "darkPalette": {
+    "black": {
+      "r": 11,
+      "g": 13,
+      "b": 17,
+      "a": 255
+    },
+    "primary": {
+      "r": 255,
+      "g": 122,
+      "b": 46,
+      "a": 255
+    },
+    "info": {
+      "r": 90,
+      "g": 169,
+      "b": 230,
+      "a": 255
+    },
+    "success": {
+      "r": 61,
+      "g": 220,
+      "b": 151,
+      "a": 255
+    },
+    "warning": {
+      "r": 255,
+      "g": 193,
+      "b": 72,
+      "a": 255
+    },
+    "error": {
+      "r": 255,
+      "g": 84,
+      "b": 112,
+      "a": 255
+    },
+    "dark": {
+      "r": 16,
+      "g": 19,
+      "b": 26,
+      "a": 255
+    },
+    "textPrimary": {
+      "r": 237,
+      "g": 238,
+      "b": 242,
+      "a": 235
+    },
+    "textSecondary": {
+      "r": 237,
+      "g": 238,
+      "b": 242,
+      "a": 150
+    },
+    "textDisabled": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 51
+    },
+    "actionDefault": {
+      "r": 173,
+      "g": 173,
+      "b": 177,
+      "a": 255
+    },
+    "actionDisabled": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 66
+    },
+    "actionDisabledBackground": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 30
+    },
+    "background": {
+      "r": 11,
+      "g": 13,
+      "b": 17,
+      "a": 255
+    },
+    "backgroundGray": {
+      "r": 15,
+      "g": 18,
+      "b": 24,
+      "a": 255
+    },
+    "surface": {
+      "r": 20,
+      "g": 24,
+      "b": 31,
+      "a": 255
+    },
+    "drawerBackground": {
+      "r": 18,
+      "g": 22,
+      "b": 29,
+      "a": 255
+    },
+    "drawerText": {
+      "r": 208,
+      "g": 214,
+      "b": 224,
+      "a": 190
+    },
+    "drawerIcon": {
+      "r": 170,
+      "g": 180,
+      "b": 196,
+      "a": 190
+    },
+    "appbarBackground": {
+      "r": 18,
+      "g": 22,
+      "b": 29,
+      "a": 255
+    },
+    "appbarText": {
+      "r": 237,
+      "g": 238,
+      "b": 242,
+      "a": 229
+    },
+    "linesDefault": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 20
+    },
+    "linesInputs": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 76
+    },
+    "tableLines": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 20
+    },
+    "tableStriped": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 51
+    },
+    "divider": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 20
+    },
+    "dividerLight": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 15
+    },
+    "consoleBackground": {
+      "r": 14,
+      "g": 16,
+      "b": 20,
+      "a": 255
+    },
+    "consoleForeground": {
+      "r": 230,
+      "g": 227,
+      "b": 220,
+      "a": 255
+    },
+    "consoleCursor": {
+      "r": 255,
+      "g": 122,
+      "b": 46,
+      "a": 255
+    },
+    "consoleSelection": {
+      "r": 255,
+      "g": 122,
+      "b": 46,
+      "a": 70
+    },
+    "consoleBlack": {
+      "r": 26,
+      "g": 30,
+      "b": 38,
+      "a": 255
+    },
+    "consoleRed": {
+      "r": 255,
+      "g": 84,
+      "b": 112,
+      "a": 255
+    },
+    "consoleGreen": {
+      "r": 61,
+      "g": 220,
+      "b": 151,
+      "a": 255
+    },
+    "consoleYellow": {
+      "r": 255,
+      "g": 193,
+      "b": 72,
+      "a": 255
+    },
+    "consoleBlue": {
+      "r": 90,
+      "g": 169,
+      "b": 230,
+      "a": 255
+    },
+    "consoleMagenta": {
+      "r": 217,
+      "g": 138,
+      "b": 230,
+      "a": 255
+    },
+    "consoleCyan": {
+      "r": 77,
+      "g": 208,
+      "b": 196,
+      "a": 255
+    },
+    "consoleWhite": {
+      "r": 230,
+      "g": 227,
+      "b": 220,
+      "a": 255
+    },
+    "white": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "primaryContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "secondary": {
+      "r": 255,
+      "g": 184,
+      "b": 77,
+      "a": 255
+    },
+    "secondaryContrastText": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "tertiary": {
+      "r": 90,
+      "g": 169,
+      "b": 230,
+      "a": 255
+    },
+    "tertiaryContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "infoContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "successContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "warningContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "errorContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "darkContrastText": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "tableHover": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 10
+    },
+    "skeleton": {
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 28
+    },
+    "primaryDarken": "rgb(230,95,26)",
+    "primaryLighten": "rgb(255,158,84)",
+    "secondaryDarken": "rgb(224,150,40)",
+    "secondaryLighten": "rgb(255,203,120)",
+    "tertiaryDarken": "rgb(58,133,196)",
+    "tertiaryLighten": "rgb(122,183,235)",
+    "infoDarken": "rgb(10,133,255)",
+    "infoLighten": "rgb(92,173,255)",
+    "successDarken": "rgb(9,154,108)",
+    "successLighten": "rgb(13,222,156)",
+    "warningDarken": "rgb(193,142,31)",
+    "warningLighten": "rgb(225,176,71)",
+    "errorDarken": "rgb(193,31,31)",
+    "errorLighten": "rgb(225,71,71)",
+    "darkDarken": "rgb(23,23,28)",
+    "darkLighten": "rgb(56,56,67)",
+    "borderOpacity": 1,
+    "hoverOpacity": 0.06,
+    "rippleOpacity": 0.1,
+    "rippleOpacitySecondary": 0.2,
+    "grayDefault": "#9E9E9E",
+    "grayLight": "#BDBDBD",
+    "grayLighter": "#E0E0E0",
+    "grayDark": "#757575",
+    "grayDarker": "#616161",
+    "overlayDark": "rgba(33,33,33,0.4980392156862745)",
+    "overlayLight": "rgba(255,255,255,0.4980392156862745)"
+  },
+  "layoutProperties": {
+    "defaultBorderRadius": "12px",
+    "drawerMiniWidthLeft": "56px",
+    "drawerMiniWidthRight": "56px",
+    "drawerWidthLeft": "276px",
+    "drawerWidthRight": "240px",
+    "appbarHeight": "64px"
+  },
+  "mainContentSettings": {
+    "extraClass": "mt-4 mb-12 pa-2",
+    "extraClassWithBanners": "mt-n2 mb-12 pa-2",
+    "maxWidth": "ExtraLarge"
+  },
+  "navMenuSettings": {
+    "showLogo": false,
+    "enableLogoFilter": true,
+    "elevation": 1,
+    "clipMode": "Never",
+    "variant": "Mini"
+  },
+  "topBarSettings": {
+    "showBreadcrumbs": true,
+    "dense": false,
+    "elevation": 1
+  },
+  "bottomBarSettings": {
+    "enabled": true,
+    "elevation": 1,
+    "showPoweredBy": true,
+    "showVersion": true,
+    "iconUrl": "/img/logos/tcadmin.png"
+  },
+  "advancedSettings": {
+    "css": "",
+    "js": ""
+  },
+  "loginSettings": {
+    "title": "MOLTEN",
+    "subtitle": "Bare metal hosting",
+    "backgroundOverlayOpacity": 0.6,
+    "showFooter": true
+  },
+  "loadingScreen": {
+    "useDefaultTitles": false,
+    "titles": [
+      "MOLTEN",
+      "STOKING THE FORGE",
+      "BARE METAL ONLINE"
+    ],
+    "textColor": "#edeef2",
+    "backgroundColor": "#0b0d11",
+    "backgroundImageUrl": "",
+    "backgroundOverlayOpacity": 0.7,
+    "glassCardBackground": "rgba(17,20,26,0.82)",
+    "progressBarColor": "#ff7a2e",
+    "customCss": "/* MOLTEN pre-Blazor boot loader (theme.loadingScreen.customCss, NOT the layout template).\n   Single-sourced here; build.ps1 / build-local.ps1 read it, push-loader-local.ps1 updates it live.\n   Dark scheme only \u2014 App.razor drops CustomCss in light mode, so light keeps the app.css default. */\n@import url(\u0027https://fonts.googleapis.com/css2?family=Oxanium:wght@700;800\u0026display=swap\u0027);\n#tcadmin-loading .loading-bg-image{background:radial-gradient(1000px 600px at 10% 112%,rgba(255,102,26,.28),transparent 62%),radial-gradient(700px 400px at 90% -10%,rgba(90,169,230,.08),transparent 55%),linear-gradient(160deg,#101318 0%,#0b0d11 55%,#0d0a08 100%)!important;background-color:#0b0d11!important}\n#tcadmin-loading .loading-glass-card{border:1px solid rgba(255,122,46,.28);border-radius:16px;box-shadow:0 0 40px rgba(255,90,20,.18),inset 0 1px 0 rgba(255,255,255,.07);position:relative;overflow:hidden}\n#tcadmin-loading .loading-glass-card::after{content:\u0022\u0022;position:absolute;left:8%;right:8%;bottom:0;height:2px;background:linear-gradient(90deg,transparent,#ff9d2e 20%,#ffd9a1 50%,#ff7a2e 80%,transparent);background-size:220% 100%;box-shadow:0 0 16px rgba(255,122,46,.7)}\n#tcadmin-loading .loading-brand-title{font-family:\u0027Oxanium\u0027,sans-serif;letter-spacing:.24em;text-transform:uppercase;font-weight:700}\n\n/* ---- warming up ----\n   The forge lights while the app boots: everything starts ash-cold and comes up to temperature.\n   Same story the running panel tells with --tca-cool, just on a timer \u2014 the loader has no service\n   state to read. \u0060both\u0060 holds the hot end when boot outlasts the ramp; the seam keeps its flow\n   loop and gains a fade-in as a second animation. */\n#tcadmin-loading .loading-bg-image{animation:mlt-warm-bg 4.2s ease-out both}\n#tcadmin-loading .loading-glass-card{animation:mlt-warm-card 4.2s ease-out both}\n#tcadmin-loading .loading-brand-title{animation:mlt-warm-title 4.2s ease-out both}\n#tcadmin-loading .loading-glass-card::after{animation:mlt-loading-flow 7s linear infinite,mlt-warm-seam 4.2s ease-out both}\n#tcadmin-loading .loading-progress-fill{animation:mlt-warm-fill 4.2s ease-out both}\n#tcadmin-loading .loading-status{animation:mlt-warm-status 4.2s ease-out both}\n\n@keyframes mlt-loading-flow{0%{background-position:0% 0}100%{background-position:220% 0}}\n@keyframes mlt-warm-bg{\n  0%{filter:saturate(.1) brightness(.6)}\n  45%{filter:saturate(.55) brightness(.85)}\n  100%{filter:saturate(1) brightness(1)}}\n@keyframes mlt-warm-card{\n  0%{border-color:rgba(120,132,148,.2);box-shadow:0 0 0 rgba(255,90,20,0),inset 0 1px 0 rgba(255,255,255,.03)}\n  100%{border-color:rgba(255,122,46,.28);box-shadow:0 0 40px rgba(255,90,20,.18),inset 0 1px 0 rgba(255,255,255,.07)}}\n/* Ash -\u003E ember -\u003E settled: the overshoot at 60% is what sells \u0022it just caught\u0022. */\n@keyframes mlt-warm-title{\n  0%{color:#5b6472;text-shadow:none}\n  60%{color:#ff7a2e;text-shadow:0 0 28px rgba(255,122,46,.6)}\n  100%{color:var(--text-color,#edeef2);text-shadow:0 0 18px rgba(255,122,46,.38)}}\n@keyframes mlt-warm-seam{0%{opacity:0;filter:saturate(.1)}30%{opacity:.28}100%{opacity:1;filter:saturate(1)}}\n@keyframes mlt-warm-fill{\n  0%{filter:saturate(.12) brightness(.65);box-shadow:none}\n  100%{filter:saturate(1) brightness(1);box-shadow:0 0 14px rgba(255,122,46,.55)}}\n@keyframes mlt-warm-status{0%{opacity:.35}100%{opacity:1}}\n\n/* Reduced motion: no ramp, no flow \u2014 \u0060both\u0060 means the elements simply render their hot end. */\n@media (prefers-reduced-motion:reduce){\n  #tcadmin-loading .loading-bg-image,#tcadmin-loading .loading-glass-card,\n  #tcadmin-loading .loading-brand-title,#tcadmin-loading .loading-glass-card::after,\n  #tcadmin-loading .loading-progress-fill,#tcadmin-loading .loading-status{animation:none}\n}\n"
+  },
+  "createdDate": "0001-01-01T00:00:00"
+}
