@@ -1,0 +1,222 @@
+{
+  "__TCA:ExportVersion": "3.17.27.0",
+  "__TCA:ExportedAt": "2026-08-11T18:57:29.562209Z",
+  "blueprintId": 133,
+  "name": "IIS \u2014 FastDL",
+  "shortName": "IIS (Windows)",
+  "description": "IIS with script to configure it as the monitor\u0027s fast download web server.",
+  "iconImage": "https://upload.wikimedia.org/wikipedia/commons/1/14/Globe_%28icon%29.svg",
+  "backgroundImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Internet1.jpg/1280px-Internet1.jpg",
+  "editableExtensions": [
+    ".txt",
+    ".html",
+    ".htm",
+    ".css",
+    ".js",
+    ".json",
+    ".config",
+    ".aspx",
+    ".ps1"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": 1048576,
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": true,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "HTTP",
+        "port": 3080,
+        "expression": "",
+        "description": "HTTP Port",
+        "uriTemplate": "http://{HostnameOrIP}:{HTTP}"
+      },
+      {
+        "id": "HTTPS",
+        "port": 3443,
+        "expression": "",
+        "description": "HTTPS Port",
+        "uriTemplate": "https://{HostnameOrIP}:{HTTPS}"
+      }
+    ],
+    "portIncrement": 10
+  },
+  "configFiles": [
+    {
+      "id": 334,
+      "relativePath": "wwwroot/index.html",
+      "description": "Default document",
+      "template": "\u003C!doctype html\u003E\n\u003Chtml lang=\u0027en\u0027\u003E\n\u003Chead\u003E\n\u003Cmeta charset=\u0027utf-8\u0027\u003E\n\u003Cmeta name=\u0027viewport\u0027 content=\u0027width=device-width, initial-scale=1\u0027\u003E\n\u003Ctitle\u003ETCAdmin \u0026middot; IIS\u003C/title\u003E\n\u003Cstyle\u003E\n  :root { color-scheme: light dark; }\n  * { box-sizing: border-box; }\n  body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 2rem;\n         font-family: \u0027Segoe UI\u0027, system-ui, sans-serif;\n         background: linear-gradient(135deg, #0c1c34, #123a6b 55%, #0f7bd4); color: #eaf2fb; }\n  main { text-align: center; padding: 3rem 2.5rem; border-radius: 16px; max-width: 44rem;\n         background: rgba(10, 22, 40, .55); backdrop-filter: blur(6px);\n         box-shadow: 0 18px 50px rgba(0, 0, 0, .4); }\n  .badge { display: inline-block; padding: .3rem .9rem; border-radius: 999px;\n           background: #0f7bd4; color: #fff; font-size: .8rem; letter-spacing: .12em;\n           text-transform: uppercase; margin-bottom: 1.4rem; }\n  h1 { margin: 0 0 .6rem; font-size: 2.1rem; font-weight: 600; }\n  p  { margin: .35rem 0; color: #b9cde4; }\n  .grid { display: flex; gap: 1.2rem; justify-content: center; margin-top: 1.8rem; flex-wrap: wrap; }\n  .cell { padding: .9rem 1.3rem; border-radius: 10px; background: rgba(255, 255, 255, .07);\n          min-width: 9rem; }\n  .cell b { display: block; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;\n            color: #8fb2d8; margin-bottom: .3rem; font-weight: 600; }\n  .info { text-align: left; margin-top: 2rem; padding: 1rem 1.25rem; border-radius: 10px;\n          background: rgba(4, 12, 24, .45); border-left: 3px solid #38bdf8; }\n  .info h2 { margin: 0 0 .5rem; font-size: 1rem; color: #7dd3fc; }\n  .info p { margin: .5rem 0; font-size: .9rem; line-height: 1.55; }\n  code { background: rgba(255, 255, 255, .12); padding: .1rem .4rem; border-radius: 5px;\n         font-size: .85em; }\n\u003C/style\u003E\n\u003C/head\u003E\n\u003Cbody\u003E\n\u003Cmain\u003E\n  \u003Cspan class=\u0027badge\u0027\u003EWindows Container\u003C/span\u003E\n  \u003Ch1\u003EIt works \u0026mdash; natively.\u003C/h1\u003E\n  \u003Cp\u003EThis page is served by \u003Cstrong\u003EMicrosoft IIS\u003C/strong\u003E running in a\n     \u003Cstrong\u003Enative Windows container\u003C/strong\u003E (Server Core LTSC 2025, process isolation),\n     over HTTP and HTTPS with a self-signed certificate.\u003C/p\u003E\n  \u003Cp\u003EDeployed and managed by \u003Cstrong\u003ETCAdmin V3\u003C/strong\u003E.\u003C/p\u003E\n  \u003Cdiv class=\u0027grid\u0027\u003E\n    \u003Cdiv class=\u0027cell\u0027\u003E\u003Cb\u003EWeb server\u003C/b\u003EIIS 10\u003C/div\u003E\n    \u003Cdiv class=\u0027cell\u0027\u003E\u003Cb\u003EBase image\u003C/b\u003Eservercore/iis\u003C/div\u003E\n    \u003Cdiv class=\u0027cell\u0027\u003E\u003Cb\u003EIsolation\u003C/b\u003Eprocess\u003C/div\u003E\n  \u003C/div\u003E\n\n  \u003Cdiv class=\u0027info\u0027\u003E\n    \u003Ch2\u003E\u0026#128230; Fast Downloads (FastDL)\u003C/h2\u003E\n    \u003Cp\u003EThis server can act as a Fast Download host, serving game files from the\n       \u003Ccode\u003E/FastDL/\u003C/code\u003E path over HTTPS.\u003C/p\u003E\n    \u003Cp\u003ETo turn it on, open this service in the TCAdmin control panel and run the\n       \u003Cstrong\u003EEnable Fast Downloads\u003C/strong\u003E script. It points this server\u0027s Fast Download\n       storage here and enables FastDL.\u003C/p\u003E\n    \u003Cp\u003EFast Downloads must also be enabled and configured for each individual game before its\n       services will mirror and serve their files here.\u003C/p\u003E\n  \u003C/div\u003E\n\n  \u003Cp style=\u0027margin-top:1.8rem; font-size:.85rem;\u0027\u003EEdit \u003Ccode\u003Ewwwroot/index.html\u003C/code\u003E in the file manager to replace this page.\u003C/p\u003E\n\u003C/main\u003E\n\u003C/body\u003E\n\u003C/html\u003E\n",
+      "order": 0,
+      "enableEditor": false,
+      "editor": []
+    }
+  ],
+  "commandlineConfig": {
+    "enableSelection": false,
+    "predefinedCommandlines": []
+  },
+  "fileSystemPermissions": [],
+  "environmentVariables": [],
+  "images": [
+    {
+      "name": "IIS on Server Core LTSC 2025",
+      "image": "mcr.microsoft.com/windows/servercore/iis",
+      "tag": "windowsservercore-ltsc2025",
+      "isDefault": true
+    }
+  ],
+  "volumeBinds": [
+    {
+      "id": 17,
+      "blueprintId": 133,
+      "hostPath": "wwwroot",
+      "containerPath": "C:\\inetpub\\wwwroot",
+      "readOnly": false
+    }
+  ],
+  "limits": {
+    "memoryLimit": 2048,
+    "cpuLimit": 50,
+    "cpuSets": "",
+    "oomKillEnabled": true
+  },
+  "dockerIpPortAllocationConfig": {
+    "dockerBlueprintId": 133,
+    "dockerCustomPorts": [
+      {
+        "protocol": "tcp",
+        "containerPort": 80,
+        "id": "HTTP",
+        "port": 3080,
+        "expression": "",
+        "description": "HTTP Port",
+        "uriTemplate": "http://{HostnameOrIP}:{HTTP}"
+      },
+      {
+        "protocol": "tcp",
+        "containerPort": 443,
+        "id": "HTTPS",
+        "port": 3443,
+        "expression": "",
+        "description": "HTTPS Port",
+        "uriTemplate": "https://{HostnameOrIP}:{HTTPS}"
+      }
+    ]
+  },
+  "dockerVariables": [],
+  "dockerBlueprintsScripts": [
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "ConfigureContainer"
+        ],
+        "name": "IIS Windows - strip HostIP for WinNAT (interim)",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, Docker.DotNet.dll\nusing System;\nusing System.Collections.Generic;\nusing Docker.DotNet.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals(); // DO NOT MODIFY THIS LINE\nvar startParams = Globals.ThisContainerStartParameters;\n\n// INTERIM fix for monitors built before 2026-08-09: WinNAT rejects endpoint creation when\n// PortBindings specify a host IP (\u0022Windows does not support host IP addresses in NAT\n// settings\u0022), so strip HostIP and bind all interfaces. Monitors with the in-code Windows\n// branch already send HostIP = null, making this a no-op \u2014 safe to keep or delete.\nif (startParams.HostConfig?.PortBindings != null)\n{\n    foreach (var bindings in startParams.HostConfig.PortBindings.Values)\n    {\n        if (bindings == null) continue;\n        foreach (var binding in bindings)\n        {\n            binding.HostIP = null;\n        }\n    }\n}\n",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 0,
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "23869c04-2680-4d84-bc89-802d98600950"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "ConfigureContainer"
+        ],
+        "name": "Configure IIS HTTPS (self-signed cert \u002B HTTPS binding)",
+        "description": "Generates a self-signed certificate, binds it to IIS on :443 inside the container, and adds a wildcard MIME map so Fast Download payloads are served. Runs on every container start.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, Docker.DotNet.dll, System.Security.Cryptography.dll, System.Net.Primitives.dll\nusing System;\nusing System.IO;\nusing System.Text;\nusing System.Collections.Generic;\nusing System.Security.Cryptography;\nusing System.Security.Cryptography.X509Certificates;\nusing Docker.DotNet.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals(); // DO NOT MODIFY THIS LINE\nvar service = Globals.ThisService;\nvar startParams = Globals.ThisContainerStartParameters;\n\n// ---------------------------------------------------------------------------\n//  * Windows containers cannot bind-mount a SINGLE FILE, only directories, so\n//    the cert cannot be mounted the way nginx\u0027s server.crt/server.key are.\n//    It doesn\u0027t need to be: TCAdmin always bind-mounts the service root at\n//    C:\\server on a Windows-containers daemon, so everything written under\n//    {RootDirectory}\\iis is already visible to the container at C:\\server\\iis.\n//  * IIS can\u0027t read a PEM off disk \u2014 HTTPS is an HTTP.SYS cert-to-port binding\n//    plus a site binding, both of which must be created INSIDE the container.\n//    So the cert is exported as a PFX and a bootstrap script does the import \u002B\n//    binding on every container start, before handing off to ServiceMonitor.\n// ---------------------------------------------------------------------------\nconst string ContainerIisDir = @\u0022C:\\server\\iis\u0022;\n\n// Not a security boundary: the PFX and this password sit side by side in the\n// service directory, exactly like nginx\u0027s unencrypted server.key does.\nconst string PfxPassword = \u0022tcadmin\u0022;\n\nvar iisDir = Path.Combine(service.RootDirectory, \u0022iis\u0022);\nDirectory.CreateDirectory(iisDir);\n\nvar pfxPath = Path.Combine(iisDir, \u0022server.pfx\u0022);\nvar initPath = Path.Combine(iisDir, \u0022iis-init.ps1\u0022);\n\n// Address clients connect to (cert subject / SAN).\nvar host = service.IPAddress;\nif (string.IsNullOrWhiteSpace(host)) { host = \u0022localhost\u0022; }\nvar altHost = service.HostnameOrIP;\n\n// ---------------------------------------------------------------------------\n// Generate the self-signed certificate once (idempotent). Pure .NET crypto, so\n// no openssl and no container internet access are required.\n// ---------------------------------------------------------------------------\nif (!File.Exists(pfxPath))\n{\n    using (var rsa = RSA.Create(2048))\n    {\n        var req = new CertificateRequest(\u0022CN=\u0022 \u002B host, rsa, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);\n        req.CertificateExtensions.Add(new X509BasicConstraintsExtension(false, false, 0, false));\n        req.CertificateExtensions.Add(new X509KeyUsageExtension(\n            X509KeyUsageFlags.DigitalSignature | X509KeyUsageFlags.KeyEncipherment, false));\n        req.CertificateExtensions.Add(new X509EnhancedKeyUsageExtension(\n            new OidCollection { new Oid(\u00221.3.6.1.5.5.7.3.1\u0022) }, false)); // serverAuth\n\n        // SAN carries the IP and, when the address resolves to a name, that name too \u2014\n        // so the cert still matches when FastDL composes its URL from HostnameOrIP.\n        var san = new SubjectAlternativeNameBuilder();\n        san.AddDnsName(host);\n        System.Net.IPAddress ip;\n        if (System.Net.IPAddress.TryParse(host, out ip)) { san.AddIpAddress(ip); }\n        if (!string.IsNullOrWhiteSpace(altHost) \u0026\u0026 !string.Equals(altHost, host, StringComparison.OrdinalIgnoreCase))\n        {\n            san.AddDnsName(altHost);\n            System.Net.IPAddress altIp;\n            if (System.Net.IPAddress.TryParse(altHost, out altIp)) { san.AddIpAddress(altIp); }\n        }\n        req.CertificateExtensions.Add(san.Build());\n\n        using (var cert = req.CreateSelfSigned(\n            DateTimeOffset.UtcNow.AddDays(-1), DateTimeOffset.UtcNow.AddYears(10)))\n        {\n            File.WriteAllBytes(pfxPath, cert.Export(X509ContentType.Pfx, PfxPassword));\n        }\n    }\n}\n\n// ---------------------------------------------------------------------------\n// Container bootstrap: import the PFX into LocalMachine\\My, bind it to\n// 0.0.0.0:443 in HTTP.SYS, add the https site binding, then hand off to the\n// image\u0027s own ServiceMonitor so the container\u0027s lifetime is unchanged.\n// Rewritten on every start (static content, idempotent inside the container).\n// ---------------------------------------------------------------------------\nvar init = new StringBuilder();\ninit.Append(\u0022$ErrorActionPreference = \u0027Continue\u0027\\r\\n\u0022);\ninit.Append(\u0022$pfx    = \u0027\u0022 \u002B ContainerIisDir \u002B @\u0022\\server.pfx\u0027\u0022 \u002B \u0022\\r\\n\u0022);\ninit.Append(\u0022$appcmd = Join-Path $env:windir \u0027system32\\\\inetsrv\\\\appcmd.exe\u0027\\r\\n\u0022);\ninit.Append(\u0022$appid  = \u0027{0e4a1b9e-2b7c-4b0a-9d3f-1c5e6a7b8c90}\u0027\\r\\n\u0022);\ninit.Append(\u0022\\r\\n\u0022);\ninit.Append(\u0022try {\\r\\n\u0022);\ninit.Append(\u0022    if (-not (Test-Path $pfx)) { throw \\\u0022Certificate not found at $pfx\\\u0022 }\\r\\n\u0022);\ninit.Append(\u0022\\r\\n\u0022);\ninit.Append(\u0022    $flags = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]\u0027MachineKeySet,PersistKeySet\u0027\\r\\n\u0022);\ninit.Append(\u0022    $cert  = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList $pfx, \u0027\u0022 \u002B PfxPassword \u002B \u0022\u0027, $flags\\r\\n\u0022);\ninit.Append(\u0022\\r\\n\u0022);\ninit.Append(\u0022    $store = New-Object System.Security.Cryptography.X509Certificates.X509Store -ArgumentList \u0027My\u0027, \u0027LocalMachine\u0027\\r\\n\u0022);\ninit.Append(\u0022    $store.Open(\u0027ReadWrite\u0027)\\r\\n\u0022);\ninit.Append(\u0022    $store.Add($cert)\\r\\n\u0022);\ninit.Append(\u0022    $store.Close()\\r\\n\u0022);\ninit.Append(\u0022    $thumb = $cert.Thumbprint\\r\\n\u0022);\ninit.Append(\u0022    Write-Host \\\u0022[TCAdmin] Imported certificate $thumb\\\u0022\\r\\n\u0022);\ninit.Append(\u0022\\r\\n\u0022);\ninit.Append(\u0022    \u0026 netsh http delete sslcert ipport=0.0.0.0:443 2\u003E\u00261 | Out-Null\\r\\n\u0022);\ninit.Append(\u0022    \u0026 netsh http add sslcert ipport=0.0.0.0:443 certhash=$thumb appid=$appid certstorename=MY 2\u003E\u00261 | Out-Null\\r\\n\u0022);\ninit.Append(\u0022    Write-Host \u0027[TCAdmin] Bound certificate to 0.0.0.0:443\u0027\\r\\n\u0022);\ninit.Append(\u0022\\r\\n\u0022);\ninit.Append(\u0022    $bindings = (\u0026 $appcmd list site \\\u0022Default Web Site\\\u0022 /text:bindings) -join \u0027,\u0027\\r\\n\u0022);\ninit.Append(\u0022    if ($bindings -notlike \u0027*https*\u0027) {\\r\\n\u0022);\ninit.Append(\u0022        \u0026 $appcmd set site /site.name:\\\u0022Default Web Site\\\u0022 \\\u0022/\u002Bbindings.[protocol=\u0027https\u0027,bindingInformation=\u0027*:443:\u0027]\\\u0022 | Out-Null\\r\\n\u0022);\ninit.Append(\u0022        Write-Host \u0027[TCAdmin] Added HTTPS binding to Default Web Site\u0027\\r\\n\u0022);\ninit.Append(\u0022    } else {\\r\\n\u0022);\ninit.Append(\u0022        Write-Host \u0027[TCAdmin] HTTPS binding already present\u0027\\r\\n\u0022);\ninit.Append(\u0022    }\\r\\n\u0022);\ninit.Append(\u0022}\\r\\n\u0022);\ninit.Append(\u0022catch {\\r\\n\u0022);\ninit.Append(\u0022    Write-Host \\\u0022[TCAdmin] HTTPS setup failed: $($_.Exception.Message)\\\u0022\\r\\n\u0022);\ninit.Append(\u0022    Write-Host \u0027[TCAdmin] The site is still served over HTTP.\u0027\\r\\n\u0022);\ninit.Append(\u0022}\\r\\n\u0022);\ninit.Append(\u0022\\r\\n\u0022);\ninit.Append(\u0022if (Test-Path \u0027C:\\\\ServiceMonitor.exe\u0027) {\\r\\n\u0022);\ninit.Append(\u0022    \u0026 \u0027C:\\\\ServiceMonitor.exe\u0027 \u0027w3svc\u0027\\r\\n\u0022);\ninit.Append(\u0022} else {\\r\\n\u0022);\ninit.Append(\u0022    Start-Service W3SVC\\r\\n\u0022);\ninit.Append(\u0022    while ($true) { Start-Sleep -Seconds 3600 }\\r\\n\u0022);\ninit.Append(\u0022}\\r\\n\u0022);\nFile.WriteAllText(initPath, init.ToString());\n\n// ---------------------------------------------------------------------------\n// IIS answers 404.3 for any extension that has no MIME map, which is most Fast\n// Download payloads (.bsp, .bz2, .vtf, .mdl, .vpk ...). The wildcard map fixes\n// that; explicit maps such as .html still win over it. Written only when\n// absent so an admin can edit it in the file manager and keep the change \u2014\n// and so services created before this script existed pick it up on next start.\n// ---------------------------------------------------------------------------\nvar wwwRoot = Path.Combine(service.RootDirectory, \u0022wwwroot\u0022);\nDirectory.CreateDirectory(wwwRoot);\nvar webConfigPath = Path.Combine(wwwRoot, \u0022web.config\u0022);\nif (!File.Exists(webConfigPath))\n{\n    var webConfig =\n        \u0022\u003C?xml version=\\\u00221.0\\\u0022 encoding=\\\u0022UTF-8\\\u0022?\u003E\\r\\n\u0022 \u002B\n        \u0022\u003Cconfiguration\u003E\\r\\n\u0022 \u002B\n        \u0022  \u003Csystem.webServer\u003E\\r\\n\u0022 \u002B\n        \u0022    \u003CstaticContent\u003E\\r\\n\u0022 \u002B\n        \u0022      \u003C!-- Serve extensions IIS has no MIME map for (FastDL payloads) instead of 404.3. --\u003E\\r\\n\u0022 \u002B\n        \u0022      \u003CmimeMap fileExtension=\\\u0022.*\\\u0022 mimeType=\\\u0022application/octet-stream\\\u0022 /\u003E\\r\\n\u0022 \u002B\n        \u0022    \u003C/staticContent\u003E\\r\\n\u0022 \u002B\n        \u0022  \u003C/system.webServer\u003E\\r\\n\u0022 \u002B\n        \u0022\u003C/configuration\u003E\\r\\n\u0022;\n    File.WriteAllText(webConfigPath, webConfig);\n}\n\n// ---------------------------------------------------------------------------\n// Run the bootstrap instead of the image\u0027s ENTRYPOINT (it re-launches\n// ServiceMonitor itself at the end). Cmd is cleared because the blueprint\u0027s\n// command line would otherwise arrive as arguments to the bootstrap script.\n// ---------------------------------------------------------------------------\nstartParams.Entrypoint = new List\u003Cstring\u003E\n{\n    \u0022powershell\u0022, \u0022-NoProfile\u0022, \u0022-ExecutionPolicy\u0022, \u0022Bypass\u0022, \u0022-NonInteractive\u0022,\n    \u0022-File\u0022, ContainerIisDir \u002B @\u0022\\iis-init.ps1\u0022\n};\nstartParams.Cmd = null;\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 0,
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "212410e4-f8f7-4a57-a4e6-1ff1280eda77"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "CustomServiceIcon"
+        ],
+        "name": "Enable Fast Downloads",
+        "description": "Points this server\u0027s Fast Download storage at {service}/wwwroot/FastDL (created if missing) and serves it over HTTPS.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Web.Shared.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing System.IO;\nusing System.Threading.Tasks;\nusing TCAdmin.SDK.Database.Entities;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals(); // DO NOT MODIFY THIS LINE\nvar console = Globals.ScriptConsole;\nvar service = Globals.ThisService;\n\n// NOTE: IScriptConsole.WriteLine(string, params) runs string.Format on the string, so\n// any literal { } would throw. Dynamic values are passed as {0} args (never concatenated\n// into the format string) so paths/templates containing ${...} print safely.\nconsole.WriteLine(\u0022\uD83D\uDE80  Enabling Fast Downloads for this server...\u0022);\nconsole.WriteLine();\n\n// IIS serves {RootDirectory}\\wwwroot at the site root. Fast Download files live in a\n// dedicated \\FastDL sub-folder (kept separate from the landing page), and the public\n// URL carries the same /FastDL segment so it maps 1:1 onto the files on disk.\nvar fastDlPath = Path.Combine(service.RootDirectory, \u0022wwwroot\u0022, \u0022FastDL\u0022);\n\n// Prefer the HTTPS endpoint (matching the nginx blueprint); fall back to HTTP when the\n// blueprint has no HTTPS port allocated. Ports is a safe indexer -\u003E 0 when key missing.\nvar scheme = \u0022https\u0022;\nvar port = service.Ports[\u0022HTTPS\u0022];\nif (port \u003C= 0)\n{\n    scheme = \u0022http\u0022;\n    port = service.Ports[\u0022HTTP\u0022];\n}\n\nif (port \u003C= 0)\n{\n    console.WriteLine(\u0022\u274C  This service has no allocated \u0027HTTPS\u0027 or \u0027HTTP\u0027 port.\u0022);\n    console.WriteLine(\u0022     Add the port to the blueprint, then recreate the service.\u0022);\n    return;\n}\n\nvar host = service.HostnameOrIP; // hostname if the IP has one, otherwise the IP\nif (string.IsNullOrWhiteSpace(host))\n{\n    console.WriteLine(\u0022\u274C  Could not determine the service address.\u0022);\n    return;\n}\n\nvar baseUrl = scheme \u002B \u0022://\u0022 \u002B host \u002B \u0022:\u0022 \u002B port \u002B \u0022/FastDL/\u0022;\n\n// Create the storage folder if it doesn\u0027t exist (as the monitor process, the same way\n// the FastDL sync engine creates its own sub-directories).\ntry\n{\n    Directory.CreateDirectory(fastDlPath);\n}\ncatch (Exception ex)\n{\n    console.WriteLine(\u0022\u26A0\uFE0F  Could not create the FastDL folder ({0}): {1}\u0022, fastDlPath, ex.Message);\n    console.WriteLine(\u0022     Continuing \u2014 the sync engine will create it on first run.\u0022);\n}\n\n// Load the Server tracked in the manager\u0027s own scope and mutate THAT instance.\n// (Updating the cached Globals.ThisServer would be a detached write and is rejected.)\nvar serverManager = Globals.ServerManager;\nvar server = await serverManager.GetAsync(service.ServerId);\nif (server == null)\n{\n    console.WriteLine(\u0022\u274C  Could not load server id {0}.\u0022, service.ServerId);\n    return;\n}\n\nserver.FastDLEnabled = true;\nserver.FastDLPath = fastDlPath;\nserver.FastDLBaseUrl = baseUrl;\nawait serverManager.UpdateAsync(server, saveChanges: true);\n\nconsole.WriteLine(\u0022\u2705  Fast Downloads enabled!\u0022);\nconsole.WriteLine();\nconsole.WriteLine(\u0022\uD83D\uDDA5\uFE0F   Server      : {0}\u0022, server.Name);\nconsole.WriteLine(\u0022\uD83D\uDCC1  Storage     : {0}\u0022, fastDlPath);\nconsole.WriteLine(\u0022\uD83D\uDD17  Base URL    : {0}\u0022, baseUrl);\nconsole.WriteLine(\u0022\uD83D\uDDC2\uFE0F   Per-service : {0}\u0022, server.FastDLFolderTemplate);\nconsole.WriteLine();\nif (scheme == \u0022https\u0022)\n{\n    console.WriteLine(\u0022\uD83D\uDD12  The HTTPS certificate is self-signed. Game clients that validate\u0022);\n    console.WriteLine(\u0022     certificates will refuse it \u2014 switch the server\u0027s Fast Download\u0022);\n    console.WriteLine(\u0022     base URL to the HTTP port if downloads fail for that reason.\u0022);\n    console.WriteLine();\n}\nconsole.WriteLine(\u0022\u26A0\uFE0F   Fast Downloads are now enabled on this SERVER \u2014 but they must ALSO be\u0022);\nconsole.WriteLine(\u0022     enabled and configured for each individual game before its services\u0022);\nconsole.WriteLine(\u0022     will mirror and serve their files here.\u0022);\nconsole.WriteLine(\u0022\uD83C\uDF89  All done!\u0022);\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 0,
+        "icon": "\u003Cg stroke-width=\u00220\u0022\u003E\u003C/g\u003E\u003Cg stroke-linecap=\u0022round\u0022 stroke-linejoin=\u0022round\u0022\u003E\u003C/g\u003E\u003Cg\u003E\u003Cg data-name=\u0022Layer 2\u0022\u003E\u003Cg data-name=\u0022invisible box\u0022\u003E\u003Crect width=\u002224\u0022 height=\u002224\u0022 fill=\u0022none\u0022\u003E\u003C/rect\u003E\u003C/g\u003E\u003Cg data-name=\u0022icons Q2\u0022\u003E\u003Cpath d=\u0022M20.5,19.5H14.3A2.55,2.55,0,0,0,13,18.2V16H16.75c3.5,0,5.2-2.25,5.25-4.35A4.55,4.55,0,0,0,19.5,7.5a4.2,4.2,0,0,0-1.55-2.85A4.55,4.55,0,0,0,15,3.6H14.55A5.65,5.65,0,0,0,9.95,1a5.45,5.45,0,0,0-5.5,5.45,5.4,5.4,0,0,0-2.35,3.65A4.85,4.85,0,0,0,3.5,14.55C4.45,15.5,6.4,16,7.45,16H11v2.2A2.55,2.55,0,0,0,9.7,19.5H3.6a1,1,0,0,0,0,2H9.7A2.45,2.45,0,0,0,12,23a2.4,2.4,0,0,0,2.3-1.5H20.5a1,1,0,0,0,0-2ZM4.9,13.15a2.9,2.9,0,0,1-0.85-2.75,3.25,3.25,0,0,1,1.5-2.25,2.1,2.1,0,0,0,0.9-1.7,3.5,3.5,0,0,1,0.95-2.35A3.45,3.45,0,0,1,9.95,3a3.6,3.6,0,0,1,2.9,1.75,2.1,2.1,0,0,0,1.7,0.9H15a2.6,2.6,0,0,1,1.7,0.6,2.25,2.25,0,0,1,0.8,1.5,2.1,2.1,0,0,0,1.1,1.6A2.4,2.4,0,0,1,20,11.6c-0.05,1.1-0.9,2.4-3.25,2.4H7.45C6.75,14,5.35,13.6,4.9,13.15ZM12,21a0.5,0.5,0,1,1,0.5-0.5A0.45,0.45,0,0,1,12,21Z\u0022\u003E\u003C/path\u003E\u003C/g\u003E\u003C/g\u003E\u003C/g\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "afb41abf-ca93-4df5-8fb1-4b61e31f5466"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterServiceDeleted"
+        ],
+        "name": "Disable Fast Downloads on delete",
+        "description": "On service delete, clears this server\u0027s Fast Download storage/URL if it still pointed at this service.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Web.Shared.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing System.IO;\nusing System.Threading.Tasks;\nusing TCAdmin.SDK.Database.Entities;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals(); // DO NOT MODIFY THIS LINE\nvar console = Globals.ScriptConsole;\nvar service = Globals.ThisService;\n\n// The folder this service\u0027s IIS container served Fast Downloads from. Must match the\n// path the enable icon writes ({RootDirectory}\\wwwroot\\FastDL) so the guard below detects it.\nvar fastDlPath = Path.Combine(service.RootDirectory, \u0022wwwroot\u0022, \u0022FastDL\u0022);\n\nvar serverManager = Globals.ServerManager;\nvar server = await serverManager.GetAsync(service.ServerId);\nif (server == null)\n{\n    // WriteLine uses {0} args (not concatenation) because the console runs string.Format.\n    console.WriteLine(\u0022\u26A0\uFE0F  Could not load server id {0}; nothing to clean up.\u0022, service.ServerId);\n    return;\n}\n\n// Only clear the server-level Fast Download settings if THIS service is the one currently\n// backing them (enabled \u002B storage path points at this service\u0027s \\FastDL). Separator/\n// trailing-slash tolerant and case-insensitive, so a second IIS service deleting doesn\u0027t\n// wipe the config a different one owns.\nvar currentPath = (server.FastDLPath ?? \u0022\u0022).Replace(\u0027\\\\\u0027, \u0027/\u0027).TrimEnd(\u0027/\u0027);\nvar thisPath = (fastDlPath ?? \u0022\u0022).Replace(\u0027\\\\\u0027, \u0027/\u0027).TrimEnd(\u0027/\u0027);\n\nif (server.FastDLEnabled \u0026\u0026 string.Equals(currentPath, thisPath, StringComparison.OrdinalIgnoreCase))\n{\n    server.FastDLEnabled = false;\n    server.FastDLPath = \u0022\u0022;\n    server.FastDLBaseUrl = \u0022\u0022;\n    await serverManager.UpdateAsync(server, saveChanges: true);\n\n    console.WriteLine(\u0022\uD83E\uDDF9  Fast Downloads disabled on server \u0027{0}\u0027.\u0022, server.Name);\n    console.WriteLine(\u0022     Storage path and base URL cleared.\u0022);\n}\nelse\n{\n    console.WriteLine(\u0022\u2139\uFE0F  Server Fast Downloads are not pointing at this service \u2014 left unchanged.\u0022);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 0,
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "5bf81b6f-e263-414f-9452-da57f1f09b07"
+      }
+    }
+  ],
+  "dockerBlueprintsCustomLinks": [],
+  "execConsoleType": "Command",
+  "execCommand": "powershell",
+  "containerOs": "Windows",
+  "backupConfig": {
+    "enabled": false,
+    "backupType": "Full",
+    "compressBackup": true,
+    "includedPaths": []
+  },
+  "rolePermissions": [],
+  "mods": []
+}
