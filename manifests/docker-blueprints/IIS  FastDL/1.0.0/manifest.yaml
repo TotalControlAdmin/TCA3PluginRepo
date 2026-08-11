@@ -1,0 +1,22 @@
+identifier: "Community.DockerBlueprints.IISFastDL"
+name: "IIS — FastDL"
+version: "1.0.0"
+minimumApplicationVersion: "3.17"
+author: "TCAdmin"
+shortDescription: "IIS (Windows)"
+longDescription: |
+  # IIS — FastDL
+  
+  ## Description
+  IIS with script to configure it as the monitor's fast download web server.
+  
+  ## Instructions
+  Create the Docker service. Then execute "Enable Fast Downloads". This will configure the current server to use the IIS web server for fast downloads.
+icon: "https://upload.wikimedia.org/wikipedia/commons/1/14/Globe_%28icon%29.svg"
+images:
+  - "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Internet1.jpg/1280px-Internet1.jpg"
+tags:
+  - "Docker"
+files:
+  - path: "IIS Windows.json"
+    type: "DockerConfig"
