@@ -1,0 +1,41 @@
+identifier: "Community.DockerBlueprints.MariaDBGaleraCluster"
+name: "MariaDB Galera Cluster"
+version: "1.0.0"
+minimumApplicationVersion: "3.17"
+author: "TCAdmin"
+shortDescription: "mariadb-galera"
+longDescription: |
+  # MariaDB Galera Cluster
+  
+  ## Description
+  Multi-master MariaDB Galera Cluster node. Create one "first node" to start a cluster, then create additional nodes that join it automatically.
+  
+  ## Key Features
+  - **Multi-master** — read and write on any node; writes replicate synchronously to the rest.
+  - **Nodes find each other automatically** — every node with the same cluster name joins on start. No IPs to type.
+  - **Safe bootstrap** — "First node" only starts a new cluster when no other node is running; otherwise it joins. Restarting a node can't split the cluster.
+  - **Automatic root password** — generated on the first node, inherited by every node that joins.
+  - **Cluster actions built in** — cluster status, connection & join details, peer connectivity test, show generated config, server log, bootstrap/recover, force full resync (SST), and a cluster-wide root password change.
+  - **Normal MariaDB actions too** — create/drop database, create/truncate/drop table, run SQL, create users and permissions, backup and restore.
+  - **Tunable at creation** — max connections, InnoDB buffer pool, Galera cache and replication threads, plus a `conf.d/custom.cnf` file for anything else.
+  - **Nodes can live on different servers** — each node publishes and advertises a reachable address.
+  
+  ## Instructions
+  1. **Create the first node.** Set *Node role* to "First node - create a new cluster" and pick a *Cluster name*. Start it.
+  2. **Get the details.** Run the **Show connection & join details** action for the host, port and root password.
+  3. **Add more nodes.** Create another service from this blueprint for the same owner, set *Node role* to "Additional node - join an existing cluster" and use the **same cluster name**. Leave the address and root password blank — the node discovers the running one and inherits the password. Start it.
+  4. **Use an odd number of nodes.** Three is the practical minimum: with two, losing one node stops writes on the other.
+  5. **Check it.** Run **Galera cluster status** on any node — every node should report *Synced* and the same cluster size.
+  6. **Connect.** Point applications at any node's MariaDB port. Use **Create MariaDB user** to add an application user.
+  
+  ### Notes
+  - **Different servers:** allow the node's Galera, IST and SST ports (4567 / 4568 / 4444 by default) between the servers. The **Test peer connectivity** action verifies this.
+  - **Whole cluster down:** run **Bootstrap / recover cluster from this node** on the node with the newest data, then start the others normally.
+  - **A node won't rejoin:** run **Force full resync (SST)** on it (erases that node's data only) and start it again — it pulls a fresh copy from a healthy node.
+  - **Joining a cluster this panel doesn't manage:** fill in *Existing node address(es)* as `ip:port` (comma separated) and the cluster's root password.
+icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/MariaDB_colour_logo.svg/500px-MariaDB_colour_logo.svg.png"
+tags:
+  - "Docker"
+files:
+  - path: "mariadb-galera.json"
+    type: "DockerConfig"
