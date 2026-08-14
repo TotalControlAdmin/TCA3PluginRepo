@@ -1,0 +1,1150 @@
+{
+  "__TCA:ExportVersion": "3.18.2.0",
+  "__TCA:ExportedAt": "2026-08-14T22:25:31.6398604Z",
+  "blueprintId": 132,
+  "name": "MariaDB Galera Cluster",
+  "shortName": "mariadb-galera",
+  "description": "Multi-master MariaDB Galera Cluster node. Create one \u0022first node\u0022 to start a cluster, then create additional nodes that join it automatically.",
+  "iconImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/MariaDB_colour_logo.svg/500px-MariaDB_colour_logo.svg.png",
+  "defaultDiskSpace": 10737418240,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml",
+    ".cnf",
+    ".sql"
+  ],
+  "logExtensions": [
+    ".log",
+    ".err"
+  ],
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": true,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "Port",
+        "port": 3306,
+        "expression": "",
+        "description": "MariaDB client port",
+        "uriTemplate": ""
+      },
+      {
+        "id": "Galera",
+        "port": 4567,
+        "expression": "",
+        "description": "Galera replication (gcomm)",
+        "uriTemplate": ""
+      },
+      {
+        "id": "IST",
+        "port": 4568,
+        "expression": "",
+        "description": "Galera IST (state transfer)",
+        "uriTemplate": ""
+      },
+      {
+        "id": "SST",
+        "port": 4444,
+        "expression": "",
+        "description": "Galera SST (snapshot transfer)",
+        "uriTemplate": ""
+      }
+    ],
+    "portIncrement": 10
+  },
+  "configFiles": [
+    {
+      "id": 332,
+      "relativePath": "config.json",
+      "description": "Galera cluster settings",
+      "template": "{\n  \u0022nodeRole\u0022: \u0022${nodeRole}\u0022,\n  \u0022clusterName\u0022: \u0022${clusterName}\u0022,\n  \u0022clusterAddress\u0022: \u0022${clusterAddress}\u0022,\n  \u0022clusterRootPassword\u0022: \u0022${clusterRootPassword}\u0022,\n  \u0022maxConnections\u0022: \u0022${maxConnections}\u0022,\n  \u0022innodbBufferPoolSizeMB\u0022: \u0022${innodbBufferPoolSizeMB}\u0022,\n  \u0022gcacheSizeMB\u0022: \u0022${gcacheSizeMB}\u0022,\n  \u0022wsrepSlaveThreads\u0022: \u0022${wsrepSlaveThreads}\u0022\n}\n",
+      "order": 0,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": "",
+          "id": "hdrCluster",
+          "label": "Galera cluster",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "First node - create a new cluster",
+              "value": "first"
+            },
+            {
+              "text": "Additional node - join an existing cluster",
+              "value": "join"
+            }
+          ],
+          "id": "nodeRole",
+          "defaultValue": "first",
+          "label": "Node role",
+          "description": "Pick \u0022First node\u0022 for the very first node of a brand new cluster. Every node after that is an additional node.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "Choose whether this node starts a new cluster or joins an existing one.",
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 32,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[A-Za-z0-9_.-]{1,32}$",
+          "inputType": 0,
+          "id": "clusterName",
+          "defaultValue": "galera_cluster",
+          "label": "Cluster name",
+          "description": "Must be identical on every node of the same cluster. Also used to find the other nodes automatically.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "A cluster name is required.",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 512,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[A-Za-z0-9._:,\\- ]*$",
+          "inputType": 0,
+          "id": "clusterAddress",
+          "defaultValue": "",
+          "label": "Existing node address(es) - optional",
+          "description": "Leave blank to find the other nodes of this cluster automatically. Only fill this in to join a cluster this panel does not own, as ip:port, comma separated.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": "nodeRole",
+          "parentValue": "join",
+          "controlType": "DynamicTextBox",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 128,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 1,
+          "id": "clusterRootPassword",
+          "defaultValue": "",
+          "label": "Cluster root password - optional",
+          "description": "Leave blank to inherit the root password from the existing node automatically.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": "nodeRole",
+          "parentValue": "join",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": "",
+          "id": "hdrTuning",
+          "label": "Tuning",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 10,
+          "maxValue": 100000,
+          "id": "maxConnections",
+          "defaultValue": 151,
+          "label": "Max connections",
+          "description": "MariaDB max_connections.",
+          "required": false,
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 64,
+          "maxValue": 262144,
+          "id": "innodbBufferPoolSizeMB",
+          "defaultValue": 256,
+          "label": "InnoDB buffer pool (MB)",
+          "description": "Main InnoDB cache. Roughly 50-70% of the RAM you intend this node to use.",
+          "required": false,
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 32,
+          "maxValue": 65536,
+          "id": "gcacheSizeMB",
+          "defaultValue": 128,
+          "label": "Galera cache (MB)",
+          "description": "Write-set cache. Bigger means a node that was offline for a while can catch up with a fast IST instead of a full state transfer.",
+          "required": false,
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 64,
+          "id": "wsrepSlaveThreads",
+          "defaultValue": 4,
+          "label": "Replication threads",
+          "description": "wsrep_slave_threads. Usually 2-4 per CPU core.",
+          "required": false,
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 333,
+      "relativePath": "conf.d/custom.cnf",
+      "description": "Extra MariaDB options (advanced)",
+      "template": "# Extra MariaDB options for this node.\n#\n# Mounted into the container as /etc/mysql/conf.d/zz-custom.cnf, which MariaDB reads\n# AFTER the TCAdmin-generated galera.cnf - so anything set here wins.\n#\n# Edit this file and restart the service to apply. Do not edit conf.d/galera.cnf:\n# it is regenerated from config.json on every start.\n\n[mysqld]",
+      "order": 10,
+      "enableEditor": false,
+      "editor": []
+    }
+  ],
+  "commandlineConfig": {
+    "enableSelection": false,
+    "predefinedCommandlines": []
+  },
+  "fileSystemPermissions": [],
+  "environmentVariables": [],
+  "images": [
+    {
+      "name": "MariaDB 11.4",
+      "image": "mariadb",
+      "tag": "11.4",
+      "isDefault": true
+    }
+  ],
+  "volumeBinds": [
+    {
+      "id": 15,
+      "blueprintId": 132,
+      "hostPath": "database",
+      "containerPath": "/var/lib/mysql",
+      "readOnly": false
+    },
+    {
+      "id": 16,
+      "blueprintId": 132,
+      "hostPath": "backups",
+      "containerPath": "/backups",
+      "readOnly": false
+    }
+  ],
+  "limits": {
+    "cpuSets": "",
+    "oomKillEnabled": true
+  },
+  "dockerIpPortAllocationConfig": {
+    "dockerBlueprintId": 132,
+    "dockerCustomPorts": [
+      {
+        "protocol": "tcp",
+        "containerPort": 3306,
+        "id": "Port",
+        "port": 3306,
+        "expression": "",
+        "description": "MariaDB client port",
+        "uriTemplate": ""
+      },
+      {
+        "protocol": "tcp",
+        "containerPort": 4567,
+        "id": "Galera",
+        "port": 4567,
+        "expression": "",
+        "description": "Galera replication (gcomm)",
+        "uriTemplate": ""
+      },
+      {
+        "protocol": "tcp",
+        "containerPort": 4568,
+        "id": "IST",
+        "port": 4568,
+        "expression": "",
+        "description": "Galera IST (state transfer)",
+        "uriTemplate": ""
+      },
+      {
+        "protocol": "tcp",
+        "containerPort": 4444,
+        "id": "SST",
+        "port": 4444,
+        "expression": "",
+        "description": "Galera SST (snapshot transfer)",
+        "uriTemplate": ""
+      }
+    ]
+  },
+  "dockerVariables": [
+    {
+      "dockerBlueprintId": 132,
+      "name": "nodeRole",
+      "defaultValue": "first",
+      "required": true,
+      "requiredMessage": "Choose whether this node starts a new cluster or joins an existing one.",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${nodeRole}",
+      "editor": {
+        "items": [
+          {
+            "text": "First node - create a new cluster",
+            "value": "first"
+          },
+          {
+            "text": "Additional node - join an existing cluster",
+            "value": "join"
+          }
+        ],
+        "id": "nodeRole",
+        "defaultValue": "first",
+        "label": "Node role",
+        "description": "Pick \u0022First node\u0022 for the very first node of a brand new cluster. Every node after that is an additional node.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Choose whether this node starts a new cluster or joins an existing one.",
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-08-08T01:23:11.79053",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "dockerBlueprintId": 132,
+      "name": "clusterName",
+      "defaultValue": "galera_cluster",
+      "required": true,
+      "requiredMessage": "A cluster name is required.",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${clusterName}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[A-Za-z0-9_.-]{1,32}$",
+        "inputType": 0,
+        "id": "clusterName",
+        "defaultValue": "galera_cluster",
+        "label": "Cluster name",
+        "description": "Must be identical on every node of the same cluster. Also used to find the other nodes automatically.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "A cluster name is required.",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-08-08T01:23:12.577439",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "dockerBlueprintId": 132,
+      "name": "clusterAddress",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${clusterAddress}",
+      "editor": {
+        "maxLength": 512,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[A-Za-z0-9._:,\\- ]*$",
+        "inputType": 0,
+        "id": "clusterAddress",
+        "defaultValue": "",
+        "label": "Existing node address(es) - optional",
+        "description": "Leave blank to find the other nodes of this cluster automatically. Only fill this in to join a cluster this panel does not own, as ip:port, comma separated.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": "nodeRole",
+        "parentValue": "join",
+        "controlType": "DynamicTextBox",
+        "sm": 12,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-08-08T01:23:12.918408",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "dockerBlueprintId": 132,
+      "name": "clusterRootPassword",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${clusterRootPassword}",
+      "editor": {
+        "maxLength": 128,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 1,
+        "id": "clusterRootPassword",
+        "defaultValue": "",
+        "label": "Cluster root password - optional",
+        "description": "Leave blank to inherit the root password from the existing node automatically.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": "nodeRole",
+        "parentValue": "join",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-08-08T01:23:13.271064",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "dockerBlueprintId": 132,
+      "name": "maxConnections",
+      "defaultValue": 151,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${maxConnections}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 10,
+        "maxValue": 100000,
+        "id": "maxConnections",
+        "defaultValue": 151,
+        "label": "Max connections",
+        "description": "MariaDB max_connections.",
+        "required": false,
+        "requiredMessage": "Value is required",
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-08-08T01:23:13.652082",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "dockerBlueprintId": 132,
+      "name": "innodbBufferPoolSizeMB",
+      "defaultValue": 256,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${innodbBufferPoolSizeMB}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 64,
+        "maxValue": 262144,
+        "id": "innodbBufferPoolSizeMB",
+        "defaultValue": 256,
+        "label": "InnoDB buffer pool (MB)",
+        "description": "Main InnoDB cache. Roughly 50-70% of the RAM you intend this node to use.",
+        "required": false,
+        "requiredMessage": "Value is required",
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-08-08T01:23:13.993384",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "dockerBlueprintId": 132,
+      "name": "gcacheSizeMB",
+      "defaultValue": 128,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${gcacheSizeMB}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 32,
+        "maxValue": 65536,
+        "id": "gcacheSizeMB",
+        "defaultValue": 128,
+        "label": "Galera cache (MB)",
+        "description": "Write-set cache. Bigger means a node that was offline for a while can catch up with a fast IST instead of a full state transfer.",
+        "required": false,
+        "requiredMessage": "Value is required",
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-08-08T01:23:14.363268",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "dockerBlueprintId": 132,
+      "name": "wsrepSlaveThreads",
+      "defaultValue": 4,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${wsrepSlaveThreads}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 64,
+        "id": "wsrepSlaveThreads",
+        "defaultValue": 4,
+        "label": "Replication threads",
+        "description": "wsrep_slave_threads. Usually 2-4 per CPU core.",
+        "required": false,
+        "requiredMessage": "Value is required",
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-08-08T01:23:14.717445",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "dockerBlueprintId": 132,
+      "name": "RootPassword",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "A password is generated automatically for this node.",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RootPassword}",
+      "editor": {
+        "maxLength": 128,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 1,
+        "id": "RootPassword",
+        "defaultValue": "",
+        "label": "Root password",
+        "description": "Generated automatically on first start.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "A password is generated automatically for this node.",
+        "controlType": "DynamicTextBox",
+        "sm": 12,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-08-08T01:23:15.054737",
+      "metadata": {},
+      "variableRoles": []
+    }
+  ],
+  "dockerBlueprintsScripts": [
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Galera cluster status",
+        "description": "Live wsrep state of this node plus every node TCAdmin knows about, with a plain-English verdict.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Globalization;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\nusing TCAdmin.Web.Shared.Models.Enums;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\n\nvar service = await DockerServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022FAILED: Service not found.\u0022); return; }\n\nvar clusterName = ReadText(service.Variables, \u0022clusterName\u0022, \u0022galera_cluster\u0022);\nvar lines = new List\u003Cstring\u003E();\n\n// ---- what the running node says about itself ------------------------------\nif (ThisService.Status != EServiceStatus.Started)\n{\n    lines.Add(\u0022This node is not running (TCAdmin status: \u0022 \u002B ThisService.Status \u002B \u0022), so it cannot be queried.\u0022);\n    lines.Add(\u0022Start it, then run this action again.\u0022);\n    lines.Add(string.Empty);\n}\nelse\n{\n    var password = ReadText(service.Variables, \u0022RootPassword\u0022, string.Empty);\n    if (password.Length == 0)\n    {\n        lines.Add(\u0022FAILED: no root password is stored for this node.\u0022);\n    }\n    else\n    {\n        var root = service.RootDirectory;\n        var cnfPath = Path.Combine(root, \u0022.tcadmin-galera.cnf\u0022);\n        var shPath = Path.Combine(root, \u0022.tcadmin-galera-status.sh\u0022);\n        File.WriteAllText(cnfPath, \u0022[client]\\nuser=root\\npassword=\u0022 \u002B password \u002B \u0022\\n\u0022);\n        File.WriteAllText(shPath,\n            \u0022#!/bin/sh\\numask 077\\np=/tmp/.tcadmin-galera.cnf\\ntrap \u0027rm -f \\\u0022$p\\\u0022\u0027 EXIT\\n\u0022 \u002B\n            \u0022cp /mnt/server/.tcadmin-galera.cnf \\\u0022$p\\\u0022\\n\u0022 \u002B\n            \u0022exec mariadb --defaults-extra-file=\\\u0022$p\\\u0022 -N -B -e \\\u0022SHOW GLOBAL STATUS LIKE \u0027wsrep_%\u0027; SHOW GLOBAL VARIABLES LIKE \u0027wsrep_cluster_name\u0027; SHOW GLOBAL VARIABLES LIKE \u0027wsrep_node_name\u0027; SHOW GLOBAL VARIABLES LIKE \u0027wsrep_cluster_address\u0027;\\\u0022\\n\u0022);\n\n        var raw = string.Empty;\n        try\n        {\n            var bytes = await DockerServiceManager.ExecConsoleSingleCommand(service, \u0022/bin/sh /mnt/server/.tcadmin-galera-status.sh\u0022, ThisCancellationToken);\n            raw = Encoding.UTF8.GetString(bytes);\n        }\n        finally\n        {\n            try { File.Delete(cnfPath); File.Delete(shPath); } catch { }\n        }\n\n        var status = new Dictionary\u003Cstring, string\u003E(StringComparer.OrdinalIgnoreCase);\n        foreach (var line in raw.Replace(\u0022\\r\\n\u0022, \u0022\\n\u0022).Replace(\u0027\\r\u0027, \u0027\\n\u0027).Split(\u0027\\n\u0027))\n        {\n            var tab = line.IndexOf(\u0027\\t\u0027);\n            if (tab \u003C= 0) continue;\n            status[line.Substring(0, tab).Trim()] = line.Substring(tab \u002B 1).Trim();\n        }\n\n        if (status.Count == 0)\n        {\n            lines.Add(\u0022FAILED: could not read wsrep status from MariaDB. Raw output follows:\u0022);\n            foreach (var line in raw.Replace(\u0022\\r\\n\u0022, \u0022\\n\u0022).Replace(\u0027\\r\u0027, \u0027\\n\u0027).Split(\u0027\\n\u0027)) lines.Add(\u0022  \u0022 \u002B line);\n        }\n        else\n        {\n            var state = Pick(status, \u0022wsrep_local_state_comment\u0022);\n            var clusterStatus = Pick(status, \u0022wsrep_cluster_status\u0022);\n            var size = Pick(status, \u0022wsrep_cluster_size\u0022);\n            var ready = Pick(status, \u0022wsrep_ready\u0022);\n            var connected = Pick(status, \u0022wsrep_connected\u0022);\n\n            lines.Add(\u0022Galera cluster status\u0022);\n            lines.Add(\u0022  node            : \u0022 \u002B Pick(status, \u0022wsrep_node_name\u0022));\n            lines.Add(\u0022  cluster         : \u0022 \u002B Pick(status, \u0022wsrep_cluster_name\u0022));\n            lines.Add(\u0022  node state      : \u0022 \u002B state);\n            lines.Add(\u0022  cluster status  : \u0022 \u002B clusterStatus);\n            lines.Add(\u0022  cluster size    : \u0022 \u002B size);\n            lines.Add(\u0022  connected/ready : \u0022 \u002B connected \u002B \u0022 / \u0022 \u002B ready);\n            lines.Add(\u0022  cluster uuid    : \u0022 \u002B Pick(status, \u0022wsrep_cluster_state_uuid\u0022));\n            lines.Add(\u0022  members online  : \u0022 \u002B Pick(status, \u0022wsrep_incoming_addresses\u0022));\n            lines.Add(\u0022  seeded from     : \u0022 \u002B Pick(status, \u0022wsrep_cluster_address\u0022));\n            lines.Add(\u0022  last committed  : \u0022 \u002B Pick(status, \u0022wsrep_last_committed\u0022));\n            lines.Add(\u0022  recv queue avg  : \u0022 \u002B Pick(status, \u0022wsrep_local_recv_queue_avg\u0022));\n            lines.Add(\u0022  flow ctl paused : \u0022 \u002B Pick(status, \u0022wsrep_flow_control_paused\u0022));\n            lines.Add(\u0022  cert failures   : \u0022 \u002B Pick(status, \u0022wsrep_local_cert_failures\u0022));\n            lines.Add(\u0022  provider        : \u0022 \u002B Pick(status, \u0022wsrep_provider_version\u0022));\n            lines.Add(string.Empty);\n\n            var synced = string.Equals(state, \u0022Synced\u0022, StringComparison.OrdinalIgnoreCase);\n            var primary = string.Equals(clusterStatus, \u0022Primary\u0022, StringComparison.OrdinalIgnoreCase);\n            var live = string.Equals(ready, \u0022ON\u0022, StringComparison.OrdinalIgnoreCase) \u0026\u0026 string.Equals(connected, \u0022ON\u0022, StringComparison.OrdinalIgnoreCase);\n\n            if (synced \u0026\u0026 primary \u0026\u0026 live)\n                lines.Add(\u0022VERDICT: HEALTHY - this node is in sync with a primary cluster of \u0022 \u002B size \u002B \u0022.\u0022);\n            else if (primary \u0026\u0026 !synced)\n                lines.Add(\u0022VERDICT: IN PROGRESS - the node is \u0027\u0022 \u002B state \u002B \u0022\u0027. State transfer or catch-up is still running; check again in a minute.\u0022);\n            else if (!primary)\n                lines.Add(\u0022VERDICT: NOT PRIMARY - this node cannot serve writes. It has lost quorum or never joined. Check peer connectivity, then use \u0027Bootstrap / recover cluster from this node\u0027 on the node with the most recent data.\u0022);\n            else\n                lines.Add(\u0022VERDICT: PROBLEM - wsrep_ready=\u0022 \u002B ready \u002B \u0022, wsrep_connected=\u0022 \u002B connected \u002B \u0022. See the server log.\u0022);\n            lines.Add(string.Empty);\n        }\n    }\n}\n\n// ---- what TCAdmin knows about the cluster ---------------------------------\nvar candidates = await DockerServiceManager.GetDbSet()\n    .Include(x =\u003E x.ServerIp)\n    .Include(x =\u003E x.Server)\n    .Where(x =\u003E x.BlueprintId == service.BlueprintId \u0026\u0026 x.OwnerId == service.OwnerId)\n    .ToListAsync(ThisCancellationToken);\n\nvar members = candidates\n    .Where(x =\u003E string.Equals(ReadText(x.Variables, \u0022clusterName\u0022, string.Empty), clusterName, StringComparison.OrdinalIgnoreCase))\n    .OrderBy(x =\u003E x.ServiceId)\n    .ToList();\n\nlines.Add(\u0022Nodes TCAdmin knows about in cluster \u0027\u0022 \u002B clusterName \u002B \u0022\u0027: \u0022 \u002B members.Count);\nforeach (var member in members)\n{\n    var marker = member.ServiceId == service.ServiceId ? \u0022 \u003E\u0022 : \u0022  \u0022;\n    var role = string.Equals(ReadText(member.Variables, \u0022nodeRole\u0022, \u0022first\u0022), \u0022join\u0022, StringComparison.OrdinalIgnoreCase) ? \u0022additional\u0022 : \u0022first\u0022;\n    lines.Add(marker \u002B \u0022 #\u0022 \u002B member.ServiceId \u002B \u0022  \u0022 \u002B Pad(member.Name, 22) \u002B Pad(member.IPAddress \u002B \u0022:\u0022 \u002B member.Ports[\u0022Galera\u0022], 24) \u002B Pad(member.Status.ToString(), 10) \u002B role);\n}\nif (members.Count \u003E 0) lines.Add(string.Empty);\nlines.Add(\u0022A healthy cluster has an ODD number of nodes (3, 5, ...) so a network split still leaves a majority.\u0022);\n\nforeach (var line in lines) ScriptConsole.WriteLine(\u0022{0}\u0022, line);\n\nstatic string ReadText(TCAdminVars source, string key, string fallback)\n{\n    if (source == null || !source.ContainsKey(key) || source[key] == null) return fallback;\n    var text = source[key].ToString();\n    if (text == null) return fallback;\n    text = text.Trim();\n    return text.Length == 0 ? fallback : text;\n}\n\nstatic string Pick(Dictionary\u003Cstring, string\u003E source, string key)\n{\n    string value;\n    return source.TryGetValue(key, out value) ? value : \u0022(not reported)\u0022;\n}\n\nstatic string Pad(string value, int width)\n{\n    value = value ?? string.Empty;\n    if (value.Length \u003E= width) return value \u002B \u0022 \u0022;\n    return value \u002B new string(\u0027 \u0027, width - value.Length);\n}\n",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 10,
+        "icon": "\u003Cpath d=\u0022M17 16l-4-4V8.82C14.16 8.4 15 7.3 15 6c0-1.66-1.34-3-3-3S9 4.34 9 6c0 1.3.84 2.4 2 2.82V12l-4 4H3v5h5v-3.05l4-4.2 4 4.2V21h5v-5z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "4fbf8602-725a-4165-9e0b-30a3bbdfd174"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Show connection \u0026 join details",
+        "description": "Host, port and root password for connecting an application, and exactly what to enter when adding another node.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\nusing TCAdmin.Web.Shared.Models.Enums;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\n\n// Everything a user needs to (a) connect an application to this node and (b) add another\n// node to the cluster. Works whether or not the container is running.\n\nvar service = await DockerServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022FAILED: Service not found.\u0022); return; }\n\nvar clusterName = ReadText(service.Variables, \u0022clusterName\u0022, \u0022galera_cluster\u0022);\nvar nodeRole = string.Equals(ReadText(service.Variables, \u0022nodeRole\u0022, \u0022first\u0022), \u0022join\u0022, StringComparison.OrdinalIgnoreCase) ? \u0022additional node\u0022 : \u0022first node\u0022;\nvar password = ReadText(service.Variables, \u0022RootPassword\u0022, string.Empty);\nvar ip = ThisService.IPAddress;\nif (string.IsNullOrWhiteSpace(ip)) ip = service.IPAddress;\n\nvar lines = new List\u003Cstring\u003E();\nlines.Add(\u0022Connection details\u0022);\nlines.Add(\u0022  host     : \u0022 \u002B ip);\nlines.Add(\u0022  port     : \u0022 \u002B service.Ports[\u0022Port\u0022]);\nlines.Add(\u0022  user     : root\u0022);\nlines.Add(\u0022  password : \u0022 \u002B (password.Length == 0 ? \u0022(not generated yet - start the service once)\u0022 : password));\nlines.Add(\u0022  cli      : mariadb -h \u0022 \u002B ip \u002B \u0022 -P \u0022 \u002B service.Ports[\u0022Port\u0022] \u002B \u0022 -u root -p\u0022);\nlines.Add(string.Empty);\nlines.Add(\u0022Cluster\u0022);\nlines.Add(\u0022  cluster name : \u0022 \u002B clusterName);\nlines.Add(\u0022  this node    : \u0022 \u002B nodeRole);\nlines.Add(\u0022  galera addr  : \u0022 \u002B ip \u002B \u0022:\u0022 \u002B service.Ports[\u0022Galera\u0022]);\nlines.Add(\u0022  ist / sst    : \u0022 \u002B ip \u002B \u0022:\u0022 \u002B service.Ports[\u0022IST\u0022] \u002B \u0022 / \u0022 \u002B ip \u002B \u0022:\u0022 \u002B service.Ports[\u0022SST\u0022]);\nlines.Add(string.Empty);\n\nvar candidates = await DockerServiceManager.GetDbSet()\n    .Include(x =\u003E x.ServerIp)\n    .Where(x =\u003E x.BlueprintId == service.BlueprintId \u0026\u0026 x.OwnerId == service.OwnerId)\n    .ToListAsync(ThisCancellationToken);\n\nvar members = candidates\n    .Where(x =\u003E string.Equals(ReadText(x.Variables, \u0022clusterName\u0022, string.Empty), clusterName, StringComparison.OrdinalIgnoreCase))\n    .OrderBy(x =\u003E x.ServiceId)\n    .ToList();\n\nlines.Add(\u0022Members of \u0027\u0022 \u002B clusterName \u002B \u0022\u0027 known to TCAdmin: \u0022 \u002B members.Count);\nforeach (var member in members)\n{\n    var marker = member.ServiceId == service.ServiceId ? \u0022 \u003E\u0022 : \u0022  \u0022;\n    lines.Add(marker \u002B \u0022 #\u0022 \u002B member.ServiceId \u002B \u0022  \u0022 \u002B member.Name \u002B \u0022  \u0022 \u002B member.IPAddress \u002B \u0022:\u0022 \u002B member.Ports[\u0022Galera\u0022] \u002B \u0022  (\u0022 \u002B member.Status \u002B \u0022)\u0022);\n}\nlines.Add(string.Empty);\nlines.Add(\u0022To add another node:\u0022);\nlines.Add(\u0022  1. Create a new service on the \u0027MariaDB Galera Cluster\u0027 blueprint.\u0022);\nlines.Add(\u0022  2. In the configuration step choose \u0027Additional node - join an existing cluster\u0027.\u0022);\nlines.Add(\u0022  3. Set the cluster name to exactly: \u0022 \u002B clusterName);\nlines.Add(\u0022  4. Leave the other fields blank - the node finds this cluster and inherits its root password.\u0022);\nlines.Add(string.Empty);\nlines.Add(\u0022Only fill in \u0027Existing node address(es)\u0027 and \u0027Cluster root password\u0027 when joining a cluster\u0022);\nlines.Add(\u0022that this panel does not manage. For this cluster, that address list would be:\u0022);\nlines.Add(\u0022  \u0022 \u002B string.Join(\u0022,\u0022, members.Where(x =\u003E !string.IsNullOrWhiteSpace(x.IPAddress) \u0026\u0026 x.Ports[\u0022Galera\u0022] != 0)\n                                          .Select(x =\u003E x.IPAddress \u002B \u0022:\u0022 \u002B x.Ports[\u0022Galera\u0022])));\n\nforeach (var line in lines) ScriptConsole.WriteLine(\u0022{0}\u0022, line);\n\nstatic string ReadText(TCAdminVars source, string key, string fallback)\n{\n    if (source == null || !source.ContainsKey(key) || source[key] == null) return fallback;\n    var text = source[key].ToString();\n    if (text == null) return fallback;\n    text = text.Trim();\n    return text.Length == 0 ? fallback : text;\n}\n",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 20,
+        "icon": "\u003Cpath d=\u0022M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "7c7f0505-d4fd-4235-9e18-7ca245c6d5b9"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Show generated configuration",
+        "description": "Dumps the galera.cnf generated at the last start, plus your conf.d/custom.cnf overrides.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\n\n// Dumps the galera.cnf that was generated the last time this node started, plus the\n// user-owned overrides. The SST credential line is masked - use \u0027Show connection details\u0027\n// when you actually need the password.\n\nvar service = await DockerServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022FAILED: Service not found.\u0022); return; }\n\nvar galeraPath = Path.Combine(service.RootDirectory, \u0022conf.d\u0022, \u0022galera.cnf\u0022);\nvar customPath = Path.Combine(service.RootDirectory, \u0022conf.d\u0022, \u0022custom.cnf\u0022);\n\nif (!File.Exists(galeraPath))\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022No generated configuration yet: \u0022 \u002B galeraPath);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022It is written every time the service starts. Start the service once, then run this again.\u0022);\n}\nelse\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022conf.d/galera.cnf  (generated - mounted read-only at /etc/mysql/conf.d/galera.cnf)\u0022);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022-----------------------------------------------------------------------------\u0022);\n    foreach (var line in File.ReadAllLines(galeraPath))\n    {\n        var shown = line.TrimStart().StartsWith(\u0022wsrep_sst_auth\u0022, StringComparison.OrdinalIgnoreCase)\n            ? \u0022wsrep_sst_auth=root:********\u0022\n            : line;\n        ScriptConsole.WriteLine(\u0022{0}\u0022, shown);\n    }\n    ScriptConsole.WriteLine(\u0022{0}\u0022, string.Empty);\n}\n\nif (File.Exists(customPath))\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022conf.d/custom.cnf  (yours - mounted at /etc/mysql/conf.d/zz-custom.cnf, read AFTER galera.cnf)\u0022);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022-----------------------------------------------------------------------------\u0022);\n    foreach (var line in File.ReadAllLines(customPath)) ScriptConsole.WriteLine(\u0022{0}\u0022, line);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, string.Empty);\n}\n\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022galera.cnf is rebuilt from config.json on every start - editing it directly has no effect.\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Change settings in the service\u0027s Config Files -\u003E config.json, or add raw options to conf.d/custom.cnf.\u0022);\n",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 40,
+        "icon": "\u003Cpath d=\u0022M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "a5886b5e-5014-47bf-b4b7-7d048abc6e43"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "MariaDB server log",
+        "description": "Reads back the container log and highlights the replication and error lines. Works after a failed start.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll, Docker.DotNet.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing Docker.DotNet;\nusing Docker.DotNet.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\n\n// MariaDB logs to stderr, so the container log IS the error log. The live console only shows\n// output since you opened it - this reads the last 400 lines back, which is what you need\n// after a node has failed to start, and highlights the replication lines.\n\nvar service = await DockerServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022FAILED: Service not found.\u0022); return; }\n\nvar containerName = \u0022tca_svc_\u0022 \u002B service.ServiceId;\nvar text = string.Empty;\ntry\n{\n    // Docker.DotNet 4.x: the old DockerClientConfiguration is gone; the parameterless builder\n    // resolves the local unix socket / named pipe.\n    using var client = new DockerClientBuilder().Build();\n    var logStream = await client.Containers.GetContainerLogsAsync(containerName, new ContainerLogsParameters\n    {\n        ShowStdout = true,\n        ShowStderr = true,\n        Follow = false,\n        Timestamps = false,\n        Tail = \u0022400\u0022\n    }, ThisCancellationToken);\n    var (standardOutput, standardError) = await logStream.ReadOutputToEndAsync(ThisCancellationToken);\n    text = (standardOutput ?? string.Empty) \u002B (standardError ?? string.Empty);\n}\ncatch (Exception ex)\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022FAILED: could not read the container log for \u0022 \u002B containerName \u002B \u0022.\u0022);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, ex.Message);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022If the service has never been started there is no container yet.\u0022);\n    return;\n}\n\nvar lines = text.Replace(\u0022\\r\\n\u0022, \u0022\\n\u0022).Replace(\u0027\\r\u0027, \u0027\\n\u0027).Split(\u0027\\n\u0027).Where(x =\u003E x.Trim().Length \u003E 0).ToList();\nif (lines.Count == 0)\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022The container log is empty.\u0022);\n    return;\n}\n\nvar interesting = new[] { \u0022wsrep\u0022, \u0022galera\u0022, \u0022sst\u0022, \u0022ist \u0022, \u0022[error]\u0022, \u0022[warning]\u0022, \u0022[fatal]\u0022, \u0022gcomm\u0022, \u0022quorum\u0022, \u0022state transfer\u0022 };\nvar highlights = lines.Where(x =\u003E interesting.Any(k =\u003E x.IndexOf(k, StringComparison.OrdinalIgnoreCase) \u003E= 0)).ToList();\n\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Replication / error lines (\u0022 \u002B highlights.Count \u002B \u0022 of the last \u0022 \u002B lines.Count \u002B \u0022):\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022-----------------------------------------------------------------------------\u0022);\nforeach (var line in highlights.Skip(Math.Max(0, highlights.Count - 120))) ScriptConsole.WriteLine(\u0022{0}\u0022, line.TrimEnd());\n\nScriptConsole.WriteLine(\u0022{0}\u0022, string.Empty);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Full tail (last 40 lines):\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022-----------------------------------------------------------------------------\u0022);\nforeach (var line in lines.Skip(Math.Max(0, lines.Count - 40))) ScriptConsole.WriteLine(\u0022{0}\u0022, line.TrimEnd());\n\nScriptConsole.WriteLine(\u0022{0}\u0022, string.Empty);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Common messages:\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  \u0027It may not be safe to bootstrap\u0027  -\u003E whole cluster is down; use \u0027Bootstrap / recover cluster\u0027 on the node with the highest seqno.\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  \u0027failed to reach primary view\u0027     -\u003E this node cannot reach the others; run \u0027Test peer connectivity\u0027.\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  \u0027Process completed with error: wsrep_sst_mariabackup\u0027 -\u003E state transfer failed; check the donor\u0027s log too.\u0022);\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 50,
+        "icon": "\u003Cpath d=\u0022M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm2 16H8v-2h8zm0-4H8v-2h8zm-3-5V3.5L18.5 9z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "88e641e7-b092-44f9-bfd8-c0f3d8fd98e7"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Set MariaDB root password",
+        "description": "Changes the root password across the whole cluster and updates what TCAdmin has stored for every node.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.SDK.DynamicInput.Controls;\nusing TCAdmin.Web.Shared.Models;\nusing TCAdmin.Web.Shared.Models.DynamicInput;\nusing TCAdmin.Web.Shared.Models.Enums;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\n\n// Galera replicates the user change to every node by itself. What it does NOT do is update\n// what TCAdmin has stored for the other node services, or the wsrep_sst_auth line baked into\n// each node\u0027s generated galera.cnf - so this also rewrites the stored password on every\n// member and tells you to roll a restart.\n\nif (ThisService.Status != EServiceStatus.Started) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022This node is not running. Start it and try again.\u0022); return; }\nif (!IsInteractive) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Run this action from the panel.\u0022); return; }\n\nvar service = await DockerServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022FAILED: Service not found.\u0022); return; }\n\nvar currentPassword = ReadText(service.Variables, \u0022RootPassword\u0022, string.Empty);\nif (currentPassword.Length == 0) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022FAILED: no root password is stored for this node.\u0022); return; }\n\nvar box = new DynamicTextBox\n{\n    Id = \u0022NewPassword\u0022,\n    Label = \u0022New root password\u0022,\n    Description = \u0022Applied to every node in the cluster.\u0022,\n    Required = true,\n    InputType = 1\n};\nvar answer = await ThisScript.Input(new InputConfiguration { IsDialog = true, AllowCancel = true }, box);\nif (answer.Canceled) return;\nvar newPassword = answer.Values == null ? null : (answer.Values[\u0022NewPassword\u0022] == null ? null : answer.Values[\u0022NewPassword\u0022].ToString());\nif (string.IsNullOrWhiteSpace(newPassword)) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022FAILED: New password is empty.\u0022); return; }\nif (newPassword.IndexOf(\u0027\\\u0027\u0027) \u003E= 0 || newPassword.IndexOf(\u0027\\\\\u0027) \u003E= 0 || newPassword.IndexOf(\u0027\\n\u0027) \u003E= 0)\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022FAILED: the password cannot contain a single quote, a backslash or a newline.\u0022);\n    return;\n}\n\nvar root = service.RootDirectory;\nvar cnfPath = Path.Combine(root, \u0022.tcadmin-mariadb.cnf\u0022);\nvar sqlPath = Path.Combine(root, \u0022.tcadmin-password.sql\u0022);\nvar shPath = Path.Combine(root, \u0022.tcadmin-password.sh\u0022);\n\nFile.WriteAllText(cnfPath, \u0022[client]\\nuser=root\\npassword=\u0022 \u002B currentPassword \u002B \u0022\\n\u0022);\nFile.WriteAllText(sqlPath,\n    \u0022SET SESSION wsrep_on = ON;\\n\u0022 \u002B\n    \u0022ALTER USER \u0027root\u0027@\u0027localhost\u0027 IDENTIFIED BY \u0027\u0022 \u002B newPassword \u002B \u0022\u0027;\\n\u0022 \u002B\n    \u0022ALTER USER IF EXISTS \u0027root\u0027@\u0027%\u0027 IDENTIFIED BY \u0027\u0022 \u002B newPassword \u002B \u0022\u0027;\\n\u0022 \u002B\n    \u0022FLUSH PRIVILEGES;\\n\u0022 \u002B\n    \u0022SELECT \u0027TCA_PASSWORD_CHANGE_OK\u0027;\\n\u0022);\nFile.WriteAllText(shPath,\n    \u0022#!/bin/sh\\numask 077\\np=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$p\\\u0022\u0027 EXIT\\n\u0022 \u002B\n    \u0022cp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$p\\\u0022\\n\u0022 \u002B\n    \u0022if mariadb --defaults-extra-file=\\\u0022$p\\\u0022 \u003C /mnt/server/.tcadmin-password.sql; then echo \u0027SUCCESS: MariaDB root password changed.\u0027; \u0022 \u002B\n    \u0022else c=$?; echo \\\u0022FAILED: Password change failed (mariadb exit code $c).\\\u0022; exit $c; fi\\n\u0022);\n\nvar output = string.Empty;\ntry\n{\n    var bytes = await DockerServiceManager.ExecConsoleSingleCommand(service, \u0022/bin/sh /mnt/server/.tcadmin-password.sh\u0022, ThisCancellationToken);\n    output = Encoding.UTF8.GetString(bytes);\n}\nfinally\n{\n    try { File.Delete(cnfPath); File.Delete(sqlPath); File.Delete(shPath); } catch { }\n}\n\nforeach (var line in output.Replace(\u0022\\r\\n\u0022, \u0022\\n\u0022).Replace(\u0027\\r\u0027, \u0027\\n\u0027).Split(\u0027\\n\u0027))\n{\n    if (line.Trim().Length \u003E 0) ScriptConsole.WriteLine(\u0022{0}\u0022, line.TrimEnd());\n}\n\nif (output.IndexOf(\u0022SUCCESS: MariaDB root password changed.\u0022, StringComparison.Ordinal) \u003C 0)\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Nothing was changed in TCAdmin because the database change did not report success.\u0022);\n    return;\n}\n\n// Update the stored password on this node and on every other member of the same cluster.\nvar clusterName = ReadText(service.Variables, \u0022clusterName\u0022, \u0022galera_cluster\u0022);\nvar candidates = await DockerServiceManager.GetDbSet()\n    .Where(x =\u003E x.BlueprintId == service.BlueprintId \u0026\u0026 x.OwnerId == service.OwnerId)\n    .ToListAsync(ThisCancellationToken);\nvar members = candidates\n    .Where(x =\u003E x.ServiceId == service.ServiceId\n             || string.Equals(ReadText(x.Variables, \u0022clusterName\u0022, string.Empty), clusterName, StringComparison.OrdinalIgnoreCase))\n    .ToList();\n\nvar updatedCount = 0;\nforeach (var member in members)\n{\n    var updated = new TCAdminVars();\n    if (member.Variables != null) foreach (var pair in member.Variables) updated[pair.Key] = pair.Value;\n    if (string.Equals(ReadText(updated, \u0022RootPassword\u0022, string.Empty), newPassword, StringComparison.Ordinal)) continue;\n    updated[\u0022RootPassword\u0022] = newPassword;\n    // A joining node\u0027s override would otherwise re-apply the old password on its next start.\n    if (ReadText(updated, \u0022clusterRootPassword\u0022, string.Empty).Length \u003E 0) updated[\u0022clusterRootPassword\u0022] = newPassword;\n    member.Variables = updated;\n    DockerServiceManager.TCAdminDbContext.Entry(member).State = EntityState.Modified;\n    updatedCount\u002B\u002B;\n}\nif (updatedCount \u003E 0) await DockerServiceManager.SaveChangesAsync(ThisCancellationToken);\n\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022SUCCESS: new root password saved for \u0022 \u002B updatedCount \u002B \u0022 node(s) of cluster \u0027\u0022 \u002B clusterName \u002B \u0022\u0027.\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, string.Empty);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022IMPORTANT: each node still has the OLD password in its generated galera.cnf (wsrep_sst_auth),\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022which is what a state transfer authenticates with. Restart the nodes ONE AT A TIME, waiting\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022for each to report Synced in \u0027Galera cluster status\u0027 before restarting the next.\u0022);\n\nstatic string ReadText(TCAdminVars source, string key, string fallback)\n{\n    if (source == null || !source.ContainsKey(key) || source[key] == null) return fallback;\n    var text = source[key].ToString();\n    if (text == null) return fallback;\n    text = text.Trim();\n    return text.Length == 0 ? fallback : text;\n}\n",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 100,
+        "icon": "\u003Cpath d=\u0022M12 2a5 5 0 0 0-5 5v3H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-2V7a5 5 0 0 0-5-5m-3 8V7a3 3 0 0 1 6 0v3zm3 3a2 2 0 1 0 2 3.46V19h-4v-2.54A2 2 0 0 0 12 13\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "e3ee5592-3545-4c8b-83ff-4a1942c94bff"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Create database",
+        "description": "Creates a database and explicitly reports SUCCESS or FAILED with the MariaDB exit code.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing System.IO;\nusing System.Text;\nusing System.Text.RegularExpressions;\nusing TCAdmin.Web.Shared.Models.Enums;\nusing TCAdmin.SDK.DynamicInput.Controls;\nusing TCAdmin.Web.Shared.Models.DynamicInput;\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\nif(ThisService.Status!=EServiceStatus.Started){ScriptConsole.WriteLine(\u0022MariaDB is not running. Start the service and try again.\u0022);return;}if(!IsInteractive){ScriptConsole.WriteLine(\u0022Run this action from the panel.\u0022);return;}\nvar n=new DynamicTextBox { Id=\u0022Name\u0022, Label=\u0022Database name\u0022, Required=true }; var r=await ThisScript.Input(new InputConfiguration { IsDialog=true, AllowCancel=true },n); if(r.Canceled)return;\nvar v=r.Values?[\u0022Name\u0022]?.ToString(); if(String.IsNullOrWhiteSpace(v))return;\nif(!Regex.IsMatch(v,\u0022^[A-Za-z0-9_]\u002B$\u0022)){ScriptConsole.WriteLine(\u0022FAILED: Use only letters, numbers, and underscores in the database name.\u0022);return;}\nvar service=await DockerServiceManager.GetAsync(ThisService.ServiceId); if(service==null){ScriptConsole.WriteLine(\u0022FAILED: Service not found.\u0022);return;}\nvar p=service.Variables.Parse(\u0022RootPassword\u0022,string.Empty); if(String.IsNullOrWhiteSpace(p)){ScriptConsole.WriteLine(\u0022FAILED: Stored MariaDB root password is empty.\u0022);return;}\nvar root=service.RootDirectory;\nvar cnf=Path.Combine(root,\u0022.tcadmin-mariadb.cnf\u0022); var sql=Path.Combine(root,\u0022.tcadmin-create-db.sql\u0022); var sh=Path.Combine(root,\u0022.tcadmin-create-db.sh\u0022);\nFile.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Bp\u002B\u0022\\n\u0022);\nFile.WriteAllText(sql,\u0022CREATE DATABASE \u0060\u0022\u002Bv\u002B\u0022\u0060;\\n\u0022);\nFile.WriteAllText(sh,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nif mariadb --defaults-extra-file=\\\u0022$private\\\u0022 \u003C /mnt/server/.tcadmin-create-db.sql; then\\n  echo \\\u0022SUCCESS: Database \u0027\u0022\u002Bv\u002B\u0022\u0027 was created.\\\u0022\\nelse\\n  code=$?\\n  echo \\\u0022FAILED: Could not create database \u0027\u0022\u002Bv\u002B\u0022\u0027 (mariadb exit code $code).\\\u0022\\n  exit $code\\nfi\\n\u0022);\nvar c=\u0022/bin/sh /mnt/server/.tcadmin-create-db.sh\u0022;\nvar o=await DockerServiceManager.ExecConsoleSingleCommand(service,c,ThisCancellationToken); ScriptConsole.WriteLine(Encoding.UTF8.GetString(o));\ntry { File.Delete(cnf); File.Delete(sql); File.Delete(sh); } catch { }",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 110,
+        "icon": "\u003Cpath d=\u0022M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-9 14-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "c911a58c-3563-4997-8852-aab09c407643"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Drop database",
+        "description": "Drops a selected MariaDB database using an inline dropdown.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;using System.IO;using System.Linq;using System.Text;using System.Text.RegularExpressions;using TCAdmin.Web.Shared.Models.Enums;using TCAdmin.SDK.DynamicInput.Controls;using TCAdmin.Web.Shared.Models.DynamicInput;\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\nif(ThisService.Status!=EServiceStatus.Started){ScriptConsole.WriteLine(\u0022MariaDB is not running. Start the service and try again.\u0022);return;}if(!IsInteractive){ScriptConsole.WriteLine(\u0022Run this action from the panel.\u0022);return;}var s=await DockerServiceManager.GetAsync(ThisService.ServiceId);if(s==null){ScriptConsole.WriteLine(\u0022FAILED: Service not found.\u0022);return;}var p=s.Variables.Parse(\u0022RootPassword\u0022,string.Empty);if(String.IsNullOrWhiteSpace(p)){ScriptConsole.WriteLine(\u0022FAILED: Stored MariaDB root password is empty.\u0022);return;}var root=s.RootDirectory;var cnf=Path.Combine(root,\u0022.tcadmin-mariadb.cnf\u0022);var ls=Path.Combine(root,\u0022.tcadmin-list-db.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Bp\u002B\u0022\\n\u0022);File.WriteAllText(ls,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nexec mariadb --defaults-extra-file=\\\u0022$private\\\u0022 -N -B -e \u0027SHOW DATABASES\u0027\\n\u0022);string[] dbs;try{var b=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-list-db.sh\u0022,ThisCancellationToken);dbs=Encoding.UTF8.GetString(b).Split(new[]{\u0027\\r\u0027,\u0027\\n\u0027},StringSplitOptions.RemoveEmptyEntries).Where(x=\u003ERegex.IsMatch(x,\u0022^[A-Za-z0-9_]\u002B$\u0022)).ToArray();}finally{try{File.Delete(cnf);File.Delete(ls);}catch{}}if(dbs.Length==0){ScriptConsole.WriteLine(\u0022FAILED: Could not read the MariaDB database list.\u0022);return;}var db=new DynamicComboBox{Id=\u0022Database\u0022,Label=\u0022Database\u0022,Required=true};foreach(var x in dbs)db.Items.Add(new DynamicComboBoxItem{Text=x,Value=x});var r=await ThisScript.Input(new InputConfiguration{IsDialog=false,AllowCancel=true},db);if(r.Canceled)return;var d=r.Values?[\u0022Database\u0022]?.ToString();if(String.IsNullOrWhiteSpace(d)||!Regex.IsMatch(d,\u0022^[A-Za-z0-9_]\u002B$\u0022)){ScriptConsole.WriteLine(\u0022FAILED: Invalid database name.\u0022);return;}var sql=\u0022DROP DATABASE \u0060\u0022\u002Bd\u002B\u0022\u0060;\u0022;var sf=Path.Combine(root,\u0022.tcadmin-drop-db.sql\u0022);var sh=Path.Combine(root,\u0022.tcadmin-drop-db.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Bp\u002B\u0022\\n\u0022);File.WriteAllText(sf,sql\u002B\u0022\\n\u0022);File.WriteAllText(sh,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nif mariadb --defaults-extra-file=\\\u0022$private\\\u0022 \u003C /mnt/server/.tcadmin-drop-db.sql; then echo \u0027SUCCESS: Database dropped.\u0027;else c=$?;echo \\\u0022FAILED: Could not drop database (mariadb exit code $c).\\\u0022;exit $c;fi\\n\u0022);try{var o=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-drop-db.sh\u0022,ThisCancellationToken);ScriptConsole.WriteLine(Encoding.UTF8.GetString(o));}finally{try{File.Delete(cnf);File.Delete(sf);File.Delete(sh);}catch{}}",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 120,
+        "icon": "\u003Cpath d=\u0022M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6zm3-9h6v2H9zm0 4h6v2H9zM15.5 4l-1-1h-5l-1 1H5v2h14V4z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "89687ed0-86dc-4d3c-b608-ea79a5e40fc3"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Create table",
+        "description": "Creates a MariaDB table using temporary files and reports success or failure.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;using System.IO;using System.Linq;using System.Text;using System.Text.RegularExpressions;using TCAdmin.Web.Shared.Models.Enums;using TCAdmin.SDK.DynamicInput.Controls;using TCAdmin.Web.Shared.Models.DynamicInput;\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\nif(ThisService.Status!=EServiceStatus.Started){ScriptConsole.WriteLine(\u0022MariaDB is not running. Start the service and try again.\u0022);return;}if(!IsInteractive){ScriptConsole.WriteLine(\u0022Run this action from the panel.\u0022);return;}var s=await DockerServiceManager.GetAsync(ThisService.ServiceId);if(s==null){ScriptConsole.WriteLine(\u0022FAILED: Service not found.\u0022);return;}var p=s.Variables.Parse(\u0022RootPassword\u0022,string.Empty);if(String.IsNullOrWhiteSpace(p)){ScriptConsole.WriteLine(\u0022FAILED: Stored MariaDB root password is empty.\u0022);return;}var root=s.RootDirectory;var cnf=Path.Combine(root,\u0022.tcadmin-mariadb.cnf\u0022);var ls=Path.Combine(root,\u0022.tcadmin-list-db.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Bp\u002B\u0022\\n\u0022);File.WriteAllText(ls,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nexec mariadb --defaults-extra-file=\\\u0022$private\\\u0022 -N -B -e \u0027SHOW DATABASES\u0027\\n\u0022);string[] dbs;try{var b=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-list-db.sh\u0022,ThisCancellationToken);dbs=Encoding.UTF8.GetString(b).Split(new[]{\u0027\\r\u0027,\u0027\\n\u0027},StringSplitOptions.RemoveEmptyEntries).Where(x=\u003ERegex.IsMatch(x,\u0022^[A-Za-z0-9_]\u002B$\u0022)).ToArray();}finally{try{File.Delete(cnf);File.Delete(ls);}catch{}}if(dbs.Length==0){ScriptConsole.WriteLine(\u0022FAILED: Could not read the MariaDB database list.\u0022);return;}var db=new DynamicComboBox{Id=\u0022Database\u0022,Label=\u0022Database\u0022,Required=true};foreach(var x in dbs)db.Items.Add(new DynamicComboBoxItem{Text=x,Value=x});var t=new DynamicTextBox{Id=\u0022Table\u0022,Label=\u0022Table\u0022,Required=true};var de=new DynamicTextBox{Id=\u0022Definition\u0022,Label=\u0022Columns definition\u0022,Lines=4,Required=true};var r=await ThisScript.Input(new InputConfiguration{IsDialog=true,AllowCancel=true},db,t,de);if(r.Canceled)return;var d=r.Values?[\u0022Database\u0022]?.ToString();var tb=r.Values?[\u0022Table\u0022]?.ToString();var def=r.Values?[\u0022Definition\u0022]?.ToString();if(String.IsNullOrWhiteSpace(d)||String.IsNullOrWhiteSpace(tb)||String.IsNullOrWhiteSpace(def))return;if(!Regex.IsMatch(tb,\u0022^[A-Za-z0-9_]\u002B$\u0022)){ScriptConsole.WriteLine(\u0022FAILED: Invalid table name.\u0022);return;}var sql=\u0022CREATE TABLE \u0060\u0022\u002Btb\u002B\u0022\u0060 (\u0022\u002Bdef\u002B\u0022);\u0022;var sf=Path.Combine(root,\u0022.tcadmin-table.sql\u0022);var sh=Path.Combine(root,\u0022.tcadmin-table.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Bp\u002B\u0022\\n\u0022);File.WriteAllText(sf,sql\u002B\u0022\\n\u0022);File.WriteAllText(sh,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nif mariadb --defaults-extra-file=\\\u0022$private\\\u0022 -D \u0022\u002Bd\u002B\u0022 \u003C /mnt/server/.tcadmin-table.sql; then echo \u0027SUCCESS: Table created.\u0027;else c=$?;echo \\\u0022FAILED: Could not create table (mariadb exit code $c).\\\u0022;exit $c;fi\\n\u0022);try{var o=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-table.sh\u0022,ThisCancellationToken);ScriptConsole.WriteLine(Encoding.UTF8.GetString(o));}finally{try{File.Delete(cnf);File.Delete(sf);File.Delete(sh);}catch{}}",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 130,
+        "icon": "\u003Cpath d=\u0022M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 4h2v4h4v2h-4v4h-2v-4H7v-2h4z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "a096bbe6-b270-4046-a9fa-17433ba142e8"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Truncate table",
+        "description": "Truncates a MariaDB table using temporary files and reports success or failure.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;using System.IO;using System.Linq;using System.Text;using System.Text.RegularExpressions;using TCAdmin.Web.Shared.Models.Enums;using TCAdmin.SDK.DynamicInput.Controls;using TCAdmin.Web.Shared.Models.DynamicInput;\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\n\nif(ThisService.Status!=EServiceStatus.Started){ScriptConsole.WriteLine(\u0022MariaDB is not running. Start the service and try again.\u0022);return;}if(!IsInteractive){ScriptConsole.WriteLine(\u0022Run this action from the panel.\u0022);return;}var s=await DockerServiceManager.GetAsync(ThisService.ServiceId);if(s==null){ScriptConsole.WriteLine(\u0022FAILED: Service not found.\u0022);return;}var p=s.Variables.Parse(\u0022RootPassword\u0022,string.Empty);if(String.IsNullOrWhiteSpace(p)){ScriptConsole.WriteLine(\u0022FAILED: Stored MariaDB root password is empty.\u0022);return;}var root=s.RootDirectory;var cnf=Path.Combine(root,\u0022.tcadmin-mariadb.cnf\u0022);var ls=Path.Combine(root,\u0022.tcadmin-list-db.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Bp\u002B\u0022\\n\u0022);File.WriteAllText(ls,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nexec mariadb --defaults-extra-file=\\\u0022$private\\\u0022 -N -B -e \u0027SHOW DATABASES\u0027\\n\u0022);string[] dbs;try{var b=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-list-db.sh\u0022,ThisCancellationToken);dbs=Encoding.UTF8.GetString(b).Split(new[]{\u0027\\r\u0027,\u0027\\n\u0027},StringSplitOptions.RemoveEmptyEntries).Where(x=\u003ERegex.IsMatch(x,\u0022^[A-Za-z0-9_]\u002B$\u0022)).ToArray();}finally{try{File.Delete(cnf);File.Delete(ls);}catch{}}if(dbs.Length==0){ScriptConsole.WriteLine(\u0022FAILED: Could not read the MariaDB database list.\u0022);return;}var db=new DynamicComboBox{Id=\u0022Database\u0022,Label=\u0022Database\u0022,Required=true};foreach(var x in dbs)db.Items.Add(new DynamicComboBoxItem{Text=x,Value=x});var r=await ThisScript.Input(new InputConfiguration{IsDialog=false,AllowCancel=true},db);if(r.Canceled)return;var d=r.Values?[\u0022Database\u0022]?.ToString();if(String.IsNullOrWhiteSpace(d))return;if(!Regex.IsMatch(d,\u0022^[A-Za-z0-9_]\u002B$\u0022)){ScriptConsole.WriteLine(\u0022FAILED: Invalid database name.\u0022);return;}var ts=Path.Combine(root,\u0022.tcadmin-list-tables.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Bp\u002B\u0022\\n\u0022);File.WriteAllText(ts,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nexec mariadb --defaults-extra-file=\\\u0022$private\\\u0022 -D \u0022\u002Bd\u002B\u0022 -N -B -e \u0027SHOW TABLES\u0027\\n\u0022);string[] tables;try{var b=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-list-tables.sh\u0022,ThisCancellationToken);tables=Encoding.UTF8.GetString(b).Split(new[]{\u0027\\r\u0027,\u0027\\n\u0027},StringSplitOptions.RemoveEmptyEntries).Where(x=\u003ERegex.IsMatch(x,\u0022^[A-Za-z0-9_]\u002B$\u0022)).ToArray();}finally{try{File.Delete(cnf);File.Delete(ts);}catch{}}if(tables.Length==0){ScriptConsole.WriteLine(\u0022FAILED: Could not read the table list.\u0022);return;}var t=new DynamicComboBox{Id=\u0022Table\u0022,Label=\u0022Table\u0022,Required=true};foreach(var x in tables)t.Items.Add(new DynamicComboBoxItem{Text=x,Value=x});r=await ThisScript.Input(new InputConfiguration{IsDialog=false,AllowCancel=true},t);if(r.Canceled)return;var tb=r.Values?[\u0022Table\u0022]?.ToString();if(String.IsNullOrWhiteSpace(tb))return;var sql=\u0022TRUNCATE TABLE \u0060\u0022\u002Btb\u002B\u0022\u0060;\u0022;var sf=Path.Combine(root,\u0022.tcadmin-truncate.sql\u0022);var sh=Path.Combine(root,\u0022.tcadmin-truncate.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Bp\u002B\u0022\\n\u0022);File.WriteAllText(sf,sql\u002B\u0022\\n\u0022);File.WriteAllText(sh,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nif mariadb --defaults-extra-file=\\\u0022$private\\\u0022 -D \u0022\u002Bd\u002B\u0022 \u003C /mnt/server/.tcadmin-truncate.sql; then echo \u0027SUCCESS: Table truncated.\u0027;else c=$?;echo \\\u0022FAILED: Could not truncate table (mariadb exit code $c).\\\u0022;exit $c;fi\\n\u0022);try{var o=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-truncate.sh\u0022,ThisCancellationToken);ScriptConsole.WriteLine(Encoding.UTF8.GetString(o));}finally{try{File.Delete(cnf);File.Delete(sf);File.Delete(sh);}catch{}}",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 140,
+        "icon": "\u003Cpath d=\u0022M5 3h14v2H5zm0 4h14v2H5zm0 4h14v2H5zm0 4h14v2H5zm0 4h14v2H5z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "c68f3739-7ca1-48d8-a6d8-0b49e5ee52cf"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Drop table",
+        "description": "Drops a selected MariaDB table using inline database and table dropdowns.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;using System.IO;using System.Linq;using System.Text;using System.Text.RegularExpressions;using TCAdmin.Web.Shared.Models.Enums;using TCAdmin.SDK.DynamicInput.Controls;using TCAdmin.Web.Shared.Models.DynamicInput;\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\nif(ThisService.Status!=EServiceStatus.Started){ScriptConsole.WriteLine(\u0022MariaDB is not running. Start the service and try again.\u0022);return;}if(!IsInteractive){ScriptConsole.WriteLine(\u0022Run this action from the panel.\u0022);return;}var s=await DockerServiceManager.GetAsync(ThisService.ServiceId);if(s==null){ScriptConsole.WriteLine(\u0022FAILED: Service not found.\u0022);return;}var p=s.Variables.Parse(\u0022RootPassword\u0022,string.Empty);if(String.IsNullOrWhiteSpace(p)){ScriptConsole.WriteLine(\u0022FAILED: Stored MariaDB root password is empty.\u0022);return;}var root=s.RootDirectory;var cnf=Path.Combine(root,\u0022.tcadmin-mariadb.cnf\u0022);var ls=Path.Combine(root,\u0022.tcadmin-list-db.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Bp\u002B\u0022\\n\u0022);File.WriteAllText(ls,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nexec mariadb --defaults-extra-file=\\\u0022$private\\\u0022 -N -B -e \u0027SHOW DATABASES\u0027\\n\u0022);string[] dbs;try{var b=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-list-db.sh\u0022,ThisCancellationToken);dbs=Encoding.UTF8.GetString(b).Split(new[]{\u0027\\r\u0027,\u0027\\n\u0027},StringSplitOptions.RemoveEmptyEntries).Where(x=\u003ERegex.IsMatch(x,\u0022^[A-Za-z0-9_]\u002B$\u0022)).ToArray();}finally{try{File.Delete(cnf);File.Delete(ls);}catch{}}if(dbs.Length==0){ScriptConsole.WriteLine(\u0022FAILED: Could not read the MariaDB database list.\u0022);return;}var db=new DynamicComboBox{Id=\u0022Database\u0022,Label=\u0022Database\u0022,Required=true};foreach(var x in dbs)db.Items.Add(new DynamicComboBoxItem{Text=x,Value=x});var r=await ThisScript.Input(new InputConfiguration{IsDialog=false,AllowCancel=true},db);if(r.Canceled)return;var d=r.Values?[\u0022Database\u0022]?.ToString();if(String.IsNullOrWhiteSpace(d)||!Regex.IsMatch(d,\u0022^[A-Za-z0-9_]\u002B$\u0022)){ScriptConsole.WriteLine(\u0022FAILED: Invalid database name.\u0022);return;}var ts=Path.Combine(root,\u0022.tcadmin-list-tables.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Bp\u002B\u0022\\n\u0022);File.WriteAllText(ts,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nexec mariadb --defaults-extra-file=\\\u0022$private\\\u0022 -D \u0022\u002Bd\u002B\u0022 -N -B -e \u0027SHOW TABLES\u0027\\n\u0022);string[] tables;try{var b=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-list-tables.sh\u0022,ThisCancellationToken);tables=Encoding.UTF8.GetString(b).Split(new[]{\u0027\\r\u0027,\u0027\\n\u0027},StringSplitOptions.RemoveEmptyEntries).Where(x=\u003ERegex.IsMatch(x,\u0022^[A-Za-z0-9_]\u002B$\u0022)).ToArray();}finally{try{File.Delete(cnf);File.Delete(ts);}catch{}}if(tables.Length==0){ScriptConsole.WriteLine(\u0022FAILED: Could not read the table list.\u0022);return;}var t=new DynamicComboBox{Id=\u0022Table\u0022,Label=\u0022Table\u0022,Required=true};foreach(var x in tables)t.Items.Add(new DynamicComboBoxItem{Text=x,Value=x});r=await ThisScript.Input(new InputConfiguration{IsDialog=false,AllowCancel=true},t);if(r.Canceled)return;var tb=r.Values?[\u0022Table\u0022]?.ToString();if(String.IsNullOrWhiteSpace(tb)||!Regex.IsMatch(tb,\u0022^[A-Za-z0-9_]\u002B$\u0022)){ScriptConsole.WriteLine(\u0022FAILED: Invalid table name.\u0022);return;}var sql=\u0022DROP TABLE \u0060\u0022\u002Btb\u002B\u0022\u0060;\u0022;var sf=Path.Combine(root,\u0022.tcadmin-drop-table.sql\u0022);var sh=Path.Combine(root,\u0022.tcadmin-drop-table.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Bp\u002B\u0022\\n\u0022);File.WriteAllText(sf,sql\u002B\u0022\\n\u0022);File.WriteAllText(sh,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nif mariadb --defaults-extra-file=\\\u0022$private\\\u0022 -D \u0022\u002Bd\u002B\u0022 \u003C /mnt/server/.tcadmin-drop-table.sql; then echo \u0027SUCCESS: Table dropped.\u0027;else c=$?;echo \\\u0022FAILED: Could not drop table (mariadb exit code $c).\\\u0022;exit $c;fi\\n\u0022);try{var o=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-drop-table.sh\u0022,ThisCancellationToken);ScriptConsole.WriteLine(Encoding.UTF8.GetString(o));}finally{try{File.Delete(cnf);File.Delete(sf);File.Delete(sh);}catch{}}",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 150,
+        "icon": "\u003Cpath d=\u0022M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6zm3-8h6v2H9zm0 4h6v2H9zM15.5 4l-1-1h-5l-1 1H5v2h14V4z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "a8b1bf65-a360-4de5-a33b-b433df626a13"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Execute SQL command",
+        "description": "Executes SQL with inline database and command inputs and prints the MariaDB output.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;using System.IO;using System.Linq;using System.Text;using System.Text.RegularExpressions;using TCAdmin.Web.Shared.Models.Enums;using TCAdmin.SDK.DynamicInput.Controls;using TCAdmin.Web.Shared.Models.DynamicInput;\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\n\nif(ThisService.Status!=EServiceStatus.Started){ScriptConsole.WriteLine(\u0022MariaDB is not running. Start the service and try again.\u0022);return;}if(!IsInteractive){ScriptConsole.WriteLine(\u0022Run this action from the panel.\u0022);return;}\nvar s=await DockerServiceManager.GetAsync(ThisService.ServiceId);if(s==null){ScriptConsole.WriteLine(\u0022FAILED: Service not found.\u0022);return;}var p=s.Variables.Parse(\u0022RootPassword\u0022,string.Empty);if(String.IsNullOrWhiteSpace(p)){ScriptConsole.WriteLine(\u0022FAILED: Stored MariaDB root password is empty.\u0022);return;}var root=s.RootDirectory;var cnf=Path.Combine(root,\u0022.tcadmin-mariadb.cnf\u0022);var ls=Path.Combine(root,\u0022.tcadmin-list-db.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Bp\u002B\u0022\\n\u0022);File.WriteAllText(ls,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nexec mariadb --defaults-extra-file=\\\u0022$private\\\u0022 -N -B -e \u0027SHOW DATABASES\u0027\\n\u0022);string[] dbs;try{var b=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-list-db.sh\u0022,ThisCancellationToken);dbs=Encoding.UTF8.GetString(b).Split(new[]{\u0027\\r\u0027,\u0027\\n\u0027},StringSplitOptions.RemoveEmptyEntries).Where(x=\u003ERegex.IsMatch(x,\u0022^[A-Za-z0-9_]\u002B$\u0022)).ToArray();}finally{try{File.Delete(cnf);File.Delete(ls);}catch{}}if(dbs.Length==0){ScriptConsole.WriteLine(\u0022FAILED: Could not read the MariaDB database list.\u0022);return;}var db=new DynamicComboBox{Id=\u0022Database\u0022,Label=\u0022Database\u0022,Required=true};foreach(var x in dbs)db.Items.Add(new DynamicComboBoxItem{Text=x,Value=x});var r=await ThisScript.Input(new InputConfiguration{IsDialog=false,AllowCancel=true},db);if(r.Canceled)return;var d=r.Values?[\u0022Database\u0022]?.ToString();if(String.IsNullOrWhiteSpace(d)||!Regex.IsMatch(d,\u0022^[A-Za-z0-9_]\u002B$\u0022)){ScriptConsole.WriteLine(\u0022FAILED: Invalid database name.\u0022);return;}ScriptConsole.WriteLine(\u0022Database selected: \u0022\u002Bd);ScriptConsole.WriteLine(\u0022Enter SQL commands; cancel the SQL prompt to finish.\u0022);while(true){var qbox=new DynamicTextBox{Id=\u0022Sql\u0022,Label=\u0022SQL command\u0022,Required=true,Lines=8};r=await ThisScript.Input(new InputConfiguration{IsDialog=false,AllowCancel=true},qbox);if(r.Canceled){ScriptConsole.WriteLine(\u0022SQL command loop cancelled.\u0022);return;}var q=r.Values?[\u0022Sql\u0022]?.ToString();if(String.IsNullOrWhiteSpace(q)){ScriptConsole.WriteLine(\u0022FAILED: SQL command is empty.\u0022);continue;}var sf=Path.Combine(root,\u0022.tcadmin-sql.sql\u0022);var sh=Path.Combine(root,\u0022.tcadmin-sql.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Bp\u002B\u0022\\n\u0022);File.WriteAllText(sf,q\u002B\u0022\\n\u0022);File.WriteAllText(sh,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nmariadb --defaults-extra-file=\\\u0022$private\\\u0022 -D \u0022\u002Bd\u002B\u0022 \u003C /mnt/server/.tcadmin-sql.sql\\ncode=$?\\nif [ $code -eq 0 ]; then echo \u0027SUCCESS: SQL command completed.\u0027; else echo \\\u0022FAILED: SQL command failed (mariadb exit code $code).\\\u0022; exit $code; fi\\n\u0022);try{var o=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-sql.sh\u0022,ThisCancellationToken);var output=Encoding.UTF8.GetString(o);ScriptConsole.WriteLine(\u0022SQL output:\u0022);if(String.IsNullOrWhiteSpace(output)){ScriptConsole.WriteLine(\u0022(no rows returned)\u0022);}else{foreach(var line in output.Replace(\u0022\\r\\n\u0022,\u0022\\n\u0022).Replace(\u0027\\r\u0027,\u0027\\n\u0027).Split(\u0027\\n\u0027))ScriptConsole.WriteLine(line);}}finally{try{File.Delete(cnf);File.Delete(sf);File.Delete(sh);}catch{}}}",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 160,
+        "icon": "\u003Cpath d=\u0022M4 4h16v2H4zm0 5h16v2H4zm0 5h10v2H4zm0 5h7v2H4z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "7da6a274-5fa2-47af-a6eb-644ab699b61c"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Create MariaDB user",
+        "description": "Creates a MariaDB user using temporary files and reports success or failure.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;using System.IO;using System.Text;using System.Text.RegularExpressions;using TCAdmin.Web.Shared.Models.Enums;using TCAdmin.SDK.DynamicInput.Controls;using TCAdmin.Web.Shared.Models.DynamicInput;\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\nif(ThisService.Status!=EServiceStatus.Started){ScriptConsole.WriteLine(\u0022MariaDB is not running. Start the service and try again.\u0022);return;}if(!IsInteractive){ScriptConsole.WriteLine(\u0022Run this action from the panel.\u0022);return;}\nvar u=new DynamicTextBox{Id=\u0022User\u0022,Label=\u0022Username\u0022,Required=true};var h=new DynamicTextBox{Id=\u0022Host\u0022,Label=\u0022Host\u0022,DefaultValue=\u0022%\u0022,Required=true};var pb=new DynamicTextBox{Id=\u0022Password\u0022,Label=\u0022Password\u0022,Required=true,InputType=1};var a=new DynamicCheckBox{Id=\u0022All\u0022,Label=\u0022Grant on all databases\u0022};var r=await ThisScript.Input(new InputConfiguration{IsDialog=true,AllowCancel=true},u,h,pb,a);if(r.Canceled)return;var us=r.Values?[\u0022User\u0022]?.ToString();var ho=r.Values?[\u0022Host\u0022]?.ToString();var pw=r.Values?[\u0022Password\u0022]?.ToString();var all=Boolean.TryParse(r.Values?[\u0022All\u0022]?.ToString(),out var grantAll)\u0026\u0026grantAll;if(String.IsNullOrWhiteSpace(us)||String.IsNullOrWhiteSpace(ho)||String.IsNullOrWhiteSpace(pw))return;if(!Regex.IsMatch(us,\u0022^[A-Za-z0-9_]\u002B$\u0022)||!Regex.IsMatch(ho,\u0022^[A-Za-z0-9_%.-]\u002B$\u0022)){ScriptConsole.WriteLine(\u0022FAILED: Invalid username or host.\u0022);return;}var s=await DockerServiceManager.GetAsync(ThisService.ServiceId);if(s==null){ScriptConsole.WriteLine(\u0022FAILED: Service not found.\u0022);return;}var root=s.Variables.Parse(\u0022RootPassword\u0022,string.Empty);if(String.IsNullOrWhiteSpace(root)){ScriptConsole.WriteLine(\u0022FAILED: Stored MariaDB root password is empty.\u0022);return;}var sql=\u0022CREATE USER \u0027\u0022\u002Bus\u002B\u0022\u0027@\u0027\u0022\u002Bho\u002B\u0022\u0027 IDENTIFIED BY \u0027\u0022\u002Bpw.Replace(\u0022\u0027\u0022,\u0022\u0027\u0027\u0022)\u002B\u0022\u0027;\u0022\u002B(all?\u0022 GRANT ALL PRIVILEGES ON *.* TO \u0027\u0022\u002Bus\u002B\u0022\u0027@\u0027\u0022\u002Bho\u002B\u0022\u0027 WITH GRANT OPTION;\u0022:\u0022\u0022);var dir=s.RootDirectory;var cnf=Path.Combine(dir,\u0022.tcadmin-mariadb.cnf\u0022);var sf=Path.Combine(dir,\u0022.tcadmin-user.sql\u0022);var sh=Path.Combine(dir,\u0022.tcadmin-user.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Broot\u002B\u0022\\n\u0022);File.WriteAllText(sf,sql\u002B\u0022\\n\u0022);File.WriteAllText(sh,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nif mariadb --defaults-extra-file=\\\u0022$private\\\u0022 \u003C /mnt/server/.tcadmin-user.sql; then echo \u0027SUCCESS: MariaDB user created.\u0027;else c=$?;echo \\\u0022FAILED: Could not create MariaDB user (mariadb exit code $c).\\\u0022;exit $c;fi\\n\u0022);try{var o=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-user.sh\u0022,ThisCancellationToken);ScriptConsole.WriteLine(Encoding.UTF8.GetString(o));}finally{try{File.Delete(cnf);File.Delete(sf);File.Delete(sh);}catch{}}",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 170,
+        "icon": "\u003Cpath d=\u0022M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10m0-8a3 3 0 1 1 0 6 3 3 0 0 1 0-6m0 10c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5m-6 6c.36-1.16 2.39-2 6-2s5.64.84 6 2z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "87f73a83-84b5-436b-a5a5-14fe4d85ba1e"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Configure user permissions",
+        "description": "Configures MariaDB permissions using temporary files and reports success or failure.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;using System.IO;using System.Linq;using System.Text;using System.Text.RegularExpressions;using TCAdmin.Web.Shared.Models.Enums;using TCAdmin.SDK.DynamicInput.Controls;using TCAdmin.Web.Shared.Models.DynamicInput;\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\nif(ThisService.Status!=EServiceStatus.Started){ScriptConsole.WriteLine(\u0022MariaDB is not running. Start the service and try again.\u0022);return;}if(!IsInteractive){ScriptConsole.WriteLine(\u0022Run this action from the panel.\u0022);return;}var s=await DockerServiceManager.GetAsync(ThisService.ServiceId);if(s==null){ScriptConsole.WriteLine(\u0022FAILED: Service not found.\u0022);return;}var root=s.Variables.Parse(\u0022RootPassword\u0022,string.Empty);if(String.IsNullOrWhiteSpace(root)){ScriptConsole.WriteLine(\u0022FAILED: Stored MariaDB root password is empty.\u0022);return;}var dir=s.RootDirectory;var cnf=Path.Combine(dir,\u0022.tcadmin-mariadb.cnf\u0022);var ls=Path.Combine(dir,\u0022.tcadmin-list-permissions.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Broot\u002B\u0022\\n\u0022);File.WriteAllText(ls,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\necho USERS\\nmariadb --defaults-extra-file=\\\u0022$private\\\u0022 -N -B -e \\\u0022SELECT User,Host FROM mysql.user WHERE User NOT IN (\u0027mariadb.sys\u0027,\u0027mysql\u0027,\u0027root\u0027) ORDER BY User,Host\\\u0022\\necho DATABASES\\nmariadb --defaults-extra-file=\\\u0022$private\\\u0022 -N -B -e \u0027SHOW DATABASES\u0027\\n\u0022);string[] users;string[] databases;try{var b=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-list-permissions.sh\u0022,ThisCancellationToken);var lines=Encoding.UTF8.GetString(b).Split(new[]{\u0027\\r\u0027,\u0027\\n\u0027},StringSplitOptions.RemoveEmptyEntries);var marker=Array.IndexOf(lines,\u0022DATABASES\u0022);if(marker\u003C1){ScriptConsole.WriteLine(\u0022FAILED: Could not read MariaDB users and databases.\u0022);return;}users=lines.Skip(1).Take(marker-1).Where(x=\u003ERegex.IsMatch(x,\u0022^[A-Za-z0-9_]\u002B\\\\t[A-Za-z0-9_%.-]\u002B$\u0022)).ToArray();databases=lines.Skip(marker\u002B1).Where(x=\u003ERegex.IsMatch(x,\u0022^[A-Za-z0-9_]\u002B$\u0022)).ToArray();}finally{try{File.Delete(cnf);File.Delete(ls);}catch{}}if(users.Length==0){ScriptConsole.WriteLine(\u0022FAILED: No MariaDB users were found.\u0022);return;}if(databases.Length==0){ScriptConsole.WriteLine(\u0022FAILED: Could not read the MariaDB database list.\u0022);return;}var user=new DynamicComboBox{Id=\u0022User\u0022,Label=\u0022User\u0022,Required=true};foreach(var x in users){var parts=x.Split(\u0027\\t\u0027);user.Items.Add(new DynamicComboBoxItem{Text=parts[0]\u002B\u0022@\u0022\u002Bparts[1],Value=parts[0]\u002B\u0022\\t\u0022\u002Bparts[1]});}var db=new DynamicComboBox{Id=\u0022Database\u0022,Label=\u0022Database\u0022,Required=true};db.Items.Add(new DynamicComboBoxItem{Text=\u0022All databases (*)\u0022,Value=\u0022*\u0022});foreach(var x in databases)db.Items.Add(new DynamicComboBoxItem{Text=x,Value=x});var pr=new DynamicTextBox{Id=\u0022Privileges\u0022,Label=\u0022Privileges\u0022,DefaultValue=\u0022SELECT, INSERT, UPDATE, DELETE\u0022,Required=true};var r=await ThisScript.Input(new InputConfiguration{IsDialog=true,AllowCancel=true},user,db,pr);if(r.Canceled)return;var selected=r.Values?[\u0022User\u0022]?.ToString();var database=r.Values?[\u0022Database\u0022]?.ToString();var privileges=r.Values?[\u0022Privileges\u0022]?.ToString();if(String.IsNullOrWhiteSpace(selected)||String.IsNullOrWhiteSpace(database)||String.IsNullOrWhiteSpace(privileges))return;var partsSelected=selected.Split(\u0027\\t\u0027);if(partsSelected.Length!=2||!Regex.IsMatch(partsSelected[0],\u0022^[A-Za-z0-9_]\u002B$\u0022)||!Regex.IsMatch(partsSelected[1],\u0022^[A-Za-z0-9_%.-]\u002B$\u0022)||(!Regex.IsMatch(database,\u0022^[A-Za-z0-9_]\u002B$\u0022)\u0026\u0026database!=\u0022*\u0022)||!Regex.IsMatch(privileges,\u0022^[A-Za-z ,]\u002B$\u0022)){ScriptConsole.WriteLine(\u0022FAILED: Invalid user, database, or privileges.\u0022);return;}var sql=\u0022GRANT \u0022\u002Bprivileges\u002B\u0022 ON \u0060\u0022\u002Bdatabase\u002B\u0022\u0060.* TO \u0027\u0022\u002BpartsSelected[0]\u002B\u0022\u0027@\u0027\u0022\u002BpartsSelected[1]\u002B\u0022\u0027; FLUSH PRIVILEGES;\u0022;if(database==\u0022*\u0022)sql=\u0022GRANT \u0022\u002Bprivileges\u002B\u0022 ON *.* TO \u0027\u0022\u002BpartsSelected[0]\u002B\u0022\u0027@\u0027\u0022\u002BpartsSelected[1]\u002B\u0022\u0027; FLUSH PRIVILEGES;\u0022;var sf=Path.Combine(dir,\u0022.tcadmin-permissions.sql\u0022);var sh=Path.Combine(dir,\u0022.tcadmin-permissions.sh\u0022);File.WriteAllText(cnf,\u0022[client]\\nuser=root\\npassword=\u0022\u002Broot\u002B\u0022\\n\u0022);File.WriteAllText(sf,sql\u002B\u0022\\n\u0022);File.WriteAllText(sh,\u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nif mariadb --defaults-extra-file=\\\u0022$private\\\u0022 \u003C /mnt/server/.tcadmin-permissions.sql; then echo \u0027SUCCESS: Permissions configured.\u0027;else c=$?;echo \\\u0022FAILED: Could not configure permissions (mariadb exit code $c).\\\u0022;exit $c;fi\\n\u0022);try{var o=await DockerServiceManager.ExecConsoleSingleCommand(s,\u0022/bin/sh /mnt/server/.tcadmin-permissions.sh\u0022,ThisCancellationToken);ScriptConsole.WriteLine(Encoding.UTF8.GetString(o));}finally{try{File.Delete(cnf);File.Delete(sf);File.Delete(sh);}catch{}}",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 180,
+        "icon": "\u003Cpath d=\u0022M12 2a5 5 0 0 0-5 5v2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-2V7a5 5 0 0 0-5-5m-3 7V7a3 3 0 0 1 6 0v2zm1 4h2v2h-2zm4 0h2v2h-2z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "793a2f6c-99d8-4820-abe6-2e81a95fe8bc"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Backup MariaDB database",
+        "description": "Lists databases and creates a MariaDB backup using temporary credential and shell files, with explicit success or failure output.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.Json;\nusing TCAdmin.Web.Shared.Models.Enums;\nusing TCAdmin.SDK.DynamicInput.Controls;\nusing TCAdmin.Web.Shared.Models.DynamicInput;\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\nif (ThisService.Status != EServiceStatus.Started) { ScriptConsole.WriteLine(\u0022MariaDB is not running. Start the service and try again.\u0022); return; }\nif (!IsInteractive) { ScriptConsole.WriteLine(\u0022Run this action from the panel.\u0022); return; }\nvar service = await DockerServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null) { ScriptConsole.WriteLine(\u0022FAILED: Service not found.\u0022); return; }\nvar password = service.Variables.Parse(\u0022RootPassword\u0022, string.Empty);\nif (String.IsNullOrWhiteSpace(password)) { ScriptConsole.WriteLine(\u0022FAILED: Stored MariaDB root password is empty.\u0022); return; }\nvar root = service.RootDirectory;\nvar cnf = Path.Combine(root, \u0022.tcadmin-mariadb.cnf\u0022);\nvar listScript = Path.Combine(root, \u0022.tcadmin-list-db.sh\u0022);\nFile.WriteAllText(cnf, \u0022[client]\\nuser=root\\npassword=\u0022 \u002B password \u002B \u0022\\n\u0022);\nFile.WriteAllText(listScript, \u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\nexec mariadb --defaults-extra-file=\\\u0022$private\\\u0022 -N -B -e \u0027SHOW DATABASES\u0027\\n\u0022);\nstring[] databases;\ntry\n{\n    var bytes = await DockerServiceManager.ExecConsoleSingleCommand(service, \u0022/bin/sh /mnt/server/.tcadmin-list-db.sh\u0022, ThisCancellationToken);\n    databases = Encoding.UTF8.GetString(bytes).Split(new[] { \u0027\\r\u0027, \u0027\\n\u0027 }, StringSplitOptions.RemoveEmptyEntries).Where(x =\u003E x.All(c =\u003E Char.IsLetterOrDigit(c) || c == \u0027_\u0027 || c == \u0027-\u0027)).ToArray();\n}\nfinally { try { File.Delete(cnf); File.Delete(listScript); } catch { } }\nif (databases.Length == 0) { ScriptConsole.WriteLine(\u0022FAILED: Could not read the MariaDB database list.\u0022); return; }\nvar selector = new DynamicComboBox { Id = \u0022Database\u0022, Label = \u0022Database\u0022, Required = true };\nselector.Items.Add(new DynamicComboBoxItem { Text = \u0022All databases\u0022, Value = \u0022__ALL__\u0022 });\nforeach (var database in databases) selector.Items.Add(new DynamicComboBoxItem { Text = database, Value = database });\nvar compression = new DynamicCheckBox { Id = \u0022Compress\u0022, Label = \u0022Compress backup (gzip)\u0022 };\nvar result = await ThisScript.Input(new InputConfiguration { IsDialog = true, AllowCancel = true }, selector, compression);\nif (result.Canceled) return;\nvar selected = result.Values?[\u0022Database\u0022]?.ToString();\nvar compress = false;\nvar compressValue = result.Values?[\u0022Compress\u0022];\nif (compressValue is JsonElement jsonValue)\n{\n    compress = jsonValue.ValueKind == JsonValueKind.True ||\n               (jsonValue.ValueKind == JsonValueKind.String \u0026\u0026 Boolean.TryParse(jsonValue.GetString(), out var parsedJson) \u0026\u0026 parsedJson);\n}\nelse if (compressValue != null)\n{\n    compress = Boolean.TryParse(compressValue.ToString(), out var parsedValue) \u0026\u0026 parsedValue;\n}\nif (String.IsNullOrWhiteSpace(selected)) return;\nvar safe = selected == \u0022__ALL__\u0022 ? \u0022all_databases\u0022 : new string(selected.Where(Char.IsLetterOrDigit).ToArray());\nif (String.IsNullOrWhiteSpace(safe)) safe = \u0022database\u0022;\nvar backupDir = Path.Combine(root, \u0022backups\u0022);\nDirectory.CreateDirectory(backupDir);\nvar stamp = DateTime.UtcNow.ToString(\u0022yyyyMMdd_HHmmss\u0022);\nvar fileName = safe \u002B \u0022_\u0022 \u002B stamp \u002B (compress ? \u0022.sql.gz\u0022 : \u0022.sql\u0022);\nvar outputPath = Path.Combine(backupDir, fileName);\nvar containerOutput = \u0022/mnt/server/backups/\u0022 \u002B fileName;\nvar dumpArguments = selected == \u0022__ALL__\u0022 ? \u0022--all-databases\u0022 : \u0022--databases \u0022 \u002B safe;\nvar dumpCommand = \u0022mariadb-dump --defaults-extra-file=\\\u0022$private\\\u0022 -uroot \u0022 \u002B dumpArguments \u002B (compress ? \u0022 | gzip\u0022 : \u0022\u0022) \u002B \u0022 \u003E \\\u0022\u0022 \u002B containerOutput \u002B \u0022\\\u0022\u0022;\nvar backupScript = Path.Combine(root, \u0022.tcadmin-backup.sh\u0022);\nFile.WriteAllText(cnf, \u0022[client]\\nuser=root\\npassword=\u0022 \u002B password \u002B \u0022\\n\u0022);\nFile.WriteAllText(backupScript, \u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-mariadb.cnf\\ntrap \u0027rm -f \\\u0022$private\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private\\\u0022\\n\u0022 \u002B dumpCommand \u002B \u0022\\ncode=$?\\nif [ $code -eq 0 ]; then echo \u0027SUCCESS: Backup created.\u0027; else echo \\\u0022FAILED: Backup failed (mariadb-dump exit code $code).\\\u0022; exit $code; fi\\n\u0022);\ntry\n{\n    var output = await DockerServiceManager.ExecConsoleSingleCommand(service, \u0022/bin/sh /mnt/server/.tcadmin-backup.sh\u0022, ThisCancellationToken);\n    ScriptConsole.WriteLine(Encoding.UTF8.GetString(output));\n    ScriptConsole.WriteLine(\u0022Backup file: \u0022 \u002B outputPath);\n}\nfinally { try { File.Delete(cnf); File.Delete(backupScript); } catch { } }",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 190,
+        "icon": "\u003Cpath d=\u0022M5 20h14v2H5zm14-2H5l7-7zm-7-9 7 7H5zm0-7 7 7H5z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "f7a850e7-04e9-4c10-8dea-bbaa857fd15e"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Restore MariaDB backup",
+        "description": "Lists .sql and .sql.gz files in backups, asks for a file, confirms the destructive restore, and imports it into MariaDB.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing TCAdmin.Web.Shared.Models.Enums;\nusing TCAdmin.SDK.DynamicInput.Controls;\nusing TCAdmin.Web.Shared.Models.DynamicInput;\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\nif (ThisService.Status != EServiceStatus.Started) { ScriptConsole.WriteLine(\u0022MariaDB is not running. Start the service and try again.\u0022); return; }\nif (!IsInteractive) { ScriptConsole.WriteLine(\u0022Run this action from the panel.\u0022); return; }\nvar service = await DockerServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null) { ScriptConsole.WriteLine(\u0022FAILED: Service not found.\u0022); return; }\nvar password = service.Variables.Parse(\u0022RootPassword\u0022, string.Empty);\nif (String.IsNullOrWhiteSpace(password)) { ScriptConsole.WriteLine(\u0022FAILED: Stored MariaDB root password is empty.\u0022); return; }\nvar backupDir = Path.Combine(service.RootDirectory, \u0022backups\u0022);\nif (!Directory.Exists(backupDir)) { ScriptConsole.WriteLine(\u0022FAILED: The backups folder does not exist.\u0022); return; }\nvar backupFiles = Directory.GetFiles(backupDir)\n    .Select(Path.GetFileName)\n    .Where(x =\u003E !String.IsNullOrWhiteSpace(x) \u0026\u0026 (x.EndsWith(\u0022.sql\u0022, StringComparison.OrdinalIgnoreCase) || x.EndsWith(\u0022.sql.gz\u0022, StringComparison.OrdinalIgnoreCase)))\n    .Where(x =\u003E x.All(c =\u003E Char.IsLetterOrDigit(c) || c == \u0027.\u0027 || c == \u0027_\u0027 || c == \u0027-\u0027))\n    .OrderByDescending(x =\u003E x, StringComparer.OrdinalIgnoreCase)\n    .ToArray();\nif (backupFiles.Length == 0) { ScriptConsole.WriteLine(\u0022FAILED: No .sql or .sql.gz backup files were found in /backups.\u0022); return; }\nvar selector = new DynamicComboBox { Id = \u0022BackupFile\u0022, Label = \u0022Backup file\u0022, Required = true };\nforeach (var file in backupFiles) selector.Items.Add(new DynamicComboBoxItem { Text = file, Value = file });\nvar result = await ThisScript.Input(new InputConfiguration { IsDialog = true, AllowCancel = true }, selector);\nif (result.Canceled) return;\nvar selected = result.Values?[\u0022BackupFile\u0022]?.ToString();\nif (String.IsNullOrWhiteSpace(selected) || !backupFiles.Contains(selected, StringComparer.OrdinalIgnoreCase)) { ScriptConsole.WriteLine(\u0022FAILED: Invalid backup file selection.\u0022); return; }\nvar confirm = await ThisScript.ShowMessageBox(\u0022Restore MariaDB backup?\u0022, \u0022This will overwrite databases and data contained in the selected backup: \u0022 \u002B selected, \u0022Restore\u0022, \u0022Cancel\u0022);\nif (confirm != true) { ScriptConsole.WriteLine(\u0022Restore cancelled \u2014 no data was changed.\u0022); return; }\nvar containerBackup = \u0022/mnt/server/backups/\u0022 \u002B selected;\nvar scriptPath = Path.Combine(service.RootDirectory, \u0022.tcadmin-restore.sh\u0022);\nvar cnf = Path.Combine(service.RootDirectory, \u0022.tcadmin-mariadb.cnf\u0022);\nFile.WriteAllText(cnf, \u0022[client]\\nuser=root\\npassword=\u0022 \u002B password \u002B \u0022\\n\u0022);\nvar restoreCommand = selected.EndsWith(\u0022.gz\u0022, StringComparison.OrdinalIgnoreCase)\n    ? \u0022gzip -dc \\\u0022\u0022 \u002B containerBackup \u002B \u0022\\\u0022 \u003E \\\u0022$private.sql\\\u0022 \u0026\u0026 mariadb --defaults-extra-file=\\\u0022$private.cnf\\\u0022 \u003C \\\u0022$private.sql\\\u0022\u0022\n    : \u0022mariadb --defaults-extra-file=\\\u0022$private.cnf\\\u0022 \u003C \\\u0022\u0022 \u002B containerBackup \u002B \u0022\\\u0022\u0022;\nFile.WriteAllText(scriptPath, \u0022#!/bin/sh\\numask 077\\nprivate=/tmp/.tcadmin-restore-$$\\ntrap \u0027rm -f \\\u0022$private.cnf\\\u0022 \\\u0022$private.sql\\\u0022\u0027 EXIT\\ncp /mnt/server/.tcadmin-mariadb.cnf \\\u0022$private.cnf\\\u0022\\n\u0022 \u002B restoreCommand \u002B \u0022\\ncode=$?\\nif [ $code -eq 0 ]; then echo \u0027SUCCESS: Restore completed for \u0022 \u002B selected \u002B \u0022.\u0027; else echo \\\u0022FAILED: Restore failed (mariadb exit code $code).\\\u0022; exit $code; fi\\n\u0022);\ntry\n{\n    var output = await DockerServiceManager.ExecConsoleSingleCommand(service, \u0022/bin/sh /mnt/server/.tcadmin-restore.sh\u0022, ThisCancellationToken);\n    ScriptConsole.WriteLine(Encoding.UTF8.GetString(output));\n}\nfinally { try { File.Delete(cnf); File.Delete(scriptPath); } catch { } }",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 200,
+        "icon": "\u003Cpath d=\u0022M12 3v10m0 0 4-4m-4 4-4-4M5 19h14\u0022 fill=\u0022none\u0022 stroke=\u0022currentColor\u0022 stroke-width=\u00222\u0022 stroke-linecap=\u0022round\u0022 stroke-linejoin=\u0022round\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "c4f8732b-1399-42d7-bb23-a97908b8b4ba"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "ConfigureContainer"
+        ],
+        "name": "Configure Galera node",
+        "description": "Generates conf.d/galera.cnf from config.json, discovers the other cluster nodes, and lines the container network up with the addresses it advertises. Runs immediately before every start.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll, Docker.DotNet.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Globalization;\nusing System.IO;\nusing System.Linq;\nusing System.Security.Cryptography;\nusing System.Text;\nusing Docker.DotNet.Models;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.SDK.Database.Entities;\nusing TCAdmin.Web.Shared.Models;\nusing TCAdmin.Web.Shared.Models.Enums;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals(); // DO NOT MODIFY THIS LINE\n\n// Builds /etc/mysql/conf.d/galera.cnf from config.json and hands the container a matching\n// network layout. Runs on the hosting node\u0027s monitor immediately before the container is\n// created, so every Start re-reads config.json and regenerates the file.\n//\n// The port rewrite below is the load-bearing part. TCAdmin publishes\n// containerPort(fixed) -\u003E hostPort(allocated), and the allocator bumps the whole port block\n// when several nodes share an IP (4567 -\u003E 4577 -\u003E 4587). Galera advertises its own address to\n// the rest of the cluster, so the number the container listens on must equal the number the\n// host publishes. We therefore republish every port as hostPort-\u003EhostPort and write the same\n// numbers into galera.cnf.\n\nvar startParams = ThisContainerStartParameters;\nif (startParams == null) throw new InvalidOperationException(\u0022Galera: container start parameters are not available.\u0022);\n\n// ConfigureContainer historically ran without DockerServiceManager in scope - only the task-step\n// handler and the interactive script hub seeded it - so a script that used it died with a bare\n// NullReferenceException surfacing as \u0022Start failed\u0022. ServiceManager is always seeded\n// (ScriptingEnvironmentFactory.AddCommonVariables), and its DbContext reaches DockerService just\n// as well. Prefer the docker manager when a newer monitor provides it.\nvar dbContext = DockerServiceManager != null\n    ? DockerServiceManager.TCAdminDbContext\n    : (ServiceManager != null ? ServiceManager.TCAdminDbContext : null);\nif (dbContext == null) throw new InvalidOperationException(\u0022Galera: no database context is available to this script.\u0022);\n\nvar service = await dbContext.Set\u003CDockerService\u003E()\n    .Include(x =\u003E x.ServerIp)\n    .FirstOrDefaultAsync(x =\u003E x.ServiceId == ThisService.ServiceId, ThisCancellationToken);\nif (service == null) throw new InvalidOperationException(\u0022Galera: docker service not found.\u0022);\n\nvar settings = service.Variables ?? new TCAdminVars();\n\nvar nodeRole = ReadText(settings, \u0022nodeRole\u0022, \u0022first\u0022).ToLowerInvariant();\nif (nodeRole != \u0022join\u0022) nodeRole = \u0022first\u0022;\nvar clusterName = ReadText(settings, \u0022clusterName\u0022, \u0022galera_cluster\u0022);\nif (clusterName.Length == 0) clusterName = \u0022galera_cluster\u0022;\nvar clusterAddressOverride = ReadText(settings, \u0022clusterAddress\u0022, string.Empty);\nvar clusterRootPasswordOverride = ReadText(settings, \u0022clusterRootPassword\u0022, string.Empty);\nvar maxConnections = ReadInt(settings, \u0022maxConnections\u0022, 151, 10, 100000);\nvar bufferPoolMb = ReadInt(settings, \u0022innodbBufferPoolSizeMB\u0022, 256, 64, 262144);\nvar gcacheMb = ReadInt(settings, \u0022gcacheSizeMB\u0022, 128, 32, 65536);\nvar slaveThreads = ReadInt(settings, \u0022wsrepSlaveThreads\u0022, 4, 1, 64);\n\nvar ipAddress = ThisService.IPAddress;\nif (string.IsNullOrWhiteSpace(ipAddress)) ipAddress = service.IPAddress;\nif (string.IsNullOrWhiteSpace(ipAddress)) throw new InvalidOperationException(\u0022Galera: this service has no allocated IP address.\u0022);\n\nvar mysqlPort = service.Ports[\u0022Port\u0022];\nvar galeraPort = service.Ports[\u0022Galera\u0022];\nvar istPort = service.Ports[\u0022IST\u0022];\nvar sstPort = service.Ports[\u0022SST\u0022];\nif (mysqlPort == 0 || galeraPort == 0 || istPort == 0 || sstPort == 0)\n    throw new InvalidOperationException(\u0022Galera: this service is missing one of the Port/Galera/IST/SST port allocations. Recreate the service on a blueprint that defines all four.\u0022);\n\n// ---------------------------------------------------------------------------\n// Cluster members: same blueprint, same owner, same cluster name. Variables is a JSON\n// column so the cluster-name match has to happen after materialisation.\n// ---------------------------------------------------------------------------\nvar candidates = await dbContext.Set\u003CDockerService\u003E()\n    .Include(x =\u003E x.ServerIp)\n    .Where(x =\u003E x.BlueprintId == service.BlueprintId\n                \u0026\u0026 x.ServiceId != service.ServiceId\n                \u0026\u0026 x.OwnerId == service.OwnerId)\n    .ToListAsync(ThisCancellationToken);\n\nvar members = candidates\n    .Where(x =\u003E string.Equals(ReadText(x.Variables, \u0022clusterName\u0022, string.Empty), clusterName, StringComparison.OrdinalIgnoreCase))\n    .OrderBy(x =\u003E x.ServiceId)\n    .ToList();\nvar runningMembers = members.Where(x =\u003E x.Status == EServiceStatus.Started).ToList();\n\n// ---------------------------------------------------------------------------\n// Root password. Stored under RootPassword (never a config.json key - a blank field there\n// would reverse-sync over it and wipe it). A joining node inherits the cluster\u0027s password,\n// because SST overwrites the mysql schema with the donor\u0027s anyway.\n// ---------------------------------------------------------------------------\nvar storedPassword = ReadText(settings, \u0022RootPassword\u0022, string.Empty);\nvar password = storedPassword;\n\nif (nodeRole == \u0022join\u0022 \u0026\u0026 clusterRootPasswordOverride.Length \u003E 0)\n{\n    password = clusterRootPasswordOverride;\n}\nelse if (password.Length == 0 \u0026\u0026 nodeRole == \u0022join\u0022)\n{\n    foreach (var member in members)\n    {\n        var candidate = ReadText(member.Variables, \u0022RootPassword\u0022, string.Empty);\n        if (candidate.Length \u003E 0) { password = candidate; break; }\n    }\n    if (password.Length == 0)\n        throw new InvalidOperationException(\u0022Galera: this node is set to join cluster \u0027\u0022 \u002B clusterName \u002B\n            \u0022\u0027 but no existing node of that cluster was found to inherit the root password from. Create the first node of the cluster first, or fill in \u0027Cluster root password\u0027 in config.json.\u0022);\n}\nelse if (password.Length == 0)\n{\n    var entropy = new byte[24];\n    RandomNumberGenerator.Fill(entropy);\n    password = Convert.ToBase64String(entropy).Replace(\u0022\u002B\u0022, \u0022-\u0022).Replace(\u0022/\u0022, \u0022_\u0022).TrimEnd(\u0027=\u0027);\n}\n\n// ---------------------------------------------------------------------------\n// Bootstrap decision. \u0022First node\u0022 only bootstraps when no other member of the cluster is\n// running - otherwise a node-1 restart would split the cluster in two. ForceBootstrap is the\n// one-shot flag set by the \u0022Bootstrap / recover cluster\u0022 action.\n// ---------------------------------------------------------------------------\nvar forceBootstrap = string.Equals(ReadText(settings, \u0022ForceBootstrap\u0022, string.Empty), \u0022true\u0022, StringComparison.OrdinalIgnoreCase);\nvar bootstrap = forceBootstrap || (nodeRole == \u0022first\u0022 \u0026\u0026 runningMembers.Count == 0);\n\nvar updatedVars = new TCAdminVars();\nforeach (var pair in settings) updatedVars[pair.Key] = pair.Value;\nvar dirty = false;\nif (!string.Equals(storedPassword, password, StringComparison.Ordinal)) { updatedVars[\u0022RootPassword\u0022] = password; dirty = true; }\nif (forceBootstrap) { updatedVars[\u0022ForceBootstrap\u0022] = \u0022false\u0022; dirty = true; }\nif (dirty)\n{\n    // Variables is a JSON column with no ValueComparer - DetectChanges misses both in-place\n    // mutation and reassignment, so the entry has to be marked dirty explicitly.\n    service.Variables = updatedVars;\n    dbContext.Entry(service).State = EntityState.Modified;\n    await dbContext.SaveChangesAsync(ThisCancellationToken);\n}\n\n// ---------------------------------------------------------------------------\n// Peer list for gcomm://\n// ---------------------------------------------------------------------------\nvar peerAddresses = new List\u003Cstring\u003E();\nif (clusterAddressOverride.Length \u003E 0)\n{\n    foreach (var part in clusterAddressOverride.Split(new[] { \u0027,\u0027, \u0027;\u0027, \u0027 \u0027, \u0027\\t\u0027 }, StringSplitOptions.RemoveEmptyEntries))\n    {\n        var entry = part.Trim();\n        if (entry.Length == 0) continue;\n        if (entry.IndexOf(\u0027:\u0027) \u003C 0) entry = entry \u002B \u0022:4567\u0022;\n        if (!peerAddresses.Contains(entry)) peerAddresses.Add(entry);\n    }\n}\nelse\n{\n    foreach (var member in members)\n    {\n        var memberIp = member.IPAddress;\n        var memberPort = member.Ports[\u0022Galera\u0022];\n        if (string.IsNullOrWhiteSpace(memberIp) || memberPort == 0) continue;\n        var entry = memberIp \u002B \u0022:\u0022 \u002B memberPort.ToString(CultureInfo.InvariantCulture);\n        if (!peerAddresses.Contains(entry)) peerAddresses.Add(entry);\n    }\n}\n\nif (!bootstrap \u0026\u0026 peerAddresses.Count == 0)\n    throw new InvalidOperationException(\u0022Galera: no cluster member to join. \u0022 \u002B\n        (nodeRole == \u0022join\u0022\n            ? \u0022Create the first node of cluster \u0027\u0022 \u002B clusterName \u002B \u0022\u0027 first, or fill in \u0027Existing node address(es)\u0027 in config.json.\u0022\n            : \u0022Another node of cluster \u0027\u0022 \u002B clusterName \u002B \u0022\u0027 appears to be running but its address could not be resolved.\u0022));\n\nvar gcomm = bootstrap ? \u0022gcomm://\u0022 : \u0022gcomm://\u0022 \u002B string.Join(\u0022,\u0022, peerAddresses);\n\n// ---------------------------------------------------------------------------\n// galera.cnf\n// ---------------------------------------------------------------------------\nvar nodeName = \u0022node\u0022 \u002B service.ServiceId.ToString(CultureInfo.InvariantCulture);\nvar nameSuffix = new string((service.Name ?? string.Empty).Where(c =\u003E char.IsLetterOrDigit(c) || c == \u0027_\u0027 || c == \u0027-\u0027).ToArray());\nif (nameSuffix.Length \u003E 0) nodeName = nodeName \u002B \u0022_\u0022 \u002B (nameSuffix.Length \u003E 24 ? nameSuffix.Substring(0, 24) : nameSuffix);\n\nvar root = service.RootDirectory;\nvar confDirectory = Path.Combine(root, \u0022conf.d\u0022);\nDirectory.CreateDirectory(confDirectory);\nvar galeraCnfPath = Path.Combine(confDirectory, \u0022galera.cnf\u0022);\nvar customCnfPath = Path.Combine(confDirectory, \u0022custom.cnf\u0022);\nif (!File.Exists(customCnfPath))\n{\n    File.WriteAllText(customCnfPath,\n        \u0022# Extra MariaDB options for this node.\\n\u0022 \u002B\n        \u0022#\\n\u0022 \u002B\n        \u0022# Mounted as /etc/mysql/conf.d/zz-custom.cnf, which MariaDB reads AFTER the generated\\n\u0022 \u002B\n        \u0022# galera.cnf - so anything set here wins. Restart the service to apply.\\n\u0022 \u002B\n        \u0022\\n[mysqld]\\n\u0022);\n}\n\nvar cnf = new StringBuilder();\ncnf.Append(\u0022# GENERATED BY TCADMIN - DO NOT EDIT.\\n\u0022);\ncnf.Append(\u0022# Rewritten from config.json every time this service starts.\\n\u0022);\ncnf.Append(\u0022# Put your own options in conf.d/custom.cnf instead; MariaDB reads it after this file.\\n\u0022);\ncnf.Append(\u0022\\n[mysqld]\\n\u0022);\ncnf.Append(\u0022bind-address=0.0.0.0\\n\u0022);\ncnf.Append(\u0022port=\u0022 \u002B mysqlPort.ToString(CultureInfo.InvariantCulture) \u002B \u0022\\n\u0022);\ncnf.Append(\u0022max_connections=\u0022 \u002B maxConnections.ToString(CultureInfo.InvariantCulture) \u002B \u0022\\n\u0022);\ncnf.Append(\u0022innodb_buffer_pool_size=\u0022 \u002B bufferPoolMb.ToString(CultureInfo.InvariantCulture) \u002B \u0022M\\n\u0022);\ncnf.Append(\u0022binlog_format=ROW\\n\u0022);\ncnf.Append(\u0022default_storage_engine=InnoDB\\n\u0022);\ncnf.Append(\u0022innodb_autoinc_lock_mode=2\\n\u0022);\ncnf.Append(\u0022innodb_flush_log_at_trx_commit=2\\n\u0022);\ncnf.Append(\u0022\\n[galera]\\n\u0022);\ncnf.Append(\u0022wsrep_on=ON\\n\u0022);\ncnf.Append(\u0022wsrep_provider=/usr/lib/galera/libgalera_smm.so\\n\u0022);\ncnf.Append(\u0022wsrep_cluster_name=\u0022 \u002B clusterName \u002B \u0022\\n\u0022);\ncnf.Append(\u0022wsrep_cluster_address=\u0022 \u002B gcomm \u002B \u0022\\n\u0022);\ncnf.Append(\u0022wsrep_node_name=\u0022 \u002B nodeName \u002B \u0022\\n\u0022);\ncnf.Append(\u0022wsrep_node_address=\u0022 \u002B ipAddress \u002B \u0022:\u0022 \u002B galeraPort.ToString(CultureInfo.InvariantCulture) \u002B \u0022\\n\u0022);\ncnf.Append(\u0022wsrep_node_incoming_address=\u0022 \u002B ipAddress \u002B \u0022:\u0022 \u002B mysqlPort.ToString(CultureInfo.InvariantCulture) \u002B \u0022\\n\u0022);\ncnf.Append(\u0022wsrep_slave_threads=\u0022 \u002B slaveThreads.ToString(CultureInfo.InvariantCulture) \u002B \u0022\\n\u0022);\ncnf.Append(\u0022wsrep_sst_method=mariabackup\\n\u0022);\ncnf.Append(\u0022wsrep_sst_auth=root:\u0022 \u002B password \u002B \u0022\\n\u0022);\ncnf.Append(\u0022wsrep_sst_receive_address=\u0022 \u002B ipAddress \u002B \u0022:\u0022 \u002B sstPort.ToString(CultureInfo.InvariantCulture) \u002B \u0022\\n\u0022);\n// Bind on every container interface, advertise the published host address. ist.recv_bind is\n// what lets ist.recv_addr be an address the container itself cannot bind.\ncnf.Append(\u0022wsrep_provider_options=\\\u0022base_port=\u0022 \u002B galeraPort.ToString(CultureInfo.InvariantCulture) \u002B\n           \u0022; gmcast.listen_addr=tcp://0.0.0.0:\u0022 \u002B galeraPort.ToString(CultureInfo.InvariantCulture) \u002B\n           \u0022; ist.recv_addr=\u0022 \u002B ipAddress \u002B \u0022:\u0022 \u002B istPort.ToString(CultureInfo.InvariantCulture) \u002B\n           \u0022; ist.recv_bind=0.0.0.0\u0022 \u002B\n           \u0022; gcache.size=\u0022 \u002B gcacheMb.ToString(CultureInfo.InvariantCulture) \u002B \u0022M\\\u0022\\n\u0022);\nFile.WriteAllText(galeraCnfPath, cnf.ToString());\n\n// ---------------------------------------------------------------------------\n// Container: publish hostPort -\u003E hostPort so the advertised address is reachable.\n// ---------------------------------------------------------------------------\nstartParams.HostConfig = startParams.HostConfig ?? new HostConfig();\nstartParams.ExposedPorts = new Dictionary\u003Cstring, EmptyStruct\u003E();\nstartParams.HostConfig.PortBindings = new Dictionary\u003Cstring, IList\u003CPortBinding\u003E\u003E();\nforeach (var port in new[] { mysqlPort, galeraPort, istPort, sstPort })\n{\n    var key = port.ToString(CultureInfo.InvariantCulture) \u002B \u0022/tcp\u0022;\n    startParams.ExposedPorts[key] = default(EmptyStruct);\n    startParams.HostConfig.PortBindings[key] = new List\u003CPortBinding\u003E\n    {\n        new PortBinding { HostIP = ipAddress, HostPort = port.ToString(CultureInfo.InvariantCulture) }\n    };\n}\n\nstartParams.HostConfig.Mounts = startParams.HostConfig.Mounts ?? new List\u003CMount\u003E();\nstartParams.HostConfig.Mounts.Add(new Mount { Type = \u0022bind\u0022, Source = galeraCnfPath, Target = \u0022/etc/mysql/conf.d/galera.cnf\u0022, ReadOnly = true });\nstartParams.HostConfig.Mounts.Add(new Mount { Type = \u0022bind\u0022, Source = customCnfPath, Target = \u0022/etc/mysql/conf.d/zz-custom.cnf\u0022, ReadOnly = true });\n\n// The image\u0027s entrypoint runs as root and chowns/chmods the datadir it does not own; the\n// default CapDrop list makes that fail. Network/ptrace hardening stays.\nif (startParams.HostConfig.CapDrop != null)\n{\n    var restore = new HashSet\u003Cstring\u003E(StringComparer.OrdinalIgnoreCase) { \u0022dac_override\u0022, \u0022fowner\u0022, \u0022fsetid\u0022 };\n    startParams.HostConfig.CapDrop = startParams.HostConfig.CapDrop.Where(c =\u003E !restore.Contains(c)).ToList();\n}\n\n// mariabackup SST needs a real /tmp, not a 65 MB noexec one.\nstartParams.HostConfig.Tmpfs = new Dictionary\u003Cstring, string\u003E { { \u0022/tmp\u0022, \u0022rw,nosuid,size=1024m\u0022 } };\n\n// Give the node time to leave the cluster cleanly and write a valid grastate.dat, otherwise\n// every restart needs a full SST and a whole-cluster restart cannot find a safe bootstrap node.\nstartParams.StopTimeout = TimeSpan.FromSeconds(120);\n\nstartParams.Env = startParams.Env ?? new List\u003Cstring\u003E();\nfor (var i = startParams.Env.Count - 1; i \u003E= 0; i--)\n{\n    var entry = startParams.Env[i] ?? string.Empty;\n    if (entry.StartsWith(\u0022MARIADB_ROOT_PASSWORD=\u0022, StringComparison.Ordinal) ||\n        entry.StartsWith(\u0022MARIADB_AUTO_UPGRADE=\u0022, StringComparison.Ordinal))\n    {\n        startParams.Env.RemoveAt(i);\n    }\n}\nstartParams.Env.Add(\u0022MARIADB_ROOT_PASSWORD=\u0022 \u002B password);\nstartParams.Env.Add(\u0022MARIADB_AUTO_UPGRADE=1\u0022);\n\nstartParams.Cmd = bootstrap\n    ? new List\u003Cstring\u003E { \u0022mariadbd\u0022, \u0022--wsrep-new-cluster\u0022 }\n    : new List\u003Cstring\u003E { \u0022mariadbd\u0022 };\n\nvar summary = new StringBuilder();\nsummary.Append(\u0022Galera node configuration\\n\u0022);\nsummary.Append(\u0022  cluster        : \u0022 \u002B clusterName \u002B \u0022\\n\u0022);\nsummary.Append(\u0022  node           : \u0022 \u002B nodeName \u002B \u0022\\n\u0022);\nsummary.Append(\u0022  role           : \u0022 \u002B (nodeRole == \u0022join\u0022 ? \u0022additional node\u0022 : \u0022first node\u0022) \u002B \u0022\\n\u0022);\nsummary.Append(\u0022  listen/advertise: \u0022 \u002B ipAddress \u002B \u0022  mysql=\u0022 \u002B mysqlPort \u002B \u0022  galera=\u0022 \u002B galeraPort \u002B \u0022  ist=\u0022 \u002B istPort \u002B \u0022  sst=\u0022 \u002B sstPort \u002B \u0022\\n\u0022);\nsummary.Append(\u0022  cluster address: \u0022 \u002B gcomm \u002B \u0022\\n\u0022);\nsummary.Append(\u0022  known members  : \u0022 \u002B (members.Count == 0 ? \u0022none\u0022 : members.Count \u002B \u0022 (\u0022 \u002B runningMembers.Count \u002B \u0022 running)\u0022) \u002B \u0022\\n\u0022);\nif (bootstrap)\n{\n    summary.Append(\u0022  action         : BOOTSTRAPPING a new cluster (--wsrep-new-cluster)\\n\u0022);\n    if (forceBootstrap) summary.Append(\u0022                   (one-shot bootstrap flag consumed)\\n\u0022);\n    else if (members.Count \u003E 0) summary.Append(\u0022                   no other member of this cluster is running\\n\u0022);\n}\nelse\n{\n    summary.Append(\u0022  action         : joining the existing cluster\\n\u0022);\n}\nsummary.Append(\u0022  config written : \u0022 \u002B galeraCnfPath);\nScriptConsole.WriteLine(\u0022{0}\u0022, summary.ToString());\n\nstatic string ReadText(TCAdminVars source, string key, string fallback)\n{\n    if (source == null || !source.ContainsKey(key) || source[key] == null) return fallback;\n    var text = source[key].ToString();\n    if (text == null) return fallback;\n    text = text.Trim();\n    return text.Length == 0 ? fallback : text;\n}\n\nstatic int ReadInt(TCAdminVars source, string key, int fallback, int minimum, int maximum)\n{\n    if (source == null || !source.ContainsKey(key) || source[key] == null) return fallback;\n    double parsed;\n    if (!double.TryParse(source[key].ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out parsed)) return fallback;\n    var value = (int)Math.Round(parsed);\n    if (value \u003C minimum) return minimum;\n    if (value \u003E maximum) return maximum;\n    return value;\n}\n",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 900,
+        "icon": "\u003Cpath d=\u0022M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2m1 17.93V18h-2v1.93A8 8 0 0 1 4.07 13H6v-2H4.07A8 8 0 0 1 11 4.07V6h2V4.07A8 8 0 0 1 19.93 11H18v2h1.93A8 8 0 0 1 13 19.93M11 7h2v5.41l3.29 3.3-1.42 1.41L11 13.24z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "ea170ae4-f013-468c-8384-482d1102e6c1"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Bootstrap / recover cluster from this node",
+        "description": "Restarts a cluster that is completely down, using this node\u0027s data as the starting point.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\nusing TCAdmin.Web.Shared.Models.Enums;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\n\n// Recovery for the case where the whole cluster is down. Exactly ONE node must be told to\n// start a new cluster from its own data; every other node then joins it. Galera refuses to\n// bootstrap from a node it does not consider safe (safe_to_bootstrap: 0), which is what this\n// action overrides - so it prints the node\u0027s recorded position first and makes you confirm.\n\nif (!IsInteractive) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Run this action from the panel.\u0022); return; }\n\nvar service = await DockerServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022FAILED: Service not found.\u0022); return; }\n\nif (ThisService.Status == EServiceStatus.Started)\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022This node is already running. Bootstrapping is only for restarting a cluster that is completely down.\u0022);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Stop the service first if you really need to force a new cluster from this node\u0027s data.\u0022);\n    return;\n}\n\nvar clusterName = ReadText(service.Variables, \u0022clusterName\u0022, \u0022galera_cluster\u0022);\nvar statePath = Path.Combine(service.RootDirectory, \u0022database\u0022, \u0022grastate.dat\u0022);\n\nvar uuid = \u0022(unknown)\u0022;\nvar seqno = \u0022(unknown)\u0022;\nvar safeToBootstrap = \u0022(unknown)\u0022;\nvar stateLines = new List\u003Cstring\u003E();\nif (File.Exists(statePath))\n{\n    stateLines = File.ReadAllLines(statePath).ToList();\n    foreach (var line in stateLines)\n    {\n        var trimmed = line.Trim();\n        if (trimmed.StartsWith(\u0022uuid:\u0022, StringComparison.OrdinalIgnoreCase)) uuid = trimmed.Substring(5).Trim();\n        else if (trimmed.StartsWith(\u0022seqno:\u0022, StringComparison.OrdinalIgnoreCase)) seqno = trimmed.Substring(6).Trim();\n        else if (trimmed.StartsWith(\u0022safe_to_bootstrap:\u0022, StringComparison.OrdinalIgnoreCase)) safeToBootstrap = trimmed.Substring(18).Trim();\n    }\n}\n\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Recorded state for this node (\u0022 \u002B statePath \u002B \u0022):\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  cluster uuid      : \u0022 \u002B uuid);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  seqno             : \u0022 \u002B seqno \u002B (seqno == \u0022-1\u0022 ? \u0022   (node was not shut down cleanly - its real position is only known after recovery)\u0022 : string.Empty));\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  safe_to_bootstrap : \u0022 \u002B safeToBootstrap \u002B (safeToBootstrap == \u00221\u0022 ? \u0022   (Galera already considers this node safe)\u0022 : string.Empty));\nScriptConsole.WriteLine(\u0022{0}\u0022, string.Empty);\n\nvar candidates = await DockerServiceManager.GetDbSet()\n    .Include(x =\u003E x.ServerIp)\n    .Where(x =\u003E x.BlueprintId == service.BlueprintId \u0026\u0026 x.OwnerId == service.OwnerId)\n    .ToListAsync(ThisCancellationToken);\nvar members = candidates\n    .Where(x =\u003E string.Equals(ReadText(x.Variables, \u0022clusterName\u0022, string.Empty), clusterName, StringComparison.OrdinalIgnoreCase))\n    .Where(x =\u003E x.ServiceId != service.ServiceId)\n    .ToList();\nvar running = members.Where(x =\u003E x.Status == EServiceStatus.Started).ToList();\n\nif (running.Count \u003E 0)\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022WARNING: \u0022 \u002B running.Count \u002B \u0022 other node(s) of \u0027\u0022 \u002B clusterName \u002B \u0022\u0027 are still running:\u0022);\n    foreach (var member in running) ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  #\u0022 \u002B member.ServiceId \u002B \u0022  \u0022 \u002B member.Name);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Bootstrapping now would create a SECOND, separate cluster and split your data.\u0022);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Just start this node normally instead - it will join the running cluster.\u0022);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, string.Empty);\n}\n\nvar confirmed = await ThisScript.ShowMessageBox(\n    \u0022Bootstrap cluster from this node?\u0022,\n    \u0022This node will start a NEW cluster from the data it has on disk, and every other node will \u0022\n    \u002B \u0022have to re-sync from it. Any transactions that only exist on another node are lost.\\n\\n\u0022\n    \u002B \u0022Only do this when the whole cluster is down, and only on the node with the highest seqno.\\n\\n\u0022\n    \u002B \u0022Node: \u0022 \u002B service.Name \u002B \u0022 (#\u0022 \u002B service.ServiceId \u002B \u0022)   cluster: \u0022 \u002B clusterName\n    \u002B \u0022\\nseqno: \u0022 \u002B seqno\n    \u002B (running.Count \u003E 0 ? \u0022\\n\\nWARNING: \u0022 \u002B running.Count \u002B \u0022 other node(s) are still running.\u0022 : string.Empty),\n    \u0022Bootstrap from this node\u0022, \u0022Cancel\u0022);\n\nif (confirmed != true) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Cancelled. Nothing changed.\u0022); return; }\n\n// Galera reads safe_to_bootstrap from grastate.dat and refuses --wsrep-new-cluster when it is 0.\nif (stateLines.Count \u003E 0)\n{\n    var rewritten = new List\u003Cstring\u003E();\n    var replaced = false;\n    foreach (var line in stateLines)\n    {\n        if (line.TrimStart().StartsWith(\u0022safe_to_bootstrap:\u0022, StringComparison.OrdinalIgnoreCase))\n        {\n            rewritten.Add(\u0022safe_to_bootstrap: 1\u0022);\n            replaced = true;\n        }\n        else rewritten.Add(line);\n    }\n    if (!replaced) rewritten.Add(\u0022safe_to_bootstrap: 1\u0022);\n    File.WriteAllLines(statePath, rewritten);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022safe_to_bootstrap set to 1 in grastate.dat.\u0022);\n}\nelse\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022No grastate.dat found - this node has no recorded state yet, so nothing to override.\u0022);\n}\n\nvar updated = new TCAdminVars();\nif (service.Variables != null) foreach (var pair in service.Variables) updated[pair.Key] = pair.Value;\nupdated[\u0022ForceBootstrap\u0022] = \u0022true\u0022;\nservice.Variables = updated;\nDockerServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\nawait DockerServiceManager.SaveChangesAsync(ThisCancellationToken);\n\nScriptConsole.WriteLine(\u0022{0}\u0022, string.Empty);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022READY. Press Start on this service now - it will come up with --wsrep-new-cluster.\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022The flag is one-shot: the next start after that joins normally.\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Once this node reports Synced, start the other nodes one at a time.\u0022);\n\nstatic string ReadText(TCAdminVars source, string key, string fallback)\n{\n    if (source == null || !source.ContainsKey(key) || source[key] == null) return fallback;\n    var text = source[key].ToString();\n    if (text == null) return fallback;\n    text = text.Trim();\n    return text.Length == 0 ? fallback : text;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 60,
+        "icon": "\u003Cpath d=\u0022M13 3h-2v10h2zm4.83 2.17-1.42 1.42A6.92 6.92 0 0 1 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.26 1.07-4.26 2.74-5.55L6.32 5.03A8.96 8.96 0 0 0 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.19-3.17-6.83\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "e3765c82-4178-4f4e-b7ec-745f5a2f96d1"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Force full resync (SST)",
+        "description": "Wipes this node\u0027s data directory so the next start pulls a complete copy from a healthy node. Destructive.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.SDK.DynamicInput.Controls;\nusing TCAdmin.Web.Shared.Models;\nusing TCAdmin.Web.Shared.Models.DynamicInput;\nusing TCAdmin.Web.Shared.Models.Enums;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\n\n// Wipes this node\u0027s data directory so the next start pulls a complete copy from a healthy\n// node (a full SST). This is the fix for a node whose local state is corrupt or too far\n// behind to catch up. It is destructive and only safe while another node is running.\n\nif (!IsInteractive) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Run this action from the panel.\u0022); return; }\n\nvar service = await DockerServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022FAILED: Service not found.\u0022); return; }\n\nif (ThisService.Status != EServiceStatus.Stopped)\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Stop this service first. Its data directory cannot be replaced while the container is running.\u0022);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Current status: \u0022 \u002B ThisService.Status);\n    return;\n}\n\nvar clusterName = ReadText(service.Variables, \u0022clusterName\u0022, \u0022galera_cluster\u0022);\n\nvar candidates = await DockerServiceManager.GetDbSet()\n    .Include(x =\u003E x.ServerIp)\n    .Where(x =\u003E x.BlueprintId == service.BlueprintId \u0026\u0026 x.OwnerId == service.OwnerId)\n    .ToListAsync(ThisCancellationToken);\nvar members = candidates\n    .Where(x =\u003E string.Equals(ReadText(x.Variables, \u0022clusterName\u0022, string.Empty), clusterName, StringComparison.OrdinalIgnoreCase))\n    .Where(x =\u003E x.ServiceId != service.ServiceId)\n    .ToList();\nvar running = members.Where(x =\u003E x.Status == EServiceStatus.Started).ToList();\n\nif (running.Count == 0)\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022REFUSED: no other node of cluster \u0027\u0022 \u002B clusterName \u002B \u0022\u0027 is running.\u0022);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Wiping this node now would destroy the only copy of the data. Start a healthy node first,\u0022);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022or use \u0027Bootstrap / recover cluster from this node\u0027 if this node holds the data you want to keep.\u0022);\n    return;\n}\n\nvar dataDirectory = Path.Combine(service.RootDirectory, \u0022database\u0022);\nlong sizeBytes = 0;\nif (Directory.Exists(dataDirectory))\n{\n    foreach (var file in Directory.EnumerateFiles(dataDirectory, \u0022*\u0022, SearchOption.AllDirectories))\n    {\n        try { sizeBytes \u002B= new FileInfo(file).Length; } catch { }\n    }\n}\n\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Data directory : \u0022 \u002B dataDirectory);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Current size   : \u0022 \u002B (sizeBytes / 1024 / 1024) \u002B \u0022 MB\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Donor(s) online: \u0022 \u002B string.Join(\u0022, \u0022, running.Select(x =\u003E \u0022#\u0022 \u002B x.ServiceId \u002B \u0022 \u0022 \u002B x.Name)));\nScriptConsole.WriteLine(\u0022{0}\u0022, string.Empty);\n\nvar confirmation = new DynamicTextBox\n{\n    Id = \u0022Confirm\u0022,\n    Label = \u0022Type RESYNC to confirm\u0022,\n    Description = \u0022Everything in this node\u0027s data directory is deleted and re-fetched from a running node.\u0022,\n    Required = true\n};\nvar answer = await ThisScript.Input(new InputConfiguration { IsDialog = true, AllowCancel = true }, confirmation);\nif (answer.Canceled) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Cancelled. Nothing changed.\u0022); return; }\nvar typed = answer.Values == null ? null : (answer.Values[\u0022Confirm\u0022] == null ? null : answer.Values[\u0022Confirm\u0022].ToString());\nif (!string.Equals((typed ?? string.Empty).Trim(), \u0022RESYNC\u0022, StringComparison.Ordinal))\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Cancelled: confirmation text did not match. Nothing changed.\u0022);\n    return;\n}\n\nvar removed = 0;\nvar failed = new List\u003Cstring\u003E();\nif (Directory.Exists(dataDirectory))\n{\n    foreach (var directory in Directory.GetDirectories(dataDirectory))\n    {\n        try { Directory.Delete(directory, true); removed\u002B\u002B; } catch (Exception ex) { failed.Add(directory \u002B \u0022: \u0022 \u002B ex.Message); }\n    }\n    foreach (var file in Directory.GetFiles(dataDirectory))\n    {\n        try { File.Delete(file); removed\u002B\u002B; } catch (Exception ex) { failed.Add(file \u002B \u0022: \u0022 \u002B ex.Message); }\n    }\n}\nelse\n{\n    Directory.CreateDirectory(dataDirectory);\n}\n\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Removed \u0022 \u002B removed \u002B \u0022 entries from the data directory.\u0022);\nforeach (var failure in failed) ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  COULD NOT DELETE \u0022 \u002B failure);\n\nif (failed.Count \u003E 0)\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022FAILED: some files could not be removed. The node will not resync cleanly until they are gone.\u0022);\n    return;\n}\n\nScriptConsole.WriteLine(\u0022{0}\u0022, string.Empty);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022DONE. Press Start - the node will initialise and then pull a full copy from a running node.\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022A full state transfer can take a while on a large database; watch \u0027Galera cluster status\u0027.\u0022);\n\nstatic string ReadText(TCAdminVars source, string key, string fallback)\n{\n    if (source == null || !source.ContainsKey(key) || source[key] == null) return fallback;\n    var text = source[key].ToString();\n    if (text == null) return fallback;\n    text = text.Trim();\n    return text.Length == 0 ? fallback : text;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 70,
+        "icon": "\u003Cpath d=\u0022M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8m0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "6edde580-2059-4856-9d7b-c08bdf27ff56"
+      }
+    },
+    {
+      "script": {
+        "allDockerBlueprints": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Test peer connectivity",
+        "description": "Probes every cluster address from inside this container, including this node\u0027s own published ports.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.Docker.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\nusing TCAdmin.Web.Shared.Models.Enums;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpDockerGlobals();\n\n// Probes every address this node needs to reach, FROM INSIDE the container - which is the\n// only vantage point that matters. It also probes this node\u0027s own published ports, because\n// a container reaching its own host-published port is the case that breaks first when the\n// Docker daemon runs without the userland proxy.\n\nvar service = await DockerServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null) { ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022FAILED: Service not found.\u0022); return; }\nif (ThisService.Status != EServiceStatus.Started)\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022This node must be running to probe from inside its container. Start it and try again.\u0022);\n    return;\n}\n\nvar clusterName = ReadText(service.Variables, \u0022clusterName\u0022, \u0022galera_cluster\u0022);\nvar ip = ThisService.IPAddress;\nif (string.IsNullOrWhiteSpace(ip)) ip = service.IPAddress;\n\nvar candidates = await DockerServiceManager.GetDbSet()\n    .Include(x =\u003E x.ServerIp)\n    .Where(x =\u003E x.BlueprintId == service.BlueprintId \u0026\u0026 x.OwnerId == service.OwnerId)\n    .ToListAsync(ThisCancellationToken);\n\nvar members = candidates\n    .Where(x =\u003E string.Equals(ReadText(x.Variables, \u0022clusterName\u0022, string.Empty), clusterName, StringComparison.OrdinalIgnoreCase))\n    .OrderBy(x =\u003E x.ServiceId)\n    .ToList();\n\nvar targets = new List\u003Cstring\u003E();\nforeach (var member in members)\n{\n    var memberIp = member.IPAddress;\n    if (string.IsNullOrWhiteSpace(memberIp)) continue;\n    var label = (member.ServiceId == service.ServiceId ? \u0022self #\u0022 : \u0022node #\u0022) \u002B member.ServiceId;\n    targets.Add(label \u002B \u0022 mysql|\u0022 \u002B memberIp \u002B \u0022|\u0022 \u002B member.Ports[\u0022Port\u0022]);\n    targets.Add(label \u002B \u0022 galera|\u0022 \u002B memberIp \u002B \u0022|\u0022 \u002B member.Ports[\u0022Galera\u0022]);\n    targets.Add(label \u002B \u0022 ist|\u0022 \u002B memberIp \u002B \u0022|\u0022 \u002B member.Ports[\u0022IST\u0022]);\n    targets.Add(label \u002B \u0022 sst|\u0022 \u002B memberIp \u002B \u0022|\u0022 \u002B member.Ports[\u0022SST\u0022]);\n}\n\nif (targets.Count == 0)\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022No cluster members with a resolvable address were found for cluster \u0027\u0022 \u002B clusterName \u002B \u0022\u0027.\u0022);\n    return;\n}\n\nvar script = new StringBuilder();\nscript.Append(\u0022#!/bin/bash\\n\u0022);\nforeach (var target in targets)\n{\n    var parts = target.Split(\u0027|\u0027);\n    if (parts.Length != 3) continue;\n    if (parts[2] == \u00220\u0022) { script.Append(\u0022echo \u0027SKIP  \u0022 \u002B parts[0] \u002B \u0022 (no port allocated)\u0027\\n\u0022); continue; }\n    script.Append(\u0022if timeout 4 bash -c \u0027exec 3\u003C\u003E/dev/tcp/\u0022 \u002B parts[1] \u002B \u0022/\u0022 \u002B parts[2] \u002B \u0022\u0027 2\u003E/dev/null; then \u0022);\n    script.Append(\u0022echo \u0027OK    \u0022 \u002B parts[0] \u002B \u0022  \u0022 \u002B parts[1] \u002B \u0022:\u0022 \u002B parts[2] \u002B \u0022\u0027; else \u0022);\n    script.Append(\u0022echo \u0027FAIL  \u0022 \u002B parts[0] \u002B \u0022  \u0022 \u002B parts[1] \u002B \u0022:\u0022 \u002B parts[2] \u002B \u0022\u0027; fi\\n\u0022);\n}\n\nvar root = service.RootDirectory;\nvar shPath = Path.Combine(root, \u0022.tcadmin-galera-probe.sh\u0022);\nFile.WriteAllText(shPath, script.ToString());\n\nvar output = string.Empty;\ntry\n{\n    var bytes = await DockerServiceManager.ExecConsoleSingleCommand(service, \u0022/bin/bash /mnt/server/.tcadmin-galera-probe.sh\u0022, ThisCancellationToken);\n    output = Encoding.UTF8.GetString(bytes);\n}\nfinally\n{\n    try { File.Delete(shPath); } catch { }\n}\n\nvar results = output.Replace(\u0022\\r\\n\u0022, \u0022\\n\u0022).Replace(\u0027\\r\u0027, \u0027\\n\u0027).Split(\u0027\\n\u0027).Where(x =\u003E x.Trim().Length \u003E 0).ToList();\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Connectivity probed from inside this node\u0027s container:\u0022);\nforeach (var line in results) ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  \u0022 \u002B line.Trim());\n\nScriptConsole.WriteLine(\u0022{0}\u0022, string.Empty);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022Note: these probes hit Docker\u0027s published ports, which accept a connection even when nothing\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022is listening behind them yet - IST and SST only bind during an actual state transfer. An OK\u0022);\nScriptConsole.WriteLine(\u0022{0}\u0022, \u0022means the network path is open, not that a transfer is running.\u0022);\n\nvar failures = results.Count(x =\u003E x.TrimStart().StartsWith(\u0022FAIL\u0022, StringComparison.Ordinal));\nvar selfFailures = results.Count(x =\u003E x.Contains(\u0022self #\u0022, StringComparison.Ordinal) \u0026\u0026 x.TrimStart().StartsWith(\u0022FAIL\u0022, StringComparison.Ordinal));\nScriptConsole.WriteLine(\u0022{0}\u0022, string.Empty);\nif (failures == 0)\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022VERDICT: every cluster address is reachable from this node.\u0022);\n}\nelse\n{\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022VERDICT: \u0022 \u002B failures \u002B \u0022 address(es) unreachable.\u0022);\n    if (selfFailures \u003E 0)\n    {\n        ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  This node cannot reach its OWN published ports. Nodes on the same physical server\u0022);\n        ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  talk to each other through the host address, so that has to work. Check that the\u0022);\n        ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  Docker daemon on this server has the userland proxy enabled, or add a hairpin NAT\u0022);\n        ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  rule for the tcadmin0 subnet.\u0022);\n    }\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  A node that is Stopped will always fail - that is expected. For a node that is\u0022);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  running, check the firewall between the two servers: Galera needs 4567, 4568 and\u0022);\n    ScriptConsole.WriteLine(\u0022{0}\u0022, \u0022  4444 open in both directions, not just the MariaDB port.\u0022);\n}\n\nstatic string ReadText(TCAdminVars source, string key, string fallback)\n{\n    if (source == null || !source.ContainsKey(key) || source[key] == null) return fallback;\n    var text = source[key].ToString();\n    if (text == null) return fallback;\n    text = text.Trim();\n    return text.Length == 0 ? fallback : text;\n}\n",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 30,
+        "icon": "\u003Cpath d=\u0022M6.99 11 3 15l3.99 4v-3H14v-2H6.99zM21 9l-3.99-4v3H10v2h7.01v3z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "6005d044-9246-48f5-ae87-50c3279459fb"
+      }
+    }
+  ],
+  "dockerBlueprintsCustomLinks": [],
+  "execConsoleType": "Command",
+  "execCommand": "/bin/sh",
+  "containerOs": "Linux",
+  "backupConfig": {
+    "enabled": false,
+    "backupType": "Full",
+    "compressBackup": true,
+    "includedPaths": []
+  },
+  "rolePermissions": [],
+  "mods": []
+}
