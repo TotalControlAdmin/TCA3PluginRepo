@@ -1,0 +1,1660 @@
+{
+  "__TCA:ExportVersion": "3.21.42.0",
+  "__TCA:ExportedAt": "2026-09-21T15:40:42.7636297Z",
+  "name": "Garry\u0027s Mod",
+  "shortName": "GMOD",
+  "description": "",
+  "operatingSystem": "Linux",
+  "iconImage": "https://wallpapercave.com/wp/JkmU5HR.jpg",
+  "backgroundImage": "https://getwallpapers.com/wallpaper/full/9/4/e/1027889-widescreen-gmod-wallpapers-1920x1080-phone.jpg",
+  "minSlots": 2,
+  "maxSlots": 64,
+  "defaultSlots": 32,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "",
+    "privateRule": "password",
+    "privateRuleValue": "1",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "garrysmod/console.log",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "quit",
+    "waitAfterStopCommand": 5000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": true,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 27015,
+        "expression": ""
+      },
+      {
+        "id": "RConPort",
+        "port": 27015,
+        "expression": ""
+      },
+      {
+        "id": "QueryPort",
+        "port": 27015,
+        "expression": ""
+      },
+      {
+        "id": "HLTVPort",
+        "expression": "GamePort \u002B 1",
+        "description": "HLTV Port"
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "srcds_run",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "garrysmod-linux",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": ""
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 4020,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "storeId": 4000,
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "-norestart -console -game garrysmod -nohltv \u002Btv_port ${HLTVPort} -condebug \u002Bmaxplayers ${Slots} \u002Bip ${IPAddress} -port ${GamePort} \u002Bexec \u0022server.cfg\u0022 \u002Bmap \u0022gm_flatgrass\u0022",
+    "privateCustomCommandline": "-norestart -console -game garrysmod -nohltv \u002Btv_port ${HLTVPort} -condebug \u002Bmaxplayers ${Slots} \u002Bip ${IPAddress} -port ${GamePort} "
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "-norestart -console -game garrysmod -nohltv \u002Btv_port ${HLTVPort} -condebug \u002Bmaxplayers ${Slots} \u002Bip ${IPAddress} -port ${GamePort} \u002Bexec \u0022server.cfg\u0022 \u002Bmap \u0022gm_flatgrass\u0022",
+    "defaultCustomCommandline": "-norestart -console -game garrysmod -nohltv \u002Btv_port ${HLTVPort} -condebug \u002Bmaxplayers ${Slots} \u002Bip ${IPAddress} -port ${GamePort} ",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "-norestart -console -game garrysmod -nohltv \u002Btv_port ${HLTVPort} -condebug \u002Bmaxplayers ${Slots} \u002Bip ${IPAddress} -port ${GamePort} \u002Bexec \u0022server.cfg\u0022 \u002Bmap \u0022gm_flatgrass\u0022"
+      },
+      {
+        "id": 2,
+        "name": "Custom",
+        "commandLine": "-norestart -console -game garrysmod -nohltv \u002Btv_port ${HLTVPort} -condebug \u002Bmaxplayers ${Slots} \u002Bip ${IPAddress} -port ${GamePort} ${exec} \u002Bmap ${map}"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "gameVariables": [
+    {
+      "name": "sv_region",
+      "defaultValue": 255,
+      "required": true,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${sv_region}",
+      "editor": {
+        "items": [
+          {
+            "text": "US - East",
+            "value": "0"
+          },
+          {
+            "text": "US - West",
+            "value": "1"
+          },
+          {
+            "text": "South America",
+            "value": "2"
+          },
+          {
+            "text": "Europe",
+            "value": "3"
+          },
+          {
+            "text": "Asia",
+            "value": "4"
+          },
+          {
+            "text": "Australia",
+            "value": "5"
+          },
+          {
+            "text": "Middle East",
+            "value": "6"
+          },
+          {
+            "text": "Africa",
+            "value": "7"
+          },
+          {
+            "text": "World (default)",
+            "value": "255"
+          }
+        ],
+        "id": "sv_region",
+        "defaultValue": 255,
+        "label": "Region",
+        "description": "The region of the world to report this server in.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-08-11T16:11:21.129989",
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": []
+    },
+    {
+      "name": "exec",
+      "defaultValue": "server.cfg",
+      "required": true,
+      "requiredMessage": "The script file is required",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": " \u002Bexec \u0022${exec}\u0022",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "exec",
+        "defaultValue": "server.cfg",
+        "label": "Exec",
+        "description": "Execute a script file",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "The script file is required",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-08-11T16:11:21.130216",
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": []
+    },
+    {
+      "name": "map",
+      "defaultValue": "gm_flatgrass",
+      "required": true,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": " \u002Bmap \u0022${map}\u0022",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "map",
+        "defaultValue": "gm_flatgrass",
+        "label": "Map",
+        "description": "Start playing on specified map",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-08-11T16:11:21.13049",
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": []
+    },
+    {
+      "name": "host_workshop_collection",
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": " \u002Bhost_workshop_collection ${host_workshop_collection}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "host_workshop_collection",
+        "label": "Workshop Collection",
+        "description": "The server will download Workshop items from given collection on start up",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-08-11T16:11:21.130491",
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": []
+    },
+    {
+      "name": "AuthKey",
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "  -authkey ${AuthKey}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "AuthKey",
+        "label": "AuthKey",
+        "description": "Authorization key for Steam Web API",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-08-11T16:11:21.130491",
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": []
+    },
+    {
+      "name": "sv_lan",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${sv_lan}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "sv_lan",
+        "label": "Server is a lan server",
+        "description": "No heartbeat, no authentication, no non-class C addresses",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicSwitch",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-12-11T00:40:01.555",
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": []
+    },
+    {
+      "name": "sv_minrate",
+      "defaultValue": "0",
+      "required": true,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${sv_minrate}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "id": "sv_minrate",
+        "defaultValue": "0",
+        "label": "Min bandwidth rate",
+        "description": "Min bandwidth rate allowed on server, 0 == unlimited",
+        "required": true,
+        "requiredMessage": "Value is required",
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-12-11T03:52:32.065",
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": []
+    },
+    {
+      "name": "sv_maxrate",
+      "defaultValue": "20000",
+      "required": true,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${sv_maxrate}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "id": "sv_maxrate",
+        "defaultValue": "20000",
+        "label": "Max bandwidth rate",
+        "description": "Max bandwidth rate allowed on server, 0 == unlimited",
+        "required": true,
+        "requiredMessage": "Value is required",
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-12-11T03:55:39.175",
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": []
+    },
+    {
+      "name": "Hostname",
+      "required": true,
+      "requiredMessage": "The hostname is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "Hostname",
+        "label": "Hostname",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "The hostname is required",
+        "controlType": "DynamicTextBox",
+        "sm": 4,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-12-14T22:57:43.798",
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": []
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 11,
+      "relativePath": "garrysmod/cfg/server.cfg",
+      "description": "Main configuration file",
+      "template": "log\t\t\ton\r\n\r\nhostname\t\t\u0022${Hostname}\u0022\r\nrcon_password\t\t\u0022${RconPassword}\u0022\r\nsv_password\t\t\u0022${PrivatePassword}\u0022\r\nsv_region\t\t${sv_region}\r\nsv_lan\t\t\t${sv_lan}\r\nsv_logbans\t\t0\r\nsv_logecho\t\t0\r\nsv_logfile\t\t1 \r\nsv_log_onefile\t\t0\r\nsv_noclipspeed\t\t5\r\nsv_noclipaccelerate\t5\r\n\r\nsbox_allownpcs\t\t1\r\nsbox_godmode\t\t0\r\nsbox_plpldamage\t\t0\r\nsbox_playergod\t\t0\r\nsbox_noclip\t\t1\r\n\r\nsbox_maxprops\t\t150\r\nsbox_maxragdolls\t5\r\nsbox_maxnpcs\t\t10\r\nsbox_maxballoons\t10\r\nsbox_maxeffects\t\t50\r\nsbox_maxdynamite\t10\r\nsbox_maxlamps\t\t20\r\nsbox_maxthrusters\t30\r\nsbox_maxwheels\t\t20\r\nsbox_maxhoverballs\t20\r\nsbox_maxvehicles\t6\r\nsbox_maxbuttons\t\t20\r\nsbox_maxsents\t\t20\r\nsbox_maxemitters\t5\r\nsbox_maxspawners\t3\r\nsbox_maxturrets\t\t2\r\n\r\nnet_maxfilesize\t\t30\r\n\r\nsv_minrate\t\t${sv_minrate} \r\nsv_maxrate\t\t${sv_maxrate}\r\ndecalfrequency\t\t10 \r\nsv_maxupdaterate\t66 \r\nsv_minupdaterate\t10 \r\n\r\n// execute ban files\r\nexec banned_ip.cfg \r\nexec banned_user.cfg ",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "id": "Header-49557",
+          "label": "Basic Configuration",
+          "description": "extra info here",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "label": "Hostname",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "RconPassword",
+          "label": "Rcon Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "label": "Private Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "id": "Header-84225",
+          "label": "Advanced Configuration",
+          "description": "extra info here",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "US - East",
+              "value": "0"
+            },
+            {
+              "text": "US - West",
+              "value": "1"
+            },
+            {
+              "text": "South America",
+              "value": "2"
+            },
+            {
+              "text": "Europe",
+              "value": "3"
+            },
+            {
+              "text": "Asia",
+              "value": "4"
+            },
+            {
+              "text": "Australia",
+              "value": "5"
+            },
+            {
+              "text": "Middle East",
+              "value": "6"
+            },
+            {
+              "text": "Africa",
+              "value": "7"
+            },
+            {
+              "text": "World (default)",
+              "value": "255"
+            }
+          ],
+          "id": "sv_region",
+          "label": "Region",
+          "description": "The region of the world to report this server in.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "sv_lan",
+          "label": "Server is a lan server",
+          "description": "No heartbeat, no authentication, no non-class C addresses",
+          "required": false,
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicSwitch",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "id": "sv_minrate",
+          "label": "Min bandwidth rate",
+          "description": "Min bandwidth rate allowed on server, 0 == unlimited",
+          "required": false,
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "id": "sv_maxrate",
+          "label": "Max bandwidth rate",
+          "description": "Max bandwidth rate allowed on server, 0 == unlimited",
+          "required": false,
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": []
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": []
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "AfterCustomModInstalled"
+        ],
+        "name": "Extract Workshop Addon",
+        "description": "Moves the downloaded Steam Workshop .gma into garrysmod/addons and extracts it with the game\u0027s gmad binary.",
+        "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring fileId = Convert.ToString(Dynamic.FileId);\nstring installPath = Convert.ToString(Dynamic.InstallPath);\nstring addonDir = Path.Combine(ThisService.RootDirectory, \u0022garrysmod\u0022, \u0022addons\u0022, fileId);\n\nif (string.IsNullOrEmpty(installPath) || !Directory.Exists(installPath))\n{\n    ScriptConsole.WriteLine((object)$\u0022Nothing was downloaded for workshop file {fileId}: {installPath} does not exist.\u0022);\n    return;\n}\n\nstring[] downloaded = Directory.GetFiles(installPath, \u0022*\u0022, SearchOption.AllDirectories);\nif (downloaded.Length == 0)\n    throw new InvalidOperationException($\u0022Workshop file {fileId} left no files in {installPath}.\u0022);\n\nstring payload = downloaded.FirstOrDefault(f =\u003E f.EndsWith(\u0022.gma\u0022, StringComparison.OrdinalIgnoreCase))\n    ?? downloaded.FirstOrDefault(f =\u003E f.EndsWith(\u0022.gm\u0022, StringComparison.OrdinalIgnoreCase))\n    ?? downloaded.OrderByDescending(f =\u003E new FileInfo(f).Length).First();\n\nif (payload.EndsWith(\u0022.gm\u0022, StringComparison.OrdinalIgnoreCase))\n{\n    string renamed = payload \u002B \u0022a\u0022;\n    if (File.Exists(renamed))\n        File.Delete(renamed);\n    File.Move(payload, renamed);\n    payload = renamed;\n}\n\nif (!payload.EndsWith(\u0022.gma\u0022, StringComparison.OrdinalIgnoreCase))\n{\n    Directory.CreateDirectory(addonDir);\n    string loosePath = Path.Combine(addonDir, Path.GetFileName(payload));\n    File.Move(payload, loosePath, true);\n    ScriptConsole.WriteLine((object)$\u0022{Path.GetFileName(payload)} is not an addon archive; installed as-is to {loosePath}.\u0022);\n    return;\n}\n\nbyte[] magic = ReadMagic(payload);\nif (!IsGmad(magic))\n{\n    // Some workshop items arrive as an LZMA-alone wrapper around the real GMAD payload.\n    ScriptConsole.WriteLine(\u0022Addon is compressed. Decompressing...\u0022);\n    DecompressLzmaInPlace(payload);\n    magic = ReadMagic(payload);\n    if (!IsGmad(magic))\n        throw new InvalidDataException($\u0022{payload} is not a Garry\u0027s Mod addon. First bytes: {BitConverter.ToString(magic)}\u0022);\n}\n\nDirectory.CreateDirectory(addonDir);\nint extractedCount = ExtractGma(payload, addonDir);\nFile.Delete(payload);\nScriptConsole.WriteLine((object)$\u0022Workshop file {fileId}: extracted {extractedCount} files to {addonDir}.\u0022);\n\nbyte[] ReadMagic(string path)\n{\n    using var stream = File.OpenRead(path);\n    byte[] buffer = new byte[4];\n    return stream.Read(buffer, 0, buffer.Length) == buffer.Length ? buffer : Array.Empty\u003Cbyte\u003E();\n}\n\nbool IsGmad(byte[] header)\n{\n    return header.Length == 4 \u0026\u0026 header[0] == (byte)\u0027G\u0027 \u0026\u0026 header[1] == (byte)\u0027M\u0027 \u0026\u0026 header[2] == (byte)\u0027A\u0027 \u0026\u0026 header[3] == (byte)\u0027D\u0027;\n}\n\nvoid DecompressLzmaInPlace(string path)\n{\n    string tempPath = path \u002B \u0022.tmp\u0022;\n    try\n    {\n        using (var input = File.OpenRead(path))\n        {\n            if (input.Length \u003C 13)\n                throw new InvalidDataException($\u0022{path} is too small to be an LZMA stream.\u0022);\n\n            byte[] properties = new byte[5];\n            byte[] sizeBytes = new byte[8];\n            input.ReadExactly(properties, 0, properties.Length);\n            input.ReadExactly(sizeBytes, 0, sizeBytes.Length);\n\n            long uncompressedSize = BitConverter.ToInt64(sizeBytes, 0);\n            if (uncompressedSize \u003C 0)\n                throw new InvalidDataException($\u0022{path} declares an unknown uncompressed size, which the LZMA decoder cannot handle.\u0022);\n\n            var decoder = new SevenZip.Compression.LZMA.Decoder();\n            decoder.SetDecoderProperties(properties);\n            using var output = File.Create(tempPath);\n            decoder.Code(input, output, input.Length - input.Position, uncompressedSize, null);\n        }\n\n        File.Move(tempPath, path, true);\n    }\n    finally\n    {\n        if (File.Exists(tempPath))\n            File.Delete(tempPath);\n    }\n}\n\nstring ReadNullTerminatedString(BinaryReader reader)\n{\n    var bytes = new List\u003Cbyte\u003E();\n    byte current;\n    while ((current = reader.ReadByte()) != 0)\n        bytes.Add(current);\n    return Encoding.UTF8.GetString(bytes.ToArray());\n}\n\nint ExtractGma(string gmaPath, string destinationDir)\n{\n    using var stream = File.OpenRead(gmaPath);\n    using var reader = new BinaryReader(stream);\n\n    byte[] ident = reader.ReadBytes(4);\n    byte formatVersion = reader.ReadByte();\n    if (formatVersion \u003E 3)\n        throw new InvalidDataException($\u0022{gmaPath} uses GMA format version {formatVersion}, which this script cannot read.\u0022);\n\n    long steamId = reader.ReadInt64();\n    long timestamp = reader.ReadInt64();\n\n    if (formatVersion \u003E 1)\n        while (ReadNullTerminatedString(reader).Length \u003E 0) { } // an empty string terminates the required-content list\n\n    string addonName = ReadNullTerminatedString(reader);\n    string addonDescription = ReadNullTerminatedString(reader);\n    string addonAuthor = ReadNullTerminatedString(reader);\n    int addonVersion = reader.ReadInt32();\n\n    var entries = new List\u003CKeyValuePair\u003Cstring, long\u003E\u003E();\n    while (reader.ReadUInt32() != 0)\n    {\n        string entryName = ReadNullTerminatedString(reader);\n        long entrySize = reader.ReadInt64();\n        uint entryCrc = reader.ReadUInt32();\n        entries.Add(new KeyValuePair\u003Cstring, long\u003E(entryName, entrySize));\n    }\n\n    string root = Path.GetFullPath(destinationDir);\n    string rootPrefix = root \u002B Path.DirectorySeparatorChar;\n    byte[] buffer = new byte[81920];\n\n    foreach (var entry in entries)\n    {\n        ThisCancellationToken.ThrowIfCancellationRequested();\n\n        if (Path.IsPathRooted(entry.Key))\n            throw new InvalidDataException($\u0022Addon {gmaPath} contains a rooted entry \u0027{entry.Key}\u0027. Refusing to extract it.\u0022);\n\n        string destination = Path.GetFullPath(Path.Combine(root, entry.Key));\n        if (!destination.StartsWith(rootPrefix, StringComparison.Ordinal))\n            throw new InvalidDataException($\u0022Addon {gmaPath} contains an entry \u0027{entry.Key}\u0027 that escapes {destinationDir}. Refusing to extract it.\u0022);\n\n        Directory.CreateDirectory(Path.GetDirectoryName(destination));\n\n        using var output = File.Create(destination);\n        long remaining = entry.Value;\n        while (remaining \u003E 0)\n        {\n            int read = stream.Read(buffer, 0, (int)Math.Min(buffer.Length, remaining));\n            if (read == 0)\n                throw new EndOfStreamException($\u0022{gmaPath} ended while reading \u0027{entry.Key}\u0027.\u0022);\n            output.Write(buffer, 0, read);\n            remaining -= read;\n        }\n    }\n\n    return entries.Count;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 0,
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "ce4f04e0-d0db-43d7-b3aa-423ad95615fd"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "AfterCustomModUninstalled"
+        ],
+        "name": "Remove Workshop Addon",
+        "description": "Deletes the addon folder for an uninstalled Steam Workshop file from garrysmod/addons.",
+        "code": "using System;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring fileId = Convert.ToString(Dynamic.FileId);\nstring addonsRoot = Path.Combine(ThisService.RootDirectory, \u0022garrysmod\u0022, \u0022addons\u0022);\n\nif (string.IsNullOrWhiteSpace(fileId))\n{\n    ScriptConsole.WriteLine(\u0022No workshop file id was supplied; nothing to remove.\u0022);\n    return;\n}\n\n// Anything but a plain folder name would let the recursive delete land on the addons root and wipe every addon.\nif (Path.IsPathRooted(fileId)\n    || fileId.IndexOfAny(new char[] { \u0027/\u0027, \u0027\\\\\u0027 }) \u003E= 0\n    || fileId.Contains(\u0022..\u0022, StringComparison.Ordinal))\n    throw new InvalidOperationException($\u0022Refusing to uninstall: workshop file id \u0027{fileId}\u0027 is not a plain folder name.\u0022);\n\nstring addonDir = ResolveUnderAddons(addonsRoot, fileId);\nstring looseGma = ResolveUnderAddons(addonsRoot, fileId \u002B \u0022.gma\u0022);\n\nbool removedFolder = Directory.Exists(addonDir);\nif (removedFolder)\n    Directory.Delete(addonDir, true);\n\nbool removedArchive = File.Exists(looseGma);\nif (removedArchive)\n    File.Delete(looseGma);\n\nif (removedFolder \u0026\u0026 removedArchive)\n    ScriptConsole.WriteLine((object)$\u0022Removed addon folder {addonDir} and leftover archive {looseGma}.\u0022);\nelse if (removedFolder)\n    ScriptConsole.WriteLine((object)$\u0022Removed addon folder {addonDir}.\u0022);\nelse if (removedArchive)\n    ScriptConsole.WriteLine((object)$\u0022Removed leftover archive {looseGma}.\u0022);\nelse\n    ScriptConsole.WriteLine((object)$\u0022Workshop file {fileId} left nothing behind in {addonsRoot}.\u0022);\n\nstring ResolveUnderAddons(string addonsDirectory, string name)\n{\n    string resolved = Path.GetFullPath(Path.Combine(addonsDirectory, name));\n    string prefix = Path.GetFullPath(addonsDirectory) \u002B Path.DirectorySeparatorChar;\n    if (!resolved.StartsWith(prefix, StringComparison.Ordinal))\n        throw new InvalidOperationException($\u0022Refusing to uninstall \u0027{name}\u0027: it resolves to {resolved}, outside {addonsDirectory}.\u0022);\n    return resolved;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 0,
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "122b7dc8-0361-49a6-9f42-1775c08bb89c"
+      }
+    }
+  ],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 10,
+      "enabled": false,
+      "configuration": {}
+    },
+    {
+      "providerId": 2,
+      "gameId": 10,
+      "enabled": true,
+      "configuration": {
+        "Private.UseSteamAPI": true,
+        "AllowCollections": true,
+        "ShowAuthorAndRating": true,
+        "ShowDescription": true
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 10,
+      "enabled": false,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 10,
+      "enabled": false,
+      "configuration": {
+        "ModsPath": "mods"
+      }
+    },
+    {
+      "providerId": 5,
+      "gameId": 10,
+      "enabled": false,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 10,
+      "enabled": false,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 10,
+      "enabled": false,
+      "configuration": {}
+    }
+  ],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-02-16T02:37:09.458979",
+  "modifiedDate": "2026-09-21T14:49:22.799749",
+  "metadata": {
+    "Notes": "",
+    "notes": "Game imported from plugin TCA.Games.GarrysMod version 1.0.1.Game imported from plugin TCA.Games.GarrysMod version 1.0.1.Game imported from plugin TCA.Games.GarrysMod version 1.0.2.",
+    "PluginIdentifier": "TCA.Games.GarrysMod",
+    "PluginVersion": "1.0.2"
+  },
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Incremental",
+    "compressBackup": true,
+    "includedPaths": [
+      "garrysmod/cfg/**/",
+      "garrysmod/data/**/",
+      "garrysmod/settings/**/",
+      "garrysmod/sv.db",
+      "garrysmod/gamemodes/**/*.txt",
+      "garrysmod/lua/**/*.txt"
+    ],
+    "maxBackupCount": 5
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "GeneralSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "FileSystem",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Cmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "IpAndPorts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Monitoring",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Variables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Scripts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "CustomLinks",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "FeaturePermissions",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "EnvironmentVariables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Limits",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "RconAndQuery",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Paths",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "RunAs",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Steam",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "GeneralSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FileSystem",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Cmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "IpAndPorts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Monitoring",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Variables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Scripts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "CustomLinks",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FeaturePermissions",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "EnvironmentVariables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Limits",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "RconAndQuery",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Paths",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "RunAs",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Steam",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": false,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "Disable",
+    "logActivityOnFailure": true,
+    "slotDetectionEnabled": false,
+    "slotDetectionAction": "None",
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": false,
+    "privateDetectionAction": "None",
+    "brandDetectionEnabled": false,
+    "brandDetectionAction": "None",
+    "brandedText": "",
+    "brandedTextAtEnd": true,
+    "brandedTextAddSpace": true,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": true,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": false,
+    "compression": "None",
+    "requiresHttps": false,
+    "stripPaths": []
+  },
+  "environmentVariables": []
+}
