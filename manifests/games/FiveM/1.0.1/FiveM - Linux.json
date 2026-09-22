@@ -1,0 +1,703 @@
+{
+  "__TCA:ExportVersion": "3.21.47.0",
+  "__TCA:ExportedAt": "2026-09-22T03:50:15.7216281Z",
+  "name": "CitizenFX - FiveM",
+  "shortName": "FiveM",
+  "description": "FiveM (CitizenFX) dedicated server for Linux.",
+  "operatingSystem": "Linux",
+  "iconImage": "https://upload.wikimedia.org/wikipedia/commons/5/5a/FiveM-Logo.png",
+  "backgroundImage": "https://i.pinimg.com/originals/96/15/c4/9615c4807307ae00ee0b4cbdaca2b1f0.jpg",
+  "minSlots": 0,
+  "maxSlots": 64,
+  "defaultSlots": 32,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": 12884901888,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "queryRconProtocolConfig": {
+    "queryProtocol": "fivem",
+    "rconProtocol": "",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "quit",
+    "waitAfterStopCommand": 10000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": false
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 30120,
+        "expression": ""
+      },
+      {
+        "id": "RConPort",
+        "port": 30120,
+        "expression": ""
+      },
+      {
+        "id": "QueryPort",
+        "port": 30120,
+        "expression": ""
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "run.sh",
+    "relativeWorkingDirectory": "server-data/",
+    "autoSetupFolderName": "fivem-linux",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": ""
+  },
+  "steamConfig": {
+    "steamUpdate": false,
+    "appId": 0,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "storeId": 0,
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "\u002Bexec server.cfg"
+  },
+  "commandlineConfig": {
+    "enableSelection": false,
+    "defaultCommandline": "\u002Bexec server.cfg",
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "gameVariables": [
+    {
+      "name": "LicenseKey",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${LicenseKey}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "LicenseKey",
+        "defaultValue": "",
+        "label": "LicenseKey",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-08-11T16:11:21.165239",
+      "metadata": {
+        "notes": null
+      },
+      "variableRoles": []
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 340,
+      "relativePath": "server-data/server.cfg",
+      "description": "Main configuration file",
+      "template": "set sv_licenseKey \u0022${LicenseKey}\u0022\r\n\r\n# you probably don\u0027t want to change these!\r\n# only change them if you\u0027re using a server with multiple network interfaces\r\nendpoint_add_tcp \u0022${IPAddress}:${GamePort}\u0022\r\nendpoint_add_udp \u0022${IPAddress}:${GamePort}\u0022\r\n\r\nstart mapmanager\r\nstart chat\r\nstart spawnmanager\r\nstart sessionmanager\r\nstart fivem\r\nstart hardcap\r\nstart rconlog\r\nstart scoreboard\r\nstart playernames\r\n\r\nsv_scriptHookAllowed 1\r\n\r\n# change this\r\nrcon_password ${RconPassword}\r\n\r\nsv_hostname \u0022${Hostname}\u0022\r\n\r\n# nested configs!\r\n#exec server_internal.cfg\r\n\r\n# loading a server icon (96x96 PNG file)\r\n#load_server_icon myLogo.png\r\n\r\n# convars for use from script\r\nset temp_convar \u0022hey world!\u0022\r\n\r\n# disable announcing? clear out the master by uncommenting this\r\n#sv_master1 \u0022\u0022\r\n\r\n# want to only allow players authenticated with a third-party provider like Steam?\r\n#sv_authMaxVariance 1\r\n#sv_authMinTrust 5\r\n\r\n# add system admins\r\nadd_ace group.admin command allow # allow all commands\r\nadd_ace group.admin command.quit deny # but don\u0027t allow quit\r\nadd_principal identifier.steam:110000112345678 group.admin # add the admin to the group\r\n\r\n# hide player endpoints in external log output\r\nsv_endpointprivacy true\r\n\r\n# server slots limit (default to 30)\r\nsv_maxclients ${Slots}\r\n\r\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "LicenseKey",
+          "label": "LicenseKey",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "RconPassword",
+          "label": "Rcon Password",
+          "description": "Remote console password.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicTextBox",
+          "sm": 4,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "label": "Hostname",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicTextBox",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "DownloadGameFiles"
+        ],
+        "name": "Download Linux game files",
+        "description": "Downloads the latest FXServer Linux artifact and cfx-server-data into the game files folder.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Threading.Tasks;\nusing TCAdmin.SDK.Misc.Extensions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvoid WriteLog(string s, int? progress = null, bool rewriteLastLog = false)\n{\n    if(Globals.ThisTaskStepHandler != null)\n    {\n        Globals.ThisTaskStepHandler.UpdateProgress(progress: progress, log: s);\n    }\n    else if(Globals.ThisTaskStep!=null)\n    {\n        if(progress.HasValue)\n        {\n            Globals.ThisTaskStep.Progress = progress.Value;\n        }\n\n        if(rewriteLastLog)\n        {\n            Globals.ThisTaskStep.DisplayLog = s;\n            Globals.ThisTaskStep.DisplayDebugLog = s;\n        }\n        else\n        {\n            Globals.ThisTaskStep.AddDebugLog(s, skipDuplicates:true);\n        }\n        Globals.TCATaskManager.Update(Globals.ThisTask, true);\n    }\n    else\n    {\n        Globals.ScriptConsole.WriteLine(s);\n    }\n}\n\n// Runs a helper the monitor needs but the SDK does not wrap; the exit code is the only success signal.\nvoid Run(string fileName, params string[] arguments)\n{\n    using var p = new Process();\n    p.StartInfo.FileName = fileName;\n    foreach(var argument in arguments)\n    {\n        p.StartInfo.ArgumentList.Add(argument);\n    }\n    p.StartInfo.UseShellExecute = false;\n    p.StartInfo.RedirectStandardError = true;\n    p.StartInfo.RedirectStandardOutput = true;\n    p.Start();\n\n    var errorTask = p.StandardError.ReadToEndAsync();\n    p.StandardOutput.ReadToEnd();\n    p.WaitForExit();\n    var error = errorTask.GetAwaiter().GetResult();\n\n    if(p.ExitCode != 0)\n    {\n        throw new Exception($\u0022\\\u0022{fileName}\\\u0022 failed with exit code {p.ExitCode}: {error}\u0022);\n    }\n}\n\n// TCAdmin\u0027s game-file copy skips symbolic links, so the musl loader would lose every soname\n// link (libstdc\u002B\u002B.so.6 -\u003E libstdc\u002B\u002B.so.6.0.33) and FXServer would not start. Replacing the\n// links under these three folders with real files costs ~15 MB; the busybox applet links under\n// alpine/{bin,sbin,usr/bin,usr/sbin} are left alone because FXServer never uses them and\n// materialising those would cost ~600 MB.\nvoid MaterializeSymlinks(string root)\n{\n    const string script =\n        \u0022set -e; cd \\\u0022$1\\\u0022; for d in alpine/lib alpine/usr/lib alpine/etc; do \u0022 \u002B\n        \u0022[ -d \\\u0022$d\\\u0022 ] || continue; \u0022 \u002B\n        \u0022find \\\u0022$d\\\u0022 -type l | while IFS= read -r l; do \u0022 \u002B\n        \u0022t=$(readlink -f \\\u0022$l\\\u0022) || continue; [ -f \\\u0022$t\\\u0022 ] || continue; \u0022 \u002B\n        \u0022cp --remove-destination -p \\\u0022$t\\\u0022 \\\u0022$l\\\u0022; done; done\u0022;\n\n    Run(\u0022/bin/sh\u0022, \u0022-c\u0022, script, \u0022sh\u0022, root);\n}\n\nvoid MakeExecutable(string root)\n{\n    var mode = UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.UserExecute |\n               UnixFileMode.GroupRead | UnixFileMode.GroupExecute |\n               UnixFileMode.OtherRead | UnixFileMode.OtherExecute;\n\n    var relativePaths = new[]\n    {\n        \u0022run.sh\u0022,\n        Path.Combine(\u0022alpine\u0022, \u0022opt\u0022, \u0022cfx-server\u0022, \u0022run.sh\u0022),\n        Path.Combine(\u0022alpine\u0022, \u0022opt\u0022, \u0022cfx-server\u0022, \u0022FXServer\u0022),\n        Path.Combine(\u0022alpine\u0022, \u0022opt\u0022, \u0022cfx-server\u0022, \u0022ld-musl-x86_64.so.1\u0022),\n        Path.Combine(\u0022alpine\u0022, \u0022lib\u0022, \u0022ld-musl-x86_64.so.1\u0022)\n    };\n\n    foreach(var relativePath in relativePaths)\n    {\n        var fullPath = Path.Combine(root, relativePath);\n        if(File.Exists(fullPath))\n        {\n            File.SetUnixFileMode(fullPath, mode);\n        }\n    }\n}\n\nvar gameFilesPath = Globals.ThisServer.Configuration.GameFilesPath;\nvar fiveMPath = Path.Combine(gameFilesPath, Globals.ThisGame.FileAndDirectoryConfig.AutoSetupFolderName);\nvar downloadedFile = Path.Combine(gameFilesPath, \u0022__fivem-linux.tar.xz\u0022);\nvar serverDataZip = Path.Combine(gameFilesPath, \u0022__cfx-server-data.zip\u0022);\nvar serverDataTemp = Path.Combine(gameFilesPath, \u0022__cfx-server-data-temp\u0022);\nvar serverDataPath = Path.Combine(fiveMPath, \u0022server-data\u0022);\n\nDirectory.CreateDirectory(gameFilesPath);\nDirectory.CreateDirectory(fiveMPath);\n\ntry\n{\n    // A top-level \u0022using var\u0022 is rejected by the Roslyn scripting host; the block form is required.\n    using (var httpClient = new HttpClient())\n    {\n        httpClient.Timeout = TimeSpan.FromMinutes(30); // The artifact is ~70 MB; the 100s default aborts it.\n\n        try\n        {\n            WriteLog(\u0022Downloading the latest FiveM Linux artifact...\u0022, 5);\n            await httpClient.DownloadFile(\u0022http://downloads.tcadmin.net/games/fivem-linux.aspx\u0022, downloadedFile, Globals.ThisCancellationToken);\n\n            WriteLog(\u0022Extracting the FiveM Linux artifact...\u0022, 35);\n            Run(\u0022tar\u0022, \u0022-xf\u0022, downloadedFile, \u0022-C\u0022, fiveMPath); // The tarball has no wrapping folder.\n\n            WriteLog(\u0022Restoring symbolic links...\u0022, 45);\n            MaterializeSymlinks(fiveMPath);\n        }\n        finally\n        {\n            if(File.Exists(downloadedFile))\n            {\n                File.Delete(downloadedFile);\n            }\n        }\n\n        try\n        {\n            WriteLog(\u0022Downloading the cfx-server-data files...\u0022, 55);\n            await httpClient.DownloadFile(\u0022https://github.com/citizenfx/cfx-server-data/archive/refs/heads/master.zip\u0022, serverDataZip, Globals.ThisCancellationToken);\n\n            WriteLog(\u0022Extracting the cfx-server-data files...\u0022, 70);\n            if(Directory.Exists(serverDataTemp))\n            {\n                Directory.Delete(serverDataTemp, true);\n            }\n            Directory.CreateDirectory(serverDataTemp);\n            ZipFile.ExtractToDirectory(serverDataZip, serverDataTemp);\n\n            var extractedFolder = Path.Combine(serverDataTemp, \u0022cfx-server-data-master\u0022);\n            if(!Directory.Exists(extractedFolder))\n            {\n                extractedFolder = Directory.GetDirectories(serverDataTemp).FirstOrDefault();\n            }\n\n            if(string.IsNullOrEmpty(extractedFolder) || !Directory.Exists(extractedFolder))\n            {\n                throw new Exception(\u0022The cfx-server-data archive did not contain the expected folder.\u0022);\n            }\n\n            // Re-runnable: the previous server-data goes before the rename.\n            if(Directory.Exists(serverDataPath))\n            {\n                Directory.Delete(serverDataPath, true);\n            }\n            Directory.Move(extractedFolder, serverDataPath);\n        }\n        finally\n        {\n            if(File.Exists(serverDataZip))\n            {\n                File.Delete(serverDataZip);\n            }\n\n            if(Directory.Exists(serverDataTemp))\n            {\n                Directory.Delete(serverDataTemp, true);\n            }\n        }\n    }\n\n    WriteLog(\u0022Setting executable permissions...\u0022, 90);\n    MakeExecutable(fiveMPath);\n\n    // run.sh execs the musl loader, so it must exist or the service never starts.\n    var runScript = Path.Combine(fiveMPath, \u0022run.sh\u0022);\n    if(!File.Exists(runScript))\n    {\n        throw new Exception($\u0022\\\u0022{runScript}\\\u0022 was not found after extracting the FiveM Linux artifact.\u0022);\n    }\n\n    var resourcesPath = Path.Combine(serverDataPath, \u0022resources\u0022);\n    if(!Directory.Exists(resourcesPath))\n    {\n        throw new Exception($\u0022\\\u0022{resourcesPath}\\\u0022 was not found after extracting the cfx-server-data files.\u0022);\n    }\n\n    WriteLog(\u0022FiveM Linux game files are ready.\u0022, 100);\n}\ncatch(Exception ex)\n{\n    WriteLog($\u0022Failed to download the FiveM Linux game files: {ex.Message}\u0022);\n    throw;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 0,
+        "icon": "\u003Cpath d=\u0022M0 0h24v24H0V0z\u0022 fill=\u0022none\u0022/\u003E\u003Cpath d=\u0022M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "2f1c6d41-7a0b-4c9e-9a3d-5b8e10f4c201"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "Batch",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Set FiveM executable permissions",
+        "description": "Restores the execute bit on run.sh, FXServer and the musl loader before every start.",
+        "code": "#!/bin/sh\ncd \u0022${ThisService_RootDirectory}\u0022 || exit 0\n\nchmod \u002Bx run.sh 2\u003E/dev/null\nchmod \u002Bx alpine/opt/cfx-server/run.sh 2\u003E/dev/null\nchmod \u002Bx alpine/opt/cfx-server/FXServer 2\u003E/dev/null\nchmod \u002Bx alpine/opt/cfx-server/ld-musl-x86_64.so.1 2\u003E/dev/null\nchmod \u002Bx alpine/lib/ld-musl-x86_64.so.1 2\u003E/dev/null\n\nexit 0\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 1,
+        "icon": "\u003Cpath d=\u0022M0 0h24v24H0V0z\u0022 fill=\u0022none\u0022/\u003E\u003Cpath d=\u0022M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "2f1c6d41-7a0b-4c9e-9a3d-5b8e10f4c202"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-09-22T03:08:43.945274",
+  "modifiedDate": "2026-09-22T02:56:53.40686",
+  "metadata": {
+    "Notes": "",
+    "notes": "FiveM Linux configuration derived from the FiveM Windows blueprint."
+  },
+  "backupConfig": {
+    "enabled": false,
+    "backupType": "Full",
+    "compressBackup": true,
+    "includedPaths": []
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "GeneralSettings",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "FeaturePermissions",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": false,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart, SendEmail",
+    "maxFailureAction": "Disable, SendEmail",
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": false,
+    "slotDetectionAction": "None",
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": false,
+    "privateDetectionAction": "None",
+    "brandDetectionEnabled": false,
+    "brandDetectionAction": "None",
+    "brandedText": "",
+    "brandedTextAtEnd": true,
+    "brandedTextAddSpace": true,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": true,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": false,
+    "compression": "None",
+    "requiresHttps": false,
+    "stripPaths": []
+  },
+  "environmentVariables": []
+}
