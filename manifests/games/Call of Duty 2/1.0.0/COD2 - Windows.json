@@ -1,0 +1,700 @@
+{
+  "__TCA:ExportVersion": "3.21.80.0",
+  "__TCA:ExportedAt": "2026-10-12T20:50:36.876258Z",
+  "name": "Call of Duty 2",
+  "shortName": "COD2",
+  "description": "Call of Duty 2 Multiplayer Dedicated Server",
+  "operatingSystem": "Windows",
+  "iconImage": "https://images.launchbox-app.com//13c970bc-5d07-4e9a-8f8f-e083155dd44f.png",
+  "backgroundImage": "https://gamesbeat.com/wp-content/uploads/2025/05/call-of-duty-2-2.jpg",
+  "minSlots": 2,
+  "maxSlots": 64,
+  "defaultSlots": 16,
+  "startedUntilResponding": true,
+  "startingTimeout": "00:05:00",
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml",
+    ".log"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "queryRconProtocolConfig": {
+    "queryProtocol": "cod2s",
+    "rconProtocol": "quake3",
+    "privateRule": "pswrd",
+    "privateRuleValue": "1",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "LogFile",
+    "logFile": "main\\server_mp.log",
+    "inputSource": "RconProtocol",
+    "printRconResponse": true,
+    "outputFilters": "",
+    "stopCommand": "quit",
+    "waitAfterStopCommand": 3000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 28960,
+        "expression": ""
+      },
+      {
+        "id": "QueryPort",
+        "port": 28960,
+        "expression": "GamePort"
+      },
+      {
+        "id": "RConPort",
+        "port": 28960,
+        "expression": "GamePort"
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "CoD2MP_s.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "cod2x",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": ""
+  },
+  "steamConfig": {
+    "steamUpdate": false,
+    "appId": 0,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "storeId": 0,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "\u002Bset fs_savepath ${RootDirectory}\\ \u002Bset dedicated 2 \u002Bset net_ip ${IPAddress} \u002Bset net_port ${GamePort} \u002Bset sv_maxclients ${Slots} \u002Bset sv_punkbuster 1 \u002Bexec server.cfg \u002Bmap_rotate",
+    "privateCustomCommandline": "\u002Bset fs_savepath ${RootDirectory}\\ \u002Bset dedicated 2 \u002Bset net_ip ${IPAddress} \u002Bset net_port ${GamePort} \u002Bset sv_maxclients ${Slots} \u002Bmap_rotate \u002Bexec server.cfg ${UserCommandLine}"
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "\u002Bset fs_savepath ${RootDirectory}\\ \u002Bset dedicated 2 \u002Bset net_ip ${IPAddress} \u002Bset net_port ${GamePort} \u002Bset sv_maxclients ${Slots} \u002Bset sv_punkbuster 1 \u002Bexec server.cfg \u002Bmap_rotate",
+    "defaultCustomCommandline": "\u002Bset fs_savepath ${RootDirectory}\\ \u002Bset dedicated 2 \u002Bset net_ip ${IPAddress} \u002Bset net_port ${GamePort} \u002Bset sv_maxclients ${Slots} \u002Bmap_rotate \u002Bexec server.cfg ${UserCommandLine}",
+    "predefinedCommandlines": [
+      {
+        "id": 2,
+        "name": "Default (no PunkBuster)",
+        "commandLine": "\u002Bset fs_savepath ${RootDirectory}\\ \u002Bset dedicated 2 \u002Bset net_ip ${IPAddress} \u002Bset net_port ${GamePort} \u002Bset sv_maxclients ${Slots} \u002Bset sv_punkbuster 0 \u002Bexec server.cfg"
+      },
+      {
+        "id": 1,
+        "name": "Default (with PunkBuster)",
+        "commandLine": "\u002Bset fs_savepath ${RootDirectory}\\ \u002Bset dedicated 2 \u002Bset net_ip ${IPAddress} \u002Bset net_port ${GamePort} \u002Bset sv_maxclients ${Slots} \u002Bset sv_punkbuster 1 \u002Bexec server.cfg \u002Bmap_rotate"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": true,
+    "elevated": false
+  },
+  "gameVariables": [
+    {
+      "name": "Hostname",
+      "defaultValue": "Call of Duty 2 Server",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": "Call of Duty 2 Server",
+        "label": "Hostname",
+        "description": "Server name that appears in the server browser",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-10-08T04:40:00",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": "",
+      "required": true,
+      "requiredMessage": "RCON password is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": "",
+        "label": "RCON Password",
+        "description": "Password used for RCON access",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "RCON password is required",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-10-08T04:40:00",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": "",
+        "label": "Private Password",
+        "description": "Leave empty for a public server. Set a password to make the server private.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-10-08T04:40:00",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 11,
+      "relativePath": "main\\server.cfg",
+      "description": "Main server configuration file",
+      "template": "// ==================================================\n// Call of Duty 2 Server Configuration\n// Generated by TCAdmin - Do not edit manually if using the config editor\n// ==================================================\n\n// **************************************************\n// *********** Server Security \u0026 Errors *************\n// **************************************************\n\n// Passwords\nset rcon_password \u0022${RconPassword}\u0022\nset sv_privatePassword \u0022${PrivatePassword}\u0022\nset g_password \u0022${PrivatePassword}\u0022\n\n// Logging\nset g_log \u0022server_mp.log\u0022\nset g_logSync \u00221\u0022\n\n// SV Pure / Cheats\nset sv_pure \u00221\u0022\nset sv_cheats \u00220\u0022\n\n// Allowed Clans\nset sv_allowedClan1 \u0022\u0022\nset sv_allowedClan2 \u0022\u0022\n\n// Disable Console\nset sv_disableClientConsole \u00220\u0022\nset sv_reconnectlimit \u00223\u0022\n\n// **************************************************\n// ************ Public Info *************************\n// **************************************************\n\n// SETS/PUBLIC INFO (stuff that shows up in server info)\nsets g_needpass \u00220\u0022\n//sets IRC \u0022\u0022\n//sets Admin \u0022\u0022\n//sets Email \u0022\u0022\n//sets URL \u0022\u0022\n\n// **************************************************\n// *********** Server Dvars *************************\n// **************************************************\n\n// Hostname and MOTD\nsv_hostname \u0022${Hostname}\u0022\nset scr_motd \u0022Welcome to the server\u0022\n\n// Reserved Slots\nset sv_privateClients \u00220\u0022\n\n// Downloads\nseta sv_allowAnonymous \u00220\u0022\nset sv_allowdownload \u00221\u0022\n\n// Server Packet Rate\nset sv_maxRate \u002225000\u0022\n\n// Limit Laggers and reconnect spammers\nset sv_minPing \u00220\u0022\nset sv_maxPing \u0022250\u0022\n\n// Banning\nset g_banIPs \u0022\u0022\n\n// AntiFlooding Settings\nset sv_floodProtect \u00221\u0022\n\n// **************************************************\n// ******************** Voice ***********************\n// **************************************************\n\nset sv_voice \u00220\u0022\nset sv_voiceQuality \u00221\u0022\n\n// **************************************************\n// **************** Match Setup *********************\n// **************************************************\n\n// CTF\nset scr_ctf_scorelimit \u00225\u0022\nset scr_ctf_timelimit \u002230\u0022\n\n// Search \u0026 Destroy\nset scr_sd_bombtimer \u002260\u0022\nset scr_sd_graceperiod \u002215\u0022\nset scr_sd_roundlength \u00224\u0022\nset scr_sd_roundlimit \u00220\u0022\nset scr_sd_scorelimit \u002210\u0022\nset scr_sd_timelimit \u00220\u0022\n\n// Team Deathmatch\nset scr_tdm_scorelimit \u0022300\u0022\nset scr_tdm_timelimit \u002230\u0022\n\n// Deathmatch\nset scr_dm_scorelimit \u002250\u0022\nset scr_dm_timelimit \u002230\u0022\n\n// Headquarters\nset scr_hq_scorelimit \u0022600\u0022\nset scr_hq_timelimit \u002230\u0022\n\n// **************************************************\n// ***************** Gameplay Dvars *****************\n// **************************************************\n\n// Team Icons\nset scr_drawfriend \u00221\u0022\n\n// Friendly Fire\nset scr_friendlyfire \u00220\u0022\n\n// Kill Cam \u0026 Spectate\nset scr_killcam \u00220\u0022\nset scr_spectatefree \u00220\u0022\nset scr_spectateenemy \u00220\u0022\n\n// Auto Team Balance\nset scr_teambalance \u00221\u0022\n\n// Force Respawn\nset scr_forcerespawn \u00221\u0022\n\n// **************************************************\n// ******************* Voting ***********************\n// **************************************************\n\nset g_allowvote \u00220\u0022\n\n// **************************************************\n// ************ Weapon Settings *********************\n// **************************************************\n\n// Weapon Ammo Pools\nset g_weaponAmmoPools \u00220\u0022\n\n// Snipers\nset scr_allow_enfieldsniper \u00221\u0022\nset scr_allow_kar98ksniper \u00221\u0022\nset scr_allow_nagantsniper \u00221\u0022\nset scr_allow_springfield \u00221\u0022\nset scr_allow_svt40 \u00221\u0022\n\n// Rifles\nset scr_allow_enfield \u00221\u0022\nset scr_allow_kar98k \u00221\u0022\nset scr_allow_m1carbine \u00221\u0022\nset scr_allow_m1garand \u00221\u0022\nset scr_allow_nagant \u00221\u0022\nset scr_allow_g43 \u00221\u0022\n\n// MGs\nset scr_allow_bar \u00221\u0022\nset scr_allow_bren \u00221\u0022\nset scr_allow_mp44 \u00221\u0022\nset scr_allow_ppsh \u00221\u0022\n\n// SMGs\nset scr_allow_sten \u00221\u0022\nset scr_allow_mp40 \u00221\u0022\nset scr_allow_thompson \u00221\u0022\nset scr_allow_pps42 \u00221\u0022\nset scr_allow_greasegun \u00221\u0022\n\n// Shotgun\nset scr_allow_shotgun \u00221\u0022\n\n// Grenades\nset scr_allow_smokegrenades \u00221\u0022\nset scr_allow_fraggrenades \u00221\u0022\n\n// **************************************************\n// **************** Map Rotation ********************\n// **************************************************\n\n// Default: Search \u0026 Destroy\nset sv_mapRotation \u0022gametype sd map mp_breakout gametype sd map mp_brecourt gametype sd map mp_burgundy gametype sd map mp_carentan gametype sd map mp_dawnville gametype sd map mp_decoy gametype sd map mp_downtown gametype sd map mp_farmhouse gametype sd map mp_leningrad gametype sd map mp_matmata gametype sd map mp_railyard gametype sd map mp_toujane gametype sd map mp_trainstation\u0022\n\n// Alternative rotations (uncomment the one you want and comment the above):\n\n// TDM:\n//set sv_mapRotation \u0022gametype tdm map mp_breakout gametype tdm map mp_brecourt gametype tdm map mp_burgundy gametype tdm map mp_carentan gametype tdm map mp_dawnville gametype tdm map mp_decoy gametype tdm map mp_downtown gametype tdm map mp_farmhouse gametype tdm map mp_leningrad gametype tdm map mp_matmata gametype tdm map mp_railyard gametype tdm map mp_toujane gametype tdm map mp_trainstation\u0022\n\n// CTF:\n//set sv_mapRotation \u0022gametype ctf map mp_breakout gametype ctf map mp_brecourt gametype ctf map mp_burgundy gametype ctf map mp_carentan gametype ctf map mp_dawnville gametype ctf map mp_decoy gametype ctf map mp_downtown gametype ctf map mp_farmhouse gametype ctf map mp_leningrad gametype ctf map mp_matmata gametype ctf map mp_railyard gametype ctf map mp_toujane gametype ctf map mp_trainstation\u0022\n\n// DM:\n//set sv_mapRotation \u0022gametype dm map mp_breakout gametype dm map mp_brecourt gametype dm map mp_burgundy gametype dm map mp_carentan gametype dm map mp_dawnville gametype dm map mp_decoy gametype dm map mp_downtown gametype dm map mp_farmhouse gametype dm map mp_leningrad gametype dm map mp_matmata gametype dm map mp_railyard gametype dm map mp_toujane gametype dm map mp_trainstation\u0022\n\n// HQ:\n//set sv_mapRotation \u0022gametype hq map mp_breakout gametype hq map mp_brecourt gametype hq map mp_burgundy gametype hq map mp_carentan gametype hq map mp_dawnville gametype hq map mp_decoy gametype hq map mp_downtown gametype hq map mp_farmhouse gametype hq map mp_leningrad gametype hq map mp_matmata gametype hq map mp_railyard gametype hq map mp_toujane gametype hq map mp_trainstation\u0022\n",
+      "order": 0,
+      "enableEditor": true,
+      "editor": [
+        {
+          "id": "Header_Main",
+          "label": "Call of Duty 2 Server Configuration",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "label": "Hostname",
+          "description": "Server name shown in the browser",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "RconPassword",
+          "label": "RCON Password",
+          "description": "Required for remote console access",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "RCON password is required",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "label": "Private Password",
+          "description": "Leave empty for public server",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": []
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": []
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "Batch",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Prevent popups (Windows)",
+        "description": "Prevents Windows popups and creates required player directories so the dedicated server starts cleanly",
+        "code": "IF EXIST __CoD2MP_s (\n  attrib -h __CoD2MP_s\n  del __CoD2MP_s\n)\n\nfor /d %%f in (*) do (\n  if %%f% neq Docs (\n  if %%f% neq miles (\n  if %%f% neq pb (\n\n    IF EXIST %%f%\\players\\active.txt (\n      del %%f%\\players\\active.txt\n    )\n\n    IF NOT EXIST %%f%\\players (\n      md %%f%\\players\n    )\n\n    echo tcadmin \u003E %%f%\\players\\active.txt\n\n    IF EXIST %%f%\\players\\tcadmin (\n      rd /q /s %%f%\\players\\tcadmin\n    )\n\n    md %%f%\\players\\tcadmin\n\n  )))\n)",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "b1b244a2-91ba-4624-afd7-81e2894e6b28"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-10-08T04:42:38.942697",
+  "modifiedDate": "2026-10-08T04:40:00",
+  "metadata": {
+    "notes": "Converted/cleaned for TCAdmin v3 from legacy COD2 configuration"
+  },
+  "backupConfig": {
+    "enabled": false,
+    "backupType": "Full",
+    "compressBackup": true,
+    "includedPaths": []
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": false,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:03:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "None",
+    "maxFailureAction": "Stop",
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "None",
+    "brandDetectionEnabled": false,
+    "brandDetectionAction": "None",
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": true,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}/",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": false,
+    "compression": "None",
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
