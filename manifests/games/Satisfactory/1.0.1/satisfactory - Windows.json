@@ -1,0 +1,444 @@
+{
+  "__TCA:ExportVersion": "3.23.23",
+  "__TCA:ExportedAt": "2026-10-20T03:34:36.4109785Z",
+  "name": "Satisfactory",
+  "shortName": "satisfactory",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/526870/ee3406fe5ec813b1987ad67e37e5cd6fb4f620e6.jpg",
+  "backgroundImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/526870/ss_c42d82beff342eb1ce7a40b3015a27968655df40.jpg",
+  "minSlots": 1,
+  "maxSlots": 4,
+  "defaultSlots": 4,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "custom_script",
+    "rconProtocol": "",
+    "privateRule": "Player Password",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "FactoryGame\\Saved\\Logs\\FactoryGame.log",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "^c",
+    "waitAfterStopCommand": 5000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "Datacenter",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 7777,
+        "expression": ""
+      },
+      {
+        "id": "QueryPort",
+        "port": 8888,
+        "expression": ""
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "Engine\\Binaries\\Win64\\FactoryServer-Win64-Shipping-Cmd.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "satisfactory",
+    "failOnMissingExecutable": false,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": ""
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 1690800,
+    "runAsServiceUser": true,
+    "branch": "public",
+    "storeId": 526870,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": true,
+    "verifyAll": true,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "FactoryGame -log -unattended -multihome=${IPAddress} -Port=${GamePort} -ReliablePort=${QueryPort} -ExternalReliablePort=${QueryPort}",
+    "defaultCustomCommandline": "",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "FactoryGame -log -unattended -multihome=${IPAddress} -Port=${GamePort} -ReliablePort=${QueryPort} -ExternalReliablePort=${QueryPort}"
+      },
+      {
+        "id": 2,
+        "name": "Disable seasonal events",
+        "commandLine": "FactoryGame -log -unattended -DisableSeasonalEvents -multihome=${IPAddress} -Port=${GamePort} -ReliablePort=${QueryPort} -ExternalReliablePort=${QueryPort}"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "OperatingSystemUserPerService",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": true,
+    "elevated": false
+  },
+  "gameVariables": [],
+  "configFiles": [
+    {
+      "id": 353,
+      "relativePath": "FactoryGame\\Saved\\Config\\WindowsServer\\ServerSettings.ini",
+      "description": "Main configuration file",
+      "template": "[/Script/FactoryGame.FGServerSubsystem]\nmAutoPause=True\nmAutoSaveOnDisconnect=True",
+      "order": 0,
+      "enableEditor": false,
+      "editor": []
+    },
+    {
+      "id": 354,
+      "relativePath": "FactoryGame\\Saved\\Config\\WindowsServer\\Game.ini",
+      "description": "Main configuration file",
+      "template": "[/Script/Engine.GameNetworkManager]\nTotalNetBandwidth=104857600\nMaxDynamicBandwidth=104857600\nMinDynamicBandwidth=10485760\nMAXPOSITIONERRORSQUARED=32.00f\nMoveRepSize=512.0f\nCLIENTADJUSTUPDATECOST=512.0f\nbMovementTimeDiscrepancyDetection=false\nbMovementTimeDiscrepancyResolution=false\nbMovementTimeDiscrepancyForceCorrectionsDuringResolution=false\nMAXCLIENTUPDATEINTERVAL=2.20f\nMaxMoveDeltaTime=0.700f\nMaxClientSmoothingDeltaTime=2.20f\nMaxClientForcedUpdateDuration=1.0f\nClientNetSendMoveDeltaTime=0.0332\nClientNetSendMoveDeltaTimeStationary=0.0664\nClientNetSendMoveThrottleOverPlayerCount=99\nServerForcedUpdateHitchThreshold=2.800f\n\n[/Script/Engine.GameSession]\nMaxPlayers=${Slots}",
+      "order": 1,
+      "enableEditor": false,
+      "editor": []
+    },
+    {
+      "id": 355,
+      "relativePath": "FactoryGame\\Saved\\Config\\WindowsServer\\Engine.ini",
+      "description": "Main configuration file",
+      "template": "[CrashReportClient]\nbAgreeToCrashUpload=false\nbImplicitSend=False\n\n[Engine.ErrorHandling]\nbPromptForRemoteDebugging=False\nbPromptForRemoteDebugOnEnsure=False\n\n[/script/onlinesubsystemutils.ipnetdriver]\nMaxInternetClientRate=104857600\nMinInternetClientRate=104857600\nMaxClientRate=104857600\nMinClientRate=104857600\nLanServerMaxTickRate=15\nNetServerMaxTickRate=15\nConnectionTimeout=100.0\nInitialConnectTimeout=200.0\n\n[SystemSettings]\nt.MaxFPS=15\nAllowAsyncRenderThreadUpdates=1\nAllowAsyncRenderThreadUpdatesDuringGamethreadUpdates=1\nnet.UseRecvMulti=0\nnet.RecvMultiCapacity=8192\nnet.IpNetDriverUseReceiveThread=0\nnet.IpConnectionUseSendTasks=1\nnet.IpNetDriverReceiveThreadQueueMaxPackets=8192\nnet.MaxNetStringSize=67108864\nnet.MaxRPCPerNetUpdate=8\ntick.AllowAsyncComponentTicks=1\ntick.AllowConcurrentTickQueue=1\ntick.AllowAsyncTickDispatch=1\ntick.AllowAsyncTickCleanup=1\n\n[/script/engine.player]\nConfiguredInternetSpeed=104857600\nConfiguredLanSpeed=104857600\n\n[/script/socketsubsystemepic.epicnetdriver]\nMaxClientRate=104857600\nMaxInternetClientRate=104857600\n\n[/script/engine.engine]\nbSmoothFrameRate=true\nbUseFixedFrameRate=false\nSmoothedFrameRateRange=(LowerBound=(Type=Inclusive,Value=5.000000),UpperBound=(Type=Exclusive,Value=15.000000))\nMinDesiredFrameRate=8.000000\nFixedFrameRate=15.000000\nNetClientTicksPerSecond=15\n\n[/script/engine.garbagecollectionsettings]\ngc.MaxObjectsNotConsideredByGC=476499\ngc.SizeOfPermanentObjectPool=100378488\ngc.ActorClusteringEnabled=True\ngc.BlueprintClusteringEnabled=True\n\n[/script/engine.streamingsettings]\ns.EventDrivenLoaderEnabled=True\ns.AsyncLoadingThreadEnabled=True",
+      "order": 2,
+      "enableEditor": false,
+      "editor": []
+    }
+  ],
+  "fileSystemPermissions": [],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "Batch",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Link save folder into the service root",
+        "description": "Points the service user\u0027s LOCALAPPDATA\\FactoryGame\\Saved\\SaveGames at FactoryGame\\Saved\\SaveGames in the service root, so saves are in the file manager and backups.",
+        "code": "setlocal EnableExtensions EnableDelayedExpansion\nrem Satisfactory\u0027s Windows server saves to the run-as user\u0027s LOCALAPPDATA\\FactoryGame\\Saved\\SaveGames.\nrem Turn that folder into a junction to the service root\u0027s FactoryGame\\Saved\\SaveGames so the saves show\nrem up in the file manager and in backups. Runs impersonated as the service user before every start - it\nrem owns both folders, so nothing runs with elevated rights. The profile only exists after the first\nrem start, so a run before that is a no-op. LOCALAPPDATA is not the service user\u0027s in this process,\nrem hence the registry lookup. TCAdmin runs this code inside a parenthesised block: variables set here\nrem must be read with !delayed! expansion.\nset \u0022SID=\u0022\nfor /f \u0022tokens=2 delims=,\u0022 %%S in (\u0027whoami /user /fo csv /nh\u0027) do set \u0022SID=%%~S\u0022\nif not defined SID exit /b 0\nset \u0022PROFILEDIR=\u0022\nfor /f \u0022tokens=2,*\u0022 %%A in (\u0027reg query \u0022HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList\\!SID!\u0022 /v ProfileImagePath 2^\u003Enul ^| findstr /i ProfileImagePath\u0027) do set \u0022PROFILEDIR=%%B\u0022\nif not defined PROFILEDIR exit /b 0\ncall set \u0022PROFILEDIR=!PROFILEDIR!\u0022\nif not exist \u0022!PROFILEDIR!\\AppData\\Local\\\u0022 exit /b 0\n\nset \u0022SAVEPARENT=!PROFILEDIR!\\AppData\\Local\\FactoryGame\\Saved\u0022\nset \u0022SRC=!SAVEPARENT!\\SaveGames\u0022\nset \u0022DST=%ThisService_RootDirectory%\\FactoryGame\\Saved\\SaveGames\u0022\nif not exist \u0022!DST!\\\u0022 mkdir \u0022!DST!\u0022 || exit /b 1\n\nrem A junction from an earlier start: rmdir removes only the link, never its target.\ndir /a:l /b \u0022!SAVEPARENT!\u0022 2\u003Enul | findstr /x /i \u0022SaveGames\u0022 \u003Enul \u0026\u0026 rmdir \u0022!SRC!\u0022\n\nrem Saves written before the junction existed move into the service root. Nothing is overwritten:\nrem leftovers that clash with an existing file are set aside in the profile.\nif exist \u0022!SRC!\\\u0022 (\n  robocopy \u0022!SRC!\u0022 \u0022!DST!\u0022 /E /MOVE /XJ /XC /XN /XO /R:0 /W:0 /NFL /NDL /NJH /NJS /NP \u003Enul\n  if exist \u0022!SRC!\\\u0022 ren \u0022!SRC!\u0022 \u0022SaveGames.unmerged.!RANDOM!\u0022\n)\n\nif not exist \u0022!SAVEPARENT!\\\u0022 mkdir \u0022!SAVEPARENT!\u0022 || exit /b 1\nmklink /J \u0022!SRC!\u0022 \u0022!DST!\u0022\n",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "5b0d9a63-3c61-4f0e-9a51-2f6d2b8e7c41"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomQueryProtocol"
+        ],
+        "name": "Server query",
+        "description": "Queries the server over the Satisfactory HTTPS API (game port).",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.Buffers.Binary;\nusing System.Collections.Generic;\nusing System.Globalization;\nusing System.Net;\nusing System.Net.Http;\nusing System.Net.Sockets;\nusing System.Security.Cryptography;\nusing System.Text;\nusing System.Text.Json;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Satisfactory 1.0\u002B has two query surfaces, both on the GAME port:\n// - the HTTPS API (TCP, self-signed certificate). HealthCheck needs no token. The session details need one,\n//   which PasswordlessLogin hands out unless a player (client) password is set.\n// - the Lightweight Query API (UDP). It needs no auth and is the only place that reports the server NAME\n//   (set in-game when claiming, or in the Server Manager). The panel copies the query\u0027s Name into the\n//   service name, so returning it here is how an in-game rename reaches the panel.\n// Every UDP poll lands on the game\u0027s own socket and the server logs a \u0022LogNet: NotifyAcceptingConnection\u0022 line\n// for it, so the name is polled at most every NamePollInterval and reused in between. The cache lives in the\n// monitor\u0027s AppDomain data (keyed per service, address and port), as BCL types only, so it survives the script\n// being recompiled.\n// The monitor gives the whole script 10 seconds; the timeouts below keep the worst case under that.\nstring address = Variables.Parse\u003Cstring\u003E(\u0022Address\u0022, null);\nif (string.IsNullOrEmpty(address))\n    address = ThisService.IPAddress;\nint port = ThisService.GamePort;\nstring url = $\u0022https://{address}:{port}/api/v1\u0022;\n\nstatic JsonElement CallApi(HttpClient client, string apiUrl, string function, object data, string token, out int status)\n{\n    var request = new HttpRequestMessage(HttpMethod.Post, apiUrl)\n    {\n        Content = new StringContent(JsonSerializer.Serialize(new { function, data }), Encoding.UTF8, \u0022application/json\u0022)\n    };\n    if (!string.IsNullOrEmpty(token))\n        request.Headers.TryAddWithoutValidation(\u0022Authorization\u0022, \u0022Bearer \u0022 \u002B token);\n    using var response = client.Send(request);\n    status = (int)response.StatusCode;\n    string body = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();\n    return string.IsNullOrWhiteSpace(body) ? default : JsonDocument.Parse(body).RootElement.Clone();\n}\n\nstatic string Str(JsonElement e, string name, string fallback = \u0022\u0022) =\u003E\n    e.ValueKind == JsonValueKind.Object \u0026\u0026 e.TryGetProperty(name, out var v)\n        ? (v.ValueKind == JsonValueKind.String ? v.GetString() : v.ToString())\n        : fallback;\n\n// Lightweight Query API, PollServerState (protocol version 1). Request: magic 0xF6D5 (uint16), message type 0,\n// protocol version 1, a uint64 cookie, terminator 0x01. Response (type 1) echoes the cookie, then: server state\n// (uint8), changelist (uint32), flags (uint64), sub-state count (uint8) \u002B 3 bytes per sub-state, name length\n// (uint16) \u002B UTF-8 name, terminator. All little-endian. Returns false on no answer or a malformed one.\nstatic bool PollServerName(string host, int udpPort, out string serverName)\n{\n    serverName = null;\n    ulong cookie = BinaryPrimitives.ReadUInt64LittleEndian(RandomNumberGenerator.GetBytes(8));\n    var request = new byte[13];\n    BinaryPrimitives.WriteUInt16LittleEndian(request.AsSpan(0), 0xF6D5);\n    request[2] = 0;\n    request[3] = 1;\n    BinaryPrimitives.WriteUInt64LittleEndian(request.AsSpan(4), cookie);\n    request[12] = 1;\n\n    using var udp = new UdpClient(AddressFamily.InterNetwork);\n    udp.Client.ReceiveTimeout = 1500;\n    udp.Send(request, request.Length, host, udpPort);\n    var deadline = DateTime.UtcNow.AddMilliseconds(1500);\n    while (DateTime.UtcNow \u003C deadline)\n    {\n        byte[] data;\n        try\n        {\n            var from = new IPEndPoint(IPAddress.Any, 0);\n            data = udp.Receive(ref from);\n        }\n        catch (SocketException)\n        {\n            return false;\n        }\n\n        // Skip anything that is not the answer to this request (a late reply to an earlier poll, a stray packet).\n        const int fixedPart = 2 \u002B 1 \u002B 1 \u002B 8 \u002B 1 \u002B 4 \u002B 8 \u002B 1;\n        if (data.Length \u003C fixedPart \u002B 2 ||\n            BinaryPrimitives.ReadUInt16LittleEndian(data) != 0xF6D5 || data[2] != 1 ||\n            BinaryPrimitives.ReadUInt64LittleEndian(data.AsSpan(4)) != cookie)\n            continue;\n\n        int offset = fixedPart \u002B data[fixedPart - 1] * 3;\n        if (data.Length \u003C offset \u002B 2)\n            return false;\n        int nameLength = BinaryPrimitives.ReadUInt16LittleEndian(data.AsSpan(offset));\n        offset \u002B= 2;\n        if (data.Length \u003C offset \u002B nameLength)\n            return false;\n        serverName = Encoding.UTF8.GetString(data, offset, nameLength).Trim();\n        return true;\n    }\n    return false;\n}\n\n// Roslyn script mode rejects a top-level \u0060using var\u0060, hence the try/finally.\nvar http = new HttpClient(new HttpClientHandler { ServerCertificateCustomValidationCallback = (m, c, ch, e) =\u003E true })\n{\n    Timeout = TimeSpan.FromSeconds(2.5)\n};\ntry\n{\n    // A failed health check throws, so the monitor reports the service offline.\n    var health = CallApi(http, url, \u0022HealthCheck\u0022, new { clientCustomData = \u0022\u0022 }, null, out int healthStatus);\n    if (healthStatus != 200)\n        throw new Exception($\u0022HealthCheck returned HTTP {healthStatus}\u0022);\n\n    var rules = new Dictionary\u003Cstring, string\u003E { [\u0022Health\u0022] = Str(health.GetProperty(\u0022data\u0022), \u0022health\u0022, \u0022unknown\u0022) };\n\n    // An unclaimed server has no name yet, and a lost UDP reply must not rename the service, so either case\n    // keeps the last known name, or the panel\u0027s current one. A failed poll is retried after a minute.\n    var namePollInterval = TimeSpan.FromMinutes(5);\n    string cacheKey = $\u0022TCAdmin.Satisfactory.ServerName:{ThisService.ServiceId}:{address}:{port}\u0022;\n    var cached = AppDomain.CurrentDomain.GetData(cacheKey) as Tuple\u003CDateTime, string\u003E;\n    string name = string.IsNullOrEmpty(cached?.Item2) ? ThisService.Name : cached.Item2;\n    if (cached == null || DateTime.UtcNow \u003E= cached.Item1)\n    {\n        bool polled = PollServerName(address, port, out string serverName);\n        if (polled \u0026\u0026 !string.IsNullOrEmpty(serverName))\n            name = serverName;\n        var nextPoll = DateTime.UtcNow \u002B (polled ? namePollInterval : TimeSpan.FromMinutes(1));\n        AppDomain.CurrentDomain.SetData(cacheKey, Tuple.Create(nextPoll, polled ? serverName : cached?.Item2));\n    }\n\n    int numPlayers = 0;\n    int maxPlayers = ThisService.Slots;\n\n    var login = CallApi(http, url, \u0022PasswordlessLogin\u0022, new { MinimumPrivilegeLevel = \u0022Client\u0022 }, null, out int loginStatus);\n    if (loginStatus == 200)\n    {\n        rules[\u0022Player Password\u0022] = \u0022No\u0022;\n        string token = Str(login.GetProperty(\u0022data\u0022), \u0022authenticationToken\u0022);\n        var state = CallApi(http, url, \u0022QueryServerState\u0022, new { }, token, out int stateStatus);\n        if (stateStatus == 200)\n        {\n            var gs = state.GetProperty(\u0022data\u0022).GetProperty(\u0022serverGameState\u0022);\n            rules[\u0022Session\u0022] = Str(gs, \u0022activeSessionName\u0022);\n            numPlayers = gs.GetProperty(\u0022numConnectedPlayers\u0022).GetInt32();\n            maxPlayers = gs.GetProperty(\u0022playerLimit\u0022).GetInt32();\n\n            // gamePhase looks like \u0022/Script/FactoryGame.FGGamePhase\u0027GP_Project_Assembly_Phase_2\u0027\u0022\n            string phase = Str(gs, \u0022gamePhase\u0022, \u0022None\u0022);\n            int phaseIndex = phase.LastIndexOf(\u0022Phase_\u0022, StringComparison.Ordinal);\n            if (phaseIndex \u003E= 0)\n                phase = \u0022Phase \u0022 \u002B phase.Substring(phaseIndex \u002B 6).Trim(\u0027\\\u0027\u0027, \u0027\u0022\u0027);\n            rules[\u0022Phase\u0022] = phase;\n            rules[\u0022Tech Tier\u0022] = Str(gs, \u0022techTier\u0022, \u00220\u0022);\n            rules[\u0022Running\u0022] = Str(gs, \u0022isGameRunning\u0022, \u0022false\u0022);\n            rules[\u0022Paused\u0022] = Str(gs, \u0022isGamePaused\u0022, \u0022false\u0022);\n            rules[\u0022Tick Rate\u0022] = Math.Round(gs.GetProperty(\u0022averageTickRate\u0022).GetDouble(), 1)\n                .ToString(CultureInfo.InvariantCulture);\n        }\n    }\n    else if (Str(login, \u0022errorCode\u0022) == \u0022passwordless_login_not_possible\u0022)\n    {\n        rules[\u0022Player Password\u0022] = \u0022Yes\u0022;\n    }\n\n    Globals.ReturnValue = new GameQueryResponse\n    {\n        Status = \u0022online\u0022,\n        Hostname = $\u0022{address}:{port}\u0022,\n        Name = name,\n        GameType = \u0022Satisfactory\u0022,\n        Map = \u0022Satisfactory\u0022,\n        NumPlayers = numPlayers,\n        MaxPlayers = maxPlayers,\n        Rules = rules,\n    };\n}\nfinally\n{\n    http.Dispose();\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "8e3f6c1a-7d42-4b9e-b0a5-6c2e91f4d7b3"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-10-19T05:38:48.086255",
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": false,
+    "includedPaths": [
+      "FactoryGame/Saved/SaveGames",
+      "FactoryGame/Saved/Config"
+    ],
+    "maxBackupCount": 5
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart, SendEmail",
+    "maxFailureAction": "Stop, SendEmail",
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop, SendEmail",
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "SendEmail",
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop, SendEmail",
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}/",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": false,
+    "compression": "None",
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
