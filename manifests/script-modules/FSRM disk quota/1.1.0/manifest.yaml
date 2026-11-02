@@ -1,0 +1,52 @@
+identifier: "TCA.ScriptModules.FsrmDiskQuota"
+name: "FSRM disk quota"
+version: "1.1.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Enforces each service's disk space limit as a hard quota, with FSRM on Windows Server or an NTFS user quota on Windows 10/11"
+longDescription: |
+  # FSRM disk quota
+  
+  TCAdmin's disk space limit stops uploads through the file manager, FTP and SFTP, but files the server writes itself, such as logs and saves, can still grow past it.
+  This module turns the limit into a hard **File Server Resource Manager** quota on the service folder, so the folder can never use more than the limit.
+  
+  ## Key Features
+  - **Works for game and Docker services** on Windows Server nodes
+  - **Falls back to an NTFS user quota on Windows 10/11** for game services that run as a user per service
+  - **Installs File Server Resource Manager** the first time it is needed
+  - **Uses the limit set in TCAdmin**: the service's Disk Space, or the blueprint's default when the service has none
+  - **Applies the quota** when the service is created, reinstalled or moved, and before every start
+  - **Removes the quota** when the service is deleted or moved to another server
+  - **Run Apply or Remove by hand** from the service page
+  
+  ## Requirements
+  - **Windows Server:** works for every game and Docker service. FSRM is installed automatically.
+  - **Windows 10/11:** FSRM does not exist there, so the module uses an NTFS disk quota on the service's own Windows user instead. This needs the game's **Run As** set to **User per service** (game settings, Run As tab). For existing services, run **Repair** after changing it so each service gets its user and its files are owned by it. Disk quotas are turned on automatically on the drive that holds the service.
+  - The user quota counts every file the service user owns on that drive, including its Windows profile if it has one on the same drive.
+  - On Windows 10/11, Docker services, hosted services and games with any other Run As setting are skipped without a message. Linux is skipped too.
+  
+  ## Instructions
+  - Install both scripts of the kind you host, game and/or Docker.
+  - Set a Disk Space on the blueprint or on the service. A blank or zero limit means no quota.
+  - A changed limit is applied at the next start, or right away with **FSRM disk quota - Apply**.
+  
+  ## What's new in 1.1.0
+  - NTFS user quota fallback on Windows 10/11 for games that run as a user per service
+  
+icon: "<svg viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11 10h26l7 16v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V26z\"/><path d=\"M4 26h40\"/><path d=\"M10 33h20\"/><path d=\"M34 30v6\"/></svg>"
+tags:
+  - "ScriptModule"
+  - "Windows"
+files:
+  - path: "GameScript FSRM disk quota - Apply.json"
+    type: "GameScript"
+    optional: true
+  - path: "GameScript FSRM disk quota - Remove.json"
+    type: "GameScript"
+    optional: true
+  - path: "DockerScript FSRM disk quota - Apply.json"
+    type: "DockerScript"
+    optional: true
+  - path: "DockerScript FSRM disk quota - Remove.json"
+    type: "DockerScript"
+    optional: true
