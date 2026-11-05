@@ -1,0 +1,36 @@
+identifier: "Community.Games.TeamSpeak3VirtualServer"
+name: "TeamSpeak 3 Virtual Server"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "A TeamSpeak 3 virtual server hosted inside a TeamSpeak 3 Master service (Windows x64 / Linux x64)"
+longDescription: |
+  # TeamSpeak 3 Virtual Server
+  
+  ## Description
+  A TeamSpeak 3 virtual server hosted inside a **TeamSpeak 3 Master** service, for Windows x64 or Linux x64. Each service is one virtual server: its files live in the master's virtualserver folder (linked into the service root) and start, stop, slots, name, password and welcome message are managed through the master's ServerQuery.
+  
+  ## Key Features
+  - Create / start / stop / delete through the master's ServerQuery; status polled by the monitor
+  - Query: connected clients and channel count; the service name follows the virtual server name
+  - TeamSpeak Browser page: server browser with kick / ban / move / poke / message, channel create / edit / delete, bans, known clients, privilege keys, edit server settings, log viewer
+  - Edit server settings: name, password, welcome message, host message, upload / download quotas
+  
+  ## What's new
+  - 1.0.0: first release
+  
+  ## Instructions
+  1. Install the **TeamSpeak 3 Master** plugin for the same operating system and create a master service; start it.
+  2. In the Create Service wizard pick the running master on the target step, then this blueprint. The virtual server is created on the master with the next free voice port.
+  
+  Note: TeamSpeak's free license allows one running virtual server with 32 slots per master.
+icon: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/TeamSpeak_logo_renovado.png/250px-TeamSpeak_logo_renovado.png"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "TS3 Server - Windows.json"
+    type: "GameConfig"
+  - path: "TS3 Server - Linux.json"
+    type: "GameConfig"
