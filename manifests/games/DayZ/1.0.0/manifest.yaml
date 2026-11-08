@@ -1,0 +1,42 @@
+identifier: "Community.Games.DayZ"
+name: "DayZ"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "DayZ dedicated server (Windows x64 / Linux x64) with Steam update, BattlEye RCON and Steam Workshop"
+longDescription: |
+  # DayZ
+  
+  ## Description
+  DayZ dedicated server for Windows and Linux (Steam app 223350), with BattlEye anti-cheat and RCON. A new server starts the Chernarus survival mission (`dayzOffline.chernarusplus`), which ships with the server files.
+  
+  ## Key Features
+  - **Windows and Linux** configs, both on the 64-bit server (`DayZServer_x64.exe` / `DayZServer`).
+  - **Steam update** on install and from the panel.
+  - **BattlEye RCON** for the console and admin commands, and a graceful stop with `#shutdown`.
+  - **Server-browser query** (A2S on the Steam query port).
+  - **Config editor** for `serverDZ.cfg`: name, passwords, slots, MOTD, 3rd person, crosshair, time and time acceleration, respawn time, max ping, instance id.
+  - **Steam Workshop:** installing a mod moves it to `@<Mod_Name>`, copies its keys to `keys/` and adds it to `-mod=` (or `-servermod=` for server-side mods). Uninstalling removes the folder and the entry. On Linux the mod's files are lowercased, which the Linux server needs.
+  - **Remove Persistence Files** button: wipes the Chernarus `storage_<instanceId>` folder for a fresh world.
+  
+  ## Ports
+  - Game port (UDP) 2302.
+  - Steam query port (UDP) 2303.
+  - BattlEye RCON (UDP) 2305. It must not share the game port: when the server binds its IP, RCON on the game port never answers.
+  
+  ## Instructions
+  - **Steam account required:** the DayZ server can't be downloaded anonymously. After importing, open the game's Steam settings and enter a Steam account that owns DayZ. The same account is used for Steam Workshop mods.
+  - BattlEye takes about 20 to 40 seconds after the server starts before RCON answers.
+  - The Windows config has been tested end to end (install, query, RCON). The Linux config follows the official Linux server's file layout but has not been run yet; please report any issues.
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/221100/16a985dfee9b093d76a0ffc4cf4c77ba20c2eb0d.jpg"
+images:
+  - "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/221100/ss_8280fd5f119096bcdda930bc4d0bb6c80abe7358.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "DayZ - Windows.json"
+    type: "GameConfig"
+  - path: "DayZ - Linux.json"
+    type: "GameConfig"
