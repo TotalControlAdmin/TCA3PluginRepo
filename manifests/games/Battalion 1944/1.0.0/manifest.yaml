@@ -1,0 +1,38 @@
+identifier: "Community.Games.Battalion1944"
+name: "Battalion 1944"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "BATTALION: Legacy dedicated server (Windows / Linux) with Steam update and graceful stop"
+longDescription: |
+  # Battalion 1944
+  
+  ## Description
+  BATTALION: Legacy (formerly Battalion 1944) dedicated server for Windows and Linux (Steam app 805140, anonymous download).
+  
+  ## Key Features
+  - **Windows and Linux** configs, both on the shipping server binary.
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S on the query port). The server name comes from the service name (`-SteamServerName`).
+  - **Settings file:** `Battalion/Saved/Config/<Platform>Server/Game.ini` (server name, admin password, players per team). The game ships its full list of options in `Battalion/Config/DefaultGame_PrivateServer.ini`.
+  - **Console output:** Terminal on Linux, the console wrapper on Windows.
+  - **Graceful stop:** Ctrl+C on Linux. On Windows a stop script sends Ctrl+C with `windows-kill.exe`, which it downloads once from github.com/ElyDotDev/windows-kill into the hidden `.tca` folder.
+  - **Start scripts** put the Steam client library where the server looks for it. On Linux they also turn off the Sentry crash reporter, which needs libssl 1.1 and hangs startup on current distros.
+  
+  ## Ports
+  - Windows: game 14215, query 14218. Linux: game 7777, query 7780 (query = game port + 3).
+  
+  ## Instructions
+  - The server has no RCON and ignores console input. Admin is in-game: `Server.Login <AdminPassword>` in the game console. The admin password is the service's RCON password.
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/489940/56876299e611314a6e0857e3996ba1c204b24249.jpg"
+images:
+  - "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/489940/ss_d1ef165d77abff4d208918693e81e25f0af8f80a.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Battalion - Windows.json"
+    type: "GameConfig"
+  - path: "Battalion - Linux.json"
+    type: "GameConfig"
