@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.23.38.17810",
-  "__TCA:ExportedAt": "2026-11-09T02:29:57.267685Z",
+  "__TCA:ExportVersion": "3.23.42",
+  "__TCA:ExportedAt": "2026-11-09T21:25:22.9501482Z",
   "name": "Team Fortress 2",
   "shortName": "TF2",
   "description": "",
@@ -112,18 +112,18 @@
   },
   "commandlineConfig": {
     "enableSelection": true,
-    "defaultCommandline": "-norestart -console -game tf -nohltv -condebug \u002Bmaxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} ${StartupMap} ${FpsMax}",
-    "defaultCustomCommandline": "-console -game tf -nohltv -condebug \u002Bmaxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} ${UserCommandLine} ${StartupMap} ${FpsMax}",
+    "defaultCommandline": "-norestart -console -game tf -nohltv -condebug +maxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} ${StartupMap} ${FpsMax}",
+    "defaultCustomCommandline": "-console -game tf -nohltv -condebug +maxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} ${UserCommandLine} ${StartupMap} ${FpsMax}",
     "predefinedCommandlines": [
       {
         "id": 1,
         "name": "Default",
-        "commandLine": "-norestart -console -game tf -nohltv -condebug \u002Bmaxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} ${StartupMap} ${FpsMax}"
+        "commandLine": "-norestart -console -game tf -nohltv -condebug +maxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} ${StartupMap} ${FpsMax}"
       },
       {
         "id": 2,
         "name": "Advanced",
-        "commandLine": "-norestart -console -game tf -nohltv -condebug \u002Bmaxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} ${ConfigFile} ${Insecure} ${StartupMap} ${FpsMax}"
+        "commandLine": "-norestart -console -game tf -nohltv -condebug +maxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} ${ConfigFile} ${Insecure} ${StartupMap} ${FpsMax}"
       }
     ]
   },
@@ -153,13 +153,13 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "\u002Bexec \u0022${ConfigFile}\u0022",
+      "template": "+exec \"${ConfigFile}\"",
       "editor": {
         "maxLength": 0,
         "lines": 1,
         "denyCharacters": [
-          "\u002B",
-          "\u0022"
+          "+",
+          "\""
         ],
         "regExValidation": "",
         "inputType": 0,
@@ -191,7 +191,7 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "\u002Bfps_max ${FpsMax}",
+      "template": "+fps_max ${FpsMax}",
       "editor": {
         "decimals": 0,
         "step": 1,
@@ -258,7 +258,7 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "\u002Bmap \u0022${StartupMap}\u0022",
+      "template": "+map \"${StartupMap}\"",
       "editor": {
         "items": [
           {
@@ -361,7 +361,7 @@
       "id": 214,
       "relativePath": "tf\\cfg\\server.cfg",
       "description": "Main configuration file",
-      "template": "// server name\nhostname \u0022${Hostname}\u0022 \n\n// rcon passsword\nrcon_password \u0022${RconPassword}\u0022 \n\n// Server password\nsv_password \u0022${PrivatePassword}\u0022 \n\n// server cvars\n\n\n\n// round specific cvars\n\n\n\n// bandwidth rates/settings\n\n\n\n// server logging\n\n\n\n// operation\n\n\n\n// execute ban files\nexec banned_user.cfg \nexec banned_ip.cfg ",
+      "template": "// server name\nhostname \"${Hostname}\" \n\n// rcon passsword\nrcon_password \"${RconPassword}\" \n\n// Server password\nsv_password \"${PrivatePassword}\" \n\n// server cvars\n\n\n\n// round specific cvars\n\n\n\n// bandwidth rates/settings\n\n\n\n// server logging\n\n\n\n// operation\n\n\n\n// execute ban files\nexec banned_user.cfg \nexec banned_ip.cfg ",
       "order": 1,
       "enableEditor": false,
       "editor": [
@@ -487,11 +487,15 @@
   "modifiedDate": null,
   "metadata": {},
   "backupConfig": {
-    "enabled": false,
+    "enabled": true,
     "backupType": "Full",
     "compressBackup": true,
     "stopServiceBeforeBackup": false,
-    "includedPaths": [],
+    "includedPaths": [
+      "tf/cfg/**/*",
+      "tf/addons/**/*",
+      "tf/custom/**/*"
+    ],
     "maxBackupCount": null,
     "maxBackupSpace": null
   },
@@ -557,7 +561,7 @@
       "module": "BpFeature",
       "permission": "Mods",
       "moduleData": "",
-      "granted": true
+      "granted": false
     },
     {
       "roleId": 2,
@@ -865,7 +869,7 @@
       "module": "BpFeature",
       "permission": "NetworkStats",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
@@ -984,7 +988,7 @@
       "module": "BpFeature",
       "permission": "Mods",
       "moduleData": "",
-      "granted": true
+      "granted": false
     },
     {
       "roleId": 3,
@@ -998,7 +1002,7 @@
       "module": "BpFeature",
       "permission": "Reinstall",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
@@ -1292,7 +1296,7 @@
       "module": "BpFeature",
       "permission": "NetworkStats",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
