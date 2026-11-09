@@ -1,0 +1,38 @@
+identifier: "Community.Games.HalfLifeDayOfDefeat"
+name: "Half Life - Day of Defeat"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Day of Defeat (HLDS) dedicated server (Windows / Linux) with Steam update, console and graceful stop"
+longDescription: |
+  # Half Life - Day of Defeat
+  
+  ## Description
+  Day of Defeat (GoldSrc) dedicated server for Windows and Linux (HLDS, Steam app 90, anonymous download).
+  
+  ## Key Features
+  - **Windows and Linux** configs (`hlds.exe` / `hlds_run`).
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S).
+  - **Console:** Terminal on Linux, the console wrapper on Windows. Console commands work on both.
+  - **Graceful stop** with `quit`. The command line includes `-norestart`, so `hlds_run` doesn't relaunch the server on stop.
+  - **Config editor** for `dod/server.cfg`, `dod/mapcycle.txt` and `dod/motd.txt`.
+  - On Linux a start script writes `steam_appid.txt` (30), so a new server can reach Steam on its first start.
+  
+  ## Ports
+  - Game, query and RCON share one port (default 27016).
+  
+  ## Instructions
+  - On Linux, `hlds_linux` exits with code 139 when it quits. That's a long-standing GoldSrc quirk, not a crash on stop.
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/30/aadc0ce51ff6ba2042d633f8ec033b0de62091d0.jpg"
+images:
+  - "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/30/0000000170.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "DoD - Windows.json"
+    type: "GameConfig"
+  - path: "DoD - Linux.json"
+    type: "GameConfig"
