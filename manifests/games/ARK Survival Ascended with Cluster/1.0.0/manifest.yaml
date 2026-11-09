@@ -1,0 +1,44 @@
+identifier: "Community.Games.ARKSurvivalAscended"
+name: "ARK: Survival Ascended (with Cluster)"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "ARK: Survival Ascended server (Windows / Linux with Wine) with clusters, RCON query and console, graceful save on stop and CurseForge mods"
+longDescription: |
+  # ARK: Survival Ascended (with Cluster)
+  
+  ## Description
+  ARK: Survival Ascended dedicated server (Steam app 2430930, anonymous download). There is no Linux server build, so the Linux config runs the Windows server under Wine.
+  
+  ## Key Features
+  - **Windows** config, and a **Linux / Wine** config for Linux nodes with Wine.
+  - **Steam update** on install and from the panel.
+  - **Clusters:** services of the same owner share an `ArkClusters` folder next to their roots. Set the same Cluster ID on each server to allow transfers between them.
+  - **Query over RCON:** players, map and server name come from RCON, because the Epic (EOS) session lookup that ARK uses no longer accepts third-party queries.
+  - **Console:** log file output and RCON console commands.
+  - **Graceful stop:** a stop script runs `SaveWorld` and `DoExit` over RCON and waits for the save to finish.
+  - **CurseForge mods:** install and uninstall from the panel. The installed mod IDs are added to the `-mods=` list and the server downloads the mods itself. "Skip download" is on, so mods that don't allow third-party downloads can still be added.
+  - **Config editor** for `GameUserSettings.ini` and `Game.ini`.
+  - **Backups** with the panel's backup feature: the world saves (`ShooterGame/Saved/SavedArks`) and the server config. The server is stopped first, so the backup holds a complete save, and started again afterwards.
+  
+  ## Ports
+  - Game 46400 and RCON 46403. Each new server takes the next block of 5 ports.
+  
+  ## Instructions
+  - Each server needs about 6 GB of memory and takes around 5 minutes to appear online.
+  - Services run as a separate user per owner, so each owner's cluster folder is private.
+  - The first start under Wine also builds the Wine prefix, which takes about 2 more minutes.
+  - Use the "Crossplay (all platforms)" command line to let console players join.
+  - Backups don't include the shared `ArkClusters` folder, because it is outside the service folder.
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2399830/655cc2012105979c2b8e4821d568351c86b22be7.jpg"
+images:
+  - "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2399830/ss_0ce49e629369dbf9e8fba324667167568c05c66f.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Wine"
+files:
+  - path: "ARK Survival Ascended - Windows.json"
+    type: "GameConfig"
+  - path: "ARK Survival Ascended - Linux Wine.json"
+    type: "GameConfig"
