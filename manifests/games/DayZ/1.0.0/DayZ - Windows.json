@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.23.38.17810",
-  "__TCA:ExportedAt": "2026-11-09T05:20:53.7683387Z",
+  "__TCA:ExportVersion": "3.23.42",
+  "__TCA:ExportedAt": "2026-11-09T21:25:14.196323Z",
   "name": "Dayz Stand Alone",
   "shortName": "dayzsa",
   "description": "",
@@ -68,14 +68,14 @@
       {
         "id": "QueryPort",
         "port": 2303,
-        "expression": "GamePort \u002B 1",
+        "expression": "GamePort + 1",
         "description": null,
         "uriTemplate": null
       },
       {
         "id": "RConPort",
         "port": 2305,
-        "expression": "GamePort \u002B 3",
+        "expression": "GamePort + 3",
         "description": null,
         "uriTemplate": null
       }
@@ -653,7 +653,7 @@
       "id": 384,
       "relativePath": "serverDZ.cfg",
       "description": "Main configuration file",
-      "template": "steamQueryPort = ${QueryPort};\nhostname = \u0022${Hostname}\u0022;         // Server name\npassword = \u0022${PrivatePassword}\u0022;         // Password for connection to the server\npasswordAdmin = \u0022${RconPassword}\u0022;         // Password to become server admin  \n \n \nmaxPlayers = ${Slots};         // Maximum amount of players\n \n \nverifySignatures = 2;         // Verifies .pbos against .bisign files. (use only 2)\nforceSameBuild = 1;         // Server will allow connection only to clients with same exe revision as server when active (value 0-1)\n \n \ndisableVoN = 0;         // Enable/disable voice over network (value 0-1)\nvonCodecQuality = 7;    // Voice over network codec quality (values 0-30)\n\n \ndisable3rdPerson=${disable3rdPerson};         //turn on/off 3rd person view for players on the particular server instance (value 0-1)\ndisableCrosshair=${disableCrosshair};         //turn on/off cross-hair on the particular server instance (value 0-1)\n \n \nserverTime=\u0022${servertime}\u0022;         // Server Start Time         // Initial ingame time of server. \u0022SystemTime\u0022 means local time of machine. Another possibility is to set the time to some value in \u0022YYYY/MM/DD/HH/MM\u0022 format, f.e. \u00222015/4/8/17/23\u0022 .\nserverTimeAcceleration=${serverTimeAcceleration};         // Accelerated Time (value 0-24)        // This is a time multiplier for in-game time. In this case time would move 24 times faster than normal, an entire day would pass in one hour.\nserverTimePersistent=${serverTimePersistent};         // Persistent Time (value 0-1)        // Actual server time is saved to storage, so when active, next server start will use saved time value.\n \n \nguaranteedUpdates=1;         // Communication protocol used with game server (use only number 1) \n \n \nloginQueueConcurrentPlayers=5;         // Number of players concurrently processed during login process. Should prevent massive performance drop during connection when a lot of people are connecting in the same time.   \nloginQueueMaxPlayers=500;         // Maximum number of players that can wait in login queue\n \nrespawnTime = ${respawnTime};            // Sets the respawn delay (in seconds) before the player is able to get a new character on the server when the previous one is dead\n \nmotd[] = {\u0022${motd1}\u0022,\u0022${motd2}\u0022}; // Message of the day displayed in the in-game chat\nmotdInterval = ${motdInterval};           // Time interval (in seconds) between each message\n \nmaxPing= ${maxPing};               // Max ping value until server kick the user (value in milliseconds)\n \ntimeStampFormat = \u0022Short\u0022;  // Format for timestamps in the .rpt file (value Full/Short)\nlogAverageFps = 1;          // Logs the average server FPS (value in seconds), needs to have -dologs launch parameter active\nlogMemory = 1;              // Logs the server memory usage (value in seconds), needs to have the -dologs launch parameter active\nlogPlayers = 1;             // Logs the count of currently connected players (value in seconds), needs to have the -dologs launch parameter active\nlogFile = \u0022server_console.log\u0022;// Saves the server console log to a file in the folder with the other server logs\n \nenableDebugMonitor = ${enableDebugMonitor};     //shows info about the character using a debug window in a corner of the screen (value 0-1)\n\n\ninstanceId = ${instanceId};         // DayZ server instance id to identify number of instances per box and their storage folders with persistence files\nlootHistory = 1;         // how many persistence history files should been kept by instance, number is looped over during save\nstoreHouseStateDisabled = false;          // Disable houses/doors persistence (value true/false), usable in case of problems with persistence\nstorageAutoFix = 1;         // Checks if persistence files are corrupted and replaces corrupted ones with empty ones (value 0-1)\n \n \nclass Missions\n{\n    class DayZ\n    {\n        template=\u0022dayzOffline.chernarusplus\u0022;        //used mission         //first part is mission name, second part is used map\n    };\n};",
+      "template": "steamQueryPort = ${QueryPort};\nhostname = \"${Hostname}\";         // Server name\npassword = \"${PrivatePassword}\";         // Password for connection to the server\npasswordAdmin = \"${RconPassword}\";         // Password to become server admin  \n \n \nmaxPlayers = ${Slots};         // Maximum amount of players\n \n \nverifySignatures = 2;         // Verifies .pbos against .bisign files. (use only 2)\nforceSameBuild = 1;         // Server will allow connection only to clients with same exe revision as server when active (value 0-1)\n \n \ndisableVoN = 0;         // Enable/disable voice over network (value 0-1)\nvonCodecQuality = 7;    // Voice over network codec quality (values 0-30)\n\n \ndisable3rdPerson=${disable3rdPerson};         //turn on/off 3rd person view for players on the particular server instance (value 0-1)\ndisableCrosshair=${disableCrosshair};         //turn on/off cross-hair on the particular server instance (value 0-1)\n \n \nserverTime=\"${servertime}\";         // Server Start Time         // Initial ingame time of server. \"SystemTime\" means local time of machine. Another possibility is to set the time to some value in \"YYYY/MM/DD/HH/MM\" format, f.e. \"2015/4/8/17/23\" .\nserverTimeAcceleration=${serverTimeAcceleration};         // Accelerated Time (value 0-24)        // This is a time multiplier for in-game time. In this case time would move 24 times faster than normal, an entire day would pass in one hour.\nserverTimePersistent=${serverTimePersistent};         // Persistent Time (value 0-1)        // Actual server time is saved to storage, so when active, next server start will use saved time value.\n \n \nguaranteedUpdates=1;         // Communication protocol used with game server (use only number 1) \n \n \nloginQueueConcurrentPlayers=5;         // Number of players concurrently processed during login process. Should prevent massive performance drop during connection when a lot of people are connecting in the same time.   \nloginQueueMaxPlayers=500;         // Maximum number of players that can wait in login queue\n \nrespawnTime = ${respawnTime};            // Sets the respawn delay (in seconds) before the player is able to get a new character on the server when the previous one is dead\n \nmotd[] = {\"${motd1}\",\"${motd2}\"}; // Message of the day displayed in the in-game chat\nmotdInterval = ${motdInterval};           // Time interval (in seconds) between each message\n \nmaxPing= ${maxPing};               // Max ping value until server kick the user (value in milliseconds)\n \ntimeStampFormat = \"Short\";  // Format for timestamps in the .rpt file (value Full/Short)\nlogAverageFps = 1;          // Logs the average server FPS (value in seconds), needs to have -dologs launch parameter active\nlogMemory = 1;              // Logs the server memory usage (value in seconds), needs to have the -dologs launch parameter active\nlogPlayers = 1;             // Logs the count of currently connected players (value in seconds), needs to have the -dologs launch parameter active\nlogFile = \"server_console.log\";// Saves the server console log to a file in the folder with the other server logs\n \nenableDebugMonitor = ${enableDebugMonitor};     //shows info about the character using a debug window in a corner of the screen (value 0-1)\n\n\ninstanceId = ${instanceId};         // DayZ server instance id to identify number of instances per box and their storage folders with persistence files\nlootHistory = 1;         // how many persistence history files should been kept by instance, number is looped over during save\nstoreHouseStateDisabled = false;          // Disable houses/doors persistence (value true/false), usable in case of problems with persistence\nstorageAutoFix = 1;         // Checks if persistence files are corrupted and replaces corrupted ones with empty ones (value 0-1)\n \n \nclass Missions\n{\n    class DayZ\n    {\n        template=\"dayzOffline.chernarusplus\";        //used mission         //first part is mission name, second part is used map\n    };\n};",
       "order": 0,
       "enableEditor": true,
       "editor": [
@@ -993,7 +993,7 @@
           "id": "servertime",
           "defaultValue": "SystemTime",
           "label": "Server Start Time",
-          "description": "Initial in-game time. \u0022SystemTime\u0022 uses the machine\u0027s clock; or a date as YYYY/MM/DD/HH/MM.",
+          "description": "Initial in-game time. \"SystemTime\" uses the machine's clock; or a date as YYYY/MM/DD/HH/MM.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -1194,7 +1194,7 @@
         ],
         "name": "After Workshop Content Installed",
         "description": "After Workshop Content Installed",
-        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring fileTitle = Convert.ToString(Globals.Dynamic.FileTitle) ?? string.Empty;\nstring fileId = Convert.ToString(Globals.Dynamic.FileId) ?? string.Empty;\nstring installPath = Convert.ToString(Globals.Dynamic.InstallPath) ?? string.Empty;\nvar tagsArray = Globals.Dynamic.TagsArray as IEnumerable\u003Cstring\u003E;\n\n// Keep only the characters the mod folder name may contain, collapse double spaces, then use \u0022_\u0022 as the\n// word separator. Falls back to the file id when the provider gave us no title.\nstring modName = fileTitle.Length != 0\n    ? Regex.Replace(fileTitle, @\u0022[^a-zA-Z0-9 \\]\\[_\u0027\u002B-]\u0022, string.Empty)\n        .Replace(\u0022  \u0022, \u0022 \u0022).Replace(\u0022 \u0022, \u0022_\u0022).Trim()\n    : fileId;\n\n// Tags are only populated when the custom mod provider is configured to use the Steam API. No tags means\n// no \u0022Server\u0022 tag, so the mod is registered as a client mod - the same fallback the V2 script had.\nbool isServer = tagsArray != null \u0026\u0026 tagsArray.Contains(\u0022Server\u0022);\n\n// 1) Move the downloaded workshop folder to the \u0022@ModName\u0022 location the game expects.\nstring modFolder = Path.Combine(ThisService.RootDirectory, $\u0022@{modName}\u0022);\nif (Directory.Exists(modFolder))\n    Directory.Delete(modFolder, true);\nDirectory.Move(installPath, modFolder);\n\n// 2) Copy every key the mod ships (*.bikey, wherever it keeps them) into the service\u0027s root \u0022keys\u0022 folder so\n//    the server accepts the signed content.\nstring rootKeys = Path.Combine(ThisService.RootDirectory, \u0022keys\u0022);\nDirectory.CreateDirectory(rootKeys);\nforeach (string file in Directory.GetFiles(modFolder, \u0022*.bikey\u0022, SearchOption.AllDirectories))\n    File.Copy(file, Path.Combine(rootKeys, Path.GetFileName(file)), true);\n\n// 3) Only once the files are in place, register the mod in the service\u0027s variables - a failed move must not\n//    leave a mod listed that is not on disk. ThisService belongs to the task handler\u0027s DbContext, so load\n//    the row tracked in THIS script\u0027s scope before editing it.\nvar service = await GameServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null)\n{\n    ScriptConsole.WriteLine($\u0022[err] Service {ThisService.ServiceId} not found. \u0027@{modName}\u0027 was installed but not registered.\u0022);\n    return;\n}\n\nvar currentVariables = service.Variables ?? new TCAdminVars();\nstring serverMods = currentVariables.Parse\u003Cstring\u003E(\u0022ServerMods\u0022, string.Empty) ?? string.Empty;\nstring mods = currentVariables.Parse\u003Cstring\u003E(\u0022Mods\u0022, string.Empty) ?? string.Empty;\n\nvar updatedVariables = new TCAdminVars();\nforeach (var pair in currentVariables)\n    updatedVariables[pair.Key] = pair.Value;\n\nif (isServer)\n    updatedVariables[\u0022ServerMods\u0022] = $\u0022@{modName};{serverMods}\u0022;\nelse\n    updatedVariables[\u0022Mods\u0022] = $\u0022@{modName};{mods}\u0022;\n\n// Service.Variables is a JSON column with no value comparer, so change tracking sees neither an in-place\n// edit nor a reassignment - force the row Modified or the write is silently dropped.\nservice.Variables = updatedVariables;\nGameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\nawait GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n\n// 4) The V2 equivalent of ThisService.Configure(): rebuild the parsed command line so the new mod reaches\n//    the launch arguments. The monitor starts Service.Commandline verbatim with no re-parse, so without\n//    this the mod is installed but never loaded.\nvar refresh = await ServiceManager.RefreshActiveCommandLine(null, service);\nif (refresh.Error != null)\n    ScriptConsole.WriteLine($\u0022[warn] Command line refresh failed: {refresh.Error}\u0022);\n\nScriptConsole.WriteLine($\u0022Installed \u0027@{modName}\u0027 and added it to {(isServer ? \u0022ServerMods\u0022 : \u0022Mods\u0022)}.\u0022);\n",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring fileTitle = Convert.ToString(Globals.Dynamic.FileTitle) ?? string.Empty;\nstring fileId = Convert.ToString(Globals.Dynamic.FileId) ?? string.Empty;\nstring installPath = Convert.ToString(Globals.Dynamic.InstallPath) ?? string.Empty;\nvar tagsArray = Globals.Dynamic.TagsArray as IEnumerable<string>;\n\n// Keep only the characters the mod folder name may contain, collapse double spaces, then use \"_\" as the\n// word separator. Falls back to the file id when the provider gave us no title.\nstring modName = fileTitle.Length != 0\n    ? Regex.Replace(fileTitle, @\"[^a-zA-Z0-9 \\]\\[_'+-]\", string.Empty)\n        .Replace(\"  \", \" \").Replace(\" \", \"_\").Trim()\n    : fileId;\n\n// Tags are only populated when the custom mod provider is configured to use the Steam API. No tags means\n// no \"Server\" tag, so the mod is registered as a client mod - the same fallback the V2 script had.\nbool isServer = tagsArray != null && tagsArray.Contains(\"Server\");\n\n// 1) Move the downloaded workshop folder to the \"@ModName\" location the game expects.\nstring modFolder = Path.Combine(ThisService.RootDirectory, $\"@{modName}\");\nif (Directory.Exists(modFolder))\n    Directory.Delete(modFolder, true);\nDirectory.Move(installPath, modFolder);\n\n// 2) Copy every key the mod ships (*.bikey, wherever it keeps them) into the service's root \"keys\" folder so\n//    the server accepts the signed content.\nstring rootKeys = Path.Combine(ThisService.RootDirectory, \"keys\");\nDirectory.CreateDirectory(rootKeys);\nforeach (string file in Directory.GetFiles(modFolder, \"*.bikey\", SearchOption.AllDirectories))\n    File.Copy(file, Path.Combine(rootKeys, Path.GetFileName(file)), true);\n\n// 3) Only once the files are in place, register the mod in the service's variables - a failed move must not\n//    leave a mod listed that is not on disk. ThisService belongs to the task handler's DbContext, so load\n//    the row tracked in THIS script's scope before editing it.\nvar service = await GameServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null)\n{\n    ScriptConsole.WriteLine($\"[err] Service {ThisService.ServiceId} not found. '@{modName}' was installed but not registered.\");\n    return;\n}\n\nvar currentVariables = service.Variables ?? new TCAdminVars();\nstring serverMods = currentVariables.Parse<string>(\"ServerMods\", string.Empty) ?? string.Empty;\nstring mods = currentVariables.Parse<string>(\"Mods\", string.Empty) ?? string.Empty;\n\nvar updatedVariables = new TCAdminVars();\nforeach (var pair in currentVariables)\n    updatedVariables[pair.Key] = pair.Value;\n\nif (isServer)\n    updatedVariables[\"ServerMods\"] = $\"@{modName};{serverMods}\";\nelse\n    updatedVariables[\"Mods\"] = $\"@{modName};{mods}\";\n\n// Service.Variables is a JSON column with no value comparer, so change tracking sees neither an in-place\n// edit nor a reassignment - force the row Modified or the write is silently dropped.\nservice.Variables = updatedVariables;\nGameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\nawait GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n\n// 4) The V2 equivalent of ThisService.Configure(): rebuild the parsed command line so the new mod reaches\n//    the launch arguments. The monitor starts Service.Commandline verbatim with no re-parse, so without\n//    this the mod is installed but never loaded.\nvar refresh = await ServiceManager.RefreshActiveCommandLine(null, service);\nif (refresh.Error != null)\n    ScriptConsole.WriteLine($\"[warn] Command line refresh failed: {refresh.Error}\");\n\nScriptConsole.WriteLine($\"Installed '@{modName}' and added it to {(isServer ? \"ServerMods\" : \"Mods\")}.\");\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -1225,7 +1225,7 @@
         ],
         "name": "After Workshop Content Uninstalled",
         "description": "After Workshop Content Uninstalled",
-        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.IO;\nusing System.Text;\nusing System.Text.RegularExpressions;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Must produce exactly the same name the install script built, or the folder and the mod-list entry are\n// both left behind.\nstring fileTitle = Convert.ToString(Dynamic.FileTitle) ?? string.Empty;\nstring modName;\n\nif (fileTitle.Length != 0)\n{\n    var builder = new StringBuilder();\n    foreach (char character in fileTitle)\n    {\n        builder.Append(Regex.IsMatch(character.ToString(), @\u0022[a-zA-Z0-9 \\]\\[_\\\u0027\u002B-]\u0022) ? character : \u0027\\0\u0027);\n    }\n\n    modName = builder.ToString().Replace(\u0022\\0\u0022, string.Empty);\n    modName = modName.Replace(\u0022  \u0022, \u0022 \u0022).Replace(\u0022 \u0022, \u0022_\u0022).Trim();\n}\nelse\n{\n    modName = Convert.ToString(Dynamic.FileId) ?? string.Empty;\n}\n\n// ThisService belongs to the task handler\u0027s scope, so load the row tracked in THIS script\u0027s scope.\nvar service = await GameServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null)\n{\n    ScriptConsole.WriteLine($\u0022Service {ThisService.ServiceId} no longer exists.\u0022);\n    return;\n}\n\n// Strip the entry from both lists - the tags that decided which one it went into are not reliably\n// available at uninstall time.\nvar currentVariables = service.Variables ?? new TCAdminVars();\nstring serverMods = currentVariables.Parse\u003Cstring\u003E(\u0022ServerMods\u0022, string.Empty) ?? string.Empty;\nstring mods = currentVariables.Parse\u003Cstring\u003E(\u0022Mods\u0022, string.Empty) ?? string.Empty;\n\nvar updatedVariables = new TCAdminVars();\nforeach (var pair in currentVariables)\n{\n    updatedVariables[pair.Key] = pair.Value;\n}\n\nupdatedVariables[\u0022ServerMods\u0022] = serverMods.Replace($\u0022@{modName};\u0022, string.Empty);\nupdatedVariables[\u0022Mods\u0022] = mods.Replace($\u0022@{modName};\u0022, string.Empty);\nservice.Variables = updatedVariables;\n\n// The uninstall handler already removed the files it tracked at install time; this clears anything the\n// game itself wrote inside the mod folder afterwards.\nstring modFolder = Path.Combine(ThisService.RootDirectory, $\u0022@{modName}\u0022);\nif (Directory.Exists(modFolder))\n{\n    Directory.Delete(modFolder, true);\n}\n\n// Persist only once the folder is gone, the way V2\u0027s trailing ThisService.Save() did. Service.Variables is\n// a JSON column with no value comparer, so the forced state is what makes the write happen at all.\nGameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\nawait GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n\n// V2\u0027s ThisService.Configure(): rebuild the launch arguments so the removed mod stops being passed.\nvar refresh = await ServiceManager.RefreshActiveCommandLine(null, service);\nif (refresh.Error != null)\n{\n    ScriptConsole.WriteLine($\u0022[warn] Command line refresh failed: {refresh.Error}\u0022);\n}\n\nScriptConsole.WriteLine($\u0022Removed \u0027@{modName}\u0027 from the service\u0027s mod list.\u0022);\n",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.IO;\nusing System.Text;\nusing System.Text.RegularExpressions;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Must produce exactly the same name the install script built, or the folder and the mod-list entry are\n// both left behind.\nstring fileTitle = Convert.ToString(Dynamic.FileTitle) ?? string.Empty;\nstring modName;\n\nif (fileTitle.Length != 0)\n{\n    var builder = new StringBuilder();\n    foreach (char character in fileTitle)\n    {\n        builder.Append(Regex.IsMatch(character.ToString(), @\"[a-zA-Z0-9 \\]\\[_\\'+-]\") ? character : '\\0');\n    }\n\n    modName = builder.ToString().Replace(\"\\0\", string.Empty);\n    modName = modName.Replace(\"  \", \" \").Replace(\" \", \"_\").Trim();\n}\nelse\n{\n    modName = Convert.ToString(Dynamic.FileId) ?? string.Empty;\n}\n\n// ThisService belongs to the task handler's scope, so load the row tracked in THIS script's scope.\nvar service = await GameServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null)\n{\n    ScriptConsole.WriteLine($\"Service {ThisService.ServiceId} no longer exists.\");\n    return;\n}\n\n// Strip the entry from both lists - the tags that decided which one it went into are not reliably\n// available at uninstall time.\nvar currentVariables = service.Variables ?? new TCAdminVars();\nstring serverMods = currentVariables.Parse<string>(\"ServerMods\", string.Empty) ?? string.Empty;\nstring mods = currentVariables.Parse<string>(\"Mods\", string.Empty) ?? string.Empty;\n\nvar updatedVariables = new TCAdminVars();\nforeach (var pair in currentVariables)\n{\n    updatedVariables[pair.Key] = pair.Value;\n}\n\nupdatedVariables[\"ServerMods\"] = serverMods.Replace($\"@{modName};\", string.Empty);\nupdatedVariables[\"Mods\"] = mods.Replace($\"@{modName};\", string.Empty);\nservice.Variables = updatedVariables;\n\n// The uninstall handler already removed the files it tracked at install time; this clears anything the\n// game itself wrote inside the mod folder afterwards.\nstring modFolder = Path.Combine(ThisService.RootDirectory, $\"@{modName}\");\nif (Directory.Exists(modFolder))\n{\n    Directory.Delete(modFolder, true);\n}\n\n// Persist only once the folder is gone, the way V2's trailing ThisService.Save() did. Service.Variables is\n// a JSON column with no value comparer, so the forced state is what makes the write happen at all.\nGameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\nawait GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n\n// V2's ThisService.Configure(): rebuild the launch arguments so the removed mod stops being passed.\nvar refresh = await ServiceManager.RefreshActiveCommandLine(null, service);\nif (refresh.Error != null)\n{\n    ScriptConsole.WriteLine($\"[warn] Command line refresh failed: {refresh.Error}\");\n}\n\nScriptConsole.WriteLine($\"Removed '@{modName}' from the service's mod list.\");\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -1255,7 +1255,7 @@
         ],
         "name": "Download the vanilla missions when they are missing",
         "description": "An account that does not own DayZ gets no mission files; installs dayzOffline.* from BohemiaInteractive/DayZ-Central-Economy.",
-        "code": "//refAssemblies: System.Net.Http.dll, System.Formats.Tar.dll, System.IO.Compression.dll\nusing System;\nusing System.Formats.Tar;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// A Steam account that doesn\u0027t own DayZ gets no mission files (depot 223354), and the server can\u0027t start without\n// one. The first time mpmissions is empty, install the vanilla missions from Bohemia\u0027s official repository\n// github.com/BohemiaInteractive/DayZ-Central-Economy (latest release, the dayzOffline.* folders only).\nstring missions = Path.Combine(ThisService.RootDirectory, \u0022mpmissions\u0022);\nif (Directory.Exists(missions) \u0026\u0026 Directory.EnumerateFileSystemEntries(missions).Any())\n    return;\n\nScriptConsole.WriteLine((object)\u0022mpmissions is empty - downloading the vanilla missions from BohemiaInteractive/DayZ-Central-Economy...\u0022);\nDirectory.CreateDirectory(missions);\nstring root = Path.GetFullPath(missions) \u002B Path.DirectorySeparatorChar;\n\ntry\n{\n    using var http = new HttpClient { Timeout = TimeSpan.FromMinutes(10) };\n    http.DefaultRequestHeaders.UserAgent.ParseAdd(\u0022TCAdmin-DayZ-Missions\u0022);\n\n    string release = await http.GetStringAsync(\u0022https://api.github.com/repos/BohemiaInteractive/DayZ-Central-Economy/releases/latest\u0022, ThisCancellationToken);\n    string tarball = JsonDocument.Parse(release).RootElement.GetProperty(\u0022tarball_url\u0022).GetString();\n\n    await using var download = await http.GetStreamAsync(tarball, ThisCancellationToken);\n    await using var gzip = new GZipStream(download, CompressionMode.Decompress);\n    using var reader = new TarReader(gzip);\n\n    int files = 0;\n    TarEntry entry;\n    while ((entry = await reader.GetNextEntryAsync(cancellationToken: ThisCancellationToken)) != null)\n    {\n        if (entry.EntryType != TarEntryType.RegularFile \u0026\u0026 entry.EntryType != TarEntryType.V7RegularFile)\n            continue;\n\n        // Entries are \u0022\u003Crepo\u003E-\u003Csha\u003E/\u003Cfolder\u003E/...\u0022: drop the first component and keep only the vanilla missions.\n        string[] parts = entry.Name.Split(\u0027/\u0027, 2);\n        if (parts.Length \u003C 2 || !parts[1].StartsWith(\u0022dayzOffline.\u0022, StringComparison.OrdinalIgnoreCase))\n            continue;\n\n        string target = Path.GetFullPath(Path.Combine(missions, parts[1].Replace(\u0027/\u0027, Path.DirectorySeparatorChar)));\n        if (!target.StartsWith(root, StringComparison.OrdinalIgnoreCase))\n            continue; // never write outside mpmissions\n\n        Directory.CreateDirectory(Path.GetDirectoryName(target)!);\n        await entry.ExtractToFileAsync(target, true, ThisCancellationToken);\n        files\u002B\u002B;\n    }\n\n    string installed = string.Join(\u0022 \u0022, Directory.GetDirectories(missions).Select(Path.GetFileName));\n    ScriptConsole.WriteLine((object)$\u0022Installed {files} files: {installed}\u0022);\n}\ncatch (Exception ex) when (ex is not OperationCanceledException)\n{\n    ScriptConsole.WriteLine((object)$\u0022Could not download the mission files ({ex.Message}). Copy the dayzOffline.* folders into mpmissions by hand.\u0022);\n}\n",
+        "code": "//refAssemblies: System.Net.Http.dll, System.Formats.Tar.dll, System.IO.Compression.dll\nusing System;\nusing System.Formats.Tar;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// A Steam account that doesn't own DayZ gets no mission files (depot 223354), and the server can't start without\n// one. The first time mpmissions is empty, install the vanilla missions from Bohemia's official repository\n// github.com/BohemiaInteractive/DayZ-Central-Economy (latest release, the dayzOffline.* folders only).\nstring missions = Path.Combine(ThisService.RootDirectory, \"mpmissions\");\nif (Directory.Exists(missions) && Directory.EnumerateFileSystemEntries(missions).Any())\n    return;\n\nScriptConsole.WriteLine((object)\"mpmissions is empty - downloading the vanilla missions from BohemiaInteractive/DayZ-Central-Economy...\");\nDirectory.CreateDirectory(missions);\nstring root = Path.GetFullPath(missions) + Path.DirectorySeparatorChar;\n\ntry\n{\n    using var http = new HttpClient { Timeout = TimeSpan.FromMinutes(10) };\n    http.DefaultRequestHeaders.UserAgent.ParseAdd(\"TCAdmin-DayZ-Missions\");\n\n    string release = await http.GetStringAsync(\"https://api.github.com/repos/BohemiaInteractive/DayZ-Central-Economy/releases/latest\", ThisCancellationToken);\n    string tarball = JsonDocument.Parse(release).RootElement.GetProperty(\"tarball_url\").GetString();\n\n    await using var download = await http.GetStreamAsync(tarball, ThisCancellationToken);\n    await using var gzip = new GZipStream(download, CompressionMode.Decompress);\n    using var reader = new TarReader(gzip);\n\n    int files = 0;\n    TarEntry entry;\n    while ((entry = await reader.GetNextEntryAsync(cancellationToken: ThisCancellationToken)) != null)\n    {\n        if (entry.EntryType != TarEntryType.RegularFile && entry.EntryType != TarEntryType.V7RegularFile)\n            continue;\n\n        // Entries are \"<repo>-<sha>/<folder>/...\": drop the first component and keep only the vanilla missions.\n        string[] parts = entry.Name.Split('/', 2);\n        if (parts.Length < 2 || !parts[1].StartsWith(\"dayzOffline.\", StringComparison.OrdinalIgnoreCase))\n            continue;\n\n        string target = Path.GetFullPath(Path.Combine(missions, parts[1].Replace('/', Path.DirectorySeparatorChar)));\n        if (!target.StartsWith(root, StringComparison.OrdinalIgnoreCase))\n            continue; // never write outside mpmissions\n\n        Directory.CreateDirectory(Path.GetDirectoryName(target)!);\n        await entry.ExtractToFileAsync(target, true, ThisCancellationToken);\n        files++;\n    }\n\n    string installed = string.Join(\" \", Directory.GetDirectories(missions).Select(Path.GetFileName));\n    ScriptConsole.WriteLine((object)$\"Installed {files} files: {installed}\");\n}\ncatch (Exception ex) when (ex is not OperationCanceledException)\n{\n    ScriptConsole.WriteLine((object)$\"Could not download the mission files ({ex.Message}). Copy the dayzOffline.* folders into mpmissions by hand.\");\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -1343,11 +1343,16 @@
   "modifiedDate": null,
   "metadata": {},
   "backupConfig": {
-    "enabled": false,
+    "enabled": true,
     "backupType": "Full",
     "compressBackup": true,
-    "stopServiceBeforeBackup": false,
-    "includedPaths": [],
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "mpmissions/**/*",
+      "serverDZ.cfg",
+      "*.txt",
+      "BattlEye/*.cfg"
+    ],
     "maxBackupCount": null,
     "maxBackupSpace": null
   },
@@ -1437,6 +1442,202 @@
       "granted": true
     },
     {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
       "roleId": 3,
       "module": "BpFeature",
       "permission": "CpuStats",
@@ -1519,6 +1720,202 @@
       "permission": "SteamUpdate",
       "moduleData": "",
       "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
     }
   ],
   "mods": [],
