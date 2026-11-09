@@ -19,7 +19,7 @@ longDescription: |
   - **Graceful stop:** a stop script runs `SaveWorld` and `DoExit` over RCON and waits for the save to finish.
   - **CurseForge mods:** install and uninstall from the panel. The installed mod IDs are added to the `-mods=` list and the server downloads the mods itself. "Skip download" is on, so mods that don't allow third-party downloads can still be added.
   - **Config editor** for `GameUserSettings.ini` and `Game.ini`.
-  - **Backups** with the panel's backup feature: the world saves (`ShooterGame/Saved/SavedArks`), the server config and a copy of the cluster data. The server is stopped first, so the backup holds a complete save, and started again afterwards.
+  - **Backups** with the panel's backup feature: the world saves (`ShooterGame/Saved/SavedArks`), the server config and the saved cluster data copies. The server is stopped first, so the backup holds a complete save, and started again afterwards.
   
   ## Ports
   - Game 46400 and RCON 46403. Each new server takes the next block of 5 ports.
@@ -29,7 +29,7 @@ longDescription: |
   - Services run as a separate user per owner, so each owner's cluster folder is private.
   - The first start under Wine also builds the Wine prefix, which takes about 2 more minutes.
   - Use the "Crossplay (all platforms)" command line to let console players join.
-  - The cluster folder is outside the service folder, so every time the server stops a script saves a dated copy of its cluster data in `ShooterGame/Saved/ClusterBackup` (the newest 10 are kept, and a copy is skipped when nothing changed). Backups include these copies.
+  - The cluster folder is outside the service folder, so the **Snapshot cluster data** button saves a dated copy of this server's cluster data in `ShooterGame/Saved/ClusterBackup` (the newest 10 are kept, and a copy is skipped when nothing changed). It can also run as a scheduled task. Backups include these copies.
   - **Restore cluster data** opens a list of the saved copies, newest first, and restores the one you pick. The current data is saved as a new copy first, so a restore can be undone from the same list. Restoring a panel backup brings its copies back into the list.
 icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2399830/655cc2012105979c2b8e4821d568351c86b22be7.jpg"
 images:
