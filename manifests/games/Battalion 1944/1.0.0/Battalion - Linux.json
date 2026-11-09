@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.23.38.17810",
-  "__TCA:ExportedAt": "2026-11-09T02:29:56.2466806Z",
+  "__TCA:ExportVersion": "3.23.42",
+  "__TCA:ExportedAt": "2026-11-09T21:25:46.3967166Z",
   "name": "Battalion 1944",
   "shortName": "battalion1944-linux",
   "description": "",
@@ -68,7 +68,7 @@
       {
         "id": "QueryPort",
         "port": 0,
-        "expression": "GamePort \u002B3",
+        "expression": "GamePort +3",
         "description": null,
         "uriTemplate": null
       }
@@ -105,7 +105,7 @@
   },
   "commandlineConfig": {
     "enableSelection": true,
-    "defaultCommandline": "Battalion -broadcastip=\u0022${IPAddress}\u0022 -PORT=${GamePort} -QueryPort=${QueryPort} -SteamServerName=\u0022${Hostname}\u0022 -Queue=\u0022Wartide\u0022 -log",
+    "defaultCommandline": "Battalion -broadcastip=\"${IPAddress}\" -PORT=${GamePort} -QueryPort=${QueryPort} -SteamServerName=\"${Hostname}\" -Queue=\"Wartide\" -log",
     "defaultCustomCommandline": "",
     "predefinedCommandlines": []
   },
@@ -232,7 +232,7 @@
         ],
         "name": "Fix permissions and Steam client library",
         "description": "Fix permissions and Steam client library",
-        "code": "chmod \u002Bx Battalion/Binaries/Linux/BattalionServer-Linux-Shipping 2\u003E/dev/null\nmkdir -p .steam/sdk64\nif [ -f linux64/steamclient.so ]; then cp -f linux64/steamclient.so .steam/sdk64/steamclient.so; fi\n# The Sentry crash handler needs libssl.so.1.1, which current distros no longer ship; the server hangs waiting for it.\nif [ -f Battalion/Plugins/Sentry/Binaries/Linux/crashpad_handler ]; then\n  mv -f Battalion/Plugins/Sentry/Binaries/Linux/crashpad_handler Battalion/Plugins/Sentry/Binaries/Linux/crashpad_handler.disabled\nfi\n",
+        "code": "chmod +x Battalion/Binaries/Linux/BattalionServer-Linux-Shipping 2>/dev/null\nmkdir -p .steam/sdk64\nif [ -f linux64/steamclient.so ]; then cp -f linux64/steamclient.so .steam/sdk64/steamclient.so; fi\n# The Sentry crash handler needs libssl.so.1.1, which current distros no longer ship; the server hangs waiting for it.\nif [ -f Battalion/Plugins/Sentry/Binaries/Linux/crashpad_handler ]; then\n  mv -f Battalion/Plugins/Sentry/Binaries/Linux/crashpad_handler Battalion/Plugins/Sentry/Binaries/Linux/crashpad_handler.disabled\nfi\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -257,11 +257,13 @@
   "modifiedDate": null,
   "metadata": {},
   "backupConfig": {
-    "enabled": false,
+    "enabled": true,
     "backupType": "Full",
     "compressBackup": true,
     "stopServiceBeforeBackup": false,
-    "includedPaths": [],
+    "includedPaths": [
+      "Battalion/Saved/Config/**/*"
+    ],
     "maxBackupCount": null,
     "maxBackupSpace": null
   },
@@ -614,14 +616,14 @@
       "module": "BpFeature",
       "permission": "CustomCmdlines",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
       "module": "BpFeature",
       "permission": "NetworkStats",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
@@ -663,7 +665,7 @@
       "module": "BpFeature",
       "permission": "SteamUpdate",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
@@ -866,7 +868,7 @@
       "module": "BpFeature",
       "permission": "Reinstall",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
@@ -1041,14 +1043,14 @@
       "module": "BpFeature",
       "permission": "CustomCmdlines",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
       "permission": "NetworkStats",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
@@ -1083,7 +1085,7 @@
       "module": "BpFeature",
       "permission": "SteamUpdate",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
@@ -1119,412 +1121,6 @@
       "permission": "Databases",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "GeneralSettings",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "FileSystem",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Cmdlines",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "IpAndPorts",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Monitoring",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Variables",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Scripts",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "CustomLinks",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "FeaturePermissions",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "EnvironmentVariables",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Limits",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "RconAndQuery",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Paths",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "RunAs",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Steam",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Updates",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "ServiceSettings",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "KillService",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "CustomCmdlines",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "FileManager",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "FTP",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "ScheduledTasks",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Logs",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "ServiceActivity",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "CpuStats",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "MemoryStats",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "LiveStats",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Reinstall",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "SteamUpdate",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Updates",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "CustomScripts",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": false
     }
   ],
   "mods": [],
