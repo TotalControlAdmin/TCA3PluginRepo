@@ -1,6 +1,6 @@
 {
   "__TCA:ExportVersion": "3.23.42",
-  "__TCA:ExportedAt": "2026-11-09T19:00:28.6298047Z",
+  "__TCA:ExportedAt": "2026-11-09T19:24:26.3315463Z",
   "name": "ARK: Survival Ascended (with Cluster)",
   "shortName": "arkascend",
   "description": "",
@@ -1801,6 +1801,68 @@
         "translations": [],
         "identifier": "fd89be56-4677-4109-93f8-56232bad0531"
       }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "AfterServiceStopped"
+        ],
+        "name": "Snapshot cluster data",
+        "description": "Copies the cluster data into ShooterGame/Saved/ClusterBackup after every stop, so backups include it.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// The cluster folder is outside the service folder, so the panel's backups can't include it. After every stop\n// (a backup stops the server first) copy this server's cluster data into the service folder, where the backup\n// picks it up. \"Restore cluster data\" copies it back.\nstring commandLine = ThisService.Commandline ?? \"\";\nvar idMatch = Regex.Match(commandLine, @\"-clusterID=(\"\"[^\"\"]*\"\"|\\S*)\", RegexOptions.IgnoreCase);\nvar dirMatch = Regex.Match(commandLine, @\"-ClusterDirOverride=(\"\"[^\"\"]*\"\"|\\S*)\", RegexOptions.IgnoreCase);\nif (!idMatch.Success || !dirMatch.Success)\n{\n    ScriptConsole.WriteLine((object)\"The command line has no -clusterID / -ClusterDirOverride; this server is not in a cluster.\");\n    return;\n}\nstring clusterId = idMatch.Groups[1].Value.Trim('\"');\nif (!Regex.IsMatch(clusterId, \"^[A-Za-z0-9_-]{1,32}$\"))\n    throw new Exception(\"Cluster ID \\\"\" + clusterId + \"\\\" is not valid. Use 1-32 letters, numbers, - or _.\");\n\nstring root = Path.GetFullPath(ThisService.RootDirectory);\nstring clusterPath = dirMatch.Groups[1].Value.Trim('\"');\n// Under Wine (Linux node) the game gets the folder as a Z: drive path; Z: is the Linux root.\nif (!System.OperatingSystem.IsWindows() && Regex.IsMatch(clusterPath, \"^[Zz]:\"))\n    clusterPath = clusterPath.Substring(2).Replace('\\\\', '/');\nstring source = Path.Combine(Path.GetFullPath(clusterPath), clusterId);\nstring snapshot = Path.Combine(root, \"ShooterGame\", \"Saved\", \"ClusterBackup\");\n\nif (!Directory.Exists(source))\n{\n    ScriptConsole.WriteLine((object)(\"No cluster data yet in \" + source + \".\"));\n    return;\n}\n\nif (Directory.Exists(snapshot))\n    Directory.Delete(snapshot, true);\nint files = CopyTree(new DirectoryInfo(source), Path.Combine(snapshot, clusterId));\n\nif (!System.OperatingSystem.IsWindows())\n{\n    // The script runs as root; hand the copy to the service's account like the rest of the service folder.\n    Run(\"chown\", \"-R -P --reference=\\\"\" + root + \"\\\" \\\"\" + snapshot + \"\\\"\");\n}\nScriptConsole.WriteLine((object)(\"Cluster \\\"\" + clusterId + \"\\\": copied \" + files + \" file(s) to ShooterGame/Saved/ClusterBackup for backups.\"));\n\n// Links are skipped, never followed: a link in the cluster folder must not pull outside files into the backup.\nint CopyTree(DirectoryInfo from, string to)\n{\n    Directory.CreateDirectory(to);\n    int count = 0;\n    var options = new EnumerationOptions { AttributesToSkip = FileAttributes.ReparsePoint, IgnoreInaccessible = false };\n    foreach (var file in from.EnumerateFiles(\"*\", options))\n    {\n        file.CopyTo(Path.Combine(to, file.Name), true);\n        count++;\n    }\n    foreach (var dir in from.EnumerateDirectories(\"*\", options))\n        count += CopyTree(dir, Path.Combine(to, dir.Name));\n    return count;\n}\n\nvoid Run(string file, string arguments)\n{\n    using var p = Process.Start(new ProcessStartInfo(file, arguments) { UseShellExecute = false, RedirectStandardError = true });\n    string error = p.StandardError.ReadToEnd();\n    p.WaitForExit();\n    if (p.ExitCode != 0)\n        throw new Exception(file + \" \" + arguments + \" failed: \" + error.Trim());\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": null,
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "750ff8e9-22b7-4c3a-ba6a-43ab36c9df7c"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceIcon"
+        ],
+        "name": "Restore cluster data",
+        "description": "Replaces the cluster data with the copy in ShooterGame/Saved/ClusterBackup (restore a backup first). The current data is kept as <Cluster ID>.before-restore-<date>.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Puts the cluster data saved in ShooterGame/Saved/ClusterBackup (by the \"Snapshot cluster data\" script, and\n// brought back by restoring a panel backup) back into the shared cluster folder. The current cluster data is\n// kept next to it as <Cluster ID>.before-restore-<date> until the next restore.\nstring commandLine = ThisService.Commandline ?? \"\";\nvar idMatch = Regex.Match(commandLine, @\"-clusterID=(\"\"[^\"\"]*\"\"|\\S*)\", RegexOptions.IgnoreCase);\nvar dirMatch = Regex.Match(commandLine, @\"-ClusterDirOverride=(\"\"[^\"\"]*\"\"|\\S*)\", RegexOptions.IgnoreCase);\nif (!idMatch.Success || !dirMatch.Success)\n    throw new Exception(\"The command line has no -clusterID / -ClusterDirOverride; this server is not in a cluster.\");\nstring clusterId = idMatch.Groups[1].Value.Trim('\"');\nif (!Regex.IsMatch(clusterId, \"^[A-Za-z0-9_-]{1,32}$\"))\n    throw new Exception(\"Cluster ID \\\"\" + clusterId + \"\\\" is not valid. Use 1-32 letters, numbers, - or _.\");\n\nstring root = Path.GetFullPath(ThisService.RootDirectory);\nstring clusterPath = dirMatch.Groups[1].Value.Trim('\"');\n// Under Wine (Linux node) the game gets the folder as a Z: drive path; Z: is the Linux root.\nif (!System.OperatingSystem.IsWindows() && Regex.IsMatch(clusterPath, \"^[Zz]:\"))\n    clusterPath = clusterPath.Substring(2).Replace('\\\\', '/');\nstring clusters = Path.GetFullPath(clusterPath);\nstring target = Path.Combine(clusters, clusterId);\nstring snapshotRoot = Path.Combine(root, \"ShooterGame\", \"Saved\", \"ClusterBackup\");\nstring snapshot = Path.Combine(snapshotRoot, clusterId);\n\nif (!Directory.Exists(snapshot))\n{\n    // A snapshot taken under another Cluster ID can't be restored into this one by accident.\n    string other = Directory.Exists(snapshotRoot)\n        ? string.Join(\", \", new DirectoryInfo(snapshotRoot).EnumerateDirectories().Select(d => d.Name))\n        : \"\";\n    throw new Exception(\"There is no saved cluster data for cluster \\\"\" + clusterId + \"\\\" in ShooterGame/Saved/ClusterBackup.\"\n        + (other.Length > 0 ? \" Saved data exists for cluster \" + other + \".\" : \" Restore a backup first.\"));\n}\n\nDirectory.CreateDirectory(clusters);\nforeach (var old in new DirectoryInfo(clusters).EnumerateDirectories(clusterId + \".before-restore-*\"))\n    old.Delete(true);\nif (Directory.Exists(target))\n{\n    string aside = target + \".before-restore-\" + DateTime.Now.ToString(\"yyyyMMdd-HHmmss\");\n    Directory.Move(target, aside);\n    ScriptConsole.WriteLine((object)(\"The current cluster data was moved to \" + Path.GetFileName(aside) + \".\"));\n}\nint files = CopyTree(new DirectoryInfo(snapshot), target);\n\nif (!System.OperatingSystem.IsWindows())\n{\n    // The script runs as root; the game reads and writes the cluster folder as the service's account.\n    Run(\"chown\", \"-R -P --reference=\\\"\" + clusters + \"\\\" \\\"\" + target + \"\\\"\");\n}\nScriptConsole.WriteLine((object)(\"Cluster \\\"\" + clusterId + \"\\\": restored \" + files + \" file(s).\"));\n\n// Links are skipped, never followed.\nint CopyTree(DirectoryInfo from, string to)\n{\n    Directory.CreateDirectory(to);\n    int count = 0;\n    var options = new EnumerationOptions { AttributesToSkip = FileAttributes.ReparsePoint, IgnoreInaccessible = false };\n    foreach (var file in from.EnumerateFiles(\"*\", options))\n    {\n        file.CopyTo(Path.Combine(to, file.Name), true);\n        count++;\n    }\n    foreach (var dir in from.EnumerateDirectories(\"*\", options))\n        count += CopyTree(dir, Path.Combine(to, dir.Name));\n    return count;\n}\n\nvoid Run(string file, string arguments)\n{\n    using var p = Process.Start(new ProcessStartInfo(file, arguments) { UseShellExecute = false, RedirectStandardError = true });\n    string error = p.StandardError.ReadToEnd();\n    p.WaitForExit();\n    if (p.ExitCode != 0)\n        throw new Exception(file + \" \" + arguments + \" failed: \" + error.Trim());\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": null,
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "c49830e2-d19a-42b2-9393-44b6c1500877"
+      }
     }
   ],
   "customModProviderConfigs": [
@@ -1861,7 +1923,8 @@
     "stopServiceBeforeBackup": true,
     "includedPaths": [
       "ShooterGame/Saved/SavedArks/**/*",
-      "ShooterGame/Saved/Config/WindowsServer/**/*"
+      "ShooterGame/Saved/Config/WindowsServer/**/*",
+      "ShooterGame/Saved/ClusterBackup/**/*"
     ],
     "maxBackupCount": null,
     "maxBackupSpace": null
