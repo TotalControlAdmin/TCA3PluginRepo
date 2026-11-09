@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.23.37.17810",
-  "__TCA:ExportedAt": "2026-11-08T23:48:29.8783097Z",
+  "__TCA:ExportVersion": "3.23.38.17810",
+  "__TCA:ExportedAt": "2026-11-09T05:13:57.1207655Z",
   "name": "Dayz Stand Alone",
   "shortName": "dayzsa",
   "description": "",
@@ -812,7 +812,7 @@
           "checkedValue": "1",
           "uncheckedValue": "0",
           "id": "enableDebugMonitor",
-          "defaultValue": "",
+          "defaultValue": "0",
           "label": "Enable Debug Monitor",
           "description": "shows info about the character using a debug window in a corner of the screen (value 0-1)",
           "required": false,
@@ -985,14 +985,34 @@
           "requiresAnyVisible": []
         },
         {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "servertime",
+          "defaultValue": "SystemTime",
+          "label": "Server Start Time",
+          "description": "Initial in-game time. \u0022SystemTime\u0022 uses the machine\u0027s clock; or a date as YYYY/MM/DD/HH/MM.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
           "decimals": 2,
           "step": 1,
           "spinner": true,
           "valueType": "double",
           "minValue": 5,
           "maxValue": 120,
-          "id": "servertime",
-          "defaultValue": "SystemTime",
+          "id": "respawnTime",
+          "defaultValue": "5",
           "label": "Respawn Time",
           "description": "Sets the respawn delay (in seconds) before the player is able to get a new character on the server when the previous one is dead",
           "required": false,
@@ -1173,7 +1193,7 @@
         ],
         "name": "After Workshop Content Installed",
         "description": "After Workshop Content Installed",
-        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring fileTitle = Convert.ToString(Globals.Dynamic.FileTitle) ?? string.Empty;\nstring fileId = Convert.ToString(Globals.Dynamic.FileId) ?? string.Empty;\nstring installPath = Convert.ToString(Globals.Dynamic.InstallPath) ?? string.Empty;\nvar tagsArray = Globals.Dynamic.TagsArray as IEnumerable\u003Cstring\u003E;\n\n// Keep only the characters the mod folder name may contain, collapse double spaces, then use \u0022_\u0022 as the\n// word separator. Falls back to the file id when the provider gave us no title.\nstring modName = fileTitle.Length != 0\n    ? Regex.Replace(fileTitle, @\u0022[^a-zA-Z0-9 \\]\\[_\u0027\u002B-]\u0022, string.Empty)\n        .Replace(\u0022  \u0022, \u0022 \u0022).Replace(\u0022 \u0022, \u0022_\u0022).Trim()\n    : fileId;\n\n// DayZ on Linux opens mod folders and files case-sensitively, with lowercase names (Windows doesn\u0027t care).\n// Use a lowercase folder name there; the uninstall script must build the same name.\nif (!System.OperatingSystem.IsWindows())\n    modName = modName.ToLowerInvariant();\n\n// Tags are only populated when the custom mod provider is configured to use the Steam API. No tags means\n// no \u0022Server\u0022 tag, so the mod is registered as a client mod - the same fallback the V2 script had.\nbool isServer = tagsArray != null \u0026\u0026 tagsArray.Contains(\u0022Server\u0022);\n\n// 1) Move the downloaded workshop folder to the \u0022@ModName\u0022 location the game expects.\nstring modFolder = Path.Combine(ThisService.RootDirectory, $\u0022@{modName}\u0022);\nif (Directory.Exists(modFolder))\n    Directory.Delete(modFolder, true);\nDirectory.Move(installPath, modFolder);\n\n// On Linux, lowercase every file and folder inside the mod, deepest first so a parent rename never\n// invalidates a child path still to be visited. A name differing only in case is renamed via a temporary\n// name, since a case-only Move is a no-op on case-insensitive file systems.\nif (!System.OperatingSystem.IsWindows())\n{\n    void Rename(string path, bool isDirectory)\n    {\n        string name = Path.GetFileName(path);\n        string lower = name.ToLowerInvariant();\n        if (name == lower)\n            return;\n        string target = Path.Combine(Path.GetDirectoryName(path)!, lower);\n        if (isDirectory)\n        {\n            if (Directory.Exists(target))\n            {\n                // Merge into an existing lowercase folder of the same name.\n                foreach (string child in Directory.GetFileSystemEntries(path))\n                {\n                    string dest = Path.Combine(target, Path.GetFileName(child));\n                    if (Directory.Exists(child)) Directory.Move(child, dest);\n                    else File.Move(child, dest, true);\n                }\n                Directory.Delete(path, true);\n            }\n            else\n            {\n                Directory.Move(path, target);\n            }\n        }\n        else\n        {\n            File.Move(path, target, true);\n        }\n    }\n\n    foreach (string file in Directory.GetFiles(modFolder, \u0022*\u0022, SearchOption.AllDirectories))\n        Rename(file, false);\n    foreach (string dir in Directory.GetDirectories(modFolder, \u0022*\u0022, SearchOption.AllDirectories)\n                 .OrderByDescending(d =\u003E d.Length))\n        Rename(dir, true);\n}\n\n// 2) Hoist the mod\u0027s keys into the service\u0027s root \u0022keys\u0022 folder so the server accepts the signed content.\nstring rootKeys = Path.Combine(ThisService.RootDirectory, \u0022keys\u0022);\nDirectory.CreateDirectory(rootKeys);\n\nstring modKeys = Path.Combine(modFolder, \u0022keys\u0022);\nif (Directory.Exists(modKeys))\n{\n    foreach (string file in Directory.GetFiles(modKeys, \u0022*\u0022, SearchOption.AllDirectories))\n    {\n        string keyFile = Path.Combine(rootKeys, Path.GetFileName(file));\n        if (File.Exists(keyFile))\n            File.Delete(keyFile);\n        File.Move(file, keyFile);\n    }\n}\n\nmodKeys = Path.Combine(modFolder, \u0022key\u0022);\nif (Directory.Exists(modKeys))\n{\n    foreach (string file in Directory.GetFiles(modKeys, \u0022*\u0022, SearchOption.AllDirectories))\n    {\n        string keyFile = Path.Combine(rootKeys, Path.GetFileName(file));\n        if (File.Exists(keyFile))\n            File.Delete(keyFile);\n        File.Move(file, keyFile);\n    }\n}\n\n// 3) Only once the files are in place, register the mod in the service\u0027s variables - a failed move must not\n//    leave a mod listed that is not on disk. ThisService belongs to the task handler\u0027s DbContext, so load\n//    the row tracked in THIS script\u0027s scope before editing it.\nvar service = await GameServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null)\n{\n    ScriptConsole.WriteLine($\u0022[err] Service {ThisService.ServiceId} not found. \u0027@{modName}\u0027 was installed but not registered.\u0022);\n    return;\n}\n\nvar currentVariables = service.Variables ?? new TCAdminVars();\nstring serverMods = currentVariables.Parse\u003Cstring\u003E(\u0022ServerMods\u0022, string.Empty) ?? string.Empty;\nstring mods = currentVariables.Parse\u003Cstring\u003E(\u0022Mods\u0022, string.Empty) ?? string.Empty;\n\nvar updatedVariables = new TCAdminVars();\nforeach (var pair in currentVariables)\n    updatedVariables[pair.Key] = pair.Value;\n\nif (isServer)\n    updatedVariables[\u0022ServerMods\u0022] = $\u0022@{modName};{serverMods}\u0022;\nelse\n    updatedVariables[\u0022Mods\u0022] = $\u0022@{modName};{mods}\u0022;\n\n// Service.Variables is a JSON column with no value comparer, so change tracking sees neither an in-place\n// edit nor a reassignment - force the row Modified or the write is silently dropped.\nservice.Variables = updatedVariables;\nGameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\nawait GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n\n// 4) The V2 equivalent of ThisService.Configure(): rebuild the parsed command line so the new mod reaches\n//    the launch arguments. The monitor starts Service.Commandline verbatim with no re-parse, so without\n//    this the mod is installed but never loaded.\nvar refresh = await ServiceManager.RefreshActiveCommandLine(null, service);\nif (refresh.Error != null)\n    ScriptConsole.WriteLine($\u0022[warn] Command line refresh failed: {refresh.Error}\u0022);\n\nScriptConsole.WriteLine($\u0022Installed \u0027@{modName}\u0027 and added it to {(isServer ? \u0022ServerMods\u0022 : \u0022Mods\u0022)}.\u0022);\n",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring fileTitle = Convert.ToString(Globals.Dynamic.FileTitle) ?? string.Empty;\nstring fileId = Convert.ToString(Globals.Dynamic.FileId) ?? string.Empty;\nstring installPath = Convert.ToString(Globals.Dynamic.InstallPath) ?? string.Empty;\nvar tagsArray = Globals.Dynamic.TagsArray as IEnumerable\u003Cstring\u003E;\n\n// Keep only the characters the mod folder name may contain, collapse double spaces, then use \u0022_\u0022 as the\n// word separator. Falls back to the file id when the provider gave us no title.\nstring modName = fileTitle.Length != 0\n    ? Regex.Replace(fileTitle, @\u0022[^a-zA-Z0-9 \\]\\[_\u0027\u002B-]\u0022, string.Empty)\n        .Replace(\u0022  \u0022, \u0022 \u0022).Replace(\u0022 \u0022, \u0022_\u0022).Trim()\n    : fileId;\n\n// DayZ on Linux opens mod folders and files case-sensitively, with lowercase names (Windows doesn\u0027t care).\n// Use a lowercase folder name there; the uninstall script must build the same name.\nif (!System.OperatingSystem.IsWindows())\n    modName = modName.ToLowerInvariant();\n\n// Tags are only populated when the custom mod provider is configured to use the Steam API. No tags means\n// no \u0022Server\u0022 tag, so the mod is registered as a client mod - the same fallback the V2 script had.\nbool isServer = tagsArray != null \u0026\u0026 tagsArray.Contains(\u0022Server\u0022);\n\n// 1) Move the downloaded workshop folder to the \u0022@ModName\u0022 location the game expects.\nstring modFolder = Path.Combine(ThisService.RootDirectory, $\u0022@{modName}\u0022);\nif (Directory.Exists(modFolder))\n    Directory.Delete(modFolder, true);\nDirectory.Move(installPath, modFolder);\n\n// On Linux, lowercase every file and folder inside the mod, deepest first so a parent rename never\n// invalidates a child path still to be visited. A name differing only in case is renamed via a temporary\n// name, since a case-only Move is a no-op on case-insensitive file systems.\nif (!System.OperatingSystem.IsWindows())\n{\n    void Rename(string path, bool isDirectory)\n    {\n        string name = Path.GetFileName(path);\n        string lower = name.ToLowerInvariant();\n        if (name == lower)\n            return;\n        string target = Path.Combine(Path.GetDirectoryName(path)!, lower);\n        if (isDirectory)\n        {\n            if (Directory.Exists(target))\n            {\n                // Merge into an existing lowercase folder of the same name.\n                foreach (string child in Directory.GetFileSystemEntries(path))\n                {\n                    string dest = Path.Combine(target, Path.GetFileName(child));\n                    if (Directory.Exists(child)) Directory.Move(child, dest);\n                    else File.Move(child, dest, true);\n                }\n                Directory.Delete(path, true);\n            }\n            else\n            {\n                Directory.Move(path, target);\n            }\n        }\n        else\n        {\n            File.Move(path, target, true);\n        }\n    }\n\n    foreach (string file in Directory.GetFiles(modFolder, \u0022*\u0022, SearchOption.AllDirectories))\n        Rename(file, false);\n    foreach (string dir in Directory.GetDirectories(modFolder, \u0022*\u0022, SearchOption.AllDirectories)\n                 .OrderByDescending(d =\u003E d.Length))\n        Rename(dir, true);\n}\n\n// 2) Copy every key the mod ships (*.bikey, wherever it keeps them) into the service\u0027s root \u0022keys\u0022 folder so\n//    the server accepts the signed content.\nstring rootKeys = Path.Combine(ThisService.RootDirectory, \u0022keys\u0022);\nDirectory.CreateDirectory(rootKeys);\nforeach (string file in Directory.GetFiles(modFolder, \u0022*.bikey\u0022, SearchOption.AllDirectories))\n    File.Copy(file, Path.Combine(rootKeys, Path.GetFileName(file)), true);\n\n// 3) Only once the files are in place, register the mod in the service\u0027s variables - a failed move must not\n//    leave a mod listed that is not on disk. ThisService belongs to the task handler\u0027s DbContext, so load\n//    the row tracked in THIS script\u0027s scope before editing it.\nvar service = await GameServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null)\n{\n    ScriptConsole.WriteLine($\u0022[err] Service {ThisService.ServiceId} not found. \u0027@{modName}\u0027 was installed but not registered.\u0022);\n    return;\n}\n\nvar currentVariables = service.Variables ?? new TCAdminVars();\nstring serverMods = currentVariables.Parse\u003Cstring\u003E(\u0022ServerMods\u0022, string.Empty) ?? string.Empty;\nstring mods = currentVariables.Parse\u003Cstring\u003E(\u0022Mods\u0022, string.Empty) ?? string.Empty;\n\nvar updatedVariables = new TCAdminVars();\nforeach (var pair in currentVariables)\n    updatedVariables[pair.Key] = pair.Value;\n\nif (isServer)\n    updatedVariables[\u0022ServerMods\u0022] = $\u0022@{modName};{serverMods}\u0022;\nelse\n    updatedVariables[\u0022Mods\u0022] = $\u0022@{modName};{mods}\u0022;\n\n// Service.Variables is a JSON column with no value comparer, so change tracking sees neither an in-place\n// edit nor a reassignment - force the row Modified or the write is silently dropped.\nservice.Variables = updatedVariables;\nGameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\nawait GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n\n// 4) The V2 equivalent of ThisService.Configure(): rebuild the parsed command line so the new mod reaches\n//    the launch arguments. The monitor starts Service.Commandline verbatim with no re-parse, so without\n//    this the mod is installed but never loaded.\nvar refresh = await ServiceManager.RefreshActiveCommandLine(null, service);\nif (refresh.Error != null)\n    ScriptConsole.WriteLine($\u0022[warn] Command line refresh failed: {refresh.Error}\u0022);\n\nScriptConsole.WriteLine($\u0022Installed \u0027@{modName}\u0027 and added it to {(isServer ? \u0022ServerMods\u0022 : \u0022Mods\u0022)}.\u0022);\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -1218,6 +1238,36 @@
         "editor": [],
         "translations": [],
         "identifier": "6368a0f2-70a7-46dd-923c-319ed917f583"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "Batch",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server binary, Steam client library and mission files",
+        "description": "Prepare the server binary, Steam client library and mission files",
+        "code": "chmod \u002Bx DayZServer 2\u003E/dev/null\n# The server loads the Steam client library from ~/.steam/sdk64; the depot ships it at the root.\nmkdir -p .steam/sdk64\nif [ -f steamclient.so ]; then cp -f steamclient.so .steam/sdk64/steamclient.so; fi\n# A Steam account that doesn\u0027t own DayZ gets no mission files (depot 223354). Fetch Bohemia\u0027s vanilla\n# missions from github.com/BohemiaInteractive/DayZ-Central-Economy the first time they are missing.\nif [ -z \u0022$(ls -A mpmissions 2\u003E/dev/null)\u0022 ]; then\n  echo \u0022mpmissions is empty - downloading the vanilla missions from BohemiaInteractive/DayZ-Central-Economy...\u0022\n  mkdir -p mpmissions\n  url=$(curl -fsSL https://api.github.com/repos/BohemiaInteractive/DayZ-Central-Economy/releases/latest | grep -m1 \u0027\u0022tarball_url\u0022\u0027 | cut -d\u0027\u0022\u0027 -f4)\n  if [ -n \u0022$url\u0022 ] \u0026\u0026 curl -fsSL -o mpmissions/.missions.tar.gz \u0022$url\u0022; then\n    tar -xzf mpmissions/.missions.tar.gz -C mpmissions --strip-components=1 --wildcards \u0027*/dayzOffline.*\u0027\n    echo \u0022Installed: $(ls mpmissions | tr \u0027\\n\u0027 \u0027 \u0027)\u0022\n  else\n    echo \u0022Could not download the mission files. Upload them to mpmissions/ by hand.\u0022\n  fi\n  rm -f mpmissions/.missions.tar.gz\nfi\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": null,
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "194a3189-b830-4d38-b26c-a333799ff298"
       }
     }
   ],
