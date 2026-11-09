@@ -18,6 +18,7 @@ longDescription: |
   - **Graceful stop** with `quit`. The command line includes `-norestart`, so `hlds_run` doesn't relaunch the server on stop.
   - **Config editor** for `tfc/server.cfg`, `tfc/mapcycle.txt` and `tfc/motd.txt`.
   - On Linux a start script writes `steam_appid.txt` (20), so a new server can reach Steam on its first start.
+  - **Backups** with the panel's backup feature: the configs and text files in `tfc` (server.cfg, map cycle, MOTD, bans) and `tfc/addons` (AMX Mod X / Metamod).
   
   ## Ports
   - Game, query and RCON share one port (default 27015).
