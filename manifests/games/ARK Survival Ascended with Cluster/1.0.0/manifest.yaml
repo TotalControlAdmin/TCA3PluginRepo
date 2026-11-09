@@ -19,7 +19,7 @@ longDescription: |
   - **Graceful stop:** a stop script runs `SaveWorld` and `DoExit` over RCON and waits for the save to finish.
   - **CurseForge mods:** install and uninstall from the panel. The installed mod IDs are added to the `-mods=` list and the server downloads the mods itself. "Skip download" is on, so mods that don't allow third-party downloads can still be added.
   - **Config editor** for `GameUserSettings.ini` and `Game.ini`.
-  - **Backups** with the panel's backup feature: the world saves (`ShooterGame/Saved/SavedArks`) and the server config. The server is stopped first, so the backup holds a complete save, and started again afterwards.
+  - **Backups** with the panel's backup feature: the world saves (`ShooterGame/Saved/SavedArks`), the server config and a copy of the cluster data. The server is stopped first, so the backup holds a complete save, and started again afterwards.
   
   ## Ports
   - Game 46400 and RCON 46403. Each new server takes the next block of 5 ports.
@@ -29,7 +29,8 @@ longDescription: |
   - Services run as a separate user per owner, so each owner's cluster folder is private.
   - The first start under Wine also builds the Wine prefix, which takes about 2 more minutes.
   - Use the "Crossplay (all platforms)" command line to let console players join.
-  - Backups don't include the shared `ArkClusters` folder, because it is outside the service folder.
+  - The cluster folder is outside the service folder, so a script copies this server's cluster data to `ShooterGame/Saved/ClusterBackup` every time the server stops, and backups include that copy. A backup of a server that is already stopped holds the cluster data from its last stop.
+  - After restoring a backup, click **Restore cluster data** to put the cluster data back. The data it replaces is kept as `<Cluster ID>.before-restore-<date>` in the cluster folder until the next restore.
 icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2399830/655cc2012105979c2b8e4821d568351c86b22be7.jpg"
 images:
   - "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2399830/ss_0ce49e629369dbf9e8fba324667167568c05c66f.1920x1080.jpg"
