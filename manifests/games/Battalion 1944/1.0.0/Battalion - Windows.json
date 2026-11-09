@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.23.38.17810",
-  "__TCA:ExportedAt": "2026-11-09T02:30:25.1892153Z",
+  "__TCA:ExportVersion": "3.23.42",
+  "__TCA:ExportedAt": "2026-11-09T21:25:44.143277Z",
   "name": "Battalion 1944",
   "shortName": "Battalion1944",
   "description": "",
@@ -68,7 +68,7 @@
       {
         "id": "QueryPort",
         "port": 0,
-        "expression": "GamePort \u002B3",
+        "expression": "GamePort +3",
         "description": null,
         "uriTemplate": null
       }
@@ -105,7 +105,7 @@
   },
   "commandlineConfig": {
     "enableSelection": true,
-    "defaultCommandline": "Battalion -broadcastip=\u0022${IPAddress}\u0022 -PORT=${GamePort} -QueryPort=${QueryPort} -SteamServerName=\u0022${Hostname}\u0022 -Queue=\u0022Wartide\u0022 -log",
+    "defaultCommandline": "Battalion -broadcastip=\"${IPAddress}\" -PORT=${GamePort} -QueryPort=${QueryPort} -SteamServerName=\"${Hostname}\" -Queue=\"Wartide\" -log",
     "defaultCustomCommandline": "",
     "predefinedCommandlines": []
   },
@@ -212,7 +212,7 @@
         ],
         "name": "Copy Steam client libraries next to the server",
         "description": "Copy Steam client libraries next to the server",
-        "code": "for %%f in (steamclient64.dll tier0_s64.dll vstdlib_s64.dll) do if exist \u0022%%f\u0022 copy /y \u0022%%f\u0022 \u0022Battalion\\Binaries\\Win64\\%%f\u0022 \u003Enul\r\n",
+        "code": "for %%f in (steamclient64.dll tier0_s64.dll vstdlib_s64.dll) do if exist \"%%f\" copy /y \"%%f\" \"Battalion\\Binaries\\Win64\\%%f\" >nul\r\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -240,9 +240,9 @@
         "scriptEvents": [
           "BeforeServiceStopped"
         ],
-        "name": "Graceful stop via Ctrl\u002BC (windows-kill)",
-        "description": "Global graceful stop: on BeforeServiceStopped sends Ctrl\u002BC (SIGINT) to the game process via windows-kill.exe (auto-downloaded to the hidden .tca folder). Windows-only; skips non-game services.",
-        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll, System.Net.Http.dll, System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.Diagnostics.Process.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Net.Http;\nusing System.Threading;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Global graceful-stop helper (Windows). On BeforeServiceStopped, send Ctrl\u002BC (SIGINT)\n// to the running game-server process via windows-kill.exe so it shuts down cleanly before\n// TCAdmin performs its own stop. windows-kill.exe is downloaded on demand into the hidden\n// {serviceroot}/.tca folder (so the customer never sees it) and reused on later stops.\n\n// Only game services expose a single tracked process id; skip anything else (Docker/base).\nvar gameService = (object)ThisService as GameService;\nif (gameService == null)\n{\n    ScriptConsole.WriteLine(\u0022Not a game service; skipping graceful Ctrl\u002BC stop.\u0022);\n    return;\n}\n\nint? pid = gameService.ProcessId;\nif (pid == null || pid \u003C= 0)\n{\n    ScriptConsole.WriteLine(\u0022No running process id for this service; nothing to stop.\u0022);\n    return;\n}\n\n// Keep windows-kill.exe in the hidden .tca folder so it isn\u0027t visible to the user.\nstring toolDir = Path.Combine(RootDirectory, \u0022.tca\u0022);\nstring killExe = Path.Combine(toolDir, \u0022windows-kill.exe\u0022);\n\n// Download windows-kill.exe on demand if it isn\u0027t cached yet.\nif (!File.Exists(killExe))\n{\n    const string url = \u0022https://github.com/ElyDotDev/windows-kill/releases/download/1.1.4/windows-kill_1.1.4_release.zip\u0022;\n    const string entryPath = \u0022windows-kill_x64_1.1.4_lib_release/windows-kill.exe\u0022;\n\n    try\n    {\n        Directory.CreateDirectory(toolDir);\n        string zipPath = Path.Combine(toolDir, \u0022windows-kill_1.1.4_release.zip\u0022);\n\n        ScriptConsole.WriteLine($\u0022windows-kill.exe not found; downloading {url}\u0022);\n        using (var http = new HttpClient())\n        {\n            byte[] data = await http.GetByteArrayAsync(url, ThisCancellationToken);\n            await File.WriteAllBytesAsync(zipPath, data, ThisCancellationToken);\n        }\n\n        using (ZipArchive archive = ZipFile.OpenRead(zipPath))\n        {\n            ZipArchiveEntry entry = archive.GetEntry(entryPath);\n            if (entry == null)\n                throw new Exception($\u0022Entry \u0027{entryPath}\u0027 not found in the archive.\u0022);\n            entry.ExtractToFile(killExe, overwrite: true);\n        }\n        ScriptConsole.WriteLine($\u0022Extracted windows-kill.exe to {killExe}\u0022);\n\n        try { File.Delete(zipPath); }\n        catch (Exception ex) { ScriptConsole.WriteLine($\u0022Warning: could not delete zip file: {ex.Message}\u0022); }\n    }\n    catch (Exception ex)\n    {\n        ScriptConsole.WriteLine($\u0022Failed to download windows-kill.exe: {ex.Message}; skipping graceful Ctrl\u002BC stop.\u0022);\n        return;\n    }\n}\n\n// Send Ctrl\u002BC (SIGINT) to the running game process.\nScriptConsole.WriteLine($\u0022Sending SIGINT (Ctrl\u002BC) to process {pid} via windows-kill.exe\u0022);\nvar psi = new ProcessStartInfo\n{\n    FileName = killExe,\n    Arguments = $\u0022-SIGINT {pid}\u0022,\n    WorkingDirectory = RootDirectory,\n    UseShellExecute = false,\n    CreateNoWindow = true,\n    RedirectStandardOutput = true,\n    RedirectStandardError = true\n};\n\ntry\n{\n    using var killer = Process.Start(psi);\n    if (killer != null)\n        await killer.WaitForExitAsync(ThisCancellationToken);\n}\ncatch (Exception ex)\n{\n    ScriptConsole.WriteLine($\u0022Failed to run windows-kill.exe: {ex.Message}\u0022);\n    return;\n}\n\n// Wait up to 60s for the process to exit before TCAdmin proceeds with its own stop.\nconst int maxChecks = 60;\nfor (int count = 1; count \u003C= maxChecks; count\u002B\u002B)\n{\n    bool running;\n    try\n    {\n        using var proc = Process.GetProcessById(pid.Value);\n        running = !proc.HasExited;\n    }\n    catch (ArgumentException)\n    {\n        running = false; // process no longer exists\n    }\n\n    if (!running)\n    {\n        ScriptConsole.WriteLine($\u0022Process {pid} has exited after {count} second(s).\u0022);\n        return;\n    }\n\n    await Task.Delay(TimeSpan.FromSeconds(1), ThisCancellationToken);\n}\n\nScriptConsole.WriteLine($\u0022WARNING: process {pid} did not exit within {maxChecks} seconds.\u0022);\n",
+        "name": "Graceful stop via Ctrl+C (windows-kill)",
+        "description": "Global graceful stop: on BeforeServiceStopped sends Ctrl+C (SIGINT) to the game process via windows-kill.exe (auto-downloaded to the hidden .tca folder). Windows-only; skips non-game services.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll, System.Net.Http.dll, System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.Diagnostics.Process.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Net.Http;\nusing System.Threading;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Global graceful-stop helper (Windows). On BeforeServiceStopped, send Ctrl+C (SIGINT)\n// to the running game-server process via windows-kill.exe so it shuts down cleanly before\n// TCAdmin performs its own stop. windows-kill.exe is downloaded on demand into the hidden\n// {serviceroot}/.tca folder (so the customer never sees it) and reused on later stops.\n\n// Only game services expose a single tracked process id; skip anything else (Docker/base).\nvar gameService = (object)ThisService as GameService;\nif (gameService == null)\n{\n    ScriptConsole.WriteLine(\"Not a game service; skipping graceful Ctrl+C stop.\");\n    return;\n}\n\nint? pid = gameService.ProcessId;\nif (pid == null || pid <= 0)\n{\n    ScriptConsole.WriteLine(\"No running process id for this service; nothing to stop.\");\n    return;\n}\n\n// Keep windows-kill.exe in the hidden .tca folder so it isn't visible to the user.\nstring toolDir = Path.Combine(RootDirectory, \".tca\");\nstring killExe = Path.Combine(toolDir, \"windows-kill.exe\");\n\n// Download windows-kill.exe on demand if it isn't cached yet.\nif (!File.Exists(killExe))\n{\n    const string url = \"https://github.com/ElyDotDev/windows-kill/releases/download/1.1.4/windows-kill_1.1.4_release.zip\";\n    const string entryPath = \"windows-kill_x64_1.1.4_lib_release/windows-kill.exe\";\n\n    try\n    {\n        Directory.CreateDirectory(toolDir);\n        string zipPath = Path.Combine(toolDir, \"windows-kill_1.1.4_release.zip\");\n\n        ScriptConsole.WriteLine($\"windows-kill.exe not found; downloading {url}\");\n        using (var http = new HttpClient())\n        {\n            byte[] data = await http.GetByteArrayAsync(url, ThisCancellationToken);\n            await File.WriteAllBytesAsync(zipPath, data, ThisCancellationToken);\n        }\n\n        using (ZipArchive archive = ZipFile.OpenRead(zipPath))\n        {\n            ZipArchiveEntry entry = archive.GetEntry(entryPath);\n            if (entry == null)\n                throw new Exception($\"Entry '{entryPath}' not found in the archive.\");\n            entry.ExtractToFile(killExe, overwrite: true);\n        }\n        ScriptConsole.WriteLine($\"Extracted windows-kill.exe to {killExe}\");\n\n        try { File.Delete(zipPath); }\n        catch (Exception ex) { ScriptConsole.WriteLine($\"Warning: could not delete zip file: {ex.Message}\"); }\n    }\n    catch (Exception ex)\n    {\n        ScriptConsole.WriteLine($\"Failed to download windows-kill.exe: {ex.Message}; skipping graceful Ctrl+C stop.\");\n        return;\n    }\n}\n\n// Send Ctrl+C (SIGINT) to the running game process.\nScriptConsole.WriteLine($\"Sending SIGINT (Ctrl+C) to process {pid} via windows-kill.exe\");\nvar psi = new ProcessStartInfo\n{\n    FileName = killExe,\n    Arguments = $\"-SIGINT {pid}\",\n    WorkingDirectory = RootDirectory,\n    UseShellExecute = false,\n    CreateNoWindow = true,\n    RedirectStandardOutput = true,\n    RedirectStandardError = true\n};\n\ntry\n{\n    using var killer = Process.Start(psi);\n    if (killer != null)\n        await killer.WaitForExitAsync(ThisCancellationToken);\n}\ncatch (Exception ex)\n{\n    ScriptConsole.WriteLine($\"Failed to run windows-kill.exe: {ex.Message}\");\n    return;\n}\n\n// Wait up to 60s for the process to exit before TCAdmin proceeds with its own stop.\nconst int maxChecks = 60;\nfor (int count = 1; count <= maxChecks; count++)\n{\n    bool running;\n    try\n    {\n        using var proc = Process.GetProcessById(pid.Value);\n        running = !proc.HasExited;\n    }\n    catch (ArgumentException)\n    {\n        running = false; // process no longer exists\n    }\n\n    if (!running)\n    {\n        ScriptConsole.WriteLine($\"Process {pid} has exited after {count} second(s).\");\n        return;\n    }\n\n    await Task.Delay(TimeSpan.FromSeconds(1), ThisCancellationToken);\n}\n\nScriptConsole.WriteLine($\"WARNING: process {pid} did not exit within {maxChecks} seconds.\");\n",
         "runImpersonated": true,
         "stopService": false,
         "ignoreErrors": true,
@@ -267,11 +267,13 @@
   "modifiedDate": null,
   "metadata": {},
   "backupConfig": {
-    "enabled": false,
+    "enabled": true,
     "backupType": "Full",
     "compressBackup": true,
     "stopServiceBeforeBackup": false,
-    "includedPaths": [],
+    "includedPaths": [
+      "Battalion/Saved/Config/**/*"
+    ],
     "maxBackupCount": null,
     "maxBackupSpace": null
   },
@@ -624,14 +626,14 @@
       "module": "BpFeature",
       "permission": "CustomCmdlines",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
       "module": "BpFeature",
       "permission": "NetworkStats",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
@@ -673,7 +675,7 @@
       "module": "BpFeature",
       "permission": "SteamUpdate",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
@@ -876,7 +878,7 @@
       "module": "BpFeature",
       "permission": "Reinstall",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
@@ -1051,14 +1053,14 @@
       "module": "BpFeature",
       "permission": "CustomCmdlines",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
       "permission": "NetworkStats",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
@@ -1093,7 +1095,7 @@
       "module": "BpFeature",
       "permission": "SteamUpdate",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
@@ -1129,412 +1131,6 @@
       "permission": "Databases",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "GeneralSettings",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "FileSystem",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Cmdlines",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "IpAndPorts",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Monitoring",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Variables",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Scripts",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "CustomLinks",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "FeaturePermissions",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "EnvironmentVariables",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Limits",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "RconAndQuery",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Paths",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "RunAs",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Steam",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpEditFeature",
-      "permission": "Updates",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "ServiceSettings",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "KillService",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "CustomCmdlines",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "FileManager",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "FTP",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "ScheduledTasks",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Logs",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "ServiceActivity",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "CpuStats",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "MemoryStats",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "LiveStats",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Reinstall",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "SteamUpdate",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Updates",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "CustomScripts",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 4,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": false
     }
   ],
   "mods": [],
