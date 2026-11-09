@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.23.38.17810",
-  "__TCA:ExportedAt": "2026-11-09T02:29:58.843231Z",
+  "__TCA:ExportVersion": "3.23.42",
+  "__TCA:ExportedAt": "2026-11-09T21:25:36.9573572Z",
   "name": "Half Life - Team Fortress Classic",
   "shortName": "TFC",
   "description": "",
@@ -98,7 +98,7 @@
     "branch": "public",
     "branchPassword": null,
     "storeId": 20,
-    "extraParameters": "\u002Bapp_set_config 90 mod tfc",
+    "extraParameters": "+app_set_config 90 mod tfc",
     "steamUsername": "anonymous",
     "steamPassword": "",
     "steamDownloadRetries": 5,
@@ -112,18 +112,18 @@
   },
   "commandlineConfig": {
     "enableSelection": true,
-    "defaultCommandline": "-norestart -console -game tfc -condebug \u002Bmaxplayers ${Slots} \u002Bip ${IPAddress} -port ${GamePort} ${ConfigFile} ${StartupMap}",
-    "defaultCustomCommandline": "-console -game tfc -condebug \u002Bmaxplayers ${Slots} \u002Bip ${IPAddress} -port ${GamePort} ${UserCommandLine} ${StartupMap}",
+    "defaultCommandline": "-norestart -console -game tfc -condebug +maxplayers ${Slots} +ip ${IPAddress} -port ${GamePort} ${ConfigFile} ${StartupMap}",
+    "defaultCustomCommandline": "-console -game tfc -condebug +maxplayers ${Slots} +ip ${IPAddress} -port ${GamePort} ${UserCommandLine} ${StartupMap}",
     "predefinedCommandlines": [
       {
         "id": 1,
         "name": "Default",
-        "commandLine": "-norestart -console -game tfc -condebug \u002Bmaxplayers ${Slots} \u002Bip ${IPAddress} -port ${GamePort} \u002Bexec \u0022server.cfg\u0022 \u002Bmap \u0022rock2\u0022"
+        "commandLine": "-norestart -console -game tfc -condebug +maxplayers ${Slots} +ip ${IPAddress} -port ${GamePort} +exec \"server.cfg\" +map \"rock2\""
       },
       {
         "id": 2,
         "name": "Advanced",
-        "commandLine": "-norestart -console -game tfc -condebug \u002Bmaxplayers ${Slots} \u002Bip ${IPAddress} -port ${GamePort} ${ConfigFile} ${Insecure} ${StartupMap}"
+        "commandLine": "-norestart -console -game tfc -condebug +maxplayers ${Slots} +ip ${IPAddress} -port ${GamePort} ${ConfigFile} ${Insecure} ${StartupMap}"
       }
     ]
   },
@@ -153,13 +153,13 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "\u002Bexec \u0022${ConfigFile}\u0022",
+      "template": "+exec \"${ConfigFile}\"",
       "editor": {
         "maxLength": 0,
         "lines": 1,
         "denyCharacters": [
-          "\u002B",
-          "\u0022"
+          "+",
+          "\""
         ],
         "regExValidation": "",
         "inputType": 0,
@@ -223,7 +223,7 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "\u002Bmap \u0022${StartupMap}\u0022",
+      "template": "+map \"${StartupMap}\"",
       "editor": {
         "items": [
           {
@@ -332,7 +332,7 @@
       "id": 220,
       "relativePath": "tfc\\server.cfg",
       "description": "Server Configuration File",
-      "template": "// Set the Host Name \nhostname \u0022${Hostname}\u0022 \n\n// Set the rcon password \nrcon_password \u0022${RconPassword}\u0022 \n\n// Set private password \nsv_password \u0022${PrivatePassword}\u0022 \n\n\n// Exec files on startup \nexec banned.cfg \nexec listip.cfg \n\n// Server Logging \nlog on \nmp_logdetail 0 \nmp_logmessages 1 \n\n\n// Server Variables \nmp_timelimit 30 \nmp_autokick 1 \nmp_autoteambalance 1 \nmp_c4timer 30 \nmp_flashlight 1 \nmp_footsteps 1 \nmp_forcechasecam 0 \nmp_freezetime 4 \nmp_friendlyfire 0 \nmp_hostagepenalty 2 \nmp_limitteams 2 \nmp_roundtime 5 \nmp_tkpunish 0 \nsv_restartround 0 \nsv_maxspeed 320 \nsv_proxies 1 \nallow_spectators 0 \nmp_startmoney 2400 \nmp_chattime 0 \nsv_allowupload 1 \nsv_voiceenable 1 \nsv_alltalk 0 \n\n\npausable 0 \ndecalfrequency 60 \nmp_falldamage 1 \n\n// cheat and fun modes \nsv_aim 0 \nsv_cheats 0 \n\n// Set Rates \nsv_maxrate 25000 \nsv_minrate 4500 \nsv_maxupdaterate 101 \n\n\n\n// Enable/Disable LAN mode \nsv_lan 0 \n\n// Contact \u0026 Geo \nsv_contact \nsv_region 0 ",
+      "template": "// Set the Host Name \nhostname \"${Hostname}\" \n\n// Set the rcon password \nrcon_password \"${RconPassword}\" \n\n// Set private password \nsv_password \"${PrivatePassword}\" \n\n\n// Exec files on startup \nexec banned.cfg \nexec listip.cfg \n\n// Server Logging \nlog on \nmp_logdetail 0 \nmp_logmessages 1 \n\n\n// Server Variables \nmp_timelimit 30 \nmp_autokick 1 \nmp_autoteambalance 1 \nmp_c4timer 30 \nmp_flashlight 1 \nmp_footsteps 1 \nmp_forcechasecam 0 \nmp_freezetime 4 \nmp_friendlyfire 0 \nmp_hostagepenalty 2 \nmp_limitteams 2 \nmp_roundtime 5 \nmp_tkpunish 0 \nsv_restartround 0 \nsv_maxspeed 320 \nsv_proxies 1 \nallow_spectators 0 \nmp_startmoney 2400 \nmp_chattime 0 \nsv_allowupload 1 \nsv_voiceenable 1 \nsv_alltalk 0 \n\n\npausable 0 \ndecalfrequency 60 \nmp_falldamage 1 \n\n// cheat and fun modes \nsv_aim 0 \nsv_cheats 0 \n\n// Set Rates \nsv_maxrate 25000 \nsv_minrate 4500 \nsv_maxupdaterate 101 \n\n\n\n// Enable/Disable LAN mode \nsv_lan 0 \n\n// Contact & Geo \nsv_contact \nsv_region 0 ",
       "order": 0,
       "enableEditor": false,
       "editor": [
@@ -458,11 +458,15 @@
   "modifiedDate": null,
   "metadata": {},
   "backupConfig": {
-    "enabled": false,
+    "enabled": true,
     "backupType": "Full",
     "compressBackup": true,
     "stopServiceBeforeBackup": false,
-    "includedPaths": [],
+    "includedPaths": [
+      "tfc/*.cfg",
+      "tfc/*.txt",
+      "tfc/addons/**/*"
+    ],
     "maxBackupCount": null,
     "maxBackupSpace": null
   },
@@ -528,7 +532,7 @@
       "module": "BpFeature",
       "permission": "Mods",
       "moduleData": "",
-      "granted": true
+      "granted": false
     },
     {
       "roleId": 2,
@@ -836,7 +840,7 @@
       "module": "BpFeature",
       "permission": "NetworkStats",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
@@ -955,7 +959,7 @@
       "module": "BpFeature",
       "permission": "Mods",
       "moduleData": "",
-      "granted": true
+      "granted": false
     },
     {
       "roleId": 3,
@@ -969,7 +973,7 @@
       "module": "BpFeature",
       "permission": "Reinstall",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
@@ -1263,7 +1267,7 @@
       "module": "BpFeature",
       "permission": "NetworkStats",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
