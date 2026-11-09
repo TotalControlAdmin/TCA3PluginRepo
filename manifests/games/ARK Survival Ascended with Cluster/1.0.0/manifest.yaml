@@ -29,8 +29,8 @@ longDescription: |
   - Services run as a separate user per owner, so each owner's cluster folder is private.
   - The first start under Wine also builds the Wine prefix, which takes about 2 more minutes.
   - Use the "Crossplay (all platforms)" command line to let console players join.
-  - The cluster folder is outside the service folder, so a script copies this server's cluster data to `ShooterGame/Saved/ClusterBackup` every time the server stops, and backups include that copy. A backup of a server that is already stopped holds the cluster data from its last stop.
-  - After restoring a backup, click **Restore cluster data** to put the cluster data back. The data it replaces is kept as `<Cluster ID>.before-restore-<date>` in the cluster folder until the next restore.
+  - The cluster folder is outside the service folder, so every time the server stops a script saves a dated copy of its cluster data in `ShooterGame/Saved/ClusterBackup` (the newest 10 are kept, and a copy is skipped when nothing changed). Backups include these copies.
+  - **Restore cluster data** opens a list of the saved copies, newest first, and restores the one you pick. The current data is saved as a new copy first, so a restore can be undone from the same list. Restoring a panel backup brings its copies back into the list.
 icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2399830/655cc2012105979c2b8e4821d568351c86b22be7.jpg"
 images:
   - "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2399830/ss_0ce49e629369dbf9e8fba324667167568c05c66f.1920x1080.jpg"
