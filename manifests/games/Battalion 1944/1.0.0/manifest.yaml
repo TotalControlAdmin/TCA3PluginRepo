@@ -18,6 +18,7 @@ longDescription: |
   - **Console output:** Terminal on Linux, the console wrapper on Windows.
   - **Graceful stop:** Ctrl+C on Linux. On Windows a stop script sends Ctrl+C with `windows-kill.exe`, which it downloads once from github.com/ElyDotDev/windows-kill into the hidden `.tca` folder.
   - **Start scripts** put the Steam client library where the server looks for it. On Linux they also turn off the Sentry crash reporter, which needs libssl 1.1 and hangs startup on current distros.
+  - **Backups** with the panel's backup feature: the server config (`Battalion/Saved/Config`).
   
   ## Ports
   - Windows: game 14215, query 14218. Linux: game 7777, query 7780 (query = game port + 3).
