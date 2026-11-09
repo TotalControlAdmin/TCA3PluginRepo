@@ -17,6 +17,7 @@ longDescription: |
   - **Console:** Terminal on Linux, the console wrapper on Windows. Console commands work on both.
   - **Graceful stop** with `shutdown`.
   - **Config editor** for the server's `Config.json`, `Commands.dat` and Workshop config.
+  - **Backups** with the panel's backup feature: the whole `Servers` folder (world saves, players and config). The server is stopped first, so the saves are complete.
   
   ## Ports
   - Windows default 29000, Linux default 27015 (game and query share the port).
