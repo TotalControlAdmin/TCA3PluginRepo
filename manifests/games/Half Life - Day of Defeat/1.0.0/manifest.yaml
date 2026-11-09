@@ -18,6 +18,7 @@ longDescription: |
   - **Graceful stop** with `quit`. The command line includes `-norestart`, so `hlds_run` doesn't relaunch the server on stop.
   - **Config editor** for `dod/server.cfg`, `dod/mapcycle.txt` and `dod/motd.txt`.
   - On Linux a start script writes `steam_appid.txt` (30), so a new server can reach Steam on its first start.
+  - **Backups** with the panel's backup feature: the configs and text files in `dod` (server.cfg, map cycle, MOTD, bans) and `dod/addons` (AMX Mod X / Metamod).
   
   ## Ports
   - Game, query and RCON share one port (default 27016).
