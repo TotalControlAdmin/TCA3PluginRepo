@@ -1,6 +1,6 @@
 {
   "__TCA:ExportVersion": "3.23.42",
-  "__TCA:ExportedAt": "2026-11-10T01:45:27.7653959Z",
+  "__TCA:ExportedAt": "2026-11-10T02:31:06.1396437Z",
   "name": "Dayz Stand Alone",
   "shortName": "dayzsa",
   "description": "",
@@ -43,7 +43,7 @@
     "inputSource": "RconProtocol",
     "printRconResponse": true,
     "outputFilters": "",
-    "stopCommand": "#shutdown",
+    "stopCommand": "",
     "waitAfterStopCommand": 30000,
     "screenCaptureTitleBar": false,
     "screenCaptureQuality": 25,
@@ -1268,6 +1268,37 @@
         "editor": [],
         "translations": [],
         "identifier": "194a3189-b830-4d38-b26c-a333799ff298"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStopped"
+        ],
+        "name": "Graceful stop",
+        "description": "Asks the server to shut down (taskkill without /f on Windows, SIGTERM on Linux), which saves the persistence, and waits until it has exited.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Graceful stop for DayZ: the server saves its persistence and exits on a normal termination request\n// (taskkill without /f on Windows, SIGTERM on Linux) and writes \"--- Termination successfully completed ---\"\n// to its .rpt log when done. Wait until the process is gone so the panel's stop doesn't kill it mid-save.\nvar pid = ThisService.ProcessId;\nconst int maxWaitSeconds = 300;\n\nbool IsRunning(int id)\n{\n    try { using (var p = Process.GetProcessById(id)) return !p.HasExited; }\n    catch (ArgumentException) { return false; }\n    catch (InvalidOperationException) { return false; }\n}\n\nif (pid == null || pid <= 0 || !IsRunning(pid.Value))\n{\n    ScriptConsole.WriteLine((object)\"The server is not running; nothing to save.\");\n    return;\n}\n\nvar request = System.OperatingSystem.IsWindows()\n    ? new ProcessStartInfo(\"taskkill\", \"/pid \" + pid.Value)\n    : new ProcessStartInfo(\"kill\", \"-TERM \" + pid.Value);\nrequest.UseShellExecute = false;\nrequest.RedirectStandardOutput = true;\nrequest.RedirectStandardError = true;\nusing (var p = Process.Start(request))\n{\n    var output = (p.StandardOutput.ReadToEnd() + p.StandardError.ReadToEnd()).Trim();\n    p.WaitForExit();\n    if (p.ExitCode != 0)\n    {\n        // The panel's own stop takes over (closes the window, then kills after the stop wait).\n        ScriptConsole.WriteLine((object)(\"Could not ask the server to shut down (\" + output + \"); the panel stops it now.\"));\n        return;\n    }\n}\n\nfor (var second = 1; second <= maxWaitSeconds; second++)\n{\n    await Task.Delay(1000, ThisCancellationToken);\n    if (!IsRunning(pid.Value))\n    {\n        ScriptConsole.WriteLine((object)(\"The server saved and exited after \" + second + \" s.\" + TerminationNote()));\n        return;\n    }\n}\nScriptConsole.WriteLine((object)(\"The server did not exit within \" + maxWaitSeconds + \" s; the panel stops it now.\"));\n\n// The .rpt in the profiles folder (-profiles=<root>/instance) records whether the shutdown completed.\nstring TerminationNote()\n{\n    try\n    {\n        var profiles = Path.Combine(ThisService.RootDirectory, \"instance\");\n        var rpt = new DirectoryInfo(profiles).EnumerateFiles(\"*.RPT\").OrderByDescending(f => f.LastWriteTimeUtc).FirstOrDefault()\n               ?? new DirectoryInfo(profiles).EnumerateFiles(\"*.rpt\").OrderByDescending(f => f.LastWriteTimeUtc).FirstOrDefault();\n        if (rpt == null) return \"\";\n        using var stream = new FileStream(rpt.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete);\n        using var reader = new StreamReader(stream);\n        return reader.ReadToEnd().Contains(\"Termination successfully completed\")\n            ? \" The log confirms: termination successfully completed.\"\n            : \" The log does not show a completed termination.\";\n    }\n    catch { return \"\"; }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": null,
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "a4585cdc-c0ed-40d5-b3c4-6062519d73ff"
       }
     }
   ],
