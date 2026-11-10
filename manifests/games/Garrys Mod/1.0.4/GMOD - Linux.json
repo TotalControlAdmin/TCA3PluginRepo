@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.23.33.17810",
-  "__TCA:ExportedAt": "2026-11-03T02:49:20.199575Z",
+  "__TCA:ExportVersion": "3.23.42",
+  "__TCA:ExportedAt": "2026-11-10T05:42:28.0574835Z",
   "name": "Garry's Mod",
   "shortName": "GMOD",
   "description": "",
@@ -12,6 +12,7 @@
   "defaultSlots": 32,
   "startedUntilResponding": false,
   "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
   "categoryId": 1,
   "editableExtensions": [
     ".txt",
@@ -22,10 +23,11 @@
   "logExtensions": [
     ".log"
   ],
+  "maxEditableSize": null,
   "maxConcurrentScriptRuns": 5,
   "queryRconProtocolConfig": {
     "queryProtocol": "a2s",
-    "rconProtocol": "",
+    "rconProtocol": "source",
     "privateRule": "password",
     "privateRuleValue": "1",
     "hiddenRules": [],
@@ -59,22 +61,30 @@
       {
         "id": "GamePort",
         "port": 27015,
-        "expression": ""
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
       },
       {
         "id": "RConPort",
         "port": 27015,
-        "expression": ""
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
       },
       {
         "id": "QueryPort",
         "port": 27015,
-        "expression": ""
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
       },
       {
         "id": "HLTVPort",
+        "port": null,
         "expression": "GamePort + 1",
-        "description": "HLTV Port"
+        "description": "HLTV Port",
+        "uriTemplate": null
       }
     ],
     "portIncrement": 10
@@ -93,7 +103,9 @@
     "appId": 4020,
     "runAsServiceUser": false,
     "branch": "public",
+    "branchPassword": null,
     "storeId": 4000,
+    "extraParameters": null,
     "steamUsername": "anonymous",
     "steamPassword": "",
     "steamDownloadRetries": 5,
@@ -124,14 +136,19 @@
   },
   "runAsConfig": {
     "runAs": "TCAGame",
+    "specificUsername": null,
+    "specificPassword": null,
     "interactWithDesktop": false,
     "elevated": false
   },
+  "identifier": "9f0a13ad-d803-11f1-8d5f-00505654dd15",
   "hostingConfig": {
     "role": "None",
     "hostedGameIds": [],
+    "pendingHostedGames": [],
     "maxHostedServices": 0
   },
+  "hostedGames": [],
   "hostedGameNames": [],
   "gameVariables": [
     {
@@ -184,6 +201,7 @@
           }
         ],
         "itemSource": "CustomList",
+        "fileSystemSource": null,
         "id": "sv_region",
         "defaultValue": 255,
         "label": "Region",
@@ -191,12 +209,15 @@
         "required": true,
         "valueType": "string",
         "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicComboBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2024-08-11T16:11:21.129989",
+      "modifiedDate": null,
       "metadata": {
         "Notes": ""
       },
@@ -225,12 +246,15 @@
         "required": true,
         "valueType": "string",
         "requiredMessage": "The script file is required",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicTextBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2024-08-11T16:11:21.130216",
+      "modifiedDate": null,
       "metadata": {
         "Notes": ""
       },
@@ -259,12 +283,15 @@
         "required": true,
         "valueType": "string",
         "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicTextBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2024-08-11T16:11:21.13049",
+      "modifiedDate": null,
       "metadata": {
         "Notes": ""
       },
@@ -272,6 +299,7 @@
     },
     {
       "name": "host_workshop_collection",
+      "defaultValue": null,
       "required": false,
       "requiredMessage": "Value is required",
       "scriptParameter": false,
@@ -286,17 +314,21 @@
         "regExValidation": "",
         "inputType": 0,
         "id": "host_workshop_collection",
+        "defaultValue": null,
         "label": "Workshop Collection",
         "description": "The server will download Workshop items from given collection on start up",
         "required": false,
         "valueType": "string",
         "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicTextBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2024-08-11T16:11:21.130491",
+      "modifiedDate": null,
       "metadata": {
         "Notes": ""
       },
@@ -304,6 +336,7 @@
     },
     {
       "name": "AuthKey",
+      "defaultValue": null,
       "required": false,
       "requiredMessage": "Value is required",
       "scriptParameter": false,
@@ -318,17 +351,21 @@
         "regExValidation": "",
         "inputType": 0,
         "id": "AuthKey",
+        "defaultValue": null,
         "label": "AuthKey",
         "description": "Authorization key for Steam Web API",
         "required": false,
         "valueType": "string",
         "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicTextBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2024-08-11T16:11:21.130491",
+      "modifiedDate": null,
       "metadata": {
         "Notes": ""
       },
@@ -336,6 +373,7 @@
     },
     {
       "name": "sv_lan",
+      "defaultValue": null,
       "required": false,
       "requiredMessage": "",
       "scriptParameter": false,
@@ -348,16 +386,20 @@
         "checkedValue": "1",
         "uncheckedValue": "0",
         "id": "sv_lan",
+        "defaultValue": null,
         "label": "Server is a lan server",
         "description": "No heartbeat, no authentication, no non-class C addresses",
         "required": false,
         "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicSwitch",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2024-12-11T00:40:01.555",
+      "modifiedDate": null,
       "metadata": {
         "Notes": ""
       },
@@ -378,18 +420,23 @@
         "step": 1,
         "spinner": false,
         "valueType": "double",
+        "minValue": null,
+        "maxValue": null,
         "id": "sv_minrate",
         "defaultValue": "0",
         "label": "Min bandwidth rate",
         "description": "Min bandwidth rate allowed on server, 0 == unlimited",
         "required": true,
         "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicNumericTextBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2024-12-11T03:52:32.065",
+      "modifiedDate": null,
       "metadata": {
         "Notes": ""
       },
@@ -410,18 +457,23 @@
         "step": 1,
         "spinner": false,
         "valueType": "double",
+        "minValue": null,
+        "maxValue": null,
         "id": "sv_maxrate",
         "defaultValue": "20000",
         "label": "Max bandwidth rate",
         "description": "Max bandwidth rate allowed on server, 0 == unlimited",
         "required": true,
         "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicNumericTextBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2024-12-11T03:55:39.175",
+      "modifiedDate": null,
       "metadata": {
         "Notes": ""
       },
@@ -429,6 +481,7 @@
     },
     {
       "name": "Hostname",
+      "defaultValue": null,
       "required": true,
       "requiredMessage": "The hostname is required",
       "scriptParameter": false,
@@ -443,17 +496,21 @@
         "regExValidation": "",
         "inputType": 0,
         "id": "Hostname",
+        "defaultValue": null,
         "label": "Hostname",
         "description": "",
         "required": true,
         "valueType": "string",
         "requiredMessage": "The hostname is required",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicTextBox",
         "sm": 4,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2024-12-14T22:57:43.798",
+      "modifiedDate": null,
       "metadata": {
         "Notes": ""
       },
@@ -461,7 +518,9 @@
     },
     {
       "name": "RconAction",
+      "defaultValue": null,
       "required": false,
+      "requiredMessage": null,
       "scriptParameter": true,
       "commandlineParameter": false,
       "saveScriptParameter": false,
@@ -474,16 +533,21 @@
         "regExValidation": "",
         "inputType": 0,
         "id": "RconAction",
+        "defaultValue": null,
         "label": "RCON tool action",
         "description": "Action for the RCON web tool",
         "required": false,
         "valueType": "string",
+        "requiredMessage": null,
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicTextBox",
         "sm": 12,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2026-11-03T02:29:42.104035",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
         {
@@ -491,15 +555,14 @@
         },
         {
           "roleId": 3
-        },
-        {
-          "roleId": 4
         }
       ]
     },
     {
       "name": "RconTarget",
+      "defaultValue": null,
       "required": false,
+      "requiredMessage": null,
       "scriptParameter": true,
       "commandlineParameter": false,
       "saveScriptParameter": false,
@@ -512,16 +575,21 @@
         "regExValidation": "",
         "inputType": 0,
         "id": "RconTarget",
+        "defaultValue": null,
         "label": "RCON tool target",
         "description": "Player name, convar or map for the RCON web tool",
         "required": false,
         "valueType": "string",
+        "requiredMessage": null,
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicTextBox",
         "sm": 12,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2026-11-03T02:29:42.461105",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
         {
@@ -529,15 +597,14 @@
         },
         {
           "roleId": 3
-        },
-        {
-          "roleId": 4
         }
       ]
     },
     {
       "name": "RconValue",
+      "defaultValue": null,
       "required": false,
+      "requiredMessage": null,
       "scriptParameter": true,
       "commandlineParameter": false,
       "saveScriptParameter": false,
@@ -550,16 +617,21 @@
         "regExValidation": "",
         "inputType": 0,
         "id": "RconValue",
+        "defaultValue": null,
         "label": "RCON tool value",
         "description": "Value, reason or message for the RCON web tool",
         "required": false,
         "valueType": "string",
+        "requiredMessage": null,
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicTextBox",
         "sm": 12,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2026-11-03T02:29:42.798864",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
         {
@@ -567,9 +639,6 @@
         },
         {
           "roleId": 3
-        },
-        {
-          "roleId": 4
         }
       ]
     }
@@ -584,12 +653,16 @@
       "enableEditor": true,
       "editor": [
         {
+          "icon": null,
           "id": "Header-49557",
+          "defaultValue": null,
           "label": "Basic Configuration",
           "description": "extra info here",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
           "controlType": "DynamicHeader",
           "sm": 12,
           "xs": 12,
@@ -602,11 +675,14 @@
           "regExValidation": "",
           "inputType": 0,
           "id": "Hostname",
+          "defaultValue": null,
           "label": "Hostname",
           "description": "",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
           "controlType": "DynamicTextBox",
           "sm": 6,
           "xs": 12,
@@ -619,11 +695,14 @@
           "regExValidation": "",
           "inputType": 0,
           "id": "RconPassword",
+          "defaultValue": null,
           "label": "Rcon Password",
           "description": "",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
           "controlType": "DynamicTextBox",
           "sm": 6,
           "xs": 12,
@@ -636,23 +715,30 @@
           "regExValidation": "",
           "inputType": 0,
           "id": "PrivatePassword",
+          "defaultValue": null,
           "label": "Private Password",
           "description": "",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
           "controlType": "DynamicTextBox",
           "sm": 6,
           "xs": 12,
           "requiresAnyVisible": []
         },
         {
+          "icon": null,
           "id": "Header-84225",
+          "defaultValue": null,
           "label": "Advanced Configuration",
           "description": "extra info here",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
           "controlType": "DynamicHeader",
           "sm": 12,
           "xs": 12,
@@ -698,12 +784,16 @@
             }
           ],
           "itemSource": "CustomList",
+          "fileSystemSource": null,
           "id": "sv_region",
+          "defaultValue": null,
           "label": "Region",
           "description": "The region of the world to report this server in.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
           "controlType": "DynamicComboBox",
           "sm": 6,
           "xs": 12,
@@ -714,10 +804,13 @@
           "checkedValue": "1",
           "uncheckedValue": "0",
           "id": "sv_lan",
+          "defaultValue": null,
           "label": "Server is a lan server",
           "description": "No heartbeat, no authentication, no non-class C addresses",
           "required": false,
           "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
           "controlType": "DynamicSwitch",
           "sm": 6,
           "xs": 12,
@@ -728,11 +821,16 @@
           "step": 1,
           "spinner": false,
           "valueType": "double",
+          "minValue": null,
+          "maxValue": null,
           "id": "sv_minrate",
+          "defaultValue": null,
           "label": "Min bandwidth rate",
           "description": "Min bandwidth rate allowed on server, 0 == unlimited",
           "required": false,
           "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
           "controlType": "DynamicNumericTextBox",
           "sm": 6,
           "xs": 12,
@@ -743,11 +841,16 @@
           "step": 1,
           "spinner": false,
           "valueType": "double",
+          "minValue": null,
+          "maxValue": null,
           "id": "sv_maxrate",
+          "defaultValue": null,
           "label": "Max bandwidth rate",
           "description": "Max bandwidth rate allowed on server, 0 == unlimited",
           "required": false,
           "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
           "controlType": "DynamicNumericTextBox",
           "sm": 6,
           "xs": 12,
@@ -762,7 +865,8 @@
       "rootPermission": {
         "permissionMode": "Basic",
         "defaultPermissions": "Write, Read, Delete",
-        "additionalPermissions": []
+        "additionalPermissions": [],
+        "customRootFolder": null
       }
     },
     {
@@ -770,7 +874,8 @@
       "rootPermission": {
         "permissionMode": "Basic",
         "defaultPermissions": "Write, Read, Delete",
-        "additionalPermissions": []
+        "additionalPermissions": [],
+        "customRootFolder": null
       }
     }
   ],
@@ -797,6 +902,7 @@
         "maxConcurrentRuns": 1,
         "logApiExecutions": false,
         "order": 0,
+        "icon": null,
         "scriptInputVariables": [],
         "scriptRoles": [],
         "editor": [],
@@ -826,6 +932,7 @@
         "maxConcurrentRuns": 1,
         "logApiExecutions": false,
         "order": 0,
+        "icon": null,
         "scriptInputVariables": [],
         "scriptRoles": [],
         "editor": [],
@@ -846,7 +953,7 @@
         ],
         "name": "SourceRconTool",
         "description": "Backend for the Source RCON web tool page (status, convars, kick, ban, say, map).",
-        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar action = Variables.Parse(\"RconAction\", \"status\");\nvar target = Variables.Parse(\"RconTarget\", \"\");\nvar value = Variables.Parse(\"RconValue\", \"\");\n\nstring Clean(string s)\n{\n    s = s ?? \"\";\n    s = s.Replace(\"\\r\", \" \").Replace(\"\\n\", \" \").Replace(\";\", \" \").Replace(\"\\\"\", \"'\");\n    return s.Trim();\n}\nvar rawTarget = (target ?? \"\").Replace(\"\\r\", \" \").Replace(\"\\n\", \" \").Trim();\ntarget = Clean(target);\nvalue = Clean(value);\n\nasync Task<T> WithTimeout<T>(Task<T> task, int ms, string what)\n{\n    if (await Task.WhenAny(task, Task.Delay(ms)) != task) throw new Exception(what + \" timed out.\");\n    return await task;\n}\n\nasync Task<bool> Send(string cmd)\n{\n    var r = await WithTimeout(ServiceManagerService.SendConsoleInput(ThisService.ServiceId, cmd), 8000, \"Console command\");\n    return r != null && r.Success;\n}\n\nasync Task<string> ResolveSteamId(string playerName)\n{\n    var logPath = Path.Combine(ThisService.RootDirectory, \"garrysmod\", \"console.log\");\n    await Send(\"status\");\n    await Task.Delay(1000);\n    if (!File.Exists(logPath)) return null;\n    string text;\n    using (var fs = new FileStream(logPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete))\n    {\n        var len = (int)Math.Min(fs.Length, 40000);\n        fs.Seek(-len, SeekOrigin.End);\n        var buf = new byte[len];\n        var read = fs.Read(buf, 0, len);\n        text = Encoding.UTF8.GetString(buf, 0, read);\n    }\n    foreach (var line in text.Split('\\n').Reverse())\n    {\n        var m = Regex.Match(line, \"^#\\\\s*\\\\d+\\\\s+\\\"(.*)\\\"\\\\s+(STEAM_\\\\d+:\\\\d+:\\\\d+)\");\n        if (m.Success && m.Groups[1].Value == playerName) return m.Groups[2].Value;\n    }\n    return null;\n}\n\nasync Task<System.Collections.Generic.Dictionary<string, int>> GetBotNames()\n{\n    var bots = new System.Collections.Generic.Dictionary<string, int>();\n    try {\n    var logPath = Path.Combine(ThisService.RootDirectory, \"garrysmod\", \"console.log\");\n    await Send(\"status\");\n    await Task.Delay(1000);\n    if (!File.Exists(logPath)) return bots;\n    string text;\n    using (var fs = new FileStream(logPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete))\n    {\n        var len = (int)Math.Min(fs.Length, 8000);\n        if (len <= 0) return bots;\n        fs.Seek(-len, SeekOrigin.End);\n        var buf = new byte[len];\n        var read = fs.Read(buf, 0, len);\n        text = Encoding.UTF8.GetString(buf, 0, read);\n    }\n    foreach (var line in text.Split('\\n'))\n    {\n        var m = Regex.Match(line, \"^#\\\\s*(\\\\d+)\\\\s+\\\"(.*)\\\"\\\\s+BOT\\\\b\");\n        if (m.Success) bots[m.Groups[2].Value] = int.Parse(m.Groups[1].Value);\n    }\n    } catch (Exception) { }\n    return bots;\n}\n\nstring svcStatus = \"Unknown\";\ntry {\n    var svcInfo = await WithTimeout(ServiceManagerService.GetServiceStatus(ThisService.ServiceId), 8000, \"Status check\");\n    if (svcInfo != null) svcStatus = svcInfo.Status.ToString();\n} catch (Exception) { }\nvar isRunning = svcStatus == \"Started\";\nif (!isRunning)\n{\n    // Service is not running: never send RCON/console commands.\n    if (action != \"status\") throw new Exception(\"The service is not running (\" + svcStatus + \"). RCON commands are disabled.\");\n    Globals.ReturnValue = new { running = false, serviceStatus = svcStatus, online = \"Offline\", hostname = \"\", map = \"\", numPlayers = 0, maxPlayers = 0, players = new object[0] };\n}\nelse switch (action)\n{\n    case \"status\":\n    {\n        var q = await WithTimeout(GameServiceManager.QueryService(ThisService), 10000, \"Server query\");\n        var list = q.Players ?? new System.Collections.Generic.List<TCAdmin.SDK.Hubs.Models.GameQuery.GameQueryPlayer>();\n        var botNames = list.Count > 0 ? await GetBotNames() : new System.Collections.Generic.Dictionary<string, int>();\n        var players = list.Select(p => new { name = p.Name, score = p.Score, connectedSeconds = p.ConnectTime, isBot = botNames.ContainsKey(p.Name) }).ToList();\n        Globals.ReturnValue = new { running = true, serviceStatus = svcStatus, online = q.Status, hostname = q.Name, map = q.Map, numPlayers = q.NumPlayers, maxPlayers = q.MaxPlayers, players };\n        break;\n    }\n    case \"convar\":\n    {\n        var allowed = new[] { \"sv_cheats\", \"sv_gravity\", \"sv_alltalk\", \"sbox_godmode\", \"sbox_noclip\", \"sbox_weapons\", \"sbox_playershurtplayers\", \"sbox_maxprops\", \"sv_friction\", \"phys_timescale\", \"host_timescale\", \"gmod_physiterations\" };\n        if (!allowed.Contains(target)) throw new Exception($\"Setting '{target}' is not allowed.\");\n        if (!Regex.IsMatch(value, \"^[A-Za-z0-9_.\\\\- ]{0,64}$\")) throw new Exception(\"Invalid value.\");\n        await Send($\"{target} \\\"{value}\\\"\");\n        Globals.ReturnValue = new { ok = true, command = $\"{target} {value}\" };\n        break;\n    }\n    case \"kick\":\n    {\n        if (target == \"\") throw new Exception(\"Player name required.\");\n        var botIds = await GetBotNames();\n        var isBotTarget = botIds.ContainsKey(rawTarget);\n        // bot_kick does not exist in GMod; kick the bot by userid through Lua instead.\n        var kickCmd = isBotTarget ? $\"lua_run local p=Player({botIds[rawTarget]}) if IsValid(p) then p:Kick() end\" : $\"kick \\\"{target}\\\" \\\"{value}\\\"\";\n        if (!await Send(kickCmd)) throw new Exception(\"The server did not accept the kick command (is it running?).\");\n        if (isBotTarget) { Globals.ReturnValue = new { ok = true, bot = true }; break; }\n        await Task.Delay(1500);\n        var kq = await WithTimeout(GameServiceManager.QueryService(ThisService), 10000, \"Server query\");\n        if (kq.Players != null && kq.Players.Any(p => p.Name == target))\n            throw new Exception($\"Kick sent, but '{target}' is still connected. The name may not match exactly - try again or use Ban.\");\n        Globals.ReturnValue = new { ok = true };\n        break;\n    }\n    case \"ban\":\n    {\n        if (target == \"\") throw new Exception(\"Player name required.\");\n        if ((await GetBotNames()).ContainsKey(rawTarget)) throw new Exception(\"Bots cannot be banned. Use Kick instead.\");\n        var steamId = await ResolveSteamId(target);\n        if (steamId == null) throw new Exception(\"Could not resolve the player's SteamID from the console log. Use Kick instead.\");\n        var minutes = Regex.IsMatch(value, \"^\\\\d{1,7}$\") ? value : \"0\";\n        await Send($\"banid {minutes} {steamId} kick\");\n        await Send(\"writeid\");\n        Globals.ReturnValue = new { ok = true, steamId, minutes };\n        break;\n    }\n    case \"say\":\n    {\n        if (value == \"\") throw new Exception(\"Message required.\");\n        await Send($\"say \\\"{value}\\\"\");\n        Globals.ReturnValue = new { ok = true };\n        break;\n    }\n    case \"addbot\":\n    {\n        if (rawTarget.Length < 1 || rawTarget.Length > 32) throw new Exception(\"Bot name must be 1-32 characters.\");\n        var luaName = rawTarget.Replace(\"\\\\\", \"\\\\\\\\\").Replace(\"\\\"\", \"\\\\\\\"\");\n        await Send($\"lua_run player.CreateNextBot(\\\"{luaName}\\\")\");\n        Globals.ReturnValue = new { ok = true, name = rawTarget };\n        break;\n    }\n    case \"convars\":\n    {\n        var cvLog = Path.Combine(ThisService.RootDirectory, \"garrysmod\", \"console.log\");\n        long cvStart = File.Exists(cvLog) ? new FileInfo(cvLog).Length : 0;\n        await Send(\"lua_run for _,c in ipairs({\\\"sv_cheats\\\",\\\"sbox_godmode\\\",\\\"sbox_noclip\\\",\\\"sbox_weapons\\\",\\\"sbox_playershurtplayers\\\",\\\"sv_alltalk\\\",\\\"sv_gravity\\\",\\\"host_timescale\\\"}) do local v=GetConVar(c) if v then print(\\\"CVAR|\\\"..c..\\\"|\\\"..v:GetString()) end end\");\n        await Task.Delay(1000);\n        var cvList = new System.Collections.Generic.List<object>();\n        if (File.Exists(cvLog))\n        {\n            string cvText;\n            using (var fs = new FileStream(cvLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete))\n            {\n                if (fs.Length < cvStart) cvStart = 0;\n                fs.Seek(cvStart, SeekOrigin.Begin);\n                var clen = (int)Math.Min(fs.Length - cvStart, 200000);\n                var cbuf = new byte[clen];\n                var cread = fs.Read(cbuf, 0, clen);\n                cvText = Encoding.UTF8.GetString(cbuf, 0, cread);\n            }\n            foreach (var line in cvText.Split('\\n'))\n            {\n                var cm = Regex.Match(line, \"^CVAR\\\\|([A-Za-z0-9_]+)\\\\|(.*?)\\\\s*$\");\n                if (cm.Success) cvList.Add(new { name = cm.Groups[1].Value, value = cm.Groups[2].Value });\n            }\n        }\n        Globals.ReturnValue = new { ok = true, convars = cvList };\n        break;\n    }\n    case \"maps\":\n    {\n        var mapsLog = Path.Combine(ThisService.RootDirectory, \"garrysmod\", \"console.log\");\n        long startPos = File.Exists(mapsLog) ? new FileInfo(mapsLog).Length : 0;\n        await Send(\"maps *\");\n        await Task.Delay(1500);\n        var found = new System.Collections.Generic.SortedSet<string>(StringComparer.OrdinalIgnoreCase);\n        if (File.Exists(mapsLog))\n        {\n            string mapsText;\n            using (var fs = new FileStream(mapsLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete))\n            {\n                if (fs.Length < startPos) startPos = 0;\n                fs.Seek(startPos, SeekOrigin.Begin);\n                var mlen = (int)Math.Min(fs.Length - startPos, 2000000);\n                var mbuf = new byte[mlen];\n                var mread = fs.Read(mbuf, 0, mlen);\n                mapsText = Encoding.UTF8.GetString(mbuf, 0, mread);\n            }\n            foreach (var line in mapsText.Split('\\n'))\n            {\n                var mm = Regex.Match(line, \"^(?:PENDING:)?\\\\s*\\\\(\\\\w+\\\\)\\\\s+(.+?)\\\\.bsp\\\\s*$\");\n                if (mm.Success) found.Add(mm.Groups[1].Value);\n            }\n        }\n        Globals.ReturnValue = new { ok = true, maps = found.ToArray() };\n        break;\n    }\n    case \"map\":\n    {\n        if (!Regex.IsMatch(target, \"^[A-Za-z0-9_\\\\-]{1,64}$\")) throw new Exception(\"Invalid map name.\");\n        await Send($\"changelevel {target}\");\n        Globals.ReturnValue = new { ok = true };\n        break;\n    }\n    default:\n        throw new Exception($\"Unknown action '{action}'.\");\n}\n",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\nusing TCAdmin.GameHosting.SDK.RconProviders;\nusing TCAdmin.GameHosting.SDK.RconProviders.Source;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar action = Variables.Parse(\"RconAction\", \"status\");\nvar target = Variables.Parse(\"RconTarget\", \"\");\nvar value = Variables.Parse(\"RconValue\", \"\");\n\nstring Clean(string s)\n{\n    s = s ?? \"\";\n    s = s.Replace(\"\\r\", \" \").Replace(\"\\n\", \" \").Replace(\";\", \" \").Replace(\"\\\"\", \"'\");\n    return s.Trim();\n}\nvar rawTarget = (target ?? \"\").Replace(\"\\r\", \" \").Replace(\"\\n\", \" \").Trim();\ntarget = Clean(target);\nvalue = Clean(value);\n\nasync Task<T> WithTimeout<T>(Task<T> task, int ms, string what)\n{\n    if (await Task.WhenAny(task, Task.Delay(ms)) != task) throw new Exception(what + \" timed out.\");\n    return await task;\n}\n\n// One RCON connection per run, opened on first use; every reply is read straight off the socket.\nSourceRconClient rcon = null;\nasync Task<string> Rcon(string cmd)\n{\n    if (rcon == null)\n    {\n        var factory = RconClientFactories.FirstOrDefault(f => f.Protocol == ThisGame.QueryRconProtocolConfig.RconProtocol);\n        rcon = factory?.Create() as SourceRconClient\n            ?? throw new Exception(\"This blueprint's RCON protocol must be 'source' (Valve Source RCON).\");\n        try\n        {\n            await rcon.ConnectAsync(ThisService.IPAddress, ThisService.RconPort, ThisService.Variables.Parse<string>(\"RconPassword\", string.Empty));\n        }\n        catch (RconAuthenticationException)\n        {\n            throw new Exception(\"RCON refused the password. Restart the server so server.cfg picks up the panel's RCON password.\");\n        }\n    }\n    return await rcon.ExecuteCommandAsync(cmd);\n}\n\nIEnumerable<string> Lines(string text) => (text ?? \"\").Split('\\n').Select(l => l.TrimEnd('\\r'));\n\n// srcds `status` rows: #  2 \"Bot01\" BOT active  /  #  3 \"Name\" STEAM_0:1:123 00:31 50 0 active ip:port\nasync Task<List<(int UserId, string Name, string SteamId)>> StatusRows()\n{\n    var rows = new List<(int, string, string)>();\n    foreach (var line in Lines(await Rcon(\"status\")))\n    {\n        var m = Regex.Match(line, \"^#\\\\s*(\\\\d+)\\\\s+\\\"(.*)\\\"\\\\s+(BOT|STEAM_\\\\d+:\\\\d+:\\\\d+)\\\\b\");\n        if (m.Success) rows.Add((int.Parse(m.Groups[1].Value), m.Groups[2].Value, m.Groups[3].Value));\n    }\n    return rows;\n}\n\nasync Task<Dictionary<string, int>> GetBotNames()\n{\n    var bots = new Dictionary<string, int>();\n    foreach (var row in await StatusRows())\n        if (row.SteamId == \"BOT\") bots[row.Name] = row.UserId;\n    return bots;\n}\n\ntry\n{\n    string svcStatus = \"Unknown\";\n    try {\n        var svcInfo = await WithTimeout(ServiceManagerService.GetServiceStatus(ThisService.ServiceId), 8000, \"Status check\");\n        if (svcInfo != null) svcStatus = svcInfo.Status.ToString();\n    } catch (Exception) { }\n    var isRunning = svcStatus == \"Started\";\n    if (!isRunning)\n    {\n        // Service is not running: never send RCON commands.\n        if (action != \"status\") throw new Exception(\"The service is not running (\" + svcStatus + \"). RCON commands are disabled.\");\n        Globals.ReturnValue = new { running = false, serviceStatus = svcStatus, online = \"Offline\", hostname = \"\", map = \"\", numPlayers = 0, maxPlayers = 0, players = new object[0] };\n    }\n    else switch (action)\n    {\n        case \"status\":\n        {\n            var q = await WithTimeout(GameServiceManager.QueryService(ThisService), 10000, \"Server query\");\n            var list = q.Players ?? new List<TCAdmin.SDK.Hubs.Models.GameQuery.GameQueryPlayer>();\n            var botNames = list.Count > 0 ? await GetBotNames() : new Dictionary<string, int>();\n            var players = list.Select(p => new { name = p.Name, score = p.Score, connectedSeconds = p.ConnectTime, isBot = botNames.ContainsKey(p.Name) }).ToList();\n            Globals.ReturnValue = new { running = true, serviceStatus = svcStatus, online = q.Status, hostname = q.Name, map = q.Map, numPlayers = q.NumPlayers, maxPlayers = q.MaxPlayers, players };\n            break;\n        }\n        case \"convar\":\n        {\n            var allowed = new[] { \"sv_cheats\", \"sv_gravity\", \"sv_alltalk\", \"sbox_godmode\", \"sbox_noclip\", \"sbox_weapons\", \"sbox_playershurtplayers\", \"sbox_maxprops\", \"sv_friction\", \"phys_timescale\", \"host_timescale\", \"gmod_physiterations\" };\n            if (!allowed.Contains(target)) throw new Exception($\"Setting '{target}' is not allowed.\");\n            if (!Regex.IsMatch(value, \"^[A-Za-z0-9_.\\\\- ]{0,64}$\")) throw new Exception(\"Invalid value.\");\n            await Rcon($\"{target} \\\"{value}\\\"\");\n            Globals.ReturnValue = new { ok = true, command = $\"{target} {value}\" };\n            break;\n        }\n        case \"kick\":\n        {\n            if (target == \"\") throw new Exception(\"Player name required.\");\n            var botIds = await GetBotNames();\n            var isBotTarget = botIds.ContainsKey(rawTarget);\n            // bot_kick does not exist in GMod; kick the bot by userid through Lua instead.\n            await Rcon(isBotTarget ? $\"lua_run local p=Player({botIds[rawTarget]}) if IsValid(p) then p:Kick() end\" : $\"kick \\\"{target}\\\" \\\"{value}\\\"\");\n            if (isBotTarget) { Globals.ReturnValue = new { ok = true, bot = true }; break; }\n            // The drop can take a server frame or two to show in `status`.\n            var stillConnected = true;\n            for (var attempt = 0; attempt < 4 && stillConnected; attempt++)\n            {\n                if (attempt > 0) await Task.Delay(250);\n                stillConnected = (await StatusRows()).Any(r => r.Name == target);\n            }\n            if (stillConnected)\n                throw new Exception($\"Kick sent, but '{target}' is still connected. The name may not match exactly - try again or use Ban.\");\n            Globals.ReturnValue = new { ok = true };\n            break;\n        }\n        case \"ban\":\n        {\n            if (target == \"\") throw new Exception(\"Player name required.\");\n            var rows = await StatusRows();\n            if (rows.Any(r => r.SteamId == \"BOT\" && r.Name == rawTarget)) throw new Exception(\"Bots cannot be banned. Use Kick instead.\");\n            var steamId = rows.Where(r => r.SteamId != \"BOT\" && r.Name == target).Select(r => r.SteamId).FirstOrDefault();\n            if (steamId == null) throw new Exception(\"Could not find the player's SteamID in the server status. Use Kick instead.\");\n            var minutes = Regex.IsMatch(value, \"^\\\\d{1,7}$\") ? value : \"0\";\n            await Rcon($\"banid {minutes} {steamId} kick\");\n            await Rcon(\"writeid\");\n            Globals.ReturnValue = new { ok = true, steamId, minutes };\n            break;\n        }\n        case \"say\":\n        {\n            if (value == \"\") throw new Exception(\"Message required.\");\n            await Rcon($\"say \\\"{value}\\\"\");\n            Globals.ReturnValue = new { ok = true };\n            break;\n        }\n        case \"addbot\":\n        {\n            if (rawTarget.Length < 1 || rawTarget.Length > 32) throw new Exception(\"Bot name must be 1-32 characters.\");\n            var luaName = rawTarget.Replace(\"\\\\\", \"\\\\\\\\\").Replace(\"\\\"\", \"\\\\\\\"\");\n            await Rcon($\"lua_run player.CreateNextBot(\\\"{luaName}\\\")\");\n            Globals.ReturnValue = new { ok = true, name = rawTarget };\n            break;\n        }\n        case \"convars\":\n        {\n            // srcds returns what lua_run prints as the command's RCON reply.\n            var output = await Rcon(\"lua_run for _,c in ipairs({\\\"sv_cheats\\\",\\\"sbox_godmode\\\",\\\"sbox_noclip\\\",\\\"sbox_weapons\\\",\\\"sbox_playershurtplayers\\\",\\\"sv_alltalk\\\",\\\"sv_gravity\\\",\\\"host_timescale\\\"}) do local v=GetConVar(c) if v then print(\\\"CVAR|\\\"..c..\\\"|\\\"..v:GetString()) end end\");\n            var cvList = new List<object>();\n            foreach (var line in Lines(output))\n            {\n                var cm = Regex.Match(line, \"^CVAR\\\\|([A-Za-z0-9_]+)\\\\|(.*?)\\\\s*$\");\n                if (cm.Success) cvList.Add(new { name = cm.Groups[1].Value, value = cm.Groups[2].Value });\n            }\n            Globals.ReturnValue = new { ok = true, convars = cvList };\n            break;\n        }\n        case \"maps\":\n        {\n            var found = new SortedSet<string>(StringComparer.OrdinalIgnoreCase);\n            foreach (var line in Lines(await Rcon(\"maps *\")))\n            {\n                var mm = Regex.Match(line, \"^(?:PENDING:)?\\\\s*\\\\(\\\\w+\\\\)\\\\s+(.+?)\\\\.bsp\\\\s*$\");\n                if (mm.Success) found.Add(mm.Groups[1].Value);\n            }\n            Globals.ReturnValue = new { ok = true, maps = found.ToArray() };\n            break;\n        }\n        case \"map\":\n        {\n            if (!Regex.IsMatch(target, \"^[A-Za-z0-9_\\\\-]{1,64}$\")) throw new Exception(\"Invalid map name.\");\n            try { await Rcon($\"changelevel {target}\"); }\n            // The server starts loading the map at once and may drop or stall the RCON reply.\n            catch (Exception ex) when (ex is RconException || ex is OperationCanceledException) { }\n            Globals.ReturnValue = new { ok = true };\n            break;\n        }\n        default:\n            throw new Exception($\"Unknown action '{action}'.\");\n    }\n}\nfinally\n{\n    if (rcon != null) await rcon.DisposeAsync();\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -855,11 +962,14 @@
         "maxConcurrentRuns": 3,
         "logApiExecutions": false,
         "order": 0,
+        "icon": null,
         "scriptInputVariables": [
           {
             "variable": {
               "name": "RconAction",
+              "defaultValue": null,
               "required": false,
+              "requiredMessage": null,
               "scriptParameter": true,
               "commandlineParameter": false,
               "saveScriptParameter": false,
@@ -872,16 +982,21 @@
                 "regExValidation": "",
                 "inputType": 0,
                 "id": "RconAction",
+                "defaultValue": null,
                 "label": "RCON tool action",
                 "description": "Action for the RCON web tool",
                 "required": false,
                 "valueType": "string",
+                "requiredMessage": null,
+                "parentId": null,
+                "parentValue": null,
                 "controlType": "DynamicTextBox",
                 "sm": 12,
                 "xs": 12,
                 "requiresAnyVisible": []
               },
               "createdDate": "2026-11-03T02:29:42.104035",
+              "modifiedDate": null,
               "metadata": {},
               "variableRoles": [
                 {
@@ -889,9 +1004,6 @@
                 },
                 {
                   "roleId": 3
-                },
-                {
-                  "roleId": 4
                 }
               ]
             },
@@ -900,7 +1012,9 @@
           {
             "variable": {
               "name": "RconTarget",
+              "defaultValue": null,
               "required": false,
+              "requiredMessage": null,
               "scriptParameter": true,
               "commandlineParameter": false,
               "saveScriptParameter": false,
@@ -913,16 +1027,21 @@
                 "regExValidation": "",
                 "inputType": 0,
                 "id": "RconTarget",
+                "defaultValue": null,
                 "label": "RCON tool target",
                 "description": "Player name, convar or map for the RCON web tool",
                 "required": false,
                 "valueType": "string",
+                "requiredMessage": null,
+                "parentId": null,
+                "parentValue": null,
                 "controlType": "DynamicTextBox",
                 "sm": 12,
                 "xs": 12,
                 "requiresAnyVisible": []
               },
               "createdDate": "2026-11-03T02:29:42.461105",
+              "modifiedDate": null,
               "metadata": {},
               "variableRoles": [
                 {
@@ -930,9 +1049,6 @@
                 },
                 {
                   "roleId": 3
-                },
-                {
-                  "roleId": 4
                 }
               ]
             },
@@ -941,7 +1057,9 @@
           {
             "variable": {
               "name": "RconValue",
+              "defaultValue": null,
               "required": false,
+              "requiredMessage": null,
               "scriptParameter": true,
               "commandlineParameter": false,
               "saveScriptParameter": false,
@@ -954,16 +1072,21 @@
                 "regExValidation": "",
                 "inputType": 0,
                 "id": "RconValue",
+                "defaultValue": null,
                 "label": "RCON tool value",
                 "description": "Value, reason or message for the RCON web tool",
                 "required": false,
                 "valueType": "string",
+                "requiredMessage": null,
+                "parentId": null,
+                "parentValue": null,
                 "controlType": "DynamicTextBox",
                 "sm": 12,
                 "xs": 12,
                 "requiresAnyVisible": []
               },
               "createdDate": "2026-11-03T02:29:42.798864",
+              "modifiedDate": null,
               "metadata": {},
               "variableRoles": [
                 {
@@ -971,9 +1094,6 @@
                 },
                 {
                   "roleId": 3
-                },
-                {
-                  "roleId": 4
                 }
               ]
             },
@@ -986,9 +1106,6 @@
           },
           {
             "roleId": 2
-          },
-          {
-            "roleId": 4
           }
         ],
         "editor": [],
@@ -1009,7 +1126,7 @@
         ],
         "name": "Source RCON Tool",
         "description": "Graphical Source RCON tool: players, kick/ban, say, map change and one-click toggles.",
-        "code": "<style>\n  body{font-family:system-ui,sans-serif;color:var(--tca-text);background:var(--tca-background);margin:0;padding:16px}\n  .card{background:var(--tca-surface);border:1px solid var(--tca-divider);border-radius:10px;padding:14px;margin-bottom:14px}\n  h2{margin:0 0 10px;font-size:16px}\n  .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}\n  button{background:var(--tca-primary);color:#fff;border:0;border-radius:6px;padding:7px 12px;cursor:pointer;font-size:13px}\n  button.off{background:var(--tca-secondary)} button.danger{background:var(--tca-error)} button.warn{background:var(--tca-warning);color:#000}\n  button.on{background:var(--tca-success);color:#fff} button.offstate{background:var(--tca-error);color:#fff}\n  button:disabled{opacity:.5;cursor:wait}\n  .sw{position:relative;display:inline-block;width:42px;height:22px;cursor:pointer}\n  .sw input{opacity:0;width:0;height:0;position:absolute}\n  .sw .slider{position:absolute;inset:0;background:var(--tca-error);border-radius:22px;transition:background .15s}\n  .sw .slider:before{content:'';position:absolute;height:16px;width:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform .15s}\n  .sw input:checked + .slider{background:var(--tca-success)}\n  .sw input:checked + .slider:before{transform:translateX(20px)}\n  .sw input:focus-visible + .slider{outline:2px solid var(--tca-primary);outline-offset:2px}\n  .sw input:disabled + .slider{opacity:.5;cursor:not-allowed}\n  .tog.pending{opacity:.6}\n  .tog.pending button:disabled{cursor:not-allowed;filter:grayscale(1);opacity:.45}\n  input,select{background:var(--tca-background);color:var(--tca-text);border:1px solid var(--tca-divider);border-radius:6px;padding:7px;font-size:13px}\n  *{box-sizing:border-box} input,select{max-width:100%;min-width:0}\n  table{width:100%;border-collapse:collapse} th,td{text-align:left;padding:7px;border-bottom:1px solid var(--tca-divider);font-size:13px}\n  .tog{display:flex;align-items:center;gap:6px;padding:6px 10px}\n  .muted{color:var(--tca-text-secondary);font-size:12px}\n</style>\n\n<div class=\"card\">\n  <h2 id=\"title\">Server</h2>\n  <div class=\"muted\" id=\"info\">Loading…</div>\n  <div id=\"stoppedBanner\" style=\"display:none;margin-top:8px;color:var(--tca-error);font-weight:600\">⚠ The service is not running. All RCON controls are disabled until it starts again.</div>\n</div>\n\n<div class=\"card\">\n  <h2>Quick toggles</h2>\n  <div class=\"row\" id=\"toggles\"></div>\n  <div class=\"muted\" style=\"margin-top:6px\">Sends the setting live; it is not saved to server.cfg and resets on restart. Button state reflects what you last sent.</div>\n</div>\n\n<div class=\"card\">\n  <h2>Players <button id=\"refresh\" style=\"margin-left:8px\">Refresh</button></h2>\n  <table><thead><tr><th>Name</th><th>Score</th><th>Time</th><th>Actions</th></tr></thead><tbody id=\"players\"></tbody></table>\n</div>\n\n<div class=\"card\">\n  <h2>Broadcast message</h2>\n  <div class=\"row\"><input id=\"msg\" style=\"flex:1 1 200px;min-width:0;max-width:100%;box-sizing:border-box\" placeholder=\"Message to all players\"><button id=\"send\">Send</button></div>\n</div>\n\n<div class=\"card\">\n  <h2>Add bot</h2>\n  <div class=\"row\"><input id=\"botname\" maxlength=\"32\" placeholder=\"Bot name\"><button id=\"addbot\">Add bot</button></div>\n  <div class=\"muted\" style=\"margin-top:6px\">Up to 32 characters. Remove a bot with its Kick button.</div>\n</div>\n\n<div class=\"card\">\n  <h2>Change map</h2>\n  <div class=\"row\"><select id=\"map\"><option value=\"\">Loading maps…</option></select><button id=\"reloadmaps\" class=\"off\">Reload list</button><button id=\"chmap\" class=\"warn\">Change map</button></div>\n</div>\n\n<div class=\"card\">\n  <h2>Gravity / timescale</h2>\n  <div class=\"row\">\n    <input id=\"grav\" size=\"6\" placeholder=\"600\"><button id=\"setgrav\">Set sv_gravity</button>\n    <input id=\"ts\" size=\"6\" placeholder=\"1\"><button id=\"setts\">Set host_timescale</button>\n  </div>\n</div>\n\n<script>\n(function(){\n  const $ = id => document.getElementById(id);\n  const toggles = [\n    ['sv_cheats','Cheats'],['sbox_godmode','God mode'],['sbox_noclip','Noclip'],\n    ['sbox_weapons','Weapons'],['sbox_playershurtplayers','Players hurt players'],['sv_alltalk','All talk']\n  ];\n  const state = {};\n  let convarsLoaded=false;\n  let running=null; // null = unknown yet\n  let initDone=false;\n  const ctlIds=['send','addbot','chmap','setgrav','setts','reloadmaps','msg','botname','map','grav','ts'];\n  function applyRunning(){\n    const dis=(running!==true);\n    ctlIds.forEach(id=>{const e=$(id);if(e)e.disabled=dis;});\n    $('stoppedBanner').style.display=(running===false)?'block':'none';\n    document.querySelectorAll('#players button').forEach(b=>b.disabled=dis);\n    buildToggles();\n  }\n  let initGen=0;\n  function initData(){\n    const gen=++initGen;\n    initDone=true;convarsLoaded=false;Object.keys(state).forEach(k=>delete state[k]);buildToggles();\n    showLoading();\n    // Same order as the page: the toggles (convars) are enabled as soon as they load, then the map list.\n    loadConvars().catch(()=>{}).then(()=>{\n      if(gen!==initGen)return;\n      convarsLoaded=true;buildToggles();hideLoading();\n      return loadMaps();\n    }).catch(()=>{});\n  }\n  function setRunning(v){\n    const was=running;running=v;\n    if(v&&(!initDone||was===false))initData();\n    if(!v){initGen++;initDone=false;convarsLoaded=false;hideLoading();}\n    applyRunning();\n  }\n  async function askMinutes(title,message){\n    let msg=message;\n    for(;;){\n      const v=await TCAdmin.Dialog.Prompt(msg,'0',{title:title,okText:'Ban'});\n      if(v===null)return null;\n      const t=String(v).trim();\n      if(/^\\d{1,7}$/.test(t))return t;\n      msg='Enter a whole number (0 = permanent). '+message;\n    }\n  }\n  /* legacy dialog removed\n      if(o.numeric&&!/^\\d{1,7}$/.test(v)){er.textContent='Enter a whole number (0 = permanent).';return;}\n      done(v);\n    }\n    function key(e){\n      if(e.key==='Escape'){e.preventDefault();done(null);}\n      else if(e.key==='Enter'&&(hasIn||document.activeElement!==ca)){e.preventDefault();submit();}\n    }\n    ok.onclick=submit;ca.onclick=()=>done(null);ov.onclick=e=>{if(e.target===ov)done(null);};\n  */\n  function showLoading(){TCAdmin.Toast.Info('Loading server configuration');}\n  function hideLoading(){}\n  function toast(t, err){if(err)TCAdmin.Toast.Error(t);else TCAdmin.Toast.Success(t);}\n  async function call(inputs){\n    if(running!==true&&inputs.RconAction!=='status')return null;\n    const r = await TCAdmin.Script.Execute('SourceRconTool', inputs);\n    if(!r.success){const out=(r.output||[]).filter(o=>o.isError).map(o=>o.message).join(' ');toast(r.error||out||'Failed',true);return null;}\n    return r.returnValue||{ok:true};\n  }\n  function fmt(s){s=+s||0;const h=Math.floor(s/3600),m=Math.floor(s%3600/60);return h?h+'h '+m+'m':m+'m';}\n  function buildToggles(){\n    const box=$('toggles'); box.textContent='';\n    toggles.forEach(([cv,label])=>{\n      const d=document.createElement('div');d.className='tog'+((convarsLoaded&&running===true)?'':' pending');\n      const s=document.createElement('span');s.textContent=label;d.appendChild(s);\n      {\n        const lab=document.createElement('label');lab.className='sw';const b=document.createElement('input');b.type='checkbox';b.checked=(state[cv]==='1');const sl=document.createElement('span');sl.className='slider';lab.appendChild(b);lab.appendChild(sl);\n        \n        b.disabled=!convarsLoaded||running!==true;\n        \n        b.onchange=async()=>{const on=b.checked,v=on?'1':'0';b.disabled=true;\n          const r=await call({RconAction:'convar',RconTarget:cv,RconValue:v});\n          b.disabled=false; if(r){state[cv]=v;buildToggles();toast(label+': '+(on?'On':'Off'));}else{b.checked=!on;}};\n        d.appendChild(lab);\n      }\n      box.appendChild(d);\n    });\n  }\n  let busy=false,pending=false;\n  async function refresh(){if(busy){pending=true;return;}busy=true;try{await doRefresh();}finally{busy=false;if(pending){pending=false;refresh();}}}\n  function refreshSoon(){refresh();setTimeout(refresh,1500);setTimeout(refresh,4000);}\n  async function doRefresh(){\n    const r=await call({RconAction:'status'}); if(!r)return;\n    if(r.running===false){\n      setRunning(false);\n      $('title').textContent='Server';\n      $('info').textContent='Service is not running ('+(r.serviceStatus||'Stopped')+')';\n      const tb0=$('players');tb0.textContent='';\n      const tr0=document.createElement('tr');const td0=document.createElement('td');td0.colSpan=4;td0.className='muted';td0.textContent='Service not running';tr0.appendChild(td0);tb0.appendChild(tr0);\n      return;\n    }\n    setRunning(true);\n    $('title').textContent=r.hostname||'Server';\n    $('info').textContent=r.online+' · Map: '+r.map+' · Players: '+r.numPlayers+'/'+r.maxPlayers;\n    const tb=$('players');tb.textContent='';\n    (r.players||[]).filter(p=>p.name).forEach(p=>{\n      const tr=document.createElement('tr');\n      [(p.isBot?'\uD83E\uDD16 ':'')+p.name,p.score,fmt(p.connectedSeconds)].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.appendChild(td);});\n      const td=document.createElement('td');td.className='row';\n      const k=document.createElement('button');k.textContent='Kick';k.className='warn';\n      k.onclick=async()=>{let reason='';if(p.isBot){if(!await TCAdmin.Dialog.Confirm('Are you sure you want to kick (remove) this bot?',{title:'Kick bot '+p.name,okText:'Kick'}))return;}else{reason=await TCAdmin.Dialog.Prompt('Are you sure you want to kick this player? Reason (optional):','',{title:'Kick '+p.name,okText:'Kick'});if(reason===null)return;reason=String(reason).trim();}toast('Kicking '+p.name+'…');\n        if(await call({RconAction:'kick',RconTarget:p.name,RconValue:reason})){toast('Kicked '+p.name);refreshSoon();}};\n      const b=document.createElement('button');b.textContent='Ban';b.className='danger';\n      b.onclick=async()=>{const m=await askMinutes('Ban '+p.name,'Are you sure you want to ban this player? Duration in minutes (0 = permanent):');if(m===null)return;\n        \n        if(await call({RconAction:'ban',RconTarget:p.name,RconValue:m})){toast('Banned '+p.name);refreshSoon();}};\n      td.appendChild(k);if(!p.isBot)td.appendChild(b);tr.appendChild(td);tb.appendChild(tr);\n    });\n    if(!tb.children.length){const tr=document.createElement('tr');const td=document.createElement('td');td.colSpan=4;td.className='muted';td.textContent='No players online';tr.appendChild(td);tb.appendChild(tr);}\n  }\n  $('refresh').onclick=refresh;\n  $('send').onclick=async()=>{const v=$('msg').value;if(!v)return;if(await call({RconAction:'say',RconValue:v})){toast('Sent');$('msg').value='';}};\n  $('addbot').onclick=async()=>{const v=$('botname').value.trim();if(!v)return;if(await call({RconAction:'addbot',RconTarget:v})){toast('Bot added: '+v);$('botname').value='';refreshSoon();}};\n  $('chmap').onclick=async()=>{const v=$('map').value;if(!v)return;if(!await TCAdmin.Dialog.Confirm('Change the map to '+v+'?',{title:'Change map',okText:'Change map'}))return;if(await call({RconAction:'map',RconTarget:v}))toast('Changing map…');};\n  $('setgrav').onclick=async()=>{const v=$('grav').value;if(v&&await call({RconAction:'convar',RconTarget:'sv_gravity',RconValue:v}))toast('Gravity set');};\n  $('setts').onclick=async()=>{const v=$('ts').value;if(v&&await call({RconAction:'convar',RconTarget:'host_timescale',RconValue:v}))toast('Timescale set');};\n  async function loadMaps(){\n    const sel=$('map'),prev=sel.value;\n    const r=await call({RconAction:'maps'});\n    sel.textContent='';\n    const list=(r&&r.maps)||[];\n    if(!list.length){const o=document.createElement('option');o.value='';o.textContent='No maps found';sel.appendChild(o);return;}\n    list.forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m;sel.appendChild(o);});\n    if(prev&&list.indexOf(prev)>=0)sel.value=prev;\n  }\n  $('reloadmaps').onclick=async()=>{const b=$('reloadmaps');b.disabled=true;await loadMaps();b.disabled=false;};\n  async function loadConvars(){\n    const r=await call({RconAction:'convars'});\n    if(!r||!r.convars)return;\n    r.convars.forEach(c=>{\n      if(c.name==='sv_gravity'){if(!$('grav').value)$('grav').value=c.value;}\n      else if(c.name==='host_timescale'){if(!$('ts').value)$('ts').value=c.value;}\n      else state[c.name]=(c.value==='0'||c.value==='')?'0':'1';\n    });\n    buildToggles();\n  }\n  buildToggles();applyRunning();refresh();setInterval(refresh,5000);\n})();\n</script>\n",
+        "code": "<style>\n  body{font-family:system-ui,sans-serif;color:var(--tca-text);background:var(--tca-background);margin:0;padding:16px}\n  .card{background:var(--tca-surface);border:1px solid var(--tca-divider);border-radius:10px;padding:14px;margin-bottom:14px}\n  h2{margin:0 0 10px;font-size:16px}\n  .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}\n  button{background:var(--tca-primary);color:#fff;border:0;border-radius:6px;padding:7px 12px;cursor:pointer;font-size:13px}\n  button.off{background:var(--tca-secondary)} button.danger{background:var(--tca-error)} button.warn{background:var(--tca-warning);color:#000}\n  button.on{background:var(--tca-success);color:#fff} button.offstate{background:var(--tca-error);color:#fff}\n  button:disabled{opacity:.5;cursor:wait}\n  .sw{position:relative;display:inline-block;width:42px;height:22px;cursor:pointer}\n  .sw input{opacity:0;width:0;height:0;position:absolute}\n  .sw .slider{position:absolute;inset:0;background:var(--tca-error);border-radius:22px;transition:background .15s}\n  .sw .slider:before{content:'';position:absolute;height:16px;width:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform .15s}\n  .sw input:checked + .slider{background:var(--tca-success)}\n  .sw input:checked + .slider:before{transform:translateX(20px)}\n  .sw input:focus-visible + .slider{outline:2px solid var(--tca-primary);outline-offset:2px}\n  .sw input:disabled + .slider{opacity:.5;cursor:not-allowed}\n  .tog.pending{opacity:.6}\n  .tog.pending button:disabled{cursor:not-allowed;filter:grayscale(1);opacity:.45}\n  input,select{background:var(--tca-background);color:var(--tca-text);border:1px solid var(--tca-divider);border-radius:6px;padding:7px;font-size:13px}\n  *{box-sizing:border-box} input,select{max-width:100%;min-width:0}\n  table{width:100%;border-collapse:collapse} th,td{text-align:left;padding:7px;border-bottom:1px solid var(--tca-divider);font-size:13px}\n  .tog{display:flex;align-items:center;gap:6px;padding:6px 10px}\n  .muted{color:var(--tca-text-secondary);font-size:12px}\n</style>\n\n<div class=\"card\">\n  <h2 id=\"title\">Server</h2>\n  <div class=\"muted\" id=\"info\">Loading…</div>\n  <div id=\"stoppedBanner\" style=\"display:none;margin-top:8px;color:var(--tca-error);font-weight:600\">⚠ The service is not running. All RCON controls are disabled until it starts again.</div>\n</div>\n\n<div class=\"card\">\n  <h2>Quick toggles</h2>\n  <div class=\"row\" id=\"toggles\"></div>\n  <div class=\"muted\" style=\"margin-top:6px\">Sends the setting live; it is not saved to server.cfg and resets on restart. Button state reflects what you last sent.</div>\n</div>\n\n<div class=\"card\">\n  <h2>Players <button id=\"refresh\" style=\"margin-left:8px\">Refresh</button></h2>\n  <table><thead><tr><th>Name</th><th>Score</th><th>Time</th><th>Actions</th></tr></thead><tbody id=\"players\"></tbody></table>\n</div>\n\n<div class=\"card\">\n  <h2>Broadcast message</h2>\n  <div class=\"row\"><input id=\"msg\" style=\"flex:1 1 200px;min-width:0;max-width:100%;box-sizing:border-box\" placeholder=\"Message to all players\"><button id=\"send\">Send</button></div>\n</div>\n\n<div class=\"card\">\n  <h2>Add bot</h2>\n  <div class=\"row\"><input id=\"botname\" maxlength=\"32\" placeholder=\"Bot name\"><button id=\"addbot\">Add bot</button></div>\n  <div class=\"muted\" style=\"margin-top:6px\">Up to 32 characters. Remove a bot with its Kick button.</div>\n</div>\n\n<div class=\"card\">\n  <h2>Change map</h2>\n  <div class=\"row\"><select id=\"map\"><option value=\"\">Loading maps…</option></select><button id=\"reloadmaps\" class=\"off\">Reload list</button><button id=\"chmap\" class=\"warn\">Change map</button></div>\n</div>\n\n<div class=\"card\">\n  <h2>Gravity / timescale</h2>\n  <div class=\"row\">\n    <input id=\"grav\" size=\"6\" placeholder=\"600\"><button id=\"setgrav\">Set sv_gravity</button>\n    <input id=\"ts\" size=\"6\" placeholder=\"1\"><button id=\"setts\">Set host_timescale</button>\n  </div>\n</div>\n\n<script>\n(function(){\n  const $ = id => document.getElementById(id);\n  const toggles = [\n    ['sv_cheats','Cheats'],['sbox_godmode','God mode'],['sbox_noclip','Noclip'],\n    ['sbox_weapons','Weapons'],['sbox_playershurtplayers','Players hurt players'],['sv_alltalk','All talk']\n  ];\n  const state = {};\n  let convarsLoaded=false;\n  let running=null; // null = unknown yet\n  let initDone=false;\n  const ctlIds=['send','addbot','chmap','setgrav','setts','reloadmaps','msg','botname','map','grav','ts'];\n  function applyRunning(){\n    const dis=(running!==true);\n    ctlIds.forEach(id=>{const e=$(id);if(e)e.disabled=dis;});\n    $('stoppedBanner').style.display=(running===false)?'block':'none';\n    document.querySelectorAll('#players button').forEach(b=>b.disabled=dis);\n    buildToggles();\n  }\n  let initGen=0;\n  function initData(){\n    const gen=++initGen;\n    initDone=true;convarsLoaded=false;Object.keys(state).forEach(k=>delete state[k]);buildToggles();\n    showLoading();\n    // Same order as the page: the toggles (convars) are enabled as soon as they load, then the map list.\n    loadConvars().catch(()=>{}).then(()=>{\n      if(gen!==initGen)return;\n      convarsLoaded=true;buildToggles();hideLoading();\n      return loadMaps();\n    }).catch(()=>{});\n  }\n  function setRunning(v){\n    const was=running;running=v;\n    if(v&&(!initDone||was===false))initData();\n    if(!v){initGen++;initDone=false;convarsLoaded=false;hideLoading();}\n    applyRunning();\n  }\n  async function askMinutes(title,message){\n    let msg=message;\n    for(;;){\n      const v=await TCAdmin.Dialog.Prompt(msg,'0',{title:title,okText:'Ban'});\n      if(v===null)return null;\n      const t=String(v).trim();\n      if(/^\\d{1,7}$/.test(t))return t;\n      msg='Enter a whole number (0 = permanent). '+message;\n    }\n  }\n  /* legacy dialog removed\n      if(o.numeric&&!/^\\d{1,7}$/.test(v)){er.textContent='Enter a whole number (0 = permanent).';return;}\n      done(v);\n    }\n    function key(e){\n      if(e.key==='Escape'){e.preventDefault();done(null);}\n      else if(e.key==='Enter'&&(hasIn||document.activeElement!==ca)){e.preventDefault();submit();}\n    }\n    ok.onclick=submit;ca.onclick=()=>done(null);ov.onclick=e=>{if(e.target===ov)done(null);};\n  */\n  function showLoading(){TCAdmin.Toast.Info('Loading server configuration');}\n  function hideLoading(){}\n  function toast(t, err){if(err)TCAdmin.Toast.Error(t);else TCAdmin.Toast.Success(t);}\n  async function call(inputs){\n    if(running!==true&&inputs.RconAction!=='status')return null;\n    const r = await TCAdmin.Script.Execute('SourceRconTool', inputs);\n    if(!r.success){const out=(r.output||[]).filter(o=>o.isError).map(o=>o.message).join(' ');toast(r.error||out||'Failed',true);return null;}\n    return r.returnValue||{ok:true};\n  }\n  function fmt(s){s=+s||0;const h=Math.floor(s/3600),m=Math.floor(s%3600/60);return h?h+'h '+m+'m':m+'m';}\n  function buildToggles(){\n    const box=$('toggles'); box.textContent='';\n    toggles.forEach(([cv,label])=>{\n      const d=document.createElement('div');d.className='tog'+((convarsLoaded&&running===true)?'':' pending');\n      const s=document.createElement('span');s.textContent=label;d.appendChild(s);\n      {\n        const lab=document.createElement('label');lab.className='sw';const b=document.createElement('input');b.type='checkbox';b.checked=(state[cv]==='1');const sl=document.createElement('span');sl.className='slider';lab.appendChild(b);lab.appendChild(sl);\n        \n        b.disabled=!convarsLoaded||running!==true;\n        \n        b.onchange=async()=>{const on=b.checked,v=on?'1':'0';b.disabled=true;\n          const r=await call({RconAction:'convar',RconTarget:cv,RconValue:v});\n          b.disabled=false; if(r){state[cv]=v;buildToggles();toast(label+': '+(on?'On':'Off'));}else{b.checked=!on;}};\n        d.appendChild(lab);\n      }\n      box.appendChild(d);\n    });\n  }\n  let busy=false,pending=false;\n  async function refresh(){if(busy){pending=true;return;}busy=true;try{await doRefresh();}finally{busy=false;if(pending){pending=false;refresh();}}}\n  function refreshSoon(){refresh();setTimeout(refresh,1500);setTimeout(refresh,4000);}\n  async function doRefresh(){\n    const r=await call({RconAction:'status'}); if(!r)return;\n    if(r.running===false){\n      setRunning(false);\n      $('title').textContent='Server';\n      $('info').textContent='Service is not running ('+(r.serviceStatus||'Stopped')+')';\n      const tb0=$('players');tb0.textContent='';\n      const tr0=document.createElement('tr');const td0=document.createElement('td');td0.colSpan=4;td0.className='muted';td0.textContent='Service not running';tr0.appendChild(td0);tb0.appendChild(tr0);\n      return;\n    }\n    setRunning(true);\n    $('title').textContent=r.hostname||'Server';\n    $('info').textContent=r.online+' · Map: '+r.map+' · Players: '+r.numPlayers+'/'+r.maxPlayers;\n    const tb=$('players');tb.textContent='';\n    (r.players||[]).filter(p=>p.name).forEach(p=>{\n      const tr=document.createElement('tr');\n      [(p.isBot?'🤖 ':'')+p.name,p.score,fmt(p.connectedSeconds)].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.appendChild(td);});\n      const td=document.createElement('td');td.className='row';\n      const k=document.createElement('button');k.textContent='Kick';k.className='warn';\n      k.onclick=async()=>{let reason='';if(p.isBot){if(!await TCAdmin.Dialog.Confirm('Are you sure you want to kick (remove) this bot?',{title:'Kick bot '+p.name,okText:'Kick'}))return;}else{reason=await TCAdmin.Dialog.Prompt('Are you sure you want to kick this player? Reason (optional):','',{title:'Kick '+p.name,okText:'Kick'});if(reason===null)return;reason=String(reason).trim();}toast('Kicking '+p.name+'…');\n        if(await call({RconAction:'kick',RconTarget:p.name,RconValue:reason})){toast('Kicked '+p.name);refreshSoon();}};\n      const b=document.createElement('button');b.textContent='Ban';b.className='danger';\n      b.onclick=async()=>{const m=await askMinutes('Ban '+p.name,'Are you sure you want to ban this player? Duration in minutes (0 = permanent):');if(m===null)return;\n        \n        if(await call({RconAction:'ban',RconTarget:p.name,RconValue:m})){toast('Banned '+p.name);refreshSoon();}};\n      td.appendChild(k);if(!p.isBot)td.appendChild(b);tr.appendChild(td);tb.appendChild(tr);\n    });\n    if(!tb.children.length){const tr=document.createElement('tr');const td=document.createElement('td');td.colSpan=4;td.className='muted';td.textContent='No players online';tr.appendChild(td);tb.appendChild(tr);}\n  }\n  $('refresh').onclick=refresh;\n  $('send').onclick=async()=>{const v=$('msg').value;if(!v)return;if(await call({RconAction:'say',RconValue:v})){toast('Sent');$('msg').value='';}};\n  $('addbot').onclick=async()=>{const v=$('botname').value.trim();if(!v)return;if(await call({RconAction:'addbot',RconTarget:v})){toast('Bot added: '+v);$('botname').value='';refreshSoon();}};\n  $('chmap').onclick=async()=>{const v=$('map').value;if(!v)return;if(!await TCAdmin.Dialog.Confirm('Change the map to '+v+'?',{title:'Change map',okText:'Change map'}))return;if(await call({RconAction:'map',RconTarget:v}))toast('Changing map…');};\n  $('setgrav').onclick=async()=>{const v=$('grav').value;if(v&&await call({RconAction:'convar',RconTarget:'sv_gravity',RconValue:v}))toast('Gravity set');};\n  $('setts').onclick=async()=>{const v=$('ts').value;if(v&&await call({RconAction:'convar',RconTarget:'host_timescale',RconValue:v}))toast('Timescale set');};\n  async function loadMaps(){\n    const sel=$('map'),prev=sel.value;\n    const r=await call({RconAction:'maps'});\n    sel.textContent='';\n    const list=(r&&r.maps)||[];\n    if(!list.length){const o=document.createElement('option');o.value='';o.textContent='No maps found';sel.appendChild(o);return;}\n    list.forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m;sel.appendChild(o);});\n    if(prev&&list.indexOf(prev)>=0)sel.value=prev;\n  }\n  $('reloadmaps').onclick=async()=>{const b=$('reloadmaps');b.disabled=true;await loadMaps();b.disabled=false;};\n  async function loadConvars(){\n    const r=await call({RconAction:'convars'});\n    if(!r||!r.convars)return;\n    r.convars.forEach(c=>{\n      if(c.name==='sv_gravity'){if(!$('grav').value)$('grav').value=c.value;}\n      else if(c.name==='host_timescale'){if(!$('ts').value)$('ts').value=c.value;}\n      else state[c.name]=(c.value==='0'||c.value==='')?'0':'1';\n    });\n    buildToggles();\n  }\n  buildToggles();applyRunning();refresh();setInterval(refresh,5000);\n})();\n</script>\n",
         "runImpersonated": true,
         "stopService": false,
         "ignoreErrors": false,
@@ -1023,9 +1140,6 @@
         "scriptRoles": [
           {
             "roleId": 2
-          },
-          {
-            "roleId": 4
           },
           {
             "roleId": 3
@@ -1042,12 +1156,16 @@
       "providerId": 1,
       "gameId": 10,
       "enabled": false,
+      "customName": null,
+      "customIcon": null,
       "configuration": {}
     },
     {
       "providerId": 2,
       "gameId": 10,
       "enabled": true,
+      "customName": null,
+      "customIcon": null,
       "configuration": {
         "Private.UseSteamAPI": true,
         "AllowCollections": true,
@@ -1059,12 +1177,16 @@
       "providerId": 3,
       "gameId": 10,
       "enabled": false,
+      "customName": null,
+      "customIcon": null,
       "configuration": {}
     },
     {
       "providerId": 4,
       "gameId": 10,
       "enabled": false,
+      "customName": null,
+      "customIcon": null,
       "configuration": {
         "ModsPath": "mods"
       }
@@ -1073,18 +1195,24 @@
       "providerId": 5,
       "gameId": 10,
       "enabled": false,
+      "customName": null,
+      "customIcon": null,
       "configuration": {}
     },
     {
       "providerId": 6,
       "gameId": 10,
       "enabled": false,
+      "customName": null,
+      "customIcon": null,
       "configuration": {}
     },
     {
       "providerId": 7,
       "gameId": 10,
       "enabled": false,
+      "customName": null,
+      "customIcon": null,
       "configuration": {}
     }
   ],
@@ -1111,7 +1239,8 @@
       "garrysmod/gamemodes/**/*.txt",
       "garrysmod/lua/**/*.txt"
     ],
-    "maxBackupCount": 5
+    "maxBackupCount": 5,
+    "maxBackupSpace": null
   },
   "rolePermissions": [
     {
@@ -1978,6 +2107,8 @@
     "failureThreshold": 3,
     "failureAction": "Restart",
     "maxFailureAction": "Disable",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
     "logActivityOnFailure": true,
     "autoRestartOnExit": true,
     "autoRestartDelay": "00:00:05",
@@ -1986,11 +2117,14 @@
     "logUnexpectedExit": true,
     "slotDetectionEnabled": false,
     "slotDetectionAction": "None",
+    "slotDetectionEmailTemplateKey": null,
     "additionalAllowedSlots": 0,
     "privateDetectionEnabled": false,
     "privateDetectionAction": "None",
+    "privateDetectionEmailTemplateKey": null,
     "brandDetectionEnabled": false,
     "brandDetectionAction": "None",
+    "brandDetectionEmailTemplateKey": null,
     "brandedText": "",
     "brandedTextAtEnd": true,
     "brandedTextAddSpace": true,
@@ -2007,6 +2141,8 @@
     "syncOnServiceCreate": false,
     "autoSyncOnFileChange": false,
     "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
     "requiresHttps": false,
     "stripPaths": []
   },
