@@ -1,0 +1,47 @@
+identifier: "Community.Games.SonsOfTheForest"
+name: "Sons of the Forest"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Sons of the Forest dedicated server (Windows / Linux with Wine) with a settings form, A2S query, graceful save-and-stop and backups; starts out of the box"
+longDescription: |
+  # Sons of the Forest
+  
+  ## Description
+  Sons of the Forest dedicated server (Steam app 2465200, anonymous download). There is no Linux server build, so the Linux config runs the Windows server under Wine.
+  
+  ## Key Features
+  - **Windows and Linux (Wine)** configs.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box:** a start script writes `steam_appid.txt`, without which the server's self test stops at "Please restart the server". The network accessibility self test, which can hang for many minutes, is skipped by default.
+  - **Config editor** for `dedicatedserver.cfg`: server name, password, LAN only, save slot and save mode, game mode, autosave interval, tree regrowth, structure damage, all custom game mode settings and the idle/active frame rates.
+  - **Server-browser query** (A2S on the query port): name, game mode and players.
+  - **Graceful stop:** the panel sends Ctrl+C, the server saves the world and exits.
+  - **Console output** in the Terminal on Windows, from the server log on Linux.
+  - **Log viewer** for `sotf_log.txt`.
+  - **Backups** of the `serverconfig` folder (settings, owners list and saves). The server is stopped first.
+  - No mod support: the dedicated server has no mod system.
+  
+  ## Ports
+  - Game 8766 (UDP).
+  - Query 27016 (UDP).
+  - BlobSync 9700 (UDP).
+  
+  ## Instructions
+  - Settings, saves and logs are in the `serverconfig` folder.
+  - Add server owners (admins) to `serverconfig/ownerswhitelist.txt`, one SteamID64 per line.
+  - Saves are in `serverconfig/Saves/DedicatedServer/Multiplayer/<slot>`. Slot 1 is the folder `0000000001`. To play a save from your PC, upload its folder there and set the save slot to its number.
+  - The game mode is only used when a new game is created. Set the save mode to "Start a new game" to replace the world in the slot.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/1326470/bd28fe592b339cff5a3eef743f31e3166c984c68.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1326470/ss_e6e3ab1badfb287a77fb6eef7b1589a35371496b.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Wine"
+files:
+  - path: "Sons of the Forest - Windows.json"
+    type: "GameConfig"
+  - path: "Sons of the Forest - Linux Wine.json"
+    type: "GameConfig"
