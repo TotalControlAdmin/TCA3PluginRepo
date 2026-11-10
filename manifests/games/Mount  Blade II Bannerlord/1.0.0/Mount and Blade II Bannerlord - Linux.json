@@ -1,0 +1,1542 @@
+{
+  "__TCA:ExportVersion": "3.23.43.17810",
+  "__TCA:ExportedAt": "2026-11-10T17:45:10.3630457Z",
+  "name": "Mount \u0026 Blade II: Bannerlord",
+  "shortName": "Bannerlord",
+  "description": "",
+  "operatingSystem": "Linux",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/261550/896d5f4214e4e185a20af51b46d9dea2e6f4aaad.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/261550/ss_569257e92fd31d58a6fe08053de637071b4518d3.1920x1080.jpg",
+  "minSlots": 2,
+  "maxSlots": 200,
+  "defaultSlots": 32,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".xml",
+    ".json"
+  ],
+  "logExtensions": [],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "custom_script",
+    "rconProtocol": "",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "",
+    "waitAfterStopCommand": 30000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 7210,
+        "expression": "",
+        "description": "Game (UDP) and web panel / map downloads (TCP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 7210,
+        "expression": "GamePort",
+        "description": null,
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "dotnet-runtime/dotnet",
+    "relativeWorkingDirectory": "bin/Linux64_Shipping_Server/",
+    "autoSetupFolderName": "bannerlord-linux",
+    "failOnMissingExecutable": false,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 1863440,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 261550,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "exec --runtimeconfig ../../dotnet-runtime/bannerlord.runtimeconfig.json TaleWorlds.Starter.DotNetCore.Linux.dll _MODULES_*Native*Multiplayer${ExtraModules}*_MODULES_ /dedicatedcustomserverconfigfile server_config.txt /tickrate ${TickRate} ${AuthToken} /dedicatedcustomserver ${GamePort} USER 0 /playerhosteddedicatedserver /DisableErrorReporting",
+    "defaultCustomCommandline": "exec --runtimeconfig ../../dotnet-runtime/bannerlord.runtimeconfig.json TaleWorlds.Starter.DotNetCore.Linux.dll _MODULES_*Native*Multiplayer${ExtraModules}*_MODULES_ /dedicatedcustomserverconfigfile server_config.txt /tickrate ${TickRate} ${AuthToken} /dedicatedcustomserver ${GamePort} USER 0 /playerhosteddedicatedserver /DisableErrorReporting ${UserCommandLine}",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "exec --runtimeconfig ../../dotnet-runtime/bannerlord.runtimeconfig.json TaleWorlds.Starter.DotNetCore.Linux.dll _MODULES_*Native*Multiplayer${ExtraModules}*_MODULES_ /dedicatedcustomserverconfigfile server_config.txt /tickrate ${TickRate} ${AuthToken} /dedicatedcustomserver ${GamePort} USER 0 /playerhosteddedicatedserver /DisableErrorReporting"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "d4411ddf-f0c6-51a0-b495-c83a9d7c0de7",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "AdminPassword",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AdminPassword}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "AdminPassword",
+        "defaultValue": "",
+        "label": "Admin password",
+        "description": "For \u0022Join as Admin\u0022 in the server list and the in-game admin panel.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T17:38:33.856321",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "GameType",
+      "defaultValue": "TeamDeathmatch",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${GameType}",
+      "editor": {
+        "items": [
+          {
+            "text": "Team Deathmatch",
+            "value": "TeamDeathmatch"
+          },
+          {
+            "text": "Siege",
+            "value": "Siege"
+          },
+          {
+            "text": "Skirmish",
+            "value": "Skirmish"
+          },
+          {
+            "text": "Captain",
+            "value": "Captain"
+          },
+          {
+            "text": "Duel",
+            "value": "Duel"
+          },
+          {
+            "text": "Battle",
+            "value": "Battle"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "GameType",
+        "defaultValue": "TeamDeathmatch",
+        "label": "Game mode",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T17:38:33.868694",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Map",
+      "defaultValue": "mp_tdm_map_003",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Map}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "Map",
+        "defaultValue": "mp_tdm_map_003",
+        "label": "Map",
+        "description": "A map of the chosen mode, e.g. mp_tdm_map_003 (Team Deathmatch).",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T17:38:33.884376",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "CultureTeam1",
+      "defaultValue": "khuzait",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${CultureTeam1}",
+      "editor": {
+        "items": [
+          {
+            "text": "Aserai",
+            "value": "aserai"
+          },
+          {
+            "text": "Battania",
+            "value": "battania"
+          },
+          {
+            "text": "Empire",
+            "value": "empire"
+          },
+          {
+            "text": "Khuzait",
+            "value": "khuzait"
+          },
+          {
+            "text": "Sturgia",
+            "value": "sturgia"
+          },
+          {
+            "text": "Vlandia",
+            "value": "vlandia"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "CultureTeam1",
+        "defaultValue": "khuzait",
+        "label": "Team 1 culture",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T17:38:33.884463",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "CultureTeam2",
+      "defaultValue": "vlandia",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${CultureTeam2}",
+      "editor": {
+        "items": [
+          {
+            "text": "Aserai",
+            "value": "aserai"
+          },
+          {
+            "text": "Battania",
+            "value": "battania"
+          },
+          {
+            "text": "Empire",
+            "value": "empire"
+          },
+          {
+            "text": "Khuzait",
+            "value": "khuzait"
+          },
+          {
+            "text": "Sturgia",
+            "value": "sturgia"
+          },
+          {
+            "text": "Vlandia",
+            "value": "vlandia"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "CultureTeam2",
+        "defaultValue": "vlandia",
+        "label": "Team 2 culture",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T17:38:33.884493",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AuthToken",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AuthToken.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022/dedicatedcustomserverauthtoken \u0022 \u002B AuthToken}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "AuthToken",
+        "defaultValue": "",
+        "label": "Server token",
+        "description": "Required. In the game open the multiplayer lobby, press Alt \u002B ~ and type customserver.gettoken; the token is saved to Documents\\Mount and Blade II Bannerlord\\Tokens\\DedicatedCustomServerAuthToken.txt. It expires after 3 months.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T17:38:33.889382",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TickRate",
+      "defaultValue": "60",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TickRate}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 30,
+        "maxValue": 120,
+        "id": "TickRate",
+        "defaultValue": "60",
+        "label": "Tick rate",
+        "description": "Server updates per second.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T17:38:33.884534",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ExtraModules",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ExtraModules.ToString().Trim() == \u0022\u0022 ? \u0022\u0022 : \u0022*\u0022 \u002B ExtraModules.ToString().Replace(\u0022 \u0022, \u0022\u0022).Replace(\u0022,\u0022, \u0022*\u0022)}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "ExtraModules",
+        "defaultValue": "",
+        "label": "Extra modules",
+        "description": "Folder names of modules uploaded to Modules, separated by commas (loaded after Native and Multiplayer). Players need the same modules.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T17:38:33.889489",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 419,
+      "relativePath": "Modules/Native/server_config.txt",
+      "description": "Server settings (server_config.txt)",
+      "template": "ServerName ${Hostname}\nGameType ${GameType}\nMap ${Map}\nCultureTeam1 ${CultureTeam1}\nCultureTeam2 ${CultureTeam2}\nMaxNumberOfPlayers ${Slots}\nMinNumberOfPlayersForMatchStart 0\nAdminPassword ${AdminPassword}\nGamePassword ${PrivatePassword}\nMapTimeLimit 30\nadd_map_to_automated_battle_pool ${Map}\nset_automated_battle_count -1\nstart_game\nenable_automated_battle_switching\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Server",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "Shown in the custom server list.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Password",
+          "description": "Leave empty for a public server.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "AdminPassword",
+          "defaultValue": "",
+          "label": "Admin password",
+          "description": "For \u0022Join as Admin\u0022 in the server list and the in-game admin panel.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Game",
+          "defaultValue": null,
+          "label": "Game",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Team Deathmatch",
+              "value": "TeamDeathmatch"
+            },
+            {
+              "text": "Siege",
+              "value": "Siege"
+            },
+            {
+              "text": "Skirmish",
+              "value": "Skirmish"
+            },
+            {
+              "text": "Captain",
+              "value": "Captain"
+            },
+            {
+              "text": "Duel",
+              "value": "Duel"
+            },
+            {
+              "text": "Battle",
+              "value": "Battle"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "GameType",
+          "defaultValue": "TeamDeathmatch",
+          "label": "Game mode",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Map",
+          "defaultValue": "mp_tdm_map_003",
+          "label": "Map",
+          "description": "A map of the chosen mode, e.g. mp_tdm_map_003 (Team Deathmatch).",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Aserai",
+              "value": "aserai"
+            },
+            {
+              "text": "Battania",
+              "value": "battania"
+            },
+            {
+              "text": "Empire",
+              "value": "empire"
+            },
+            {
+              "text": "Khuzait",
+              "value": "khuzait"
+            },
+            {
+              "text": "Sturgia",
+              "value": "sturgia"
+            },
+            {
+              "text": "Vlandia",
+              "value": "vlandia"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "CultureTeam1",
+          "defaultValue": "khuzait",
+          "label": "Team 1 culture",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Aserai",
+              "value": "aserai"
+            },
+            {
+              "text": "Battania",
+              "value": "battania"
+            },
+            {
+              "text": "Empire",
+              "value": "empire"
+            },
+            {
+              "text": "Khuzait",
+              "value": "khuzait"
+            },
+            {
+              "text": "Sturgia",
+              "value": "sturgia"
+            },
+            {
+              "text": "Vlandia",
+              "value": "vlandia"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "CultureTeam2",
+          "defaultValue": "vlandia",
+          "label": "Team 2 culture",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server",
+        "description": "Refuses to start without a server token and installs the .NET 6 runtime the server needs.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll, System.Net.Http.dll, System.Security.Cryptography.dll, TCAdmin.Monitor.SDK.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Security.Cryptography;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\n\n// The server logs in to the TaleWorlds lobby with a token made by a game owner and shuts down right away without one\n// (\u0022Login Failed! Server is shutting down.\u0022), so stop here with the reason instead. The token is a command-line\n// variable; the command line the server starts with is the one to check.\nvar commandLine = (string)ThisService.Commandline ?? \u0022\u0022;\nvar hasToken = System.Text.RegularExpressions.Regex.IsMatch(commandLine, @\u0022/dedicatedcustomserverauthtoken\\s\u002B[^\\s/]\u0022, System.Text.RegularExpressions.RegexOptions.IgnoreCase);\nif (true \u0026\u0026 !hasToken)\n{\n    throw new Exception(\u0022The server needs a Bannerlord server token. Start the game, open Multiplayer, press Alt \u002B ~ (tilde) and type customserver.gettoken; the token is saved to Documents\\\\Mount and Blade II Bannerlord\\\\Tokens\\\\DedicatedCustomServerAuthToken.txt. Paste the contents of that file in Command Lines \u003E Server token. A token is valid for 3 months.\u0022);\n}\n\nif (System.OperatingSystem.IsLinux())\n{\n    var runtimeDir = Path.Combine(root, \u0022dotnet-runtime\u0022);\n\n    // 1. The Linux server is a .NET 6 application and Steam does not ship the runtime. Install the .NET 6 runtime\n    //    (with ASP.NET Core, used by the server\u0027s web panel) into the service folder, so the host needs no .NET 6.\n    const string version = \u00226.0.36\u0022;\n    const string url = \u0022https://builds.dotnet.microsoft.com/dotnet/aspnetcore/Runtime/\u0022 \u002B version \u002B \u0022/aspnetcore-runtime-\u0022 \u002B version \u002B \u0022-linux-x64.tar.gz\u0022;\n    const string sha512 = \u00220e3d1dcc715bffbcb8ab8cb4fd72accbeed79ac40b7fd517961797a168f4301505044d2c1494a49b0e68103940bd6c178c8ae7bacf75f4b40ce82cc85624f6bd\u0022;\n    var changed = false;\n    if (!Directory.Exists(Path.Combine(runtimeDir, \u0022shared\u0022, \u0022Microsoft.AspNetCore.App\u0022, version)) || !File.Exists(Path.Combine(runtimeDir, \u0022dotnet\u0022)))\n    {\n        ScriptConsole.WriteLine((object)(\u0022Installing the .NET \u0022 \u002B version \u002B \u0022 runtime the server needs.\u0022));\n        var archive = Path.Combine(Path.GetTempPath(), \u0022tca-aspnetcore-runtime-\u0022 \u002B version \u002B \u0022-\u0022 \u002B ThisService.ServiceId \u002B \u0022.tar.gz\u0022);\n        try\n        {\n            using (var http = new HttpClient { Timeout = TimeSpan.FromMinutes(10) })\n            using (var response = await http.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n            {\n                response.EnsureSuccessStatusCode();\n                using (var file = File.Create(archive)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n            }\n            string hash;\n            using (var stream = File.OpenRead(archive)) hash = Convert.ToHexString(SHA512.HashData(stream)).ToLowerInvariant();\n            if (hash != sha512) throw new Exception(\u0022The downloaded .NET runtime does not match its published checksum.\u0022);\n            if (Directory.Exists(runtimeDir)) Directory.Delete(runtimeDir, true);\n            Directory.CreateDirectory(runtimeDir);\n            using (var tar = Process.Start(new ProcessStartInfo(\u0022tar\u0022, new[] { \u0022-xzf\u0022, archive, \u0022-C\u0022, runtimeDir }) { UseShellExecute = false, RedirectStandardError = true }))\n            {\n                var error = tar.StandardError.ReadToEnd();\n                tar.WaitForExit();\n                if (tar.ExitCode != 0) throw new Exception(\u0022Could not extract the .NET runtime: \u0022 \u002B error);\n            }\n        }\n        finally\n        {\n            if (File.Exists(archive)) File.Delete(archive);\n        }\n        changed = true;\n    }\n\n    // 2. The game\u0027s own start-up config only names the base .NET runtime, but the server\u0027s web panel module needs\n    //    ASP.NET Core too: the command line runs the starter with this config (dotnet exec --runtimeconfig).\n    var runtimeConfig = Path.Combine(runtimeDir, \u0022bannerlord.runtimeconfig.json\u0022);\n    var runtimeConfigJson = \u0022{\\n  \\\u0022runtimeOptions\\\u0022: {\\n    \\\u0022tfm\\\u0022: \\\u0022net6.0\\\u0022,\\n    \\\u0022frameworks\\\u0022: [\\n\u0022 \u002B\n        \u0022      { \\\u0022name\\\u0022: \\\u0022Microsoft.NETCore.App\\\u0022, \\\u0022version\\\u0022: \\\u00226.0.0\\\u0022 },\\n\u0022 \u002B\n        \u0022      { \\\u0022name\\\u0022: \\\u0022Microsoft.AspNetCore.App\\\u0022, \\\u0022version\\\u0022: \\\u00226.0.0\\\u0022 }\\n    ],\\n\u0022 \u002B\n        \u0022    \\\u0022configProperties\\\u0022: { \\\u0022System.Reflection.Metadata.MetadataUpdater.IsSupported\\\u0022: false }\\n  }\\n}\\n\u0022;\n    if (!File.Exists(runtimeConfig) || File.ReadAllText(runtimeConfig) != runtimeConfigJson)\n    {\n        File.WriteAllText(runtimeConfig, runtimeConfigJson);\n        changed = true;\n    }\n\n    // 3. The game\u0027s engine calls aligned_alloc(24, 64): an alignment that is not a power of two. glibc 2.38 and later\n    //    return NULL for that, so the server crashes (SIGSEGV in libFairyTale.Library.so) on Ubuntu 24.04, Debian 13\n    //    and newer. LD_PRELOAD (a game environment variable) loads this tiny library first; its aligned_alloc calls\n    //    memalign, which rounds the alignment up like aligned_alloc did before glibc 2.38. It is built here, byte by\n    //    byte, so no compiler is needed: an x86-64 ELF shared object with one exported function,\n    //    aligned_alloc = \u0022jmp *memalign@GOT\u0022, and one relocation that fills that GOT slot with memalign.\n    var shim = Path.Combine(runtimeDir, \u0022libtca_aligned_alloc.so\u0022);\n    var shimBytes = BuildAlignedAllocShim();\n    if (!File.Exists(shim) || !File.ReadAllBytes(shim).SequenceEqual(shimBytes))\n    {\n        File.WriteAllBytes(shim, shimBytes);\n        File.SetUnixFileMode(shim, UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.UserExecute | UnixFileMode.GroupRead | UnixFileMode.GroupExecute | UnixFileMode.OtherRead | UnixFileMode.OtherExecute);\n        changed = true;\n    }\n\n    if (changed)\n    {\n        // The script runs as root: give the folder to the service user like the rest of the service files.\n        var cred = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\n        Globals.OperatingSystem.SetDirectoryOwner(runtimeDir, cred.Domain, cred.UserName, true);\n        ScriptConsole.WriteLine((object)\u0022The .NET runtime for the server is ready.\u0022);\n    }\n}\n\nstatic byte[] BuildAlignedAllocShim()\n{\n    const int phCount = 4, hashOff = 64 \u002B 56 * phCount;          // ELF header, then the program headers\n    const int symOff = (hashOff \u002B 24 \u002B 7) \u0026 ~7;                  // .hash: 6 words\n    var dynstr = System.Text.Encoding.ASCII.GetBytes(\u0022\\0aligned_alloc\\0memalign\\0\u0022);\n    const int strOff = symOff \u002B 3 * 24;                          // .dynsym: null, aligned_alloc, memalign\n    int relaOff = (strOff \u002B dynstr.Length \u002B 7) \u0026 ~7;\n    int textOff = relaOff \u002B 24;\n    int roEnd = textOff \u002B 6;\n    const int rw = 0x1000, dynCount = 10;                        // second page: .dynamic, then the GOT slot\n    const int got = rw \u002B 16 * dynCount;\n    var file = new byte[rw \u002B 16 * dynCount \u002B 8];\n    var w = new BinaryWriter(new MemoryStream(file));\n    void At(int offset) =\u003E w.Seek(offset, SeekOrigin.Begin);\n    w.Write(new byte[] { 0x7F, (byte)\u0027E\u0027, (byte)\u0027L\u0027, (byte)\u0027F\u0027, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 });\n    w.Write((ushort)3); w.Write((ushort)0x3E); w.Write(1u);     // ET_DYN, x86-64, version 1\n    w.Write(0UL); w.Write(64UL); w.Write(0UL); w.Write(0u);      // entry, phoff, shoff (no sections), flags\n    w.Write((ushort)64); w.Write((ushort)56); w.Write((ushort)phCount); w.Write((ushort)64); w.Write((ushort)0); w.Write((ushort)0);\n    void Ph(uint type, uint flags, ulong offset, ulong size, ulong align)\n    {\n        w.Write(type); w.Write(flags); w.Write(offset); w.Write(offset); w.Write(offset); w.Write(size); w.Write(size); w.Write(align);\n    }\n    Ph(1, 5, 0, (ulong)roEnd, 0x1000);                           // PT_LOAD r-x: headers, tables, code\n    Ph(1, 6, rw, 16 * dynCount \u002B 8, 0x1000);                     // PT_LOAD rw-: .dynamic \u002B GOT\n    Ph(2, 6, rw, 16 * dynCount, 8);                              // PT_DYNAMIC\n    Ph(0x6474E551, 6, 0, 0, 16);                                 // PT_GNU_STACK: no executable stack\n    At(hashOff); foreach (var v in new uint[] { 1, 3, 1, 0, 2, 0 }) w.Write(v);   // nbucket 1, nchain 3, bucket, chains\n    At(symOff \u002B 24); w.Write(1u); w.Write((byte)0x12); w.Write((byte)0); w.Write((ushort)1); w.Write((ulong)textOff); w.Write(6UL);  // aligned_alloc: global func, defined\n    w.Write(15u); w.Write((byte)0x12); w.Write((byte)0); w.Write((ushort)0); w.Write(0UL); w.Write(0UL);                          // memalign: undefined\n    At(strOff); w.Write(dynstr);\n    At(relaOff); w.Write((ulong)got); w.Write((2UL \u003C\u003C 32) | 6); w.Write(0L);                                                       // R_X86_64_GLOB_DAT, symbol 2\n    At(textOff); w.Write((byte)0xFF); w.Write((byte)0x25); w.Write(got - (textOff \u002B 6));                                           // jmp *[rip \u002B GOT]\n    At(rw);\n    foreach (var (tag, value) in new (long, ulong)[] { (4, hashOff), (5, (ulong)strOff), (6, symOff), (10, (ulong)dynstr.Length), (11, 24),\n                                                       (7, (ulong)relaOff), (8, 24), (9, 24), (30, 8), (0, 0) })\n    {\n        w.Write(tag); w.Write(value);                            // DT_HASH, STRTAB, SYMTAB, STRSZ, SYMENT, RELA, RELASZ, RELAENT, FLAGS=BIND_NOW, NULL\n    }\n    w.Flush();\n    return file;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "108c20da-6593-51eb-bb3c-626c3acf85e2"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomQueryProtocol"
+        ],
+        "name": "Bannerlord query",
+        "description": "Reports the server online while its game port is bound (Bannerlord custom servers have no query protocol).",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Bannerlord custom servers are listed through the TaleWorlds lobby and have no query protocol. The query runs\n// on the monitor of the server that hosts the service, so it checks that the game\u0027s UDP port is bound on this machine.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = Convert.ToInt32(Dynamic.Port);\nif (port \u003C= 0) port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners()\n        .Any(l =\u003E l.Port == port \u0026\u0026 (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \u0022online\u0022,\n            Protocol = \u0022custom_script\u0022,\n            Address = address,\n            Hostname = $\u0022{address}:{port}\u0022,\n            Name = ThisService.Name,\n            GameType = ThisService.Variables.ContainsKey(\u0022GameType\u0022) ? Convert.ToString(ThisService.Variables[\u0022GameType\u0022]) : \u0022\u0022,\n            Map = ThisService.Variables.ContainsKey(\u0022Map\u0022) ? Convert.ToString(ThisService.Variables[\u0022Map\u0022]) : \u0022\u0022,\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, $\u0022Nothing is listening on {address}:{port} (UDP).\u0022);\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, ex.Message);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "5f9e98eb-5b7e-56f0-88c9-b2e4b8d26e0f"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [
+    {
+      "customLink": {
+        "global": false,
+        "allGames": false,
+        "name": "Web panel",
+        "description": "The server\u0027s own admin panel (log in with the admin password).",
+        "url": "http://${IPAddress}:${GamePort}/",
+        "icon": "\u003Cpath d=\u0022M0 0h24v24H0z\u0022 fill=\u0022none\u0022/\u003E\u003Cpath d=\u0022M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z\u0022/\u003E",
+        "order": 0,
+        "openInNewWindow": true,
+        "openInMainContents": false,
+        "identifier": "708c4c8e-0085-5a17-b1e0-66db62f4263a",
+        "customLinkRoles": [],
+        "translations": []
+      }
+    }
+  ],
+  "updates": [],
+  "createdDate": "2026-11-10T17:38:33.811041",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": false,
+    "includedPaths": [
+      "Modules/Native/server_config.txt"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": [
+    {
+      "id": 107,
+      "blueprintId": 195,
+      "name": "DOTNET_ROOT",
+      "value": "${ThisService.RootDirectory}/dotnet-runtime",
+      "valueType": "Template"
+    },
+    {
+      "id": 108,
+      "blueprintId": 195,
+      "name": "LD_LIBRARY_PATH",
+      "value": "${ThisService.RootDirectory}/bin/Linux64_Shipping_Server",
+      "valueType": "Template"
+    },
+    {
+      "id": 109,
+      "blueprintId": 195,
+      "name": "LD_PRELOAD",
+      "value": "${ThisService.RootDirectory}/dotnet-runtime/libtca_aligned_alloc.so",
+      "valueType": "Template"
+    }
+  ]
+}
