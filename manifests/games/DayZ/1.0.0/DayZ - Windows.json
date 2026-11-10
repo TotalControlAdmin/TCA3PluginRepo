@@ -1,6 +1,6 @@
 {
   "__TCA:ExportVersion": "3.23.42",
-  "__TCA:ExportedAt": "2026-11-09T21:25:14.196323Z",
+  "__TCA:ExportedAt": "2026-11-10T00:16:20.3059768Z",
   "name": "Dayz Stand Alone",
   "shortName": "dayzsa",
   "description": "",
@@ -1348,7 +1348,10 @@
     "compressBackup": true,
     "stopServiceBeforeBackup": true,
     "includedPaths": [
-      "mpmissions/**/*",
+      "mpmissions/*/storage_*/**/*",
+      "mpmissions/**/*.c",
+      "mpmissions/**/*.xml",
+      "mpmissions/**/*.json",
       "serverDZ.cfg",
       "*.txt",
       "BattlEye/*.cfg"
