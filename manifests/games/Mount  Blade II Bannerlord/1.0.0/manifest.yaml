@@ -1,0 +1,45 @@
+identifier: "Community.Games.MountAndBlade2Bannerlord"
+name: "Mount & Blade II: Bannerlord"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Mount & Blade II: Bannerlord dedicated custom server (Windows + native Linux) with a settings form, server token check, .NET 6 runtime setup on Linux, extra modules and a web panel link"
+longDescription: |
+  ## Description
+  
+  Mount & Blade II: Bannerlord dedicated custom server for Windows and Linux (native Linux build, no Wine).
+  
+  ## Key Features
+  
+  - Server settings in a form: name, password, admin password, game mode, map and team cultures.
+  - Command Lines manager: server token, tick rate and extra modules.
+  - Linux: the start script installs the .NET 6 runtime the server needs into the service folder, and works around a crash on hosts with glibc 2.38 or newer (Ubuntu 24.04, Debian 13).
+  - The start is refused with a clear message while no server token is set.
+  - Web panel link (the server's own admin panel).
+  - Backups of the server settings.
+  
+  ## Ports
+  
+  - Game port (default 7210): UDP for the game, TCP for the web panel and map downloads.
+  
+  ## Instructions
+  
+  1. Get a server token: start the game, open Multiplayer, press Alt + ~ and type `customserver.gettoken`. The token is saved to `Documents\Mount and Blade II Bannerlord\Tokens\DedicatedCustomServerAuthToken.txt`.
+  2. Paste the contents of that file in Command Lines > Server token. A token is valid for 3 months.
+  3. Set the server name, mode and map in Configuration Files, then start the server.
+  4. Modules: upload the module folder to `Modules` and add its folder name to Command Lines > Extra modules. Players need the same modules.
+  
+  The server token is required: without a valid token the server shuts down about 25 seconds after it starts. This config was tested up to the lobby login (install, .NET runtime setup, settings, extra modules, backups). Everything after a successful login was not tested: the online status, console commands, the web panel and players joining.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/261550/896d5f4214e4e185a20af51b46d9dea2e6f4aaad.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/261550/ss_569257e92fd31d58a6fe08053de637071b4518d3.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Mount and Blade II Bannerlord - Windows.json"
+    type: "GameConfig"
+  - path: "Mount and Blade II Bannerlord - Linux.json"
+    type: "GameConfig"
