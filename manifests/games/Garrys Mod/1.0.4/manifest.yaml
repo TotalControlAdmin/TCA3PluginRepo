@@ -9,6 +9,7 @@ longDescription: |
   
   ## What's new in 1.0.4
   - Added the Source RCON Tool page: player list with kick and ban, broadcast messages, bots, map change and quick toggles
+  - The RCON tool talks to the server through the panel's built-in Source RCON client, so each reply comes straight back from the server (no console log reading, no `-condebug` needed). The blueprint's RCON protocol is now set to Source.
   
 icon: "https://raw.githubusercontent.com/github/explore/436fc28ceb6837723d4f307c400f179bc5cdab92/topics/garrysmod/garrysmod.png"
 images:
