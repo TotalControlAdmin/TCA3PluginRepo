@@ -1,0 +1,1342 @@
+{
+  "__TCA:ExportVersion": "3.23.42",
+  "__TCA:ExportedAt": "2026-11-10T13:52:44.3648344Z",
+  "name": "Don\u0027t Starve Together",
+  "shortName": "DST",
+  "description": "",
+  "operatingSystem": "Linux",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/322330/a80aa6cff8eebc1cbc18c367d9ab063e1553b0ee.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322330/ss_f863729856b94b3485ee80e6fd11289595f6634c.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 64,
+  "defaultSlots": 6,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".ini",
+    ".txt",
+    ".lua"
+  ],
+  "logExtensions": [
+    "server_log.txt",
+    "server_chat_log.txt"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "DoNotStarveTogether/Cluster_1/Master/server_log.txt",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "c_shutdown(true)",
+    "waitAfterStopCommand": 60000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 10999,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 11000,
+        "expression": "GamePort \u002B 1",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "SteamAuthPort",
+        "port": 11001,
+        "expression": "GamePort \u002B 2",
+        "description": "Steam authentication (UDP)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "bin64/dontstarve_dedicated_server_nullrenderer_x64",
+    "relativeWorkingDirectory": "bin64/",
+    "autoSetupFolderName": "dst-linux",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 343050,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 322330,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": false,
+    "defaultCommandline": "-console -persistent_storage_root .. -conf_dir DoNotStarveTogether -cluster Cluster_1 -shard Master -bind_ip ${IPAddress} -port ${GamePort} -players ${Slots}",
+    "defaultCustomCommandline": "-console -persistent_storage_root .. -conf_dir DoNotStarveTogether -cluster Cluster_1 -shard Master -bind_ip ${IPAddress} -port ${GamePort} -players ${Slots} ${UserCommandLine}",
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "0b16d020-7037-4aba-859c-a3f43454997d",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "ClusterDescription",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ClusterDescription}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "ClusterDescription",
+        "defaultValue": "",
+        "label": "Description",
+        "description": "Shown in the server details of the Browse Games screen.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:30:00.608192",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ClusterIntention",
+      "defaultValue": "cooperative",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ClusterIntention}",
+      "editor": {
+        "items": [
+          {
+            "text": "Cooperative",
+            "value": "cooperative"
+          },
+          {
+            "text": "Competitive",
+            "value": "competitive"
+          },
+          {
+            "text": "Social",
+            "value": "social"
+          },
+          {
+            "text": "Madness",
+            "value": "madness"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "ClusterIntention",
+        "defaultValue": "cooperative",
+        "label": "Play style",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:30:00.618467",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "GameMode",
+      "defaultValue": "survival",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${GameMode}",
+      "editor": {
+        "items": [
+          {
+            "text": "Survival",
+            "value": "survival"
+          },
+          {
+            "text": "Endless",
+            "value": "endless"
+          },
+          {
+            "text": "Wilderness",
+            "value": "wilderness"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "GameMode",
+        "defaultValue": "survival",
+        "label": "Game mode",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:30:00.625188",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Pvp",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Pvp}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "Pvp",
+        "defaultValue": "false",
+        "label": "Player vs player",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:30:00.625237",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PauseWhenEmpty",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PauseWhenEmpty}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "PauseWhenEmpty",
+        "defaultValue": "true",
+        "label": "Pause when nobody is online",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:30:00.627312",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ClusterToken",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ClusterToken}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "ClusterToken",
+        "defaultValue": "",
+        "label": "Cluster token",
+        "description": "Required to list the server online. In the game: Play \u003E Account \u003E Game Servers \u003E Add New Server \u003E copy the token. Without it the server only runs as a LAN server.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:30:00.627364",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 403,
+      "relativePath": "DoNotStarveTogether/Cluster_1/cluster.ini",
+      "description": "Server settings (cluster.ini)",
+      "template": "[GAMEPLAY]\ngame_mode = ${GameMode}\nmax_players = ${Slots}\npvp = ${Pvp}\npause_when_empty = ${PauseWhenEmpty}\n\n[NETWORK]\ncluster_name = ${Hostname}\ncluster_description = ${ClusterDescription}\ncluster_password = ${PrivatePassword}\ncluster_intention = ${ClusterIntention}\nlan_only_cluster = false\noffline_cluster = false\ntick_rate = 15\n\n[MISC]\nconsole_enabled = true\nmax_snapshots = 6\n\n[SHARD]\nshard_enabled = false\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Cluster",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Password",
+          "description": "Leave empty for a public server.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "ClusterDescription",
+          "defaultValue": "",
+          "label": "Description",
+          "description": "Shown in the server details of the Browse Games screen.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Cooperative",
+              "value": "cooperative"
+            },
+            {
+              "text": "Competitive",
+              "value": "competitive"
+            },
+            {
+              "text": "Social",
+              "value": "social"
+            },
+            {
+              "text": "Madness",
+              "value": "madness"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "ClusterIntention",
+          "defaultValue": "cooperative",
+          "label": "Play style",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Gameplay",
+          "defaultValue": null,
+          "label": "Gameplay",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Survival",
+              "value": "survival"
+            },
+            {
+              "text": "Endless",
+              "value": "endless"
+            },
+            {
+              "text": "Wilderness",
+              "value": "wilderness"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "GameMode",
+          "defaultValue": "survival",
+          "label": "Game mode",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "Pvp",
+          "defaultValue": "false",
+          "label": "Player vs player",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "PauseWhenEmpty",
+          "defaultValue": "true",
+          "label": "Pause when nobody is online",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 404,
+      "relativePath": "DoNotStarveTogether/Cluster_1/cluster_token.txt",
+      "description": "Cluster token (cluster_token.txt)",
+      "template": "${ClusterToken}",
+      "order": 2,
+      "enableEditor": true,
+      "editor": [
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "ClusterToken",
+          "defaultValue": "",
+          "label": "Cluster token",
+          "description": "Required to list the server online. In the game: Play \u003E Account \u003E Game Servers \u003E Add New Server \u003E copy the token. Without it the server only runs as a LAN server.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 405,
+      "relativePath": "DoNotStarveTogether/Cluster_1/Master/server.ini",
+      "description": "Shard ports (server.ini)",
+      "template": "[NETWORK]\nserver_port = ${GamePort}\n\n[SHARD]\nis_master = true\n\n[STEAM]\nmaster_server_port = ${QueryPort}\nauthentication_port = ${SteamAuthPort}\n",
+      "order": 3,
+      "enableEditor": false,
+      "editor": []
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server",
+        "description": "Warns when no cluster token is set and installs the libraries the server needs when the host does not have them.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\nvar cluster = Path.Combine(root, \u0022DoNotStarveTogether\u0022, \u0022Cluster_1\u0022);\n\n// Without a cluster token an online server stops at \u0022E_INVALID_TOKEN ... Your Server Will Not Start\u0022 but its process\n// stays alive, so refuse the start with the reason instead. An offline (LAN) cluster needs no token.\nvar tokenFile = Path.Combine(cluster, \u0022cluster_token.txt\u0022);\nvar clusterIni = Path.Combine(cluster, \u0022cluster.ini\u0022);\nvar offline = File.Exists(clusterIni) \u0026\u0026 File.ReadAllLines(clusterIni).Any(l =\u003E l.Replace(\u0022 \u0022, \u0022\u0022).Equals(\u0022offline_cluster=true\u0022, StringComparison.OrdinalIgnoreCase));\nif (!offline \u0026\u0026 (!File.Exists(tokenFile) || File.ReadAllText(tokenFile).Trim().Length == 0))\n{\n    throw new Exception(\u0022The server needs a Klei cluster token. In the game choose Play \u003E Account \u003E Game Servers \u003E Add New Server, copy the token and paste it in Configuration Files \u003E Cluster token.\u0022);\n}\n\n// Linux: install the shared libraries the server binary links but this host does not have.\nif (System.OperatingSystem.IsLinux())\n{\n    var binary = Path.Combine(root, \u0022bin64\u0022, \u0022dontstarve_dedicated_server_nullrenderer_x64\u0022);\n    var packages = new Dictionary\u003Cstring, (string[] Apt, string[] Rpm)\u003E\n    {\n        [\u0022libcurl-gnutls.so.4\u0022] = (new[] { \u0022libcurl3-gnutls\u0022, \u0022libcurl3t64-gnutls\u0022 }, new[] { \u0022libcurl\u0022 })\n    };\n    Shell(\u0022ldd \u0027\u0022 \u002B binary \u002B \u0022\u0027\u0022, out var lddOutput);\n    var missing = lddOutput.Split(\u0027\\n\u0027).Where(l =\u003E l.Contains(\u0022=\u003E not found\u0022)).Select(l =\u003E l.Trim().Split(\u0027 \u0027)[0]).ToList();\n    foreach (var soname in missing)\n    {\n        if (!packages.TryGetValue(soname, out var candidates))\n        {\n            ScriptConsole.WriteLine((object)(\u0022The server needs \u0022 \u002B soname \u002B \u0022, which is not installed on this host.\u0022));\n            continue;\n        }\n        ScriptConsole.WriteLine((object)(soname \u002B \u0022 is missing on this host; installing it.\u0022));\n        var apt = Shell(\u0022command -v apt-get\u0022, out _);\n        var tool = apt ? \u0022DEBIAN_FRONTEND=noninteractive apt-get install -y \u0022 : Shell(\u0022command -v dnf\u0022, out _) ? \u0022dnf install -y \u0022 : \u0022yum install -y \u0022;\n        var names = apt ? candidates.Apt : candidates.Rpm;\n        var installed = names.Any(p =\u003E Shell(tool \u002B p, out _));\n        if (!installed \u0026\u0026 apt \u0026\u0026 Shell(\u0022apt-get update\u0022, out _)) installed = names.Any(p =\u003E Shell(tool \u002B p, out _));\n        if (!installed) throw new Exception(soname \u002B \u0022 is missing and could not be installed. Install one of these packages on the host: \u0022 \u002B string.Join(\u0022, \u0022, names));\n        ScriptConsole.WriteLine((object)(\u0022Installed \u0022 \u002B soname \u002B \u0022.\u0022));\n    }\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\u0022/bin/sh\u0022, new[] { \u0022-c\u0022, command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() \u002B process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "443d6372-5027-413b-8225-b662d54ac001"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-10T13:30:00.686445",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "DoNotStarveTogether/Cluster_1/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": [
+    {
+      "id": 104,
+      "blueprintId": 180,
+      "name": "LD_LIBRARY_PATH",
+      "value": "${ThisService.RootDirectory}/bin64/lib64",
+      "valueType": "Template"
+    }
+  ]
+}
