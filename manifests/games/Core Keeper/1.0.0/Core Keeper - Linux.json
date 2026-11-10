@@ -1,6 +1,6 @@
 {
   "__TCA:ExportVersion": "3.23.43.17810",
-  "__TCA:ExportedAt": "2026-11-10T15:38:51.1207785Z",
+  "__TCA:ExportedAt": "2026-11-10T18:07:59.4765513Z",
   "name": "Core Keeper",
   "shortName": "CoreKeeper",
   "description": "",
@@ -103,10 +103,16 @@
     "privateCustomCommandline": ""
   },
   "commandlineConfig": {
-    "enableSelection": false,
+    "enableSelection": true,
     "defaultCommandline": "-batchmode -logfile CoreKeeperServerLog.txt -datapath data -port ${GamePort} -ip ${IPAddress} -maxplayers ${Slots} ${WorldName} ${World} ${WorldMode} ${WorldSeed} ${GameId} ${JoinPassword}",
     "defaultCustomCommandline": "-batchmode -logfile CoreKeeperServerLog.txt -datapath data -port ${GamePort} -ip ${IPAddress} -maxplayers ${Slots} ${WorldName} ${World} ${WorldMode} ${WorldSeed} ${GameId} ${JoinPassword} ${UserCommandLine}",
-    "predefinedCommandlines": []
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "-batchmode -logfile CoreKeeperServerLog.txt -datapath data -port ${GamePort} -ip ${IPAddress} -maxplayers ${Slots} ${WorldName} ${World} ${WorldMode} ${WorldSeed} ${GameId} ${JoinPassword}"
+      }
+    ]
   },
   "runAsConfig": {
     "runAs": "TCAGame",
@@ -134,7 +140,7 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "-worldname \u0022${WorldName}\u0022",
+      "template": "-worldname \"${WorldName}\"",
       "editor": {
         "maxLength": 0,
         "lines": 1,
@@ -275,7 +281,7 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "${WorldSeed.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022-worldseed \u0022 \u002B WorldSeed}",
+      "template": "${WorldSeed.ToString() == \"\" ? \"\" : \"-worldseed \" + WorldSeed}",
       "editor": {
         "maxLength": 0,
         "lines": 1,
@@ -317,7 +323,7 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "${GameId.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022-gameid \u0022 \u002B GameId}",
+      "template": "${GameId.ToString() == \"\" ? \"\" : \"-gameid \" + GameId}",
       "editor": {
         "maxLength": 0,
         "lines": 1,
@@ -359,7 +365,7 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "${JoinPassword.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022-password \u0022 \u002B JoinPassword}",
+      "template": "${JoinPassword.ToString() == \"\" ? \"\" : \"-password \" + JoinPassword}",
       "editor": {
         "maxLength": 0,
         "lines": 1,
@@ -428,7 +434,7 @@
         ],
         "name": "Graceful stop",
         "description": "Asks the server to save and exit (SIGTERM) and waits for it.",
-        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Graceful stop: the server saves and exits on a close request (taskkill without /f on Windows, SIGTERM on Linux),\n// which the panel\u0027s own stop does not send. Only the server binary of THIS service is signalled.\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(Path.DirectorySeparatorChar) \u002B Path.DirectorySeparatorChar;\nvar binary = \u0022CoreKeeperServer\u0022;\nconst int maxWaitSeconds = 120;\n\nList\u003Cint\u003E ServerPids()\n{\n    var pids = new List\u003Cint\u003E();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var p in Process.GetProcessesByName(Path.GetFileNameWithoutExtension(binary)))\n        {\n            try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) pids.Add(p.Id); }\n            catch { } // exited meanwhile\n        }\n        return pids;\n    }\n    foreach (var dir in Directory.EnumerateDirectories(\u0022/proc\u0022))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var exe = new FileInfo(Path.Combine(dir, \u0022exe\u0022)).LinkTarget ?? \u0022\u0022;\n            if (exe.StartsWith(root, StringComparison.Ordinal) \u0026\u0026 Path.GetFileName(exe) == binary) pids.Add(pid);\n        }\n        catch { } // processes of other users, or gone meanwhile\n    }\n    return pids;\n}\n\nvar targets = ServerPids();\nif (targets.Count == 0)\n{\n    ScriptConsole.WriteLine((object)\u0022The server is not running.\u0022);\n    return;\n}\nforeach (var pid in targets)\n{\n    var signal = System.OperatingSystem.IsWindows()\n        ? new ProcessStartInfo(\u0022taskkill.exe\u0022, new[] { \u0022/pid\u0022, pid.ToString() })\n        : new ProcessStartInfo(\u0022kill\u0022, new[] { \u0022-TERM\u0022, pid.ToString() });\n    signal.UseShellExecute = false; signal.RedirectStandardOutput = true; signal.RedirectStandardError = true;\n    using (var process = Process.Start(signal)) process.WaitForExit();\n}\nScriptConsole.WriteLine((object)(\u0022Asked the server (\u0022 \u002B string.Join(\u0022, \u0022, targets) \u002B \u0022) to save and exit.\u0022));\nfor (var second = 1; second \u003C= maxWaitSeconds; second\u002B\u002B)\n{\n    await Task.Delay(1000, ThisCancellationToken);\n    if (ServerPids().Count == 0)\n    {\n        ScriptConsole.WriteLine((object)(\u0022The server exited after \u0022 \u002B second \u002B \u0022 s.\u0022));\n        return;\n    }\n}\nScriptConsole.WriteLine((object)(\u0022The server did not exit within \u0022 \u002B maxWaitSeconds \u002B \u0022 s; the panel stops it now.\u0022));\n",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Graceful stop: the server saves and exits on a close request (taskkill without /f on Windows, SIGTERM on Linux),\n// which the panel's own stop does not send. Only the server binary of THIS service is signalled.\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;\nvar binary = \"CoreKeeperServer\";\nconst int maxWaitSeconds = 120;\n\nList<int> ServerPids()\n{\n    var pids = new List<int>();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var p in Process.GetProcessesByName(Path.GetFileNameWithoutExtension(binary)))\n        {\n            try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) pids.Add(p.Id); }\n            catch { } // exited meanwhile\n        }\n        return pids;\n    }\n    foreach (var dir in Directory.EnumerateDirectories(\"/proc\"))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var exe = new FileInfo(Path.Combine(dir, \"exe\")).LinkTarget ?? \"\";\n            if (exe.StartsWith(root, StringComparison.Ordinal) && Path.GetFileName(exe) == binary) pids.Add(pid);\n        }\n        catch { } // processes of other users, or gone meanwhile\n    }\n    return pids;\n}\n\nvar targets = ServerPids();\nif (targets.Count == 0)\n{\n    ScriptConsole.WriteLine((object)\"The server is not running.\");\n    return;\n}\nforeach (var pid in targets)\n{\n    var signal = System.OperatingSystem.IsWindows()\n        ? new ProcessStartInfo(\"taskkill.exe\", new[] { \"/pid\", pid.ToString() })\n        : new ProcessStartInfo(\"kill\", new[] { \"-TERM\", pid.ToString() });\n    signal.UseShellExecute = false; signal.RedirectStandardOutput = true; signal.RedirectStandardError = true;\n    using (var process = Process.Start(signal)) process.WaitForExit();\n}\nScriptConsole.WriteLine((object)(\"Asked the server (\" + string.Join(\", \", targets) + \") to save and exit.\"));\nfor (var second = 1; second <= maxWaitSeconds; second++)\n{\n    await Task.Delay(1000, ThisCancellationToken);\n    if (ServerPids().Count == 0)\n    {\n        ScriptConsole.WriteLine((object)(\"The server exited after \" + second + \" s.\"));\n        return;\n    }\n}\nScriptConsole.WriteLine((object)(\"The server did not exit within \" + maxWaitSeconds + \" s; the panel stops it now.\"));\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
@@ -458,7 +464,7 @@
         ],
         "name": "Start the virtual display",
         "description": "Starts the Xvfb display the server needs (installs xvfb and libxi6 when the host does not have them).",
-        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// The server needs an X display even in -batchmode (it hangs at \u0022Video subsystem has not been initialized\u0022).\n// Each service gets its own virtual display, :\u003Cservice id\u003E, matching the DISPLAY environment variable.\nvar display = \u0022:\u0022 \u002B ThisService.ServiceId;\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\u0022/bin/sh\u0022, new[] { \u0022-c\u0022, command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() \u002B process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n\nif (!Shell(\u0022command -v Xvfb\u0022, out _))\n{\n    ScriptConsole.WriteLine((object)\u0022Xvfb is missing on this host; installing it.\u0022);\n    var installed = Shell(\u0022command -v apt-get\u0022, out _)\n        ? Shell(\u0022DEBIAN_FRONTEND=noninteractive apt-get install -y xvfb libxi6 || (apt-get update \u0026\u0026 DEBIAN_FRONTEND=noninteractive apt-get install -y xvfb libxi6)\u0022, out var log)\n        : Shell(\u0022(command -v dnf \u0026\u0026 dnf install -y xorg-x11-server-Xvfb libXi) || yum install -y xorg-x11-server-Xvfb libXi\u0022, out log);\n    if (!installed) throw new Exception(\u0022Xvfb could not be installed. Install xvfb libxi6 (Debian/Ubuntu) or xorg-x11-server-Xvfb libXi (Red Hat) on this host. \u0022 \u002B log);\n    ScriptConsole.WriteLine((object)\u0022Installed Xvfb.\u0022);\n}\n\nif (Shell(\u0022pgrep -f \u0027^Xvfb \u0022 \u002B display \u002B \u0022 \u0027\u0022, out _)) return;\nShell(\u0022rm -f /tmp/.X\u0022 \u002B ThisService.ServiceId \u002B \u0022-lock /tmp/.X11-unix/X\u0022 \u002B ThisService.ServiceId, out _);\nvar user = ServiceManagerService.GetServiceCredential(ThisService.ServiceId).UserName;\nShell(\u0022setsid runuser -u \u0027\u0022 \u002B user \u002B \u0022\u0027 -- Xvfb \u0022 \u002B display \u002B \u0022 -screen 0 1x1x24 -nolisten tcp \u003E /dev/null 2\u003E\u00261 \u003C /dev/null \u0026\u0022, out _);\nfor (var i = 0; i \u003C 50 \u0026\u0026 !File.Exists(\u0022/tmp/.X11-unix/X\u0022 \u002B ThisService.ServiceId); i\u002B\u002B) await Task.Delay(100);\nScriptConsole.WriteLine((object)(\u0022Started the virtual display \u0022 \u002B display \u002B \u0022.\u0022));\n",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// The server needs an X display even in -batchmode (it hangs at \"Video subsystem has not been initialized\").\n// Each service gets its own virtual display, :<service id>, matching the DISPLAY environment variable.\nvar display = \":\" + ThisService.ServiceId;\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() + process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n\nif (!Shell(\"command -v Xvfb\", out _))\n{\n    ScriptConsole.WriteLine((object)\"Xvfb is missing on this host; installing it.\");\n    var installed = Shell(\"command -v apt-get\", out _)\n        ? Shell(\"DEBIAN_FRONTEND=noninteractive apt-get install -y xvfb libxi6 || (apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y xvfb libxi6)\", out var log)\n        : Shell(\"(command -v dnf && dnf install -y xorg-x11-server-Xvfb libXi) || yum install -y xorg-x11-server-Xvfb libXi\", out log);\n    if (!installed) throw new Exception(\"Xvfb could not be installed. Install xvfb libxi6 (Debian/Ubuntu) or xorg-x11-server-Xvfb libXi (Red Hat) on this host. \" + log);\n    ScriptConsole.WriteLine((object)\"Installed Xvfb.\");\n}\n\nif (Shell(\"pgrep -f '^Xvfb \" + display + \" '\", out _)) return;\nShell(\"rm -f /tmp/.X\" + ThisService.ServiceId + \"-lock /tmp/.X11-unix/X\" + ThisService.ServiceId, out _);\nvar user = ServiceManagerService.GetServiceCredential(ThisService.ServiceId).UserName;\nShell(\"setsid runuser -u '\" + user + \"' -- Xvfb \" + display + \" -screen 0 1x1x24 -nolisten tcp > /dev/null 2>&1 < /dev/null &\", out _);\nfor (var i = 0; i < 50 && !File.Exists(\"/tmp/.X11-unix/X\" + ThisService.ServiceId); i++) await Task.Delay(100);\nScriptConsole.WriteLine((object)(\"Started the virtual display \" + display + \".\"));\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -488,7 +494,7 @@
         ],
         "name": "Stop the virtual display",
         "description": "Stops the Xvfb display after the server stopped.",
-        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System.Diagnostics;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// The service\u0027s virtual display is not needed while the server is stopped.\nusing (var kill = Process.Start(new ProcessStartInfo(\u0022pkill\u0022, new[] { \u0022-f\u0022, \u0022^Xvfb :\u0022 \u002B ThisService.ServiceId \u002B \u0022 \u0022 }) { UseShellExecute = false }))\n    kill.WaitForExit();\n",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System.Diagnostics;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// The service's virtual display is not needed while the server is stopped.\nusing (var kill = Process.Start(new ProcessStartInfo(\"pkill\", new[] { \"-f\", \"^Xvfb :\" + ThisService.ServiceId + \" \" }) { UseShellExecute = false }))\n    kill.WaitForExit();\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
@@ -518,7 +524,7 @@
         ],
         "name": "Core Keeper query",
         "description": "Reports the server online while its direct-connection port is bound (Core Keeper has no server-browser query).",
-        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Core Keeper has no server-browser query. The query runs on the\n// monitor of the server that hosts the service, so it checks that the game\u0027s UDP port is bound on this machine.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = Convert.ToInt32(Dynamic.Port);\nif (port \u003C= 0) port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners()\n        .Any(l =\u003E l.Port == port \u0026\u0026 (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \u0022online\u0022,\n            Protocol = \u0022custom_script\u0022,\n            Address = address,\n            Hostname = $\u0022{address}:{port}\u0022,\n            Name = ThisService.Name,\n            GameType = \u0022Core Keeper\u0022,\n            Map = \u0022\u0022,\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, $\u0022Nothing is listening on {address}:{port} (UDP).\u0022);\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, ex.Message);\n}\n",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Core Keeper has no server-browser query. The query runs on the\n// monitor of the server that hosts the service, so it checks that the game's UDP port is bound on this machine.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = Convert.ToInt32(Dynamic.Port);\nif (port <= 0) port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners()\n        .Any(l => l.Port == port && (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \"online\",\n            Protocol = \"custom_script\",\n            Address = address,\n            Hostname = $\"{address}:{port}\",\n            Name = ThisService.Name,\n            GameType = \"Core Keeper\",\n            Map = \"\",\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", $\"Nothing is listening on {address}:{port} (UDP).\");\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", ex.Message);\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
@@ -559,7 +565,7 @@
       "module": "BpFeature",
       "permission": "PredefCmdlines",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
@@ -839,7 +845,7 @@
       "module": "BpFeature",
       "permission": "PredefCmdlines",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
