@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.23.42",
-  "__TCA:ExportedAt": "2026-11-10T12:58:08.3879486Z",
+  "__TCA:ExportVersion": "3.23.43.17810",
+  "__TCA:ExportedAt": "2026-11-10T19:28:17.6986633Z",
   "name": "Left 4 Dead 2",
   "shortName": "L4D2",
   "description": "",
@@ -153,13 +153,13 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "\u002Bexec \u0022${ConfigFile}\u0022",
+      "template": "+exec \"${ConfigFile}\"",
       "editor": {
         "maxLength": 0,
         "lines": 1,
         "denyCharacters": [
-          "\u002B",
-          "\u0022"
+          "+",
+          "\""
         ],
         "regExValidation": "",
         "inputType": 0,
@@ -191,7 +191,7 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "\u002Bfps_max ${FpsMax}",
+      "template": "+fps_max ${FpsMax}",
       "editor": {
         "decimals": 0,
         "step": 1,
@@ -258,7 +258,7 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "\u002Bmp_gamemode ${GameMode}",
+      "template": "+mp_gamemode ${GameMode}",
       "editor": {
         "items": [
           {
@@ -316,7 +316,7 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "\u002Bmap ${StartupMap}",
+      "template": "+map ${StartupMap}",
       "editor": {
         "items": [
           {
@@ -403,7 +403,7 @@
       "id": 394,
       "relativePath": "left4dead2\\cfg\\server.cfg",
       "description": "Server settings (server.cfg)",
-      "template": "// Server name\nhostname \u0022${Hostname}\u0022\n\n// RCON password\nrcon_password \u0022${RconPassword}\u0022\n\n// Join password (empty = public)\nsv_password \u0022${PrivatePassword}\u0022\n\n// Accept direct connections, not only lobby matchmaking\nsv_allow_lobby_connect_only 0\nsv_gametypes \u0022coop,realism,survival,versus,scavenge,mutation12\u0022\n\n// Difficulty for campaign modes: Easy, Normal, Hard, Impossible\nz_difficulty \u0022Normal\u0022\n\n// 0 = no voice from other team, 1 = all talk\nsv_alltalk 0\n\n// Server logging\nlog on\nsv_logbans 1\nsv_logecho 0\nsv_logfile 1\n\n// Ban lists\nexec banned_user.cfg\nexec banned_ip.cfg\n",
+      "template": "// Server name\nhostname \"${Hostname}\"\n\n// RCON password\nrcon_password \"${RconPassword}\"\n\n// Join password (empty = public)\nsv_password \"${PrivatePassword}\"\n\n// Accept direct connections, not only lobby matchmaking\nsv_allow_lobby_connect_only 0\nsv_gametypes \"coop,realism,survival,versus,scavenge,mutation12\"\n\n// Difficulty for campaign modes: Easy, Normal, Hard, Impossible\nz_difficulty \"Normal\"\n\n// 0 = no voice from other team, 1 = all talk\nsv_alltalk 0\n\n// Server logging\nlog on\nsv_logbans 1\nsv_logecho 0\nsv_logfile 1\n\n// Ban lists\nexec banned_user.cfg\nexec banned_ip.cfg\n",
       "order": 1,
       "enableEditor": true,
       "editor": [
@@ -504,7 +504,7 @@
         ],
         "name": "Prepare the server",
         "description": "Writes steam_appid.txt so the first start connects to Steam (otherwise LAN only) and keeps the previous console log as console.previous.log.",
-        "code": "using System;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\n\n// srcds writes steam_appid.txt next to itself, but only during its first run, which therefore starts without Steam\n// (\u0022Unable to load Steam support library ... LAN mode only\u0022). Writing it before every start makes the first one work.\nvar appIdFile = Path.Combine(root, \u0022steam_appid.txt\u0022);\nif (!File.Exists(appIdFile) || File.ReadAllText(appIdFile).Trim(\u0027\\0\u0027, \u0027\\r\u0027, \u0027\\n\u0027, \u0027 \u0027) != \u0022550\u0022)\n{\n    File.WriteAllText(appIdFile, \u0022550\\n\u0022);\n    ScriptConsole.WriteLine((object)\u0022Wrote steam_appid.txt (550).\u0022);\n}\n\n// -condebug appends to console.log forever; keep only the previous run next to the new one.\nvar log = Path.Combine(root, \u0022left4dead2\u0022, \u0022console.log\u0022);\nif (File.Exists(log))\n{\n    File.Move(log, Path.Combine(Path.GetDirectoryName(log), \u0022console.previous.log\u0022), true);\n}\n",
+        "code": "using System;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\n\n// srcds writes steam_appid.txt next to itself, but only during its first run, which therefore starts without Steam\n// (\"Unable to load Steam support library ... LAN mode only\"). Writing it before every start makes the first one work.\nvar appIdFile = Path.Combine(root, \"steam_appid.txt\");\nif (!File.Exists(appIdFile) || File.ReadAllText(appIdFile).Trim('\\0', '\\r', '\\n', ' ') != \"550\")\n{\n    File.WriteAllText(appIdFile, \"550\\n\");\n    ScriptConsole.WriteLine((object)\"Wrote steam_appid.txt (550).\");\n}\n\n// -condebug appends to console.log forever; keep only the previous run next to the new one.\nvar log = Path.Combine(root, \"left4dead2\", \"console.log\");\nif (File.Exists(log))\n{\n    File.Move(log, Path.Combine(Path.GetDirectoryName(log), \"console.previous.log\"), true);\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
@@ -520,9 +520,132 @@
         "translations": [],
         "identifier": "f301eb34-d89b-4e02-8d16-78902a7e9a90"
       }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterCustomModInstalled"
+        ],
+        "name": "Install the Workshop add-on",
+        "description": "Moves the downloaded .vpk into left4dead2/addons/workshop",
+        "code": "using System;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Left 4 Dead 2 loads add-ons (.vpk) from left4dead2/addons and left4dead2/addons/workshop. The Workshop\n// download lands in steamapps/Workshop/content/550/<id>/...; move every .vpk it contains into\n// left4dead2/addons/workshop as <id>.vpk (the name the game itself uses), so the server loads it on the\n// next map change or restart. Files created here are tracked and removed again when the mod is uninstalled.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nstring installPath = Convert.ToString(Dynamic.InstallPath);\nstring root = (string)ThisService.RootDirectory;\nstring addons = Path.Combine(root, \"left4dead2\", \"addons\", \"workshop\");\nDirectory.CreateDirectory(addons);\n\nif (!Directory.Exists(installPath))\n{\n    ScriptConsole.WriteLine((object)(\"Nothing was downloaded for Workshop item \" + fileId + \".\"));\n    return;\n}\n\nvar vpks = Directory.GetFiles(installPath, \"*.vpk\", SearchOption.AllDirectories).OrderBy(x => x, StringComparer.Ordinal).ToArray();\nif (vpks.Length == 0)\n{\n    ScriptConsole.WriteLine((object)(\"Workshop item \" + fileId + \" contains no .vpk add-on; nothing to install.\"));\n    return;\n}\n\nfor (var i = 0; i < vpks.Length; i++)\n{\n    string name = i == 0 ? fileId + \".vpk\" : fileId + \"_\" + i + \".vpk\";\n    string target = Path.Combine(addons, name);\n    File.Move(vpks[i], target, true);\n    ScriptConsole.WriteLine((object)(\"Installed \" + Path.GetFileName(vpks[i]) + \" as left4dead2/addons/workshop/\" + name));\n}\n\n// The download folder is empty now; remove it so only the add-on is left.\ntry { Directory.Delete(installPath, true); } catch { }\nScriptConsole.WriteLine((object)\"The add-on is loaded the next time the server starts or changes map.\");\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "5dc7843b-66d6-44ca-8d65-1be7b41b096f"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeCustomModUninstalled"
+        ],
+        "name": "Remove the Workshop add-on",
+        "description": "Deletes the add-on from left4dead2/addons/workshop",
+        "code": "using System;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Removes the add-on files the install script placed in left4dead2/addons/workshop (<id>.vpk, <id>_<n>.vpk).\n// The server keeps an open handle on a loaded .vpk on Windows, so a running server must be stopped first.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nstring root = (string)ThisService.RootDirectory;\nstring addons = Path.Combine(root, \"left4dead2\", \"addons\", \"workshop\");\nif (!Directory.Exists(addons)) return;\n\nforeach (var file in Directory.GetFiles(addons, fileId + \"*.vpk\"))\n{\n    string name = Path.GetFileNameWithoutExtension(file);\n    if (name != fileId && !name.StartsWith(fileId + \"_\", StringComparison.Ordinal)) continue;\n    try { File.Delete(file); ScriptConsole.WriteLine((object)(\"Removed left4dead2/addons/workshop/\" + Path.GetFileName(file))); }\n    catch (Exception ex) { ScriptConsole.WriteLine((object)(\"Could not remove \" + Path.GetFileName(file) + \" (\" + ex.Message + \"). Stop the server and uninstall again.\")); throw; }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "23482075-4281-43f7-bceb-abc3bd4688a3"
+      }
     }
   ],
-  "customModProviderConfigs": [],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 171,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 2,
+      "gameId": 171,
+      "enabled": true,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "AllowCollections": true,
+        "ShowDescription": true,
+        "ShowAuthorAndRating": true,
+        "Private.UseSteamAPI": false,
+        "SkipDownload": false
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 171,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 171,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 5,
+      "gameId": 171,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 171,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 171,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    }
+  ],
   "gamesCustomLinks": [],
   "updates": [],
   "createdDate": "2026-11-10T11:56:21.086134",
@@ -759,6 +882,69 @@
       "granted": true
     },
     {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
       "roleId": 3,
       "module": "BpFeature",
       "permission": "PredefCmdlines",
@@ -974,6 +1160,69 @@
       "permission": "Databases",
       "moduleData": "",
       "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
     }
   ],
   "mods": [],
