@@ -1,7 +1,7 @@
 {
-  "__TCA:ExportVersion": "3.23.42",
-  "__TCA:ExportedAt": "2026-11-10T13:52:43.7956646Z",
-  "name": "Don\u0027t Starve Together",
+  "__TCA:ExportVersion": "3.23.43.17810",
+  "__TCA:ExportedAt": "2026-11-10T19:28:23.96436Z",
+  "name": "Don't Starve Together",
   "shortName": "DST",
   "description": "",
   "operatingSystem": "Windows",
@@ -68,14 +68,14 @@
       {
         "id": "QueryPort",
         "port": 11000,
-        "expression": "GamePort \u002B 1",
+        "expression": "GamePort + 1",
         "description": null,
         "uriTemplate": null
       },
       {
         "id": "SteamAuthPort",
         "port": 11001,
-        "expression": "GamePort \u002B 2",
+        "expression": "GamePort + 2",
         "description": "Steam authentication (UDP)",
         "uriTemplate": null
       }
@@ -382,7 +382,7 @@
         "id": "ClusterToken",
         "defaultValue": "",
         "label": "Cluster token",
-        "description": "Required to list the server online. In the game: Play \u003E Account \u003E Game Servers \u003E Add New Server \u003E copy the token. Without it the server only runs as a LAN server.",
+        "description": "Required to list the server online. In the game: Play > Account > Game Servers > Add New Server > copy the token. Without it the server only runs as a LAN server.",
         "required": false,
         "valueType": "string",
         "requiredMessage": "Value is required",
@@ -626,7 +626,7 @@
           "id": "ClusterToken",
           "defaultValue": "",
           "label": "Cluster token",
-          "description": "Required to list the server online. In the game: Play \u003E Account \u003E Game Servers \u003E Add New Server \u003E copy the token. Without it the server only runs as a LAN server.",
+          "description": "Required to list the server online. In the game: Play > Account > Game Servers > Add New Server > copy the token. Without it the server only runs as a LAN server.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -683,7 +683,7 @@
         ],
         "name": "Prepare the server",
         "description": "Warns when no cluster token is set.",
-        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\nvar cluster = Path.Combine(root, \u0022DoNotStarveTogether\u0022, \u0022Cluster_1\u0022);\n\n// Without a cluster token an online server stops at \u0022E_INVALID_TOKEN ... Your Server Will Not Start\u0022 but its process\n// stays alive, so refuse the start with the reason instead. An offline (LAN) cluster needs no token.\nvar tokenFile = Path.Combine(cluster, \u0022cluster_token.txt\u0022);\nvar clusterIni = Path.Combine(cluster, \u0022cluster.ini\u0022);\nvar offline = File.Exists(clusterIni) \u0026\u0026 File.ReadAllLines(clusterIni).Any(l =\u003E l.Replace(\u0022 \u0022, \u0022\u0022).Equals(\u0022offline_cluster=true\u0022, StringComparison.OrdinalIgnoreCase));\nif (!offline \u0026\u0026 (!File.Exists(tokenFile) || File.ReadAllText(tokenFile).Trim().Length == 0))\n{\n    throw new Exception(\u0022The server needs a Klei cluster token. In the game choose Play \u003E Account \u003E Game Servers \u003E Add New Server, copy the token and paste it in Configuration Files \u003E Cluster token.\u0022);\n}\n\n// Linux: install the shared libraries the server binary links but this host does not have.\nif (System.OperatingSystem.IsLinux())\n{\n    var binary = Path.Combine(root, \u0022bin64\u0022, \u0022dontstarve_dedicated_server_nullrenderer_x64\u0022);\n    var packages = new Dictionary\u003Cstring, (string[] Apt, string[] Rpm)\u003E\n    {\n        [\u0022libcurl-gnutls.so.4\u0022] = (new[] { \u0022libcurl3-gnutls\u0022, \u0022libcurl3t64-gnutls\u0022 }, new[] { \u0022libcurl\u0022 })\n    };\n    Shell(\u0022ldd \u0027\u0022 \u002B binary \u002B \u0022\u0027\u0022, out var lddOutput);\n    var missing = lddOutput.Split(\u0027\\n\u0027).Where(l =\u003E l.Contains(\u0022=\u003E not found\u0022)).Select(l =\u003E l.Trim().Split(\u0027 \u0027)[0]).ToList();\n    foreach (var soname in missing)\n    {\n        if (!packages.TryGetValue(soname, out var candidates))\n        {\n            ScriptConsole.WriteLine((object)(\u0022The server needs \u0022 \u002B soname \u002B \u0022, which is not installed on this host.\u0022));\n            continue;\n        }\n        ScriptConsole.WriteLine((object)(soname \u002B \u0022 is missing on this host; installing it.\u0022));\n        var apt = Shell(\u0022command -v apt-get\u0022, out _);\n        var tool = apt ? \u0022DEBIAN_FRONTEND=noninteractive apt-get install -y \u0022 : Shell(\u0022command -v dnf\u0022, out _) ? \u0022dnf install -y \u0022 : \u0022yum install -y \u0022;\n        var names = apt ? candidates.Apt : candidates.Rpm;\n        var installed = names.Any(p =\u003E Shell(tool \u002B p, out _));\n        if (!installed \u0026\u0026 apt \u0026\u0026 Shell(\u0022apt-get update\u0022, out _)) installed = names.Any(p =\u003E Shell(tool \u002B p, out _));\n        if (!installed) throw new Exception(soname \u002B \u0022 is missing and could not be installed. Install one of these packages on the host: \u0022 \u002B string.Join(\u0022, \u0022, names));\n        ScriptConsole.WriteLine((object)(\u0022Installed \u0022 \u002B soname \u002B \u0022.\u0022));\n    }\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\u0022/bin/sh\u0022, new[] { \u0022-c\u0022, command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() \u002B process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\nvar cluster = Path.Combine(root, \"DoNotStarveTogether\", \"Cluster_1\");\n\n// Without a cluster token an online server stops at \"E_INVALID_TOKEN ... Your Server Will Not Start\" but its process\n// stays alive, so refuse the start with the reason instead. An offline (LAN) cluster needs no token.\nvar tokenFile = Path.Combine(cluster, \"cluster_token.txt\");\nvar clusterIni = Path.Combine(cluster, \"cluster.ini\");\nvar offline = File.Exists(clusterIni) && File.ReadAllLines(clusterIni).Any(l => l.Replace(\" \", \"\").Equals(\"offline_cluster=true\", StringComparison.OrdinalIgnoreCase));\nif (!offline && (!File.Exists(tokenFile) || File.ReadAllText(tokenFile).Trim().Length == 0))\n{\n    throw new Exception(\"The server needs a Klei cluster token. In the game choose Play > Account > Game Servers > Add New Server, copy the token and paste it in Configuration Files > Cluster token.\");\n}\n\n// Linux: install the shared libraries the server binary links but this host does not have.\nif (System.OperatingSystem.IsLinux())\n{\n    var binary = Path.Combine(root, \"bin64\", \"dontstarve_dedicated_server_nullrenderer_x64\");\n    var packages = new Dictionary<string, (string[] Apt, string[] Rpm)>\n    {\n        [\"libcurl-gnutls.so.4\"] = (new[] { \"libcurl3-gnutls\", \"libcurl3t64-gnutls\" }, new[] { \"libcurl\" })\n    };\n    Shell(\"ldd '\" + binary + \"'\", out var lddOutput);\n    var missing = lddOutput.Split('\\n').Where(l => l.Contains(\"=> not found\")).Select(l => l.Trim().Split(' ')[0]).ToList();\n    foreach (var soname in missing)\n    {\n        if (!packages.TryGetValue(soname, out var candidates))\n        {\n            ScriptConsole.WriteLine((object)(\"The server needs \" + soname + \", which is not installed on this host.\"));\n            continue;\n        }\n        ScriptConsole.WriteLine((object)(soname + \" is missing on this host; installing it.\"));\n        var apt = Shell(\"command -v apt-get\", out _);\n        var tool = apt ? \"DEBIAN_FRONTEND=noninteractive apt-get install -y \" : Shell(\"command -v dnf\", out _) ? \"dnf install -y \" : \"yum install -y \";\n        var names = apt ? candidates.Apt : candidates.Rpm;\n        var installed = names.Any(p => Shell(tool + p, out _));\n        if (!installed && apt && Shell(\"apt-get update\", out _)) installed = names.Any(p => Shell(tool + p, out _));\n        if (!installed) throw new Exception(soname + \" is missing and could not be installed. Install one of these packages on the host: \" + string.Join(\", \", names));\n        ScriptConsole.WriteLine((object)(\"Installed \" + soname + \".\"));\n    }\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() + process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -699,9 +699,132 @@
         "translations": [],
         "identifier": "404899f7-0956-460a-963a-6dacfb5cc476"
       }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeCustomModInstalled"
+        ],
+        "name": "Add the Workshop mod to the server",
+        "description": "Lists the mod in dedicated_server_mods_setup.lua and enables it in modoverrides.lua",
+        "code": "using System;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Don't Starve Together downloads and updates its Workshop mods itself when they are listed in\n// mods/dedicated_server_mods_setup.lua (ServerModSetup(\"<id>\")), and loads the ones enabled in each shard's\n// modoverrides.lua ([\"workshop-<id>\"]={ enabled=true }). Add the item to both; the server downloads it the next\n// time it starts. Players who join download the mod on their own.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]+$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\nstring root = (string)ThisService.RootDirectory;\n\n// 1. The download list.\nstring setup = Path.Combine(root, \"mods\", \"dedicated_server_mods_setup.lua\");\nDirectory.CreateDirectory(Path.GetDirectoryName(setup));\nbool setupExisted = File.Exists(setup);\nstring setupText = setupExisted ? File.ReadAllText(setup) : \"\";\nif (Regex.IsMatch(setupText, @\"^\\s*ServerModSetup\\(\\s*[\"\"']\" + fileId + @\"[\"\"']\\s*\\)\", RegexOptions.Multiline))\n{\n    ScriptConsole.WriteLine((object)(\"mods/dedicated_server_mods_setup.lua already lists \" + fileId + \".\"));\n}\nelse\n{\n    if (setupText.Length > 0 && !setupText.EndsWith(\"\\n\")) setupText += \"\\n\";\n    setupText += \"ServerModSetup(\\\"\" + fileId + \"\\\")\\n\";\n    File.WriteAllText(setup, setupText);\n    if (!setupExisted) FixOwner(setup);\n    ScriptConsole.WriteLine((object)(\"Added ServerModSetup(\\\"\" + fileId + \"\\\") to mods/dedicated_server_mods_setup.lua.\"));\n}\n\n// 2. Enable it in every shard of the cluster (a shard is a folder with a server.ini).\nstring cluster = Path.Combine(root, \"DoNotStarveTogether\", \"Cluster_1\");\nvar shards = Directory.Exists(cluster)\n    ? Directory.GetDirectories(cluster).Where(d => File.Exists(Path.Combine(d, \"server.ini\"))).ToList()\n    : new System.Collections.Generic.List<string>();\nif (shards.Count == 0) shards.Add(Path.Combine(cluster, \"Master\"));\nforeach (var shard in shards)\n{\n    Directory.CreateDirectory(shard);\n    string overrides = Path.Combine(shard, \"modoverrides.lua\");\n    string shardName = Path.GetFileName(shard);\n    bool existed = File.Exists(overrides);\n    string text = existed ? File.ReadAllText(overrides) : \"\";\n    string key = \"[\\\"workshop-\" + fileId + \"\\\"]\";\n    if (Regex.IsMatch(text, @\"\\[\\s*[\"\"']workshop-\" + fileId + @\"[\"\"']\\s*\\]\"))\n    {\n        // Already listed (the owner may have set options): make sure it is enabled.\n        int start = Regex.Match(text, @\"\\[\\s*[\"\"']workshop-\" + fileId + @\"[\"\"']\\s*\\]\").Index;\n        int open = text.IndexOf('{', start);\n        int close = open < 0 ? -1 : MatchingBrace(text, open);\n        if (open >= 0 && close > open)\n        {\n            string entry = text.Substring(open, close - open + 1);\n            string fixedEntry = Regex.IsMatch(entry, @\"enabled\\s*=\\s*false\")\n                ? Regex.Replace(entry, @\"enabled\\s*=\\s*false\", \"enabled=true\")\n                : entry;\n            if (fixedEntry != entry)\n            {\n                File.WriteAllText(overrides, text.Substring(0, open) + fixedEntry + text.Substring(close + 1));\n                ScriptConsole.WriteLine((object)(\"Enabled workshop-\" + fileId + \" in \" + shardName + \"/modoverrides.lua.\"));\n            }\n            else ScriptConsole.WriteLine((object)(shardName + \"/modoverrides.lua already enables workshop-\" + fileId + \".\"));\n        }\n        continue;\n    }\n\n    string line = \"  \" + key + \"={ configuration_options={  }, enabled=true },\";\n    var ret = Regex.Match(text, @\"return\\s*\\{\");\n    if (!ret.Success)\n    {\n        text = \"return {\\n\" + line + \"\\n}\\n\";\n    }\n    else\n    {\n        int at = ret.Index + ret.Length;\n        text = text.Substring(0, at) + \"\\n\" + line + text.Substring(at);\n    }\n    File.WriteAllText(overrides, text);\n    if (!existed) FixOwner(overrides);\n    ScriptConsole.WriteLine((object)(\"Enabled workshop-\" + fileId + \" in \" + shardName + \"/modoverrides.lua.\"));\n}\nScriptConsole.WriteLine((object)\"The server downloads and loads the mod the next time it starts.\");\n\n// Index of the brace that closes the one at 'open', skipping Lua strings and comments.\nint MatchingBrace(string s, int open)\n{\n    int depth = 0;\n    for (int i = open; i < s.Length; i++)\n    {\n        char c = s[i];\n        if (c == '\"' || c == '\\'')\n        {\n            char q = c;\n            for (i++; i < s.Length && s[i] != q; i++) if (s[i] == '\\\\') i++;\n            continue;\n        }\n        if (c == '-' && i + 1 < s.Length && s[i + 1] == '-')\n        {\n            while (i < s.Length && s[i] != '\\n') i++;\n            continue;\n        }\n        if (c == '{') depth++;\n        else if (c == '}' && --depth == 0) return i;\n    }\n    return -1;\n}\n\n// A file this script creates belongs to the monitor; give it to the server's account like the rest of the root.\nvoid FixOwner(string path)\n{\n    try { Globals.OperatingSystem.SetFileOwnerAutoDetect(path); }\n    catch (Exception ex) { ScriptConsole.WriteLine((object)(\"Could not set the owner of \" + Path.GetFileName(path) + \": \" + ex.Message)); }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "57e2786b-997c-44fc-b123-9ac2223d4bc3"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeCustomModUninstalled"
+        ],
+        "name": "Remove the Workshop mod from the server",
+        "description": "Removes the mod from dedicated_server_mods_setup.lua and modoverrides.lua and deletes its download",
+        "code": "using System;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Removes the Workshop mod from mods/dedicated_server_mods_setup.lua and from every shard's modoverrides.lua,\n// then deletes the copies the server downloaded (ugc_mods/<cluster>/<shard>/content/322330/<id> and the legacy\n// mods/workshop-<id>). The change applies the next time the server starts.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]+$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\nstring root = (string)ThisService.RootDirectory;\n\nstring setup = Path.Combine(root, \"mods\", \"dedicated_server_mods_setup.lua\");\nif (File.Exists(setup))\n{\n    string text = File.ReadAllText(setup);\n    string updated = Regex.Replace(text, @\"^[ \\t]*ServerModSetup\\(\\s*[\"\"']\" + fileId + @\"[\"\"']\\s*\\)[ \\t]*\\r?\\n?\", \"\", RegexOptions.Multiline);\n    if (updated != text)\n    {\n        File.WriteAllText(setup, updated);\n        ScriptConsole.WriteLine((object)(\"Removed ServerModSetup(\\\"\" + fileId + \"\\\") from mods/dedicated_server_mods_setup.lua.\"));\n    }\n}\n\nstring cluster = Path.Combine(root, \"DoNotStarveTogether\", \"Cluster_1\");\nif (Directory.Exists(cluster))\n{\n    foreach (var shard in Directory.GetDirectories(cluster))\n    {\n        string overrides = Path.Combine(shard, \"modoverrides.lua\");\n        if (!File.Exists(overrides)) continue;\n        string text = File.ReadAllText(overrides);\n        var key = Regex.Match(text, @\"\\[\\s*[\"\"']workshop-\" + fileId + @\"[\"\"']\\s*\\]\\s*=\\s*\");\n        if (!key.Success) continue;\n        int open = key.Index + key.Length;\n        if (open >= text.Length || text[open] != '{') continue;\n        int close = MatchingBrace(text, open);\n        if (close < 0) { ScriptConsole.WriteLine((object)(\"Could not parse \" + Path.GetFileName(shard) + \"/modoverrides.lua; remove workshop-\" + fileId + \" by hand.\")); continue; }\n        int end = close + 1;\n        // Drop the separator after the entry and the rest of its line.\n        while (end < text.Length && (text[end] == ' ' || text[end] == '\\t')) end++;\n        if (end < text.Length && (text[end] == ',' || text[end] == ';')) end++;\n        while (end < text.Length && (text[end] == ' ' || text[end] == '\\t')) end++;\n        if (end < text.Length && text[end] == '\\r') end++;\n        if (end < text.Length && text[end] == '\\n') end++;\n        int start = key.Index;\n        while (start > 0 && (text[start - 1] == ' ' || text[start - 1] == '\\t')) start--;\n        File.WriteAllText(overrides, text.Substring(0, start) + text.Substring(end));\n        ScriptConsole.WriteLine((object)(\"Removed workshop-\" + fileId + \" from \" + Path.GetFileName(shard) + \"/modoverrides.lua.\"));\n    }\n}\n\n// The server's own downloads.\nvar copies = new System.Collections.Generic.List<string> { Path.Combine(root, \"mods\", \"workshop-\" + fileId) };\nstring ugc = Path.Combine(root, \"ugc_mods\");\nif (Directory.Exists(ugc))\n{\n    foreach (var clusterDir in Directory.GetDirectories(ugc))\n        foreach (var shardDir in Directory.GetDirectories(clusterDir))\n            copies.Add(Path.Combine(shardDir, \"content\", \"322330\", fileId));\n}\nforeach (var dir in copies.Where(Directory.Exists))\n{\n    try { Directory.Delete(dir, true); ScriptConsole.WriteLine((object)(\"Removed \" + Path.GetRelativePath(root, dir))); }\n    catch (Exception ex) { ScriptConsole.WriteLine((object)(\"Could not remove \" + Path.GetRelativePath(root, dir) + \" (\" + ex.Message + \").\")); }\n}\nScriptConsole.WriteLine((object)\"The mod is no longer loaded from the next server start.\");\n\nint MatchingBrace(string s, int open)\n{\n    int depth = 0;\n    for (int i = open; i < s.Length; i++)\n    {\n        char c = s[i];\n        if (c == '\"' || c == '\\'')\n        {\n            char q = c;\n            for (i++; i < s.Length && s[i] != q; i++) if (s[i] == '\\\\') i++;\n            continue;\n        }\n        if (c == '-' && i + 1 < s.Length && s[i + 1] == '-')\n        {\n            while (i < s.Length && s[i] != '\\n') i++;\n            continue;\n        }\n        if (c == '{') depth++;\n        else if (c == '}' && --depth == 0) return i;\n    }\n    return -1;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "581c3865-78b0-4ddc-b6d0-c2b3aca9a41e"
+      }
     }
   ],
-  "customModProviderConfigs": [],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 179,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 2,
+      "gameId": 179,
+      "enabled": true,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "AllowCollections": true,
+        "ShowDescription": true,
+        "ShowAuthorAndRating": true,
+        "Private.UseSteamAPI": false,
+        "SkipDownload": true
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 179,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 179,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 5,
+      "gameId": 179,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 179,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 179,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    }
+  ],
   "gamesCustomLinks": [],
   "updates": [],
   "createdDate": "2026-11-10T13:29:59.270597",
@@ -976,7 +1099,7 @@
       "module": "BpFeature",
       "permission": "Mods",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
@@ -1256,7 +1379,7 @@
       "module": "BpFeature",
       "permission": "Mods",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
