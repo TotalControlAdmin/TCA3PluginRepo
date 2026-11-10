@@ -1,0 +1,43 @@
+identifier: "Community.Games.EuroTruckSimulator2"
+name: "Euro Truck Simulator 2"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Euro Truck Simulator 2 dedicated server (Windows / Linux) with A2S query, console, graceful stop, session config editor and backups; starts out of the box"
+longDescription: |
+  # Euro Truck Simulator 2
+  
+  ## Description
+  Euro Truck Simulator 2 (Convoy) dedicated server for Windows and Linux (Steam app 1948160, anonymous download). Game ownership is not needed to run it.
+  
+  ## Key Features
+  - **Windows and Linux** configs on the native dedicated server.
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S on the query port). The session name comes from the service name.
+  - **Console** output in the Terminal on both systems.
+  - **Graceful stop** with Ctrl+C.
+  - **Config editor** for `server_config.sii`: session name, password, description, welcome message, logon token, player damage, traffic, name tags, speed limiter, collisions, time zones and AI vehicle limits.
+  - **Starts out of the box:** a start script writes default `server_packages.sii` / `server_packages.dat` files (base map, no DLC) when there are none. On Linux it also puts `steamclient.so` where the Steam API looks for it, and installs the `libatomic` library the server needs when the host does not have it (apt on Debian/Ubuntu, dnf/yum on Red Hat based systems).
+  - **Backups** of the session config, the server packages and the `mod` folder.
+  
+  ## Ports
+  - Game 27015 (UDP), query 27016 (UDP).
+  
+  ## Instructions
+  - The server's home folder is `Euro Truck Simulator 2` in the service folder. Logs: `server.log.txt` there.
+  - For DLC maps or mods, run `export_server_packages` in the game's console (with a map loaded) and upload the generated `server_packages.sii` and `server_packages.dat` to the home folder, replacing the defaults.
+  - Without a logon token the server gets a new server id on each start. Create a token for the **game** app id (227300) at steamcommunity.com/dev/managegameservers and enter it in the config editor.
+  - Moderators: add `moderator_list` entries (Steam ids) to `server_config.sii` in the file manager.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/227300/adc18a4fc9adc0330144b76d61cbda68bb2394a0.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/edbff61a062a49d1d97269e53b8afbffde05bb24/ss_edbff61a062a49d1d97269e53b8afbffde05bb24.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Euro Truck Simulator 2 - Windows.json"
+    type: "GameConfig"
+  - path: "Euro Truck Simulator 2 - Linux.json"
+    type: "GameConfig"
