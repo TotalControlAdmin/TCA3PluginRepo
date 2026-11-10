@@ -1,6 +1,6 @@
 {
   "__TCA:ExportVersion": "3.23.42",
-  "__TCA:ExportedAt": "2026-11-09T21:25:09.5501832Z",
+  "__TCA:ExportedAt": "2026-11-10T01:29:12.8237167Z",
   "name": "Arma 3",
   "shortName": "Arma3",
   "description": "",
@@ -524,9 +524,10 @@
     "compressBackup": true,
     "stopServiceBeforeBackup": false,
     "includedPaths": [
-      "A3Master/**/*",
+      "A3Master/*.cfg",
+      "A3Master/**/*.Arma3Profile",
       "mpmissions/**/*",
-      "battleye/*.cfg",
+      "battleye/beserver_x64.cfg",
       "battleye/bans.txt"
     ],
     "maxBackupCount": null,
