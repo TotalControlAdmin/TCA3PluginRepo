@@ -17,7 +17,7 @@ longDescription: |
   - **Server-browser query** (A2S on the query port).
   - **Config files:** `server.cfg` (name, passwords, slots, MOTD, voting, timeouts, mission cycle), `basic.cfg` (network tuning), the server profile (difficulty) and the BattlEye config.
   - **Linux Steam Workshop scripts:** installing a mod moves it to `@<id>`, lowercases its files (the Linux server needs this), copies its keys to `keys/` and adds it to `-mod=`. Uninstalling removes the folder, its keys and the `-mod=` entry.
-  - **Backups** with the panel's backup feature: the server profile and configs (`A3Master`), the missions (`mpmissions`) and the BattlEye config and bans.
+  - **Backups** with the panel's backup feature: `server.cfg`, `basic.cfg` and the player profiles in `A3Master` (including the mission variables), the missions (`mpmissions`) and the BattlEye config and bans. Logs are left out: Windows keeps the live `.rpt` log locked while the server runs.
   
   ## Ports
   - Game port (UDP) 2302, query port (UDP) 2303, plus 2304 and 2305.
