@@ -17,6 +17,7 @@ longDescription: |
   ## What's new in 1.0.17
   - New "Use modloader" option on the custom command line (the `UseModloader` checkbox and the `ModloaderArgs` file picker). The `Jar` field is hidden while it is ticked.
   - Installing Forge or NeoForge from the mods page now ticks "Use modloader" and selects the installed arguments file, so the line stays editable in the Command Lines form. Uninstalling handles both kinds of line.
+  - CurseForge and FTB modpack installs also use the "Use modloader" option (the arguments file for Forge / NeoForge, the jar for Fabric and older Forge), so their command line stays editable.
   - Java detection: choosing a fixed Java version now also updates the launcher, so a "Java 25" choice no longer starts the server with an older Java. Windows paths in the modloader arguments are handled.
   - Databases permission for the default roles.
 icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_Minecraft.png/960px-Logo_Minecraft.png"
