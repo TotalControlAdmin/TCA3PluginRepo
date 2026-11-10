@@ -13,7 +13,8 @@ longDescription: |
   ## Key Features
   - **Windows and Linux** configs, both on the 64-bit server (`DayZServer_x64.exe` / `DayZServer`).
   - **Steam update** on install and from the panel.
-  - **BattlEye RCON** for the console and admin commands, and a graceful stop with `#shutdown`.
+  - **BattlEye RCON** for the console and admin commands.
+  - **Graceful stop:** a stop script asks the server to shut down (`taskkill` without `/f` on Windows, SIGTERM on Linux) and waits until it has saved the persistence and exited (`--- Termination successfully completed ---` in the `.rpt`).
   - **Server-browser query** (A2S on the Steam query port).
   - **Config editor** for `serverDZ.cfg`: name, passwords, slots, MOTD, 3rd person, crosshair, time and time acceleration, respawn time, max ping, instance id.
   - **Steam Workshop:** installing a mod moves it to `@<Mod_Name>`, copies its `.bikey` keys to `keys/` and adds it to `-mod=` (or `-servermod=` for server-side mods). Uninstalling removes the folder and the entry. On Linux the mod's files are lowercased, which the Linux server needs.
