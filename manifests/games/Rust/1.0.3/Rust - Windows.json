@@ -2857,11 +2857,17 @@
     "PluginIdentifier": "Community.Games.Rust"
   },
   "backupConfig": {
-    "enabled": false,
+    "enabled": true,
     "backupType": "Full",
     "compressBackup": true,
-    "stopServiceBeforeBackup": false,
-    "includedPaths": [],
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "server/my_server_identity/**/*",
+      "oxide/config/**/*",
+      "oxide/data/**/*",
+      "oxide/plugins/**/*",
+      "oxide/lang/**/*"
+    ],
     "maxBackupCount": null,
     "maxBackupSpace": null
   },
@@ -3235,7 +3241,7 @@
       "module": "BpFeature",
       "permission": "NetworkStats",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
@@ -3270,7 +3276,7 @@
       "module": "BpFeature",
       "permission": "Updates",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
@@ -3655,14 +3661,14 @@
       "module": "BpFeature",
       "permission": "NetworkStats",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
       "permission": "Reinstall",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
@@ -3697,7 +3703,7 @@
       "module": "BpFeature",
       "permission": "Updates",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
