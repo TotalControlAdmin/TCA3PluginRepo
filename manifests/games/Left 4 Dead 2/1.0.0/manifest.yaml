@@ -19,6 +19,7 @@ longDescription: |
   - **Game mode and map:** campaign (co-op), realism, versus, realism versus, survival or scavenge, starting on any of the 14 campaigns.
   - **Config editor** for `left4dead2/cfg/server.cfg` (server name, RCON password, join password). Direct connections are allowed, not only lobby matchmaking.
   - **Start script:** writes `steam_appid.txt` so even the very first start connects to Steam (otherwise the server runs in LAN mode), and keeps the previous console log as `console.previous.log`.
+  - **Steam Workshop add-ons:** browse and install Workshop maps, campaigns, scripts and skins from the panel. The `.vpk` downloads anonymously into `left4dead2/addons/workshop` and loads on the next map change or restart. Uninstall removes it.
   - **Backups** of `left4dead2/cfg` and `left4dead2/addons`.
   
   ## Ports
