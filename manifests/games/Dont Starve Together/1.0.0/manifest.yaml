@@ -18,6 +18,7 @@ longDescription: |
   - **Graceful stop** with `c_shutdown(true)`, which saves the world.
   - **Config editor** for `cluster.ini` (server name, password, description, play style, game mode, PvP, pause when empty) and for the cluster token.
   - **Start script:** refuses to start with a clear message when no cluster token is set (an online server cannot start without one). On Linux it installs the `libcurl-gnutls` library the server needs when the host does not have it (apt on Debian/Ubuntu, dnf/yum on Red Hat based systems).
+  - **Steam Workshop mods:** browse and install mods from the panel. The mod is added to `mods/dedicated_server_mods_setup.lua` and enabled in `modoverrides.lua` of each shard, and the server downloads it on its next start (also in offline mode). Uninstall removes both entries and the copy the server downloaded.
   - **Backups** of the whole cluster (`DoNotStarveTogether/Cluster_1`: world save and settings). The server is stopped first, so the save is complete.
   
   ## Ports
@@ -28,6 +29,7 @@ longDescription: |
   - For a LAN-only server without a token, set `offline_cluster = true` in `cluster.ini`.
   - Caves are not included: this config runs the Master shard only.
   - Logs: `DoNotStarveTogether/Cluster_1/Master/server_log.txt`.
+  - Mod settings: edit `configuration_options` in `DoNotStarveTogether/Cluster_1/Master/modoverrides.lua`. Players download the mods themselves when they join.
   
 icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/322330/a80aa6cff8eebc1cbc18c367d9ab063e1553b0ee.jpg"
 images:
