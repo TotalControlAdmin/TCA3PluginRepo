@@ -1,0 +1,47 @@
+identifier: "Community.Games.ArmaReforger"
+name: "Arma Reforger"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Arma Reforger dedicated server (Windows / Linux) with A2S query, BattlEye RCON, Terminal console, graceful stop, config editor with Workshop mods, backups and logs"
+longDescription: |
+  # Arma Reforger
+  
+  ## Description
+  Arma Reforger dedicated server for Windows and Linux (Steam app 1874900, anonymous download).
+  
+  ## Key Features
+  - **Windows and Linux** configs with **Steam update** on install and from the panel.
+  - **Config editor** for `config.json`: server name, join and admin passwords, scenario id (official or Workshop), server-browser visibility, cross-platform play, admins, view distances, first-person only, BattlEye, voice options, Workshop mods, player save interval, AI limit, slot reservation and join queue.
+  - **Workshop mods:** list them in the editor's Mods field. The server downloads them itself on start and players get them when they join.
+  - **Server-browser query** (A2S).
+  - **RCON** (BattlEye protocol) with admin permission. Console commands such as `#kick`, `#ban`, `#restart` and `#shutdown` are sent through RCON.
+  - **Console** output in the Terminal.
+  - **Graceful stop** with `#shutdown`: the scenario is saved before the server exits.
+  - **Backups** of `config.json`, the saved scenario progress and the server identity (`ownerToken.bin`). The service is stopped during a backup.
+  - **Log viewer** for the console, script and error logs of every session.
+  - **Maximum server FPS** setting (60 by default) to save CPU.
+  
+  ## Ports
+  - Game 2001 (UDP).
+  - Query 17777 (UDP), game port + 15776.
+  - RCON 19999 (UDP), game port + 17998.
+  
+  ## Instructions
+  - Mods: in the Mods field enter a JSON list, e.g. `[{"modId": "5965550F24A0C152", "name": "Where Am I"}]`. The mod id is on the mod's Workshop page. Add `"version": "1.2.0"` to pin a version. Keep `[]` for none.
+  - Admins: enter a JSON list of identity ids or Steam ids, e.g. `["76561198000000000"]`. Listed players can use `#login` without the admin password.
+  - Scenario id: the official ids are listed in `scenarios.txt` in the service folder. A Workshop scenario needs its mod in the Mods list and the id from its Workshop page.
+  - RCON commands run on the server, but their replies (e.g. the `#players` list) do not show in the panel console yet.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/1874880/0de311f3ef216db08badc6a9ef7c5fd8712ac334.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1874880/ss_e89540e53a4969f3de49ad6238fe29ff859ecfd2.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Arma Reforger - Windows.json"
+    type: "GameConfig"
+  - path: "Arma Reforger - Linux.json"
+    type: "GameConfig"
