@@ -1,0 +1,43 @@
+identifier: "Community.Games.DontStarveTogether"
+name: "Don't Starve Together"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Don't Starve Together dedicated server (Windows / Linux) with console commands, graceful save-and-stop, cluster config editor and backups"
+longDescription: |
+  # Don't Starve Together
+  
+  ## Description
+  Don't Starve Together dedicated server for Windows and Linux (Steam app 343050, anonymous download). It runs the overworld (Master shard) as one process.
+  
+  ## Key Features
+  - **Windows and Linux** configs on the 64-bit dedicated server.
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S on the Steam master server port).
+  - **Console** in the Terminal on both systems, with Lua console commands (`c_announce("...")`, `c_save()`, `c_rollback()` ...).
+  - **Graceful stop** with `c_shutdown(true)`, which saves the world.
+  - **Config editor** for `cluster.ini` (server name, password, description, play style, game mode, PvP, pause when empty) and for the cluster token.
+  - **Start script:** refuses to start with a clear message when no cluster token is set (an online server cannot start without one). On Linux it installs the `libcurl-gnutls` library the server needs when the host does not have it (apt on Debian/Ubuntu, dnf/yum on Red Hat based systems).
+  - **Backups** of the whole cluster (`DoNotStarveTogether/Cluster_1`: world save and settings). The server is stopped first, so the save is complete.
+  
+  ## Ports
+  - Game 10999 (UDP), Steam query 11000 (UDP), Steam authentication 11001 (UDP).
+  
+  ## Instructions
+  - **A cluster token is required.** In the game choose Play > Account > Game Servers > Add New Server, copy the token and paste it in Configuration Files > Cluster token.
+  - For a LAN-only server without a token, set `offline_cluster = true` in `cluster.ini`.
+  - Caves are not included: this config runs the Master shard only.
+  - Logs: `DoNotStarveTogether/Cluster_1/Master/server_log.txt`.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/322330/a80aa6cff8eebc1cbc18c367d9ab063e1553b0ee.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322330/ss_f863729856b94b3485ee80e6fd11289595f6634c.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Dont Starve Together - Windows.json"
+    type: "GameConfig"
+  - path: "Dont Starve Together - Linux.json"
+    type: "GameConfig"
