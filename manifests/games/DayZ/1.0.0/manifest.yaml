@@ -19,7 +19,7 @@ longDescription: |
   - **Steam Workshop:** installing a mod moves it to `@<Mod_Name>`, copies its `.bikey` keys to `keys/` and adds it to `-mod=` (or `-servermod=` for server-side mods). Uninstalling removes the folder and the entry. On Linux the mod's files are lowercased, which the Linux server needs.
   - **Remove Persistence Files** button: wipes the Chernarus `storage_<instanceId>` folder for a fresh world.
   - **Mission files:** when `mpmissions/` is empty, a start script downloads the vanilla missions (`dayzOffline.*`) from github.com/BohemiaInteractive/DayZ-Central-Economy. On Linux it also makes `DayZServer` executable and puts the Steam client library in `.steam/sdk64`.
-  - **Backups** with the panel's backup feature: the missions folder with the persistence storage (`mpmissions`), `serverDZ.cfg`, the ban and whitelist files and the BattlEye config. The server is stopped first, so the persistence files are complete.
+  - **Backups** with the panel's backup feature: the persistence storage (`mpmissions/*/storage_*`), the mission scripts and economy files (`.c`, `.xml`, `.json`), `serverDZ.cfg`, the ban and whitelist files and the BattlEye config. The server is stopped first, so the persistence files are complete.
   
   ## Ports
   - Game port (UDP) 2302.
