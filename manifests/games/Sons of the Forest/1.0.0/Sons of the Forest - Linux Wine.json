@@ -1,0 +1,2884 @@
+{
+  "__TCA:ExportVersion": "3.23.43.17810",
+  "__TCA:ExportedAt": "2026-11-10T19:56:34.5175162Z",
+  "name": "Sons of the Forest (Linux / Wine)",
+  "shortName": "SonsOfTheForest",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/1326470/bd28fe592b339cff5a3eef743f31e3166c984c68.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1326470/ss_e6e3ab1badfb287a77fb6eef7b1589a35371496b.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 8,
+  "defaultSlots": 8,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".cfg",
+    ".txt",
+    ".json"
+  ],
+  "logExtensions": [
+    "sotf_log*.txt"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "LogFile",
+    "logFile": "serverconfig/logs/sotf_log.txt",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "Loading progress: ",
+    "stopCommand": "^c",
+    "waitAfterStopCommand": 90000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 8766,
+        "expression": "",
+        "description": "Game (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 27016,
+        "expression": "",
+        "description": "Steam query and server list (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "BlobSyncPort",
+        "port": 9700,
+        "expression": "",
+        "description": "BlobSync (UDP)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "SonsOfTheForestDS.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "sonsoftheforest",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 2465200,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 1326470,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": false,
+    "defaultCommandline": "-userdatapath \u0022Z:${RootDirectory}/serverconfig\u0022 -dedicatedserver.IpAddress \u0022${IPAddress}\u0022 -dedicatedserver.GamePort ${GamePort} -dedicatedserver.QueryPort ${QueryPort} -dedicatedserver.BlobSyncPort ${BlobSyncPort} -dedicatedserver.MaxPlayers ${Slots}",
+    "defaultCustomCommandline": "-userdatapath \u0022Z:${RootDirectory}/serverconfig\u0022 -dedicatedserver.IpAddress \u0022${IPAddress}\u0022 -dedicatedserver.GamePort ${GamePort} -dedicatedserver.QueryPort ${QueryPort} -dedicatedserver.BlobSyncPort ${BlobSyncPort} -dedicatedserver.MaxPlayers ${Slots} ${UserCommandLine}",
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "ea1fb319-2cf2-5d11-b5b2-6107e201c057",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "LanOnly",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${LanOnly}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "LanOnly",
+        "defaultValue": "false",
+        "label": "LAN only",
+        "description": "Hide the server from the internet server list.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.132124",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SkipNetworkAccessibilityTest",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SkipNetworkAccessibilityTest}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "SkipNetworkAccessibilityTest",
+        "defaultValue": "true",
+        "label": "Skip the network accessibility test",
+        "description": "The start-up test of the ports can hang for many minutes before the server loads. Turn it off only to diagnose connection problems.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.148017",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SaveSlot",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SaveSlot}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 2147483647,
+        "id": "SaveSlot",
+        "defaultValue": "1",
+        "label": "Save slot",
+        "description": "Each slot is a world in Saves/DedicatedServer/Multiplayer (slot 1 = folder 0000000001). To play a save from your PC, upload its folder there and enter its number.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.148095",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SaveMode",
+      "defaultValue": "Continue",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SaveMode}",
+      "editor": {
+        "items": [
+          {
+            "text": "Continue the save in the slot",
+            "value": "Continue"
+          },
+          {
+            "text": "Start a new game (overwrites the slot)",
+            "value": "New"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "SaveMode",
+        "defaultValue": "Continue",
+        "label": "Save mode",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.154289",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "GameMode",
+      "defaultValue": "Normal",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${GameMode}",
+      "editor": {
+        "items": [
+          {
+            "text": "Normal",
+            "value": "Normal"
+          },
+          {
+            "text": "Hard",
+            "value": "Hard"
+          },
+          {
+            "text": "Hard survival",
+            "value": "HardSurvival"
+          },
+          {
+            "text": "Peaceful",
+            "value": "Peaceful"
+          },
+          {
+            "text": "Creative",
+            "value": "Creative"
+          },
+          {
+            "text": "Custom (settings below)",
+            "value": "Custom"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "GameMode",
+        "defaultValue": "Normal",
+        "label": "Game mode (new games)",
+        "description": "Only used when a new game is created. Custom uses the custom game mode settings below.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165265",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SaveInterval",
+      "defaultValue": "600",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SaveInterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 60,
+        "maxValue": 7200,
+        "id": "SaveInterval",
+        "defaultValue": "600",
+        "label": "Autosave every (seconds)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165353",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TreeRegrowth",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TreeRegrowth}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "TreeRegrowth",
+        "defaultValue": "true",
+        "label": "Trees grow back",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165385",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "StructureDamage",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${StructureDamage}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "StructureDamage",
+        "defaultValue": "true",
+        "label": "Structures can be damaged",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165405",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnemySpawn",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnemySpawn}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnemySpawn",
+        "defaultValue": "true",
+        "label": "Enemies",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165418",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnemyHealth",
+      "defaultValue": "Normal",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnemyHealth}",
+      "editor": {
+        "items": [
+          {
+            "text": "Low",
+            "value": "Low"
+          },
+          {
+            "text": "Normal",
+            "value": "Normal"
+          },
+          {
+            "text": "High",
+            "value": "High"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "EnemyHealth",
+        "defaultValue": "Normal",
+        "label": "Enemy health",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165429",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnemyDamage",
+      "defaultValue": "Normal",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnemyDamage}",
+      "editor": {
+        "items": [
+          {
+            "text": "Low",
+            "value": "Low"
+          },
+          {
+            "text": "Normal",
+            "value": "Normal"
+          },
+          {
+            "text": "High",
+            "value": "High"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "EnemyDamage",
+        "defaultValue": "Normal",
+        "label": "Enemy damage",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165446",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnemyArmour",
+      "defaultValue": "Normal",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnemyArmour}",
+      "editor": {
+        "items": [
+          {
+            "text": "Low",
+            "value": "Low"
+          },
+          {
+            "text": "Normal",
+            "value": "Normal"
+          },
+          {
+            "text": "High",
+            "value": "High"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "EnemyArmour",
+        "defaultValue": "Normal",
+        "label": "Enemy armour",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165462",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnemyAggression",
+      "defaultValue": "Normal",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnemyAggression}",
+      "editor": {
+        "items": [
+          {
+            "text": "Low",
+            "value": "Low"
+          },
+          {
+            "text": "Normal",
+            "value": "Normal"
+          },
+          {
+            "text": "High",
+            "value": "High"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "EnemyAggression",
+        "defaultValue": "Normal",
+        "label": "Enemy aggression",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165476",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AnimalSpawnRate",
+      "defaultValue": "Normal",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AnimalSpawnRate}",
+      "editor": {
+        "items": [
+          {
+            "text": "Low",
+            "value": "Low"
+          },
+          {
+            "text": "Normal",
+            "value": "Normal"
+          },
+          {
+            "text": "High",
+            "value": "High"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "AnimalSpawnRate",
+        "defaultValue": "Normal",
+        "label": "Animal spawn rate",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165492",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "StartingSeason",
+      "defaultValue": "Summer",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${StartingSeason}",
+      "editor": {
+        "items": [
+          {
+            "text": "Spring",
+            "value": "Spring"
+          },
+          {
+            "text": "Summer",
+            "value": "Summer"
+          },
+          {
+            "text": "Autumn",
+            "value": "Autumn"
+          },
+          {
+            "text": "Winter",
+            "value": "Winter"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "StartingSeason",
+        "defaultValue": "Summer",
+        "label": "Starting season",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165506",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SeasonLength",
+      "defaultValue": "Default",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SeasonLength}",
+      "editor": {
+        "items": [
+          {
+            "text": "Short",
+            "value": "Short"
+          },
+          {
+            "text": "Default",
+            "value": "Default"
+          },
+          {
+            "text": "Long",
+            "value": "Long"
+          },
+          {
+            "text": "Realistic",
+            "value": "Realistic"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "SeasonLength",
+        "defaultValue": "Default",
+        "label": "Season length",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165524",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "DayLength",
+      "defaultValue": "Default",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${DayLength}",
+      "editor": {
+        "items": [
+          {
+            "text": "Short",
+            "value": "Short"
+          },
+          {
+            "text": "Default",
+            "value": "Default"
+          },
+          {
+            "text": "Long",
+            "value": "Long"
+          },
+          {
+            "text": "Realistic",
+            "value": "Realistic"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "DayLength",
+        "defaultValue": "Default",
+        "label": "Day length",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165598",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationFrequency",
+      "defaultValue": "Default",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrecipitationFrequency}",
+      "editor": {
+        "items": [
+          {
+            "text": "Low",
+            "value": "Low"
+          },
+          {
+            "text": "Default",
+            "value": "Default"
+          },
+          {
+            "text": "High",
+            "value": "High"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "PrecipitationFrequency",
+        "defaultValue": "Default",
+        "label": "Rain and snow",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165637",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ConsumableEffects",
+      "defaultValue": "Normal",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ConsumableEffects}",
+      "editor": {
+        "items": [
+          {
+            "text": "Normal",
+            "value": "Normal"
+          },
+          {
+            "text": "Hard",
+            "value": "Hard"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "ConsumableEffects",
+        "defaultValue": "Normal",
+        "label": "Consumable effects",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165652",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PlayerStatsDamage",
+      "defaultValue": "Off",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PlayerStatsDamage}",
+      "editor": {
+        "items": [
+          {
+            "text": "Off",
+            "value": "Off"
+          },
+          {
+            "text": "Normal",
+            "value": "Normal"
+          },
+          {
+            "text": "Hard",
+            "value": "Hard"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "PlayerStatsDamage",
+        "defaultValue": "Off",
+        "label": "Damage from hunger and thirst",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165674",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ColdPenalties",
+      "defaultValue": "Off",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ColdPenalties}",
+      "editor": {
+        "items": [
+          {
+            "text": "Off",
+            "value": "Off"
+          },
+          {
+            "text": "Normal",
+            "value": "Normal"
+          },
+          {
+            "text": "Hard",
+            "value": "Hard"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "ColdPenalties",
+        "defaultValue": "Off",
+        "label": "Cold penalties",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165689",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ReducedFoodInContainers",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ReducedFoodInContainers}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "ReducedFoodInContainers",
+        "defaultValue": "false",
+        "label": "Less food in containers",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165706",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SingleUseContainers",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SingleUseContainers}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "SingleUseContainers",
+        "defaultValue": "false",
+        "label": "Single-use containers",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165719",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "IdleTargetFramerate",
+      "defaultValue": "5",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${IdleTargetFramerate}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 60,
+        "id": "IdleTargetFramerate",
+        "defaultValue": "5",
+        "label": "Frame rate while empty",
+        "description": "Lower values save CPU while nobody is online.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165729",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ActiveTargetFramerate",
+      "defaultValue": "60",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ActiveTargetFramerate}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 10,
+        "maxValue": 120,
+        "id": "ActiveTargetFramerate",
+        "defaultValue": "60",
+        "label": "Frame rate with players",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165746",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "IdleDayCycleSpeed",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${IdleDayCycleSpeed}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 1,
+        "id": "IdleDayCycleSpeed",
+        "defaultValue": "0",
+        "label": "Day cycle speed while empty",
+        "description": "0 stops time while nobody is online, 1 = normal speed.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T19:55:23.165757",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 426,
+      "relativePath": "serverconfig/dedicatedserver.cfg",
+      "description": "Server settings (dedicatedserver.cfg)",
+      "template": "{\n  \u0022IpAddress\u0022: \u00220.0.0.0\u0022,\n  \u0022GamePort\u0022: ${GamePort},\n  \u0022QueryPort\u0022: ${QueryPort},\n  \u0022BlobSyncPort\u0022: ${BlobSyncPort},\n  \u0022ServerName\u0022: \u0022${Hostname}\u0022,\n  \u0022MaxPlayers\u0022: ${Slots},\n  \u0022Password\u0022: \u0022${PrivatePassword}\u0022,\n  \u0022LanOnly\u0022: ${LanOnly},\n  \u0022SaveSlot\u0022: ${SaveSlot},\n  \u0022SaveMode\u0022: \u0022${SaveMode}\u0022,\n  \u0022GameMode\u0022: \u0022${GameMode}\u0022,\n  \u0022SaveInterval\u0022: ${SaveInterval},\n  \u0022IdleDayCycleSpeed\u0022: ${IdleDayCycleSpeed},\n  \u0022IdleTargetFramerate\u0022: ${IdleTargetFramerate},\n  \u0022ActiveTargetFramerate\u0022: ${ActiveTargetFramerate},\n  \u0022LogFilesEnabled\u0022: true,\n  \u0022TimestampLogFilenames\u0022: false,\n  \u0022TimestampLogEntries\u0022: true,\n  \u0022SkipNetworkAccessibilityTest\u0022: ${SkipNetworkAccessibilityTest},\n  \u0022GameSettings\u0022: {\n    \u0022Gameplay.TreeRegrowth\u0022: ${TreeRegrowth},\n    \u0022Structure.Damage\u0022: ${StructureDamage}\n  },\n  \u0022CustomGameModeSettings\u0022: {\n    \u0022GameSetting.Vail.EnemySpawn\u0022: ${EnemySpawn},\n    \u0022GameSetting.Vail.EnemyHealth\u0022: \u0022${EnemyHealth}\u0022,\n    \u0022GameSetting.Vail.EnemyDamage\u0022: \u0022${EnemyDamage}\u0022,\n    \u0022GameSetting.Vail.EnemyArmour\u0022: \u0022${EnemyArmour}\u0022,\n    \u0022GameSetting.Vail.EnemyAggression\u0022: \u0022${EnemyAggression}\u0022,\n    \u0022GameSetting.Vail.AnimalSpawnRate\u0022: \u0022${AnimalSpawnRate}\u0022,\n    \u0022GameSetting.Environment.StartingSeason\u0022: \u0022${StartingSeason}\u0022,\n    \u0022GameSetting.Environment.SeasonLength\u0022: \u0022${SeasonLength}\u0022,\n    \u0022GameSetting.Environment.DayLength\u0022: \u0022${DayLength}\u0022,\n    \u0022GameSetting.Environment.PrecipitationFrequency\u0022: \u0022${PrecipitationFrequency}\u0022,\n    \u0022GameSetting.Survival.ConsumableEffects\u0022: \u0022${ConsumableEffects}\u0022,\n    \u0022GameSetting.Survival.PlayerStatsDamage\u0022: \u0022${PlayerStatsDamage}\u0022,\n    \u0022GameSetting.Survival.ColdPenalties\u0022: \u0022${ColdPenalties}\u0022,\n    \u0022GameSetting.Survival.ReducedFoodInContainers\u0022: ${ReducedFoodInContainers},\n    \u0022GameSetting.Survival.SingleUseContainers\u0022: ${SingleUseContainers}\n  }\n}\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Server",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "Shown in the server browser and in Steam contacts.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Password",
+          "description": "Leave empty for a public server.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "LanOnly",
+          "defaultValue": "false",
+          "label": "LAN only",
+          "description": "Hide the server from the internet server list.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "SkipNetworkAccessibilityTest",
+          "defaultValue": "true",
+          "label": "Skip the network accessibility test",
+          "description": "The start-up test of the ports can hang for many minutes before the server loads. Turn it off only to diagnose connection problems.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Save",
+          "defaultValue": null,
+          "label": "Save",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 2147483647,
+          "id": "SaveSlot",
+          "defaultValue": "1",
+          "label": "Save slot",
+          "description": "Each slot is a world in Saves/DedicatedServer/Multiplayer (slot 1 = folder 0000000001). To play a save from your PC, upload its folder there and enter its number.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Continue the save in the slot",
+              "value": "Continue"
+            },
+            {
+              "text": "Start a new game (overwrites the slot)",
+              "value": "New"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "SaveMode",
+          "defaultValue": "Continue",
+          "label": "Save mode",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Normal",
+              "value": "Normal"
+            },
+            {
+              "text": "Hard",
+              "value": "Hard"
+            },
+            {
+              "text": "Hard survival",
+              "value": "HardSurvival"
+            },
+            {
+              "text": "Peaceful",
+              "value": "Peaceful"
+            },
+            {
+              "text": "Creative",
+              "value": "Creative"
+            },
+            {
+              "text": "Custom (settings below)",
+              "value": "Custom"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "GameMode",
+          "defaultValue": "Normal",
+          "label": "Game mode (new games)",
+          "description": "Only used when a new game is created. Custom uses the custom game mode settings below.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 60,
+          "maxValue": 7200,
+          "id": "SaveInterval",
+          "defaultValue": "600",
+          "label": "Autosave every (seconds)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Gameplay",
+          "defaultValue": null,
+          "label": "Gameplay",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "TreeRegrowth",
+          "defaultValue": "true",
+          "label": "Trees grow back",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "StructureDamage",
+          "defaultValue": "true",
+          "label": "Structures can be damaged",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Custom",
+          "defaultValue": null,
+          "label": "Custom game mode (Game mode = Custom)",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnemySpawn",
+          "defaultValue": "true",
+          "label": "Enemies",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Low",
+              "value": "Low"
+            },
+            {
+              "text": "Normal",
+              "value": "Normal"
+            },
+            {
+              "text": "High",
+              "value": "High"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "EnemyHealth",
+          "defaultValue": "Normal",
+          "label": "Enemy health",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Low",
+              "value": "Low"
+            },
+            {
+              "text": "Normal",
+              "value": "Normal"
+            },
+            {
+              "text": "High",
+              "value": "High"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "EnemyDamage",
+          "defaultValue": "Normal",
+          "label": "Enemy damage",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Low",
+              "value": "Low"
+            },
+            {
+              "text": "Normal",
+              "value": "Normal"
+            },
+            {
+              "text": "High",
+              "value": "High"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "EnemyArmour",
+          "defaultValue": "Normal",
+          "label": "Enemy armour",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Low",
+              "value": "Low"
+            },
+            {
+              "text": "Normal",
+              "value": "Normal"
+            },
+            {
+              "text": "High",
+              "value": "High"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "EnemyAggression",
+          "defaultValue": "Normal",
+          "label": "Enemy aggression",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Low",
+              "value": "Low"
+            },
+            {
+              "text": "Normal",
+              "value": "Normal"
+            },
+            {
+              "text": "High",
+              "value": "High"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "AnimalSpawnRate",
+          "defaultValue": "Normal",
+          "label": "Animal spawn rate",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Spring",
+              "value": "Spring"
+            },
+            {
+              "text": "Summer",
+              "value": "Summer"
+            },
+            {
+              "text": "Autumn",
+              "value": "Autumn"
+            },
+            {
+              "text": "Winter",
+              "value": "Winter"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "StartingSeason",
+          "defaultValue": "Summer",
+          "label": "Starting season",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Short",
+              "value": "Short"
+            },
+            {
+              "text": "Default",
+              "value": "Default"
+            },
+            {
+              "text": "Long",
+              "value": "Long"
+            },
+            {
+              "text": "Realistic",
+              "value": "Realistic"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "SeasonLength",
+          "defaultValue": "Default",
+          "label": "Season length",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Short",
+              "value": "Short"
+            },
+            {
+              "text": "Default",
+              "value": "Default"
+            },
+            {
+              "text": "Long",
+              "value": "Long"
+            },
+            {
+              "text": "Realistic",
+              "value": "Realistic"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "DayLength",
+          "defaultValue": "Default",
+          "label": "Day length",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Low",
+              "value": "Low"
+            },
+            {
+              "text": "Default",
+              "value": "Default"
+            },
+            {
+              "text": "High",
+              "value": "High"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "PrecipitationFrequency",
+          "defaultValue": "Default",
+          "label": "Rain and snow",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Normal",
+              "value": "Normal"
+            },
+            {
+              "text": "Hard",
+              "value": "Hard"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "ConsumableEffects",
+          "defaultValue": "Normal",
+          "label": "Consumable effects",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Off",
+              "value": "Off"
+            },
+            {
+              "text": "Normal",
+              "value": "Normal"
+            },
+            {
+              "text": "Hard",
+              "value": "Hard"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "PlayerStatsDamage",
+          "defaultValue": "Off",
+          "label": "Damage from hunger and thirst",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Off",
+              "value": "Off"
+            },
+            {
+              "text": "Normal",
+              "value": "Normal"
+            },
+            {
+              "text": "Hard",
+              "value": "Hard"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "ColdPenalties",
+          "defaultValue": "Off",
+          "label": "Cold penalties",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "ReducedFoodInContainers",
+          "defaultValue": "false",
+          "label": "Less food in containers",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "SingleUseContainers",
+          "defaultValue": "false",
+          "label": "Single-use containers",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Performance",
+          "defaultValue": null,
+          "label": "Performance",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 60,
+          "id": "IdleTargetFramerate",
+          "defaultValue": "5",
+          "label": "Frame rate while empty",
+          "description": "Lower values save CPU while nobody is online.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 10,
+          "maxValue": 120,
+          "id": "ActiveTargetFramerate",
+          "defaultValue": "60",
+          "label": "Frame rate with players",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 1,
+          "id": "IdleDayCycleSpeed",
+          "defaultValue": "0",
+          "label": "Day cycle speed while empty",
+          "description": "0 stops time while nobody is online, 1 = normal speed.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 427,
+      "relativePath": "serverconfig/ownerswhitelist.txt",
+      "description": "Server owners (ownerswhitelist.txt): one SteamID64 per line",
+      "template": "",
+      "order": 2,
+      "enableEditor": false,
+      "editor": []
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server",
+        "description": "Writes steam_appid.txt, which the server needs to pass its start-up self test.",
+        "code": "using System;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// The server\u0027s self test stops at \u0022steam_appid.txt does not exist ... Please restart the server\u0022 when the file is\n// missing (the game\u0027s own start batch file writes it). Write it before every start so the first start works too.\nvar root = (string)ThisService.RootDirectory;\nvar appIdFile = Path.Combine(root, \u0022steam_appid.txt\u0022);\nconst string appId = \u00221326470\u0022;\nif (!File.Exists(appIdFile) || File.ReadAllText(appIdFile).Trim() != appId)\n{\n    File.WriteAllText(appIdFile, appId);\n    // Scripts run as the monitor; hand the file to the owner of the service folder.\n    Globals.OperatingSystem.SetFileOwnerAutoDetect(appIdFile);\n    ScriptConsole.WriteLine((object)\u0022Wrote steam_appid.txt.\u0022);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "6a314379-de06-5537-9a6d-b61bd0d2515a"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-10T19:55:23.083663",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "serverconfig/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": [
+    {
+      "id": 112,
+      "blueprintId": 201,
+      "name": "SteamAppId",
+      "value": "1326470",
+      "valueType": "Static"
+    },
+    {
+      "id": 113,
+      "blueprintId": 201,
+      "name": "SteamGameId",
+      "value": "1326470",
+      "valueType": "Static"
+    }
+  ]
+}
