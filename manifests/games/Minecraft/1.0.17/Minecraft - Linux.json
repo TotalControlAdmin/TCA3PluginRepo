@@ -1,6 +1,6 @@
 {
   "__TCA:ExportVersion": "3.23.42",
-  "__TCA:ExportedAt": "2026-11-10T03:54:49.7879207Z",
+  "__TCA:ExportedAt": "2026-11-10T05:51:14.7065321Z",
   "name": "Minecraft",
   "shortName": "Minecraft",
   "description": "",
@@ -212,7 +212,7 @@
     },
     {
       "name": "Xmx",
-      "defaultValue": "2048",
+      "defaultValue": 5120,
       "required": true,
       "requiredMessage": "A value for Xmx is required",
       "scriptParameter": false,
@@ -228,7 +228,7 @@
         "minValue": 128,
         "maxValue": null,
         "id": "Xmx",
-        "defaultValue": "2048",
+        "defaultValue": 5120,
         "label": "Xmx",
         "description": "Max memory allocated by Java in megabytes",
         "required": true,
