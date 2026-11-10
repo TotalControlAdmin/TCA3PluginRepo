@@ -1,0 +1,1852 @@
+{
+  "__TCA:ExportVersion": "3.23.42",
+  "__TCA:ExportedAt": "2026-11-10T13:19:06.0874475Z",
+  "name": "Euro Truck Simulator 2",
+  "shortName": "ETS2",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/227300/adc18a4fc9adc0330144b76d61cbda68bb2394a0.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/edbff61a062a49d1d97269e53b8afbffde05bb24/ss_edbff61a062a49d1d97269e53b8afbffde05bb24.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 8,
+  "defaultSlots": 8,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".sii",
+    ".txt",
+    ".cfg"
+  ],
+  "logExtensions": [
+    ".log.txt",
+    ".crash.txt"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "Euro Truck Simulator 2/server.log.txt",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "^c",
+    "waitAfterStopCommand": 30000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 27015,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 27016,
+        "expression": "GamePort \u002B 1",
+        "description": null,
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "bin\\win_x64\\eurotrucks2_server.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "ets2",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 1948160,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 227300,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": false,
+    "defaultCommandline": "-homedir ../.. -nosingle",
+    "defaultCustomCommandline": "-homedir ../.. -nosingle ${UserCommandLine}",
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": true,
+    "elevated": false
+  },
+  "identifier": "e26041e0-dad9-485b-bde9-60d513ff8b45",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "Description",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Description}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "Description",
+        "defaultValue": "",
+        "label": "Description",
+        "description": "63 characters at most.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.640647",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WelcomeMessage",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WelcomeMessage}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "WelcomeMessage",
+        "defaultValue": "",
+        "label": "Welcome message",
+        "description": "127 characters at most.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.657097",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "LogonToken",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${LogonToken}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "LogonToken",
+        "defaultValue": "",
+        "label": "Server logon token",
+        "description": "Optional. A token from steamcommunity.com/dev/managegameservers (made for the GAME app id) keeps the same server id across restarts.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.657166",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PlayerDamage",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PlayerDamage}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "PlayerDamage",
+        "defaultValue": "true",
+        "label": "Damage from other players",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.657177",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Traffic",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Traffic}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "Traffic",
+        "defaultValue": "true",
+        "label": "AI traffic",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.659102",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "HideInCompany",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${HideInCompany}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "HideInCompany",
+        "defaultValue": "false",
+        "label": "Hide players in company areas",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.659125",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "HideColliding",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${HideColliding}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "HideColliding",
+        "defaultValue": "true",
+        "label": "Hide colliding vehicles after a teleport",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.659137",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ForceSpeedLimiter",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ForceSpeedLimiter}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "ForceSpeedLimiter",
+        "defaultValue": "false",
+        "label": "Force the speed limiter",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.659165",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ModsOptioning",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ModsOptioning}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "ModsOptioning",
+        "defaultValue": "false",
+        "label": "Mods marked optional are optional",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.659175",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ServiceNoCollision",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ServiceNoCollision}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "ServiceNoCollision",
+        "defaultValue": "false",
+        "label": "No collisions in service areas",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.659187",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "InMenuGhosting",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${InMenuGhosting}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "InMenuGhosting",
+        "defaultValue": "false",
+        "label": "No collisions while a player is paused",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.659212",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NameTags",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NameTags}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "NameTags",
+        "defaultValue": "true",
+        "label": "Player name tags",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.659222",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Timezones",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Timezones}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 2,
+        "id": "Timezones",
+        "defaultValue": "0",
+        "label": "Time zones (0-2)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.659233",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxVehiclesTotal",
+      "defaultValue": "100",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxVehiclesTotal}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 1000,
+        "id": "MaxVehiclesTotal",
+        "defaultValue": "100",
+        "label": "Maximum vehicles in total",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.667948",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxAiVehiclesPlayer",
+      "defaultValue": "50",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxAiVehiclesPlayer}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 500,
+        "id": "MaxAiVehiclesPlayer",
+        "defaultValue": "50",
+        "label": "Maximum AI vehicles per player",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.66799",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxAiVehiclesPlayerSpawn",
+      "defaultValue": "50",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxAiVehiclesPlayerSpawn}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 500,
+        "id": "MaxAiVehiclesPlayerSpawn",
+        "defaultValue": "50",
+        "label": "Maximum AI vehicles spawned per player",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:01:28.668013",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 396,
+      "relativePath": "Euro Truck Simulator 2\\server_config.sii",
+      "description": "Session settings (server_config.sii)",
+      "template": "SiiNunit\n{\nserver_config : _nameless.127.e84b.ecc8 {\n lobby_name: \u0022${Hostname}\u0022\n description: \u0022${Description}\u0022\n welcome_message: \u0022${WelcomeMessage}\u0022\n password: \u0022${PrivatePassword}\u0022\n max_players: ${Slots}\n max_vehicles_total: ${MaxVehiclesTotal}\n max_ai_vehicles_player: ${MaxAiVehiclesPlayer}\n max_ai_vehicles_player_spawn: ${MaxAiVehiclesPlayerSpawn}\n connection_virtual_port: 100\n query_virtual_port: 101\n connection_dedicated_port: ${GamePort}\n query_dedicated_port: ${QueryPort}\n server_logon_token: \u0022${LogonToken}\u0022\n player_damage: ${PlayerDamage}\n traffic: ${Traffic}\n hide_in_company: ${HideInCompany}\n hide_colliding: ${HideColliding}\n force_speed_limiter: ${ForceSpeedLimiter}\n mods_optioning: ${ModsOptioning}\n timezones: ${Timezones}\n service_no_collision: ${ServiceNoCollision}\n in_menu_ghosting: ${InMenuGhosting}\n name_tags: ${NameTags}\n friends_only: false\n show_server: true\n moderator_list: 0\n}\n\n}\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Session",
+          "defaultValue": null,
+          "label": "Session",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Session name",
+          "description": "Shown in the server browser (63 characters at most).",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Password",
+          "description": "Leave empty for a public session.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Description",
+          "defaultValue": "",
+          "label": "Description",
+          "description": "63 characters at most.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "WelcomeMessage",
+          "defaultValue": "",
+          "label": "Welcome message",
+          "description": "127 characters at most.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "LogonToken",
+          "defaultValue": "",
+          "label": "Server logon token",
+          "description": "Optional. A token from steamcommunity.com/dev/managegameservers (made for the GAME app id) keeps the same server id across restarts.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Gameplay",
+          "defaultValue": null,
+          "label": "Gameplay",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "PlayerDamage",
+          "defaultValue": "true",
+          "label": "Damage from other players",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "Traffic",
+          "defaultValue": "true",
+          "label": "AI traffic",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "HideInCompany",
+          "defaultValue": "false",
+          "label": "Hide players in company areas",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "HideColliding",
+          "defaultValue": "true",
+          "label": "Hide colliding vehicles after a teleport",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "ForceSpeedLimiter",
+          "defaultValue": "false",
+          "label": "Force the speed limiter",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "ModsOptioning",
+          "defaultValue": "false",
+          "label": "Mods marked optional are optional",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "ServiceNoCollision",
+          "defaultValue": "false",
+          "label": "No collisions in service areas",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "InMenuGhosting",
+          "defaultValue": "false",
+          "label": "No collisions while a player is paused",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "NameTags",
+          "defaultValue": "true",
+          "label": "Player name tags",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 2,
+          "id": "Timezones",
+          "defaultValue": "0",
+          "label": "Time zones (0-2)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Traffic",
+          "defaultValue": null,
+          "label": "AI vehicles",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 1000,
+          "id": "MaxVehiclesTotal",
+          "defaultValue": "100",
+          "label": "Maximum vehicles in total",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 500,
+          "id": "MaxAiVehiclesPlayer",
+          "defaultValue": "50",
+          "label": "Maximum AI vehicles per player",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 500,
+          "id": "MaxAiVehiclesPlayerSpawn",
+          "defaultValue": "50",
+          "label": "Maximum AI vehicles spawned per player",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server",
+        "description": "Writes default server packages (base map) when none exist.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// The server refuses to start without server_packages.sii/.dat (\u0022Server packages file not found\u0022), which only the\n// game client can export (export_server_packages). Write a base-map pair when there is none, so a new server starts;\n// a customer who wants DLC maps or mods uploads their own export over it.\nvar root = (string)ThisService.RootDirectory;\nvar home = Path.Combine(root, \u0022Euro Truck Simulator 2\u0022);\nDirectory.CreateDirectory(home);\nvoid Ensure(string name, string base64)\n{\n    var path = Path.Combine(home, name);\n    if (File.Exists(path)) return;\n    File.WriteAllBytes(path, Convert.FromBase64String(base64));\n    ScriptConsole.WriteLine((object)(\u0022Created a default \u0022 \u002B name \u002B \u0022 (base map, no DLC).\u0022));\n}\nEnsure(\u0022server_packages.sii\u0022, \u0022U2lpTnVuaXQKewpzZXJ2ZXJfcGFja2FnZXNfaW5mbyA6IF9uYW1lbGVzcy4xY2UuNWE2NC4wYjcwIHsKIHZlcnNpb246IDEKIGRsY19lc3NlbnRpYWxfbGlzdDogMAogZGxjX25vbl9lc3NlbnRpYWxfbGlzdDogMAogbW9kX2xpc3Q6IDAKIG1hcF9uYW1lOiAiL21hcC9ldXJvcGUubWJkIgogbWFwX2RpbWVuc2lvbnM6ICgtMTYzODQwMDAsIC0xNjM4NDAwMCwgMTc0MDgwMDAsIDE0MzM2MDAwKQogcm9hZHNfZGF0YV9maWxlX25hbWU6ICIvaG9tZS9zZXJ2ZXJfcGFja2FnZXMuZGF0IgogdGltZV9zdGFtcDogMTY3MDcxNjgxNAp9Cgp9Cg==\u0022);\nEnsure(\u0022server_packages.dat\u0022, \u0022AQCOHZVjAAAAAEYNK8g9P7z8AAAG/wAABv8AoAkBAMDaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQDcGQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA4JwBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQD7GQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAIJ4HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwD\u002BwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAA\u002BB8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9C\u002BAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDAPxsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2P8yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADnuQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4BadgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGD/7z8MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/jHmQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOATYAIGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvAH\u002BIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc8D8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6AH2FwAAAAAAAAAAAAD/xwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAHAAAAAAAAAAAAAAAAGIJ8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAAEAA\u002BA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAPAAAAAAAAAAAAAAAABAD2AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/gIAAAAAAAAAAAAAAEAAQAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAuBAAAAAAAAAAAAAAAAgAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz/8AAAAAAAAAAAAAACAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAoGAAAAAAAAAAAAAAAAr4JAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8/wAAAAAAAAAAAAAADC4RwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADB4AAAAAAAAAAAAAAAAQfgDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAAAAAAAAAAADDEAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIAAAAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAwBMEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAAGMDnwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD7oAAAAAAAAAAIBjAgMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADDgDgAAAAAAAAAA/BkQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB\u002BoAAAAAAAAAAAADgAMEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAwAgAAAAAAAAAAEABOMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAi0EAAAAAAAAAAIABXMwBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAYCAAAAAAAAAAAEDBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7wEAAAAAAAAAAACDAQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAPDAAAAAAAAAAAIAggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8QAAAAAAAAAAABBAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODADAAAAAAAAAAAIAaWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACHgAAAAAAAAAABD0oA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGCADgAAAAAAAAAAvwEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAggAAAAAAAAAAOAG8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCAAQAAAAAAAAAA/wAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg0AAAAAAAAAAPAMQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABDgAAAAAAAAAAAAyAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADA4A8AAAAAAAAAAIA0YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADx/AAAAAAAAAAAASDz2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADA4AAAAAAAAAAAAIAHIh8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEIPAAAAAAAAAAAAQMDyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwOAAAAAAAAAAAAAAccAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMEBAAAAAAAAAAAAgAH8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4BAAAAAAAAAAAAAAYADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMAAAAAAAAAAAAAAgAEADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHBAAAAAAAAAAAAAAYAIA5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA83UAAAAAAAAAAAAAgAEAbAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAObhBwAAAAAAAAAAAABwAEDAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAfSAAAAAAAAAAAAAAAAUAAm8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOMDAgAAAAAAAAAAAABgACA4AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwP\u002BAAAAAAAAAAAAAAAA4AgiMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8HBgAAAAAAAAAAAACAByAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgXwAAAAAAAAAAAAAAAGAAAiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAAAAAAAAAAAAAAAAiAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPRAAAAAAAAAAAAAAACDgAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJYAAQAAAAAAAAAAAAAAAwMACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgGAAAAAAAAAAAAAAAABAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAAAgMABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAABAQAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAggAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAADAIAIAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOADAAAAAAAAAAAAAAAAggAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAAMALAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOABAAAAAAAAAAAAAAAAwAcAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAABgAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAQAMAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAAAAAAAAAAAAAAACkAAB/AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA4B8DGB8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAC\u002BfMDQAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAwD98ThgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAADwAdwHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAAAABQA9gEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAADAAeAfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAAAAAAwA4gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAAAAAAwAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAEABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAEAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwjB4AAAAAAAAAAAAAAAAQAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7/AAAAAAAAAAAAAAAAAAEAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdgEAAAAAAAAAAAAAAAAQAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAQAAAAAAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAOABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADG5/ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYMAGAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH\u002BCMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEADABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAMACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAA9AMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAEDBAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoCAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAALBgAdQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsD/APh\u002BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADDgHw7AtAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB85wNgAEBgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwKcXAAwABA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4wgPgAPwDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8\u002BAAkABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABw5AcQADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHc8AAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwpgMw8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgCEIwIfxQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfHABvNvgJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAED4B8C5AMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfQACOEcB\u002BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAEYBgF\u002BAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAMACHUAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgABHggGMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAACKCDcIADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG2ADOgQDHgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABPiAgOBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEeAAAoKHAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwDGCAgQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIAABBgR0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAcCMIAh4AEAAAAAAAAAAAAAAAAAAAAAgA8AAAAAAAAAAAAAAAAAAAAAAAAAQIEBAAAAAAAAAAAAAAAAAAAAAABIIIAGCAEPAAAAAAAAAAAAAAAAAAAAAAD4AgAAAAAAAAAAAAAAAAAAAAAAAADc3AMAAAAAAAAAAAAAAAAAAAAAAAcH2IAY2AAAAAAAAAAAAAAAAAAAAAAAgP8AAAAAAAAAAAAAAAAAAAAAAAAAwP5/AAAAAAAAAAAAAAAAAAAAAABgMAABhPEMAAAAAAAAAAAAAAAAAAAAAADwBwAAAAAAAAAAAAAAAAAAAAAAAAA8zwcAAAAAAAAAAAAAAAAAAAAAAAcBEED94QAAAAAAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAAAAAAAAAAAAwEAcAAAAAAAAAAAAAAAAAAAAAAB4EAAB7wkeAAAAAAAAAAAAAAAAAAAAAAD4BwAAAAAAAAAAAAAAAAAAAAAAAAAIgAEAAAAAAAAAAAAAAAAAAAAAYIABIBiIwAMAAAAAAAAAAAAAAAAAAAAAAH8AAAAAAAAAAAAAAAAAAAAAAAAAwAAIAAAAAAAAAAAAAAAAAAAAAAACFgD8wAAwAAAAAAAAAAAAAAAAAAAAAADwBwAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAOOAAgAQMgAMAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAIAHAAAAAAAAAAAAAAAAAAAAAIAABAAagAA4AAAAAAAAAAAAAAAAAAAAAADgBwAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAGEAAXAEIgAEAAAAAAAAAAAAAAAAAAAAAgD0AAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAABBGBwgAAYAAAAAAAAAAAAAAAAAAAAAADA9wAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAADEAA4Q4IgAAAAAAAAAAAAAAAAAAAAAAAADwPAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAGAADJC/gAEYAAAAAAAAAAAAAAAAAAAAAADg8QAAAAAAAAAAAAAAAAAAAAAAAAAAQAIAAAAAAAAAAAAAAAAAAAAAA4AA\u002BQ8QAAEAAAAAAAAAAAAAAAAAAAAAADAPAAAAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAgBAACBy\u002BBwF4AAAAAAAAAAAAAAAAAAAAAACAP0AAAAoAAAAAAAAAAAAAAAAAAAAAQAMAAAAAAAAAAAAAAAAAAACMAfCAB8AYgB8AAAAAAAAAAAAAAAAAAAAAAPw/DAD4AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAgB8ABzgAnABQAQAAAAAAAAAAAAAAAAAAAABgE04AAH8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADPAP6RAwAeAAwAAAAAAAAAAAAAAAAAAAAAALABBwDAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfgAQdBEAwH\u002BgAwAAAAAAAAAAAAAAAAAAAAAAP\u002BABgBMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAH4CE8AQAIHggAAAAAAAAAAAAAAAAAAAAAAFCwEwCEAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEWAXAg4AAPGRAAAAAAAAAAAAAAAAAAAAAAAABGcD4G8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA\u002BuiGAAAAI/QgAAAAAAAAAAAAAAAAAAAAAAHDg6QD9DwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABxyAAQgAAJ/cAAAAAAAAAAAAAAAAAAAAAACgBixPPkkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOADAAhAAAAwRgoAAAAAAAAAAAAAAAAAAAAAAJzgY9zzBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg\u002BQHwAAIAAAcAAQAAAAAAAAAAAAAAAAAAAADAgc/8/00AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ4/wABAAABoACB\u002BAAAAAAAAAAAAAAAAAAAAAAZAcED\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\u002B/w/Eg8RgNAIQOgDoC\u002BIBAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAwAACAHwAAALD/EAMAAAAACB4AGAAAWDhsgO\u002BfZ/xIH9nnACHBxz5BEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARwAALA/AACAQLhhAAAAAMDhAQABAAAHgAPsc/HW84\u002BZh/cf3sc1EtQBAAAAAAAAAAAAAAAAAAAAAAAAAAAAGQwABgCAYwIAAAAMzAcAAAAA8B8AEAAAYAAwAP4B8De0/P\u002BRg/8H\u002BM//PwAAAAAAAAAAAAAAAAAAAAAAAAAAAPx/AGBAgO8jAAAAAMD3AAAAAABPBgABAAAPsALwPwCWQwh/DwEY/wF0PMgPAAAAAAAAAAAAAAAAAAAAAAAAAADAwwMAyD8ELAYAAAAAhAkAAAAAkEMAEAAAfAArAP8DQA4AUHUMgCAiQPn2PwAAAAAAAAAAAAAAAAAAAAAAAAAAAH4EAIAnZMBnAAAAAEC4AAAAAAACBAAHDwABfADwPwD8AaCRBQAA/QEU3IAOAAAAAAAAAAAAAAAAAAAAAAAAAADgAwAAAIABeOgAAAAAxA8AAAAAAEAAYJgB8PgHAHwD4B0ADkAAAAACwMEACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAIAiDwIAAEb\u002BAAAAAAAABADm4MHhfwCAOwAmAOAACAAAIAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAADy/HQD8PwwAAAAAAEAAIBew874HAHgBQAAAC4ABAAABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAh38D4B8AAAAAAACABygaA4Z/OAAAaAAIADgAMAAAcAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQYIINAAAAAAAAAByA/zAY/wACAIAAgAFwAIADAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI8\u002BAEAAAAADwBwABAC/zwCAAAACAAQgAYAwAEAgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg4McCAIABAI4/gA\u002B4Y/Dksw8AAGAAAAL\u002BAAAwAAAIAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAwAAoAAYgAGQgAcI/f4HAQAABwAwQAcAAAUAAAMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAfwADU/M4PgICO/yEAABgACgIYAAAcAAAQAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8IMHYD\u002BYBwAY8P8fBACAgOBAQAAAgAEAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8BAAAgBAAgCFz/8ARAQwMPsQHAAAMAAAgAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgE8AAAAOAAAQFvcO4G7Q9/BO4h8AQAAAgGeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8BAAAwAEAAOf5XwAASPLezz8kBwAEAACABxgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAGAACwb/cAAAD/IfMUQEIAQAAAAEAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAgAAOAAAAOPjCgAA4BUMUc4zDAACAAAABDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4OUAAMACAAA4OIIAAADuACDsuYcBQBgAACAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/H8D//wAAgAMyCAAAAB8ABo/uMQH\u002BAgCgA4AANgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AQBBnAHAAA44IMBAAD4AeDAyB988HAAAH0ACP4PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBDEDAAJAAAAMJ/HwAAgH8ABPj5AXgBBwCIAMB/MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALATiB8AAAAhA/88DAACMAGAA/A\u002BAD9BBgBgAOAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAPT8AGACA4\u002BydwAAAwADgA0AQAPgS\u002BP\u002BvAXACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGDyBwABADi83AB8AAAff/wBBABA/wEAgP0AHwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAA5D8AEAD4\u002Bw8HgAcA\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\u002BDH//j\u002BA0\u002BMfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4CEADAAQAAAAZAAABwDqBwIAHOG//\u002BN/APg5\u002BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBMAAAAMAAOAHAHAAIFNgAMAw/vtxWASA/ocHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgAAGAA4AADwRwAABwAehgMADOL/Bw4AAMD/4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAIADwAMAAAsEADAAQED8AKDg/wHAAAAA3v8JAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaOEvAAAQQAAAAcAH4AEAHHgfAB8AAMDHvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAcPwIAAAIMAJEAcAAkAOAD9gHAAAAAeNgNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6PFiAAAQgA14GgAbYAcAHsAHAC4AAIDvkQgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO\u002BAYA5AHgh/8BEAB\u002BAOAACADQQwL4\u002BH\u002BI8wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAB7AL4BAMb0LIABQAwADgAfABg8QMafB\u002BMJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAInA8QAADQ7W8HGADiALAAAAMAxwu0/zExDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgECwAAEAAN7/8AAB8AcA7wDgAODr4f\u002BfT\u002BMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ9hAQAABg3wf\u002BOAAHAPAPAA4AnP9/8ID/GQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOEAwQAAgH944PMPMAAATwBgAMD//wsD6IMBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQBnAGAABPxwcw/wB8AHDnAQYA/p/5eIATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACHAHwAA8OUAAOADAA6AOznAAPi/EwAOAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAw8hMAAIAfDgAAHgDgHx7fBxwA/f8BwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPwAAQA0t\u002BABAPAHAPb/wPjAB\u002BCbHgAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhA/\u002BJIDPgAAHQD4/wfAP/wDEPkBYAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAfn7MfwAGALAHwP0/ANz/DQAAjAAGADAPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASAAANAHwAAA7/fD/gDAeHsAAPAPKACAIAAAAAAAwAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAwDgOwAMAHD4L\u002BABAIaDAwCA78DBCQAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAARAAADMDgAMAAwAADABgOBcAAOj//9cAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAHgAYMwBgABAAAEAAAAf/AQBA/h/\u002BDwAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCAAwABwBAAAARwAQAADgBw4DkAAMZ9wQMAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABb/jgAeMAHAQAgAA0AAPADAB\u002BCAwCgfwNAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcH9/AYAsAjAAAAHwAQCAMADwITgAgM8HAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/AR4AiBMAAgAQgB0AAAAGABiCBxk/OQAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMALwAYAwAUAAwAMyAAAA4AAAIfjz/wgAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACABsAGBbABQAcYAIAAAAOADCa//8GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwG\u002BBwATYAgAc0AAAAYADA\u002BXm\u002B8AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMsB4Q9gAADg4AEAAAAGAPzcDXgPAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwEPx/AAMAABgOAAAAYADAgD/A/wEAAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAci\u002BAcYAACAYQAAAAADAABwAPwFAAAAAAAAAAAAAAA8gAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMACewIQegAAAADAEAAAAHAAAAATABwAAAAAAAAAAAAAAwAc4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH4Ak8yAEYAAAAewEAAOAAAABwAAAAAAAAAAAAAAAAAADsBgMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AP/b4AAAAMAAOAcAAAAAwAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA84H8BCAAQAAAADAAAACgAAIAfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAePN4AAAAMAAOAAAAAAAwAACAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADv8KcCCAAwAACABwAAADwAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAED54J4AAAAUAABgAAADAAQAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACBgf8DCABAAACAAQAAAAwAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBD4P4ABAAQAAHgAAAAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAf8HGABgAAAABAAAAAYAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADjw9wABAAIAAGAAAABAAAAAwAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA\u002BEMCADgAgAAAwAAAAQAAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALBo2oAAANgAABgAAABgAAAAMAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/qbhCwAAGADAAAAAAAMAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAED\u002BCXsAAIAHACwAAAAQAAAAPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA8f8wEAwABAPwAAgAAAAPAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWACARAAAIAPwlADAPAAAAiwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAEADgEAgADu/38AHwAAAAgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAIAAAI4P/3BpABAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAEAgAD8T\u002B\u002BBDQCAwwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAAQ\u002BD9/EPAAAPQPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAMAAH/\u002B\u002BQ\u002BDDgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAADOANf/UPgHACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAwADg/w8EfADgAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAOAHAH7\u002BgcAHAP4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgOBwDgvwUIXgDoBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAADAEEkAAHz7hv8/4HMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABjxBwCA/69hB/w/BgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAH/gBAPD3B3gAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPCAPgAA9b\u002BAF\u002BAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAPgDABjzB/AHPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO5\u002BAEOAE//gGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCNLw0A/\u002BCffgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPOD/APgD7EgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABsBzABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWADAAHgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAHAAhAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMADgAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAGAAwABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAAAAAAAAAAfADAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA4gAAAAAAAAAAAAAAAAAAAAAAAIBEAD8AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8PMOAAAAAAAAAAAAAAAAAAAAAACAxgX8FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2fwAAAAAAAAAAAAAAAAAAAAAACDhw4OcHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcPwAAAAAAAAAAAAAAAAAAAAAAIDfgQ//HgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBgAAAAAAAAAAAAAAAAAAAAAA4BPg6YMBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOMAAAAAAAAAAAAAAAAAAAAAAAAAAAL5/EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIADDgAAAAAAAAAAAAAAAAAAAAAAAACAxgMDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMEAAAAAAAAAAAAAAAAAAAAAAAAAAAHgA4AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBAAAAAAAAAAAAAAAAAAAAAAAAADQAQAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAJYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4ADwHwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAe8P8DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D/\u002BPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD\u002Bw/EDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwL\u002B/fgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwn8IDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\u0022);\n\n// Linux: the Steam API looks for steamclient.so in ~/.steam/sdk64 (the service root is the home directory).\nif (System.OperatingSystem.IsLinux())\n{\n    var source = Path.Combine(root, \u0022linux64\u0022, \u0022steamclient.so\u0022);\n    var target = Path.Combine(root, \u0022.steam\u0022, \u0022sdk64\u0022, \u0022steamclient.so\u0022);\n    if (File.Exists(source) \u0026\u0026 (!File.Exists(target) || new FileInfo(target).Length != new FileInfo(source).Length))\n    {\n        Directory.CreateDirectory(Path.GetDirectoryName(target));\n        File.Copy(source, target, true);\n        ScriptConsole.WriteLine((object)\u0022Copied steamclient.so to .steam/sdk64.\u0022);\n    }\n\n    // The server binary links libatomic.so.1, which minimal distributions do not install (exit code 127 without it).\n    var server = Path.Combine(root, \u0022bin\u0022, \u0022linux_x64\u0022, \u0022eurotrucks2_server\u0022);\n    if (Shell(\u0022ldd \u0027\u0022 \u002B server \u002B \u0022\u0027 | grep -q \u0027libatomic.so.1 =\u003E not found\u0027\u0022, out _))\n    {\n        ScriptConsole.WriteLine((object)\u0022libatomic.so.1 is missing on this host; installing it.\u0022);\n        var installed =\n            Shell(\u0022command -v apt-get \u0026\u0026 (DEBIAN_FRONTEND=noninteractive apt-get install -y libatomic1 || (apt-get update \u0026\u0026 DEBIAN_FRONTEND=noninteractive apt-get install -y libatomic1))\u0022, out var aptLog)\n            || Shell(\u0022command -v dnf \u0026\u0026 dnf install -y libatomic\u0022, out _)\n            || Shell(\u0022command -v yum \u0026\u0026 yum install -y libatomic\u0022, out _)\n            || Shell(\u0022command -v zypper \u0026\u0026 zypper --non-interactive install libatomic1\u0022, out _);\n        if (!installed)\n        {\n            throw new Exception(\u0022libatomic.so.1 is missing and could not be installed. Install the libatomic1 (Debian/Ubuntu) or libatomic (RHEL) package on this host. \u0022 \u002B aptLog);\n        }\n        ScriptConsole.WriteLine((object)\u0022Installed libatomic.\u0022);\n    }\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\u0022/bin/sh\u0022, new[] { \u0022-c\u0022, command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() \u002B process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "7e9852f7-c287-47a5-9fb9-79f82f0c1789"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-10T13:01:28.717824",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": false,
+    "includedPaths": [
+      "Euro Truck Simulator 2/server_config.sii",
+      "Euro Truck Simulator 2/server_packages.*",
+      "Euro Truck Simulator 2/mod/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
