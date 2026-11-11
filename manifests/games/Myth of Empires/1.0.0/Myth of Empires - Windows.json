@@ -1,6 +1,6 @@
 {
   "__TCA:ExportVersion": "3.23.45.17810",
-  "__TCA:ExportedAt": "2026-11-11T13:06:24.130943Z",
+  "__TCA:ExportedAt": "2026-11-11T14:28:35.5213645Z",
   "name": "Myth of Empires",
   "shortName": "MythOfEmpires",
   "description": "",
@@ -113,7 +113,7 @@
   "commandlineConfig": {
     "enableSelection": true,
     "defaultCommandline": "${MapName} -game -server -DataLocalFile -NotCheckServerSteamAuth -log -LOCALLOGTIMES -PrivateServer -disable_qim -MultiHome=${IPAddress} -OutAddress=${IPAddress} -Port=${GamePort} -QueryPort=${QueryPort} -bStartShutDownServiceInPrivateServer=true -ShutDownServiceIP=${IPAddress} -ShutDownServicePort=${RConPort} -ShutDownServiceKey=\u0022${RconPassword}\u0022 -SessionName=\u0022${Hostname}\u0022 ${PrivatePassword.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022-PrivateServerPassword=\u0022 \u002B PrivatePassword} ${ServerDescription} -MaxPlayers=${Slots} -ServerId=100 -ClusterId=1 ${PvEMode} ${MapDifficultyRate} ${UseACE} -EnableVACBan=1 -bUseServerAdmin=true ${AdminAccounts} ${SaveInterval} ${WelcomeMessage} ${AddExpMultiplier} ${SkillExpMultiplier} ${CollectMultiplier} ${AddTameMulti} ${CropGrowthMultiplier} ${Mods}",
-    "defaultCustomCommandline": "${MapName} -game -server -DataLocalFile -NotCheckServerSteamAuth -log -LOCALLOGTIMES -PrivateServer -disable_qim -MultiHome=${IPAddress} -OutAddress=${IPAddress} -Port=${GamePort} -QueryPort=${QueryPort} -bStartShutDownServiceInPrivateServer=true -ShutDownServiceIP=${IPAddress} -ShutDownServicePort=${RConPort} -ShutDownServiceKey=\u0022${RconPassword}\u0022 -SessionName=\u0022${Hostname}\u0022 ${PrivatePassword.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022-PrivateServerPassword=\u0022 \u002B PrivatePassword} ${ServerDescription} -MaxPlayers=${Slots} -ServerId=100 -ClusterId=1 ${PvEMode} ${MapDifficultyRate} ${UseACE} -EnableVACBan=1 -bUseServerAdmin=true ${AdminAccounts} ${SaveInterval} ${WelcomeMessage} ${AddExpMultiplier} ${SkillExpMultiplier} ${CollectMultiplier} ${AddTameMulti} ${CropGrowthMultiplier} ${Mods} ${UserCommandLine}",
+    "defaultCustomCommandline": "${MapName} -game -server -DataLocalFile -NotCheckServerSteamAuth -log -LOCALLOGTIMES -PrivateServer -disable_qim -MultiHome=${IPAddress} -OutAddress=${IPAddress} -Port=${GamePort} -QueryPort=${QueryPort} -bStartShutDownServiceInPrivateServer=true -ShutDownServiceIP=${IPAddress} -ShutDownServicePort=${RConPort} -ShutDownServiceKey=\u0022${RconPassword}\u0022 -SessionName=\u0022${Hostname}\u0022 ${PrivatePassword.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022-PrivateServerPassword=\u0022 \u002B PrivatePassword} ${ServerDescription} -MaxPlayers=${Slots} -ServerId=100 -ClusterId=1 ${PvEMode} ${MapDifficultyRate} ${UseACE} -EnableVACBan=1 -bUseServerAdmin=true ${AdminAccounts} ${SaveInterval} ${WelcomeMessage} ${AddExpMultiplier} ${SkillExpMultiplier} ${CollectMultiplier} ${AddTameMulti} ${CropGrowthMultiplier} ${Mods}",
     "predefinedCommandlines": [
       {
         "id": 1,
