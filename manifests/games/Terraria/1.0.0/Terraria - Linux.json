@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.23.43.17810",
-  "__TCA:ExportedAt": "2026-11-10T14:40:53.7335571Z",
+  "__TCA:ExportVersion": "3.23.44.17810",
+  "__TCA:ExportedAt": "2026-11-11T02:35:41.6639717Z",
   "name": "Terraria",
   "shortName": "Terraria",
   "description": "",
@@ -36,7 +36,7 @@
   },
   "consoleConfig": {
     "enabled": true,
-    "outputSource": "Terminal",
+    "outputSource": "LinuxScreen",
     "logFile": "",
     "inputSource": "ConsoleCommands",
     "printRconResponse": false,
@@ -224,7 +224,7 @@
         "id": "WorldName",
         "defaultValue": "world",
         "label": "World name",
-        "description": "The world file is worlds/\u003Cname\u003E.wld. A missing world is created with the settings below.",
+        "description": "The world file is worlds/<name>.wld. A missing world is created with the settings below.",
         "required": false,
         "valueType": "string",
         "requiredMessage": "Value is required",
@@ -507,7 +507,7 @@
           "id": "WorldName",
           "defaultValue": "world",
           "label": "World name",
-          "description": "The world file is worlds/\u003Cname\u003E.wld. A missing world is created with the settings below.",
+          "description": "The world file is worlds/<name>.wld. A missing world is created with the settings below.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -641,7 +641,7 @@
         ],
         "name": "Download Terraria",
         "description": "Downloads the newest official Terraria server into the game files folder.",
-        "code": "//refAssemblies: System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.Net.Http.dll, System.Text.Json.dll\nusing System;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGlobals(); // DO NOT MODIFY THIS LINE\n\n// The game\u0027s files are not on Steam for anonymous accounts; fetch the latest official server into this server\u0027s\n// game files folder (the create task copies it into the new service from there).\nvar target = Path.Combine(ThisServer.Configuration.GameFilesPath, ThisGame.FileAndDirectoryConfig.AutoSetupFolderName);\nvar http = new HttpClient();\nawait InstallServer(http, await LatestServerZip(http), target);\n// Shared body of the Terraria install/update scripts: the official dedicated server zip from terraria.org holds\n// \u003Cversion\u003E/Windows, \u003Cversion\u003E/Linux and \u003Cversion\u003E/Mac; only this host\u0027s folder is extracted into the target.\nasync Task\u003Cstring\u003E LatestServerZip(HttpClient http)\n{\n    var names = JsonSerializer.Deserialize\u003Cstring[]\u003E(await http.GetStringAsync(\u0022https://terraria.org/api/get/dedicated-servers-names\u0022));\n    if (names == null || names.Length == 0) throw new Exception(\u0022terraria.org returned no dedicated server versions.\u0022);\n    return names[0];\n}\n\nasync Task InstallServer(HttpClient http, string zipName, string target)\n{\n    Directory.CreateDirectory(target);\n    var zipPath = Path.Combine(target, zipName);\n    using (var response = await http.GetAsync(\u0022https://terraria.org/api/download/pc-dedicated-server/\u0022 \u002B zipName, HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n    {\n        response.EnsureSuccessStatusCode();\n        using (var file = File.Create(zipPath)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n    }\n    var osFolder = System.OperatingSystem.IsWindows() ? \u0022/Windows/\u0022 : \u0022/Linux/\u0022;\n    var fullTarget = Path.GetFullPath(target) \u002B Path.DirectorySeparatorChar;\n    var extracted = 0;\n    using (var archive = ZipFile.OpenRead(zipPath))\n    {\n        foreach (var entry in archive.Entries)\n        {\n            var name = entry.FullName.Replace(\u0027\\\\\u0027, \u0027/\u0027);\n            var at = name.IndexOf(osFolder, StringComparison.OrdinalIgnoreCase);\n            if (at \u003C 0 || name.EndsWith(\u0022/\u0022)) continue;\n            var destination = Path.GetFullPath(Path.Combine(target, name.Substring(at \u002B osFolder.Length)));\n            if (!destination.StartsWith(fullTarget, StringComparison.Ordinal)) continue;\n            Directory.CreateDirectory(Path.GetDirectoryName(destination));\n            entry.ExtractToFile(destination, true);\n            extracted\u002B\u002B;\n        }\n    }\n    File.Delete(zipPath);\n    if (extracted == 0) throw new Exception(zipName \u002B \u0022 has no \u0022 \u002B osFolder.Trim(\u0027/\u0027) \u002B \u0022 server files.\u0022);\n    if (!System.OperatingSystem.IsWindows())\n    {\n        foreach (var exe in new[] { \u0022TerrariaServer.bin.x86_64\u0022, \u0022TerrariaServer\u0022 })\n        {\n            var path = Path.Combine(target, exe);\n            if (File.Exists(path)) File.SetUnixFileMode(path, File.GetUnixFileMode(path) | UnixFileMode.UserExecute | UnixFileMode.GroupExecute | UnixFileMode.OtherExecute);\n        }\n    }\n    File.WriteAllText(Path.Combine(target, \u0022terraria-version.txt\u0022), zipName);\n    ScriptConsole.WriteLine((object)(\u0022Installed \u0022 \u002B zipName \u002B \u0022 (\u0022 \u002B extracted \u002B \u0022 files).\u0022));\n}\n",
+        "code": "//refAssemblies: System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.Net.Http.dll, System.Text.Json.dll\nusing System;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGlobals(); // DO NOT MODIFY THIS LINE\n\n// The game's files are not on Steam for anonymous accounts; fetch the latest official server into this server's\n// game files folder (the create task copies it into the new service from there).\nvar target = Path.Combine(ThisServer.Configuration.GameFilesPath, ThisGame.FileAndDirectoryConfig.AutoSetupFolderName);\nvar http = new HttpClient();\nawait InstallServer(http, await LatestServerZip(http), target);\n// Shared body of the Terraria install/update scripts: the official dedicated server zip from terraria.org holds\n// <version>/Windows, <version>/Linux and <version>/Mac; only this host's folder is extracted into the target.\nasync Task<string> LatestServerZip(HttpClient http)\n{\n    var names = JsonSerializer.Deserialize<string[]>(await http.GetStringAsync(\"https://terraria.org/api/get/dedicated-servers-names\"));\n    if (names == null || names.Length == 0) throw new Exception(\"terraria.org returned no dedicated server versions.\");\n    return names[0];\n}\n\nasync Task InstallServer(HttpClient http, string zipName, string target)\n{\n    Directory.CreateDirectory(target);\n    var zipPath = Path.Combine(target, zipName);\n    using (var response = await http.GetAsync(\"https://terraria.org/api/download/pc-dedicated-server/\" + zipName, HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n    {\n        response.EnsureSuccessStatusCode();\n        using (var file = File.Create(zipPath)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n    }\n    var osFolder = System.OperatingSystem.IsWindows() ? \"/Windows/\" : \"/Linux/\";\n    var fullTarget = Path.GetFullPath(target) + Path.DirectorySeparatorChar;\n    var extracted = 0;\n    using (var archive = ZipFile.OpenRead(zipPath))\n    {\n        foreach (var entry in archive.Entries)\n        {\n            var name = entry.FullName.Replace('\\\\', '/');\n            var at = name.IndexOf(osFolder, StringComparison.OrdinalIgnoreCase);\n            if (at < 0 || name.EndsWith(\"/\")) continue;\n            var destination = Path.GetFullPath(Path.Combine(target, name.Substring(at + osFolder.Length)));\n            if (!destination.StartsWith(fullTarget, StringComparison.Ordinal)) continue;\n            Directory.CreateDirectory(Path.GetDirectoryName(destination));\n            entry.ExtractToFile(destination, true);\n            extracted++;\n        }\n    }\n    File.Delete(zipPath);\n    if (extracted == 0) throw new Exception(zipName + \" has no \" + osFolder.Trim('/') + \" server files.\");\n    if (!System.OperatingSystem.IsWindows())\n    {\n        foreach (var exe in new[] { \"TerrariaServer.bin.x86_64\", \"TerrariaServer\" })\n        {\n            var path = Path.Combine(target, exe);\n            if (File.Exists(path)) File.SetUnixFileMode(path, File.GetUnixFileMode(path) | UnixFileMode.UserExecute | UnixFileMode.GroupExecute | UnixFileMode.OtherExecute);\n        }\n    }\n    File.WriteAllText(Path.Combine(target, \"terraria-version.txt\"), zipName);\n    ScriptConsole.WriteLine((object)(\"Installed \" + zipName + \" (\" + extracted + \" files).\"));\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -672,7 +672,7 @@
         ],
         "name": "Update Terraria",
         "description": "Installs the newest official Terraria server. Worlds and settings are kept.",
-        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.Net.Http.dll, System.Text.Json.dll\nusing System;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Installs the newest official server over this service\u0027s files. Worlds, the config and the ban list are not in\n// the server zip, so they are kept. The server is stopped for the update and started again if it was running.\nvar root = (string)ThisService.RootDirectory;\nvar http = new HttpClient();\nvar latest = await LatestServerZip(http);\nvar versionFile = Path.Combine(root, \u0022terraria-version.txt\u0022);\nvar installed = File.Exists(versionFile) ? File.ReadAllText(versionFile).Trim() : \u0022\u0022;\nif (installed == latest)\n{\n    ScriptConsole.WriteLine((object)(\u0022The server is up to date (\u0022 \u002B latest \u002B \u0022).\u0022));\n    return;\n}\nScriptConsole.WriteLine((object)(\u0022Updating \u0022 \u002B (installed == \u0022\u0022 ? \u0022the server\u0022 : installed) \u002B \u0022 to \u0022 \u002B latest \u002B \u0022.\u0022));\nvar status = (await ServiceManagerService.GetServiceStatus(ThisService.ServiceId)).Status.ToString();\nvar wasRunning = status == \u0022Started\u0022 || status == \u0022Starting\u0022;\nif (wasRunning)\n{\n    ScriptConsole.WriteLine((object)\u0022Stopping the server.\u0022);\n    await ServiceManagerService.StopService(ThisService.ServiceId);\n}\nawait InstallServer(http, latest, root);\nif (!System.OperatingSystem.IsWindows())\n{\n    // The script runs as the monitor; give the new files back to the service user.\n    var credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\n    Globals.OperatingSystem.SetDirectoryOwner(root, credential.Domain, credential.UserName, true);\n}\nif (wasRunning)\n{\n    ScriptConsole.WriteLine((object)\u0022Starting the server.\u0022);\n    await ServiceManagerService.StartService(ThisService.ServiceId);\n}\n// Shared body of the Terraria install/update scripts: the official dedicated server zip from terraria.org holds\n// \u003Cversion\u003E/Windows, \u003Cversion\u003E/Linux and \u003Cversion\u003E/Mac; only this host\u0027s folder is extracted into the target.\nasync Task\u003Cstring\u003E LatestServerZip(HttpClient http)\n{\n    var names = JsonSerializer.Deserialize\u003Cstring[]\u003E(await http.GetStringAsync(\u0022https://terraria.org/api/get/dedicated-servers-names\u0022));\n    if (names == null || names.Length == 0) throw new Exception(\u0022terraria.org returned no dedicated server versions.\u0022);\n    return names[0];\n}\n\nasync Task InstallServer(HttpClient http, string zipName, string target)\n{\n    Directory.CreateDirectory(target);\n    var zipPath = Path.Combine(target, zipName);\n    using (var response = await http.GetAsync(\u0022https://terraria.org/api/download/pc-dedicated-server/\u0022 \u002B zipName, HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n    {\n        response.EnsureSuccessStatusCode();\n        using (var file = File.Create(zipPath)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n    }\n    var osFolder = System.OperatingSystem.IsWindows() ? \u0022/Windows/\u0022 : \u0022/Linux/\u0022;\n    var fullTarget = Path.GetFullPath(target) \u002B Path.DirectorySeparatorChar;\n    var extracted = 0;\n    using (var archive = ZipFile.OpenRead(zipPath))\n    {\n        foreach (var entry in archive.Entries)\n        {\n            var name = entry.FullName.Replace(\u0027\\\\\u0027, \u0027/\u0027);\n            var at = name.IndexOf(osFolder, StringComparison.OrdinalIgnoreCase);\n            if (at \u003C 0 || name.EndsWith(\u0022/\u0022)) continue;\n            var destination = Path.GetFullPath(Path.Combine(target, name.Substring(at \u002B osFolder.Length)));\n            if (!destination.StartsWith(fullTarget, StringComparison.Ordinal)) continue;\n            Directory.CreateDirectory(Path.GetDirectoryName(destination));\n            entry.ExtractToFile(destination, true);\n            extracted\u002B\u002B;\n        }\n    }\n    File.Delete(zipPath);\n    if (extracted == 0) throw new Exception(zipName \u002B \u0022 has no \u0022 \u002B osFolder.Trim(\u0027/\u0027) \u002B \u0022 server files.\u0022);\n    if (!System.OperatingSystem.IsWindows())\n    {\n        foreach (var exe in new[] { \u0022TerrariaServer.bin.x86_64\u0022, \u0022TerrariaServer\u0022 })\n        {\n            var path = Path.Combine(target, exe);\n            if (File.Exists(path)) File.SetUnixFileMode(path, File.GetUnixFileMode(path) | UnixFileMode.UserExecute | UnixFileMode.GroupExecute | UnixFileMode.OtherExecute);\n        }\n    }\n    File.WriteAllText(Path.Combine(target, \u0022terraria-version.txt\u0022), zipName);\n    ScriptConsole.WriteLine((object)(\u0022Installed \u0022 \u002B zipName \u002B \u0022 (\u0022 \u002B extracted \u002B \u0022 files).\u0022));\n}\n",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.Net.Http.dll, System.Text.Json.dll\nusing System;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Installs the newest official server over this service's files. Worlds, the config and the ban list are not in\n// the server zip, so they are kept. The server is stopped for the update and started again if it was running.\nvar root = (string)ThisService.RootDirectory;\nvar http = new HttpClient();\nvar latest = await LatestServerZip(http);\nvar versionFile = Path.Combine(root, \"terraria-version.txt\");\nvar installed = File.Exists(versionFile) ? File.ReadAllText(versionFile).Trim() : \"\";\nif (installed == latest)\n{\n    ScriptConsole.WriteLine((object)(\"The server is up to date (\" + latest + \").\"));\n    return;\n}\nScriptConsole.WriteLine((object)(\"Updating \" + (installed == \"\" ? \"the server\" : installed) + \" to \" + latest + \".\"));\nvar status = (await ServiceManagerService.GetServiceStatus(ThisService.ServiceId)).Status.ToString();\nvar wasRunning = status == \"Started\" || status == \"Starting\";\nif (wasRunning)\n{\n    ScriptConsole.WriteLine((object)\"Stopping the server.\");\n    await ServiceManagerService.StopService(ThisService.ServiceId);\n}\nawait InstallServer(http, latest, root);\nif (!System.OperatingSystem.IsWindows())\n{\n    // The script runs as the monitor; give the new files back to the service user.\n    var credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\n    Globals.OperatingSystem.SetDirectoryOwner(root, credential.Domain, credential.UserName, true);\n}\nif (wasRunning)\n{\n    ScriptConsole.WriteLine((object)\"Starting the server.\");\n    await ServiceManagerService.StartService(ThisService.ServiceId);\n}\n// Shared body of the Terraria install/update scripts: the official dedicated server zip from terraria.org holds\n// <version>/Windows, <version>/Linux and <version>/Mac; only this host's folder is extracted into the target.\nasync Task<string> LatestServerZip(HttpClient http)\n{\n    var names = JsonSerializer.Deserialize<string[]>(await http.GetStringAsync(\"https://terraria.org/api/get/dedicated-servers-names\"));\n    if (names == null || names.Length == 0) throw new Exception(\"terraria.org returned no dedicated server versions.\");\n    return names[0];\n}\n\nasync Task InstallServer(HttpClient http, string zipName, string target)\n{\n    Directory.CreateDirectory(target);\n    var zipPath = Path.Combine(target, zipName);\n    using (var response = await http.GetAsync(\"https://terraria.org/api/download/pc-dedicated-server/\" + zipName, HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n    {\n        response.EnsureSuccessStatusCode();\n        using (var file = File.Create(zipPath)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n    }\n    var osFolder = System.OperatingSystem.IsWindows() ? \"/Windows/\" : \"/Linux/\";\n    var fullTarget = Path.GetFullPath(target) + Path.DirectorySeparatorChar;\n    var extracted = 0;\n    using (var archive = ZipFile.OpenRead(zipPath))\n    {\n        foreach (var entry in archive.Entries)\n        {\n            var name = entry.FullName.Replace('\\\\', '/');\n            var at = name.IndexOf(osFolder, StringComparison.OrdinalIgnoreCase);\n            if (at < 0 || name.EndsWith(\"/\")) continue;\n            var destination = Path.GetFullPath(Path.Combine(target, name.Substring(at + osFolder.Length)));\n            if (!destination.StartsWith(fullTarget, StringComparison.Ordinal)) continue;\n            Directory.CreateDirectory(Path.GetDirectoryName(destination));\n            entry.ExtractToFile(destination, true);\n            extracted++;\n        }\n    }\n    File.Delete(zipPath);\n    if (extracted == 0) throw new Exception(zipName + \" has no \" + osFolder.Trim('/') + \" server files.\");\n    if (!System.OperatingSystem.IsWindows())\n    {\n        foreach (var exe in new[] { \"TerrariaServer.bin.x86_64\", \"TerrariaServer\" })\n        {\n            var path = Path.Combine(target, exe);\n            if (File.Exists(path)) File.SetUnixFileMode(path, File.GetUnixFileMode(path) | UnixFileMode.UserExecute | UnixFileMode.GroupExecute | UnixFileMode.OtherExecute);\n        }\n    }\n    File.WriteAllText(Path.Combine(target, \"terraria-version.txt\"), zipName);\n    ScriptConsole.WriteLine((object)(\"Installed \" + zipName + \" (\" + extracted + \" files).\"));\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -681,7 +681,7 @@
         "maxConcurrentRuns": 1,
         "logApiExecutions": false,
         "order": 0,
-        "icon": "\u003Cpath d=\u0022M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79s7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.47 12.65 0L21 3v7.12zM12.5 8v4.25l3.5 2.08-.72 1.21L11 13V8h1.5z\u0022/\u003E",
+        "icon": "<path d=\"M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79s7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.47 12.65 0L21 3v7.12zM12.5 8v4.25l3.5 2.08-.72 1.21L11 13V8h1.5z\"/>",
         "scriptInputVariables": [],
         "scriptRoles": [
           {
@@ -705,11 +705,13 @@
           "Linux"
         ],
         "scriptEvents": [
-          "BeforeServiceStarted"
+          "BeforeServiceStarted",
+          "AfterServiceCreated",
+          "AfterServiceReinstalled"
         ],
         "name": "Prepare the server",
-        "description": "Creates the worlds folder.",
-        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll, System.Net.Http.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Net.Http;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\n\n// serverconfig.txt keeps worlds in \u0022worlds\u0022. The script runs as the monitor, so on Linux the new folder is handed\n// to the service user (a root-owned folder is hidden in the file manager and the server cannot write to it).\nvar worlds = Path.Combine(root, \u0022worlds\u0022);\nif (!Directory.Exists(worlds))\n{\n    Directory.CreateDirectory(worlds);\n    if (!System.OperatingSystem.IsWindows())\n    {\n        var credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\n        Globals.OperatingSystem.SetDirectoryOwner(worlds, credential.Domain, credential.UserName, true);\n    }\n}\n\n// Windows: TerrariaServer.exe loads Microsoft.Xna.Framework 4.0 from the GAC and exits at once without it.\nif (System.OperatingSystem.IsWindows())\n{\n    var gac = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), \u0022Microsoft.NET\u0022, \u0022assembly\u0022, \u0022GAC_32\u0022, \u0022Microsoft.Xna.Framework\u0022);\n    if (!Directory.Exists(gac))\n    {\n        ScriptConsole.WriteLine((object)\u0022The Microsoft XNA Framework 4.0 Redistributable is missing on this host; installing it.\u0022);\n        var msi = Path.Combine(Path.GetTempPath(), \u0022xnafx40_redist.msi\u0022);\n        var http = new HttpClient();\n        File.WriteAllBytes(msi, await http.GetByteArrayAsync(\u0022https://download.microsoft.com/download/A/C/2/AC2C903B-E6E8-42C2-9FD7-BEBAC362A930/xnafx40_redist.msi\u0022));\n        using (var install = Process.Start(new ProcessStartInfo(\u0022msiexec.exe\u0022, new[] { \u0022/i\u0022, msi, \u0022/qn\u0022, \u0022/norestart\u0022 }) { UseShellExecute = false }))\n        {\n            install.WaitForExit();\n            File.Delete(msi);\n            if (install.ExitCode != 0 \u0026\u0026 install.ExitCode != 3010) throw new Exception(\u0022Installing the XNA Framework 4.0 Redistributable failed (msiexec exit code \u0022 \u002B install.ExitCode \u002B \u0022).\u0022);\n        }\n        ScriptConsole.WriteLine((object)\u0022Installed the XNA Framework 4.0 Redistributable.\u0022);\n    }\n}\n",
+        "description": "Creates the worlds folder. On Linux: installs GNU screen (the console) when the host does not have it.",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll, System.Net.Http.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Net.Http;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\n\n// serverconfig.txt keeps worlds in \"worlds\". The script runs as the monitor, so on Linux the new folder is handed\n// to the service user (a root-owned folder is hidden in the file manager and the server cannot write to it).\nvar worlds = Path.Combine(root, \"worlds\");\nif (!Directory.Exists(worlds))\n{\n    Directory.CreateDirectory(worlds);\n    if (!System.OperatingSystem.IsWindows())\n    {\n        var credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\n        Globals.OperatingSystem.SetDirectoryOwner(worlds, credential.Domain, credential.UserName, true);\n    }\n}\n\n// Windows: TerrariaServer.exe loads Microsoft.Xna.Framework 4.0 from the GAC and exits at once without it.\nif (System.OperatingSystem.IsWindows())\n{\n    var gac = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), \"Microsoft.NET\", \"assembly\", \"GAC_32\", \"Microsoft.Xna.Framework\");\n    if (!Directory.Exists(gac))\n    {\n        ScriptConsole.WriteLine((object)\"The Microsoft XNA Framework 4.0 Redistributable is missing on this host; installing it.\");\n        var msi = Path.Combine(Path.GetTempPath(), \"xnafx40_redist.msi\");\n        var http = new HttpClient();\n        File.WriteAllBytes(msi, await http.GetByteArrayAsync(\"https://download.microsoft.com/download/A/C/2/AC2C903B-E6E8-42C2-9FD7-BEBAC362A930/xnafx40_redist.msi\"));\n        using (var install = Process.Start(new ProcessStartInfo(\"msiexec.exe\", new[] { \"/i\", msi, \"/qn\", \"/norestart\" }) { UseShellExecute = false }))\n        {\n            install.WaitForExit();\n            File.Delete(msi);\n            if (install.ExitCode != 0 && install.ExitCode != 3010) throw new Exception(\"Installing the XNA Framework 4.0 Redistributable failed (msiexec exit code \" + install.ExitCode + \").\");\n        }\n        ScriptConsole.WriteLine((object)\"Installed the XNA Framework 4.0 Redistributable.\");\n    }\n}\n\n// Linux: the console runs in GNU screen. The server's console (Mono) asks its terminal for the cursor position; screen\n// answers at once, while the panel's own terminal only answers when a browser console is open, and that late answer\n// garbled the next command typed in the console. Install screen when the host does not have it.\nif (System.OperatingSystem.IsLinux() && !Shell(\"command -v screen\", out _))\n{\n    ScriptConsole.WriteLine((object)\"GNU screen is missing on this host; installing it.\");\n    var installed =\n        Shell(\"command -v apt-get && (DEBIAN_FRONTEND=noninteractive apt-get install -y screen || (apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y screen))\", out var aptLog)\n        || Shell(\"command -v dnf && dnf install -y screen\", out _)\n        || Shell(\"command -v yum && yum install -y screen\", out _);\n    if (!installed) throw new Exception(\"GNU screen is missing and could not be installed. Install the screen package on this host. \" + aptLog);\n    ScriptConsole.WriteLine((object)\"Installed GNU screen.\");\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        var stderr = process.StandardError.ReadToEndAsync();\n        output = process.StandardOutput.ReadToEnd() + stderr.Result;\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -739,7 +741,7 @@
         ],
         "name": "Terraria query",
         "description": "Checks that the server answers a Terraria connect request.",
-        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Vanilla Terraria has no query protocol (qstat\u0027s \u0022terraria\u0022 needs TShock\u0027s REST API), and every TCP connection is\n// logged in the server console (\u0022... is connecting\u0022), so a probe every few seconds would flood it. The query runs on\n// the monitor of the server that hosts the service, so it checks that the game port is listening on this machine.\n// Player counts are not available without joining the game.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = Convert.ToInt32(Dynamic.Port);\nif (port \u003C= 0) port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners()\n        .Any(l =\u003E l.Port == port \u0026\u0026 (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \u0022online\u0022,\n            Protocol = \u0022custom_script\u0022,\n            Address = address,\n            Hostname = $\u0022{address}:{port}\u0022,\n            Name = ThisService.Name,\n            GameType = \u0022Terraria\u0022,\n            Map = \u0022\u0022,\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, $\u0022Nothing is listening on {address}:{port}.\u0022);\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, ex.Message);\n}\n",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Vanilla Terraria has no query protocol (qstat's \"terraria\" needs TShock's REST API), and every TCP connection is\n// logged in the server console (\"... is connecting\"), so a probe every few seconds would flood it. The query runs on\n// the monitor of the server that hosts the service, so it checks that the game port is listening on this machine.\n// Player counts are not available without joining the game.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = Convert.ToInt32(Dynamic.Port);\nif (port <= 0) port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners()\n        .Any(l => l.Port == port && (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \"online\",\n            Protocol = \"custom_script\",\n            Address = address,\n            Hostname = $\"{address}:{port}\",\n            Name = ThisService.Name,\n            GameType = \"Terraria\",\n            Map = \"\",\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", $\"Nothing is listening on {address}:{port}.\");\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", ex.Message);\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
@@ -780,121 +782,9 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
+      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "CpuStats",
-      "moduleData": "",
-      "granted": true
     },
     {
       "roleId": 2,
@@ -906,37 +796,9 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "CustomScripts",
+      "permission": "CpuStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 2,
@@ -949,13 +811,6 @@
       "roleId": 2,
       "module": "BpFeature",
       "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "KillService",
       "moduleData": "",
       "granted": true
     },
@@ -983,30 +838,9 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
       "permission": "PlayerStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 2,
@@ -1018,14 +852,42 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Repair",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
       "moduleData": "",
       "granted": false
     },
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "ScheduledTasks",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
       "moduleData": "",
       "granted": true
     },
@@ -1039,14 +901,154 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "ServiceSettings",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
       "moduleData": "",
       "granted": false
     },
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "SteamUpdate",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
       "moduleData": "",
       "granted": false
     },
@@ -1060,121 +1062,9 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
+      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "CpuStats",
-      "moduleData": "",
-      "granted": true
     },
     {
       "roleId": 3,
@@ -1186,37 +1076,9 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "CustomScripts",
+      "permission": "CpuStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 3,
@@ -1229,13 +1091,6 @@
       "roleId": 3,
       "module": "BpFeature",
       "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "KillService",
       "moduleData": "",
       "granted": true
     },
@@ -1263,20 +1118,6 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
       "permission": "PlayerStats",
       "moduleData": "",
       "granted": true
@@ -1284,21 +1125,7 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "PredefCmdlines",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
       "permission": "Reinstall",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Repair",
       "moduleData": "",
       "granted": false
     },
@@ -1312,6 +1139,118 @@
     {
       "roleId": 3,
       "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
       "permission": "ServiceActivity",
       "moduleData": "",
       "granted": true
@@ -1319,14 +1258,77 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "ServiceSettings",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
       "moduleData": "",
       "granted": false
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "SteamUpdate",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
       "moduleData": "",
       "granted": false
     },
