@@ -1,0 +1,1708 @@
+{
+  "__TCA:ExportVersion": "3.23.45.17810",
+  "__TCA:ExportedAt": "2026-11-11T09:04:29.7764752Z",
+  "name": "ASTRONEER (Linux / Wine)",
+  "shortName": "Astroneer",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/361420/18ef632a152a69a8fb4f62c074cd50aa15d3bf33.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/361420/ss_858b8bece04b753a6b35a009776a4de9dd6e0df7.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 8,
+  "defaultSlots": 8,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".ini",
+    ".txt",
+    ".json"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "custom_script",
+    "rconProtocol": "custom_script",
+    "privateRule": "password",
+    "privateRuleValue": "1",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "",
+    "inputSource": "RconProtocol",
+    "printRconResponse": true,
+    "outputFilters": "",
+    "stopCommand": "",
+    "waitAfterStopCommand": 30000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 7777,
+        "expression": "",
+        "description": "Game (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "RConPort",
+        "port": 7778,
+        "expression": "",
+        "description": "Server console / RCON (TCP)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "Astro/Binaries/Win64/AstroServer-Win64-Shipping.exe",
+    "relativeWorkingDirectory": "Astro/Binaries/Win64",
+    "autoSetupFolderName": "astroneer",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 728470,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 361420,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": false,
+    "defaultCommandline": "-log",
+    "defaultCustomCommandline": "-log ${UserCommandLine}",
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "f229d4bb-2e32-5de8-a8ce-b316200e46d8",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "OwnerName",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${OwnerName}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "OwnerName",
+        "defaultValue": "",
+        "label": "Owner Steam name",
+        "description": "Steam name of the server owner. The owner is the admin of the server. Leave empty to make the first player who joins the owner.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:39:49.967035",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "OwnerGuid",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${OwnerGuid}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "OwnerGuid",
+        "defaultValue": "",
+        "label": "Owner SteamID64",
+        "description": "Optional. The owner\u0027s SteamID64 (17 digits). The server fills it in when the owner first joins.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:39:49.982936",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "DenyUnlistedPlayers",
+      "defaultValue": "False",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${DenyUnlistedPlayers}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "DenyUnlistedPlayers",
+        "defaultValue": "False",
+        "label": "Whitelist mode",
+        "description": "Only players listed as Whitelisted, Admin or Owner may join.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:39:49.983014",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PlayerActivityTimeout",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PlayerActivityTimeout}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 86400,
+        "id": "PlayerActivityTimeout",
+        "defaultValue": "0",
+        "label": "Kick idle players after (seconds)",
+        "description": "0 = never.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:39:49.991706",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ActiveSaveFileDescriptiveName",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ActiveSaveFileDescriptiveName}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "ActiveSaveFileDescriptiveName",
+        "defaultValue": "",
+        "label": "Active save",
+        "description": "Name of the save the server loads. Saves are in Astro/Saved/SaveGames. A new name starts a new game.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:39:50.011849",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "bLoadAutoSave",
+      "defaultValue": "True",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${bLoadAutoSave}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "bLoadAutoSave",
+        "defaultValue": "True",
+        "label": "Load the newest autosave",
+        "description": "At start-up the server loads the newest save of the active game.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:39:50.011925",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AutoSaveGameInterval",
+      "defaultValue": "900",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AutoSaveGameInterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 86400,
+        "id": "AutoSaveGameInterval",
+        "defaultValue": "900",
+        "label": "Autosave every (seconds)",
+        "description": "0 = no autosave.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:39:50.011952",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "BackupSaveGamesInterval",
+      "defaultValue": "7200",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BackupSaveGamesInterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 86400,
+        "id": "BackupSaveGamesInterval",
+        "defaultValue": "7200",
+        "label": "Keep a save backup every (seconds)",
+        "description": "0 = no save backups.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:39:50.011974",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxServerFramerate",
+      "defaultValue": "30",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxServerFramerate}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 5,
+        "maxValue": 120,
+        "id": "MaxServerFramerate",
+        "defaultValue": "30",
+        "label": "Frame rate with players",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:39:50.011985",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxServerIdleFramerate",
+      "defaultValue": "3",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxServerIdleFramerate}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 60,
+        "id": "MaxServerIdleFramerate",
+        "defaultValue": "3",
+        "label": "Frame rate when empty",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:39:50.011997",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "bDisableServerTravel",
+      "defaultValue": "False",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${bDisableServerTravel}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "bDisableServerTravel",
+        "defaultValue": "False",
+        "label": "Disable server travel",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:39:50.01201",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 700,
+      "relativePath": "Astro/Saved/Config/WindowsServer/AstroServerSettings.ini",
+      "description": "Server settings (AstroServerSettings.ini)",
+      "template": "[/Script/Astro.AstroServerSettings]\nbLoadAutoSave=${bLoadAutoSave}\nMaxServerFramerate=${MaxServerFramerate}\nMaxServerIdleFramerate=${MaxServerIdleFramerate}\nbWaitForPlayersBeforeShutdown=False\nPublicIP=${IPAddress}\nServerName=${Hostname}\nMaximumPlayerCount=${Slots}\nOwnerName=${OwnerName}\nOwnerGuid=${OwnerGuid}\nPlayerActivityTimeout=${PlayerActivityTimeout}\nServerPassword=${PrivatePassword}\nbDisableServerTravel=${bDisableServerTravel}\nDenyUnlistedPlayers=${DenyUnlistedPlayers}\nVerbosePlayerProperties=True\nAutoSaveGameInterval=${AutoSaveGameInterval}\nBackupSaveGamesInterval=${BackupSaveGamesInterval}\nActiveSaveFileDescriptiveName=${ActiveSaveFileDescriptiveName}\nConsolePort=${RConPort}\nConsolePassword=${RconPassword}\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Server",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "Shown in the server list of the game.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Server password",
+          "description": "Leave empty for a public server.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "OwnerName",
+          "defaultValue": "",
+          "label": "Owner Steam name",
+          "description": "Steam name of the server owner. The owner is the admin of the server. Leave empty to make the first player who joins the owner.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "OwnerGuid",
+          "defaultValue": "",
+          "label": "Owner SteamID64",
+          "description": "Optional. The owner\u0027s SteamID64 (17 digits). The server fills it in when the owner first joins.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "DenyUnlistedPlayers",
+          "defaultValue": "False",
+          "label": "Whitelist mode",
+          "description": "Only players listed as Whitelisted, Admin or Owner may join.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 86400,
+          "id": "PlayerActivityTimeout",
+          "defaultValue": "0",
+          "label": "Kick idle players after (seconds)",
+          "description": "0 = never.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Saves",
+          "defaultValue": null,
+          "label": "Saves",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "ActiveSaveFileDescriptiveName",
+          "defaultValue": "",
+          "label": "Active save",
+          "description": "Name of the save the server loads. Saves are in Astro/Saved/SaveGames. A new name starts a new game.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "bLoadAutoSave",
+          "defaultValue": "True",
+          "label": "Load the newest autosave",
+          "description": "At start-up the server loads the newest save of the active game.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 86400,
+          "id": "AutoSaveGameInterval",
+          "defaultValue": "900",
+          "label": "Autosave every (seconds)",
+          "description": "0 = no autosave.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 86400,
+          "id": "BackupSaveGamesInterval",
+          "defaultValue": "7200",
+          "label": "Keep a save backup every (seconds)",
+          "description": "0 = no save backups.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Performance",
+          "defaultValue": null,
+          "label": "Performance",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 5,
+          "maxValue": 120,
+          "id": "MaxServerFramerate",
+          "defaultValue": "30",
+          "label": "Frame rate with players",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 60,
+          "id": "MaxServerIdleFramerate",
+          "defaultValue": "3",
+          "label": "Frame rate when empty",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "bDisableServerTravel",
+          "defaultValue": "False",
+          "label": "Disable server travel",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 701,
+      "relativePath": "Astro/Saved/Config/WindowsServer/Engine.ini",
+      "description": "Engine settings (Engine.ini): game port and network encryption",
+      "template": "[URL]\nPort=${GamePort}\n\n[SystemSettings]\nnet.AllowEncryption=False\n",
+      "order": 2,
+      "enableEditor": false,
+      "editor": []
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStopped"
+        ],
+        "name": "Save the game and shut down",
+        "description": "Saves the game and shuts the server down through its console port.",
+        "code": "//refAssemblies: System.Net.Sockets.dll, System.Net.Primitives.dll, System.Text.Json.dll, System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Graceful stop: saves the game and shuts the server down through its console port (DSSaveGame, then\n// DSServerShutdown), then waits for the server process of THIS service to exit. When the console does not answer\n// the panel stops the server the usual way.\nconst string binary = \u0022AstroServer-Win64-Shipping\u0022;\nconst int maxWaitSeconds = 90;\n\nvar rootPath = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(\u0027/\u0027, \u0027\\\\\u0027);\nvar root = rootPath \u002B Path.DirectorySeparatorChar;\nvar rootSlash = rootPath.Replace(\u0027\\\\\u0027, \u0027/\u0027) \u002B \u0022/\u0022;\n\nList\u003Cint\u003E ServerPids()\n{\n    var pids = new List\u003Cint\u003E();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var p in Process.GetProcessesByName(binary))\n        {\n            try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) pids.Add(p.Id); }\n            catch { } // exited meanwhile\n        }\n        return pids;\n    }\n    // Wine shows the executable as Z:\\\u003Croot\u003E\\...\\AstroServer-Win64-Shipping.exe in the command line.\n    foreach (var dir in Directory.EnumerateDirectories(\u0022/proc\u0022))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var args = File.ReadAllText(Path.Combine(dir, \u0022cmdline\u0022)).Replace(\u0027\\0\u0027, \u0027 \u0027).Replace(\u0027\\\\\u0027, \u0027/\u0027);\n            if (args.Contains(binary \u002B \u0022.exe\u0022, StringComparison.OrdinalIgnoreCase) \u0026\u0026 args.Contains(rootSlash, StringComparison.Ordinal))\n                pids.Add(pid);\n        }\n        catch { } // gone meanwhile\n    }\n    return pids;\n}\n\nvar targets = ServerPids();\nif (targets.Count == 0)\n{\n    ScriptConsole.WriteLine((object)\u0022The server is not running.\u0022);\n    return;\n}\n\nvar port = ThisService.RconPort;\nvar password = ThisService.Variables.ContainsKey(\u0022RconPassword\u0022) ? Convert.ToString(ThisService.Variables[\u0022RconPassword\u0022]) : \u0022\u0022;\ntry\n{\n    using (var console = await AstroConsole.OpenAsync(port, password, 4000))\n    {\n        var stats = await console.CommandAsync(\u0022DSServerStatistics\u0022, 1500, 5000);\n        if (!AstroConsole.IsCompleteJson(stats))\n        {\n            ScriptConsole.WriteLine((object)\u0022The server console does not answer yet (the server is still starting); the panel stops the server without saving.\u0022);\n            return;\n        }\n        await console.CommandAsync(\u0022DSSaveGame\u0022, 3000, 15000);\n        ScriptConsole.WriteLine((object)\u0022Saved the game.\u0022);\n        await console.CommandAsync(\u0022DSServerShutdown\u0022, 1000, 3000);\n    }\n}\ncatch (Exception ex)\n{\n    ScriptConsole.WriteLine((object)(\u0022The server console is not reachable (\u0022 \u002B ex.Message \u002B \u0022); the panel stops the server without saving.\u0022));\n    return;\n}\n\nScriptConsole.WriteLine((object)\u0022Asked the server to shut down.\u0022);\nfor (var second = 1; second \u003C= maxWaitSeconds; second\u002B\u002B)\n{\n    await Task.Delay(1000, ThisCancellationToken);\n    if (!ServerPids().Any(targets.Contains))\n    {\n        ScriptConsole.WriteLine((object)(\u0022The server exited after \u0022 \u002B second \u002B \u0022 s.\u0022));\n        return;\n    }\n}\nScriptConsole.WriteLine((object)(\u0022The server did not exit within \u0022 \u002B maxWaitSeconds \u002B \u0022 s; the panel stops it now.\u0022));\n\n// ---- ASTRONEER server console (shared by the RCON, query and stop scripts) ----\n// The server\u0027s console port (ConsolePort in AstroServerSettings.ini = the service\u0027s RCON port) takes plain text lines\n// over TCP: the console password first, then one command per line (DSServerStatistics, DSListPlayers, DSSaveGame,\n// DSServerShutdown, ...). Commands that report something answer with one JSON object; the others answer nothing.\n// This runs on the monitor of the server that hosts the service, so it connects to loopback.\nsealed class AstroConsole : IDisposable\n{\n    readonly System.Net.Sockets.TcpClient _client = new System.Net.Sockets.TcpClient();\n    System.Net.Sockets.NetworkStream _stream;\n\n    public static async Task\u003CAstroConsole\u003E OpenAsync(int port, string password, int timeoutMs)\n    {\n        var console = new AstroConsole();\n        try\n        {\n            var connect = console._client.ConnectAsync(System.Net.IPAddress.Loopback, port);\n            if (await Task.WhenAny(connect, Task.Delay(timeoutMs)) != connect)\n                throw new TimeoutException(\u0022the console port \u0022 \u002B port \u002B \u0022 is not answering\u0022);\n            await connect;\n            console._stream = console._client.GetStream();\n            await console.WriteAsync(password ?? \u0022\u0022);\n            return console;\n        }\n        catch\n        {\n            console.Dispose();\n            throw;\n        }\n    }\n\n    public async Task WriteAsync(string line)\n    {\n        var bytes = System.Text.Encoding.UTF8.GetBytes(line \u002B \u0022\\n\u0022);\n        await _stream.WriteAsync(bytes, 0, bytes.Length);\n        await _stream.FlushAsync();\n    }\n\n    // Reads until the reply is one complete JSON value, the server has been quiet for quietMs, or maxMs passed.\n    public async Task\u003Cstring\u003E ReadReplyAsync(int quietMs, int maxMs)\n    {\n        var buffer = new byte[16384];\n        var output = new System.IO.MemoryStream();\n        var end = DateTime.UtcNow.AddMilliseconds(maxMs);\n        var lastData = DateTime.UtcNow;\n        while (DateTime.UtcNow \u003C end \u0026\u0026 (DateTime.UtcNow - lastData).TotalMilliseconds \u003C quietMs)\n        {\n            if (_stream.DataAvailable)\n            {\n                var n = await _stream.ReadAsync(buffer, 0, buffer.Length);\n                if (n \u003C= 0) break;\n                output.Write(buffer, 0, n);\n                lastData = DateTime.UtcNow;\n                if (IsCompleteJson(System.Text.Encoding.UTF8.GetString(output.ToArray()))) break;\n            }\n            else\n            {\n                if (_client.Client.Poll(0, System.Net.Sockets.SelectMode.SelectRead) \u0026\u0026 _client.Client.Available == 0) break; // closed\n                await Task.Delay(50);\n            }\n        }\n        return System.Text.Encoding.UTF8.GetString(output.ToArray()).Trim();\n    }\n\n    public async Task\u003Cstring\u003E CommandAsync(string command, int quietMs = 1500, int maxMs = 8000)\n    {\n        await WriteAsync(command);\n        return await ReadReplyAsync(quietMs, maxMs);\n    }\n\n    public static bool IsCompleteJson(string text)\n    {\n        text = (text ?? \u0022\u0022).Trim();\n        if (text.Length == 0 || (text[0] != \u0027{\u0027 \u0026\u0026 text[0] != \u0027[\u0027)) return false;\n        try { using (System.Text.Json.JsonDocument.Parse(text)) return true; }\n        catch { return false; }\n    }\n\n    public void Dispose()\n    {\n        try { _stream?.Dispose(); } catch { }\n        try { _client.Dispose(); } catch { }\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "2aaa8f78-f3bc-5ac0-9275-74cae37c4cae"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "CustomRconProtocol"
+        ],
+        "name": "ASTRONEER console (RCON)",
+        "description": "Sends RCON commands to the server console port and returns the reply.",
+        "code": "//refAssemblies: System.Net.Sockets.dll, System.Net.Primitives.dll, System.Text.Json.dll\nusing System;\nusing System.Linq;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// RCON for the ASTRONEER server console: sends the command to the console port and returns the server\u0027s reply\n// (JSON, indented for reading). \u0022help\u0022 lists the commands the server knows.\nconst string Help = @\u0022ASTRONEER server console commands:\n  DSServerStatistics                      server name, version, players, save, FPS\n  DSListPlayers                           every known player with id, category and in-game state\n  DSSaveGame [name]                       save the running game (optionally under a new name)\n  DSListGames                             saved games and the active one\n  DSLoadGame \u003Cname\u003E                       load a saved game\n  DSNewGame                               start a new game (save first)\n  DSKickPlayerGuid \u003Cplayer id\u003E            kick a player (ids from DSListPlayers)\n  DSSetPlayerCategoryForPlayerName \u0022\u0022\u003Cname\u003E\u0022\u0022 \u003CUnlisted|Blacklisted|Whitelisted|Admin|Pending|Owner\u003E\n  DSSetDenyUnlisted \u003Ctrue|false\u003E          whitelist mode: only listed players may join\n  DSServerShutdown                        shut the server down (the panel\u0027s Stop saves first)\u0022;\n\nvar port = Globals.Variables.Parse\u003Cint\u003E(\u0022Port\u0022);\nvar password = Globals.Variables.Parse\u003Cstring\u003E(\u0022Password\u0022) ?? \u0022\u0022;\nvar command = (Globals.Variables.Parse\u003Cstring\u003E(\u0022Command\u0022) ?? \u0022\u0022).Trim();\n\nif (command.Length == 0 || command.Equals(\u0022help\u0022, StringComparison.OrdinalIgnoreCase) || command == \u0022?\u0022)\n{\n    Globals.ReturnValue = Help;\n    return;\n}\n\nstring reply;\ntry\n{\n    using (var console = await AstroConsole.OpenAsync(port, password, 4000))\n        reply = await console.CommandAsync(command, 1500, 10000);\n}\ncatch (Exception ex)\n{\n    throw new Exception(\u0022ASTRONEER console (port \u0022 \u002B port \u002B \u0022): \u0022 \u002B ex.Message);\n}\n\nif (reply.Length == 0)\n{\n    Globals.ReturnValue = \u0022Sent \u0022 \u002B command.Split(\u0027 \u0027)[0] \u002B \u0022 (the server does not answer this command).\u0022;\n    return;\n}\nif (AstroConsole.IsCompleteJson(reply))\n{\n    using (var doc = System.Text.Json.JsonDocument.Parse(reply))\n        reply = System.Text.Json.JsonSerializer.Serialize(doc.RootElement, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });\n}\nGlobals.ReturnValue = reply;\n\n// ---- ASTRONEER server console (shared by the RCON, query and stop scripts) ----\n// The server\u0027s console port (ConsolePort in AstroServerSettings.ini = the service\u0027s RCON port) takes plain text lines\n// over TCP: the console password first, then one command per line (DSServerStatistics, DSListPlayers, DSSaveGame,\n// DSServerShutdown, ...). Commands that report something answer with one JSON object; the others answer nothing.\n// This runs on the monitor of the server that hosts the service, so it connects to loopback.\nsealed class AstroConsole : IDisposable\n{\n    readonly System.Net.Sockets.TcpClient _client = new System.Net.Sockets.TcpClient();\n    System.Net.Sockets.NetworkStream _stream;\n\n    public static async Task\u003CAstroConsole\u003E OpenAsync(int port, string password, int timeoutMs)\n    {\n        var console = new AstroConsole();\n        try\n        {\n            var connect = console._client.ConnectAsync(System.Net.IPAddress.Loopback, port);\n            if (await Task.WhenAny(connect, Task.Delay(timeoutMs)) != connect)\n                throw new TimeoutException(\u0022the console port \u0022 \u002B port \u002B \u0022 is not answering\u0022);\n            await connect;\n            console._stream = console._client.GetStream();\n            await console.WriteAsync(password ?? \u0022\u0022);\n            return console;\n        }\n        catch\n        {\n            console.Dispose();\n            throw;\n        }\n    }\n\n    public async Task WriteAsync(string line)\n    {\n        var bytes = System.Text.Encoding.UTF8.GetBytes(line \u002B \u0022\\n\u0022);\n        await _stream.WriteAsync(bytes, 0, bytes.Length);\n        await _stream.FlushAsync();\n    }\n\n    // Reads until the reply is one complete JSON value, the server has been quiet for quietMs, or maxMs passed.\n    public async Task\u003Cstring\u003E ReadReplyAsync(int quietMs, int maxMs)\n    {\n        var buffer = new byte[16384];\n        var output = new System.IO.MemoryStream();\n        var end = DateTime.UtcNow.AddMilliseconds(maxMs);\n        var lastData = DateTime.UtcNow;\n        while (DateTime.UtcNow \u003C end \u0026\u0026 (DateTime.UtcNow - lastData).TotalMilliseconds \u003C quietMs)\n        {\n            if (_stream.DataAvailable)\n            {\n                var n = await _stream.ReadAsync(buffer, 0, buffer.Length);\n                if (n \u003C= 0) break;\n                output.Write(buffer, 0, n);\n                lastData = DateTime.UtcNow;\n                if (IsCompleteJson(System.Text.Encoding.UTF8.GetString(output.ToArray()))) break;\n            }\n            else\n            {\n                if (_client.Client.Poll(0, System.Net.Sockets.SelectMode.SelectRead) \u0026\u0026 _client.Client.Available == 0) break; // closed\n                await Task.Delay(50);\n            }\n        }\n        return System.Text.Encoding.UTF8.GetString(output.ToArray()).Trim();\n    }\n\n    public async Task\u003Cstring\u003E CommandAsync(string command, int quietMs = 1500, int maxMs = 8000)\n    {\n        await WriteAsync(command);\n        return await ReadReplyAsync(quietMs, maxMs);\n    }\n\n    public static bool IsCompleteJson(string text)\n    {\n        text = (text ?? \u0022\u0022).Trim();\n        if (text.Length == 0 || (text[0] != \u0027{\u0027 \u0026\u0026 text[0] != \u0027[\u0027)) return false;\n        try { using (System.Text.Json.JsonDocument.Parse(text)) return true; }\n        catch { return false; }\n    }\n\n    public void Dispose()\n    {\n        try { _stream?.Dispose(); } catch { }\n        try { _client.Dispose(); } catch { }\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "319ca593-e5f7-5a83-bd1a-0d99b81c47f6"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "CustomQueryProtocol"
+        ],
+        "name": "ASTRONEER query",
+        "description": "Queries the server over its console port (the game has no server-browser query).",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.Sockets.dll, System.Net.Primitives.dll, System.Text.Json.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Threading.Tasks;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// ASTRONEER servers answer no server-browser query (they register with the game\u0027s own matchmaking service), so the\n// server is queried over its console port: DSServerStatistics gives name, version and player counts, DSListPlayers\n// the names of the players in game. The console port not answering is the normal offline reading.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = ThisService.RconPort;\nstring password = ThisService.Variables.ContainsKey(\u0022RconPassword\u0022) ? Convert.ToString(ThisService.Variables[\u0022RconPassword\u0022]) : \u0022\u0022;\n\nstring stats, list;\ntry\n{\n    using (var console = await AstroConsole.OpenAsync(port, password, 3000))\n    {\n        stats = await console.CommandAsync(\u0022DSServerStatistics\u0022, 1500, 5000);\n        list = AstroConsole.IsCompleteJson(stats) ? await console.CommandAsync(\u0022DSListPlayers\u0022, 1500, 5000) : \u0022\u0022;\n    }\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, ex.Message);\n    return;\n}\n\nif (!AstroConsole.IsCompleteJson(stats))\n{\n    // Connected, but no statistics yet: the server is still loading (or the console password is wrong).\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022,\n        stats.Length == 0 ? \u0022the server console did not answer (still starting, or wrong console password)\u0022 : \u0022unexpected console reply: \u0022 \u002B stats);\n    return;\n}\n\nusing (var s = System.Text.Json.JsonDocument.Parse(stats))\n{\n    var root = s.RootElement;\n    string Str(string name) =\u003E root.TryGetProperty(name, out var v) ? (v.ValueKind == System.Text.Json.JsonValueKind.String ? v.GetString() : v.ToString()) : \u0022\u0022;\n    int Int(string name) =\u003E root.TryGetProperty(name, out var v) \u0026\u0026 v.ValueKind == System.Text.Json.JsonValueKind.Number ? (int)v.GetDouble() : 0;\n\n    // Until the save is loaded the statistics carry no save name and uninitialised counters: not joinable yet.\n    if (Str(\u0022saveGameName\u0022).Length == 0)\n    {\n        Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, \u0022the server is still loading the save\u0022);\n        return;\n    }\n\n    var players = new List\u003CGameQueryPlayer\u003E();\n    if (AstroConsole.IsCompleteJson(list))\n    {\n        using (var l = System.Text.Json.JsonDocument.Parse(list))\n        {\n            if (l.RootElement.TryGetProperty(\u0022playerInfo\u0022, out var info) \u0026\u0026 info.ValueKind == System.Text.Json.JsonValueKind.Array)\n                foreach (var p in info.EnumerateArray())\n                    if (p.TryGetProperty(\u0022inGame\u0022, out var inGame) \u0026\u0026 inGame.ValueKind == System.Text.Json.JsonValueKind.True)\n                        players.Add(new GameQueryPlayer { Name = p.TryGetProperty(\u0022playerName\u0022, out var n) ? n.GetString() : \u0022\u0022 });\n        }\n    }\n\n    // DSServerStatistics reports the advertised id the server generates (ServerAdvertisedName); the name players see\n    // is ServerName in AstroServerSettings.ini.\n    var name = \u0022\u0022;\n    try\n    {\n        var ini = System.IO.Path.Combine((string)ThisService.RootDirectory, \u0022Astro\u0022, \u0022Saved\u0022, \u0022Config\u0022, \u0022WindowsServer\u0022, \u0022AstroServerSettings.ini\u0022);\n        var line = System.IO.File.ReadLines(ini).FirstOrDefault(l =\u003E l.StartsWith(\u0022ServerName=\u0022, StringComparison.OrdinalIgnoreCase));\n        if (line != null) name = line.Substring(\u0022ServerName=\u0022.Length).Trim();\n    }\n    catch { } // the file is missing or being rewritten: fall back to the service name\n    var response = new GameQueryResponse\n    {\n        Success = true,\n        Status = \u0022online\u0022,\n        Protocol = \u0022custom_script\u0022,\n        Address = address,\n        Hostname = address \u002B \u0022:\u0022 \u002B ThisService.GamePort,\n        Name = string.IsNullOrEmpty(name) ? ThisService.Name : name,\n        GameType = \u0022ASTRONEER\u0022,\n        Map = Str(\u0022saveGameName\u0022),\n        NumPlayers = Math.Max(Int(\u0022playersInGame\u0022), players.Count),\n        MaxPlayers = Int(\u0022maxInGamePlayers\u0022) \u003E 0 ? Int(\u0022maxInGamePlayers\u0022) : ThisService.Slots,\n        NumSpectators = 0,\n        MaxSpectators = 0,\n        Retries = 0,\n        Players = players\n    };\n    var build = Str(\u0022build\u0022);\n    if (build.Length \u003E 0) response.Rules[\u0022Version\u0022] = build;\n    var advertised = Str(\u0022serverName\u0022);\n    if (advertised.Length \u003E 0) response.Rules[\u0022AdvertisedName\u0022] = advertised;\n    var url = Str(\u0022serverURL\u0022);\n    if (url.Length \u003E 0) response.Rules[\u0022ServerURL\u0022] = url;\n    if (root.TryGetProperty(\u0022hasServerPassword\u0022, out var hp)) response.Rules[\u0022password\u0022] = hp.ValueKind == System.Text.Json.JsonValueKind.True ? \u00221\u0022 : \u00220\u0022;\n    Globals.ReturnValue = response;\n}\n\n// ---- ASTRONEER server console (shared by the RCON, query and stop scripts) ----\n// The server\u0027s console port (ConsolePort in AstroServerSettings.ini = the service\u0027s RCON port) takes plain text lines\n// over TCP: the console password first, then one command per line (DSServerStatistics, DSListPlayers, DSSaveGame,\n// DSServerShutdown, ...). Commands that report something answer with one JSON object; the others answer nothing.\n// This runs on the monitor of the server that hosts the service, so it connects to loopback.\nsealed class AstroConsole : IDisposable\n{\n    readonly System.Net.Sockets.TcpClient _client = new System.Net.Sockets.TcpClient();\n    System.Net.Sockets.NetworkStream _stream;\n\n    public static async Task\u003CAstroConsole\u003E OpenAsync(int port, string password, int timeoutMs)\n    {\n        var console = new AstroConsole();\n        try\n        {\n            var connect = console._client.ConnectAsync(System.Net.IPAddress.Loopback, port);\n            if (await Task.WhenAny(connect, Task.Delay(timeoutMs)) != connect)\n                throw new TimeoutException(\u0022the console port \u0022 \u002B port \u002B \u0022 is not answering\u0022);\n            await connect;\n            console._stream = console._client.GetStream();\n            await console.WriteAsync(password ?? \u0022\u0022);\n            return console;\n        }\n        catch\n        {\n            console.Dispose();\n            throw;\n        }\n    }\n\n    public async Task WriteAsync(string line)\n    {\n        var bytes = System.Text.Encoding.UTF8.GetBytes(line \u002B \u0022\\n\u0022);\n        await _stream.WriteAsync(bytes, 0, bytes.Length);\n        await _stream.FlushAsync();\n    }\n\n    // Reads until the reply is one complete JSON value, the server has been quiet for quietMs, or maxMs passed.\n    public async Task\u003Cstring\u003E ReadReplyAsync(int quietMs, int maxMs)\n    {\n        var buffer = new byte[16384];\n        var output = new System.IO.MemoryStream();\n        var end = DateTime.UtcNow.AddMilliseconds(maxMs);\n        var lastData = DateTime.UtcNow;\n        while (DateTime.UtcNow \u003C end \u0026\u0026 (DateTime.UtcNow - lastData).TotalMilliseconds \u003C quietMs)\n        {\n            if (_stream.DataAvailable)\n            {\n                var n = await _stream.ReadAsync(buffer, 0, buffer.Length);\n                if (n \u003C= 0) break;\n                output.Write(buffer, 0, n);\n                lastData = DateTime.UtcNow;\n                if (IsCompleteJson(System.Text.Encoding.UTF8.GetString(output.ToArray()))) break;\n            }\n            else\n            {\n                if (_client.Client.Poll(0, System.Net.Sockets.SelectMode.SelectRead) \u0026\u0026 _client.Client.Available == 0) break; // closed\n                await Task.Delay(50);\n            }\n        }\n        return System.Text.Encoding.UTF8.GetString(output.ToArray()).Trim();\n    }\n\n    public async Task\u003Cstring\u003E CommandAsync(string command, int quietMs = 1500, int maxMs = 8000)\n    {\n        await WriteAsync(command);\n        return await ReadReplyAsync(quietMs, maxMs);\n    }\n\n    public static bool IsCompleteJson(string text)\n    {\n        text = (text ?? \u0022\u0022).Trim();\n        if (text.Length == 0 || (text[0] != \u0027{\u0027 \u0026\u0026 text[0] != \u0027[\u0027)) return false;\n        try { using (System.Text.Json.JsonDocument.Parse(text)) return true; }\n        catch { return false; }\n    }\n\n    public void Dispose()\n    {\n        try { _stream?.Dispose(); } catch { }\n        try { _client.Dispose(); } catch { }\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "9052fa7d-be69-50e3-abce-658401b764e4"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceCreated",
+          "BeforeServiceReinstalled",
+          "AfterServiceCreated",
+          "AfterServiceReinstalled"
+        ],
+        "name": "Install Wine and its dependencies",
+        "description": "Installs wine, winetricks, Xvfb and xdotool on the host (apt, dnf or yum) and prepares the Wine prefix of the server. Skips what is already installed.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll, TCAdmin.Monitor.SDK.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Wine (Linux host) only: installs what the panel needs to run this Windows server - wine, winetricks, Xvfb and\n// xdotool - with apt (Debian/Ubuntu) or dnf/yum (Red Hat), and the Windows runtimes listed in Verbs into the service\u0027s\n// own Wine prefix. Idempotent: anything already present is skipped. Runs before the create/reinstall (host packages,\n// so the panel\u0027s Wine check passes) and after it (prefix runtimes, once the service user and files exist).\nif (!System.OperatingSystem.IsLinux()) return;\n\n// Windows runtimes (winetricks verbs) the server needs inside the prefix. The server runs on Wine\u0027s built-in\n// Visual C\u002B\u002B runtime, so none are required today; add verbs here when a game update needs one.\nvar verbs = new string[] { };\n\nvar tools = new (string Command, string[] Apt, string[] Rpm)[]\n{\n    (\u0022wine\u0022, new[] { \u0022wine\u0022, \u0022wine64\u0022 }, new[] { \u0022wine\u0022 }),\n    (\u0022wineserver\u0022, new[] { \u0022wine\u0022, \u0022wine64\u0022 }, new[] { \u0022wine\u0022 }),\n    (\u0022winetricks\u0022, new[] { \u0022winetricks\u0022 }, new[] { \u0022winetricks\u0022 }),\n    (\u0022cabextract\u0022, new[] { \u0022cabextract\u0022 }, new[] { \u0022cabextract\u0022 }),\n    (\u0022Xvfb\u0022, new[] { \u0022xvfb\u0022 }, new[] { \u0022xorg-x11-server-Xvfb\u0022, \u0022xorg-x11-server-Xvfb.x86_64\u0022 }),\n    (\u0022xdotool\u0022, new[] { \u0022xdotool\u0022 }, new[] { \u0022xdotool\u0022 }),\n};\nvar apt = Shell(\u0022command -v apt-get\u0022, out _);\nvar installer = apt ? \u0022DEBIAN_FRONTEND=noninteractive apt-get install -y \u0022 : Shell(\u0022command -v dnf\u0022, out _) ? \u0022dnf install -y \u0022 : \u0022yum install -y \u0022;\nvar updated = false;\nforeach (var tool in tools)\n{\n    if (Shell(\u0022command -v \u0022 \u002B tool.Command, out _)) continue;\n    var names = apt ? tool.Apt : tool.Rpm;\n    ScriptConsole.WriteLine((object)(tool.Command \u002B \u0022 is missing on this host; installing \u0022 \u002B string.Join(\u0022 or \u0022, names) \u002B \u0022.\u0022));\n    var installed = names.Any(p =\u003E Shell(installer \u002B p, out _));\n    if (!installed \u0026\u0026 apt \u0026\u0026 !updated)\n    {\n        updated = Shell(\u0022DEBIAN_FRONTEND=noninteractive apt-get update\u0022, out _);\n        installed = names.Any(p =\u003E Shell(installer \u002B p, out _));\n    }\n    if (!installed || !Shell(\u0022command -v \u0022 \u002B tool.Command, out _))\n        throw new Exception(tool.Command \u002B \u0022 is missing and could not be installed. Install one of these packages on the host: \u0022 \u002B string.Join(\u0022, \u0022, names));\n}\nShell(\u0022wine --version\u0022, out var wineVersion);\nScriptConsole.WriteLine((object)(\u0022Wine on this host: \u0022 \u002B wineVersion.Trim()));\n\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(\u0027/\u0027);\n// Before the create/reinstall the service files and its run-as configuration do not exist yet.\nstring user = null;\nif (File.Exists(Path.Combine(root, \u0022Astro\u0022, \u0022Binaries\u0022, \u0022Win64\u0022, \u0022AstroServer-Win64-Shipping.exe\u0022)))\n{\n    try { user = ServiceManagerService.GetServiceCredential(ThisService.ServiceId)?.UserName; }\n    catch (FileNotFoundException) { }\n}\nif (string.IsNullOrEmpty(user) || !Shell(\u0022id -u \u0027\u0022 \u002B user \u002B \u0022\u0027\u0022, out _))\n{\n    ScriptConsole.WriteLine((object)\u0022The service is not created yet; the Wine prefix is prepared after the files are installed.\u0022);\n    return;\n}\nvar prefix = Path.Combine(root, \u0022.wine\u0022);\n// Every Wine call as the service user with the environment the panel starts the server with (root would leave\n// root-owned files in the prefix).\nvar wineEnv = \u0022runuser -u \u0027\u0022 \u002B user \u002B \u0022\u0027 -- env WINEPREFIX=\u0027\u0022 \u002B prefix \u002B \u0022\u0027 HOME=\u0027\u0022 \u002B root\n              \u002B \u0022\u0027 WINEARCH=win64 WINEDEBUG=-all WINEDLLOVERRIDES=\u0027mscoree=;mshtml=\u0027 \u0022;\n\n// The first start creates the Wine prefix (about a minute), longer than the panel waits for the start that follows\n// the create, so that start failed. Create the prefix here; the panel skips it when its marker file is present.\nvar marker = Path.Combine(prefix, \u0022.tcadmin-initialized\u0022);\nif (!File.Exists(marker))\n{\n    ScriptConsole.WriteLine((object)\u0022Creating the Wine prefix (about a minute).\u0022);\n    if (!Shell(wineEnv \u002B \u0022wineboot -u\u0022, out var bootOutput))\n        throw new Exception(\u0022wineboot failed: \u0022 \u002B string.Join(\u0022\\n\u0022, bootOutput.Split(\u0027\\n\u0027).TakeLast(15)));\n    Shell(wineEnv \u002B \u0022wineserver -w\u0022, out _);\n    Shell(\u0022runuser -u \u0027\u0022 \u002B user \u002B \u0022\u0027 -- sh -c \\\u0022date -u \u002B%Y-%m-%dT%H:%M:%SZ \u003E \u0027\u0022 \u002B marker \u002B \u0022\u0027\\\u0022\u0022, out _);\n    ScriptConsole.WriteLine((object)\u0022The Wine prefix is ready.\u0022);\n}\n\nif (verbs.Length == 0) return;\n// winetricks records every verb it installed in the prefix.\nvar log = Path.Combine(prefix, \u0022winetricks.log\u0022);\nvar done = File.Exists(log) ? File.ReadAllLines(log).Select(l =\u003E l.Trim()).ToHashSet() : new HashSet\u003Cstring\u003E();\nvar todo = verbs.Where(v =\u003E !done.Contains(v)).ToList();\nif (todo.Count == 0)\n{\n    ScriptConsole.WriteLine((object)(\u0022Windows runtimes already installed: \u0022 \u002B string.Join(\u0022, \u0022, verbs) \u002B \u0022.\u0022));\n    return;\n}\nScriptConsole.WriteLine((object)(\u0022Installing \u0022 \u002B string.Join(\u0022, \u0022, todo) \u002B \u0022 into the Wine prefix (a few minutes).\u0022));\nvar command = wineEnv \u002B \u0022winetricks -q \u0022 \u002B string.Join(\u0022 \u0022, todo);\nif (!Shell(command, out var output))\n    throw new Exception(\u0022winetricks failed: \u0022 \u002B string.Join(\u0022\\n\u0022, output.Split(\u0027\\n\u0027).TakeLast(15)));\nShell(wineEnv \u002B \u0022wineserver -w\u0022, out _);\nScriptConsole.WriteLine((object)\u0022Windows runtimes installed.\u0022);\n\nbool Shell(string cmd, out string text)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\u0022/bin/sh\u0022, new[] { \u0022-c\u0022, cmd }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        var stderr = process.StandardError.ReadToEndAsync();\n        text = process.StandardOutput.ReadToEnd() \u002B stderr.Result;\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "301002a3-5263-5038-96c4-a5630213196f"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Set the game port in Engine.ini",
+        "description": "Before every start: writes the service game port to Engine.ini and keeps network encryption off (the server drops the port line when it saves the file).",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// The server rewrites Engine.ini whenever it runs and drops [URL] Port when it equals the built-in default, so a\n// port change made later in the panel would never reach it. Before every start: [URL] Port = the service\u0027s game port\n// and network encryption off (current game clients only join a dedicated server without encryption).\nvar root = Path.GetFullPath((string)ThisService.RootDirectory);\nvar dir = Path.Combine(root, \u0022Astro\u0022, \u0022Saved\u0022, \u0022Config\u0022, \u0022WindowsServer\u0022);\nvar file = Path.Combine(dir, \u0022Engine.ini\u0022);\nvar wanted = new (string Section, string Key, string Value)[]\n{\n    (\u0022URL\u0022, \u0022Port\u0022, ThisService.GamePort.ToString()),\n    (\u0022SystemSettings\u0022, \u0022net.AllowEncryption\u0022, \u0022False\u0022),\n};\n\nvar existed = File.Exists(file);\nvar dirExisted = Directory.Exists(dir);\nvar lines = existed ? File.ReadAllLines(file).ToList() : new List\u003Cstring\u003E();\nvar changed = false;\nforeach (var w in wanted)\n{\n    var header = \u0022[\u0022 \u002B w.Section \u002B \u0022]\u0022;\n    var start = lines.FindIndex(l =\u003E l.Trim().Equals(header, StringComparison.OrdinalIgnoreCase));\n    if (start \u003C 0)\n    {\n        if (lines.Count \u003E 0 \u0026\u0026 lines[lines.Count - 1].Trim().Length \u003E 0) lines.Add(\u0022\u0022);\n        lines.Add(header);\n        lines.Add(w.Key \u002B \u0022=\u0022 \u002B w.Value);\n        changed = true;\n        continue;\n    }\n    var end = lines.FindIndex(start \u002B 1, l =\u003E l.TrimStart().StartsWith(\u0022[\u0022));\n    if (end \u003C 0) end = lines.Count;\n    var keyLines = Enumerable.Range(start \u002B 1, end - start - 1)\n        .Where(i =\u003E lines[i].Split(\u0027=\u0027)[0].Trim().Equals(w.Key, StringComparison.OrdinalIgnoreCase)).ToList();\n    if (keyLines.Count == 1 \u0026\u0026 lines[keyLines[0]].Trim() == w.Key \u002B \u0022=\u0022 \u002B w.Value) continue;\n    // Exactly one line with the value (a duplicate Port line would leave the server guessing).\n    foreach (var i in keyLines.OrderByDescending(i =\u003E i)) lines.RemoveAt(i);\n    lines.Insert(start \u002B 1, w.Key \u002B \u0022=\u0022 \u002B w.Value);\n    changed = true;\n}\nif (!changed) return;\n\nDirectory.CreateDirectory(dir);\nFile.WriteAllText(file, string.Join(Environment.NewLine, lines) \u002B Environment.NewLine);\nScriptConsole.WriteLine((object)(\u0022Engine.ini: game port \u0022 \u002B ThisService.GamePort \u002B \u0022, network encryption off.\u0022));\nif (!existed \u0026\u0026 System.OperatingSystem.IsLinux())\n{\n    // Scripts run as root: hand the new file to the service user like the rest of the service files.\n    var args = new List\u003Cstring\u003E { \u0022--reference=\u0022 \u002B root, file };\n    if (!dirExisted) args.Add(dir);\n    using (var p = Process.Start(new ProcessStartInfo(\u0022chown\u0022, args) { UseShellExecute = false }))\n        p.WaitForExit();\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "d1427b95-524a-54c8-8ab4-851d149db7d7"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-11T08:39:49.926233",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "Astro/Saved/SaveGames/**/*",
+      "Astro/Saved/Config/WindowsServer/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
