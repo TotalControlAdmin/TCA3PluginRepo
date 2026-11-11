@@ -24,14 +24,16 @@ longDescription: |
   
   ## Ports
   - Game 2001 (UDP).
-  - Query 17777 (UDP), game port + 15776.
-  - RCON 19999 (UDP), game port + 17998.
+  - Query 17777 (UDP, A2S), game port + 15776.
+  - RCON 19999 (UDP, BattlEye), game port + 17998.
+  - The game, query and RCON sockets bind to the service's IP (`bindAddress`, `a2s.address`, `rcon.address` in `config.json`), and the server registers that IP as its public address. The server opens no other port.
+  - IP and port changes in the service settings are written to `config.json`.
   
   ## Instructions
   - Mods: in the Mods field enter a JSON list, e.g. `[{"modId": "5965550F24A0C152", "name": "Where Am I"}]`. The mod id is on the mod's Workshop page. Add `"version": "1.2.0"` to pin a version. Keep `[]` for none.
   - Admins: enter a JSON list of identity ids or Steam ids, e.g. `["76561198000000000"]`. Listed players can use `#login` without the admin password.
   - Scenario id: the official ids are listed in `scenarios.txt` in the service folder. A Workshop scenario needs its mod in the Mods list and the id from its Workshop page.
-  - RCON commands run on the server, but their replies (e.g. the `#players` list) do not show in the panel console yet.
+  - RCON commands typed in the panel console show their reply there (e.g. the `#players` list).
   
 icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/1874880/0de311f3ef216db08badc6a9ef7c5fd8712ac334.jpg"
 images:
