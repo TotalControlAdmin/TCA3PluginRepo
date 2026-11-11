@@ -28,12 +28,14 @@ longDescription: |
   ## Ports
   - Game 7777 (UDP).
   - Query 27015 (UDP).
+  - Both bind to the service's IP (`-MultiHome`, `-PORT` and `-QueryPort` on the command line), so several servers can share a host. The server opens no other listening port.
   
   ## Instructions
   - Set an admin password in Command Lines, or add your Steam id to `Admin.ini` as `Moderator=<SteamID64>`.
   - The world is saved in `AbioticFactor/Saved/SaveGames/Server/Worlds/<world save name>`. A new name starts a new world.
   - The world rules apply to every world of the server. Restart the server after a change.
   - More than 6 players is possible (up to 24), but the game warns players above 6.
+  - The panel checks the command-line values: the world save name takes letters, digits, spaces, `-` and `_`; passwords have no spaces, quotes or backslashes; mod ids are numbers separated by `;`. The server name has no quotes or backslashes.
   
 icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/427410/789cca4e4e51a6649f5728d870d3a602e3c453fe.jpg"
 images:
