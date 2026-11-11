@@ -1,0 +1,49 @@
+identifier: "Community.Games.HumanitZ"
+name: "HumanitZ"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "HumanitZ dedicated server (Windows / native Linux) with a full GameServerSettings.ini form, admin and ban lists, RCON console, RCON status query, graceful save-and-stop and backups; starts out of the box"
+longDescription: |
+  # HumanitZ
+  
+  ## Description
+  HumanitZ dedicated server (Steam app 2728330, anonymous download). The Windows config uses the default Steam branch. The Linux config runs the native Linux server from the `linuxbranch` Steam branch.
+  
+  ## Key Features
+  - **Windows and Linux** configs, both native.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box.** On Linux a script makes the server executable, copies `steamclient.so` to `~/.steam/sdk64` and installs missing shared libraries (apt, dnf or yum).
+  - **Config editor** for `GameServerSettings.ini`: server name, password, admin password, save name, search id, reserved slots, and every world setting (PvP, death penalty, seasons, day and night length, loot rarity, zombie, bandit and animal difficulty, dogs, building, decay, weather odds and more). The player count comes from the service slots.
+  - **Config files** for the welcome message, permanent admins (`AdminList.txt`), bans (`F_BannedPlayers.txt`) and reserved slots (`F_ReservedSlots.txt`).
+  - **RCON** is always on, with the service's RCON password. The panel console sends commands over RCON: `info`, `Players`, `save`, `kick`, `ban`, `unban`, `admin <message>`, `restart <minutes>` and the rest of `RCONCommands.txt`.
+  - **Status query** through RCON (`info`): server name, players, season and time. HumanitZ lists its servers through Epic Online Services and answers no Steam query.
+  - **Graceful stop:** a stop script saves the world over RCON, shuts the server down and waits until it exits.
+  - **Console output** from the server's console window on Windows and from its terminal on Linux.
+  - **Log viewer** for `HumanitZServer.log` and its backup copies.
+  - **Backups** of the save games, the server settings and the player lists. The server is stopped first.
+  - No mod support: the game has no Steam Workshop or mod system.
+  
+  ## Ports
+  - Game 7777 (UDP).
+  - Query 27015 (UDP).
+  - RCON 8888 (TCP).
+  
+  ## Instructions
+  - Change the settings in Configuration Files, then restart the server.
+  - To become admin in the game, set an admin password and type `/AdminAccess <password>` in the chat. Or add your Steam id to `AdminList.txt`.
+  - The world is saved in `HumanitZServer/Saved/SaveGames/SaveList/Default/<save name>`. A new save name starts a new world.
+  - Keep the search id `HumanitZ_Dedicated` to show the server in the public list.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/1766060/4e298075dd52c90556ca68efa9d319f3c6cc5d69.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1766060/7cb8730dd0a791d69e2e87734de14cab92102cf1/ss_7cb8730dd0a791d69e2e87734de14cab92102cf1.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "HumanitZ - Windows.json"
+    type: "GameConfig"
+  - path: "HumanitZ - Linux.json"
+    type: "GameConfig"
