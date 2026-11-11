@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.23.43.17810",
-  "__TCA:ExportedAt": "2026-11-10T19:28:17.6986633Z",
+  "__TCA:ExportVersion": "3.23.46.17810",
+  "__TCA:ExportedAt": "2026-11-11T18:19:43.8429038Z",
   "name": "Left 4 Dead 2",
   "shortName": "L4D2",
   "description": "",
@@ -62,21 +62,28 @@
         "id": "GamePort",
         "port": 27015,
         "expression": "",
-        "description": null,
+        "description": "Game, query and RCON (UDP + TCP)",
         "uriTemplate": null
       },
       {
         "id": "QueryPort",
         "port": 27015,
-        "expression": "",
-        "description": null,
+        "expression": "GamePort",
+        "description": "Steam query (UDP, same as the game port)",
         "uriTemplate": null
       },
       {
         "id": "RConPort",
         "port": 27015,
-        "expression": "",
-        "description": null,
+        "expression": "GamePort",
+        "description": "RCON (TCP, same as the game port)",
+        "uriTemplate": null
+      },
+      {
+        "id": "SteamPort",
+        "port": 27016,
+        "expression": "GamePort + 1",
+        "description": "Steam master server (UDP)",
         "uriTemplate": null
       }
     ],
@@ -112,18 +119,18 @@
   },
   "commandlineConfig": {
     "enableSelection": true,
-    "defaultCommandline": "-console -game left4dead2 -norestart -nohltv -condebug -ip ${IPAddress} -port ${GamePort} ${GameMode} ${StartupMap}",
-    "defaultCustomCommandline": "-console -game left4dead2 -norestart -nohltv -condebug -ip ${IPAddress} -port ${GamePort} ${UserCommandLine} ${GameMode} ${StartupMap}",
+    "defaultCommandline": "-console -game left4dead2 -norestart -nohltv -condebug -ip ${IPAddress} -port ${GamePort} -steamport ${SteamPort - 1} ${GameMode} ${StartupMap}",
+    "defaultCustomCommandline": "-console -game left4dead2 -norestart -nohltv -condebug -ip ${IPAddress} -port ${GamePort} -steamport ${SteamPort - 1} ${GameMode} ${StartupMap}",
     "predefinedCommandlines": [
       {
         "id": 1,
         "name": "Default",
-        "commandLine": "-console -game left4dead2 -norestart -nohltv -condebug -ip ${IPAddress} -port ${GamePort} ${GameMode} ${StartupMap}"
+        "commandLine": "-console -game left4dead2 -norestart -nohltv -condebug -ip ${IPAddress} -port ${GamePort} -steamport ${SteamPort - 1} ${GameMode} ${StartupMap}"
       },
       {
         "id": 2,
         "name": "Advanced",
-        "commandLine": "-console -game left4dead2 -norestart -nohltv -condebug -ip ${IPAddress} -port ${GamePort} ${ConfigFile} ${Insecure} ${FpsMax} ${GameMode} ${StartupMap}"
+        "commandLine": "-console -game left4dead2 -norestart -nohltv -condebug -ip ${IPAddress} -port ${GamePort} -steamport ${SteamPort - 1} ${ConfigFile} ${Insecure} ${FpsMax} ${GameMode} ${StartupMap}"
       }
     ]
   },
@@ -688,119 +695,7 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "CpuStats",
+      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -814,37 +709,9 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "CustomScripts",
+      "permission": "CpuStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 2,
@@ -857,13 +724,6 @@
       "roleId": 2,
       "module": "BpFeature",
       "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "KillService",
       "moduleData": "",
       "granted": true
     },
@@ -891,28 +751,7 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
       "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -926,14 +765,42 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Repair",
+      "permission": "ScheduledTasks",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "ScheduledTasks",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
       "moduleData": "",
       "granted": true
     },
@@ -947,16 +814,156 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "ServiceSettings",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
       "moduleData": "",
       "granted": false
     },
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "SteamUpdate",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
       "moduleData": "",
       "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
     },
     {
       "roleId": 2,
@@ -968,119 +975,7 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "CpuStats",
+      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -1094,37 +989,9 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "CustomScripts",
+      "permission": "CpuStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 3,
@@ -1137,13 +1004,6 @@
       "roleId": 3,
       "module": "BpFeature",
       "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "KillService",
       "moduleData": "",
       "granted": true
     },
@@ -1171,28 +1031,7 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
       "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -1206,14 +1045,119 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Repair",
+      "permission": "ScheduledTasks",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "ScheduledTasks",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
       "moduleData": "",
       "granted": true
     },
@@ -1227,16 +1171,79 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "ServiceSettings",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
       "moduleData": "",
       "granted": false
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "SteamUpdate",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
       "moduleData": "",
       "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
     },
     {
       "roleId": 3,
