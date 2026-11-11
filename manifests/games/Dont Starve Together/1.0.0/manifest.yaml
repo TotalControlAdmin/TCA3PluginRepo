@@ -23,9 +23,11 @@ longDescription: |
   
   ## Ports
   - Game 10999 (UDP), Steam query 11000 (UDP), Steam authentication 11001 (UDP).
+  - IP and ports: `-bind_ip` (the address the server listens on for players) is set to the service IP. The game port, the Steam query port and the Steam authentication port are passed on the command line (`-port`, `-steam_master_server_port`, `-steam_authentication_port`) and written to `Master/server.ini`, so a change of IP or ports in the service settings applies to both. Caves (a second shard and its shard port) are not part of this config.
+  - Not yet run-tested: the IP and port check needs a cluster token, so it was done without starting the server (Windows: create, IP and port change, `server.ini` and the command line follow; custom command line 200). The Linux config uses the same command line and config files and was previewed only (custom command line 200).
   
   ## Instructions
-  - **A cluster token is required.** In the game choose Play > Account > Game Servers > Add New Server, copy the token and paste it in Configuration Files > Cluster token.
+  - **A cluster token is required.** Create one at accounts.klei.com > Games > Game Servers (Don't Starve Together) > Add New Server (or in the game: Play > Account > Game Servers), copy the token and paste it in Configuration Files > Cluster token. The server does not start without it.
   - For a LAN-only server without a token, set `offline_cluster = true` in `cluster.ini`.
   - Caves are not included: this config runs the Master shard only.
   - Logs: `DoNotStarveTogether/Cluster_1/Master/server_log.txt`.
