@@ -1,7 +1,7 @@
 {
-  "__TCA:ExportVersion": "3.23.43.17810",
-  "__TCA:ExportedAt": "2026-11-10T17:45:09.7425083Z",
-  "name": "Mount \u0026 Blade II: Bannerlord",
+  "__TCA:ExportVersion": "3.23.46.17810",
+  "__TCA:ExportedAt": "2026-11-11T23:02:36.8831143Z",
+  "name": "Mount & Blade II: Bannerlord",
   "shortName": "Bannerlord",
   "description": "",
   "operatingSystem": "Windows",
@@ -103,7 +103,7 @@
   "commandlineConfig": {
     "enableSelection": true,
     "defaultCommandline": "/port ${GamePort} /dedicatedcustomserverconfigfile server_config.txt /tickrate ${TickRate} ${AuthToken} /DisableErrorReporting /no_watchdog _MODULES_*Native*Multiplayer${ExtraModules}*_MODULES_",
-    "defaultCustomCommandline": "/port ${GamePort} /dedicatedcustomserverconfigfile server_config.txt /tickrate ${TickRate} ${AuthToken} /DisableErrorReporting /no_watchdog _MODULES_*Native*Multiplayer${ExtraModules}*_MODULES_ ${UserCommandLine}",
+    "defaultCustomCommandline": "/port ${GamePort} /dedicatedcustomserverconfigfile server_config.txt /tickrate ${TickRate} ${AuthToken} /DisableErrorReporting /no_watchdog _MODULES_*Native*Multiplayer${ExtraModules}*_MODULES_",
     "predefinedCommandlines": [
       {
         "id": 1,
@@ -140,18 +140,18 @@
       "syncCommandlineParameter": false,
       "template": "${AdminPassword}",
       "editor": {
-        "maxLength": 0,
+        "maxLength": 64,
         "lines": 1,
         "denyCharacters": [],
-        "regExValidation": "",
+        "regExValidation": "^[!-~]*$",
         "inputType": 0,
         "id": "AdminPassword",
         "defaultValue": "",
         "label": "Admin password",
-        "description": "For \u0022Join as Admin\u0022 in the server list and the in-game admin panel.",
+        "description": "For \"Join as Admin\" in the server list and the in-game admin panel. No spaces.",
         "required": false,
         "valueType": "string",
-        "requiredMessage": "Value is required",
+        "requiredMessage": "",
         "parentId": null,
         "parentValue": null,
         "controlType": "DynamicTextBox",
@@ -247,18 +247,18 @@
       "syncCommandlineParameter": false,
       "template": "${Map}",
       "editor": {
-        "maxLength": 0,
+        "maxLength": 64,
         "lines": 1,
         "denyCharacters": [],
-        "regExValidation": "",
+        "regExValidation": "^[A-Za-z0-9_]+$",
         "inputType": 0,
         "id": "Map",
         "defaultValue": "mp_tdm_map_003",
         "label": "Map",
-        "description": "A map of the chosen mode, e.g. mp_tdm_map_003 (Team Deathmatch).",
+        "description": "A map of the chosen mode, e.g. mp_tdm_map_003 (Team Deathmatch). Letters, digits and underscores.",
         "required": false,
         "valueType": "string",
-        "requiredMessage": "Value is required",
+        "requiredMessage": "",
         "parentId": null,
         "parentValue": null,
         "controlType": "DynamicTextBox",
@@ -459,20 +459,20 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "${AuthToken.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022/dedicatedcustomserverauthtoken \u0022 \u002B AuthToken}",
+      "template": "${AuthToken.ToString() == \"\" ? \"\" : \"/dedicatedcustomserverauthtoken \" + AuthToken}",
       "editor": {
-        "maxLength": 0,
+        "maxLength": 4096,
         "lines": 1,
         "denyCharacters": [],
-        "regExValidation": "",
+        "regExValidation": "^[A-Za-z0-9+/=._-]*$",
         "inputType": 0,
         "id": "AuthToken",
         "defaultValue": "",
         "label": "Server token",
-        "description": "Required. In the game open the multiplayer lobby, press Alt \u002B ~ and type customserver.gettoken; the token is saved to Documents\\Mount and Blade II Bannerlord\\Tokens\\DedicatedCustomServerAuthToken.txt. It expires after 3 months.",
+        "description": "Required. In the game open the multiplayer lobby, press Alt + ~ and type customserver.gettoken; the token is saved to Documents\\Mount and Blade II Bannerlord\\Tokens\\DedicatedCustomServerAuthToken.txt. It expires after 3 months.",
         "required": false,
         "valueType": "string",
-        "requiredMessage": "Value is required",
+        "requiredMessage": "",
         "parentId": null,
         "parentValue": null,
         "controlType": "DynamicTextBox",
@@ -501,20 +501,20 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "${ExtraModules.ToString().Trim() == \u0022\u0022 ? \u0022\u0022 : \u0022*\u0022 \u002B ExtraModules.ToString().Replace(\u0022 \u0022, \u0022\u0022).Replace(\u0022,\u0022, \u0022*\u0022)}",
+      "template": "${ExtraModules.ToString().Trim() == \"\" ? \"\" : \"*\" + ExtraModules.ToString().Replace(\" \", \"\").Replace(\",\", \"*\")}",
       "editor": {
-        "maxLength": 0,
+        "maxLength": 512,
         "lines": 1,
         "denyCharacters": [],
-        "regExValidation": "",
+        "regExValidation": "^(?!.*\\.\\.)[A-Za-z0-9_. ,-]*$",
         "inputType": 0,
         "id": "ExtraModules",
         "defaultValue": "",
         "label": "Extra modules",
-        "description": "Folder names of modules uploaded to Modules, separated by commas (loaded after Native and Multiplayer). Players need the same modules.",
+        "description": "Folder names of modules uploaded to Modules, separated by commas (loaded after Native and Multiplayer). Players need the same modules. Letters, digits, dots, dashes and underscores.",
         "required": false,
         "valueType": "string",
-        "requiredMessage": "Value is required",
+        "requiredMessage": "",
         "parentId": null,
         "parentValue": null,
         "controlType": "DynamicTextBox",
@@ -561,15 +561,15 @@
           "requiresAnyVisible": []
         },
         {
-          "maxLength": 0,
+          "maxLength": 100,
           "lines": 1,
           "denyCharacters": [],
-          "regExValidation": "",
+          "regExValidation": "^[^\\x00-\\x1f\\x7f]*$",
           "inputType": 0,
           "id": "Hostname",
           "defaultValue": "",
           "label": "Server name",
-          "description": "Shown in the custom server list.",
+          "description": "Shown in the custom server list. One line.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -581,15 +581,15 @@
           "requiresAnyVisible": []
         },
         {
-          "maxLength": 0,
+          "maxLength": 64,
           "lines": 1,
           "denyCharacters": [],
-          "regExValidation": "",
+          "regExValidation": "^[!-~]*$",
           "inputType": 0,
           "id": "PrivatePassword",
           "defaultValue": "",
           "label": "Password",
-          "description": "Leave empty for a public server.",
+          "description": "Leave empty for a public server. No spaces.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -601,15 +601,15 @@
           "requiresAnyVisible": []
         },
         {
-          "maxLength": 0,
+          "maxLength": 64,
           "lines": 1,
           "denyCharacters": [],
-          "regExValidation": "",
+          "regExValidation": "^[!-~]*$",
           "inputType": 0,
           "id": "AdminPassword",
           "defaultValue": "",
           "label": "Admin password",
-          "description": "For \u0022Join as Admin\u0022 in the server list and the in-game admin panel.",
+          "description": "For \"Join as Admin\" in the server list and the in-game admin panel. No spaces.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -680,15 +680,15 @@
           "requiresAnyVisible": []
         },
         {
-          "maxLength": 0,
+          "maxLength": 64,
           "lines": 1,
           "denyCharacters": [],
-          "regExValidation": "",
+          "regExValidation": "^[A-Za-z0-9_]+$",
           "inputType": 0,
           "id": "Map",
           "defaultValue": "mp_tdm_map_003",
           "label": "Map",
-          "description": "A map of the chosen mode, e.g. mp_tdm_map_003 (Team Deathmatch).",
+          "description": "A map of the chosen mode, e.g. mp_tdm_map_003 (Team Deathmatch). Letters, digits and underscores.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -822,7 +822,7 @@
         ],
         "name": "Prepare the server",
         "description": "Refuses to start without a server token.",
-        "code": "//refAssemblies: System.Diagnostics.Process.dll, System.Net.Http.dll, System.Security.Cryptography.dll, TCAdmin.Monitor.SDK.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Security.Cryptography;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\n\n// The server logs in to the TaleWorlds lobby with a token made by a game owner and shuts down right away without one\n// (\u0022Login Failed! Server is shutting down.\u0022), so stop here with the reason instead. The token is a command-line\n// variable; the command line the server starts with is the one to check.\nvar commandLine = (string)ThisService.Commandline ?? \u0022\u0022;\nvar hasToken = System.Text.RegularExpressions.Regex.IsMatch(commandLine, @\u0022/dedicatedcustomserverauthtoken\\s\u002B[^\\s/]\u0022, System.Text.RegularExpressions.RegexOptions.IgnoreCase);\nif (true \u0026\u0026 !hasToken)\n{\n    throw new Exception(\u0022The server needs a Bannerlord server token. Start the game, open Multiplayer, press Alt \u002B ~ (tilde) and type customserver.gettoken; the token is saved to Documents\\\\Mount and Blade II Bannerlord\\\\Tokens\\\\DedicatedCustomServerAuthToken.txt. Paste the contents of that file in Command Lines \u003E Server token. A token is valid for 3 months.\u0022);\n}\n\nif (System.OperatingSystem.IsLinux())\n{\n    var runtimeDir = Path.Combine(root, \u0022dotnet-runtime\u0022);\n\n    // 1. The Linux server is a .NET 6 application and Steam does not ship the runtime. Install the .NET 6 runtime\n    //    (with ASP.NET Core, used by the server\u0027s web panel) into the service folder, so the host needs no .NET 6.\n    const string version = \u00226.0.36\u0022;\n    const string url = \u0022https://builds.dotnet.microsoft.com/dotnet/aspnetcore/Runtime/\u0022 \u002B version \u002B \u0022/aspnetcore-runtime-\u0022 \u002B version \u002B \u0022-linux-x64.tar.gz\u0022;\n    const string sha512 = \u00220e3d1dcc715bffbcb8ab8cb4fd72accbeed79ac40b7fd517961797a168f4301505044d2c1494a49b0e68103940bd6c178c8ae7bacf75f4b40ce82cc85624f6bd\u0022;\n    var changed = false;\n    if (!Directory.Exists(Path.Combine(runtimeDir, \u0022shared\u0022, \u0022Microsoft.AspNetCore.App\u0022, version)) || !File.Exists(Path.Combine(runtimeDir, \u0022dotnet\u0022)))\n    {\n        ScriptConsole.WriteLine((object)(\u0022Installing the .NET \u0022 \u002B version \u002B \u0022 runtime the server needs.\u0022));\n        var archive = Path.Combine(Path.GetTempPath(), \u0022tca-aspnetcore-runtime-\u0022 \u002B version \u002B \u0022-\u0022 \u002B ThisService.ServiceId \u002B \u0022.tar.gz\u0022);\n        try\n        {\n            using (var http = new HttpClient { Timeout = TimeSpan.FromMinutes(10) })\n            using (var response = await http.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n            {\n                response.EnsureSuccessStatusCode();\n                using (var file = File.Create(archive)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n            }\n            string hash;\n            using (var stream = File.OpenRead(archive)) hash = Convert.ToHexString(SHA512.HashData(stream)).ToLowerInvariant();\n            if (hash != sha512) throw new Exception(\u0022The downloaded .NET runtime does not match its published checksum.\u0022);\n            if (Directory.Exists(runtimeDir)) Directory.Delete(runtimeDir, true);\n            Directory.CreateDirectory(runtimeDir);\n            using (var tar = Process.Start(new ProcessStartInfo(\u0022tar\u0022, new[] { \u0022-xzf\u0022, archive, \u0022-C\u0022, runtimeDir }) { UseShellExecute = false, RedirectStandardError = true }))\n            {\n                var error = tar.StandardError.ReadToEnd();\n                tar.WaitForExit();\n                if (tar.ExitCode != 0) throw new Exception(\u0022Could not extract the .NET runtime: \u0022 \u002B error);\n            }\n        }\n        finally\n        {\n            if (File.Exists(archive)) File.Delete(archive);\n        }\n        changed = true;\n    }\n\n    // 2. The game\u0027s own start-up config only names the base .NET runtime, but the server\u0027s web panel module needs\n    //    ASP.NET Core too: the command line runs the starter with this config (dotnet exec --runtimeconfig).\n    var runtimeConfig = Path.Combine(runtimeDir, \u0022bannerlord.runtimeconfig.json\u0022);\n    var runtimeConfigJson = \u0022{\\n  \\\u0022runtimeOptions\\\u0022: {\\n    \\\u0022tfm\\\u0022: \\\u0022net6.0\\\u0022,\\n    \\\u0022frameworks\\\u0022: [\\n\u0022 \u002B\n        \u0022      { \\\u0022name\\\u0022: \\\u0022Microsoft.NETCore.App\\\u0022, \\\u0022version\\\u0022: \\\u00226.0.0\\\u0022 },\\n\u0022 \u002B\n        \u0022      { \\\u0022name\\\u0022: \\\u0022Microsoft.AspNetCore.App\\\u0022, \\\u0022version\\\u0022: \\\u00226.0.0\\\u0022 }\\n    ],\\n\u0022 \u002B\n        \u0022    \\\u0022configProperties\\\u0022: { \\\u0022System.Reflection.Metadata.MetadataUpdater.IsSupported\\\u0022: false }\\n  }\\n}\\n\u0022;\n    if (!File.Exists(runtimeConfig) || File.ReadAllText(runtimeConfig) != runtimeConfigJson)\n    {\n        File.WriteAllText(runtimeConfig, runtimeConfigJson);\n        changed = true;\n    }\n\n    // 3. The game\u0027s engine calls aligned_alloc(24, 64): an alignment that is not a power of two. glibc 2.38 and later\n    //    return NULL for that, so the server crashes (SIGSEGV in libFairyTale.Library.so) on Ubuntu 24.04, Debian 13\n    //    and newer. LD_PRELOAD (a game environment variable) loads this tiny library first; its aligned_alloc calls\n    //    memalign, which rounds the alignment up like aligned_alloc did before glibc 2.38. It is built here, byte by\n    //    byte, so no compiler is needed: an x86-64 ELF shared object with one exported function,\n    //    aligned_alloc = \u0022jmp *memalign@GOT\u0022, and one relocation that fills that GOT slot with memalign.\n    var shim = Path.Combine(runtimeDir, \u0022libtca_aligned_alloc.so\u0022);\n    var shimBytes = BuildAlignedAllocShim();\n    if (!File.Exists(shim) || !File.ReadAllBytes(shim).SequenceEqual(shimBytes))\n    {\n        File.WriteAllBytes(shim, shimBytes);\n        File.SetUnixFileMode(shim, UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.UserExecute | UnixFileMode.GroupRead | UnixFileMode.GroupExecute | UnixFileMode.OtherRead | UnixFileMode.OtherExecute);\n        changed = true;\n    }\n\n    if (changed)\n    {\n        // The script runs as root: give the folder to the service user like the rest of the service files.\n        var cred = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\n        Globals.OperatingSystem.SetDirectoryOwner(runtimeDir, cred.Domain, cred.UserName, true);\n        ScriptConsole.WriteLine((object)\u0022The .NET runtime for the server is ready.\u0022);\n    }\n}\n\nstatic byte[] BuildAlignedAllocShim()\n{\n    const int phCount = 4, hashOff = 64 \u002B 56 * phCount;          // ELF header, then the program headers\n    const int symOff = (hashOff \u002B 24 \u002B 7) \u0026 ~7;                  // .hash: 6 words\n    var dynstr = System.Text.Encoding.ASCII.GetBytes(\u0022\\0aligned_alloc\\0memalign\\0\u0022);\n    const int strOff = symOff \u002B 3 * 24;                          // .dynsym: null, aligned_alloc, memalign\n    int relaOff = (strOff \u002B dynstr.Length \u002B 7) \u0026 ~7;\n    int textOff = relaOff \u002B 24;\n    int roEnd = textOff \u002B 6;\n    const int rw = 0x1000, dynCount = 10;                        // second page: .dynamic, then the GOT slot\n    const int got = rw \u002B 16 * dynCount;\n    var file = new byte[rw \u002B 16 * dynCount \u002B 8];\n    var w = new BinaryWriter(new MemoryStream(file));\n    void At(int offset) =\u003E w.Seek(offset, SeekOrigin.Begin);\n    w.Write(new byte[] { 0x7F, (byte)\u0027E\u0027, (byte)\u0027L\u0027, (byte)\u0027F\u0027, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 });\n    w.Write((ushort)3); w.Write((ushort)0x3E); w.Write(1u);     // ET_DYN, x86-64, version 1\n    w.Write(0UL); w.Write(64UL); w.Write(0UL); w.Write(0u);      // entry, phoff, shoff (no sections), flags\n    w.Write((ushort)64); w.Write((ushort)56); w.Write((ushort)phCount); w.Write((ushort)64); w.Write((ushort)0); w.Write((ushort)0);\n    void Ph(uint type, uint flags, ulong offset, ulong size, ulong align)\n    {\n        w.Write(type); w.Write(flags); w.Write(offset); w.Write(offset); w.Write(offset); w.Write(size); w.Write(size); w.Write(align);\n    }\n    Ph(1, 5, 0, (ulong)roEnd, 0x1000);                           // PT_LOAD r-x: headers, tables, code\n    Ph(1, 6, rw, 16 * dynCount \u002B 8, 0x1000);                     // PT_LOAD rw-: .dynamic \u002B GOT\n    Ph(2, 6, rw, 16 * dynCount, 8);                              // PT_DYNAMIC\n    Ph(0x6474E551, 6, 0, 0, 16);                                 // PT_GNU_STACK: no executable stack\n    At(hashOff); foreach (var v in new uint[] { 1, 3, 1, 0, 2, 0 }) w.Write(v);   // nbucket 1, nchain 3, bucket, chains\n    At(symOff \u002B 24); w.Write(1u); w.Write((byte)0x12); w.Write((byte)0); w.Write((ushort)1); w.Write((ulong)textOff); w.Write(6UL);  // aligned_alloc: global func, defined\n    w.Write(15u); w.Write((byte)0x12); w.Write((byte)0); w.Write((ushort)0); w.Write(0UL); w.Write(0UL);                          // memalign: undefined\n    At(strOff); w.Write(dynstr);\n    At(relaOff); w.Write((ulong)got); w.Write((2UL \u003C\u003C 32) | 6); w.Write(0L);                                                       // R_X86_64_GLOB_DAT, symbol 2\n    At(textOff); w.Write((byte)0xFF); w.Write((byte)0x25); w.Write(got - (textOff \u002B 6));                                           // jmp *[rip \u002B GOT]\n    At(rw);\n    foreach (var (tag, value) in new (long, ulong)[] { (4, hashOff), (5, (ulong)strOff), (6, symOff), (10, (ulong)dynstr.Length), (11, 24),\n                                                       (7, (ulong)relaOff), (8, 24), (9, 24), (30, 8), (0, 0) })\n    {\n        w.Write(tag); w.Write(value);                            // DT_HASH, STRTAB, SYMTAB, STRSZ, SYMENT, RELA, RELASZ, RELAENT, FLAGS=BIND_NOW, NULL\n    }\n    w.Flush();\n    return file;\n}\n",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll, System.Net.Http.dll, System.Security.Cryptography.dll, TCAdmin.Monitor.SDK.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Security.Cryptography;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\n\n// The server logs in to the TaleWorlds lobby with a token made by a game owner and shuts down right away without one\n// (\"Login Failed! Server is shutting down.\"), so stop here with the reason instead. The token is a command-line\n// variable; the command line the server starts with is the one to check.\nvar commandLine = (string)ThisService.Commandline ?? \"\";\nvar hasToken = System.Text.RegularExpressions.Regex.IsMatch(commandLine, @\"/dedicatedcustomserverauthtoken\\s+\\S\", System.Text.RegularExpressions.RegexOptions.IgnoreCase);\nif (true && !hasToken)\n{\n    throw new Exception(\"The server needs a Bannerlord server token. Start the game, open Multiplayer, press Alt + ~ (tilde) and type customserver.gettoken; the token is saved to Documents\\\\Mount and Blade II Bannerlord\\\\Tokens\\\\DedicatedCustomServerAuthToken.txt. Paste the contents of that file in Command Lines > Server token. A token is valid for 3 months.\");\n}\n\nif (System.OperatingSystem.IsLinux())\n{\n    var runtimeDir = Path.Combine(root, \"dotnet-runtime\");\n    // This script runs as root and the service folder belongs to the customer: a symbolic link put in place of the\n    // runtime folder or of a file written below would make root write elsewhere. Remove such links (only the link).\n    RemoveLink(runtimeDir);\n\n    // 1. The Linux server is a .NET 6 application and Steam does not ship the runtime. Install the .NET 6 runtime\n    //    (with ASP.NET Core, used by the server's web panel) into the service folder, so the host needs no .NET 6.\n    const string version = \"6.0.36\";\n    const string url = \"https://builds.dotnet.microsoft.com/dotnet/aspnetcore/Runtime/\" + version + \"/aspnetcore-runtime-\" + version + \"-linux-x64.tar.gz\";\n    const string sha512 = \"0e3d1dcc715bffbcb8ab8cb4fd72accbeed79ac40b7fd517961797a168f4301505044d2c1494a49b0e68103940bd6c178c8ae7bacf75f4b40ce82cc85624f6bd\";\n    var changed = false;\n    if (!Directory.Exists(Path.Combine(runtimeDir, \"shared\", \"Microsoft.AspNetCore.App\", version)) || !File.Exists(Path.Combine(runtimeDir, \"dotnet\")))\n    {\n        ScriptConsole.WriteLine((object)(\"Installing the .NET \" + version + \" runtime the server needs.\"));\n        var archive = Path.Combine(Path.GetTempPath(), \"tca-aspnetcore-runtime-\" + Guid.NewGuid().ToString(\"N\") + \".tar.gz\");\n        try\n        {\n            using (var http = new HttpClient { Timeout = TimeSpan.FromMinutes(10) })\n            using (var response = await http.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n            {\n                response.EnsureSuccessStatusCode();\n                using (var file = new FileStream(archive, FileMode.CreateNew)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n            }\n            string hash;\n            using (var stream = File.OpenRead(archive)) hash = Convert.ToHexString(SHA512.HashData(stream)).ToLowerInvariant();\n            if (hash != sha512) throw new Exception(\"The downloaded .NET runtime does not match its published checksum.\");\n            if (Directory.Exists(runtimeDir)) Directory.Delete(runtimeDir, true);\n            Directory.CreateDirectory(runtimeDir);\n            RemoveLink(runtimeDir);\n            if (!Directory.Exists(runtimeDir)) throw new Exception(\"The dotnet-runtime folder was replaced while the runtime was being installed.\");\n            using (var tar = Process.Start(new ProcessStartInfo(\"tar\", new[] { \"-xzf\", archive, \"-C\", runtimeDir }) { UseShellExecute = false, RedirectStandardError = true }))\n            {\n                var error = tar.StandardError.ReadToEnd();\n                tar.WaitForExit();\n                if (tar.ExitCode != 0) throw new Exception(\"Could not extract the .NET runtime: \" + error);\n            }\n        }\n        finally\n        {\n            if (File.Exists(archive)) File.Delete(archive);\n        }\n        changed = true;\n    }\n\n    // 2. The game's own start-up config only names the base .NET runtime, but the server's web panel module needs\n    //    ASP.NET Core too: the command line runs the starter with this config (dotnet exec --runtimeconfig).\n    var runtimeConfig = Path.Combine(runtimeDir, \"bannerlord.runtimeconfig.json\");\n    RemoveLink(runtimeConfig);\n    var runtimeConfigJson = \"{\\n  \\\"runtimeOptions\\\": {\\n    \\\"tfm\\\": \\\"net6.0\\\",\\n    \\\"frameworks\\\": [\\n\" +\n        \"      { \\\"name\\\": \\\"Microsoft.NETCore.App\\\", \\\"version\\\": \\\"6.0.0\\\" },\\n\" +\n        \"      { \\\"name\\\": \\\"Microsoft.AspNetCore.App\\\", \\\"version\\\": \\\"6.0.0\\\" }\\n    ],\\n\" +\n        \"    \\\"configProperties\\\": { \\\"System.Reflection.Metadata.MetadataUpdater.IsSupported\\\": false }\\n  }\\n}\\n\";\n    if (!File.Exists(runtimeConfig) || File.ReadAllText(runtimeConfig) != runtimeConfigJson)\n    {\n        File.WriteAllText(runtimeConfig, runtimeConfigJson);\n        changed = true;\n    }\n\n    // 3. The game's engine calls aligned_alloc(24, 64): an alignment that is not a power of two. glibc 2.38 and later\n    //    return NULL for that, so the server crashes (SIGSEGV in libFairyTale.Library.so) on Ubuntu 24.04, Debian 13\n    //    and newer. LD_PRELOAD (a game environment variable) loads this tiny library first; its aligned_alloc calls\n    //    memalign, which rounds the alignment up like aligned_alloc did before glibc 2.38. It is built here, byte by\n    //    byte, so no compiler is needed: an x86-64 ELF shared object with one exported function,\n    //    aligned_alloc = \"jmp *memalign@GOT\", and one relocation that fills that GOT slot with memalign.\n    var shim = Path.Combine(runtimeDir, \"libtca_aligned_alloc.so\");\n    RemoveLink(shim);\n    var shimBytes = BuildAlignedAllocShim();\n    if (!File.Exists(shim) || !File.ReadAllBytes(shim).SequenceEqual(shimBytes))\n    {\n        File.WriteAllBytes(shim, shimBytes);\n        File.SetUnixFileMode(shim, UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.UserExecute | UnixFileMode.GroupRead | UnixFileMode.GroupExecute | UnixFileMode.OtherRead | UnixFileMode.OtherExecute);\n        changed = true;\n    }\n\n    if (changed)\n    {\n        // The script runs as root: give the folder to the service user like the rest of the service files.\n        var cred = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\n        Globals.OperatingSystem.SetDirectoryOwner(runtimeDir, cred.Domain, cred.UserName, true);\n        ScriptConsole.WriteLine((object)\"The .NET runtime for the server is ready.\");\n    }\n}\n\n// Deletes path when it is a symbolic link (the link itself, never its target).\nstatic void RemoveLink(string path)\n{\n    if (new FileInfo(path).LinkTarget != null) File.Delete(path);\n}\n\nstatic byte[] BuildAlignedAllocShim()\n{\n    const int phCount = 4, hashOff = 64 + 56 * phCount;          // ELF header, then the program headers\n    const int symOff = (hashOff + 24 + 7) & ~7;                  // .hash: 6 words\n    var dynstr = System.Text.Encoding.ASCII.GetBytes(\"\\0aligned_alloc\\0memalign\\0\");\n    const int strOff = symOff + 3 * 24;                          // .dynsym: null, aligned_alloc, memalign\n    int relaOff = (strOff + dynstr.Length + 7) & ~7;\n    int textOff = relaOff + 24;\n    int roEnd = textOff + 6;\n    const int rw = 0x1000, dynCount = 10;                        // second page: .dynamic, then the GOT slot\n    const int got = rw + 16 * dynCount;\n    var file = new byte[rw + 16 * dynCount + 8];\n    var w = new BinaryWriter(new MemoryStream(file));\n    void At(int offset) => w.Seek(offset, SeekOrigin.Begin);\n    w.Write(new byte[] { 0x7F, (byte)'E', (byte)'L', (byte)'F', 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 });\n    w.Write((ushort)3); w.Write((ushort)0x3E); w.Write(1u);     // ET_DYN, x86-64, version 1\n    w.Write(0UL); w.Write(64UL); w.Write(0UL); w.Write(0u);      // entry, phoff, shoff (no sections), flags\n    w.Write((ushort)64); w.Write((ushort)56); w.Write((ushort)phCount); w.Write((ushort)64); w.Write((ushort)0); w.Write((ushort)0);\n    void Ph(uint type, uint flags, ulong offset, ulong size, ulong align)\n    {\n        w.Write(type); w.Write(flags); w.Write(offset); w.Write(offset); w.Write(offset); w.Write(size); w.Write(size); w.Write(align);\n    }\n    Ph(1, 5, 0, (ulong)roEnd, 0x1000);                           // PT_LOAD r-x: headers, tables, code\n    Ph(1, 6, rw, 16 * dynCount + 8, 0x1000);                     // PT_LOAD rw-: .dynamic + GOT\n    Ph(2, 6, rw, 16 * dynCount, 8);                              // PT_DYNAMIC\n    Ph(0x6474E551, 6, 0, 0, 16);                                 // PT_GNU_STACK: no executable stack\n    At(hashOff); foreach (var v in new uint[] { 1, 3, 1, 0, 2, 0 }) w.Write(v);   // nbucket 1, nchain 3, bucket, chains\n    At(symOff + 24); w.Write(1u); w.Write((byte)0x12); w.Write((byte)0); w.Write((ushort)1); w.Write((ulong)textOff); w.Write(6UL);  // aligned_alloc: global func, defined\n    w.Write(15u); w.Write((byte)0x12); w.Write((byte)0); w.Write((ushort)0); w.Write(0UL); w.Write(0UL);                          // memalign: undefined\n    At(strOff); w.Write(dynstr);\n    At(relaOff); w.Write((ulong)got); w.Write((2UL << 32) | 6); w.Write(0L);                                                       // R_X86_64_GLOB_DAT, symbol 2\n    At(textOff); w.Write((byte)0xFF); w.Write((byte)0x25); w.Write(got - (textOff + 6));                                           // jmp *[rip + GOT]\n    At(rw);\n    foreach (var (tag, value) in new (long, ulong)[] { (4, hashOff), (5, (ulong)strOff), (6, symOff), (10, (ulong)dynstr.Length), (11, 24),\n                                                       (7, (ulong)relaOff), (8, 24), (9, 24), (30, 8), (0, 0) })\n    {\n        w.Write(tag); w.Write(value);                            // DT_HASH, STRTAB, SYMTAB, STRSZ, SYMENT, RELA, RELASZ, RELAENT, FLAGS=BIND_NOW, NULL\n    }\n    w.Flush();\n    return file;\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -852,7 +852,7 @@
         ],
         "name": "Bannerlord query",
         "description": "Reports the server online while its game port is bound (Bannerlord custom servers have no query protocol).",
-        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Bannerlord custom servers are listed through the TaleWorlds lobby and have no query protocol. The query runs\n// on the monitor of the server that hosts the service, so it checks that the game\u0027s UDP port is bound on this machine.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = Convert.ToInt32(Dynamic.Port);\nif (port \u003C= 0) port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners()\n        .Any(l =\u003E l.Port == port \u0026\u0026 (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \u0022online\u0022,\n            Protocol = \u0022custom_script\u0022,\n            Address = address,\n            Hostname = $\u0022{address}:{port}\u0022,\n            Name = ThisService.Name,\n            GameType = ThisService.Variables.ContainsKey(\u0022GameType\u0022) ? Convert.ToString(ThisService.Variables[\u0022GameType\u0022]) : \u0022\u0022,\n            Map = ThisService.Variables.ContainsKey(\u0022Map\u0022) ? Convert.ToString(ThisService.Variables[\u0022Map\u0022]) : \u0022\u0022,\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, $\u0022Nothing is listening on {address}:{port} (UDP).\u0022);\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, ex.Message);\n}\n",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Bannerlord custom servers are listed through the TaleWorlds lobby and have no query protocol. The query runs\n// on the monitor of the server that hosts the service, so it checks that the game's UDP port is bound on this machine.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\n// The server uses one port; the query port only mirrors it, so check the game port (a stale QueryPort cannot break the status).\nint port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners()\n        .Any(l => l.Port == port && (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \"online\",\n            Protocol = \"custom_script\",\n            Address = address,\n            Hostname = $\"{address}:{port}\",\n            Name = ThisService.Name,\n            GameType = ThisService.Variables.ContainsKey(\"GameType\") ? Convert.ToString(ThisService.Variables[\"GameType\"]) : \"\",\n            Map = ThisService.Variables.ContainsKey(\"Map\") ? Convert.ToString(ThisService.Variables[\"Map\"]) : \"\",\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", $\"Nothing is listening on {address}:{port} (UDP).\");\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", ex.Message);\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
@@ -877,9 +877,9 @@
         "global": false,
         "allGames": false,
         "name": "Web panel",
-        "description": "The server\u0027s own admin panel (log in with the admin password).",
+        "description": "The server's own admin panel (log in with the admin password).",
         "url": "http://${IPAddress}:${GamePort}/",
-        "icon": "\u003Cpath d=\u0022M0 0h24v24H0z\u0022 fill=\u0022none\u0022/\u003E\u003Cpath d=\u0022M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z\u0022/\u003E",
+        "icon": "<path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z\"/>",
         "order": 0,
         "openInNewWindow": true,
         "openInMainContents": false,
@@ -908,119 +908,7 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "CpuStats",
+      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -1034,37 +922,9 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "CustomScripts",
+      "permission": "CpuStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 2,
@@ -1077,13 +937,6 @@
       "roleId": 2,
       "module": "BpFeature",
       "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "KillService",
       "moduleData": "",
       "granted": true
     },
@@ -1111,28 +964,7 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
       "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -1146,14 +978,42 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Repair",
+      "permission": "ScheduledTasks",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "ScheduledTasks",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
       "moduleData": "",
       "granted": true
     },
@@ -1167,16 +1027,156 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "ServiceSettings",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
       "moduleData": "",
       "granted": false
     },
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "SteamUpdate",
+      "permission": "Create",
       "moduleData": "",
-      "granted": true
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
     },
     {
       "roleId": 2,
@@ -1188,119 +1188,7 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "CpuStats",
+      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -1314,37 +1202,9 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "CustomScripts",
+      "permission": "CpuStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 3,
@@ -1357,13 +1217,6 @@
       "roleId": 3,
       "module": "BpFeature",
       "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "KillService",
       "moduleData": "",
       "granted": true
     },
@@ -1391,28 +1244,7 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
       "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -1426,14 +1258,119 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Repair",
+      "permission": "ScheduledTasks",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "ScheduledTasks",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
       "moduleData": "",
       "granted": true
     },
@@ -1447,16 +1384,79 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "ServiceSettings",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
       "moduleData": "",
       "granted": false
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "SteamUpdate",
+      "permission": "Create",
       "moduleData": "",
-      "granted": true
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
     },
     {
       "roleId": 3,
