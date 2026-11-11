@@ -1,0 +1,47 @@
+identifier: "Community.Games.Astroneer"
+name: "ASTRONEER"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "ASTRONEER dedicated server (Windows / Linux with Wine) with a settings form, RCON and query over the server console port, graceful save-and-stop, game-port fix and backups; starts out of the box"
+longDescription: |
+  # ASTRONEER
+  
+  ## Description
+  ASTRONEER dedicated server (Steam app 728470, anonymous download). There is no Linux server build, so the Linux config runs the Windows server under Wine.
+  
+  ## Key Features
+  - **Windows and Linux (Wine)** configs.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box.** On Linux a script installs wine, winetricks, Xvfb and xdotool when the host does not have them (apt, dnf or yum) and prepares the Wine prefix.
+  - **Config editor** for `AstroServerSettings.ini`: server name and password, owner, whitelist mode, idle kick, active save, autosave and save backup intervals, frame rates.
+  - **Engine.ini** is kept right before every start: the service game port and network encryption off. The server drops the port line itself when it saves the file, so a port change in the panel would otherwise not apply.
+  - **RCON** over the server console port: `DSServerStatistics`, `DSListPlayers`, `DSSaveGame`, `DSListGames`, `DSLoadGame`, `DSKickPlayerGuid`, `DSSetPlayerCategoryForPlayerName` and more. Type `help` in the console for the list.
+  - **Query** over the console port (the game has no server-browser query): name, players, active save and version.
+  - **Graceful stop:** a stop script saves the game (`DSSaveGame`) and shuts the server down (`DSServerShutdown`).
+  - **Backups** of the saves and the server settings. The server is stopped first, so the backup holds a fresh save.
+  - The server prints nothing and writes no log file: the console shows the RCON replies, and there is no log viewer.
+  
+  ## Ports
+  - Game 7777 (UDP).
+  - Server console / RCON 7778 (TCP). The console password is the service's RCON password.
+  
+  ## Instructions
+  - Players must turn off network encryption in their own game: add `[SystemSettings]` and `net.AllowEncryption=False` to `%LocalAppData%\Astro\Saved\Config\WindowsNoEditor\Engine.ini`.
+  - Set the owner's Steam name in the config editor, or leave it empty: the first player who joins becomes the owner.
+  - Stop the server before you change the settings. The server rewrites its settings when it stops.
+  - Saves are in `Astro/Saved/SaveGames`. A new active save name starts a new game.
+  - Up to 8 players.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/361420/18ef632a152a69a8fb4f62c074cd50aa15d3bf33.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/361420/ss_858b8bece04b753a6b35a009776a4de9dd6e0df7.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Wine"
+files:
+  - path: "ASTRONEER - Windows.json"
+    type: "GameConfig"
+  - path: "ASTRONEER - Linux Wine.json"
+    type: "GameConfig"
