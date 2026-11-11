@@ -22,6 +22,7 @@ longDescription: |
   
   ## Ports
   - Game 34197 (UDP), RCON = game port + 1 (TCP).
+  - IP and ports: the game binds the service's IP and game port (`--bind`) and RCON binds the service's IP and RCON port (`--rcon-bind`); nothing listens on 0.0.0.0. Tested on Linux with the IP and every port changed. The status check uses the game port (Factorio has no separate query port). LAN announcements are off (`"lan": false`), because they open an extra UDP socket on all addresses.
   
   ## Instructions
   - To list the server publicly, enable it in the config editor and enter your factorio.com username and token (factorio.com/profile).
