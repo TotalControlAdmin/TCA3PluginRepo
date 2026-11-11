@@ -23,7 +23,10 @@ longDescription: |
   - **Starts out of the box:** a start script puts `steamclient.so` where the Steam game server looks for it on Linux, installs missing libraries, and on Windows gives the service account write access to `serversettings.xml`.
   
   ## Ports
-  - Game 27015 (UDP), query 27016 (UDP).
+  - Game 27015 (UDP) and query 27016 (UDP, A2S through Steam). The query port follows the game port (+1).
+  - The server has no bind-address setting: the game port listens on all addresses (IPv4 and IPv6) and the query on 0.0.0.0, so the game keeps every service on the server's primary IP.
+  - It also opens one UDP port with a random number (Steam networking) and a TCP port on 127.0.0.1 (local Steam connection). Neither can be set.
+  - IP and port changes in the service settings are written to `serversettings.xml`.
   
   ## Instructions
   - Stop the server before editing `serversettings.xml`: the server saves this file when it stops.
