@@ -1,0 +1,53 @@
+identifier: "Community.Games.SpaceEngineers"
+name: "Space Engineers"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Space Engineers dedicated server (Windows / Linux with Wine) with a settings form, A2S query, graceful save-and-stop, Steam Workshop mods, backups and optional Torch; starts out of the box"
+longDescription: |
+  # Space Engineers
+  
+  ## Description
+  Space Engineers dedicated server (Steam app 298740, anonymous download). There is no Linux server build, so the Linux config runs the Windows server under Wine with Wine Mono.
+  
+  ## Key Features
+  - **Windows and Linux (Wine)** configs.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box.** On Windows a script installs the Visual C++ 2013 runtime the physics engine needs (from the server's own `_CommonRedist`). On Linux a script installs wine, winetricks, Xvfb and xdotool when the host does not have them (apt, dnf or yum), then Wine Mono and the Visual C++ runtime into the service's Wine prefix.
+  - **Config editor** for `SpaceEngineers-Dedicated.cfg`: server name, password, description, message of the day, administrators, the world name and the scenario of a new world, and the main gameplay settings (game mode, meteorites, multipliers, autosave, PCU and block limits, NPCs, oxygen, economy, weather and more).
+  - **Settings apply to the running world.** The game keeps a copy of the settings in each world. Before every start a script copies the panel's gameplay settings into the current world, keeps the IP, ports and player limit in line with the service, and stores the password as the salted hash the game expects.
+  - **Server-browser query** (A2S on the game port): name, world, players and password flag.
+  - **Graceful stop:** a stop script sends Ctrl+C to the server (windows-kill on Windows, SIGINT under Wine). The server saves the world and shuts down.
+  - **Console output** from the server's console window on Windows, from the server log on Linux.
+  - **Log viewer** for the server logs in `Instance`.
+  - **Backups** of the worlds (`Instance/Saves`), the configuration and the mod list. The server is stopped first.
+  - **Steam Workshop mods.** Install a mod in the panel and it is added to the world; the server downloads and loads it on its next start. Uninstall removes it again.
+  - **Torch (optional).** The Updates page offers two server builds: **Vanilla** and **Torch**, the community server wrapper with plugin support. Installing Torch downloads its latest build and starts the service with it; install it again to update Torch. Installing Vanilla switches back (the world is the same). A Torch service gets the latest Torch again after a reinstall or a Steam update. The main Torch settings (chat name and color, plugin updates, watchdog, whitelist) are in the config editor for `Torch.cfg`.
+  - No RCON: the game's Remote API is turned off (it needs an HTTP URL reservation on Windows).
+  
+  ## Ports
+  - Game and query 27016 (UDP).
+  - Steam 8766 (UDP).
+  
+  ## Instructions
+  - The first start creates a new world from the scenario in the config editor (Star System by default) and saves it in `Instance/Saves/<World name>`. Later starts load that world.
+  - To start over with a new world, stop the server and delete the world folder and `Instance/Saves/LastSession.sbl`.
+  - To upload a world from your PC, upload its folder to `Instance/Saves` and set `<LoadWorld>` in the configuration file to the folder name, then delete `LastSession.sbl`.
+  - Administrators are SteamID64s separated by commas.
+  - Restart the server after you install or uninstall a Workshop mod.
+  - Torch plugins: add their GUIDs to `<Plugins>` in `Torch.cfg`, or upload plugin zips to the `Plugins` folder and turn on "Load every plugin in the Plugins folder".
+  - On Linux the first start takes a few minutes longer while Wine prepares the prefix.
+  - On Linux the first Torch install also installs Microsoft .NET Framework 4.8 into the service's Wine prefix (Torch does not run on Wine Mono). This takes 10-20 minutes once; the plain server then runs on it too.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/244850/f9856a90000d88e9a89441a7381fe9877e91eaca.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244850/b5acf6443fc427146b1c01dfde5fd1d1bd151c3b/ss_b5acf6443fc427146b1c01dfde5fd1d1bd151c3b.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Wine"
+files:
+  - path: "Space Engineers - Windows.json"
+    type: "GameConfig"
+  - path: "Space Engineers - Linux Wine.json"
+    type: "GameConfig"
