@@ -1,0 +1,2371 @@
+{
+  "__TCA:ExportVersion": "3.23.46.17810",
+  "__TCA:ExportedAt": "2026-11-11T17:17:10.8189073Z",
+  "name": "Empyrion - Galactic Survival (Linux / Wine)",
+  "shortName": "Empyrion",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/383120/ef7a39a74922aa667d685419064e37c6166b911e.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/383120/ss_a709efe21c2d29f9c872539fcde3a47c35887ea8.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 100,
+  "defaultSlots": 8,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".yaml",
+    ".yml",
+    ".txt",
+    ".ecf",
+    ".cfg",
+    ".csv",
+    ".json"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "custom_script",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "LogFile",
+    "logFile": "Logs/Dedicated.log",
+    "inputSource": "RconProtocol",
+    "printRconResponse": true,
+    "outputFilters": "",
+    "stopCommand": "",
+    "waitAfterStopCommand": 30000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": true,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 30000,
+        "expression": "",
+        "description": "Game (UDP \u002B TCP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 30001,
+        "expression": "GamePort \u002B 1",
+        "description": "Steam query (UDP), always the game port \u002B 1",
+        "uriTemplate": null
+      },
+      {
+        "id": "GamePort3",
+        "port": 30002,
+        "expression": "GamePort \u002B 2",
+        "description": "Game (UDP), reserved by the game: always the game port \u002B 2",
+        "uriTemplate": null
+      },
+      {
+        "id": "GamePort4",
+        "port": 30003,
+        "expression": "GamePort \u002B 3",
+        "description": "Playfield servers (TCP), always the game port \u002B 3",
+        "uriTemplate": null
+      },
+      {
+        "id": "RConPort",
+        "port": 30004,
+        "expression": "GamePort \u002B 4",
+        "description": "Telnet admin console (TCP, Tel_Port)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "DedicatedServer/EmpyrionDedicated.exe",
+    "relativeWorkingDirectory": "DedicatedServer",
+    "autoSetupFolderName": "empyrion-wine",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 530870,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 383120,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": false,
+    "defaultCommandline": "-batchmode -nographics -dedicated ../Config/dedicated.yaml -logFile ../Logs/Dedicated.log",
+    "defaultCustomCommandline": "-batchmode -nographics -dedicated ../Config/dedicated.yaml -logFile ../Logs/Dedicated.log",
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "12e399e1-1c3a-5360-8d47-43ba555e08cd",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "ServerDescription",
+      "defaultValue": "An Empyrion - Galactic Survival server",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ServerDescription}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "ServerDescription",
+        "defaultValue": "An Empyrion - Galactic Survival server",
+        "label": "Description",
+        "description": "Shown in the server browser. Supports [b]bold[/b] and [url=...]links[/url].",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.716335",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SrvPublic",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SrvPublic}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "SrvPublic",
+        "defaultValue": "true",
+        "label": "List the server in the server browser",
+        "description": "Off = players join by IP address or through a friend.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.735677",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EACActive",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EACActive}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EACActive",
+        "defaultValue": "true",
+        "label": "Easy Anti-Cheat",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.739113",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "DisableSteamFamilySharing",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${DisableSteamFamilySharing}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "DisableSteamFamilySharing",
+        "defaultValue": "false",
+        "label": "Block Steam Family Sharing accounts",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.739145",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "KickPlayerWithPing",
+      "defaultValue": "300",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${KickPlayerWithPing}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 5000,
+        "id": "KickPlayerWithPing",
+        "defaultValue": "300",
+        "label": "Kick players with a ping above (ms)",
+        "description": "0 = never.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.739157",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PlayerLoginVipNames",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PlayerLoginVipNames}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "PlayerLoginVipNames",
+        "defaultValue": "",
+        "label": "VIP players",
+        "description": "Steam IDs (64-bit) of players who may always log in, even when the server is full, separated by commas.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.748479",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "GameName",
+      "defaultValue": "DediGame",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${GameName}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "GameName",
+        "defaultValue": "DediGame",
+        "label": "Save game name",
+        "description": "The folder of the game in Saves/Games. A new name starts a new game.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.748536",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "GameMode",
+      "defaultValue": "Survival",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${GameMode}",
+      "editor": {
+        "items": [
+          {
+            "text": "Survival",
+            "value": "Survival"
+          },
+          {
+            "text": "Creative",
+            "value": "Creative"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "GameMode",
+        "defaultValue": "Survival",
+        "label": "Game mode",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.748553",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Seed",
+      "defaultValue": "1011345",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Seed}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 2147483647,
+        "id": "Seed",
+        "defaultValue": "1011345",
+        "label": "Seed",
+        "description": "The same seed creates the same galaxy. Used for a new game.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.755149",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "CustomScenario",
+      "defaultValue": "Default Multiplayer",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${CustomScenario}",
+      "editor": {
+        "items": [],
+        "itemSource": "FileSystem",
+        "fileSystemSource": {
+          "filterType": "Directories",
+          "filter": "Content/Scenarios/*",
+          "excludeFilter": "Content/Scenarios/_*",
+          "includeSubDirectories": false,
+          "itemValue": "Name",
+          "itemDisplay": "Name",
+          "displayRegex": null,
+          "displayReplacement": null
+        },
+        "id": "CustomScenario",
+        "defaultValue": "Default Multiplayer",
+        "label": "Scenario",
+        "description": "The scenario of a NEW game (Content/Scenarios). Install Workshop scenarios on the Mods page, then pick one here and change the save game name: an existing save keeps the scenario it was created with.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.755209",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ReservePlayfields",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ReservePlayfields}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 16,
+        "id": "ReservePlayfields",
+        "defaultValue": "1",
+        "label": "Playfield servers kept running",
+        "description": "Started in advance so players do not wait when they warp. Each one uses about 1 GB of memory.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.756824",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxAllowedSizeClass",
+      "defaultValue": "10",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxAllowedSizeClass}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 10,
+        "id": "MaxAllowedSizeClass",
+        "defaultValue": "10",
+        "label": "Largest blueprint size class allowed",
+        "description": "1 = only small blueprints, 10 = any size.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.75685",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AllowedBlueprints",
+      "defaultValue": "All",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AllowedBlueprints}",
+      "editor": {
+        "items": [
+          {
+            "text": "All",
+            "value": "All"
+          },
+          {
+            "text": "Stock blueprints only",
+            "value": "StockOnly"
+          },
+          {
+            "text": "None (blueprint system off)",
+            "value": "None"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "AllowedBlueprints",
+        "defaultValue": "All",
+        "label": "Blueprints",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.756865",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "HeartbeatServer",
+      "defaultValue": "15",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${HeartbeatServer}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 5,
+        "maxValue": 3600,
+        "id": "HeartbeatServer",
+        "defaultValue": "15",
+        "label": "Playfield heartbeat timeout (seconds)",
+        "description": "A playfield server that sends no heartbeat for this long is stopped.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.756885",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "HeartbeatClient",
+      "defaultValue": "30",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${HeartbeatClient}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 5,
+        "maxValue": 3600,
+        "id": "HeartbeatClient",
+        "defaultValue": "30",
+        "label": "Player heartbeat timeout (seconds)",
+        "description": "A player who sends no heartbeat for this long is disconnected.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.7569",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TimeoutBootingPfServer",
+      "defaultValue": "90",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TimeoutBootingPfServer}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 3600,
+        "id": "TimeoutBootingPfServer",
+        "defaultValue": "90",
+        "label": "Playfield start timeout (seconds)",
+        "description": "0 = no timeout.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.756911",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PlayerLoginParallelCount",
+      "defaultValue": "5",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PlayerLoginParallelCount}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 100,
+        "id": "PlayerLoginParallelCount",
+        "defaultValue": "5",
+        "label": "Players who may log in at the same time",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.756922",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "StopPeriod",
+      "defaultValue": "48",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${StopPeriod}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 1000,
+        "id": "StopPeriod",
+        "defaultValue": "48",
+        "label": "Restart the playfield servers every (hours)",
+        "description": "Players get warning messages first. 0 = never.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.756936",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableDLC",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableDLC}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableDLC",
+        "defaultValue": "false",
+        "label": "Scenario uses DLC features",
+        "description": "Every player who joins must own the DLC.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:12:33.756947",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 768,
+      "relativePath": "Config/dedicated.yaml",
+      "description": "Server settings (Config/dedicated.yaml)",
+      "template": "{\n  \u0022ServerConfig\u0022: {\n    \u0022Srv_Port\u0022: ${GamePort},\n    \u0022Srv_Name\u0022: \u0022${Hostname}\u0022,\n    \u0022Srv_Password\u0022: \u0022${PrivatePassword}\u0022,\n    \u0022Srv_MaxPlayers\u0022: ${Slots},\n    \u0022Srv_ReservePlayfields\u0022: ${ReservePlayfields},\n    \u0022Srv_Description\u0022: \u0022${ServerDescription}\u0022,\n    \u0022Srv_Public\u0022: ${SrvPublic},\n    \u0022Srv_StopPeriod\u0022: ${StopPeriod},\n    \u0022Tel_Enabled\u0022: true,\n    \u0022Tel_Port\u0022: ${RConPort},\n    \u0022Tel_Pwd\u0022: \u0022${RconPassword}\u0022,\n    \u0022EACActive\u0022: ${EACActive},\n    \u0022SaveDirectory\u0022: \u0022Saves\u0022,\n    \u0022MaxAllowedSizeClass\u0022: ${MaxAllowedSizeClass},\n    \u0022AllowedBlueprints\u0022: \u0022${AllowedBlueprints}\u0022,\n    \u0022HeartbeatServer\u0022: ${HeartbeatServer},\n    \u0022HeartbeatClient\u0022: ${HeartbeatClient},\n    \u0022DisableSteamFamilySharing\u0022: ${DisableSteamFamilySharing},\n    \u0022KickPlayerWithPing\u0022: ${KickPlayerWithPing},\n    \u0022TimeoutBootingPfServer\u0022: ${TimeoutBootingPfServer},\n    \u0022PlayerLoginParallelCount\u0022: ${PlayerLoginParallelCount},\n    \u0022PlayerLoginVipNames\u0022: \u0022${PlayerLoginVipNames}\u0022,\n    \u0022EnableDLC\u0022: ${EnableDLC}\n  },\n  \u0022GameConfig\u0022: {\n    \u0022GameName\u0022: \u0022${GameName}\u0022,\n    \u0022Mode\u0022: \u0022${GameMode}\u0022,\n    \u0022Seed\u0022: ${Seed},\n    \u0022CustomScenario\u0022: \u0022${CustomScenario}\u0022\n  }\n}\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Server",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "Shown in the server browser.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Password",
+          "description": "Leave empty for a public server.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "ServerDescription",
+          "defaultValue": "An Empyrion - Galactic Survival server",
+          "label": "Description",
+          "description": "Shown in the server browser. Supports [b]bold[/b] and [url=...]links[/url].",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "SrvPublic",
+          "defaultValue": "true",
+          "label": "List the server in the server browser",
+          "description": "Off = players join by IP address or through a friend.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EACActive",
+          "defaultValue": "true",
+          "label": "Easy Anti-Cheat",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "DisableSteamFamilySharing",
+          "defaultValue": "false",
+          "label": "Block Steam Family Sharing accounts",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 5000,
+          "id": "KickPlayerWithPing",
+          "defaultValue": "300",
+          "label": "Kick players with a ping above (ms)",
+          "description": "0 = never.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PlayerLoginVipNames",
+          "defaultValue": "",
+          "label": "VIP players",
+          "description": "Steam IDs (64-bit) of players who may always log in, even when the server is full, separated by commas.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Game",
+          "defaultValue": null,
+          "label": "Game",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "GameName",
+          "defaultValue": "DediGame",
+          "label": "Save game name",
+          "description": "The folder of the game in Saves/Games. A new name starts a new game.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Survival",
+              "value": "Survival"
+            },
+            {
+              "text": "Creative",
+              "value": "Creative"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "GameMode",
+          "defaultValue": "Survival",
+          "label": "Game mode",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 2147483647,
+          "id": "Seed",
+          "defaultValue": "1011345",
+          "label": "Seed",
+          "description": "The same seed creates the same galaxy. Used for a new game.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [],
+          "itemSource": "FileSystem",
+          "fileSystemSource": {
+            "filterType": "Directories",
+            "filter": "Content/Scenarios/*",
+            "excludeFilter": "Content/Scenarios/_*",
+            "includeSubDirectories": false,
+            "itemValue": "Name",
+            "itemDisplay": "Name",
+            "displayRegex": null,
+            "displayReplacement": null
+          },
+          "id": "CustomScenario",
+          "defaultValue": "Default Multiplayer",
+          "label": "Scenario",
+          "description": "The scenario of a NEW game (Content/Scenarios). Install Workshop scenarios on the Mods page, then pick one here and change the save game name: an existing save keeps the scenario it was created with.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Limits",
+          "defaultValue": null,
+          "label": "Limits and performance",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 16,
+          "id": "ReservePlayfields",
+          "defaultValue": "1",
+          "label": "Playfield servers kept running",
+          "description": "Started in advance so players do not wait when they warp. Each one uses about 1 GB of memory.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 10,
+          "id": "MaxAllowedSizeClass",
+          "defaultValue": "10",
+          "label": "Largest blueprint size class allowed",
+          "description": "1 = only small blueprints, 10 = any size.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "All",
+              "value": "All"
+            },
+            {
+              "text": "Stock blueprints only",
+              "value": "StockOnly"
+            },
+            {
+              "text": "None (blueprint system off)",
+              "value": "None"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "AllowedBlueprints",
+          "defaultValue": "All",
+          "label": "Blueprints",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 5,
+          "maxValue": 3600,
+          "id": "HeartbeatServer",
+          "defaultValue": "15",
+          "label": "Playfield heartbeat timeout (seconds)",
+          "description": "A playfield server that sends no heartbeat for this long is stopped.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 5,
+          "maxValue": 3600,
+          "id": "HeartbeatClient",
+          "defaultValue": "30",
+          "label": "Player heartbeat timeout (seconds)",
+          "description": "A player who sends no heartbeat for this long is disconnected.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 3600,
+          "id": "TimeoutBootingPfServer",
+          "defaultValue": "90",
+          "label": "Playfield start timeout (seconds)",
+          "description": "0 = no timeout.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 100,
+          "id": "PlayerLoginParallelCount",
+          "defaultValue": "5",
+          "label": "Players who may log in at the same time",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 1000,
+          "id": "StopPeriod",
+          "defaultValue": "48",
+          "label": "Restart the playfield servers every (hours)",
+          "description": "Players get warning messages first. 0 = never.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableDLC",
+          "defaultValue": "false",
+          "label": "Scenario uses DLC features",
+          "description": "Every player who joins must own the DLC.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceCreated",
+          "BeforeServiceReinstalled",
+          "AfterServiceCreated",
+          "AfterServiceReinstalled"
+        ],
+        "name": "Install Wine and its dependencies",
+        "description": "Installs wine, winetricks, Xvfb and xdotool on the host (apt, dnf or yum) and creates the Wine prefix of the server. Skips what is already installed.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll, TCAdmin.Monitor.SDK.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Wine (Linux host) only: installs what the panel needs to run this Windows server - wine, winetricks, Xvfb and\n// xdotool - with apt (Debian/Ubuntu) or dnf/yum (Red Hat), and the Windows runtimes listed in Verbs into the service\u0027s\n// own Wine prefix. Idempotent: anything already present is skipped. Runs before the create/reinstall (host packages,\n// so the panel\u0027s Wine check passes) and after it (prefix runtimes, once the service user and files exist).\nif (!System.OperatingSystem.IsLinux()) return;\n\n// Windows runtimes (winetricks verbs) the server needs inside the prefix. The Unity server and its playfield servers\n// run on Wine\u0027s built-in runtimes, so none are required today; add verbs here when a game update needs one.\nvar verbs = new string[] { };\n\nvar tools = new (string Command, string[] Apt, string[] Rpm)[]\n{\n    (\u0022wine\u0022, new[] { \u0022wine\u0022, \u0022wine64\u0022 }, new[] { \u0022wine\u0022 }),\n    (\u0022wineserver\u0022, new[] { \u0022wine\u0022, \u0022wine64\u0022 }, new[] { \u0022wine\u0022 }),\n    (\u0022winetricks\u0022, new[] { \u0022winetricks\u0022 }, new[] { \u0022winetricks\u0022 }),\n    (\u0022cabextract\u0022, new[] { \u0022cabextract\u0022 }, new[] { \u0022cabextract\u0022 }),\n    (\u0022Xvfb\u0022, new[] { \u0022xvfb\u0022 }, new[] { \u0022xorg-x11-server-Xvfb\u0022, \u0022xorg-x11-server-Xvfb.x86_64\u0022 }),\n    (\u0022xdotool\u0022, new[] { \u0022xdotool\u0022 }, new[] { \u0022xdotool\u0022 }),\n};\nvar apt = Shell(\u0022command -v apt-get\u0022, out _);\nvar installer = apt ? \u0022DEBIAN_FRONTEND=noninteractive apt-get install -y \u0022 : Shell(\u0022command -v dnf\u0022, out _) ? \u0022dnf install -y \u0022 : \u0022yum install -y \u0022;\nvar updated = false;\nforeach (var tool in tools)\n{\n    if (Shell(\u0022command -v \u0022 \u002B tool.Command, out _)) continue;\n    var names = apt ? tool.Apt : tool.Rpm;\n    ScriptConsole.WriteLine((object)(tool.Command \u002B \u0022 is missing on this host; installing \u0022 \u002B string.Join(\u0022 or \u0022, names) \u002B \u0022.\u0022));\n    var installed = names.Any(p =\u003E Shell(installer \u002B p, out _));\n    if (!installed \u0026\u0026 apt \u0026\u0026 !updated)\n    {\n        updated = Shell(\u0022DEBIAN_FRONTEND=noninteractive apt-get update\u0022, out _);\n        installed = names.Any(p =\u003E Shell(installer \u002B p, out _));\n    }\n    if (!installed || !Shell(\u0022command -v \u0022 \u002B tool.Command, out _))\n        throw new Exception(tool.Command \u002B \u0022 is missing and could not be installed. Install one of these packages on the host: \u0022 \u002B string.Join(\u0022, \u0022, names));\n}\nShell(\u0022wine --version\u0022, out var wineVersion);\nScriptConsole.WriteLine((object)(\u0022Wine on this host: \u0022 \u002B wineVersion.Trim()));\n\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(\u0027/\u0027);\n// Before the create/reinstall the service files and its run-as configuration do not exist yet.\nstring user = null;\nif (File.Exists(Path.Combine(root, \u0022DedicatedServer\u0022, \u0022EmpyrionDedicated.exe\u0022)))\n{\n    try { user = ServiceManagerService.GetServiceCredential(ThisService.ServiceId)?.UserName; }\n    catch (FileNotFoundException) { }\n}\nif (string.IsNullOrEmpty(user) || !Shell(\u0022id -u \u0027\u0022 \u002B user \u002B \u0022\u0027\u0022, out _))\n{\n    ScriptConsole.WriteLine((object)\u0022The service is not created yet; the Wine prefix is prepared after the files are installed.\u0022);\n    return;\n}\nvar prefix = Path.Combine(root, \u0022.wine\u0022);\n// Every Wine call as the service user with the environment the panel starts the server with (root would leave\n// root-owned files in the prefix).\nvar wineEnv = \u0022runuser -u \u0027\u0022 \u002B user \u002B \u0022\u0027 -- env WINEPREFIX=\u0027\u0022 \u002B prefix \u002B \u0022\u0027 HOME=\u0027\u0022 \u002B root\n              \u002B \u0022\u0027 WINEARCH=win64 WINEDEBUG=-all WINEDLLOVERRIDES=\u0027mscoree=;mshtml=\u0027 \u0022;\n\n// The first start creates the Wine prefix (about a minute), longer than the panel waits for the start that follows\n// the create, so that start failed. Create the prefix here; the panel skips it when its marker file is present.\nvar marker = Path.Combine(prefix, \u0022.tcadmin-initialized\u0022);\nif (!File.Exists(marker))\n{\n    ScriptConsole.WriteLine((object)\u0022Creating the Wine prefix (about a minute).\u0022);\n    if (!Shell(wineEnv \u002B \u0022wineboot -u\u0022, out var bootOutput))\n        throw new Exception(\u0022wineboot failed: \u0022 \u002B string.Join(\u0022\\n\u0022, bootOutput.Split(\u0027\\n\u0027).TakeLast(15)));\n    Shell(wineEnv \u002B \u0022wineserver -w\u0022, out _);\n    Shell(\u0022runuser -u \u0027\u0022 \u002B user \u002B \u0022\u0027 -- sh -c \\\u0022date -u \u002B%Y-%m-%dT%H:%M:%SZ \u003E \u0027\u0022 \u002B marker \u002B \u0022\u0027\\\u0022\u0022, out _);\n    ScriptConsole.WriteLine((object)\u0022The Wine prefix is ready.\u0022);\n}\n\nif (verbs.Length == 0) return;\n// winetricks records every verb it installed in the prefix.\nvar log = Path.Combine(prefix, \u0022winetricks.log\u0022);\nvar done = File.Exists(log) ? File.ReadAllLines(log).Select(l =\u003E l.Trim()).ToHashSet() : new HashSet\u003Cstring\u003E();\nvar todo = verbs.Where(v =\u003E !done.Contains(v)).ToList();\nif (todo.Count == 0)\n{\n    ScriptConsole.WriteLine((object)(\u0022Windows runtimes already installed: \u0022 \u002B string.Join(\u0022, \u0022, verbs) \u002B \u0022.\u0022));\n    return;\n}\nScriptConsole.WriteLine((object)(\u0022Installing \u0022 \u002B string.Join(\u0022, \u0022, todo) \u002B \u0022 into the Wine prefix (a few minutes).\u0022));\nvar command = wineEnv \u002B \u0022winetricks -q \u0022 \u002B string.Join(\u0022 \u0022, todo);\nif (!Shell(command, out var output))\n    throw new Exception(\u0022winetricks failed: \u0022 \u002B string.Join(\u0022\\n\u0022, output.Split(\u0027\\n\u0027).TakeLast(15)));\nShell(wineEnv \u002B \u0022wineserver -w\u0022, out _);\nScriptConsole.WriteLine((object)\u0022Windows runtimes installed.\u0022);\n\nbool Shell(string cmd, out string text)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\u0022/bin/sh\u0022, new[] { \u0022-c\u0022, cmd }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        var stderr = process.StandardError.ReadToEndAsync();\n        text = process.StandardOutput.ReadToEnd() \u002B stderr.Result;\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 1,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "5962c970-c427-5b19-8561-1dd989d8f6a8"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "CustomRconProtocol"
+        ],
+        "name": "Telnet console",
+        "description": "Sends console commands to the server over its telnet admin console (Tel_Port, password = the service RCON password).",
+        "code": "using System;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Console input and the panel\u0027s RCON commands for Empyrion: the server\u0027s telnet admin console (Tel_Port, always on,\n// password = the service\u0027s RCON password). \u0022help\u0022 lists the commands.\n// Empyrion telnet admin console (Tel_Port): plain text lines. When Tel_Pwd is set, the first line the client sends\n// is the password (the server prompts \u0022Enter password:\u0022). Replies have no end marker, so a reply is what arrives until the server is quiet for a short gap.\n// Blocking socket calls with timeouts (async local functions do not work in panel scripts).\nstring TelnetClean(byte[] data, int count)\n{\n    // Drop telnet negotiation (IAC sequences) and carriage returns.\n    var sb = new System.Text.StringBuilder();\n    var bytes = new System.Collections.Generic.List\u003Cbyte\u003E(count);\n    for (var i = 0; i \u003C count; i\u002B\u002B)\n    {\n        if (data[i] == 255 \u0026\u0026 i \u002B 1 \u003C count)\n        {\n            var cmd = data[i \u002B 1];\n            if (cmd == 255) { bytes.Add(255); i\u002B\u002B; continue; }\n            if (cmd \u003E= 251 \u0026\u0026 cmd \u003C= 254) { i \u002B= 2; continue; }\n            if (cmd == 250) { while (i \u003C count \u0026\u0026 !(data[i] == 255 \u0026\u0026 i \u002B 1 \u003C count \u0026\u0026 data[i \u002B 1] == 240)) i\u002B\u002B; i\u002B\u002B; continue; }\n            i\u002B\u002B; continue;\n        }\n        if (data[i] != 13 \u0026\u0026 data[i] != 0) bytes.Add(data[i]);\n    }\n    return System.Text.Encoding.UTF8.GetString(bytes.ToArray());\n}\n\n// Reads until nothing arrives for gapMs (after the first data), or until firstMs pass without any data.\nstring TelnetRead(System.Net.Sockets.TcpClient client, int firstMs, int gapMs, int maxMs = 30000)\n{\n    var stream = client.GetStream();\n    var buffer = new byte[65536];\n    var all = new System.IO.MemoryStream();\n    var started = DateTime.UtcNow;\n    var last = DateTime.UtcNow;\n    while (true)\n    {\n        var waited = (DateTime.UtcNow - last).TotalMilliseconds;\n        var limit = all.Length == 0 ? firstMs : gapMs;\n        if (waited \u003E= limit || (DateTime.UtcNow - started).TotalMilliseconds \u003E= maxMs) break;\n        if (client.Client.Poll(50000, System.Net.Sockets.SelectMode.SelectRead))\n        {\n            var n = stream.Read(buffer, 0, buffer.Length);\n            if (n \u003C= 0) break;\n            all.Write(buffer, 0, n);\n            last = DateTime.UtcNow;\n        }\n    }\n    var arr = all.ToArray();\n    return TelnetClean(arr, arr.Length);\n}\n\nvoid TelnetSend(System.Net.Sockets.TcpClient client, string line)\n{\n    var bytes = System.Text.Encoding.UTF8.GetBytes(line \u002B \u0022\\r\\n\u0022);\n    client.GetStream().Write(bytes, 0, bytes.Length);\n}\n\nSystem.Net.Sockets.TcpClient TelnetConnect(string address, int port, string password, int timeoutMs)\n{\n    var client = new System.Net.Sockets.TcpClient();\n    try\n    {\n        if (!client.ConnectAsync(address, port).Wait(timeoutMs)) throw new Exception(\u0022no connection to \u0022 \u002B address \u002B \u0022:\u0022 \u002B port \u002B \u0022 within \u0022 \u002B timeoutMs \u002B \u0022 ms\u0022);\n        client.NoDelay = true;\n        client.SendTimeout = timeoutMs;\n        // A busy server (starting, booting a playfield) can take seconds to send its prompt.\n        var greeting = TelnetRead(client, 8000, 400);\n        var prompted = greeting.IndexOf(\u0022password\u0022, StringComparison.OrdinalIgnoreCase) \u003E= 0;\n        if (prompted \u0026\u0026 string.IsNullOrEmpty(password)) throw new Exception(\u0022the console asks for a password and the service has no RCON password\u0022);\n        if (!string.IsNullOrEmpty(password))\n        {\n            // No prompt within the wait: send the password anyway, the server reads it as the first line.\n            TelnetSend(client, password);\n            var reply = TelnetRead(client, prompted ? 4000 : 8000, 400);\n            if (reply.IndexOf(\u0022wrong\u0022, StringComparison.OrdinalIgnoreCase) \u003E= 0) throw new Exception(\u0022the console refused the password\u0022);\n        }\n        return client;\n    }\n    catch\n    {\n        client.Dispose();\n        throw;\n    }\n}\n\nstring TelnetCommand(System.Net.Sockets.TcpClient client, string command, int firstMs, int gapMs = 500)\n{\n    TelnetSend(client, command);\n    var reply = TelnetRead(client, firstMs, gapMs).Trim(\u0027\\n\u0027, \u0027 \u0027);\n    if (reply.StartsWith(\u0022Wrong password\u0022, StringComparison.OrdinalIgnoreCase)) throw new Exception(\u0022the console refused the password\u0022);\n    return reply;\n}\n\n\nstring result;\ntry\n{\n    var command = (Globals.Variables.Parse\u003Cstring\u003E(\u0022Command\u0022) ?? string.Empty).Trim();\n    if (command.Length == 0)\n    {\n        result = string.Empty;\n    }\n    else\n    {\n        // The console listens on every address of the host: the address the panel passes, else the service IP.\n        var address = Globals.Variables.Parse\u003Cstring\u003E(\u0022Address\u0022);\n        if (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\n        var port = ThisService.RconPort;\n        try { var injected = Convert.ToInt32(Globals.Variables.Parse\u003Cstring\u003E(\u0022Port\u0022)); if (injected \u003E 0) port = injected; } catch { }\n        var password = Globals.Variables.Parse\u003Cstring\u003E(\u0022Password\u0022);\n        if (string.IsNullOrEmpty(password) \u0026\u0026 ThisService.Variables.ContainsKey(\u0022RconPassword\u0022)) password = Convert.ToString(ThisService.Variables[\u0022RconPassword\u0022]);\n        using (var client = TelnetConnect(address, port, password ?? string.Empty, 4000))\n        {\n            result = TelnetCommand(client, command, 6000, 700);\n        }\n        if (result.Length == 0) result = \u0022(no reply)\u0022;\n    }\n}\ncatch (Exception ex)\n{\n    result = \u0022Telnet console error: \u0022 \u002B ex.Message;\n}\nGlobals.ReturnValue = result;\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 2,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "10526f48-90c8-5f04-8c7b-e283f62304c5"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStopped"
+        ],
+        "name": "Save the game and shut down",
+        "description": "Sends saveandexit 0 to the telnet console (saves the game, stops the playfield servers) and waits until the server exits.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Graceful stop: \u0022saveandexit 0\u0022 on the telnet admin console saves the game, stops the playfield servers and exits.\n// The script waits until every server process of THIS service (EmpyrionDedicated \u002B EmpyrionPlayfieldServer) is gone;\n// when the console does not answer the panel stops the processes.\n// Empyrion telnet admin console (Tel_Port): plain text lines. When Tel_Pwd is set, the first line the client sends\n// is the password (the server prompts \u0022Enter password:\u0022). Replies have no end marker, so a reply is what arrives until the server is quiet for a short gap.\n// Blocking socket calls with timeouts (async local functions do not work in panel scripts).\nstring TelnetClean(byte[] data, int count)\n{\n    // Drop telnet negotiation (IAC sequences) and carriage returns.\n    var sb = new System.Text.StringBuilder();\n    var bytes = new System.Collections.Generic.List\u003Cbyte\u003E(count);\n    for (var i = 0; i \u003C count; i\u002B\u002B)\n    {\n        if (data[i] == 255 \u0026\u0026 i \u002B 1 \u003C count)\n        {\n            var cmd = data[i \u002B 1];\n            if (cmd == 255) { bytes.Add(255); i\u002B\u002B; continue; }\n            if (cmd \u003E= 251 \u0026\u0026 cmd \u003C= 254) { i \u002B= 2; continue; }\n            if (cmd == 250) { while (i \u003C count \u0026\u0026 !(data[i] == 255 \u0026\u0026 i \u002B 1 \u003C count \u0026\u0026 data[i \u002B 1] == 240)) i\u002B\u002B; i\u002B\u002B; continue; }\n            i\u002B\u002B; continue;\n        }\n        if (data[i] != 13 \u0026\u0026 data[i] != 0) bytes.Add(data[i]);\n    }\n    return System.Text.Encoding.UTF8.GetString(bytes.ToArray());\n}\n\n// Reads until nothing arrives for gapMs (after the first data), or until firstMs pass without any data.\nstring TelnetRead(System.Net.Sockets.TcpClient client, int firstMs, int gapMs, int maxMs = 30000)\n{\n    var stream = client.GetStream();\n    var buffer = new byte[65536];\n    var all = new System.IO.MemoryStream();\n    var started = DateTime.UtcNow;\n    var last = DateTime.UtcNow;\n    while (true)\n    {\n        var waited = (DateTime.UtcNow - last).TotalMilliseconds;\n        var limit = all.Length == 0 ? firstMs : gapMs;\n        if (waited \u003E= limit || (DateTime.UtcNow - started).TotalMilliseconds \u003E= maxMs) break;\n        if (client.Client.Poll(50000, System.Net.Sockets.SelectMode.SelectRead))\n        {\n            var n = stream.Read(buffer, 0, buffer.Length);\n            if (n \u003C= 0) break;\n            all.Write(buffer, 0, n);\n            last = DateTime.UtcNow;\n        }\n    }\n    var arr = all.ToArray();\n    return TelnetClean(arr, arr.Length);\n}\n\nvoid TelnetSend(System.Net.Sockets.TcpClient client, string line)\n{\n    var bytes = System.Text.Encoding.UTF8.GetBytes(line \u002B \u0022\\r\\n\u0022);\n    client.GetStream().Write(bytes, 0, bytes.Length);\n}\n\nSystem.Net.Sockets.TcpClient TelnetConnect(string address, int port, string password, int timeoutMs)\n{\n    var client = new System.Net.Sockets.TcpClient();\n    try\n    {\n        if (!client.ConnectAsync(address, port).Wait(timeoutMs)) throw new Exception(\u0022no connection to \u0022 \u002B address \u002B \u0022:\u0022 \u002B port \u002B \u0022 within \u0022 \u002B timeoutMs \u002B \u0022 ms\u0022);\n        client.NoDelay = true;\n        client.SendTimeout = timeoutMs;\n        // A busy server (starting, booting a playfield) can take seconds to send its prompt.\n        var greeting = TelnetRead(client, 8000, 400);\n        var prompted = greeting.IndexOf(\u0022password\u0022, StringComparison.OrdinalIgnoreCase) \u003E= 0;\n        if (prompted \u0026\u0026 string.IsNullOrEmpty(password)) throw new Exception(\u0022the console asks for a password and the service has no RCON password\u0022);\n        if (!string.IsNullOrEmpty(password))\n        {\n            // No prompt within the wait: send the password anyway, the server reads it as the first line.\n            TelnetSend(client, password);\n            var reply = TelnetRead(client, prompted ? 4000 : 8000, 400);\n            if (reply.IndexOf(\u0022wrong\u0022, StringComparison.OrdinalIgnoreCase) \u003E= 0) throw new Exception(\u0022the console refused the password\u0022);\n        }\n        return client;\n    }\n    catch\n    {\n        client.Dispose();\n        throw;\n    }\n}\n\nstring TelnetCommand(System.Net.Sockets.TcpClient client, string command, int firstMs, int gapMs = 500)\n{\n    TelnetSend(client, command);\n    var reply = TelnetRead(client, firstMs, gapMs).Trim(\u0027\\n\u0027, \u0027 \u0027);\n    if (reply.StartsWith(\u0022Wrong password\u0022, StringComparison.OrdinalIgnoreCase)) throw new Exception(\u0022the console refused the password\u0022);\n    return reply;\n}\n\n\nconst int maxWaitSeconds = 120;\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(\u0027/\u0027, \u0027\\\\\u0027) \u002B Path.DirectorySeparatorChar;\nvar names = new[] { \u0022EmpyrionDedicated\u0022, \u0022EmpyrionPlayfieldServer\u0022 };\n\nList\u003Cint\u003E ServerPids()\n{\n    var pids = new List\u003Cint\u003E();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var name in names)\n            foreach (var p in Process.GetProcessesByName(name))\n            {\n                try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) pids.Add(p.Id); }\n                catch { } // exited meanwhile\n            }\n        return pids;\n    }\n    // Wine: the Windows programs run as wine64-preloader processes; match the command line (it holds the exe path).\n    foreach (var dir in Directory.EnumerateDirectories(\u0022/proc\u0022))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var cmdline = File.ReadAllText(Path.Combine(dir, \u0022cmdline\u0022)).Replace(\u0027\\0\u0027, \u0027 \u0027);\n            var unix = cmdline.Replace(\u0027\\\\\u0027, \u0027/\u0027);\n            if (names.Any(n =\u003E unix.IndexOf(n \u002B \u0022.exe\u0022, StringComparison.OrdinalIgnoreCase) \u003E= 0)\n                \u0026\u0026 (unix.IndexOf(root.TrimEnd(\u0027/\u0027), StringComparison.Ordinal) \u003E= 0 || IsInRoot(dir)))\n                pids.Add(pid);\n        }\n        catch { } // gone meanwhile, or not ours to read\n    }\n    return pids;\n}\n\nbool IsInRoot(string procDir)\n{\n    try\n    {\n        var cwd = new DirectoryInfo(Path.Combine(procDir, \u0022cwd\u0022)).LinkTarget;\n        return cwd != null \u0026\u0026 (cwd.TrimEnd(\u0027/\u0027) \u002B \u0022/\u0022).StartsWith(root, StringComparison.Ordinal);\n    }\n    catch { return false; }\n}\n\nvar targets = ServerPids();\nif (targets.Count == 0)\n{\n    ScriptConsole.WriteLine((object)\u0022The server is not running.\u0022);\n    return;\n}\n\nvar password = ThisService.Variables.ContainsKey(\u0022RconPassword\u0022) ? Convert.ToString(ThisService.Variables[\u0022RconPassword\u0022]) : string.Empty;\nvar started = DateTime.UtcNow;\n// A server that is still starting (or booting a playfield) can miss the command: send it again when the server\n// has not exited 20 s after a send.\nfor (var attempt = 1; attempt \u003C= 3; attempt\u002B\u002B)\n{\n    try\n    {\n        using (var client = TelnetConnect(\u0022127.0.0.1\u0022, ThisService.RconPort, password, 5000))\n        {\n            var reply = TelnetCommand(client, \u0022saveandexit 0\u0022, 5000, 1000);\n            ScriptConsole.WriteLine((object)(\u0022saveandexit (attempt \u0022 \u002B attempt \u002B \u0022): \u0022 \u002B (reply.Length \u003E 0 ? reply.Replace(\u0027\\n\u0027, \u0027 \u0027) : \u0022(no reply)\u0022)));\n        }\n    }\n    catch (Exception ex)\n    {\n        ScriptConsole.WriteLine((object)(\u0022The telnet console did not answer (\u0022 \u002B ex.Message \u002B \u0022).\u0022));\n        if (attempt == 3 || !ServerPids().Any(targets.Contains)) break;\n    }\n    var waitUntil = attempt \u003C 3 ? DateTime.UtcNow.AddSeconds(20) : started.AddSeconds(maxWaitSeconds);\n    while (DateTime.UtcNow \u003C waitUntil)\n    {\n        await Task.Delay(1000, ThisCancellationToken);\n        if (!ServerPids().Any(targets.Contains))\n        {\n            ScriptConsole.WriteLine((object)(\u0022The server saved and exited after \u0022 \u002B (int)(DateTime.UtcNow - started).TotalSeconds \u002B \u0022 s.\u0022));\n            return;\n        }\n    }\n    if (attempt == 3) break;\n}\nScriptConsole.WriteLine((object)(\u0022The server did not exit within \u0022 \u002B maxWaitSeconds \u002B \u0022 s; the panel stops it now.\u0022));\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 3,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "a6acd437-f399-58c5-8e8d-0001f1c58ef4"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterCustomModInstalled"
+        ],
+        "name": "Install the Workshop scenario",
+        "description": "Moves the downloaded Workshop scenario to Content/Scenarios, where the Scenario setting finds it.",
+        "code": "using System;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Empyrion Workshop items are scenarios. A dedicated server loads a scenario from Content/Scenarios/\u003Cname\u003E (the\n// CustomScenario setting), so the downloaded item is moved there under its Workshop title. WorkshopId.txt marks the\n// folder for the uninstall. Players who join get the scenario from the server.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \u0022^[0-9]\u002B$\u0022)) throw new Exception(\u0022Unexpected Workshop id: \u0022 \u002B fileId);\nstring downloaded = Convert.ToString(Dynamic.InstallPath);\nstring title = Convert.ToString(Dynamic.FileTitle ?? \u0022\u0022).Trim();\nstring root = (string)ThisService.RootDirectory;\nstring scenarios = Path.Combine(root, \u0022Content\u0022, \u0022Scenarios\u0022);\nDirectory.CreateDirectory(scenarios);\n\n// Empyrion Workshop items download only with a Steam account that owns the game (Settings \u003E Steam): anonymous\n// downloads fail and leave a folder with only the downloader\u0027s own .DepotDownloader folder.\nif (string.IsNullOrEmpty(downloaded) || !Directory.Exists(downloaded) || !Directory.EnumerateFileSystemEntries(downloaded).Any(e =\u003E !Path.GetFileName(e).StartsWith(\u0022.\u0022)))\n    throw new Exception(\u0022The Workshop item \u0022 \u002B fileId \u002B \u0022 was not downloaded. Empyrion Workshop items need a Steam account that owns the game; ask your provider, or upload the scenario folder to Content/Scenarios with the file manager.\u0022);\n\n// The scenario\u0027s files may sit in the item folder itself or in one sub folder.\nstring source = downloaded;\nvar entries = Directory.GetFileSystemEntries(source);\nif (entries.Length == 1 \u0026\u0026 Directory.Exists(entries[0]) \u0026\u0026 !LooksLikeScenario(source)) source = entries[0];\nif (!LooksLikeScenario(source))\n    throw new Exception(\u0022The Workshop item \u0022 \u002B fileId \u002B \u0022 is not a scenario (no Playfields or Content folder). Empyrion servers load Workshop scenarios only; blueprints are spawned by the players.\u0022);\n\n// An existing folder of this item (an update) keeps its name; otherwise the name comes from the title.\nstring target = FindInstalled(scenarios, fileId);\nif (target == null)\n{\n    var name = new string(title.Where(c =\u003E !Path.GetInvalidFileNameChars().Contains(c) \u0026\u0026 c != \u0027\u0022\u0027).ToArray()).Trim().TrimEnd(\u0027.\u0027);\n    if (name.Length == 0) name = \u0022Workshop \u0022 \u002B fileId;\n    target = Path.Combine(scenarios, name);\n    if (Directory.Exists(target)) target = Path.Combine(scenarios, name \u002B \u0022 (\u0022 \u002B fileId \u002B \u0022)\u0022);\n}\nelse\n{\n    Directory.Delete(target, true);\n}\n\nif (string.Equals(Path.GetPathRoot(Path.GetFullPath(source)), Path.GetPathRoot(Path.GetFullPath(target)), StringComparison.OrdinalIgnoreCase))\n{\n    Directory.Move(source, target);\n}\nelse\n{\n    CopyDirectory(source, target);\n    Directory.Delete(source, true);\n}\nif (Directory.Exists(downloaded) \u0026\u0026 !Directory.EnumerateFileSystemEntries(downloaded).Any(e =\u003E !Path.GetFileName(e).StartsWith(\u0022.\u0022))) Directory.Delete(downloaded, true);\nFile.WriteAllText(Path.Combine(target, \u0022WorkshopId.txt\u0022), fileId \u002B \u0022\\n\u0022, new UTF8Encoding(false));\nif (System.OperatingSystem.IsLinux()) Globals.OperatingSystem.SetDirectoryOwnerAutoDetect(target, true);\n\nScriptConsole.WriteLine((object)(\u0022Installed the scenario \\\u0022\u0022 \u002B Path.GetFileName(target) \u002B \u0022\\\u0022 in Content/Scenarios. To play it: Configuration Files \u003E Server settings \u003E Scenario = \\\u0022\u0022\n    \u002B Path.GetFileName(target) \u002B \u0022\\\u0022, and a new save game name (an existing save keeps its scenario), then restart the server.\u0022));\n\nbool LooksLikeScenario(string dir) =\u003E\n    Directory.Exists(Path.Combine(dir, \u0022Playfields\u0022)) || Directory.Exists(Path.Combine(dir, \u0022Content\u0022)) || Directory.Exists(Path.Combine(dir, \u0022Sectors\u0022));\n\nstring FindInstalled(string dir, string id)\n{\n    foreach (var d in Directory.GetDirectories(dir))\n    {\n        var marker = Path.Combine(d, \u0022WorkshopId.txt\u0022);\n        if (File.Exists(marker) \u0026\u0026 File.ReadAllText(marker).Trim() == id) return d;\n    }\n    return null;\n}\n\nvoid CopyDirectory(string from, string to)\n{\n    Directory.CreateDirectory(to);\n    foreach (var f in Directory.GetFiles(from)) File.Copy(f, Path.Combine(to, Path.GetFileName(f)), true);\n    foreach (var d in Directory.GetDirectories(from)) CopyDirectory(d, Path.Combine(to, Path.GetFileName(d)));\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 4,
+        "icon": "\u003Cpath d=\u0022M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "3aefc698-8603-507f-b537-ebc26f1d1fa1"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeCustomModUninstalled"
+        ],
+        "name": "Remove the Workshop scenario",
+        "description": "Deletes the scenario folder of the Workshop item from Content/Scenarios.",
+        "code": "using System;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Removes the scenario folder of this Workshop item from Content/Scenarios (the folder that holds WorkshopId.txt with\n// this id). Save games made with it stay in Saves; they no longer start without the scenario.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \u0022^[0-9]\u002B$\u0022)) throw new Exception(\u0022Unexpected Workshop id: \u0022 \u002B fileId);\nstring scenarios = Path.Combine((string)ThisService.RootDirectory, \u0022Content\u0022, \u0022Scenarios\u0022);\nif (!Directory.Exists(scenarios)) { ScriptConsole.WriteLine((object)\u0022There is no Content/Scenarios folder.\u0022); return; }\n\nvar removed = 0;\nforeach (var d in Directory.GetDirectories(scenarios))\n{\n    var marker = Path.Combine(d, \u0022WorkshopId.txt\u0022);\n    if (!File.Exists(marker) || File.ReadAllText(marker).Trim() != fileId) continue;\n    Directory.Delete(d, true);\n    removed\u002B\u002B;\n    ScriptConsole.WriteLine((object)(\u0022Removed the scenario \\\u0022\u0022 \u002B Path.GetFileName(d) \u002B \u0022\\\u0022. Pick another scenario in the server settings if the save game used it.\u0022));\n}\nif (removed == 0) ScriptConsole.WriteLine((object)(\u0022The scenario of Workshop item \u0022 \u002B fileId \u002B \u0022 is not installed.\u0022));\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 5,
+        "icon": "\u003Cpath d=\u0022M19 13H5v-2h14v2z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "bbd14bb6-205d-52dc-9a7f-7f05c4f510fa"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Delete old crash reports",
+        "description": "Under Wine the Unity runtime crashes while it exits (after the game is saved) and writes a crash report on every stop; keeps the newest five.",
+        "code": "using System;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Wine: the Unity runtime crashes while it exits, after the game is saved, and its crash handler writes a report\n// (about 300 KB) into the Wine user\u0027s Temp folder on every stop. Keep the newest five reports, delete the rest.\nif (!System.OperatingSystem.IsLinux()) return;\nconst int keep = 5;\nvar users = Path.Combine((string)ThisService.RootDirectory, \u0022.wine\u0022, \u0022drive_c\u0022, \u0022users\u0022);\nif (!Directory.Exists(users)) return;\nvar removed = 0;\nforeach (var user in Directory.GetDirectories(users))\n{\n    var studio = Path.Combine(user, \u0022AppData\u0022, \u0022Local\u0022, \u0022Temp\u0022, \u0022Eleon Game Studios\u0022);\n    if (!Directory.Exists(studio)) continue;\n    foreach (var crashes in Directory.GetDirectories(studio).Select(d =\u003E Path.Combine(d, \u0022Crashes\u0022)).Where(Directory.Exists))\n    {\n        foreach (var old in new DirectoryInfo(crashes).GetDirectories(\u0022Crash_*\u0022).OrderByDescending(d =\u003E d.CreationTimeUtc).Skip(keep))\n        {\n            try { old.Delete(true); removed\u002B\u002B; }\n            catch (Exception ex) { ScriptConsole.WriteLine((object)(\u0022Could not delete \u0022 \u002B old.Name \u002B \u0022: \u0022 \u002B ex.Message)); }\n        }\n    }\n}\nif (removed \u003E 0) ScriptConsole.WriteLine((object)(\u0022Deleted \u0022 \u002B removed \u002B \u0022 old crash report(s) of the Unity runtime.\u0022));\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 6,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "ce5e8ce1-3548-5381-87e5-5cfb13ad8ad8"
+      }
+    }
+  ],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 338,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 2,
+      "gameId": 338,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "AllowCollections": false,
+        "ShowDescription": true,
+        "ShowAuthorAndRating": true,
+        "Private.UseSteamAPI": false,
+        "SkipDownload": false
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 338,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 338,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 5,
+      "gameId": 338,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 338,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 338,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    }
+  ],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-11T17:12:33.680082",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "Saves/**/*",
+      "Config/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
