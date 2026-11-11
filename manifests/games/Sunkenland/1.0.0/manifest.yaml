@@ -21,12 +21,15 @@ longDescription: |
   - **Stop:** the server has no save command and does not save when it is closed; it saves with its autosave while players are online. Before a stop, a script lets a running save finish and, with players online, waits for the next autosave.
   - **Console output** from the server's console on Windows, from the server log on Linux. The server reads no console commands.
   - **Log viewer** for the server log (on Windows, the last 10 runs).
+  - **IP and ports:** the server binds the service's IP and game port (`-ip`, `-port`). Checked on Linux (Wine) with a moved IP and port; Windows uses the same arguments and was previewed.
+  - **Validated settings:** the panel refuses a World GUID that is not a GUID, a password with other characters than letters and digits, and server names or descriptions that would break the world settings file. The start script never follows a symbolic link in the service folder.
   - **Backups** of `SaveData` and the world settings. The server is stopped first.
   - **Query monitoring:** a server that lost its matchmaking session (`PhotonCloudTimeout`) keeps running but reports offline, so the panel restarts it.
   - No RCON and no mod support in the game.
   
   ## Ports
-  - Game 27015 (UDP).
+  - Game 27015 (UDP), bound to the service IP. It is the server's own socket for players who connect directly; players who cannot reach it connect through Photon's relay.
+  - The server also keeps an outgoing connection to Photon's cloud (matchmaking and relay). It opens no other listening port.
   
   ## Instructions
   - Players join from the session list (pick the same region as the server) or with the Server ID shown in the query.
