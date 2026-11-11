@@ -27,7 +27,7 @@ longDescription: |
   ## Ports
   - Game 7777 (UDP).
   - Query 27015 (UDP).
-  - HTTP API 8080 (TCP). The API has no password, so it listens on the loopback address only (`DefaultBindAddress=127.0.0.1` in `Engine.ini`) and is not reachable from outside. Ports are unique per server, so two services on different IPs never share an HTTP API port.
+  - HTTP API 8080 (TCP). The API has no password, so it listens on the loopback address only (`DefaultBindAddress=127.0.0.1` in `Engine.ini`) and is not reachable from outside. The config uses only the server's primary IP, so every VEIN service on a server shares one IP and the panel gives each its own HTTP API port.
   - IP and ports: `-multihome` binds the game port and the Steam query port to the service IP, and every port has its own setting (tested on Windows, moved to a second IP with new ports; the Linux config uses the same command line and config files and was previewed only).
   - The server also opens a few random ports for the Steam API, and Unreal's trace control port 1985 (TCP) on all addresses. The game has no setting for port 1985. On 127.0.0.1 the Steam query port listens on 0.0.0.0 (Steam does not accept loopback). Use a real IP.
   
