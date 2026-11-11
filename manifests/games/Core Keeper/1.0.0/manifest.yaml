@@ -16,12 +16,15 @@ longDescription: |
   - **Direct connections** on the game port (cross-play), next to the Steam Game ID.
   - **Graceful stop:** a stop script sends SIGTERM, so the server saves the world and the settings before it exits.
   - **Console output** from the server log (`CoreKeeperServerLog.txt`).
-  - **Status:** the server shows online while its port is open (Core Keeper has no server-browser query).
-  - **Command-line settings:** world name, world slot, world mode and seed for new worlds, a fixed Game ID and the direct-connect password.
+  - **Query:** status, world name and player count from the Steam server query (game port + 1).
+  - **Command-line settings:** world name, world slot, world mode and seed for new worlds, a fixed Game ID and the direct-connect password. The values are checked before they are saved (no quotes, backslashes or shell characters; Game ID format).
   - **Backups** of the `data` folder (worlds, settings, admins, bans). The server is stopped first.
   
   ## Ports
-  - Game 27015 (UDP).
+  - Game 27015 (UDP), bound to the service IP (`-ip`).
+  - Query 27016 (UDP), always the game port + 1 (Steam server query).
+  - The Steam client also opens one random outgoing UDP port and one local-only TCP port; neither needs to be opened.
+  - IP and ports checked on Linux: with a non-default IP and ports the game and query ports follow the service IP and ports.
   
   ## Instructions
   - Players join with the Steam Game ID, or by IP, port and password. Both are in `GameInfo.txt` (Log Files).
