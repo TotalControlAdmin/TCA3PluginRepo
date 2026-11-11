@@ -21,7 +21,11 @@ longDescription: |
   - **Backups** of the session config, the server packages and the `mod` folder.
   
   ## Ports
-  - Game 27015 (UDP), query 27016 (UDP).
+  - Query 27016 (UDP): the A2S server-browser query. It follows the game port (+1).
+  - Game 27015: announced to Steam. The server opened no socket on it in testing.
+  - The server has no bind-address setting and listens on all addresses (0.0.0.0), so the game keeps every service on the server's primary IP.
+  - It also opens one UDP port with a random number (Steam networking) and a TCP port on 127.0.0.1 (local Steam connection). Neither can be set.
+  - Port changes in the service settings are written to `server_config.sii` on the next start.
   
   ## Instructions
   - The server's home folder is `American Truck Simulator` in the service folder. Logs: `server.log.txt` there.
