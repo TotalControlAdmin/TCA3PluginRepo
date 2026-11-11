@@ -20,7 +20,9 @@ longDescription: |
   - **Backups** of the worlds, `serverconfig.txt` and the ban list. The server is stopped first.
   
   ## Ports
-  - Game 7777 (TCP).
+  - Game 7777 (TCP). The query port is the same port.
+  - The server binds the service's IP and game port, passed on the command line (`-ip`, `-port`). `serverconfig.txt` holds no IP or port, so IP and port changes in the service settings apply on the next start.
+  - The server also opens one UDP socket with a random port number on all addresses. It is not a game port and cannot be set.
   
   ## Instructions
   - Worlds are in the `worlds` folder. To switch worlds, change the world name; a missing world is created on the next start.
