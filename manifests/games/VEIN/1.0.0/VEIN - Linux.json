@@ -1,6 +1,6 @@
 {
   "__TCA:ExportVersion": "3.23.46.17810",
-  "__TCA:ExportedAt": "2026-11-11T22:27:20.7453815Z",
+  "__TCA:ExportedAt": "2026-11-11T22:31:25.4070736Z",
   "name": "VEIN",
   "shortName": "VEIN",
   "description": "",
@@ -52,10 +52,10 @@
     "screenCaptureMouseHardware": true
   },
   "ipPortAllocationConfig": {
-    "usePrimaryIpOnly": false,
+    "usePrimaryIpOnly": true,
     "useDefaultPortsOnly": false,
     "supportsIpv6": false,
-    "uniquePort": "Server",
+    "uniquePort": "ServerIp",
     "customPorts": [
       {
         "id": "GamePort",
