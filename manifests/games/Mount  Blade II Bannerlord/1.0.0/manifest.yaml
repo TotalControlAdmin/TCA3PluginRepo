@@ -20,7 +20,8 @@ longDescription: |
   
   ## Ports
   
-  - Game port (default 7210): UDP for the game, TCP for the web panel and map downloads.
+  - Game port (default 7210): UDP for the game, TCP for the web panel and map downloads. It is passed on the command line (`/port` on Windows, `/dedicatedcustomserver` on Linux), so a port change applies on the next start. The query port only mirrors it.
+  - The server has no setting for the address it listens on. Which address it binds was not checked yet (the check needs a server token).
   
   ## Instructions
   
