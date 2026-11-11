@@ -28,7 +28,7 @@ longDescription: |
   - Client port 27016 (UDP).
   - SourceTV 27020 (UDP).
   
-  All ports bind to the service IP (`-ip`, `-port`, `+clientport`, `+tv_port`, `-strictportbind`). This was checked on Windows after moving a service to a new IP and new ports. On Linux the command line was previewed, and the server reported the service IP and ports at start. srcds also opens a TCP port on 127.0.0.1 with a random number (the Steam client's local port). It cannot be set and is not reachable from outside.
+  All ports bind to the service IP (`-ip`, `-port`, `+clientport`, `+tv_port`, `-strictportbind`). The IP and port check passed on both Windows and Linux: after moving a service to a new IP and new ports, every port listened on the assigned IP and port, and the query, RCON and a custom command line worked. Query and RCON share the game port (srcds has no separate query port). The server does not answer A2S queries when the service IP is 127.0.0.1, so give the service a real IP. srcds also opens a TCP port on 127.0.0.1 with a random number (the Steam client's local port). It cannot be set and is not reachable from outside.
   
   ## Instructions
   - Server-side Workshop maps work on anonymous servers only. Do not set a game server login token (`sv_setsteamaccount`) if you use them.
