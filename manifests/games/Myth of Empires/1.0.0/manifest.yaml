@@ -25,9 +25,11 @@ longDescription: |
   - **Steam Workshop mods (Windows).** Install a mod on the Steam Workshop page: a script moves it to `MOE/Binaries/Win64/Mods/<id>` and adds it to the Workshop mods field (`-SteamModList`). The server loads it on its next start. Uninstalling removes it again. The Linux server cannot load Workshop mods (they ship Windows files only), so the Linux config has no mod support.
   
   ## Ports
-  - Game 11888 (UDP).
-  - Query 12888 (UDP).
-  - RCON 13888 (TCP).
+  - Game 11888 (UDP), query 12888 (UDP, Steam A2S) and RCON 13888 (TCP, the game's remote console). Each port is set on its own in the service settings; none follows another.
+  - IP and ports: the command line passes the service IP to `-MultiHome`, `-OutAddress` and `-ShutDownServiceIP`, so the game, query and RCON ports listen on the service's IP (tested on Windows, moved to a second IP with new ports; the Linux config uses the same flags and was previewed only).
+  - On 127.0.0.1 Steam does not accept the loopback address and the query port listens on 0.0.0.0. Use a real IP.
+  - The server also opens one UDP port with a random number (the Steam connection). It cannot be set.
+  - Double quotes and backslashes would end a quoted launch argument: the command line drops them from the service name and password, and the description, welcome message, admin ids and mod list fields refuse them.
   
   ## Instructions
   - Change the settings in Command Lines, then restart the server.
