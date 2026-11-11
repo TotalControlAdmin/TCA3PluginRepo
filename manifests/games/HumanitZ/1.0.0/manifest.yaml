@@ -25,9 +25,10 @@ longDescription: |
   - No mod support: the game has no Steam Workshop or mod system.
   
   ## Ports
-  - Game 7777 (UDP).
-  - Query 27015 (UDP).
-  - RCON 8888 (TCP).
+  - Game 7777 (UDP), bound to the service IP (`-MULTIHOME`).
+  - Steam query 27015 (UDP), bound to the service IP. The game answers no Steam (A2S) query on it; the panel status comes from RCON.
+  - RCON 8888 (TCP), set in `GameServerSettings.ini`. The game has no RCON bind setting and listens on all addresses, so the config keeps every service on the server's primary IP.
+  - IP and port changes in the service settings are written to `GameServerSettings.ini`.
   
   ## Instructions
   - Change the settings in Configuration Files, then restart the server.
