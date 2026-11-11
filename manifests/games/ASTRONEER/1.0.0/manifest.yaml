@@ -25,6 +25,7 @@ longDescription: |
   ## Ports
   - Game 7777 (UDP).
   - Server console / RCON 7778 (TCP). The console password is the service's RCON password.
+  - **IP and ports:** `-MULTIHOME` binds the game port and the console port to the service IP. `PublicIP` and `ConsolePort` in `AstroServerSettings.ini` and `[URL] Port` in `Engine.ini` follow the service. The server opens no other port.
   
   ## Instructions
   - Players must turn off network encryption in their own game: add `[SystemSettings]` and `net.AllowEncryption=False` to `%LocalAppData%\Astro\Saved\Config\WindowsNoEditor\Engine.ini`.
@@ -32,6 +33,7 @@ longDescription: |
   - Stop the server before you change the settings. The server rewrites its settings when it stops.
   - Saves are in `Astro/Saved/SaveGames`. A new active save name starts a new game.
   - Up to 8 players.
+  - Give the service a public IP. On a loopback or private address the server exits about 30 seconds after it starts.
   
 icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/361420/18ef632a152a69a8fb4f62c074cd50aa15d3bf33.jpg"
 images:
