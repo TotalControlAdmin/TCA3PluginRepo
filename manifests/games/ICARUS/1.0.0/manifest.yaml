@@ -24,8 +24,9 @@ longDescription: |
   - No mod provider: ICARUS mods are `.pak` files from Nexus Mods or the community mod manager. Upload them to `Icarus/Content/Paks/mods` with the file manager. Every player needs the same files.
   
   ## Ports
-  - Game 17777 (UDP).
-  - Query 27015 (UDP).
+  - Game 17777 (UDP): the Steam networking port players connect through. The server opened no socket of its own on it in testing.
+  - Query 27015 (UDP): the server-browser query (A2S). It listens on the service IP.
+  - The service IP is passed with `-MULTIHOME`, so services on different IPs of one server do not clash.
   
   ## Instructions
   - Set an admin password. When it is empty, anyone who types `/AdminLogin` in the chat becomes admin.
