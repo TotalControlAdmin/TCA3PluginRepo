@@ -27,14 +27,16 @@ longDescription: |
   ## Ports
   - Game 7777 (UDP).
   - Query 27015 (UDP).
-  - HTTP API 8080 (TCP). The server listens on the loopback address only, so it is not reachable from outside.
+  - HTTP API 8080 (TCP). The API has no password, so it listens on the loopback address only (`DefaultBindAddress=127.0.0.1` in `Engine.ini`) and is not reachable from outside. Ports are unique per server, so two services on different IPs never share an HTTP API port.
+  - IP and ports: `-multihome` binds the game port and the Steam query port to the service IP, and every port has its own setting (tested on Windows, moved to a second IP with new ports; the Linux config uses the same command line and config files and was previewed only).
+  - The server also opens a few random ports for the Steam API, and Unreal's trace control port 1985 (TCP) on all addresses. The game has no setting for port 1985. On 127.0.0.1 the Steam query port listens on 0.0.0.0 (Steam does not accept loopback). Use a real IP.
   
   ## Instructions
   - Change the settings in Configuration Files, then restart the server.
   - Put your SteamID64 in "Super admin". Open the admin menu in the game with `\`. Super admins can make other players admins in the game. For more admins add `+AdminSteamIDs=<id>` lines to `Game.ini` in the text editor.
   - The world is saved in `Vein/Saved/SaveGames/Server.vns`.
   - The server needs about 4 GB of memory once the map is loaded. The first start takes a minute.
-  - The game is in early access. The server also opens Unreal's trace control port 1985 (TCP).
+  - The game is in early access.
   
 icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/1857950/f877b7a16e93b3ece155ce04f6487bebff5b8f8f.jpg"
 images:
