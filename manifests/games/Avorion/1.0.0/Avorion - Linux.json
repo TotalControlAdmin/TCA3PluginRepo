@@ -1,0 +1,3241 @@
+{
+  "__TCA:ExportVersion": "3.23.45.17810",
+  "__TCA:ExportedAt": "2026-11-11T13:37:56.3858863Z",
+  "name": "Avorion",
+  "shortName": "Avorion",
+  "description": "",
+  "operatingSystem": "Linux",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/445220/680eadbf8eef917be5023310fb364c947af4e203.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/445220/ss_5ecd07c695f48055606ab68b82bd16f3ef4b40a6.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 100,
+  "defaultSlots": 10,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".ini",
+    ".txt",
+    ".lua",
+    ".xml"
+  ],
+  "logExtensions": [
+    "serverlog *.txt",
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "source",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": true,
+    "outputFilters": "",
+    "stopCommand": "",
+    "waitAfterStopCommand": 10000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 27000,
+        "expression": "",
+        "description": "Game (TCP and UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 27020,
+        "expression": "",
+        "description": "Steam query (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "GameQueryPort",
+        "port": 27003,
+        "expression": "",
+        "description": "Avorion query (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "SteamMasterPort",
+        "port": 27021,
+        "expression": "",
+        "description": "Steam master server (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "RConPort",
+        "port": 27015,
+        "expression": "",
+        "description": "RCON (TCP)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 100
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "bin/AvorionServer",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "avorion-linux",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 565060,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 445220,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "--galaxy-name avorion_galaxy --datapath galaxies --port ${GamePort} --query-port ${GameQueryPort} --steam-query-port ${QueryPort} --steam-master-port ${SteamMasterPort} --ip ${IPAddress} --rcon-ip ${IPAddress} --rcon-port ${RConPort} --max-players ${Slots} ${AdminSteamIds}",
+    "defaultCustomCommandline": "--galaxy-name avorion_galaxy --datapath galaxies --port ${GamePort} --query-port ${GameQueryPort} --steam-query-port ${QueryPort} --steam-master-port ${SteamMasterPort} --ip ${IPAddress} --rcon-ip ${IPAddress} --rcon-port ${RConPort} --max-players ${Slots} ${AdminSteamIds} ${UserCommandLine}",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "--galaxy-name avorion_galaxy --datapath galaxies --port ${GamePort} --query-port ${GameQueryPort} --steam-query-port ${QueryPort} --steam-master-port ${SteamMasterPort} --ip ${IPAddress} --rcon-ip ${IPAddress} --rcon-port ${RConPort} --max-players ${Slots} ${AdminSteamIds}"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "78a1cf86-22bf-5051-9fac-212d5d69a0d5",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "Description",
+      "defaultValue": "An Avorion Server",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Description}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "Description",
+        "defaultValue": "An Avorion Server",
+        "label": "Description",
+        "description": "Shown in the server list.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.443368",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Motd",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Motd}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "Motd",
+        "defaultValue": "",
+        "label": "Message of the day",
+        "description": "Shown to players when they join.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.454784",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Listed",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Listed}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "Listed",
+        "defaultValue": "true",
+        "label": "List publicly",
+        "description": "Shows the server in the public server list.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.454842",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AccessListMode",
+      "defaultValue": "Blacklist",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AccessListMode}",
+      "editor": {
+        "items": [
+          {
+            "text": "Blacklist (everyone except blacklist.txt)",
+            "value": "Blacklist"
+          },
+          {
+            "text": "Whitelist (only whitelist.txt)",
+            "value": "Whitelist"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "AccessListMode",
+        "defaultValue": "Blacklist",
+        "label": "Access list",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.457144",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Pausable",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Pausable}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "Pausable",
+        "defaultValue": "false",
+        "label": "Admins can pause",
+        "description": "Lets an admin pause the server when they are the only player online.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.461914",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Seed",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Seed}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "Seed",
+        "defaultValue": "",
+        "label": "Galaxy seed",
+        "description": "Used when the galaxy is generated (first start). Empty = a random seed. Changing it later does not regenerate the galaxy: delete galaxies/avorion_galaxy (or reinstall) for a new one.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.46195",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Scenario",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Scenario}",
+      "editor": {
+        "items": [
+          {
+            "text": "Normal",
+            "value": "1"
+          },
+          {
+            "text": "Creative",
+            "value": "0"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "Scenario",
+        "defaultValue": "1",
+        "label": "Scenario",
+        "description": "Creative: unlimited resources and free building.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.461972",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Difficulty",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Difficulty}",
+      "editor": {
+        "items": [
+          {
+            "text": "Beginner",
+            "value": "-3"
+          },
+          {
+            "text": "Easy",
+            "value": "-2"
+          },
+          {
+            "text": "Normal",
+            "value": "-1"
+          },
+          {
+            "text": "Veteran",
+            "value": "0"
+          },
+          {
+            "text": "Expert",
+            "value": "1"
+          },
+          {
+            "text": "Hardcore",
+            "value": "2"
+          },
+          {
+            "text": "Insane",
+            "value": "3"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "Difficulty",
+        "defaultValue": "0",
+        "label": "Difficulty",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.461989",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "HardcoreEnabled",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${HardcoreEnabled}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "HardcoreEnabled",
+        "defaultValue": "false",
+        "label": "Hardcore",
+        "description": "Permanent death: a destroyed player ship is gone with everything in it.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.462012",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Storyline",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Storyline}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "Storyline",
+        "defaultValue": "true",
+        "label": "Storyline",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.462023",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Barrier",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Barrier}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "Barrier",
+        "defaultValue": "true",
+        "label": "Barrier around the galaxy center",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.462033",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "BehemothEvents",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BehemothEvents}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "BehemothEvents",
+        "defaultValue": "false",
+        "label": "Behemoth events",
+        "description": "From the free Behemoths DLC.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.462044",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PlayTutorial",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PlayTutorial}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "PlayTutorial",
+        "defaultValue": "false",
+        "label": "Tutorial on first login",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.462125",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SameStartSector",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SameStartSector}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "SameStartSector",
+        "defaultValue": "true",
+        "label": "Same start sector",
+        "description": "Off = each new player starts in a random empty sector on the outer rim.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.462138",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "InfiniteResources",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${InfiniteResources}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "InfiniteResources",
+        "defaultValue": "false",
+        "label": "Infinite resources",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.462148",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "CollisionDamage",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${CollisionDamage}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 1,
+        "id": "CollisionDamage",
+        "defaultValue": "1",
+        "label": "Collision damage",
+        "description": "0 = no damage, 1 = full damage.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.462155",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PlayerToPlayerDamage",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PlayerToPlayerDamage}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "PlayerToPlayerDamage",
+        "defaultValue": "true",
+        "label": "Player vs player damage",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466345",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "LogoutInvincibility",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${LogoutInvincibility}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "LogoutInvincibility",
+        "defaultValue": "true",
+        "label": "Offline ships are invincible",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466399",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "LogoutInvincibilityDelay",
+      "defaultValue": "30",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${LogoutInvincibilityDelay}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 3600,
+        "id": "LogoutInvincibilityDelay",
+        "defaultValue": "30",
+        "label": "Invincible after (seconds offline)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466413",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "BoardingAllowed",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BoardingAllowed}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "BoardingAllowed",
+        "defaultValue": "true",
+        "label": "Boarding",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466431",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaximumPlayerShips",
+      "defaultValue": "-1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaximumPlayerShips}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": -1,
+        "maxValue": 10000,
+        "id": "MaximumPlayerShips",
+        "defaultValue": "-1",
+        "label": "Ships per player",
+        "description": "-1 = unlimited.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466443",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaximumPlayerStations",
+      "defaultValue": "-1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaximumPlayerStations}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": -1,
+        "maxValue": 10000,
+        "id": "MaximumPlayerStations",
+        "defaultValue": "-1",
+        "label": "Stations per player",
+        "description": "-1 = unlimited.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466454",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaximumBlocksPerCraft",
+      "defaultValue": "-1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaximumBlocksPerCraft}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": -1,
+        "maxValue": 1000000,
+        "id": "MaximumBlocksPerCraft",
+        "defaultValue": "-1",
+        "label": "Blocks per ship",
+        "description": "-1 = unlimited.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466466",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaximumFightersPerSectorAndPlayer",
+      "defaultValue": "-1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaximumFightersPerSectorAndPlayer}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": -1,
+        "maxValue": 10000,
+        "id": "MaximumFightersPerSectorAndPlayer",
+        "defaultValue": "-1",
+        "label": "Fighters per sector and player",
+        "description": "-1 = unlimited.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466477",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "BigWreckageDespawnTime",
+      "defaultValue": "1800",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BigWreckageDespawnTime}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 86400,
+        "id": "BigWreckageDespawnTime",
+        "defaultValue": "1800",
+        "label": "Big wreckages disappear after (seconds)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466488",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SmallWreckageDespawnTime",
+      "defaultValue": "900",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SmallWreckageDespawnTime}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 86400,
+        "id": "SmallWreckageDespawnTime",
+        "defaultValue": "900",
+        "label": "Small wreckages disappear after (seconds)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.4665",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SaveInterval",
+      "defaultValue": "600",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SaveInterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 60,
+        "maxValue": 7200,
+        "id": "SaveInterval",
+        "defaultValue": "600",
+        "label": "Autosave interval (seconds)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466509",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WorkerThreads",
+      "defaultValue": "2",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WorkerThreads}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 32,
+        "id": "WorkerThreads",
+        "defaultValue": "2",
+        "label": "Sector update threads",
+        "description": "More threads use more CPU cores.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466519",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "GeneratorThreads",
+      "defaultValue": "2",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${GeneratorThreads}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 16,
+        "id": "GeneratorThreads",
+        "defaultValue": "2",
+        "label": "Sector generator threads",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.46653",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ScriptBackgroundThreads",
+      "defaultValue": "2",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ScriptBackgroundThreads}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 16,
+        "id": "ScriptBackgroundThreads",
+        "defaultValue": "2",
+        "label": "Script background threads",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.46654",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AliveSectorsPerPlayer",
+      "defaultValue": "5",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AliveSectorsPerPlayer}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 100,
+        "id": "AliveSectorsPerPlayer",
+        "defaultValue": "5",
+        "label": "Simulated sectors per player",
+        "description": "Sectors with player property that keep running when the player is elsewhere.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466549",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Backups",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Backups}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "Backups",
+        "defaultValue": "true",
+        "label": "Automatic galaxy backups",
+        "description": "The server writes its own backups to the backups folder.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466563",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AdminSteamIds",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AdminSteamIds.ToString().Trim() == \u0022\u0022 ? \u0022\u0022 : \u0022--admin \u0022 \u002B AdminSteamIds.ToString().Trim().Replace(\u0022;\u0022, \u0022,\u0022).Replace(\u0022,\u0022, \u0022 --admin \u0022)}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "AdminSteamIds",
+        "defaultValue": "",
+        "label": "Admin Steam IDs",
+        "description": "SteamID64s of the server administrators, separated by commas. They are added to admin.xml at start; remove an admin with /admin -r \u003Cname\u003E in the console.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:28:57.466573",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 731,
+      "relativePath": "galaxies/avorion_galaxy/server.ini",
+      "description": "Server settings (server.ini). The editor settings are applied when the server starts; the server rewrites this file on every save.",
+      "template": "[Game]\nScenario=${Scenario}\nSeed=${Seed}\nDifficulty=${Difficulty}\nHardcoreEnabled=${HardcoreEnabled}\nInfiniteResources=${InfiniteResources}\nPlayTutorial=${PlayTutorial}\nCollisionDamage=${CollisionDamage}\nSafePlayerInput=false\nPlayerToPlayerDamage=${PlayerToPlayerDamage}\nLogoutInvincibility=${LogoutInvincibility}\nLogoutInvincibilityDelay=${LogoutInvincibilityDelay}\nBarrier=${Barrier}\nStoryline=${Storyline}\nBehemothEvents=${BehemothEvents}\nBigWreckageDespawnTime=${BigWreckageDespawnTime}\nSmallWreckageDespawnTime=${SmallWreckageDespawnTime}\nMaximumFightersPerSectorAndPlayer=${MaximumFightersPerSectorAndPlayer}\nMaximumBlocksPerCraft=${MaximumBlocksPerCraft}\nMaximumPlayerShips=${MaximumPlayerShips}\nMaximumPlayerStations=${MaximumPlayerStations}\nBoardingAllowed=${BoardingAllowed}\nsameStartSector=${SameStartSector}\nmotd=${Motd}\n[System]\nsaveInterval=${SaveInterval}\nworkerThreads=${WorkerThreads}\ngeneratorThreads=${GeneratorThreads}\nscriptBackgroundThreads=${ScriptBackgroundThreads}\naliveSectorsPerPlayer=${AliveSectorsPerPlayer}\nweakUpdate=true\nsendCrashReports=true\nhangDetection=true\nbackups=${Backups}\nbackupsPath=backups\nstatsLogging=true\n[Networking]\nport=${GamePort}\nbroadcastInterval=5\nisMultiplayer=true\nisListed=${Listed}\nvacSecure=true\nsendStatsToAdmins=true\nuseSteam=true\nforceSteam=false\nrconIp=${IPAddress}\nrconPassword=${RconPassword}\nrconPort=${RConPort}\n[Administration]\nmaxPlayers=${Slots}\nname=${Hostname}\ndescription=${Description}\npassword=${PrivatePassword}\npausable=${Pausable}\naccessListMode=${AccessListMode}\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Server",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "Shown in the server list.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Description",
+          "defaultValue": "An Avorion Server",
+          "label": "Description",
+          "description": "Shown in the server list.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Password",
+          "description": "Leave empty for a public server. Players who enter a wrong password are kicked.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Motd",
+          "defaultValue": "",
+          "label": "Message of the day",
+          "description": "Shown to players when they join.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "Listed",
+          "defaultValue": "true",
+          "label": "List publicly",
+          "description": "Shows the server in the public server list.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Blacklist (everyone except blacklist.txt)",
+              "value": "Blacklist"
+            },
+            {
+              "text": "Whitelist (only whitelist.txt)",
+              "value": "Whitelist"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "AccessListMode",
+          "defaultValue": "Blacklist",
+          "label": "Access list",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "Pausable",
+          "defaultValue": "false",
+          "label": "Admins can pause",
+          "description": "Lets an admin pause the server when they are the only player online.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Galaxy",
+          "defaultValue": null,
+          "label": "Galaxy",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Seed",
+          "defaultValue": "",
+          "label": "Galaxy seed",
+          "description": "Used when the galaxy is generated (first start). Empty = a random seed. Changing it later does not regenerate the galaxy: delete galaxies/avorion_galaxy (or reinstall) for a new one.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Normal",
+              "value": "1"
+            },
+            {
+              "text": "Creative",
+              "value": "0"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "Scenario",
+          "defaultValue": "1",
+          "label": "Scenario",
+          "description": "Creative: unlimited resources and free building.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Beginner",
+              "value": "-3"
+            },
+            {
+              "text": "Easy",
+              "value": "-2"
+            },
+            {
+              "text": "Normal",
+              "value": "-1"
+            },
+            {
+              "text": "Veteran",
+              "value": "0"
+            },
+            {
+              "text": "Expert",
+              "value": "1"
+            },
+            {
+              "text": "Hardcore",
+              "value": "2"
+            },
+            {
+              "text": "Insane",
+              "value": "3"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "Difficulty",
+          "defaultValue": "0",
+          "label": "Difficulty",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "HardcoreEnabled",
+          "defaultValue": "false",
+          "label": "Hardcore",
+          "description": "Permanent death: a destroyed player ship is gone with everything in it.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "Storyline",
+          "defaultValue": "true",
+          "label": "Storyline",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "Barrier",
+          "defaultValue": "true",
+          "label": "Barrier around the galaxy center",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "BehemothEvents",
+          "defaultValue": "false",
+          "label": "Behemoth events",
+          "description": "From the free Behemoths DLC.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "PlayTutorial",
+          "defaultValue": "false",
+          "label": "Tutorial on first login",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "SameStartSector",
+          "defaultValue": "true",
+          "label": "Same start sector",
+          "description": "Off = each new player starts in a random empty sector on the outer rim.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "InfiniteResources",
+          "defaultValue": "false",
+          "label": "Infinite resources",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 1,
+          "id": "CollisionDamage",
+          "defaultValue": "1",
+          "label": "Collision damage",
+          "description": "0 = no damage, 1 = full damage.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "PlayerToPlayerDamage",
+          "defaultValue": "true",
+          "label": "Player vs player damage",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "LogoutInvincibility",
+          "defaultValue": "true",
+          "label": "Offline ships are invincible",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 3600,
+          "id": "LogoutInvincibilityDelay",
+          "defaultValue": "30",
+          "label": "Invincible after (seconds offline)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "BoardingAllowed",
+          "defaultValue": "true",
+          "label": "Boarding",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": -1,
+          "maxValue": 10000,
+          "id": "MaximumPlayerShips",
+          "defaultValue": "-1",
+          "label": "Ships per player",
+          "description": "-1 = unlimited.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": -1,
+          "maxValue": 10000,
+          "id": "MaximumPlayerStations",
+          "defaultValue": "-1",
+          "label": "Stations per player",
+          "description": "-1 = unlimited.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": -1,
+          "maxValue": 1000000,
+          "id": "MaximumBlocksPerCraft",
+          "defaultValue": "-1",
+          "label": "Blocks per ship",
+          "description": "-1 = unlimited.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": -1,
+          "maxValue": 10000,
+          "id": "MaximumFightersPerSectorAndPlayer",
+          "defaultValue": "-1",
+          "label": "Fighters per sector and player",
+          "description": "-1 = unlimited.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 86400,
+          "id": "BigWreckageDespawnTime",
+          "defaultValue": "1800",
+          "label": "Big wreckages disappear after (seconds)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 86400,
+          "id": "SmallWreckageDespawnTime",
+          "defaultValue": "900",
+          "label": "Small wreckages disappear after (seconds)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_System",
+          "defaultValue": null,
+          "label": "Performance",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 60,
+          "maxValue": 7200,
+          "id": "SaveInterval",
+          "defaultValue": "600",
+          "label": "Autosave interval (seconds)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 32,
+          "id": "WorkerThreads",
+          "defaultValue": "2",
+          "label": "Sector update threads",
+          "description": "More threads use more CPU cores.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 16,
+          "id": "GeneratorThreads",
+          "defaultValue": "2",
+          "label": "Sector generator threads",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 16,
+          "id": "ScriptBackgroundThreads",
+          "defaultValue": "2",
+          "label": "Script background threads",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 100,
+          "id": "AliveSectorsPerPlayer",
+          "defaultValue": "5",
+          "label": "Simulated sectors per player",
+          "description": "Sectors with player property that keep running when the player is elsewhere.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "Backups",
+          "defaultValue": "true",
+          "label": "Automatic galaxy backups",
+          "description": "The server writes its own backups to the backups folder.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 732,
+      "relativePath": "galaxies/avorion_galaxy/modconfig.lua",
+      "description": "Mods (modconfig.lua). The Steam Workshop page adds and removes Workshop mods here.",
+      "template": "modLocation = \u0022\u0022\nforceEnabling = false\n\nmods =\n{\n}\n\nallowed =\n{\n}\n",
+      "order": 2,
+      "enableEditor": false,
+      "editor": []
+    },
+    {
+      "id": 733,
+      "relativePath": "galaxies/avorion_galaxy/whitelist.txt",
+      "description": "Whitelist: one SteamID64 per line (Access list = Whitelist)",
+      "template": "",
+      "order": 3,
+      "enableEditor": false,
+      "editor": []
+    },
+    {
+      "id": 734,
+      "relativePath": "galaxies/avorion_galaxy/blacklist.txt",
+      "description": "Blacklist: one SteamID64 per line",
+      "template": "",
+      "order": 4,
+      "enableEditor": false,
+      "editor": []
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the galaxy",
+        "description": "Writes the config editor settings into server.ini (the server overwrites it on every save), gives a new galaxy a random seed when the Galaxy seed setting is empty, and creates modconfig.lua when it is missing.",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// The server rewrites server.ini with its in-memory settings on every save (autosave, /save, /stop), so a change\n// made in the config editor while it runs would be lost. Before each start the settings of the config editor are\n// written into server.ini again; settings without an editor field keep what the server wrote.\nstring root = (string)ThisService.RootDirectory;\nstring galaxy = Path.Combine(root, \u0022galaxies\u0022, \u0022avorion_galaxy\u0022);\nstring ini = Path.Combine(galaxy, \u0022server.ini\u0022);\nbool galaxyExisted = Directory.Exists(galaxy);\nDirectory.CreateDirectory(galaxy);\nif (!galaxyExisted) Own(galaxy);\nbool started = Directory.GetFiles(galaxy, \u0022server.dat*\u0022).Any();\n\n// (section, key, service variable) - generated from the server.ini template.\nvar managed = new List\u003C(string Section, string Key, string Variable)\u003E\n{\n    (\u0022Game\u0022, \u0022Scenario\u0022, \u0022Scenario\u0022),\n    (\u0022Game\u0022, \u0022Seed\u0022, \u0022Seed\u0022),\n    (\u0022Game\u0022, \u0022Difficulty\u0022, \u0022Difficulty\u0022),\n    (\u0022Game\u0022, \u0022HardcoreEnabled\u0022, \u0022HardcoreEnabled\u0022),\n    (\u0022Game\u0022, \u0022InfiniteResources\u0022, \u0022InfiniteResources\u0022),\n    (\u0022Game\u0022, \u0022PlayTutorial\u0022, \u0022PlayTutorial\u0022),\n    (\u0022Game\u0022, \u0022CollisionDamage\u0022, \u0022CollisionDamage\u0022),\n    (\u0022Game\u0022, \u0022PlayerToPlayerDamage\u0022, \u0022PlayerToPlayerDamage\u0022),\n    (\u0022Game\u0022, \u0022LogoutInvincibility\u0022, \u0022LogoutInvincibility\u0022),\n    (\u0022Game\u0022, \u0022LogoutInvincibilityDelay\u0022, \u0022LogoutInvincibilityDelay\u0022),\n    (\u0022Game\u0022, \u0022Barrier\u0022, \u0022Barrier\u0022),\n    (\u0022Game\u0022, \u0022Storyline\u0022, \u0022Storyline\u0022),\n    (\u0022Game\u0022, \u0022BehemothEvents\u0022, \u0022BehemothEvents\u0022),\n    (\u0022Game\u0022, \u0022BigWreckageDespawnTime\u0022, \u0022BigWreckageDespawnTime\u0022),\n    (\u0022Game\u0022, \u0022SmallWreckageDespawnTime\u0022, \u0022SmallWreckageDespawnTime\u0022),\n    (\u0022Game\u0022, \u0022MaximumFightersPerSectorAndPlayer\u0022, \u0022MaximumFightersPerSectorAndPlayer\u0022),\n    (\u0022Game\u0022, \u0022MaximumBlocksPerCraft\u0022, \u0022MaximumBlocksPerCraft\u0022),\n    (\u0022Game\u0022, \u0022MaximumPlayerShips\u0022, \u0022MaximumPlayerShips\u0022),\n    (\u0022Game\u0022, \u0022MaximumPlayerStations\u0022, \u0022MaximumPlayerStations\u0022),\n    (\u0022Game\u0022, \u0022BoardingAllowed\u0022, \u0022BoardingAllowed\u0022),\n    (\u0022Game\u0022, \u0022sameStartSector\u0022, \u0022SameStartSector\u0022),\n    (\u0022Game\u0022, \u0022motd\u0022, \u0022Motd\u0022),\n    (\u0022System\u0022, \u0022saveInterval\u0022, \u0022SaveInterval\u0022),\n    (\u0022System\u0022, \u0022workerThreads\u0022, \u0022WorkerThreads\u0022),\n    (\u0022System\u0022, \u0022generatorThreads\u0022, \u0022GeneratorThreads\u0022),\n    (\u0022System\u0022, \u0022scriptBackgroundThreads\u0022, \u0022ScriptBackgroundThreads\u0022),\n    (\u0022System\u0022, \u0022aliveSectorsPerPlayer\u0022, \u0022AliveSectorsPerPlayer\u0022),\n    (\u0022System\u0022, \u0022backups\u0022, \u0022Backups\u0022),\n    (\u0022Networking\u0022, \u0022isListed\u0022, \u0022Listed\u0022),\n    (\u0022Networking\u0022, \u0022rconPassword\u0022, \u0022RconPassword\u0022),\n    (\u0022Administration\u0022, \u0022name\u0022, \u0022Hostname\u0022),\n    (\u0022Administration\u0022, \u0022description\u0022, \u0022Description\u0022),\n    (\u0022Administration\u0022, \u0022password\u0022, \u0022PrivatePassword\u0022),\n    (\u0022Administration\u0022, \u0022pausable\u0022, \u0022Pausable\u0022),\n    (\u0022Administration\u0022, \u0022accessListMode\u0022, \u0022AccessListMode\u0022),\n};\n\nvar vars = ThisService.Variables;\nvar lines = (File.Exists(ini) ? File.ReadAllLines(ini) : new string[0]).ToList();\nstring seedVar = vars.ContainsKey(\u0022Seed\u0022) ? Convert.ToString(vars[\u0022Seed\u0022]).Trim() : \u0022\u0022;\nstring fileSeed = null;\n{\n    string section = \u0022\u0022;\n    foreach (var l in lines)\n    {\n        var s = Regex.Match(l, @\u0022^\\s*\\[(.\u002B)\\]\\s*$\u0022);\n        if (s.Success) { section = s.Groups[1].Value; continue; }\n        if (section == \u0022Game\u0022 \u0026\u0026 l.StartsWith(\u0022Seed=\u0022)) fileSeed = l.Substring(5).Trim();\n    }\n}\n\n// The galaxy is generated from its seed: an existing galaxy keeps the seed it was made with. A new galaxy without a\n// seed gets a random one (a blank seed would give every new server the same galaxy).\nstring newSeedVar = null;\nstring seed;\nif (started \u0026\u0026 fileSeed != null)\n{\n    seed = fileSeed;\n    if (seedVar != fileSeed)\n    {\n        newSeedVar = fileSeed;\n        ScriptConsole.WriteLine((object)(\u0022The galaxy already exists; it keeps its seed \u0022 \u002B fileSeed \u002B \u0022. Delete galaxies/avorion_galaxy for a new galaxy with another seed.\u0022));\n    }\n}\nelse if (seedVar.Length \u003E 0) seed = seedVar;\nelse\n{\n    const string chars = \u0022ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\u0022;\n    var rng = new Random();\n    seed = new string(Enumerable.Range(0, 10).Select(_ =\u003E chars[rng.Next(chars.Length)]).ToArray());\n    newSeedVar = seed;\n    ScriptConsole.WriteLine((object)(\u0022New galaxy: random seed \u0022 \u002B seed \u002B \u0022.\u0022));\n}\n\nstring Value(string variable)\n{\n    if (variable == \u0022Seed\u0022) return seed;\n    return vars.ContainsKey(variable) ? Convert.ToString(vars[variable]) ?? \u0022\u0022 : null;\n}\n\nint changed = 0;\nforeach (var m in managed)\n{\n    string value = Value(m.Variable);\n    if (value == null) continue;\n    value = value.Replace(\u0022\\r\u0022, \u0022 \u0022).Replace(\u0022\\n\u0022, \u0022 \u0022);\n    // Find the section, then the key inside it.\n    int start = lines.FindIndex(l =\u003E Regex.IsMatch(l, @\u0022^\\s*\\[\u0022 \u002B Regex.Escape(m.Section) \u002B @\u0022\\]\\s*$\u0022));\n    if (start \u003C 0) { lines.Add(\u0022[\u0022 \u002B m.Section \u002B \u0022]\u0022); start = lines.Count - 1; }\n    int end = lines.FindIndex(start \u002B 1, l =\u003E Regex.IsMatch(l, @\u0022^\\s*\\[.\u002B\\]\\s*$\u0022));\n    if (end \u003C 0) end = lines.Count;\n    int at = lines.FindIndex(start \u002B 1, end - start - 1, l =\u003E l.StartsWith(m.Key \u002B \u0022=\u0022));\n    string line = m.Key \u002B \u0022=\u0022 \u002B value;\n    if (at \u003C 0) { lines.Insert(end, line); changed\u002B\u002B; }\n    else if (lines[at] != line) { lines[at] = line; changed\u002B\u002B; }\n}\nif (changed \u003E 0)\n{\n    bool iniExisted = File.Exists(ini);\n    File.WriteAllText(ini, string.Join(\u0022\\n\u0022, lines) \u002B \u0022\\n\u0022);\n    if (!iniExisted) Own(ini);\n    ScriptConsole.WriteLine((object)(\u0022Applied \u0022 \u002B changed \u002B \u0022 config editor setting(s) to server.ini.\u0022));\n}\n\nif (newSeedVar != null)\n{\n    var service = await GameServiceManager.GetAsync(ThisService.ServiceId);\n    var updated = new TCAdminVars();\n    foreach (var pair in service.Variables ?? new TCAdminVars()) updated[pair.Key] = pair.Value;\n    updated[\u0022Seed\u0022] = newSeedVar;\n    service.Variables = updated;\n    GameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\n    await GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n}\n\n// The Workshop mod list (the Workshop page adds and removes entries).\nstring modconfig = Path.Combine(galaxy, \u0022modconfig.lua\u0022);\nif (!File.Exists(modconfig))\n{\n    File.WriteAllText(modconfig, \u0022modLocation = \\\u0022\\\u0022\\nforceEnabling = false\\n\\nmods =\\n{\\n}\\n\\nallowed =\\n{\\n}\\n\u0022);\n    Own(modconfig);\n    ScriptConsole.WriteLine((object)\u0022Created an empty modconfig.lua.\u0022);\n}\n\n// Linux: the script runs as root; a file or folder it creates belongs to the service user (root-owned files are\n// hidden in the file manager and the server cannot write them).\nvoid Own(string path)\n{\n    if (System.OperatingSystem.IsLinux()) Globals.OperatingSystem.SetFileOwnerAutoDetect(path);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "015a51b6-6fc0-59e1-a427-de63f13dd27f"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStopped"
+        ],
+        "name": "Save the galaxy and shut down",
+        "description": "Sends /stop (saves the galaxy and shuts down) and waits until the server exits.",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Graceful stop: the /stop console command saves the galaxy (sectors, factions, players) and shuts the server down.\n// Sent through the same path as a command typed in the console; the panel then finds the server already stopped.\nconst int maxWaitSeconds = 120;\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(Path.DirectorySeparatorChar) \u002B Path.DirectorySeparatorChar;\nvar binary = System.OperatingSystem.IsWindows() ? \u0022AvorionServer.exe\u0022 : \u0022AvorionServer\u0022;\n\nList\u003Cint\u003E ServerPids()\n{\n    var pids = new List\u003Cint\u003E();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var p in Process.GetProcessesByName(Path.GetFileNameWithoutExtension(binary)))\n        {\n            try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) pids.Add(p.Id); }\n            catch { } // exited meanwhile\n        }\n        return pids;\n    }\n    foreach (var dir in Directory.EnumerateDirectories(\u0022/proc\u0022))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var exe = new FileInfo(Path.Combine(dir, \u0022exe\u0022)).LinkTarget ?? \u0022\u0022;\n            if (exe.StartsWith(root, StringComparison.Ordinal) \u0026\u0026 Path.GetFileName(exe) == binary) pids.Add(pid);\n        }\n        catch { } // processes of other users, or gone meanwhile\n    }\n    return pids;\n}\n\nif (ServerPids().Count == 0)\n{\n    ScriptConsole.WriteLine((object)\u0022The server is not running.\u0022);\n    return;\n}\nawait ServiceManagerService.SendConsoleInput(ThisService.ServiceId, \u0022/stop\u0022);\nScriptConsole.WriteLine((object)\u0022Asked the server to save the galaxy and shut down (/stop).\u0022);\nfor (var second = 1; second \u003C= maxWaitSeconds; second\u002B\u002B)\n{\n    await Task.Delay(1000, ThisCancellationToken);\n    if (ServerPids().Count == 0)\n    {\n        ScriptConsole.WriteLine((object)(\u0022The server exited after \u0022 \u002B second \u002B \u0022 s.\u0022));\n        return;\n    }\n}\nScriptConsole.WriteLine((object)(\u0022The server did not exit within \u0022 \u002B maxWaitSeconds \u002B \u0022 s; the panel stops it now.\u0022));\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "d0624186-76bd-512b-9d8f-10a8609c12c8"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Save the galaxy",
+        "description": "Saves the galaxy now (/save).",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll\nusing System;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Saves the galaxy now (the /save console command).\ntry\n{\n    await ServiceManagerService.SendConsoleInput(ThisService.ServiceId, \u0022/save\u0022);\n    ScriptConsole.WriteLine((object)\u0022Asked the server to save the galaxy. The console shows when it is done.\u0022);\n}\ncatch (Exception ex)\n{\n    ScriptConsole.WriteLine((object)(\u0022The command was not sent (\u0022 \u002B ex.Message \u002B \u0022). Is the server running?\u0022));\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "\u003Cpath d=\u0022M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "e168c9cf-bc53-516e-8cd3-a5f05b690295"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "AfterCustomModInstalled"
+        ],
+        "name": "Add the Workshop mod to modconfig.lua",
+        "description": "Adds the Workshop item to the galaxy\u0027s modconfig.lua. The server downloads and loads it when it starts.",
+        "code": "using System;\nusing System.IO;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Avorion servers download their Workshop mods themselves: the ids listed in the galaxy\u0027s modconfig.lua\n// (mods = { {workshopid = \u0022\u003Cid\u003E\u0022}, ... }) are downloaded and loaded when the server starts, and players who join\n// get them from the Workshop. Add this item to the list.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \u0022^[0-9]\u002B$\u0022)) throw new Exception(\u0022Unexpected Workshop id: \u0022 \u002B fileId);\nstring modConfigPath = Path.Combine((string)ThisService.RootDirectory, \u0022galaxies\u0022, \u0022avorion_galaxy\u0022, \u0022modconfig.lua\u0022);\nconst string emptyModConfig = \u0022modLocation = \\\u0022\\\u0022\\nforceEnabling = false\\n\\nmods =\\n{\\n}\\n\\nallowed =\\n{\\n}\\n\u0022;\n\nstring ReadModConfig()\n{\n    if (!File.Exists(modConfigPath)) return emptyModConfig;\n    string t = File.ReadAllText(modConfigPath);\n    // No mods table (an edited or truncated file): add one.\n    if (!Regex.IsMatch(t, \u0022(?m)^\\\\s*mods\\\\s*=\\\\s*\\\\{\u0022)) t = t.TrimEnd() \u002B \u0022\\n\\nmods =\\n{\\n}\\n\u0022;\n    return t;\n}\n\nvoid WriteModConfig(string t)\n{\n    Directory.CreateDirectory(Path.GetDirectoryName(modConfigPath));\n    File.WriteAllText(modConfigPath, t);\n    if (System.OperatingSystem.IsLinux()) Globals.OperatingSystem.SetFileOwnerAutoDetect(modConfigPath);\n}\n\n// open = index after the \u0022{\u0022 of \u0022mods = {\u0022, close = index of its matching \u0022}\u0022 (Lua comments are skipped).\nvoid FindModsTable(string t, out int open, out int close)\n{\n    var m = Regex.Match(t, \u0022(?m)^\\\\s*mods\\\\s*=\\\\s*\\\\{\u0022);\n    open = m.Index \u002B m.Length;\n    int depth = 1, i = open;\n    for (; i \u003C t.Length \u0026\u0026 depth \u003E 0; i\u002B\u002B)\n    {\n        if (t[i] == \u0027-\u0027 \u0026\u0026 i \u002B 1 \u003C t.Length \u0026\u0026 t[i \u002B 1] == \u0027-\u0027) { while (i \u003C t.Length \u0026\u0026 t[i] != \u0027\\n\u0027) i\u002B\u002B; continue; }\n        if (t[i] == \u0027\u0022\u0027) { i\u002B\u002B; while (i \u003C t.Length \u0026\u0026 t[i] != \u0027\u0022\u0027) i\u002B\u002B; continue; }\n        if (t[i] == \u0027{\u0027) depth\u002B\u002B;\n        else if (t[i] == \u0027}\u0027) depth--;\n    }\n    if (depth != 0) throw new Exception(\u0022modconfig.lua has no closing } for the mods table; fix the file in the file manager.\u0022);\n    close = i - 1;\n}\n\n\nstring text = ReadModConfig();\nint open, close;\nFindModsTable(text, out open, out close);\nstring table = text.Substring(open, close - open);\nif (Regex.IsMatch(table, \u0022workshopid\\\\s*=\\\\s*\\\u0022\u0022 \u002B fileId \u002B \u0022\\\u0022\u0022))\n{\n    ScriptConsole.WriteLine((object)(\u0022Workshop item \u0022 \u002B fileId \u002B \u0022 is already in modconfig.lua.\u0022));\n    return;\n}\n// Lua allows a comma after the last entry; make sure the entry before ours has one.\nstring before = text.Substring(0, close).TrimEnd();\nstring sep = before.EndsWith(\u0022}\u0022) ? \u0022,\u0022 : \u0022\u0022;\nstring inserted = before \u002B sep \u002B \u0022\\n    {workshopid = \\\u0022\u0022 \u002B fileId \u002B \u0022\\\u0022},\\n\u0022 \u002B text.Substring(close);\nWriteModConfig(inserted);\nScriptConsole.WriteLine((object)(\u0022Added Workshop item \u0022 \u002B fileId \u002B \u0022 to modconfig.lua. The server downloads and loads it the next time it starts.\u0022));\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "\u003Cpath d=\u0022M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "46703f94-c79c-596b-8a56-b0cab22b904b"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeCustomModUninstalled"
+        ],
+        "name": "Remove the Workshop mod from modconfig.lua",
+        "description": "Removes the Workshop item from the galaxy\u0027s modconfig.lua.",
+        "code": "using System;\nusing System.IO;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Removes this Workshop item from the galaxy\u0027s modconfig.lua; the server stops loading it the next time it starts.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \u0022^[0-9]\u002B$\u0022)) throw new Exception(\u0022Unexpected Workshop id: \u0022 \u002B fileId);\nstring modConfigPath = Path.Combine((string)ThisService.RootDirectory, \u0022galaxies\u0022, \u0022avorion_galaxy\u0022, \u0022modconfig.lua\u0022);\nconst string emptyModConfig = \u0022modLocation = \\\u0022\\\u0022\\nforceEnabling = false\\n\\nmods =\\n{\\n}\\n\\nallowed =\\n{\\n}\\n\u0022;\n\nstring ReadModConfig()\n{\n    if (!File.Exists(modConfigPath)) return emptyModConfig;\n    string t = File.ReadAllText(modConfigPath);\n    // No mods table (an edited or truncated file): add one.\n    if (!Regex.IsMatch(t, \u0022(?m)^\\\\s*mods\\\\s*=\\\\s*\\\\{\u0022)) t = t.TrimEnd() \u002B \u0022\\n\\nmods =\\n{\\n}\\n\u0022;\n    return t;\n}\n\nvoid WriteModConfig(string t)\n{\n    Directory.CreateDirectory(Path.GetDirectoryName(modConfigPath));\n    File.WriteAllText(modConfigPath, t);\n    if (System.OperatingSystem.IsLinux()) Globals.OperatingSystem.SetFileOwnerAutoDetect(modConfigPath);\n}\n\n// open = index after the \u0022{\u0022 of \u0022mods = {\u0022, close = index of its matching \u0022}\u0022 (Lua comments are skipped).\nvoid FindModsTable(string t, out int open, out int close)\n{\n    var m = Regex.Match(t, \u0022(?m)^\\\\s*mods\\\\s*=\\\\s*\\\\{\u0022);\n    open = m.Index \u002B m.Length;\n    int depth = 1, i = open;\n    for (; i \u003C t.Length \u0026\u0026 depth \u003E 0; i\u002B\u002B)\n    {\n        if (t[i] == \u0027-\u0027 \u0026\u0026 i \u002B 1 \u003C t.Length \u0026\u0026 t[i \u002B 1] == \u0027-\u0027) { while (i \u003C t.Length \u0026\u0026 t[i] != \u0027\\n\u0027) i\u002B\u002B; continue; }\n        if (t[i] == \u0027\u0022\u0027) { i\u002B\u002B; while (i \u003C t.Length \u0026\u0026 t[i] != \u0027\u0022\u0027) i\u002B\u002B; continue; }\n        if (t[i] == \u0027{\u0027) depth\u002B\u002B;\n        else if (t[i] == \u0027}\u0027) depth--;\n    }\n    if (depth != 0) throw new Exception(\u0022modconfig.lua has no closing } for the mods table; fix the file in the file manager.\u0022);\n    close = i - 1;\n}\n\n\nstring text = ReadModConfig();\nint open, close;\nFindModsTable(text, out open, out close);\nstring table = text.Substring(open, close - open);\nstring cleaned = Regex.Replace(table, \u0022[ \\\\t]*\\\\{\\\\s*workshopid\\\\s*=\\\\s*\\\u0022\u0022 \u002B fileId \u002B \u0022\\\u0022\\\\s*\\\\}\\\\s*,?[ \\\\t]*\\\\r?\\\\n?\u0022, \u0022\u0022);\nif (cleaned == table)\n{\n    ScriptConsole.WriteLine((object)(\u0022Workshop item \u0022 \u002B fileId \u002B \u0022 was not in modconfig.lua.\u0022));\n    return;\n}\nWriteModConfig(text.Substring(0, open) \u002B cleaned \u002B text.Substring(close));\nScriptConsole.WriteLine((object)(\u0022Removed Workshop item \u0022 \u002B fileId \u002B \u0022 from modconfig.lua. The server no longer loads it after its next start.\u0022));\n\n// The copy the server downloaded (galaxies/avorion_galaxy/workshop/content/445220/\u003Cid\u003E).\nstring downloaded = Path.Combine(Path.GetDirectoryName(modConfigPath), \u0022workshop\u0022, \u0022content\u0022, \u0022445220\u0022, fileId);\nif (Directory.Exists(downloaded))\n{\n    try { Directory.Delete(downloaded, true); ScriptConsole.WriteLine((object)\u0022Deleted the downloaded mod files.\u0022); }\n    catch (Exception ex) { ScriptConsole.WriteLine((object)(\u0022The downloaded mod files stay until the server is stopped (\u0022 \u002B ex.Message \u002B \u0022).\u0022)); }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "\u003Cpath d=\u0022M19 13H5v-2h14v2z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "71f9240f-f7e5-5be3-a170-3fbd708e08c3"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "AfterServiceCreated",
+          "AfterServiceReinstalled",
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the Linux server",
+        "description": "Makes bin/AvorionServer executable and installs missing shared libraries (apt, dnf or yum).",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Linux: makes the native server (bin/AvorionServer) executable (Steam downloads lose the bit now and then) and\n// installs the shared libraries it needs when the host does not have them. The Steam libraries in linux64 and bin\n// are found through the LD_LIBRARY_PATH environment variable of the game.\nvar root = (string)ThisService.RootDirectory;\nvar server = Path.Combine(root, \u0022bin\u0022, \u0022AvorionServer\u0022);\nif (System.OperatingSystem.IsLinux() \u0026\u0026 File.Exists(server))\n{\n    var mode = File.GetUnixFileMode(server);\n    var wanted = mode | UnixFileMode.UserExecute | UnixFileMode.GroupExecute | UnixFileMode.OtherExecute;\n    if (mode != wanted)\n    {\n        File.SetUnixFileMode(server, wanted);\n        ScriptConsole.WriteLine((object)\u0022Made bin/AvorionServer executable.\u0022);\n    }\n}\n\n// Linux: install the shared libraries the server binary links but this host does not have.\nif (System.OperatingSystem.IsLinux())\n{\n    var binary = server;\n    var packages = new Dictionary\u003Cstring, (string[] Apt, string[] Rpm)\u003E\n    {\n        [\u0022libstdc\u002B\u002B.so.6\u0022] = (new[] { \u0022libstdc\u002B\u002B6\u0022 }, new[] { \u0022libstdc\u002B\u002B\u0022 }),\n        [\u0022libgcc_s.so.1\u0022] = (new[] { \u0022libgcc-s1\u0022, \u0022libgcc1\u0022 }, new[] { \u0022libgcc\u0022 }),\n        [\u0022libz.so.1\u0022] = (new[] { \u0022zlib1g\u0022 }, new[] { \u0022zlib\u0022 })\n    };\n    Shell(\u0022ldd \u0027\u0022 \u002B binary \u002B \u0022\u0027\u0022, out var lddOutput);\n    var missing = lddOutput.Split(\u0027\\n\u0027).Where(l =\u003E l.Contains(\u0022=\u003E not found\u0022)).Select(l =\u003E l.Trim().Split(\u0027 \u0027)[0]).ToList();\n    foreach (var soname in missing)\n    {\n        if (!packages.TryGetValue(soname, out var candidates))\n        {\n            ScriptConsole.WriteLine((object)(\u0022The server needs \u0022 \u002B soname \u002B \u0022, which is not installed on this host.\u0022));\n            continue;\n        }\n        ScriptConsole.WriteLine((object)(soname \u002B \u0022 is missing on this host; installing it.\u0022));\n        var apt = Shell(\u0022command -v apt-get\u0022, out _);\n        var tool = apt ? \u0022DEBIAN_FRONTEND=noninteractive apt-get install -y \u0022 : Shell(\u0022command -v dnf\u0022, out _) ? \u0022dnf install -y \u0022 : \u0022yum install -y \u0022;\n        var names = apt ? candidates.Apt : candidates.Rpm;\n        var installed = names.Any(p =\u003E Shell(tool \u002B p, out _));\n        if (!installed \u0026\u0026 apt \u0026\u0026 Shell(\u0022apt-get update\u0022, out _)) installed = names.Any(p =\u003E Shell(tool \u002B p, out _));\n        if (!installed) throw new Exception(soname \u002B \u0022 is missing and could not be installed. Install one of these packages on the host: \u0022 \u002B string.Join(\u0022, \u0022, names));\n        ScriptConsole.WriteLine((object)(\u0022Installed \u0022 \u002B soname \u002B \u0022.\u0022));\n    }\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\u0022/bin/sh\u0022, new[] { \u0022-c\u0022, command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() \u002B process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "04993bde-1119-5eb1-8a85-11253e381b84"
+      }
+    }
+  ],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 322,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 2,
+      "gameId": 322,
+      "enabled": true,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "AllowCollections": true,
+        "ShowDescription": true,
+        "ShowAuthorAndRating": true,
+        "Private.UseSteamAPI": false,
+        "SkipDownload": true
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 322,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 322,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 5,
+      "gameId": 322,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 322,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 322,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    }
+  ],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-11T13:28:57.538156",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "galaxies/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": [
+    {
+      "id": 145,
+      "blueprintId": 322,
+      "name": "LD_LIBRARY_PATH",
+      "value": "${ThisService.RootDirectory}/linux64:${ThisService.RootDirectory}/bin",
+      "valueType": "Template"
+    }
+  ]
+}
