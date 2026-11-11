@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.23.43.17810",
-  "__TCA:ExportedAt": "2026-11-10T17:26:18.5847513Z",
+  "__TCA:ExportVersion": "3.23.46.17810",
+  "__TCA:ExportedAt": "2026-11-11T20:30:13.9962717Z",
   "name": "Arma Reforger",
   "shortName": "Reforger",
   "description": "",
@@ -69,14 +69,14 @@
       {
         "id": "QueryPort",
         "port": 17777,
-        "expression": "GamePort \u002B 15776",
+        "expression": "GamePort + 15776",
         "description": null,
         "uriTemplate": null
       },
       {
         "id": "RConPort",
         "port": 19999,
-        "expression": "GamePort \u002B 17998",
+        "expression": "GamePort + 17998",
         "description": null,
         "uriTemplate": null
       }
@@ -114,7 +114,7 @@
   "commandlineConfig": {
     "enableSelection": true,
     "defaultCommandline": "-config ./config.json -profile ./profile -addonTempDir ./tmp -backendlog -nothrow ${MaxFPS}",
-    "defaultCustomCommandline": "-config ./config.json -profile ./profile -addonTempDir ./tmp -backendlog -nothrow ${MaxFPS} ${UserCommandLine}",
+    "defaultCustomCommandline": "-config ./config.json -profile ./profile -addonTempDir ./tmp -backendlog -nothrow ${MaxFPS}",
     "predefinedCommandlines": [
       {
         "id": 1,
@@ -159,7 +159,7 @@
         "id": "AdminPassword",
         "defaultValue": "",
         "label": "Admin password",
-        "description": "Players log in as admin with #login \u003Cpassword\u003E in the chat. No spaces.",
+        "description": "Players log in as admin with #login <password> in the chat. No spaces.",
         "required": false,
         "valueType": "string",
         "requiredMessage": "Value is required",
@@ -321,7 +321,7 @@
         "id": "Admins",
         "defaultValue": "[]",
         "label": "Admins (JSON list)",
-        "description": "Identity ids or Steam ids that are admins without a password (20 at most), e.g. [\u002276561198000000000\u0022]. Keep [] for none.",
+        "description": "Identity ids or Steam ids that are admins without a password (20 at most), e.g. [\"76561198000000000\"]. Keep [] for none.",
         "required": false,
         "valueType": "string",
         "requiredMessage": "Value is required",
@@ -723,7 +723,7 @@
         "id": "Mods",
         "defaultValue": "[]",
         "label": "Mods (JSON list)",
-        "description": "Workshop mods the server downloads and players get on join. Each entry: {\u0022modId\u0022: \u0022\u003Cid from the Workshop page\u003E\u0022, \u0022name\u0022: \u0022\u003Cany label\u003E\u0022}, add \u0022version\u0022: \u0022x.y.z\u0022 to pin one. Keep [] for none.",
+        "description": "Workshop mods the server downloads and players get on join. Each entry: {\"modId\": \"<id from the Workshop page>\", \"name\": \"<any label>\"}, add \"version\": \"x.y.z\" to pin one. Keep [] for none.",
         "required": false,
         "valueType": "string",
         "requiredMessage": "Value is required",
@@ -1001,7 +1001,7 @@
       "id": 418,
       "relativePath": "config.json",
       "description": "Server settings (config.json)",
-      "template": "{\n  \u0022bindAddress\u0022: \u0022${IPAddress}\u0022,\n  \u0022bindPort\u0022: ${GamePort},\n  \u0022publicAddress\u0022: \u0022${IPAddress}\u0022,\n  \u0022publicPort\u0022: ${GamePort},\n  \u0022a2s\u0022: {\n    \u0022address\u0022: \u0022${IPAddress}\u0022,\n    \u0022port\u0022: ${QueryPort}\n  },\n  \u0022rcon\u0022: {\n    \u0022address\u0022: \u0022${IPAddress}\u0022,\n    \u0022port\u0022: ${RConPort},\n    \u0022password\u0022: \u0022${RconPassword}\u0022,\n    \u0022permission\u0022: \u0022admin\u0022,\n    \u0022maxClients\u0022: 16,\n    \u0022blacklist\u0022: [],\n    \u0022whitelist\u0022: []\n  },\n  \u0022game\u0022: {\n    \u0022name\u0022: \u0022${Hostname}\u0022,\n    \u0022password\u0022: \u0022${PrivatePassword}\u0022,\n    \u0022passwordAdmin\u0022: \u0022${AdminPassword}\u0022,\n    \u0022admins\u0022: ${Admins},\n    \u0022scenarioId\u0022: \u0022${ScenarioId}\u0022,\n    \u0022maxPlayers\u0022: ${Slots},\n    \u0022visible\u0022: ${Visible},\n    \u0022crossPlatform\u0022: ${CrossPlatform},\n    \u0022modsRequiredByDefault\u0022: true,\n    \u0022gameProperties\u0022: {\n      \u0022serverMaxViewDistance\u0022: ${ServerMaxViewDistance},\n      \u0022serverMinGrassDistance\u0022: ${ServerMinGrassDistance},\n      \u0022networkViewDistance\u0022: ${NetworkViewDistance},\n      \u0022disableThirdPerson\u0022: ${DisableThirdPerson},\n      \u0022fastValidation\u0022: ${FastValidation},\n      \u0022battlEye\u0022: ${BattlEye},\n      \u0022VONDisableUI\u0022: ${VONDisableUI},\n      \u0022VONDisableDirectSpeechUI\u0022: ${VONDisableDirectSpeechUI},\n      \u0022VONCanTransmitCrossFaction\u0022: ${VONCanTransmitCrossFaction}\n    },\n    \u0022mods\u0022: ${Mods}\n  },\n  \u0022operating\u0022: {\n    \u0022lobbyPlayerSynchronise\u0022: true,\n    \u0022playerSaveTime\u0022: ${PlayerSaveTime},\n    \u0022aiLimit\u0022: ${AiLimit},\n    \u0022slotReservationTimeout\u0022: ${SlotReservationTimeout},\n    \u0022disableAI\u0022: ${DisableAI},\n    \u0022joinQueue\u0022: {\n      \u0022maxSize\u0022: ${JoinQueueSize}\n    }\n  }\n}\n",
+      "template": "{\n  \"bindAddress\": \"${IPAddress}\",\n  \"bindPort\": ${GamePort},\n  \"publicAddress\": \"${IPAddress}\",\n  \"publicPort\": ${GamePort},\n  \"a2s\": {\n    \"address\": \"${IPAddress}\",\n    \"port\": ${QueryPort}\n  },\n  \"rcon\": {\n    \"address\": \"${IPAddress}\",\n    \"port\": ${RConPort},\n    \"password\": \"${RconPassword}\",\n    \"permission\": \"admin\",\n    \"maxClients\": 16,\n    \"blacklist\": [],\n    \"whitelist\": []\n  },\n  \"game\": {\n    \"name\": \"${Hostname}\",\n    \"password\": \"${PrivatePassword}\",\n    \"passwordAdmin\": \"${AdminPassword}\",\n    \"admins\": ${Admins},\n    \"scenarioId\": \"${ScenarioId}\",\n    \"maxPlayers\": ${Slots},\n    \"visible\": ${Visible},\n    \"crossPlatform\": ${CrossPlatform},\n    \"modsRequiredByDefault\": true,\n    \"gameProperties\": {\n      \"serverMaxViewDistance\": ${ServerMaxViewDistance},\n      \"serverMinGrassDistance\": ${ServerMinGrassDistance},\n      \"networkViewDistance\": ${NetworkViewDistance},\n      \"disableThirdPerson\": ${DisableThirdPerson},\n      \"fastValidation\": ${FastValidation},\n      \"battlEye\": ${BattlEye},\n      \"VONDisableUI\": ${VONDisableUI},\n      \"VONDisableDirectSpeechUI\": ${VONDisableDirectSpeechUI},\n      \"VONCanTransmitCrossFaction\": ${VONCanTransmitCrossFaction}\n    },\n    \"mods\": ${Mods}\n  },\n  \"operating\": {\n    \"lobbyPlayerSynchronise\": true,\n    \"playerSaveTime\": ${PlayerSaveTime},\n    \"aiLimit\": ${AiLimit},\n    \"slotReservationTimeout\": ${SlotReservationTimeout},\n    \"disableAI\": ${DisableAI},\n    \"joinQueue\": {\n      \"maxSize\": ${JoinQueueSize}\n    }\n  }\n}\n",
       "order": 1,
       "enableEditor": true,
       "editor": [
@@ -1022,15 +1022,15 @@
           "requiresAnyVisible": []
         },
         {
-          "maxLength": 0,
+          "maxLength": 100,
           "lines": 1,
           "denyCharacters": [],
-          "regExValidation": "",
+          "regExValidation": "^[^\"\\\\]*$",
           "inputType": 0,
           "id": "Hostname",
           "defaultValue": "",
           "label": "Server name",
-          "description": "Shown in the server browser (100 characters at most).",
+          "description": "Shown in the server browser (100 characters at most). No double quotes or backslashes.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -1042,15 +1042,15 @@
           "requiresAnyVisible": []
         },
         {
-          "maxLength": 0,
+          "maxLength": 64,
           "lines": 1,
           "denyCharacters": [],
-          "regExValidation": "",
+          "regExValidation": "^[^\"\\\\]*$",
           "inputType": 0,
           "id": "PrivatePassword",
           "defaultValue": "",
           "label": "Join password",
-          "description": "Leave empty for a public server.",
+          "description": "Leave empty for a public server. No double quotes or backslashes.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -1062,15 +1062,15 @@
           "requiresAnyVisible": []
         },
         {
-          "maxLength": 0,
+          "maxLength": 64,
           "lines": 1,
           "denyCharacters": [],
-          "regExValidation": "",
+          "regExValidation": "^[^\"\\\\\\s]*$",
           "inputType": 0,
           "id": "AdminPassword",
           "defaultValue": "",
           "label": "Admin password",
-          "description": "Players log in as admin with #login \u003Cpassword\u003E in the chat. No spaces.",
+          "description": "Players log in as admin with #login <password> in the chat. No spaces. No double quotes or backslashes.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -1082,15 +1082,15 @@
           "requiresAnyVisible": []
         },
         {
-          "maxLength": 0,
+          "maxLength": 200,
           "lines": 1,
           "denyCharacters": [],
-          "regExValidation": "",
+          "regExValidation": "^[^\"\\\\]*$",
           "inputType": 0,
           "id": "ScenarioId",
           "defaultValue": "{ECC61978EDCC2B5A}Missions/23_Campaign.conf",
           "label": "Scenario id",
-          "description": "The .conf id of the scenario, e.g. {ECC61978EDCC2B5A}Missions/23_Campaign.conf (Conflict - Everon) or {59AD59368755F41A}Missions/21_GM_Eden.conf (Game Master - Everon). All official ids are in scenarios.txt in the service folder. For a Workshop scenario, add its mod below and use the id from its Workshop page.",
+          "description": "The .conf id of the scenario, e.g. {ECC61978EDCC2B5A}Missions/23_Campaign.conf (Conflict - Everon) or {59AD59368755F41A}Missions/21_GM_Eden.conf (Game Master - Everon). All official ids are in scenarios.txt in the service folder. For a Workshop scenario, add its mod below and use the id from its Workshop page. No double quotes or backslashes.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -1139,12 +1139,12 @@
           "maxLength": 0,
           "lines": 2,
           "denyCharacters": [],
-          "regExValidation": "",
+          "regExValidation": "^\\s*\\[[\\s\\S]*\\]\\s*$",
           "inputType": 0,
           "id": "Admins",
           "defaultValue": "[]",
           "label": "Admins (JSON list)",
-          "description": "Identity ids or Steam ids that are admins without a password (20 at most), e.g. [\u002276561198000000000\u0022]. Keep [] for none.",
+          "description": "Identity ids or Steam ids that are admins without a password (20 at most), e.g. [\"76561198000000000\"]. Keep [] for none.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -1353,12 +1353,12 @@
           "maxLength": 0,
           "lines": 6,
           "denyCharacters": [],
-          "regExValidation": "",
+          "regExValidation": "^\\s*\\[[\\s\\S]*\\]\\s*$",
           "inputType": 0,
           "id": "Mods",
           "defaultValue": "[]",
           "label": "Mods (JSON list)",
-          "description": "Workshop mods the server downloads and players get on join. Each entry: {\u0022modId\u0022: \u0022\u003Cid from the Workshop page\u003E\u0022, \u0022name\u0022: \u0022\u003Cany label\u003E\u0022}, add \u0022version\u0022: \u0022x.y.z\u0022 to pin one. Keep [] for none.",
+          "description": "Workshop mods the server downloads and players get on join. Each entry: {\"modId\": \"<id from the Workshop page>\", \"name\": \"<any label>\"}, add \"version\": \"x.y.z\" to pin one. Keep [] for none.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -1488,7 +1488,7 @@
       "id": 421,
       "relativePath": "scenarios.txt",
       "description": "Official scenario ids (reference for the scenario id setting)",
-      "template": "Official Arma Reforger scenarios. Copy an id into the \u0022Scenario id\u0022 setting of config.json.\n\n{ECC61978EDCC2B5A}Missions/23_Campaign.conf  Conflict - Everon\n{002AF7323E0129AF}Missions/Tutorial.conf  Training\n{59AD59368755F41A}Missions/21_GM_Eden.conf  Game Master - Everon\n{2BBBE828037C6F4B}Missions/22_GM_Arland.conf  Game Master - Arland\n{F45C6C15D31252E6}Missions/27_GM_Cain.conf  Game Master - Kolguyev\n{C700DB41F0C546E1}Missions/23_Campaign_NorthCentral.conf  Conflict - Northern Everon\n{28802845ADA64D52}Missions/23_Campaign_SWCoast.conf  Conflict - Southern Everon\n{94992A3D7CE4FF8A}Missions/23_Campaign_Western.conf  Conflict - Western Everon\n{FDE33AFE2ED7875B}Missions/23_Campaign_Montignac.conf  Conflict - Montignac\n{DAA03C6E6099D50F}Missions/24_CombatOps.conf  Combat Ops - Arland\n{C41618FD18E9D714}Missions/23_Campaign_Arland.conf  Conflict - Arland\n{DFAC5FABD11F2390}Missions/26_CombatOpsEveron.conf  Combat Ops - Everon\n",
+      "template": "Official Arma Reforger scenarios. Copy an id into the \"Scenario id\" setting of config.json.\n\n{ECC61978EDCC2B5A}Missions/23_Campaign.conf  Conflict - Everon\n{002AF7323E0129AF}Missions/Tutorial.conf  Training\n{59AD59368755F41A}Missions/21_GM_Eden.conf  Game Master - Everon\n{2BBBE828037C6F4B}Missions/22_GM_Arland.conf  Game Master - Arland\n{F45C6C15D31252E6}Missions/27_GM_Cain.conf  Game Master - Kolguyev\n{C700DB41F0C546E1}Missions/23_Campaign_NorthCentral.conf  Conflict - Northern Everon\n{28802845ADA64D52}Missions/23_Campaign_SWCoast.conf  Conflict - Southern Everon\n{94992A3D7CE4FF8A}Missions/23_Campaign_Western.conf  Conflict - Western Everon\n{FDE33AFE2ED7875B}Missions/23_Campaign_Montignac.conf  Conflict - Montignac\n{DAA03C6E6099D50F}Missions/24_CombatOps.conf  Combat Ops - Arland\n{C41618FD18E9D714}Missions/23_Campaign_Arland.conf  Conflict - Arland\n{DFAC5FABD11F2390}Missions/26_CombatOpsEveron.conf  Combat Ops - Everon\n",
       "order": 2,
       "enableEditor": false,
       "editor": []
@@ -1537,119 +1537,7 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "CpuStats",
+      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -1663,37 +1551,9 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "CustomScripts",
+      "permission": "CpuStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 2,
@@ -1706,13 +1566,6 @@
       "roleId": 2,
       "module": "BpFeature",
       "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "KillService",
       "moduleData": "",
       "granted": true
     },
@@ -1740,28 +1593,7 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
       "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -1775,14 +1607,42 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Repair",
+      "permission": "ScheduledTasks",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "ScheduledTasks",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
       "moduleData": "",
       "granted": true
     },
@@ -1796,16 +1656,156 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "ServiceSettings",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
       "moduleData": "",
       "granted": false
     },
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "SteamUpdate",
+      "permission": "Create",
       "moduleData": "",
-      "granted": true
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
     },
     {
       "roleId": 2,
@@ -1817,119 +1817,7 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "CpuStats",
+      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -1943,37 +1831,9 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "CustomScripts",
+      "permission": "CpuStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 3,
@@ -1986,13 +1846,6 @@
       "roleId": 3,
       "module": "BpFeature",
       "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "KillService",
       "moduleData": "",
       "granted": true
     },
@@ -2020,28 +1873,7 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
       "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -2055,14 +1887,119 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Repair",
+      "permission": "ScheduledTasks",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "ScheduledTasks",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
       "moduleData": "",
       "granted": true
     },
@@ -2076,16 +2013,79 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "ServiceSettings",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
       "moduleData": "",
       "granted": false
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "SteamUpdate",
+      "permission": "Create",
       "moduleData": "",
-      "granted": true
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
     },
     {
       "roleId": 3,
