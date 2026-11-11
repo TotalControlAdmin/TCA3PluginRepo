@@ -182,7 +182,14 @@
       "createdDate": "2026-09-22T23:29:54.936413",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "JavaMemory",
@@ -217,7 +224,14 @@
       "createdDate": "2026-09-23T01:08:01.874602",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "Public",
@@ -255,9 +269,6 @@
         },
         {
           "roleId": 3
-        },
-        {
-          "roleId": 4
         }
       ]
     },
@@ -297,9 +308,6 @@
         },
         {
           "roleId": 3
-        },
-        {
-          "roleId": 4
         }
       ]
     },
@@ -342,9 +350,6 @@
         },
         {
           "roleId": 3
-        },
-        {
-          "roleId": 4
         }
       ]
     },
@@ -387,9 +392,6 @@
         },
         {
           "roleId": 3
-        },
-        {
-          "roleId": 4
         }
       ]
     },
@@ -429,9 +431,6 @@
         },
         {
           "roleId": 3
-        },
-        {
-          "roleId": 4
         }
       ]
     },
@@ -471,9 +470,6 @@
         },
         {
           "roleId": 3
-        },
-        {
-          "roleId": 4
         }
       ]
     },
@@ -513,9 +509,6 @@
         },
         {
           "roleId": 3
-        },
-        {
-          "roleId": 4
         }
       ]
     },
@@ -558,9 +551,6 @@
         },
         {
           "roleId": 3
-        },
-        {
-          "roleId": 4
         }
       ]
     },
@@ -603,9 +593,6 @@
         },
         {
           "roleId": 3
-        },
-        {
-          "roleId": 4
         }
       ]
     }
@@ -979,153 +966,279 @@
     {
       "roleId": 2,
       "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
       "permission": "Databases",
       "moduleData": "",
       "granted": true
     },
     {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "GeneralSettings",
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
       "moduleData": "",
       "granted": false
     },
     {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "FileSystem",
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
       "moduleData": "",
       "granted": false
     },
     {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "Cmdlines",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "IpAndPorts",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "Monitoring",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "Variables",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "Scripts",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "CustomLinks",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "FeaturePermissions",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "EnvironmentVariables",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "Limits",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpEditFeature",
+      "roleId": 2,
+      "module": "BpFeature",
       "permission": "FastDL",
       "moduleData": "",
       "granted": false
     },
     {
-      "roleId": 3,
-      "module": "BpEditFeature",
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
       "permission": "Mods",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "RconAndQuery",
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
       "moduleData": "",
       "granted": false
     },
     {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "Paths",
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
       "moduleData": "",
       "granted": false
     },
     {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "RunAs",
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
-      "roleId": 3,
-      "module": "BpEditFeature",
-      "permission": "Steam",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpEditFeature",
+      "roleId": 2,
+      "module": "BpFeature",
       "permission": "Updates",
       "moduleData": "",
       "granted": false
@@ -1133,21 +1246,84 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "ServiceSettings",
+      "permission": "Backups",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Control",
+      "permission": "Block-Compress",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "KillService",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
       "moduleData": "",
       "granted": false
     },
@@ -1156,61 +1332,26 @@
       "module": "BpFeature",
       "permission": "ConfigFiles",
       "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "CustomCmdlines",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "FileManager",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "FTP",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "ScheduledTasks",
-      "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
       "permission": "Console",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Logs",
+      "permission": "Control",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "ServiceActivity",
+      "permission": "Create",
       "moduleData": "",
       "granted": false
     },
@@ -1219,49 +1360,28 @@
       "module": "BpFeature",
       "permission": "CpuStats",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "MemoryStats",
+      "permission": "CustomCmdlines",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "NetworkStats",
+      "permission": "CustomScripts",
       "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "LiveStats",
+      "permission": "Databases",
       "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Reinstall",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Repair",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
@@ -1280,21 +1400,112 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Backups",
+      "permission": "FastDL",
       "moduleData": "",
       "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
       "permission": "Mods",
       "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
       "granted": false
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "FastDL",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
       "moduleData": "",
       "granted": false
     },
@@ -1303,14 +1514,7 @@
       "module": "BpFeature",
       "permission": "SteamUpdate",
       "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": false
+      "granted": true
     },
     {
       "roleId": 3,
@@ -1318,97 +1522,6 @@
       "permission": "Updates",
       "moduleData": "",
       "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "CustomScripts",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
     }
   ],
   "mods": [],
