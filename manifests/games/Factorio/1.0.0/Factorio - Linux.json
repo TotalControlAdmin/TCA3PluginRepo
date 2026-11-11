@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.23.43.17810",
-  "__TCA:ExportedAt": "2026-11-10T14:38:57.8223074Z",
+  "__TCA:ExportVersion": "3.23.46.17810",
+  "__TCA:ExportedAt": "2026-11-11T18:07:43.4522171Z",
   "name": "Factorio",
   "shortName": "Factorio",
   "description": "",
@@ -75,7 +75,7 @@
       {
         "id": "RConPort",
         "port": 34198,
-        "expression": "GamePort \u002B 1",
+        "expression": "GamePort + 1",
         "description": null,
         "uriTemplate": null
       }
@@ -113,7 +113,7 @@
   "commandlineConfig": {
     "enableSelection": false,
     "defaultCommandline": "--start-server saves/${SaveName}.zip --server-settings server-settings.json --bind ${IPAddress}:${GamePort} --rcon-bind ${IPAddress}:${RConPort} --rcon-password ${RconPassword}",
-    "defaultCustomCommandline": "--start-server saves/${SaveName}.zip --server-settings server-settings.json --bind ${IPAddress}:${GamePort} --rcon-bind ${IPAddress}:${RConPort} --rcon-password ${RconPassword} ${UserCommandLine}",
+    "defaultCustomCommandline": "--start-server saves/${SaveName}.zip --server-settings server-settings.json --bind ${IPAddress}:${GamePort} --rcon-bind ${IPAddress}:${RConPort} --rcon-password ${RconPassword}",
     "predefinedCommandlines": []
   },
   "runAsConfig": {
@@ -189,15 +189,15 @@
         "maxLength": 0,
         "lines": 1,
         "denyCharacters": [],
-        "regExValidation": "",
+        "regExValidation": "^[A-Za-z0-9_-]{1,64}$",
         "inputType": 0,
         "id": "SaveName",
         "defaultValue": "world",
         "label": "Save name",
-        "description": "The game is saves/\u003Cname\u003E.zip; a missing save is created with a new map.",
+        "description": "The game is saves/<name>.zip; a missing save is created with a new map. Use 1-64 letters, digits, - or _.",
         "required": false,
         "valueType": "string",
-        "requiredMessage": "Value is required",
+        "requiredMessage": "",
         "parentId": null,
         "parentValue": null,
         "controlType": "DynamicTextBox",
@@ -550,7 +550,7 @@
       "id": 408,
       "relativePath": "server-settings.json",
       "description": "Server settings (server-settings.json)",
-      "template": "{\n  \u0022name\u0022: \u0022${Hostname}\u0022,\n  \u0022description\u0022: \u0022${Description}\u0022,\n  \u0022tags\u0022: [],\n  \u0022max_players\u0022: ${Slots},\n  \u0022visibility\u0022: { \u0022public\u0022: ${PublicListing}, \u0022lan\u0022: true },\n  \u0022username\u0022: \u0022${FactorioUsername}\u0022,\n  \u0022password\u0022: \u0022\u0022,\n  \u0022token\u0022: \u0022${FactorioToken}\u0022,\n  \u0022game_password\u0022: \u0022${PrivatePassword}\u0022,\n  \u0022require_user_verification\u0022: ${RequireVerification},\n  \u0022max_upload_in_kilobytes_per_second\u0022: 0,\n  \u0022max_upload_slots\u0022: 5,\n  \u0022minimum_latency_in_ticks\u0022: 0,\n  \u0022max_heartbeats_per_second\u0022: 60,\n  \u0022ignore_player_limit_for_returning_players\u0022: false,\n  \u0022allow_commands\u0022: \u0022admins-only\u0022,\n  \u0022autosave_interval\u0022: ${AutosaveInterval},\n  \u0022autosave_slots\u0022: ${AutosaveSlots},\n  \u0022afk_autokick_interval\u0022: ${AfkKick},\n  \u0022auto_pause\u0022: ${AutoPause},\n  \u0022auto_pause_when_players_connect\u0022: false,\n  \u0022only_admins_can_pause_the_game\u0022: true,\n  \u0022autosave_only_on_server\u0022: true,\n  \u0022non_blocking_saving\u0022: false,\n  \u0022minimum_segment_size\u0022: 25,\n  \u0022minimum_segment_size_peer_count\u0022: 20,\n  \u0022maximum_segment_size\u0022: 100,\n  \u0022maximum_segment_size_peer_count\u0022: 10\n}\n",
+      "template": "{\n  \"name\": \"${Hostname}\",\n  \"description\": \"${Description}\",\n  \"tags\": [],\n  \"max_players\": ${Slots},\n  \"visibility\": {\n    \"public\": ${PublicListing},\n    \"lan\": false\n  },\n  \"username\": \"${FactorioUsername}\",\n  \"password\": \"\",\n  \"token\": \"${FactorioToken}\",\n  \"game_password\": \"${PrivatePassword}\",\n  \"require_user_verification\": ${RequireVerification},\n  \"max_upload_in_kilobytes_per_second\": 0,\n  \"max_upload_slots\": 5,\n  \"minimum_latency_in_ticks\": 0,\n  \"max_heartbeats_per_second\": 60,\n  \"ignore_player_limit_for_returning_players\": false,\n  \"allow_commands\": \"admins-only\",\n  \"autosave_interval\": ${AutosaveInterval},\n  \"autosave_slots\": ${AutosaveSlots},\n  \"afk_autokick_interval\": ${AfkKick},\n  \"auto_pause\": ${AutoPause},\n  \"auto_pause_when_players_connect\": false,\n  \"only_admins_can_pause_the_game\": true,\n  \"autosave_only_on_server\": true,\n  \"non_blocking_saving\": false,\n  \"minimum_segment_size\": 25,\n  \"minimum_segment_size_peer_count\": 20,\n  \"maximum_segment_size\": 100,\n  \"maximum_segment_size_peer_count\": 10\n}\n",
       "order": 1,
       "enableEditor": true,
       "editor": [
@@ -634,12 +634,12 @@
           "maxLength": 0,
           "lines": 1,
           "denyCharacters": [],
-          "regExValidation": "",
+          "regExValidation": "^[A-Za-z0-9_-]{1,64}$",
           "inputType": 0,
           "id": "SaveName",
           "defaultValue": "world",
           "label": "Save name",
-          "description": "The game is saves/\u003Cname\u003E.zip; a missing save is created with a new map.",
+          "description": "The game is saves/<name>.zip; a missing save is created with a new map. Use 1-64 letters, digits, - or _.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -854,7 +854,7 @@
         ],
         "name": "Download Factorio",
         "description": "Downloads the newest stable Factorio headless server into the game files folder.",
-        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll, System.Net.Http.dll, System.Text.Json.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGlobals(); // DO NOT MODIFY THIS LINE\n\n// The headless server is not on Steam; fetch the latest stable release into this server\u0027s game files folder\n// (the create task copies it into the new service from there).\nvar target = Path.Combine(ThisServer.Configuration.GameFilesPath, ThisGame.FileAndDirectoryConfig.AutoSetupFolderName);\nvar http = new HttpClient();\nawait InstallHeadless(http, await LatestHeadless(http), target);\n// Shared body of the Factorio install/update scripts: the headless server from factorio.com (Linux only), a tar.xz\n// whose files sit under factorio/; extracted with the host\u0027s tar, which handles xz.\nasync Task\u003Cstring\u003E LatestHeadless(HttpClient http)\n{\n    using (var doc = JsonDocument.Parse(await http.GetStringAsync(\u0022https://factorio.com/api/latest-releases\u0022)))\n        return doc.RootElement.GetProperty(\u0022stable\u0022).GetProperty(\u0022headless\u0022).GetString();\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\u0022/bin/sh\u0022, new[] { \u0022-c\u0022, command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() \u002B process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n\nasync Task InstallHeadless(HttpClient http, string version, string target)\n{\n    Directory.CreateDirectory(target);\n    var archive = Path.Combine(target, \u0022factorio-headless.tar.xz\u0022);\n    using (var response = await http.GetAsync(\u0022https://www.factorio.com/get-download/\u0022 \u002B version \u002B \u0022/headless/linux64\u0022, HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n    {\n        response.EnsureSuccessStatusCode();\n        using (var file = File.Create(archive)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n    }\n    if (!Shell(\u0022tar -xJf \u0027\u0022 \u002B archive \u002B \u0022\u0027 --strip-components=1 -C \u0027\u0022 \u002B target \u002B \u0022\u0027\u0022, out var tarOutput))\n        throw new Exception(\u0022Extracting Factorio \u0022 \u002B version \u002B \u0022 failed (is xz-utils installed?): \u0022 \u002B tarOutput);\n    File.Delete(archive);\n    File.WriteAllText(Path.Combine(target, \u0022factorio-version.txt\u0022), version);\n    ScriptConsole.WriteLine((object)(\u0022Installed Factorio \u0022 \u002B version \u002B \u0022.\u0022));\n}\n",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll, System.Net.Http.dll, System.Text.Json.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGlobals(); // DO NOT MODIFY THIS LINE\n\n// The headless server is not on Steam; fetch the latest stable release into this server's game files folder\n// (the create task copies it into the new service from there).\nvar target = Path.Combine(ThisServer.Configuration.GameFilesPath, ThisGame.FileAndDirectoryConfig.AutoSetupFolderName);\nvar http = new HttpClient();\nawait InstallHeadless(http, await LatestHeadless(http), target);\n// Shared body of the Factorio install/update scripts: the headless server from factorio.com (Linux only), a tar.xz\n// whose files sit under factorio/; extracted with the host's tar, which handles xz.\nasync Task<string> LatestHeadless(HttpClient http)\n{\n    using (var doc = JsonDocument.Parse(await http.GetStringAsync(\"https://factorio.com/api/latest-releases\")))\n        return doc.RootElement.GetProperty(\"stable\").GetProperty(\"headless\").GetString();\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() + process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n\nasync Task InstallHeadless(HttpClient http, string version, string target)\n{\n    Directory.CreateDirectory(target);\n    var archive = Path.Combine(target, \"factorio-headless.tar.xz\");\n    using (var response = await http.GetAsync(\"https://www.factorio.com/get-download/\" + version + \"/headless/linux64\", HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n    {\n        response.EnsureSuccessStatusCode();\n        using (var file = File.Create(archive)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n    }\n    if (!Shell(\"tar -xJf '\" + archive + \"' --strip-components=1 -C '\" + target + \"'\", out var tarOutput))\n        throw new Exception(\"Extracting Factorio \" + version + \" failed (is xz-utils installed?): \" + tarOutput);\n    File.Delete(archive);\n    File.WriteAllText(Path.Combine(target, \"factorio-version.txt\"), version);\n    ScriptConsole.WriteLine((object)(\"Installed Factorio \" + version + \".\"));\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -885,7 +885,7 @@
         ],
         "name": "Update Factorio",
         "description": "Installs the newest stable Factorio headless server. Saves, mods and settings are kept.",
-        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll, System.Net.Http.dll, System.Text.Json.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Installs the newest stable headless server over this service\u0027s files. Saves, mods and settings are not in the\n// archive, so they are kept. The server is stopped for the update and started again if it was running.\nvar root = (string)ThisService.RootDirectory;\nvar http = new HttpClient();\nvar latest = await LatestHeadless(http);\nvar versionFile = Path.Combine(root, \u0022factorio-version.txt\u0022);\nvar installed = File.Exists(versionFile) ? File.ReadAllText(versionFile).Trim() : \u0022\u0022;\nif (installed == latest)\n{\n    ScriptConsole.WriteLine((object)(\u0022The server is up to date (\u0022 \u002B latest \u002B \u0022).\u0022));\n    return;\n}\nScriptConsole.WriteLine((object)(\u0022Updating \u0022 \u002B (installed == \u0022\u0022 ? \u0022the server\u0022 : installed) \u002B \u0022 to \u0022 \u002B latest \u002B \u0022.\u0022));\nvar status = (await ServiceManagerService.GetServiceStatus(ThisService.ServiceId)).Status.ToString();\nvar wasRunning = status == \u0022Started\u0022 || status == \u0022Starting\u0022;\nif (wasRunning)\n{\n    ScriptConsole.WriteLine((object)\u0022Stopping the server.\u0022);\n    await ServiceManagerService.StopService(ThisService.ServiceId);\n}\nawait InstallHeadless(http, latest, root);\nvar credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\nGlobals.OperatingSystem.SetDirectoryOwner(root, credential.Domain, credential.UserName, true);\nif (wasRunning)\n{\n    ScriptConsole.WriteLine((object)\u0022Starting the server.\u0022);\n    await ServiceManagerService.StartService(ThisService.ServiceId);\n}\n// Shared body of the Factorio install/update scripts: the headless server from factorio.com (Linux only), a tar.xz\n// whose files sit under factorio/; extracted with the host\u0027s tar, which handles xz.\nasync Task\u003Cstring\u003E LatestHeadless(HttpClient http)\n{\n    using (var doc = JsonDocument.Parse(await http.GetStringAsync(\u0022https://factorio.com/api/latest-releases\u0022)))\n        return doc.RootElement.GetProperty(\u0022stable\u0022).GetProperty(\u0022headless\u0022).GetString();\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\u0022/bin/sh\u0022, new[] { \u0022-c\u0022, command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() \u002B process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n\nasync Task InstallHeadless(HttpClient http, string version, string target)\n{\n    Directory.CreateDirectory(target);\n    var archive = Path.Combine(target, \u0022factorio-headless.tar.xz\u0022);\n    using (var response = await http.GetAsync(\u0022https://www.factorio.com/get-download/\u0022 \u002B version \u002B \u0022/headless/linux64\u0022, HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n    {\n        response.EnsureSuccessStatusCode();\n        using (var file = File.Create(archive)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n    }\n    if (!Shell(\u0022tar -xJf \u0027\u0022 \u002B archive \u002B \u0022\u0027 --strip-components=1 -C \u0027\u0022 \u002B target \u002B \u0022\u0027\u0022, out var tarOutput))\n        throw new Exception(\u0022Extracting Factorio \u0022 \u002B version \u002B \u0022 failed (is xz-utils installed?): \u0022 \u002B tarOutput);\n    File.Delete(archive);\n    File.WriteAllText(Path.Combine(target, \u0022factorio-version.txt\u0022), version);\n    ScriptConsole.WriteLine((object)(\u0022Installed Factorio \u0022 \u002B version \u002B \u0022.\u0022));\n}\n",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll, System.Net.Http.dll, System.Text.Json.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Installs the newest stable headless server over this service's files. Saves, mods and settings are not in the\n// archive, so they are kept. The server is stopped for the update and started again if it was running.\nvar root = (string)ThisService.RootDirectory;\nvar http = new HttpClient();\nvar latest = await LatestHeadless(http);\nvar versionFile = Path.Combine(root, \"factorio-version.txt\");\nvar installed = File.Exists(versionFile) ? File.ReadAllText(versionFile).Trim() : \"\";\nif (installed == latest)\n{\n    ScriptConsole.WriteLine((object)(\"The server is up to date (\" + latest + \").\"));\n    return;\n}\nScriptConsole.WriteLine((object)(\"Updating \" + (installed == \"\" ? \"the server\" : installed) + \" to \" + latest + \".\"));\nvar status = (await ServiceManagerService.GetServiceStatus(ThisService.ServiceId)).Status.ToString();\nvar wasRunning = status == \"Started\" || status == \"Starting\";\nif (wasRunning)\n{\n    ScriptConsole.WriteLine((object)\"Stopping the server.\");\n    await ServiceManagerService.StopService(ThisService.ServiceId);\n}\nawait InstallHeadless(http, latest, root);\nvar credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\nGlobals.OperatingSystem.SetDirectoryOwner(root, credential.Domain, credential.UserName, true);\nif (wasRunning)\n{\n    ScriptConsole.WriteLine((object)\"Starting the server.\");\n    await ServiceManagerService.StartService(ThisService.ServiceId);\n}\n// Shared body of the Factorio install/update scripts: the headless server from factorio.com (Linux only), a tar.xz\n// whose files sit under factorio/; extracted with the host's tar, which handles xz.\nasync Task<string> LatestHeadless(HttpClient http)\n{\n    using (var doc = JsonDocument.Parse(await http.GetStringAsync(\"https://factorio.com/api/latest-releases\")))\n        return doc.RootElement.GetProperty(\"stable\").GetProperty(\"headless\").GetString();\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() + process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n\nasync Task InstallHeadless(HttpClient http, string version, string target)\n{\n    Directory.CreateDirectory(target);\n    var archive = Path.Combine(target, \"factorio-headless.tar.xz\");\n    using (var response = await http.GetAsync(\"https://www.factorio.com/get-download/\" + version + \"/headless/linux64\", HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n    {\n        response.EnsureSuccessStatusCode();\n        using (var file = File.Create(archive)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n    }\n    if (!Shell(\"tar -xJf '\" + archive + \"' --strip-components=1 -C '\" + target + \"'\", out var tarOutput))\n        throw new Exception(\"Extracting Factorio \" + version + \" failed (is xz-utils installed?): \" + tarOutput);\n    File.Delete(archive);\n    File.WriteAllText(Path.Combine(target, \"factorio-version.txt\"), version);\n    ScriptConsole.WriteLine((object)(\"Installed Factorio \" + version + \".\"));\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -894,7 +894,7 @@
         "maxConcurrentRuns": 1,
         "logApiExecutions": false,
         "order": 0,
-        "icon": "\u003Cpath d=\u0022M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79s7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.47 12.65 0L21 3v7.12zM12.5 8v4.25l3.5 2.08-.72 1.21L11 13V8h1.5z\u0022/\u003E",
+        "icon": "<path d=\"M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79s7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.47 12.65 0L21 3v7.12zM12.5 8v4.25l3.5 2.08-.72 1.21L11 13V8h1.5z\"/>",
         "scriptInputVariables": [],
         "scriptRoles": [
           {
@@ -922,7 +922,7 @@
         ],
         "name": "Prepare the server",
         "description": "Creates the map on the first start.",
-        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll, System.Net.Http.dll, System.Text.Json.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// --start-server needs an existing save. Create the map on the first start (or after the save name changed);\n// the script runs as the monitor, so the new files are handed to the service user afterwards.\nvar root = (string)ThisService.RootDirectory;\nvar saveName = ThisService.Variables.ContainsKey(\u0022SaveName\u0022) ? Convert.ToString(ThisService.Variables[\u0022SaveName\u0022]) : \u0022\u0022;\nif (string.IsNullOrWhiteSpace(saveName)) saveName = \u0022world\u0022;\nvar save = Path.Combine(root, \u0022saves\u0022, saveName \u002B \u0022.zip\u0022);\nif (!File.Exists(save))\n{\n    ScriptConsole.WriteLine((object)(\u0022Creating a new map: saves/\u0022 \u002B saveName \u002B \u0022.zip\u0022));\n    Directory.CreateDirectory(Path.GetDirectoryName(save));\n    if (!Shell(\u0022cd \u0027\u0022 \u002B root \u002B \u0022\u0027 \u0026\u0026 ./bin/x64/factorio --create \u0027saves/\u0022 \u002B saveName \u002B \u0022.zip\u0027\u0022, out var output) || !File.Exists(save))\n        throw new Exception(\u0022Creating the map failed: \u0022 \u002B output);\n    var credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\n    Globals.OperatingSystem.SetDirectoryOwner(root, credential.Domain, credential.UserName, true);\n}\n// Shared body of the Factorio install/update scripts: the headless server from factorio.com (Linux only), a tar.xz\n// whose files sit under factorio/; extracted with the host\u0027s tar, which handles xz.\nasync Task\u003Cstring\u003E LatestHeadless(HttpClient http)\n{\n    using (var doc = JsonDocument.Parse(await http.GetStringAsync(\u0022https://factorio.com/api/latest-releases\u0022)))\n        return doc.RootElement.GetProperty(\u0022stable\u0022).GetProperty(\u0022headless\u0022).GetString();\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\u0022/bin/sh\u0022, new[] { \u0022-c\u0022, command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() \u002B process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n\nasync Task InstallHeadless(HttpClient http, string version, string target)\n{\n    Directory.CreateDirectory(target);\n    var archive = Path.Combine(target, \u0022factorio-headless.tar.xz\u0022);\n    using (var response = await http.GetAsync(\u0022https://www.factorio.com/get-download/\u0022 \u002B version \u002B \u0022/headless/linux64\u0022, HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n    {\n        response.EnsureSuccessStatusCode();\n        using (var file = File.Create(archive)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n    }\n    if (!Shell(\u0022tar -xJf \u0027\u0022 \u002B archive \u002B \u0022\u0027 --strip-components=1 -C \u0027\u0022 \u002B target \u002B \u0022\u0027\u0022, out var tarOutput))\n        throw new Exception(\u0022Extracting Factorio \u0022 \u002B version \u002B \u0022 failed (is xz-utils installed?): \u0022 \u002B tarOutput);\n    File.Delete(archive);\n    File.WriteAllText(Path.Combine(target, \u0022factorio-version.txt\u0022), version);\n    ScriptConsole.WriteLine((object)(\u0022Installed Factorio \u0022 \u002B version \u002B \u0022.\u0022));\n}\n",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll, System.Net.Http.dll, System.Text.Json.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// --start-server needs an existing save. Create the map on the first start (or after the save name changed).\n// The save name comes from the active command line, because a customer's custom or predefined command line keeps\n// its own SaveName value; the SaveName variable is the fallback.\nvar root = Path.GetFullPath((string)ThisService.RootDirectory);\nvar saveName = \"\";\nvar saveMatch = System.Text.RegularExpressions.Regex.Match(Convert.ToString(ThisService.Commandline) ?? \"\", @\"--start-server\\s+saves/(\\S+?)\\.zip(\\s|$)\");\nif (saveMatch.Success) saveName = saveMatch.Groups[1].Value;\nelse if (ThisService.Variables.ContainsKey(\"SaveName\")) saveName = Convert.ToString(ThisService.Variables[\"SaveName\"]);\nif (string.IsNullOrWhiteSpace(saveName)) saveName = \"world\";\nif (!System.Text.RegularExpressions.Regex.IsMatch(saveName, \"^[A-Za-z0-9_-]{1,64}$\"))\n    throw new Exception(\"Invalid save name '\" + saveName + \"': use 1-64 letters, digits, '-' or '_'.\");\nvar savesDir = Path.Combine(root, \"saves\");\nvar save = Path.Combine(savesDir, saveName + \".zip\");\nif (!File.Exists(save))\n{\n    ScriptConsole.WriteLine((object)(\"Creating a new map: saves/\" + saveName + \".zip\"));\n    var credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\n    if (!Directory.Exists(savesDir))\n    {\n        Directory.CreateDirectory(savesDir);\n        Globals.OperatingSystem.SetDirectoryOwner(savesDir, credential.Domain, credential.UserName, false);\n    }\n    // The map is created by the service user and without a shell (the save name is customer input).\n    var runuser = File.Exists(\"/usr/sbin/runuser\") ? \"/usr/sbin/runuser\" : \"/sbin/runuser\";\n    var startInfo = new ProcessStartInfo(runuser) { WorkingDirectory = root, RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false };\n    foreach (var argument in new[] { \"-u\", (string)credential.UserName, \"--\", Path.Combine(root, \"bin\", \"x64\", \"factorio\"), \"--create\", \"saves/\" + saveName + \".zip\" })\n        startInfo.ArgumentList.Add(argument);\n    string createOutput;\n    int exitCode;\n    using (var process = Process.Start(startInfo))\n    {\n        var stdout = process.StandardOutput.ReadToEndAsync();\n        var stderr = process.StandardError.ReadToEndAsync();\n        process.WaitForExit();\n        createOutput = stdout.Result + stderr.Result;\n        exitCode = process.ExitCode;\n    }\n    if (exitCode != 0 || !File.Exists(save))\n        throw new Exception(\"Creating the map failed (exit \" + exitCode + \"): \" + createOutput);\n}\n// Shared body of the Factorio install/update scripts: the headless server from factorio.com (Linux only), a tar.xz\n// whose files sit under factorio/; extracted with the host's tar, which handles xz.\nasync Task<string> LatestHeadless(HttpClient http)\n{\n    using (var doc = JsonDocument.Parse(await http.GetStringAsync(\"https://factorio.com/api/latest-releases\")))\n        return doc.RootElement.GetProperty(\"stable\").GetProperty(\"headless\").GetString();\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() + process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n\nasync Task InstallHeadless(HttpClient http, string version, string target)\n{\n    Directory.CreateDirectory(target);\n    var archive = Path.Combine(target, \"factorio-headless.tar.xz\");\n    using (var response = await http.GetAsync(\"https://www.factorio.com/get-download/\" + version + \"/headless/linux64\", HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n    {\n        response.EnsureSuccessStatusCode();\n        using (var file = File.Create(archive)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n    }\n    if (!Shell(\"tar -xJf '\" + archive + \"' --strip-components=1 -C '\" + target + \"'\", out var tarOutput))\n        throw new Exception(\"Extracting Factorio \" + version + \" failed (is xz-utils installed?): \" + tarOutput);\n    File.Delete(archive);\n    File.WriteAllText(Path.Combine(target, \"factorio-version.txt\"), version);\n    ScriptConsole.WriteLine((object)(\"Installed Factorio \" + version + \".\"));\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -952,7 +952,7 @@
         ],
         "name": "Factorio query",
         "description": "Reports the server online while its game port is bound (Factorio has no server-browser query).",
-        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Factorio has no server-browser query on its game port, and every RCON login is written to the game console\n// (\u0022New RCON connection from ...\u0022), so querying through RCON every few seconds would flood it. The query runs on the\n// monitor of the server that hosts the service, so it checks that the game\u0027s UDP port is bound on this machine.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = Convert.ToInt32(Dynamic.Port);\nif (port \u003C= 0) port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners()\n        .Any(l =\u003E l.Port == port \u0026\u0026 (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \u0022online\u0022,\n            Protocol = \u0022custom_script\u0022,\n            Address = address,\n            Hostname = $\u0022{address}:{port}\u0022,\n            Name = ThisService.Name,\n            GameType = \u0022Factorio\u0022,\n            Map = \u0022\u0022,\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, $\u0022Nothing is listening on {address}:{port} (UDP).\u0022);\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, ex.Message);\n}\n",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Factorio has no server-browser query on its game port, and every RCON login is written to the game console\n// (\"New RCON connection from ...\"), so querying through RCON every few seconds would flood it. The query runs on the\n// monitor of the server that hosts the service, so it checks that the game's UDP port is bound on this machine.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\n// Factorio answers on its game port only; the panel's query port is ignored so a changed QueryPort cannot break the status.\nint port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners()\n        .Any(l => l.Port == port && (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \"online\",\n            Protocol = \"custom_script\",\n            Address = address,\n            Hostname = $\"{address}:{port}\",\n            Name = ThisService.Name,\n            GameType = \"Factorio\",\n            Map = \"\",\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", $\"Nothing is listening on {address}:{port} (UDP).\");\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", ex.Message);\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
@@ -996,121 +996,9 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
+      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "CpuStats",
-      "moduleData": "",
-      "granted": true
     },
     {
       "roleId": 2,
@@ -1122,37 +1010,9 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "CustomScripts",
+      "permission": "CpuStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 2,
@@ -1165,13 +1025,6 @@
       "roleId": 2,
       "module": "BpFeature",
       "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "KillService",
       "moduleData": "",
       "granted": true
     },
@@ -1199,30 +1052,9 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
       "permission": "PlayerStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 2,
@@ -1234,14 +1066,42 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Repair",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
       "moduleData": "",
       "granted": false
     },
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "ScheduledTasks",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
       "moduleData": "",
       "granted": true
     },
@@ -1255,14 +1115,154 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "ServiceSettings",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
       "moduleData": "",
       "granted": false
     },
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "SteamUpdate",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
       "moduleData": "",
       "granted": false
     },
@@ -1276,121 +1276,9 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
+      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "CpuStats",
-      "moduleData": "",
-      "granted": true
     },
     {
       "roleId": 3,
@@ -1402,37 +1290,9 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "CustomScripts",
+      "permission": "CpuStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 3,
@@ -1445,13 +1305,6 @@
       "roleId": 3,
       "module": "BpFeature",
       "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "KillService",
       "moduleData": "",
       "granted": true
     },
@@ -1479,20 +1332,6 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
       "permission": "PlayerStats",
       "moduleData": "",
       "granted": true
@@ -1500,21 +1339,7 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "PredefCmdlines",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
       "permission": "Reinstall",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Repair",
       "moduleData": "",
       "granted": false
     },
@@ -1528,6 +1353,118 @@
     {
       "roleId": 3,
       "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
       "permission": "ServiceActivity",
       "moduleData": "",
       "granted": true
@@ -1535,14 +1472,77 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "ServiceSettings",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
       "moduleData": "",
       "granted": false
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "SteamUpdate",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
       "moduleData": "",
       "granted": false
     },
