@@ -1,0 +1,49 @@
+identifier: "Community.Games.MythOfEmpires"
+name: "Myth of Empires"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Myth of Empires dedicated server (Windows / native Linux) with a predefined command line for the server settings, RCON console, Steam status query, graceful save-and-stop, a Save the world button, backups and Steam Workshop mods on Windows; starts out of the box"
+longDescription: |
+  # Myth of Empires
+  
+  ## Description
+  Myth of Empires dedicated server (Steam app 1794810, anonymous download). The Windows config runs `MOEServer.exe`. The Linux config runs the native Linux server that ships in the same Steam depot (`LinuxPrivateServer/`).
+  
+  ## Key Features
+  - **Windows and Linux** configs, both native.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box.** On Linux a script makes the server executable, copies `steamclient.so` to `~/.steam/sdk64` and installs missing shared libraries (apt, dnf or yum).
+  - **Predefined command line.** Every server setting is a launch argument, so the important ones are fields in Command Lines: map (Zhongzhou, Dongzhou, Xizhou), description, PvE or PvP, map difficulty, admin Steam ids, autosave interval, welcome message, anti-cheat, and the XP, proficiency, harvest, taming and crop growth multipliers. Server name, password and slots come from the service settings.
+  - **RCON** through the game's remote console, with the service's RCON password. The panel console sends commands over RCON: `saveworld`, `BroadcastNotifySysInfo "<text>" <times> <interval>` and the game's other GM commands (without the `cheat` prefix).
+  - **Status query** from the Steam query port: status, map and players, with the server name and slots of the service. The game reports its Steam id instead of the name.
+  - **Graceful stop:** a stop script saves the world over RCON, shuts the server down and waits until it exits.
+  - **Save the world** button for players.
+  - **Console output** from the server's console window on Windows and from its terminal on Linux.
+  - **Log viewer** for `MOE.log` and its backup copies. On Linux the running server locks its current log; the console shows it live.
+  - **Backups** of the world saves and the server's saved config. The server is stopped first.
+  - **Steam Workshop mods (Windows).** Install a mod on the Steam Workshop page: a script moves it to `MOE/Binaries/Win64/Mods/<id>` and adds it to the Workshop mods field (`-SteamModList`). The server loads it on its next start. Uninstalling removes it again. The Linux server cannot load Workshop mods (they ship Windows files only), so the Linux config has no mod support.
+  
+  ## Ports
+  - Game 11888 (UDP).
+  - Query 12888 (UDP).
+  - RCON 13888 (TCP).
+  
+  ## Instructions
+  - Change the settings in Command Lines, then restart the server.
+  - Add your Steam id (SteamID64) to "Admin SteamID64s" to open the GM panel in the game. Separate several ids with `;`.
+  - The world is saved in `MOE/Saved/SaveGames/World` (Linux: `LinuxPrivateServer/MOE/Saved/SaveGames/World`), one save per map. Switching the map keeps the other world.
+  - The server needs about 6 GB of memory once the world is loaded. The first start takes a few minutes.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/1371580/f8358bf999cd47e53f226602cfb2b12e59eba23b.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1371580/ss_92e010543da9a3748134e225e02361136c57a7cf.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Myth of Empires - Windows.json"
+    type: "GameConfig"
+  - path: "Myth of Empires - Linux.json"
+    type: "GameConfig"
