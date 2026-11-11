@@ -27,15 +27,15 @@ longDescription: |
   - **Steam Workshop mods.** Install a mod on the Steam Workshop page: a script adds it to `modconfig.lua`, and the server downloads and loads it on its next start. Uninstalling removes it again.
   
   ## Ports
-  - Game 27000 (TCP and UDP).
-  - Steam query 27020 (UDP).
-  - Avorion query 27003 (UDP).
-  - Steam master server 27021 (UDP).
-  - RCON 27015 (TCP).
+  - Game 27000, Steam query 27020 (UDP, the status query), Avorion query 27003 (UDP), Steam master server 27021 and RCON 27015 (TCP). Each port is set on its own in the service settings; none follows another.
+  - IP and ports: the command line passes the service IP to `--ip` and `--rcon-ip` and every port to its own flag, so the Steam query, Avorion query and RCON ports listen on the service's IP and its assigned ports (tested on Windows, moved to a second IP with new ports; the Linux config uses the same flags and was previewed only).
+  - With Steam networking (the default) the server opens no socket of its own on the game port or the Steam master port; the ports are still passed to the server.
+  - On 127.0.0.1 Steam does not accept the loopback address and the Steam query port listens on 0.0.0.0. Use a real IP.
+  - The server also listens on one TCP port with a random number on 127.0.0.1 only (internal). It cannot be set and is not reachable from outside.
   
   ## Instructions
   - Change the settings in Configuration Files, then restart the server.
-  - Add your SteamID64 to "Admin Steam IDs" in Command Lines to become an admin. Separate several ids with commas. Remove an admin with `/admin -r <name>` in the console.
+  - Add your SteamID64 to "Admin Steam IDs" in Command Lines to become an admin (digits only). Separate several ids with commas. Remove an admin with `/admin -r <name>` in the console.
   - The galaxy seed is used when the galaxy is generated. To start a new galaxy, stop the server and delete `galaxies/avorion_galaxy`, or reinstall.
   - A setting changed in the game with an admin command is reset to the editor value on the next start.
   
