@@ -1,0 +1,53 @@
+identifier: "Community.Games.Empyrion"
+name: "Empyrion - Galactic Survival"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Empyrion - Galactic Survival dedicated server (Windows / Linux with Wine) with a dedicated.yaml form editor, scenario picker, telnet console commands, Steam status query, graceful save-and-exit stop and backups; starts out of the box"
+longDescription: |
+  # Empyrion - Galactic Survival
+  
+  ## Description
+  Empyrion - Galactic Survival dedicated server (Steam app 530870, anonymous download, about 19 GB). There is no Linux server build, so the Linux config runs the Windows server under Wine.
+  
+  ## Key Features
+  - **Windows and Linux (Wine)** configs.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box.** On Linux a script installs wine, winetricks, Xvfb and xdotool when the host does not have them (apt, dnf or yum) and creates the Wine prefix.
+  - **Config editor** for the server settings: server name, password, description, server browser listing, Easy Anti-Cheat, Steam Family Sharing, ping limit, VIP players, save game name, game mode, seed, scenario, reserved playfield servers, blueprint limits, heartbeat and boot timeouts, playfield restart period and DLC.
+  - **Own settings file.** The panel writes `Config/dedicated.yaml` and starts the server with it, so a Steam update never resets your settings.
+  - **Scenarios.** The Scenario setting lists the folders in `Content/Scenarios`: the stock scenarios and any scenario you upload there with the file manager. Pick one and a new save game name to start a new game with it.
+  - **Console commands** through the server's telnet admin console: `help`, `plys`, `servers`, `say '<message>'`, `kick`, `ban`, `time`, `saveandexit` and more. The console password is the service's RCON password.
+  - **Status query** from the Steam query port: name and players.
+  - **Graceful stop:** the stop script sends `saveandexit 0` (the server saves the game and stops its playfield servers) and waits until every server process has exited.
+  - **Console output** from the server log.
+  - **Log viewer** for the server log and the playfield server logs in `Logs`.
+  - **Backups** of the save games and the settings file. The server is stopped first.
+  
+  ## Ports
+  - Game 30000 (UDP and TCP).
+  - Steam query 30001 (UDP).
+  - Game 30002 and 30003 (UDP and TCP). Port 30003 also connects the playfield servers.
+  - Telnet admin console 30004 (TCP). It is protected by the RCON password.
+  - Only the game port and the telnet port can be set. The server always uses the game port + 1 for the Steam query, + 2 and + 3 (playfield servers). Keep that order when you assign ports by hand.
+  - The server listens on every address of the host and has no setting to bind one address, so "Only use servers primary IP" is on. The telnet console also listens on every address. The IP and port check (a moved IP and moved ports) was run on the Wine config only.
+  
+  ## Instructions
+  - Change the settings in Configuration Files, then restart the server.
+  - To play a scenario, upload its folder to `Content/Scenarios`, choose it under Scenario and enter a new save game name. An existing save keeps the scenario it was created with.
+  - Steam Workshop scenarios cannot be downloaded anonymously, so the Workshop is not enabled. Download a scenario with the game and upload its folder.
+  - The save games are in `Saves/Games/<save game name>`.
+  - Each playfield server uses about 1 GB of memory. The server needs about 3 GB with one playfield.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/383120/ef7a39a74922aa667d685419064e37c6166b911e.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/383120/ss_a709efe21c2d29f9c872539fcde3a47c35887ea8.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Wine"
+files:
+  - path: "Empyrion - Galactic Survival - Windows.json"
+    type: "GameConfig"
+  - path: "Empyrion - Galactic Survival - Linux Wine.json"
+    type: "GameConfig"
