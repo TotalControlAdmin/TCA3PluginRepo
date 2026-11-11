@@ -1,0 +1,1665 @@
+{
+  "__TCA:ExportVersion": "3.23.45.17810",
+  "__TCA:ExportedAt": "2026-11-11T11:22:38.1301202Z",
+  "name": "Myth of Empires",
+  "shortName": "MythOfEmpires",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/1371580/f8358bf999cd47e53f226602cfb2b12e59eba23b.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1371580/ss_92e010543da9a3748134e225e02361136c57a7cf.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 150,
+  "defaultSlots": 50,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".ini",
+    ".txt",
+    ".json",
+    ".cfg"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "custom_script",
+    "rconProtocol": "source",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "MemoryWrapper",
+    "logFile": "",
+    "inputSource": "RconProtocol",
+    "printRconResponse": true,
+    "outputFilters": "",
+    "stopCommand": "",
+    "waitAfterStopCommand": 30000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 11888,
+        "expression": "",
+        "description": "Game (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 12888,
+        "expression": "",
+        "description": "Steam query and server list (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "RConPort",
+        "port": 13888,
+        "expression": "",
+        "description": "RCON / shutdown service (TCP)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "MOE\\Binaries\\Win64\\MOEServer.exe",
+    "relativeWorkingDirectory": "MOE\\Binaries\\Win64",
+    "autoSetupFolderName": "mythofempires",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 1794810,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 1371580,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "${MapName} -game -server -DataLocalFile -NotCheckServerSteamAuth -log -LOCALLOGTIMES -PrivateServer -disable_qim -MultiHome=${IPAddress} -OutAddress=${IPAddress} -Port=${GamePort} -QueryPort=${QueryPort} -bStartShutDownServiceInPrivateServer=true -ShutDownServiceIP=${IPAddress} -ShutDownServicePort=${RConPort} -ShutDownServiceKey=\u0022${RconPassword}\u0022 -SessionName=\u0022${Hostname}\u0022 ${PrivatePassword.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022-PrivateServerPassword=\u0022 \u002B PrivatePassword} ${ServerDescription} -MaxPlayers=${Slots} -ServerId=100 -ClusterId=1 ${PvEMode} ${MapDifficultyRate} ${UseACE} -EnableVACBan=1 -bUseServerAdmin=true ${AdminAccounts} ${SaveInterval} ${WelcomeMessage} ${AddExpMultiplier} ${SkillExpMultiplier} ${CollectMultiplier} ${AddTameMulti} ${CropGrowthMultiplier} ${Mods}",
+    "defaultCustomCommandline": "${MapName} -game -server -DataLocalFile -NotCheckServerSteamAuth -log -LOCALLOGTIMES -PrivateServer -disable_qim -MultiHome=${IPAddress} -OutAddress=${IPAddress} -Port=${GamePort} -QueryPort=${QueryPort} -bStartShutDownServiceInPrivateServer=true -ShutDownServiceIP=${IPAddress} -ShutDownServicePort=${RConPort} -ShutDownServiceKey=\u0022${RconPassword}\u0022 -SessionName=\u0022${Hostname}\u0022 ${PrivatePassword.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022-PrivateServerPassword=\u0022 \u002B PrivatePassword} ${ServerDescription} -MaxPlayers=${Slots} -ServerId=100 -ClusterId=1 ${PvEMode} ${MapDifficultyRate} ${UseACE} -EnableVACBan=1 -bUseServerAdmin=true ${AdminAccounts} ${SaveInterval} ${WelcomeMessage} ${AddExpMultiplier} ${SkillExpMultiplier} ${CollectMultiplier} ${AddTameMulti} ${CropGrowthMultiplier} ${Mods} ${UserCommandLine}",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "${MapName} -game -server -DataLocalFile -NotCheckServerSteamAuth -log -LOCALLOGTIMES -PrivateServer -disable_qim -MultiHome=${IPAddress} -OutAddress=${IPAddress} -Port=${GamePort} -QueryPort=${QueryPort} -bStartShutDownServiceInPrivateServer=true -ShutDownServiceIP=${IPAddress} -ShutDownServicePort=${RConPort} -ShutDownServiceKey=\u0022${RconPassword}\u0022 -SessionName=\u0022${Hostname}\u0022 ${PrivatePassword.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022-PrivateServerPassword=\u0022 \u002B PrivatePassword} ${ServerDescription} -MaxPlayers=${Slots} -ServerId=100 -ClusterId=1 ${PvEMode} ${MapDifficultyRate} ${UseACE} -EnableVACBan=1 -bUseServerAdmin=true ${AdminAccounts} ${SaveInterval} ${WelcomeMessage} ${AddExpMultiplier} ${SkillExpMultiplier} ${CollectMultiplier} ${AddTameMulti} ${CropGrowthMultiplier} ${Mods}"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "515c8f83-1974-572d-a9b1-6820c85e0aa3",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "MapName",
+      "defaultValue": "LargeTerrain_Central_Main",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MapName}",
+      "editor": {
+        "items": [
+          {
+            "text": "Zhongzhou (Central)",
+            "value": "LargeTerrain_Central_Main"
+          },
+          {
+            "text": "Dongzhou (Central 2)",
+            "value": "LargeTerrain_Central2_Main"
+          },
+          {
+            "text": "Xizhou (Desert)",
+            "value": "LargeTerrain_Desert_Main"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "MapName",
+        "defaultValue": "LargeTerrain_Central_Main",
+        "label": "Map",
+        "description": "A world of another map is kept: switching back loads it again.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.746693",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ServerDescription",
+      "defaultValue": "Welcome to our server",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "-Description=\u0022${ServerDescription}\u0022",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "ServerDescription",
+        "defaultValue": "",
+        "label": "Description",
+        "description": "Shown in the server details of the server list.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.876845",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PvEMode",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "-GameServerPVPType=${PvEMode}",
+      "editor": {
+        "items": [
+          {
+            "text": "PvE",
+            "value": "1"
+          },
+          {
+            "text": "PvP",
+            "value": "0"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "PvEMode",
+        "defaultValue": "1",
+        "label": "Game mode",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.887558",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MapDifficultyRate",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "-MapDifficultyRate=${MapDifficultyRate}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0.1,
+        "maxValue": 10,
+        "id": "MapDifficultyRate",
+        "defaultValue": "1",
+        "label": "Map difficulty",
+        "description": "Strength and health of NPCs and animals.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.88764",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AdminAccounts",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AdminAccounts.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022-ServerAdminAccounts=\u0022 \u002B AdminAccounts}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "AdminAccounts",
+        "defaultValue": "",
+        "label": "Admin SteamID64s",
+        "description": "Steam64 ids of the server admins, separated by semicolons (;). Admins open the GM panel in the game.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.912058",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SaveInterval",
+      "defaultValue": "10",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "-SaveGameIntervalMinute=${SaveInterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 120,
+        "id": "SaveInterval",
+        "defaultValue": "10",
+        "label": "Autosave every (minutes)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.912138",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WelcomeMessage",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WelcomeMessage.ToString() == \u0022\u0022 ? \u0022-NoticeSelfEnable=false\u0022 : \u0022-NoticeSelfEnable=true -NoticeSelfEnterServer=\\\u0022\u0022 \u002B WelcomeMessage \u002B \u0022\\\u0022\u0022}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "WelcomeMessage",
+        "defaultValue": "",
+        "label": "Welcome message",
+        "description": "Shown to each player who joins. Empty = no message.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.912203",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "UseACE",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${UseACE.ToString() == \u0022true\u0022 ? \u0022-UseACE\u0022 : \u0022\u0022}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "UseACE",
+        "defaultValue": "true",
+        "label": "Anti-cheat (ACE)",
+        "description": "The game\u0027s anti-cheat engine.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.912222",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AddExpMultiplier",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "-AddExpMultiplier=${AddExpMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0.1,
+        "maxValue": 100,
+        "id": "AddExpMultiplier",
+        "defaultValue": "1",
+        "label": "Player XP multiplier",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.917658",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SkillExpMultiplier",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "-SkillExpMultiplier=${SkillExpMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0.1,
+        "maxValue": 100,
+        "id": "SkillExpMultiplier",
+        "defaultValue": "1",
+        "label": "Proficiency XP multiplier",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.91772",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "CollectMultiplier",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "-CollectPlantMultiplierPVE=${CollectMultiplier} -CollectHunterMultiplierPVE=${CollectMultiplier} -CollectStoneMultiplierPVE=${CollectMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0.1,
+        "maxValue": 7.5,
+        "id": "CollectMultiplier",
+        "defaultValue": "1",
+        "label": "Harvest multiplier (PvE)",
+        "description": "Plants, hunting and stone on a PvE server.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.91773",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AddTameMulti",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "-AddTameMulti=${AddTameMulti}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0.1,
+        "maxValue": 10,
+        "id": "AddTameMulti",
+        "defaultValue": "1",
+        "label": "Taming time multiplier",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.917756",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "CropGrowthMultiplier",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "-CropGrowthMultiplier=${CropGrowthMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0.1,
+        "maxValue": 10,
+        "id": "CropGrowthMultiplier",
+        "defaultValue": "1",
+        "label": "Crop growth multiplier",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.917765",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Mods",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": true,
+      "template": "${Mods.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022-SteamModList=\u0022 \u002B Mods}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "Mods",
+        "defaultValue": "",
+        "label": "Workshop mods",
+        "description": "Mod folders separated by \u002B, e.g. Mods/1234567890 (relative to MOE/Binaries/Win64). Installing or removing a mod on the Steam Workshop page updates this list.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T10:02:48.917773",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStopped"
+        ],
+        "name": "Save the world and shut down",
+        "description": "Saves the world over RCON (saveworld), asks the server to shut down (ShutDownServer) and waits until it exits.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Graceful stop: saves the world over RCON (the server\u0027s shutdown service: \u0022saveworld\u0022), asks the server to shut down\n// (\u0022ShutDownServer\u0022) and waits until it exits. Only the server process of THIS service is watched. When RCON does\n// not answer (the server is still starting), the panel stops the process.\n// Source RCON client (blocking socket calls with timeouts; async local functions do not work in panel scripts).\n// Replies are read by arrival: the first packet, then whatever follows within a short gap.\nbyte[] RconPacket(int id, int type, string body)\n{\n    var payload = System.Text.Encoding.UTF8.GetBytes(body ?? string.Empty);\n    var packet = new byte[14 \u002B payload.Length];\n    BitConverter.GetBytes(10 \u002B payload.Length).CopyTo(packet, 0);\n    BitConverter.GetBytes(id).CopyTo(packet, 4);\n    BitConverter.GetBytes(type).CopyTo(packet, 8);\n    payload.CopyTo(packet, 12);\n    return packet;\n}\n\nbool RconReadExactly(System.Net.Sockets.NetworkStream stream, byte[] buffer, int count)\n{\n    var read = 0;\n    while (read \u003C count)\n    {\n        var n = stream.Read(buffer, read, count - read);\n        if (n \u003C= 0) return false;\n        read \u002B= n;\n    }\n    return true;\n}\n\n// One packet (id, type, body) or null when nothing arrives within the socket\u0027s receive timeout.\nTuple\u003Cint, int, string\u003E RconRead(System.Net.Sockets.TcpClient client)\n{\n    try\n    {\n        var stream = client.GetStream();\n        var header = new byte[4];\n        if (!RconReadExactly(stream, header, 4)) return null;\n        var size = BitConverter.ToInt32(header, 0);\n        if (size \u003C 10 || size \u003E 1 \u003C\u003C 20) throw new Exception(\u0022Invalid RCON packet size \u0022 \u002B size \u002B \u0022.\u0022);\n        var data = new byte[size];\n        if (!RconReadExactly(stream, data, size)) return null;\n        var id = BitConverter.ToInt32(data, 0);\n        var type = BitConverter.ToInt32(data, 4);\n        var body = System.Text.Encoding.UTF8.GetString(data, 8, size - 10);\n        return Tuple.Create(id, type, body);\n    }\n    catch (System.IO.IOException) { return null; } // receive timeout\n}\n\n// Connects and authenticates; throws with a readable message on failure.\nSystem.Net.Sockets.TcpClient RconConnect(string host, int port, string password, int timeoutMs)\n{\n    var client = new System.Net.Sockets.TcpClient();\n    if (!client.ConnectAsync(host, port).Wait(timeoutMs)) { client.Dispose(); throw new Exception(\u0022RCON \u0022 \u002B host \u002B \u0022:\u0022 \u002B port \u002B \u0022 did not answer.\u0022); }\n    client.ReceiveTimeout = timeoutMs; client.SendTimeout = timeoutMs;\n    var auth = RconPacket(7, 3, password);\n    client.GetStream().Write(auth, 0, auth.Length);\n    while (true)\n    {\n        var packet = RconRead(client);\n        if (packet == null) { client.Dispose(); throw new Exception(\u0022RCON login timed out.\u0022); }\n        if (packet.Item2 != 2) continue; // an empty response value comes before the auth response\n        if (packet.Item1 == -1) { client.Dispose(); throw new Exception(\u0022RCON refused the password.\u0022); }\n        return client;\n    }\n}\n\n// Sends one command and returns its reply (\u0022\u0022 when the server sends none within firstMs).\nstring RconCommand(System.Net.Sockets.TcpClient client, string command, int firstMs)\n{\n    var packet = RconPacket(9, 2, command);\n    client.GetStream().Write(packet, 0, packet.Length);\n    var reply = new System.Text.StringBuilder();\n    client.ReceiveTimeout = firstMs;\n    var first = RconRead(client);\n    if (first == null) return string.Empty;\n    reply.Append(first.Item3);\n    client.ReceiveTimeout = 400;\n    while (true)\n    {\n        var next = RconRead(client);\n        if (next == null) break;\n        reply.Append(next.Item3);\n    }\n    return reply.ToString().Replace(\u0022\\0\u0022, string.Empty).TrimEnd();\n}\n\n\nconst int maxWaitSeconds = 120;\nconst string binary = \u0022MOEServer\u0022;\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(\u0027/\u0027, \u0027\\\\\u0027) \u002B Path.DirectorySeparatorChar;\n\nList\u003Cint\u003E ServerPids()\n{\n    var pids = new List\u003Cint\u003E();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var p in Process.GetProcessesByName(binary))\n        {\n            try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) pids.Add(p.Id); }\n            catch { } // exited meanwhile\n        }\n        return pids;\n    }\n    foreach (var dir in Directory.EnumerateDirectories(\u0022/proc\u0022))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var args = File.ReadAllText(Path.Combine(dir, \u0022cmdline\u0022)).Replace(\u0027\\0\u0027, \u0027 \u0027).Replace(\u0027\\\\\u0027, \u0027/\u0027);\n            var target = new FileInfo(Path.Combine(dir, \u0022exe\u0022)).LinkTarget ?? string.Empty;\n            if ((target.StartsWith(root, StringComparison.Ordinal) \u0026\u0026 Path.GetFileName(target) == binary)\n                || (args.Contains(binary \u002B \u0022.exe\u0022, StringComparison.OrdinalIgnoreCase) \u0026\u0026 args.Contains(root.Replace(\u0027\\\\\u0027, \u0027/\u0027), StringComparison.Ordinal)\n                    \u0026\u0026 !args.Contains(\u0022start.exe\u0022, StringComparison.OrdinalIgnoreCase)))\n                pids.Add(pid);\n        }\n        catch { } // gone meanwhile, or not ours to read\n    }\n    return pids;\n}\n\nvar targets = ServerPids();\nif (targets.Count == 0)\n{\n    ScriptConsole.WriteLine((object)\u0022The server is not running.\u0022);\n    return;\n}\n\ntry\n{\n    var password = ThisService.Variables.ContainsKey(\u0022RconPassword\u0022) ? Convert.ToString(ThisService.Variables[\u0022RconPassword\u0022]) : string.Empty;\n    using (var client = RconConnect(ThisService.IPAddress, ThisService.RconPort, password, 5000))\n    {\n        var saved = RconCommand(client, \u0022saveworld\u0022, 60000);\n        ScriptConsole.WriteLine((object)(\u0022saveworld: \u0022 \u002B (saved.Length \u003E 0 ? saved : \u0022(no reply)\u0022)));\n        var shutdown = RconCommand(client, \u0022ShutDownServer\u0022, 5000);\n        ScriptConsole.WriteLine((object)(\u0022ShutDownServer: \u0022 \u002B (shutdown.Length \u003E 0 ? shutdown : \u0022(no reply)\u0022)));\n    }\n}\ncatch (Exception ex)\n{\n    ScriptConsole.WriteLine((object)(\u0022RCON did not answer (\u0022 \u002B ex.Message \u002B \u0022); the panel stops the server without saving.\u0022));\n    return;\n}\n\nfor (var second = 1; second \u003C= maxWaitSeconds; second\u002B\u002B)\n{\n    await Task.Delay(1000, ThisCancellationToken);\n    if (!ServerPids().Any(targets.Contains))\n    {\n        ScriptConsole.WriteLine((object)(\u0022The server exited after \u0022 \u002B second \u002B \u0022 s.\u0022));\n        return;\n    }\n}\nScriptConsole.WriteLine((object)(\u0022The server did not exit within \u0022 \u002B maxWaitSeconds \u002B \u0022 s; the panel stops it now.\u0022));\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "214296f6-ae58-513a-b089-d66c57c8c0fe"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Save the world",
+        "description": "Saves the world now (RCON saveworld).",
+        "code": "using System;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Saves the world now over RCON (the server\u0027s shutdown service).\n// Source RCON client (blocking socket calls with timeouts; async local functions do not work in panel scripts).\n// Replies are read by arrival: the first packet, then whatever follows within a short gap.\nbyte[] RconPacket(int id, int type, string body)\n{\n    var payload = System.Text.Encoding.UTF8.GetBytes(body ?? string.Empty);\n    var packet = new byte[14 \u002B payload.Length];\n    BitConverter.GetBytes(10 \u002B payload.Length).CopyTo(packet, 0);\n    BitConverter.GetBytes(id).CopyTo(packet, 4);\n    BitConverter.GetBytes(type).CopyTo(packet, 8);\n    payload.CopyTo(packet, 12);\n    return packet;\n}\n\nbool RconReadExactly(System.Net.Sockets.NetworkStream stream, byte[] buffer, int count)\n{\n    var read = 0;\n    while (read \u003C count)\n    {\n        var n = stream.Read(buffer, read, count - read);\n        if (n \u003C= 0) return false;\n        read \u002B= n;\n    }\n    return true;\n}\n\n// One packet (id, type, body) or null when nothing arrives within the socket\u0027s receive timeout.\nTuple\u003Cint, int, string\u003E RconRead(System.Net.Sockets.TcpClient client)\n{\n    try\n    {\n        var stream = client.GetStream();\n        var header = new byte[4];\n        if (!RconReadExactly(stream, header, 4)) return null;\n        var size = BitConverter.ToInt32(header, 0);\n        if (size \u003C 10 || size \u003E 1 \u003C\u003C 20) throw new Exception(\u0022Invalid RCON packet size \u0022 \u002B size \u002B \u0022.\u0022);\n        var data = new byte[size];\n        if (!RconReadExactly(stream, data, size)) return null;\n        var id = BitConverter.ToInt32(data, 0);\n        var type = BitConverter.ToInt32(data, 4);\n        var body = System.Text.Encoding.UTF8.GetString(data, 8, size - 10);\n        return Tuple.Create(id, type, body);\n    }\n    catch (System.IO.IOException) { return null; } // receive timeout\n}\n\n// Connects and authenticates; throws with a readable message on failure.\nSystem.Net.Sockets.TcpClient RconConnect(string host, int port, string password, int timeoutMs)\n{\n    var client = new System.Net.Sockets.TcpClient();\n    if (!client.ConnectAsync(host, port).Wait(timeoutMs)) { client.Dispose(); throw new Exception(\u0022RCON \u0022 \u002B host \u002B \u0022:\u0022 \u002B port \u002B \u0022 did not answer.\u0022); }\n    client.ReceiveTimeout = timeoutMs; client.SendTimeout = timeoutMs;\n    var auth = RconPacket(7, 3, password);\n    client.GetStream().Write(auth, 0, auth.Length);\n    while (true)\n    {\n        var packet = RconRead(client);\n        if (packet == null) { client.Dispose(); throw new Exception(\u0022RCON login timed out.\u0022); }\n        if (packet.Item2 != 2) continue; // an empty response value comes before the auth response\n        if (packet.Item1 == -1) { client.Dispose(); throw new Exception(\u0022RCON refused the password.\u0022); }\n        return client;\n    }\n}\n\n// Sends one command and returns its reply (\u0022\u0022 when the server sends none within firstMs).\nstring RconCommand(System.Net.Sockets.TcpClient client, string command, int firstMs)\n{\n    var packet = RconPacket(9, 2, command);\n    client.GetStream().Write(packet, 0, packet.Length);\n    var reply = new System.Text.StringBuilder();\n    client.ReceiveTimeout = firstMs;\n    var first = RconRead(client);\n    if (first == null) return string.Empty;\n    reply.Append(first.Item3);\n    client.ReceiveTimeout = 400;\n    while (true)\n    {\n        var next = RconRead(client);\n        if (next == null) break;\n        reply.Append(next.Item3);\n    }\n    return reply.ToString().Replace(\u0022\\0\u0022, string.Empty).TrimEnd();\n}\n\n\ntry\n{\n    var password = ThisService.Variables.ContainsKey(\u0022RconPassword\u0022) ? Convert.ToString(ThisService.Variables[\u0022RconPassword\u0022]) : string.Empty;\n    using (var client = RconConnect(ThisService.IPAddress, ThisService.RconPort, password, 5000))\n    {\n        var reply = RconCommand(client, \u0022saveworld\u0022, 60000);\n        // The server answers \u0022process cheat manager succeed! no response!\u0022 when it ran the command.\n        ScriptConsole.WriteLine((object)(reply.IndexOf(\u0022failed\u0022, StringComparison.OrdinalIgnoreCase) \u003E= 0 ? \u0022The server did not save: \u0022 \u002B reply : \u0022The world was saved.\u0022));\n    }\n}\ncatch (Exception ex)\n{\n    ScriptConsole.WriteLine((object)(\u0022The server did not answer (\u0022 \u002B ex.Message \u002B \u0022). Is it running?\u0022));\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "\u003Cpath d=\u0022M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "573e8b26-177a-56d7-9aaa-29cd0fdb81d8"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterCustomModInstalled"
+        ],
+        "name": "Add the Workshop mod to the mod list",
+        "description": "Moves the downloaded mod to MOE/Binaries/Win64/Mods/\u003Cid\u003E and adds it to the Workshop mods variable (-SteamModList).",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Myth of Empires loads the mod folders listed in -SteamModList=\u0022Mods/\u003Cid\u003E\u002BMods/\u003Cid\u003E\u0022 (paths relative to\n// MOE/Binaries/Win64). Move the Workshop download to MOE/Binaries/Win64/Mods/\u003Cid\u003E, add it to the Workshop mods\n// variable and re-derive the command line; the server loads it the next time it starts.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \u0022^[0-9]\u002B$\u0022)) throw new Exception(\u0022Unexpected Workshop id: \u0022 \u002B fileId);\nstring installPath = Convert.ToString(Dynamic.InstallPath);\nstring root = (string)ThisService.RootDirectory;\nstring modsDir = Path.Combine(root, \u0022MOE\u0022, \u0022Binaries\u0022, \u0022Win64\u0022, \u0022Mods\u0022);\nstring target = Path.Combine(modsDir, fileId);\n\nif (!string.IsNullOrEmpty(installPath) \u0026\u0026 Directory.Exists(installPath)\n    \u0026\u0026 !string.Equals(Path.GetFullPath(installPath).TrimEnd(\u0027/\u0027, \u0027\\\\\u0027), Path.GetFullPath(target).TrimEnd(\u0027/\u0027, \u0027\\\\\u0027), StringComparison.OrdinalIgnoreCase))\n{\n    Directory.CreateDirectory(modsDir);\n    try { if (Directory.Exists(target)) Directory.Delete(target, true); }\n    catch (IOException) { throw new Exception(\u0022The running server uses the old copy of this mod: stop the server and install it again.\u0022); }\n    Directory.Move(installPath, target);\n    if (System.OperatingSystem.IsLinux())\n    {\n        Globals.OperatingSystem.SetFileOwnerAutoDetect(modsDir);\n        foreach (var p in Directory.EnumerateFileSystemEntries(target, \u0022*\u0022, SearchOption.AllDirectories).Prepend(target))\n            Globals.OperatingSystem.SetFileOwnerAutoDetect(p);\n    }\n    ScriptConsole.WriteLine((object)(\u0022Moved the mod to MOE/Binaries/Win64/Mods/\u0022 \u002B fileId \u002B \u0022.\u0022));\n}\nif (!Directory.Exists(target))\n{\n    ScriptConsole.WriteLine((object)(\u0022Nothing was downloaded for Workshop item \u0022 \u002B fileId \u002B \u0022.\u0022));\n    return;\n}\n\n// A folder still waiting to be removed (uninstalled while the server ran) is this new copy now: keep it.\nstring pending = Path.Combine(modsDir, \u0022.pending-delete.txt\u0022);\nif (File.Exists(pending)) File.WriteAllLines(pending, File.ReadAllLines(pending).Where(l =\u003E l.Trim() != fileId));\n\nstring entry = \u0022Mods/\u0022 \u002B fileId;\nvar service = await GameServiceManager.GetAsync(ThisService.ServiceId);\nvar current = service.Variables ?? new TCAdminVars();\nvar mods = current.Parse\u003Cstring\u003E(\u0022Mods\u0022, string.Empty)\n    .Split(new[] { \u0027\u002B\u0027 }, StringSplitOptions.RemoveEmptyEntries)\n    .Select(x =\u003E x.Trim()).Where(x =\u003E x.Length \u003E 0).ToList();\n\nif (mods.Contains(entry)) ScriptConsole.WriteLine((object)$\u0022Workshop item {fileId} is already in the mod list.\u0022);\nelse mods.Add(entry);\n{\n    var updated = new TCAdminVars();\n    foreach (var pair in current) updated[pair.Key] = pair.Value;\n    var value = string.Join(\u0022\u002B\u0022, mods);\n    updated[\u0022Mods\u0022] = value;\n    // A saved predefined command line keeps its own copy of the variables (PRECMD:\u003Cid\u003E): update those too.\n    foreach (var key in updated.Keys.Where(k =\u003E k.StartsWith(\u0022PRECMD:\u0022)).ToList())\n    {\n        var bag = updated.Parse\u003CTCAdminVars\u003E(key);\n        if (bag == null) continue;\n        bag[\u0022Mods\u0022] = value;\n        updated[key] = bag;\n    }\n    service.Variables = updated;\n    GameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\n    await GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n    ScriptConsole.WriteLine((object)(\u0022Workshop mods: \u0022 \u002B updated[\u0022Mods\u0022]));\n}\n\nvar refresh = await ServiceManager.RefreshActiveCommandLine(null, ThisService.ServiceId);\nScriptConsole.WriteLine((object)(string.IsNullOrEmpty(refresh.Error) ? \u0022Command line updated.\u0022 : \u0022Command line not updated: \u0022 \u002B refresh.Error));\nScriptConsole.WriteLine((object)\u0022The mod is loaded the next time the server starts.\u0022);\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "\u003Cpath d=\u0022M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "951706b1-b698-5b00-ba77-2d30053a02e2"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeCustomModUninstalled"
+        ],
+        "name": "Remove the Workshop mod from the mod list",
+        "description": "Removes the mod from the Workshop mods variable and deletes MOE/Binaries/Win64/Mods/\u003Cid\u003E.",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Removes Mods/\u003Cid\u003E from the Workshop mods variable (-SteamModList), re-derives the command line and deletes the\n// mod folder MOE/Binaries/Win64/Mods/\u003Cid\u003E. The change applies the next time the server starts.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \u0022^[0-9]\u002B$\u0022)) throw new Exception(\u0022Unexpected Workshop id: \u0022 \u002B fileId);\nstring entry = \u0022Mods/\u0022 \u002B fileId;\n\nvar service = await GameServiceManager.GetAsync(ThisService.ServiceId);\nvar current = service.Variables ?? new TCAdminVars();\nvar mods = current.Parse\u003Cstring\u003E(\u0022Mods\u0022, string.Empty)\n    .Split(new[] { \u0027\u002B\u0027 }, StringSplitOptions.RemoveEmptyEntries)\n    .Select(x =\u003E x.Trim()).Where(x =\u003E x.Length \u003E 0).ToList();\n\nif (mods.RemoveAll(m =\u003E m.Replace(\u0027\\\\\u0027, \u0027/\u0027).TrimEnd(\u0027/\u0027) == entry) == 0)\n    ScriptConsole.WriteLine((object)$\u0022Workshop item {fileId} is not in the mod list.\u0022);\n{\n    var updated = new TCAdminVars();\n    foreach (var pair in current) updated[pair.Key] = pair.Value;\n    var value = string.Join(\u0022\u002B\u0022, mods);\n    updated[\u0022Mods\u0022] = value;\n    // A saved predefined command line keeps its own copy of the variables (PRECMD:\u003Cid\u003E): update those too.\n    foreach (var key in updated.Keys.Where(k =\u003E k.StartsWith(\u0022PRECMD:\u0022)).ToList())\n    {\n        var bag = updated.Parse\u003CTCAdminVars\u003E(key);\n        if (bag == null) continue;\n        bag[\u0022Mods\u0022] = value;\n        updated[key] = bag;\n    }\n    service.Variables = updated;\n    GameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\n    await GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n    ScriptConsole.WriteLine((object)(\u0022Workshop mods: \u0022 \u002B (mods.Count \u003E 0 ? updated[\u0022Mods\u0022] : \u0022(none)\u0022)));\n}\n\nstring dir = Path.Combine((string)ThisService.RootDirectory, \u0022MOE\u0022, \u0022Binaries\u0022, \u0022Win64\u0022, \u0022Mods\u0022, fileId);\ntry { if (Directory.Exists(dir)) { Directory.Delete(dir, true); ScriptConsole.WriteLine((object)(\u0022Removed MOE/Binaries/Win64/Mods/\u0022 \u002B fileId \u002B \u0022.\u0022)); } }\ncatch (Exception)\n{\n    // The running server keeps the mod\u0027s pak files open: the \u0022Prepare the server\u0022 script removes the folder at the next start.\n    File.AppendAllLines(Path.Combine(Path.GetDirectoryName(dir), \u0022.pending-delete.txt\u0022), new[] { fileId });\n    ScriptConsole.WriteLine((object)(\u0022The running server uses MOE/Binaries/Win64/Mods/\u0022 \u002B fileId \u002B \u0022; it is removed at the next start.\u0022));\n}\n\nvar refresh = await ServiceManager.RefreshActiveCommandLine(null, ThisService.ServiceId);\nScriptConsole.WriteLine((object)(string.IsNullOrEmpty(refresh.Error) ? \u0022Command line updated.\u0022 : \u0022Command line not updated: \u0022 \u002B refresh.Error));\nScriptConsole.WriteLine((object)\u0022The mod is no longer loaded from the next server start.\u0022);\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "\u003Cpath d=\u0022M19 13H5v-2h14v2z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "6483baea-03ce-58d0-8d54-36ae002217f2"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "CustomQueryProtocol"
+        ],
+        "name": "Query",
+        "description": "Status, map and players from the Steam query (A2S) on the query port, with the server name and slots of the service (the game reports its Steam id as the name).",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.Primitives.dll, System.Net.Sockets.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Net;\nusing System.Net.Sockets;\nusing System.Text;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Myth of Empires answers the Steam (A2S) query on its query port, but it reports its Steam server id as the server\n// name and 0 as the player limit (the game\u0027s own server list carries the session name). Read A2S_INFO for the\n// status, map and player count and report the service\u0027s server name and slots instead.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = ThisService.QueryPort \u003E 0 ? ThisService.QueryPort : ThisService.GamePort;\n\nstring ReadString(byte[] data, ref int offset)\n{\n    int start = offset;\n    while (offset \u003C data.Length \u0026\u0026 data[offset] != 0) offset\u002B\u002B;\n    var s = Encoding.UTF8.GetString(data, start, offset - start);\n    offset\u002B\u002B;\n    return s;\n}\n\ntry\n{\n    byte[] reply;\n    using (var udp = new UdpClient())\n    {\n        udp.Client.ReceiveTimeout = 2500;\n        udp.Connect(address, port);\n        var request = new List\u003Cbyte\u003E { 0xFF, 0xFF, 0xFF, 0xFF, 0x54 };\n        request.AddRange(Encoding.ASCII.GetBytes(\u0022Source Engine Query\\0\u0022));\n        udp.Send(request.ToArray(), request.Count);\n        IPEndPoint from = null;\n        reply = udp.Receive(ref from);\n        if (reply.Length \u003E= 9 \u0026\u0026 reply[4] == 0x41) // challenge: repeat the request with it\n        {\n            request.AddRange(reply.Skip(5).Take(4));\n            udp.Send(request.ToArray(), request.Count);\n            reply = udp.Receive(ref from);\n        }\n    }\n    if (reply.Length \u003C 6 || reply[4] != 0x49) throw new Exception(\u0022Unexpected A2S reply.\u0022);\n    int o = 6; // header (4) \u002B type (1) \u002B protocol (1)\n    ReadString(reply, ref o); // name = the Steam server id\n    var map = ReadString(reply, ref o);\n    ReadString(reply, ref o); // folder\n    ReadString(reply, ref o); // game\n    o \u002B= 2; // app id\n    int players = o \u003C reply.Length ? reply[o] : 0;\n    var name = ThisService.Variables.ContainsKey(\u0022Hostname\u0022) ? Convert.ToString(ThisService.Variables[\u0022Hostname\u0022]) : string.Empty;\n    Globals.ReturnValue = new GameQueryResponse\n    {\n        Success = true,\n        Status = \u0022online\u0022,\n        Protocol = \u0022custom_script\u0022,\n        Address = address,\n        Hostname = address \u002B \u0022:\u0022 \u002B ThisService.GamePort,\n        Name = string.IsNullOrWhiteSpace(name) ? ThisService.Name : name,\n        GameType = \u0022MOE\u0022,\n        Map = map,\n        NumPlayers = players,\n        MaxPlayers = ThisService.Slots,\n        NumSpectators = 0,\n        MaxSpectators = 0,\n        Retries = 0\n    };\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, ex.Message);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "43d6935a-dcc4-5498-a114-c4772bc02a93"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server",
+        "description": "Removes the folders of Workshop mods that were uninstalled while the server was running.",
+        "code": "using System;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Removes the folders of Workshop mods that were uninstalled while the server was running (their pak files were\n// locked then; the uninstall script lists them in MOE/Binaries/Win64/Mods/.pending-delete.txt).\nstring mods = Path.Combine((string)ThisService.RootDirectory, \u0022MOE\u0022, \u0022Binaries\u0022, \u0022Win64\u0022, \u0022Mods\u0022);\nstring pending = Path.Combine(mods, \u0022.pending-delete.txt\u0022);\nif (!File.Exists(pending)) return;\nvar left = File.ReadAllLines(pending).Select(l =\u003E l.Trim()).Where(l =\u003E Regex.IsMatch(l, \u0022^[0-9]\u002B$\u0022)).Distinct().ToList();\nforeach (var id in left.ToList())\n{\n    string dir = Path.Combine(mods, id);\n    try\n    {\n        if (Directory.Exists(dir)) Directory.Delete(dir, true);\n        ScriptConsole.WriteLine((object)(\u0022Removed the uninstalled mod MOE/Binaries/Win64/Mods/\u0022 \u002B id \u002B \u0022.\u0022));\n        left.Remove(id);\n    }\n    catch (Exception ex) { ScriptConsole.WriteLine((object)(\u0022Could not remove MOE/Binaries/Win64/Mods/\u0022 \u002B id \u002B \u0022: \u0022 \u002B ex.Message)); }\n}\nif (left.Count == 0) File.Delete(pending); else File.WriteAllLines(pending, left);\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "ad76126d-1052-558c-9045-8e48b540972d"
+      }
+    }
+  ],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 312,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 2,
+      "gameId": 312,
+      "enabled": true,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "AllowCollections": true,
+        "ShowDescription": true,
+        "ShowAuthorAndRating": true,
+        "Private.UseSteamAPI": false,
+        "SkipDownload": false
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 312,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 312,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 5,
+      "gameId": 312,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 312,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 312,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    }
+  ],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-11T10:02:48.490626",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "MOE/Saved/SaveGames/**/*",
+      "MOE/Saved/Config/**/*",
+      "MOE/Binaries/Win64/Mods/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
