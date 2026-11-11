@@ -169,7 +169,14 @@
       "createdDate": "2026-09-02T18:17:54.087006",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "disableCrosshair",
@@ -201,7 +208,14 @@
       "createdDate": "2026-09-02T18:17:54.087446",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "enableDebugMonitor",
@@ -233,7 +247,14 @@
       "createdDate": "2026-09-02T18:17:54.087536",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "instanceId",
@@ -268,7 +289,14 @@
       "createdDate": "2026-09-02T18:17:54.088211",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "maxPing",
@@ -303,7 +331,14 @@
       "createdDate": "2026-09-02T18:17:54.088396",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "Mods",
@@ -338,7 +373,14 @@
       "createdDate": "2026-09-02T18:17:54.088684",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "motd1",
@@ -373,7 +415,14 @@
       "createdDate": "2026-09-02T18:17:54.088815",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "motd2",
@@ -408,7 +457,14 @@
       "createdDate": "2026-09-02T18:17:54.088925",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "motdInterval",
@@ -443,7 +499,14 @@
       "createdDate": "2026-09-02T18:17:54.089043",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "respawnTime",
@@ -478,7 +541,14 @@
       "createdDate": "2026-09-02T18:17:54.089159",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "ServerMods",
@@ -513,7 +583,14 @@
       "createdDate": "2026-09-02T18:17:54.089276",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "servertime",
@@ -548,7 +625,14 @@
       "createdDate": "2026-09-02T18:17:54.089378",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "serverTimeAcceleration",
@@ -583,7 +667,14 @@
       "createdDate": "2026-09-02T18:17:54.089485",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     },
     {
       "name": "serverTimePersistent",
@@ -615,7 +706,14 @@
       "createdDate": "2026-09-02T18:17:54.089587",
       "modifiedDate": null,
       "metadata": {},
-      "variableRoles": []
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     }
   ],
   "configFiles": [
@@ -1174,7 +1272,14 @@
         "order": 0,
         "icon": "",
         "scriptInputVariables": [],
-        "scriptRoles": [],
+        "scriptRoles": [
+          {
+            "roleId": 2
+          },
+          {
+            "roleId": 3
+          }
+        ],
         "editor": [],
         "translations": [],
         "identifier": "e58e9ad7-72ae-432a-a0a2-6840ccdd17d1"
@@ -1394,90 +1499,6 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "CpuStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "FileManager",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "LiveStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Logs",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "ServiceActivity",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "MemoryStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Reinstall",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "ScheduledTasks",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "SteamUpdate",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
       "permission": "Backups",
       "moduleData": "",
       "granted": true
@@ -1569,6 +1590,13 @@
     {
       "roleId": 2,
       "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
       "permission": "Control",
       "moduleData": "",
       "granted": true
@@ -1579,6 +1607,13 @@
       "permission": "Create",
       "moduleData": "",
       "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
     },
     {
       "roleId": 2,
@@ -1625,7 +1660,42 @@
     {
       "roleId": 2,
       "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
       "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
       "moduleData": "",
       "granted": true
     },
@@ -1646,7 +1716,21 @@
     {
       "roleId": 2,
       "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
       "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
       "moduleData": "",
       "granted": true
     },
@@ -1660,9 +1744,30 @@
     {
       "roleId": 2,
       "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
       "permission": "ServiceSettings",
       "moduleData": "",
       "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
     },
     {
       "roleId": 2,
@@ -1674,90 +1779,6 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "CpuStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "FileManager",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "LiveStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Logs",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "ServiceActivity",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "MemoryStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Reinstall",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "ScheduledTasks",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "SteamUpdate",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
       "permission": "Backups",
       "moduleData": "",
       "granted": true
@@ -1849,6 +1870,13 @@
     {
       "roleId": 3,
       "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
       "permission": "Control",
       "moduleData": "",
       "granted": true
@@ -1859,6 +1887,13 @@
       "permission": "Create",
       "moduleData": "",
       "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
     },
     {
       "roleId": 3,
@@ -1905,7 +1940,42 @@
     {
       "roleId": 3,
       "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
       "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
       "moduleData": "",
       "granted": true
     },
@@ -1926,9 +1996,23 @@
     {
       "roleId": 3,
       "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
       "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
     },
     {
       "roleId": 3,
@@ -1940,9 +2024,30 @@
     {
       "roleId": 3,
       "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
       "permission": "ServiceSettings",
       "moduleData": "",
       "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
     },
     {
       "roleId": 3,
