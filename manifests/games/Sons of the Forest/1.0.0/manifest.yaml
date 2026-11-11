@@ -19,6 +19,7 @@ longDescription: |
   - **Graceful stop:** the panel sends Ctrl+C, the server saves the world and exits.
   - **Console output** in the Terminal on Windows, from the server log on Linux.
   - **Log viewer** for `sotf_log.txt`.
+  - **IP and ports** (checked on Linux with Wine): the game port binds the service IP. The query and BlobSync ports always listen on all addresses (the server has no setting for them), so the config uses only the primary IP of the server. After a move to a new IP and ports, the query answers on the new query port. Windows uses the same command line and config; its custom command line was only previewed (200).
   - **Backups** of the `serverconfig` folder (settings, owners list and saves). The server is stopped first.
   - No mod support: the dedicated server has no mod system.
   
