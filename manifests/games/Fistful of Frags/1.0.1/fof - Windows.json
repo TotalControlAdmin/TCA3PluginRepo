@@ -97,7 +97,7 @@
   },
   "commandlineConfig": {
     "enableSelection": true,
-    "defaultCommandline": "-norestart -console -condebug -game fof \u002Bmaxplayers ${Slots} \u002Bmap fof_fistful -ip ${IPAddress} -port ${GamePort}",
+    "defaultCommandline": "-norestart -console -condebug -game fof +maxplayers ${Slots} +map fof_fistful -ip ${IPAddress} -port ${GamePort}",
     "defaultCustomCommandline": "",
     "predefinedCommandlines": []
   },
@@ -108,13 +108,140 @@
     "interactWithDesktop": true,
     "elevated": false
   },
-  "gameVariables": [],
+  "gameVariables": [
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:23:39.335712",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:23:40.588861",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:23:41.785104",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
   "configFiles": [
     {
       "id": 117,
       "relativePath": "fof\\cfg\\server.cfg",
       "description": "Main configuration file",
-      "template": "// server name\nhostname \u0022${Hostname}\u0022 \n\n// rcon passsword\nrcon_password \u0022${RconPassword}\u0022 \n\n// Server password\nsv_password \u0022${PrivatePassword}\u0022\n\n// voice support\nsv_voiceenable 1\nsv_alltalk 1\n\n// prevents some exploits\nsv_allow_wait_command 0\n\n// operation\nsv_lan 0 \nsv_region 255\n\n// GAME MODES\nfof_sv_currentmode 1 // 1 Shootout, 2 Teamplay/Objectives, 3 Break Bad, 4 Elimination, 5 Versus, 6 course\n\nmp_teamplay 1 // teams enabled\n\nfof_sv_maxteams 4 // amount of teams 2-3-4\n\nmp_timelimit 15\n\n// PLAYERS\nmp_forcecamera 0 // 0 free roaming - 1 allow team only - 2 allow none\n\n// BOTS\nfof_sv_bot_slotpct 0.4\n\n// SERVER\nsv_Maxrate 50000\nsv_Minrate 50000\nsv_Maxupdaterate 100\nsv_Minupdaterate 33\nsv_Maxcmdrate 100\nsv_Mincmdrate 33\n\nsv_client_max_interp_ratio 5\nsv_client_min_interp_ratio 1\nsv_client_predict 1\n\n// server logging\nlog on\nsv_logbans 1\nsv_logecho 1\nsv_logfile 1\nsv_log_onefile 0\n\n// execute ban files\nexec banned_user.cfg\nexec banned_ip.cfg\n\nwriteip\nwriteid",
+      "template": "// server name\nhostname \"${Hostname}\" \n\n// rcon passsword\nrcon_password \"${RconPassword}\" \n\n// Server password\nsv_password \"${PrivatePassword}\"\n\n// voice support\nsv_voiceenable 1\nsv_alltalk 1\n\n// prevents some exploits\nsv_allow_wait_command 0\n\n// operation\nsv_lan 0 \nsv_region 255\n\n// GAME MODES\nfof_sv_currentmode 1 // 1 Shootout, 2 Teamplay/Objectives, 3 Break Bad, 4 Elimination, 5 Versus, 6 course\n\nmp_teamplay 1 // teams enabled\n\nfof_sv_maxteams 4 // amount of teams 2-3-4\n\nmp_timelimit 15\n\n// PLAYERS\nmp_forcecamera 0 // 0 free roaming - 1 allow team only - 2 allow none\n\n// BOTS\nfof_sv_bot_slotpct 0.4\n\n// SERVER\nsv_Maxrate 50000\nsv_Minrate 50000\nsv_Maxupdaterate 100\nsv_Minupdaterate 33\nsv_Maxcmdrate 100\nsv_Mincmdrate 33\n\nsv_client_max_interp_ratio 5\nsv_client_min_interp_ratio 1\nsv_client_predict 1\n\n// server logging\nlog on\nsv_logbans 1\nsv_logecho 1\nsv_logfile 1\nsv_log_onefile 0\n\n// execute ban files\nexec banned_user.cfg\nexec banned_ip.cfg\n\nwriteip\nwriteid",
       "order": 0,
       "enableEditor": false,
       "editor": [
