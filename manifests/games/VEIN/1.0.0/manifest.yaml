@@ -1,0 +1,52 @@
+identifier: "Community.Games.VEIN"
+name: "VEIN"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "VEIN dedicated server (Windows / native Linux) with config editors for Game.ini and the gameplay console variables, console commands through the server's HTTP API, Steam status query, graceful save-and-stop, a Save the world button and backups; starts out of the box"
+longDescription: |
+  # VEIN
+  
+  ## Description
+  VEIN dedicated server (Steam app 2131400, anonymous download). The Windows config runs `VeinServer-Win64-Test.exe`. The Linux config runs the native Linux server `VeinServer-Linux-Test`.
+  
+  ## Key Features
+  - **Windows and Linux** configs, both native.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box.** On Linux a script makes the server and its crash reporter executable and installs `steamclient.so` in `~/.steam/sdk64` (downloaded once from Valve's SteamCMD package and checked against its SHA-256). Without them the server hangs at startup or is not listed.
+  - **Config editor** for `Game.ini` (server name, description, password, server browser listing, super admin, VAC, Discord chat webhook, hunger, thirst and tiredness multipliers, third-person camera distance) and for the gameplay console variables in `Engine.ini` (time speed, loot, respawns, PvP, permadeath, raiding, utility cabinets, zombies, hordes, autosave and more).
+  - **Edits while the server runs are kept.** The server writes its ini files from memory when it exits. Scripts record what you changed in the panel while it runs and write it again after it has stopped. Restart the server to use the new settings.
+  - **Console commands** through the server's HTTP API (the game has no RCON and reads no console input): `status`, `players`, `player <SteamID64>`, `character <id>`, `time`, `weather`, `say <message>`, `save`, `saveandexit`, `help`.
+  - **Status query** from the Steam query port: name, map and players.
+  - **Graceful stop:** the stop script asks the server to save the world and exit, and waits until it is gone.
+  - **Save the world** button for players.
+  - **Console output** from the server's console window on Windows and from its terminal on Linux.
+  - **Log viewer** for `Vein.log` and its backup copies, also while the server runs.
+  - **Backups** of the world save and the server's config. The server is stopped first.
+  
+  ## Ports
+  - Game 7777 (UDP).
+  - Query 27015 (UDP).
+  - HTTP API 8080 (TCP). The API has no password, so it listens on the loopback address only (`DefaultBindAddress=127.0.0.1` in `Engine.ini`) and is not reachable from outside. The config uses only the server's primary IP, so every VEIN service on a server shares one IP and the panel gives each its own HTTP API port.
+  - IP and ports: `-multihome` binds the game port and the Steam query port to the service IP, and every port has its own setting (tested on Windows, moved to a second IP with new ports; the Linux config uses the same command line and config files and was previewed only).
+  - The server also opens a few random ports for the Steam API, and Unreal's trace control port 1985 (TCP) on all addresses. The game has no setting for port 1985. On 127.0.0.1 the Steam query port listens on 0.0.0.0 (Steam does not accept loopback). Use a real IP.
+  
+  ## Instructions
+  - Change the settings in Configuration Files, then restart the server.
+  - Put your SteamID64 in "Super admin". Open the admin menu in the game with `\`. Super admins can make other players admins in the game. For more admins add `+AdminSteamIDs=<id>` lines to `Game.ini` in the text editor.
+  - The world is saved in `Vein/Saved/SaveGames/Server.vns`.
+  - The server needs about 4 GB of memory once the map is loaded. The first start takes a minute.
+  - The game is in early access.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/1857950/f877b7a16e93b3ece155ce04f6487bebff5b8f8f.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1857950/e2c2e1f3a9e6e50f4f20bb7d1563aa0d113e557c/ss_e2c2e1f3a9e6e50f4f20bb7d1563aa0d113e557c.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "VEIN - Windows.json"
+    type: "GameConfig"
+  - path: "VEIN - Linux.json"
+    type: "GameConfig"
