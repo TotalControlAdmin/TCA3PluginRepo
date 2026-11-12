@@ -1,0 +1,5462 @@
+{
+  "__TCA:ExportVersion": "3.23.47.17810",
+  "__TCA:ExportedAt": "2026-11-12T04:32:24.3126248Z",
+  "name": "Night of the Dead (Linux / Wine)",
+  "shortName": "NightOfTheDead",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/1377380/7b9307de9fa2d3fc98b5e56c1f234c0d7f5b1381.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1377380/ss_431316b2c52336fa8489256162cb439fd0db31f2.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 16,
+  "defaultSlots": 8,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".ini",
+    ".txt",
+    ".json"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "custom_script",
+    "rconProtocol": "",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "LogFile",
+    "logFile": "LF/Saved/Logs/LF.log",
+    "inputSource": "None",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "",
+    "waitAfterStopCommand": 30000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 7777,
+        "expression": "",
+        "description": "Game (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 27015,
+        "expression": "",
+        "description": "Steam query and server list (UDP)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "LF/Binaries/Win64/LFServer-Win64-Shipping.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "nightofthedead-wine",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 1420710,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 1377380,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": false,
+    "defaultCommandline": "?listen -Port=${GamePort} -QueryPort=${QueryPort} -MULTIHOME=${IPAddress} -log",
+    "defaultCustomCommandline": "?listen -Port=${GamePort} -QueryPort=${QueryPort} -MULTIHOME=${IPAddress} -log",
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "7e9bb191-911f-5c46-a901-6ca384ed61e7",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "MessageOfTheDay",
+      "defaultValue": "Welcome to the server.",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MessageOfTheDay}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[^\\x00-\\x1f]{0,64}$",
+        "inputType": 0,
+        "id": "MessageOfTheDay",
+        "defaultValue": "Welcome to the server.",
+        "label": "Message of the day",
+        "description": "Shown to players when they join. One line, up to 64 characters.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.549427",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SaveName",
+      "defaultValue": "savedgame1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SaveName}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[A-Za-z0-9_-]{1,32}$",
+        "inputType": 0,
+        "id": "SaveName",
+        "defaultValue": "savedgame1",
+        "label": "Save name",
+        "description": "Folder under LF/Saved/SaveGames that holds the world. A new name starts a new world. Letters, digits, - and _ (up to 32).",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.561188",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SaveIntervalHour",
+      "defaultValue": "2",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SaveIntervalHour}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 24,
+        "id": "SaveIntervalHour",
+        "defaultValue": "2",
+        "label": "Autosave every (in-game hours)",
+        "description": "One in-game hour is about 5 real minutes.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.561256",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Difficulty",
+      "defaultValue": "Normal",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Difficulty}",
+      "editor": {
+        "items": [
+          {
+            "text": "Peaceful",
+            "value": "Peaceful"
+          },
+          {
+            "text": "Easy",
+            "value": "Easy"
+          },
+          {
+            "text": "Normal",
+            "value": "Normal"
+          },
+          {
+            "text": "Hard",
+            "value": "Hard"
+          },
+          {
+            "text": "Survival",
+            "value": "Survival"
+          },
+          {
+            "text": "Challenge",
+            "value": "Challenge"
+          },
+          {
+            "text": "Legend",
+            "value": "Legend"
+          },
+          {
+            "text": "Custom",
+            "value": "Custom"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "Difficulty",
+        "defaultValue": "Normal",
+        "label": "Difficulty",
+        "description": "Custom uses the Custom difficulty values below.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.567292",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "OneDayTime",
+      "defaultValue": "240",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${OneDayTime}",
+      "editor": {
+        "items": [
+          {
+            "text": "60",
+            "value": "60"
+          },
+          {
+            "text": "120",
+            "value": "120"
+          },
+          {
+            "text": "180",
+            "value": "180"
+          },
+          {
+            "text": "240",
+            "value": "240"
+          },
+          {
+            "text": "300",
+            "value": "300"
+          },
+          {
+            "text": "360",
+            "value": "360"
+          },
+          {
+            "text": "420",
+            "value": "420"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "OneDayTime",
+        "defaultValue": "240",
+        "label": "Length of one in-game day (real minutes)",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.579039",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NoWave",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NoWave}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "NoWave",
+        "defaultValue": "0",
+        "label": "No zombie waves",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.574713",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NoSpawnBuildingBlocker",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NoSpawnBuildingBlocker}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "NoSpawnBuildingBlocker",
+        "defaultValue": "0",
+        "label": "Building-forbidden areas around spawns",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.577954",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NoZombieRespawn",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NoZombieRespawn}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "NoZombieRespawn",
+        "defaultValue": "0",
+        "label": "No zombie respawn",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578015",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NaturalObjectRespawn",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NaturalObjectRespawn}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "NaturalObjectRespawn",
+        "defaultValue": "0",
+        "label": "Natural objects respawn",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578031",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SyntheticObjectRespawn",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SyntheticObjectRespawn}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "SyntheticObjectRespawn",
+        "defaultValue": "0",
+        "label": "Synthetic objects respawn",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578043",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NoGeneratorTrouble",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NoGeneratorTrouble}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "NoGeneratorTrouble",
+        "defaultValue": "0",
+        "label": "No generator breakdowns",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578118",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NoDeathResearchDrop",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NoDeathResearchDrop}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "NoDeathResearchDrop",
+        "defaultValue": "0",
+        "label": "Keep research on death",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578126",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "DropItemsOnExit",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${DropItemsOnExit}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "DropItemsOnExit",
+        "defaultValue": "0",
+        "label": "Drop items when a player leaves",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578134",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hardcore",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hardcore}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "Hardcore",
+        "defaultValue": "0",
+        "label": "Hardcore",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.579103",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NoTeamKill",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NoTeamKill}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "NoTeamKill",
+        "defaultValue": "1",
+        "label": "No team kill",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578149",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NormalZombieHealth",
+      "defaultValue": "17",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NormalZombieHealth}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "NormalZombieHealth",
+        "defaultValue": "17",
+        "label": "Light zombie health",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578206",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SpecialZombieHealth",
+      "defaultValue": "17",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SpecialZombieHealth}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "SpecialZombieHealth",
+        "defaultValue": "17",
+        "label": "Heavy zombie health",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578228",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "GiantZombieHealth",
+      "defaultValue": "17",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${GiantZombieHealth}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "GiantZombieHealth",
+        "defaultValue": "17",
+        "label": "Giant zombie health",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578245",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ZombieDamage",
+      "defaultValue": "25",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ZombieDamage}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "ZombieDamage",
+        "defaultValue": "25",
+        "label": "Zombie damage",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578262",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ZombieMovementSpeed",
+      "defaultValue": "37",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ZombieMovementSpeed}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "ZombieMovementSpeed",
+        "defaultValue": "37",
+        "label": "Zombie movement speed",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578277",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WorldZombieSpawn",
+      "defaultValue": "25",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WorldZombieSpawn}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "WorldZombieSpawn",
+        "defaultValue": "25",
+        "label": "World zombie spawn amount",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578286",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WaveZombieHealth",
+      "defaultValue": "25",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WaveZombieHealth}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "WaveZombieHealth",
+        "defaultValue": "25",
+        "label": "Wave zombie health",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578306",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WaveNormalZombieAmount",
+      "defaultValue": "44",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WaveNormalZombieAmount}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "WaveNormalZombieAmount",
+        "defaultValue": "44",
+        "label": "Light zombies per wave",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578315",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WaveSpecialZombieAmount",
+      "defaultValue": "18",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WaveSpecialZombieAmount}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "WaveSpecialZombieAmount",
+        "defaultValue": "18",
+        "label": "Heavy zombies per wave",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578323",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WaveGiantZombieAmount",
+      "defaultValue": "21",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WaveGiantZombieAmount}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "WaveGiantZombieAmount",
+        "defaultValue": "21",
+        "label": "Giant zombies per wave",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578345",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AnimalHealth",
+      "defaultValue": "17",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AnimalHealth}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "AnimalHealth",
+        "defaultValue": "17",
+        "label": "Animal health",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578356",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AnimalDamage",
+      "defaultValue": "18",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AnimalDamage}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "AnimalDamage",
+        "defaultValue": "18",
+        "label": "Animal damage",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578377",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WorldNormalZombieRespawnTime",
+      "defaultValue": "120",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WorldNormalZombieRespawnTime}",
+      "editor": {
+        "items": [
+          {
+            "text": "30",
+            "value": "30"
+          },
+          {
+            "text": "60",
+            "value": "60"
+          },
+          {
+            "text": "120",
+            "value": "120"
+          },
+          {
+            "text": "180",
+            "value": "180"
+          },
+          {
+            "text": "240",
+            "value": "240"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "WorldNormalZombieRespawnTime",
+        "defaultValue": "120",
+        "label": "Light zombie respawn time (s)",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578409",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WorldSpecialZombieRespawnTime",
+      "defaultValue": "600",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WorldSpecialZombieRespawnTime}",
+      "editor": {
+        "items": [
+          {
+            "text": "120",
+            "value": "120"
+          },
+          {
+            "text": "300",
+            "value": "300"
+          },
+          {
+            "text": "600",
+            "value": "600"
+          },
+          {
+            "text": "900",
+            "value": "900"
+          },
+          {
+            "text": "1200",
+            "value": "1200"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "WorldSpecialZombieRespawnTime",
+        "defaultValue": "600",
+        "label": "Heavy zombie respawn time (s)",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578429",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WorldGiantZombieRespawnTime",
+      "defaultValue": "600",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WorldGiantZombieRespawnTime}",
+      "editor": {
+        "items": [
+          {
+            "text": "120",
+            "value": "120"
+          },
+          {
+            "text": "300",
+            "value": "300"
+          },
+          {
+            "text": "600",
+            "value": "600"
+          },
+          {
+            "text": "900",
+            "value": "900"
+          },
+          {
+            "text": "1200",
+            "value": "1200"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "WorldGiantZombieRespawnTime",
+        "defaultValue": "600",
+        "label": "Giant zombie respawn time (s)",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578449",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NoExperienceLoss",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NoExperienceLoss}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "NoExperienceLoss",
+        "defaultValue": "0",
+        "label": "Keep experience on death",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578465",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NoDeathItemDrop",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NoDeathItemDrop}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "NoDeathItemDrop",
+        "defaultValue": "1",
+        "label": "Keep items on death",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578485",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NoDeathEquipmentItemDrop",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NoDeathEquipmentItemDrop}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "NoDeathEquipmentItemDrop",
+        "defaultValue": "1",
+        "label": "Keep equipment on death",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578496",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ResearchDataConsumption",
+      "defaultValue": "50",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ResearchDataConsumption}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "ResearchDataConsumption",
+        "defaultValue": "50",
+        "label": "Research data consumption",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578527",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FishSpeed",
+      "defaultValue": "66",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${FishSpeed}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "FishSpeed",
+        "defaultValue": "66",
+        "label": "Fish speed",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578552",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "BuildingHit",
+      "defaultValue": "90",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BuildingHit}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "BuildingHit",
+        "defaultValue": "90",
+        "label": "Building health",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578621",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TrapDamage",
+      "defaultValue": "66",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TrapDamage}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "TrapDamage",
+        "defaultValue": "66",
+        "label": "Trap damage",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578638",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ResourcesReturnedAfterBuildingDestroyed",
+      "defaultValue": "30",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ResourcesReturnedAfterBuildingDestroyed}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "ResourcesReturnedAfterBuildingDestroyed",
+        "defaultValue": "30",
+        "label": "Materials returned when a building is destroyed",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.57867",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FishingGaugeDecrease",
+      "defaultValue": "40",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${FishingGaugeDecrease}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "FishingGaugeDecrease",
+        "defaultValue": "40",
+        "label": "Fish power",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578571",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SuperiorOrHigherEquipmentGainMultiplier",
+      "defaultValue": "40",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SuperiorOrHigherEquipmentGainMultiplier}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "SuperiorOrHigherEquipmentGainMultiplier",
+        "defaultValue": "40",
+        "label": "High-grade equipment drop rate",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578603",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AmountOfExperienceGained",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AmountOfExperienceGained}",
+      "editor": {
+        "items": [
+          {
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "text": "2",
+            "value": "2"
+          },
+          {
+            "text": "3",
+            "value": "3"
+          },
+          {
+            "text": "4",
+            "value": "4"
+          },
+          {
+            "text": "5",
+            "value": "5"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "AmountOfExperienceGained",
+        "defaultValue": "1",
+        "label": "Experience gained",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578683",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ResourceAcquisition",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ResourceAcquisition}",
+      "editor": {
+        "items": [
+          {
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "text": "2",
+            "value": "2"
+          },
+          {
+            "text": "3",
+            "value": "3"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "ResourceAcquisition",
+        "defaultValue": "1",
+        "label": "Items obtained",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.57871",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "InitialFoodAmount",
+      "defaultValue": "10",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${InitialFoodAmount}",
+      "editor": {
+        "items": [
+          {
+            "text": "0",
+            "value": "0"
+          },
+          {
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "text": "2",
+            "value": "2"
+          },
+          {
+            "text": "5",
+            "value": "5"
+          },
+          {
+            "text": "10",
+            "value": "10"
+          },
+          {
+            "text": "12",
+            "value": "12"
+          },
+          {
+            "text": "15",
+            "value": "15"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "InitialFoodAmount",
+        "defaultValue": "10",
+        "label": "Initial food",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578725",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NaturalObjectRespawnTime",
+      "defaultValue": "720",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NaturalObjectRespawnTime}",
+      "editor": {
+        "items": [
+          {
+            "text": "240",
+            "value": "240"
+          },
+          {
+            "text": "360",
+            "value": "360"
+          },
+          {
+            "text": "480",
+            "value": "480"
+          },
+          {
+            "text": "600",
+            "value": "600"
+          },
+          {
+            "text": "720",
+            "value": "720"
+          },
+          {
+            "text": "840",
+            "value": "840"
+          },
+          {
+            "text": "960",
+            "value": "960"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "NaturalObjectRespawnTime",
+        "defaultValue": "720",
+        "label": "Natural objects respawn time",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578758",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SyntheticObjectRespawnTime",
+      "defaultValue": "720",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SyntheticObjectRespawnTime}",
+      "editor": {
+        "items": [
+          {
+            "text": "240",
+            "value": "240"
+          },
+          {
+            "text": "360",
+            "value": "360"
+          },
+          {
+            "text": "480",
+            "value": "480"
+          },
+          {
+            "text": "600",
+            "value": "600"
+          },
+          {
+            "text": "720",
+            "value": "720"
+          },
+          {
+            "text": "840",
+            "value": "840"
+          },
+          {
+            "text": "960",
+            "value": "960"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "SyntheticObjectRespawnTime",
+        "defaultValue": "720",
+        "label": "Synthetic objects respawn time",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578778",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FarmResourceOutput",
+      "defaultValue": "1.25",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${FarmResourceOutput}",
+      "editor": {
+        "items": [
+          {
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "text": "1.25",
+            "value": "1.25"
+          },
+          {
+            "text": "1.5",
+            "value": "1.5"
+          },
+          {
+            "text": "1.75",
+            "value": "1.75"
+          },
+          {
+            "text": "2",
+            "value": "2"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "FarmResourceOutput",
+        "defaultValue": "1.25",
+        "label": "Farm production amount",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578806",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MachineResourceOutput",
+      "defaultValue": "1.25",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MachineResourceOutput}",
+      "editor": {
+        "items": [
+          {
+            "text": "0.5",
+            "value": "0.5"
+          },
+          {
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "text": "1.25",
+            "value": "1.25"
+          },
+          {
+            "text": "1.5",
+            "value": "1.5"
+          },
+          {
+            "text": "2",
+            "value": "2"
+          },
+          {
+            "text": "2.5",
+            "value": "2.5"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "MachineResourceOutput",
+        "defaultValue": "1.25",
+        "label": "Machine production amount",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578837",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AnimalTrapTime",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AnimalTrapTime}",
+      "editor": {
+        "items": [
+          {
+            "text": "0.5",
+            "value": "0.5"
+          },
+          {
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "text": "1.5",
+            "value": "1.5"
+          },
+          {
+            "text": "2",
+            "value": "2"
+          },
+          {
+            "text": "2.5",
+            "value": "2.5"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "AnimalTrapTime",
+        "defaultValue": "1",
+        "label": "Animal trap time",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578858",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FarmResourceProductionTime",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${FarmResourceProductionTime}",
+      "editor": {
+        "items": [
+          {
+            "text": "0.5",
+            "value": "0.5"
+          },
+          {
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "text": "1.5",
+            "value": "1.5"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "FarmResourceProductionTime",
+        "defaultValue": "1",
+        "label": "Farm production time",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578893",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MachineResourceProductionTime",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MachineResourceProductionTime}",
+      "editor": {
+        "items": [
+          {
+            "text": "0.5",
+            "value": "0.5"
+          },
+          {
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "text": "1.5",
+            "value": "1.5"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "MachineResourceProductionTime",
+        "defaultValue": "1",
+        "label": "Machine production time",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578915",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ElectricGeneration",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ElectricGeneration}",
+      "editor": {
+        "items": [
+          {
+            "text": "0.5",
+            "value": "0.5"
+          },
+          {
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "text": "1.5",
+            "value": "1.5"
+          },
+          {
+            "text": "2",
+            "value": "2"
+          },
+          {
+            "text": "2.5",
+            "value": "2.5"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "ElectricGeneration",
+        "defaultValue": "1",
+        "label": "Power generated",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578939",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ElectricConsumption",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ElectricConsumption}",
+      "editor": {
+        "items": [
+          {
+            "text": "0.5",
+            "value": "0.5"
+          },
+          {
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "text": "1.5",
+            "value": "1.5"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "ElectricConsumption",
+        "defaultValue": "1",
+        "label": "Power consumption",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578962",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ElectricOvercurrentLimit",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ElectricOvercurrentLimit}",
+      "editor": {
+        "items": [
+          {
+            "text": "0.5",
+            "value": "0.5"
+          },
+          {
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "text": "1.5",
+            "value": "1.5"
+          },
+          {
+            "text": "2",
+            "value": "2"
+          },
+          {
+            "text": "2.5",
+            "value": "2.5"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "ElectricOvercurrentLimit",
+        "defaultValue": "1",
+        "label": "Power limit",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578994",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ElectricStandbyPower",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ElectricStandbyPower}",
+      "editor": {
+        "items": [
+          {
+            "text": "0.5",
+            "value": "0.5"
+          },
+          {
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "text": "1.5",
+            "value": "1.5"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "ElectricStandbyPower",
+        "defaultValue": "1",
+        "label": "Standby power",
+        "description": "Used only when the difficulty is Custom.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.579011",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "UsePlayerBuildingCorrode",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${UsePlayerBuildingCorrode}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "UsePlayerBuildingCorrode",
+        "defaultValue": "0",
+        "label": "Buildings decay after 5 days of owner inactivity",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578156",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxWaveSpawnCount",
+      "defaultValue": "200",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxWaveSpawnCount}",
+      "editor": {
+        "items": [
+          {
+            "text": "50",
+            "value": "50"
+          },
+          {
+            "text": "100",
+            "value": "100"
+          },
+          {
+            "text": "200",
+            "value": "200"
+          },
+          {
+            "text": "400",
+            "value": "400"
+          },
+          {
+            "text": "800",
+            "value": "800"
+          },
+          {
+            "text": "2000",
+            "value": "2000"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "MaxWaveSpawnCount",
+        "defaultValue": "200",
+        "label": "Wave zombie limit",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578164",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "BossZombieHealth",
+      "defaultValue": "17",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BossZombieHealth}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "BossZombieHealth",
+        "defaultValue": "17",
+        "label": "Unique zombie health",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.578254",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "UnlockAllBuilding",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${UnlockAllBuilding}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "UnlockAllBuilding",
+        "defaultValue": "0",
+        "label": "Unlock all buildings",
+        "description": "Used only when the difficulty is Custom.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.57906",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MODSelect",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MODSelect}",
+      "editor": {
+        "items": [
+          {
+            "text": "PvE",
+            "value": "1"
+          },
+          {
+            "text": "PvP",
+            "value": "0"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "MODSelect",
+        "defaultValue": "1",
+        "label": "Mode",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:00:15.574644",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 890,
+      "relativePath": "LF/Saved/Config/ServerSettings.ini",
+      "description": "Server settings (ServerSettings.ini)",
+      "template": "[ServerSettings]\nServerName=${Hostname}\nPassword=${PrivatePassword}\nMaxPlayers=${Slots}\n\n[SystemSettings]\nIngameAdminPassword=${RconPassword}\nDefaultMessageOfTheDay=${MessageOfTheDay}\nSaveName=${SaveName}\nSaveIntervalHour=${SaveIntervalHour}\n\n[GameSettings]\nDifficulty=${Difficulty}\n\n[GameSettings/General]\nMODSelect=${MODSelect}\nNoWave=${NoWave}\nNoSpawnBuildingBlocker=${NoSpawnBuildingBlocker}\nNoZombieRespawn=${NoZombieRespawn}\nNaturalObjectRespawn=${NaturalObjectRespawn}\nSyntheticObjectRespawn=${SyntheticObjectRespawn}\nNoGeneratorTrouble=${NoGeneratorTrouble}\nNoDeathResearchDrop=${NoDeathResearchDrop}\nDropItemsOnExit=${DropItemsOnExit}\nNoTeamKill=${NoTeamKill}\nUsePlayerBuildingCorrode=${UsePlayerBuildingCorrode}\nMaxWaveSpawnCount=${MaxWaveSpawnCount}\n\n[GameSettings/Basic]\nNormalZombieHealth=${NormalZombieHealth}\nSpecialZombieHealth=${SpecialZombieHealth}\nGiantZombieHealth=${GiantZombieHealth}\nBossZombieHealth=${BossZombieHealth}\nZombieDamage=${ZombieDamage}\nZombieMovementSpeed=${ZombieMovementSpeed}\nWorldZombieSpawn=${WorldZombieSpawn}\nWaveZombieHealth=${WaveZombieHealth}\nWaveNormalZombieAmount=${WaveNormalZombieAmount}\nWaveSpecialZombieAmount=${WaveSpecialZombieAmount}\nWaveGiantZombieAmount=${WaveGiantZombieAmount}\nAnimalHealth=${AnimalHealth}\nAnimalDamage=${AnimalDamage}\nWorldNormalZombieRespawnTime=${WorldNormalZombieRespawnTime}\nWorldSpecialZombieRespawnTime=${WorldSpecialZombieRespawnTime}\nWorldGiantZombieRespawnTime=${WorldGiantZombieRespawnTime}\n\n[GameSettings/Advanced]\nNoExperienceLoss=${NoExperienceLoss}\nNoDeathItemDrop=${NoDeathItemDrop}\nNoDeathEquipmentItemDrop=${NoDeathEquipmentItemDrop}\nResearchDataConsumption=${ResearchDataConsumption}\nFishSpeed=${FishSpeed}\nFishingGaugeDecrease=${FishingGaugeDecrease}\nSuperiorOrHigherEquipmentGainMultiplier=${SuperiorOrHigherEquipmentGainMultiplier}\nBuildingHit=${BuildingHit}\nTrapDamage=${TrapDamage}\nResourcesReturnedAfterBuildingDestroyed=${ResourcesReturnedAfterBuildingDestroyed}\nAmountOfExperienceGained=${AmountOfExperienceGained}\nResourceAcquisition=${ResourceAcquisition}\nInitialFoodAmount=${InitialFoodAmount}\nNaturalObjectRespawnTime=${NaturalObjectRespawnTime}\nSyntheticObjectRespawnTime=${SyntheticObjectRespawnTime}\nFarmResourceOutput=${FarmResourceOutput}\nMachineResourceOutput=${MachineResourceOutput}\nAnimalTrapTime=${AnimalTrapTime}\nFarmResourceProductionTime=${FarmResourceProductionTime}\nMachineResourceProductionTime=${MachineResourceProductionTime}\nElectricGeneration=${ElectricGeneration}\nElectricConsumption=${ElectricConsumption}\nElectricOvercurrentLimit=${ElectricOvercurrentLimit}\nElectricStandbyPower=${ElectricStandbyPower}\n\n[GameSettings/Detail]\nOneDayTime=${OneDayTime}\nUnlockAllBuilding=${UnlockAllBuilding}\nHardcore=${Hardcore}\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Server",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 64,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\\x00-\\x1f]{0,64}$",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "Shown in the server browser. One line, up to 64 characters.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 64,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\\x00-\\x1f]{0,64}$",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Join password",
+          "description": "Leave empty for a public server. One line, up to 64 characters.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 64,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\\x00-\\x1f]{0,64}$",
+          "inputType": 0,
+          "id": "RconPassword",
+          "defaultValue": "",
+          "label": "In-game admin password",
+          "description": "Players enter it in the game to become admin. One line, up to 64 characters.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 64,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\\x00-\\x1f]{0,64}$",
+          "inputType": 0,
+          "id": "MessageOfTheDay",
+          "defaultValue": "Welcome to the server.",
+          "label": "Message of the day",
+          "description": "Shown to players when they join. One line, up to 64 characters.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Save",
+          "defaultValue": null,
+          "label": "World save",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 32,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[A-Za-z0-9_-]{1,32}$",
+          "inputType": 0,
+          "id": "SaveName",
+          "defaultValue": "savedgame1",
+          "label": "Save name",
+          "description": "Folder under LF/Saved/SaveGames that holds the world. A new name starts a new world. Letters, digits, - and _ (up to 32).",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 24,
+          "id": "SaveIntervalHour",
+          "defaultValue": "2",
+          "label": "Autosave every (in-game hours)",
+          "description": "One in-game hour is about 5 real minutes.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Game",
+          "defaultValue": null,
+          "label": "Game",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Peaceful",
+              "value": "Peaceful"
+            },
+            {
+              "text": "Easy",
+              "value": "Easy"
+            },
+            {
+              "text": "Normal",
+              "value": "Normal"
+            },
+            {
+              "text": "Hard",
+              "value": "Hard"
+            },
+            {
+              "text": "Survival",
+              "value": "Survival"
+            },
+            {
+              "text": "Challenge",
+              "value": "Challenge"
+            },
+            {
+              "text": "Legend",
+              "value": "Legend"
+            },
+            {
+              "text": "Custom",
+              "value": "Custom"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "Difficulty",
+          "defaultValue": "Normal",
+          "label": "Difficulty",
+          "description": "Custom uses the Custom difficulty values below.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "PvE",
+              "value": "1"
+            },
+            {
+              "text": "PvP",
+              "value": "0"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "MODSelect",
+          "defaultValue": "1",
+          "label": "Mode",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "NoWave",
+          "defaultValue": "0",
+          "label": "No zombie waves",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "NoSpawnBuildingBlocker",
+          "defaultValue": "0",
+          "label": "Building-forbidden areas around spawns",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "NoZombieRespawn",
+          "defaultValue": "0",
+          "label": "No zombie respawn",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "NaturalObjectRespawn",
+          "defaultValue": "0",
+          "label": "Natural objects respawn",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "SyntheticObjectRespawn",
+          "defaultValue": "0",
+          "label": "Synthetic objects respawn",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "NoGeneratorTrouble",
+          "defaultValue": "0",
+          "label": "No generator breakdowns",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "NoDeathResearchDrop",
+          "defaultValue": "0",
+          "label": "Keep research on death",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "DropItemsOnExit",
+          "defaultValue": "0",
+          "label": "Drop items when a player leaves",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "NoTeamKill",
+          "defaultValue": "1",
+          "label": "No team kill",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "UsePlayerBuildingCorrode",
+          "defaultValue": "0",
+          "label": "Buildings decay after 5 days of owner inactivity",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "50",
+              "value": "50"
+            },
+            {
+              "text": "100",
+              "value": "100"
+            },
+            {
+              "text": "200",
+              "value": "200"
+            },
+            {
+              "text": "400",
+              "value": "400"
+            },
+            {
+              "text": "800",
+              "value": "800"
+            },
+            {
+              "text": "2000",
+              "value": "2000"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "MaxWaveSpawnCount",
+          "defaultValue": "200",
+          "label": "Wave zombie limit",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Basic",
+          "defaultValue": null,
+          "label": "Custom difficulty: zombies and animals",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "NormalZombieHealth",
+          "defaultValue": "17",
+          "label": "Light zombie health",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "SpecialZombieHealth",
+          "defaultValue": "17",
+          "label": "Heavy zombie health",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "GiantZombieHealth",
+          "defaultValue": "17",
+          "label": "Giant zombie health",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "BossZombieHealth",
+          "defaultValue": "17",
+          "label": "Unique zombie health",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "ZombieDamage",
+          "defaultValue": "25",
+          "label": "Zombie damage",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "ZombieMovementSpeed",
+          "defaultValue": "37",
+          "label": "Zombie movement speed",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "WorldZombieSpawn",
+          "defaultValue": "25",
+          "label": "World zombie spawn amount",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "WaveZombieHealth",
+          "defaultValue": "25",
+          "label": "Wave zombie health",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "WaveNormalZombieAmount",
+          "defaultValue": "44",
+          "label": "Light zombies per wave",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "WaveSpecialZombieAmount",
+          "defaultValue": "18",
+          "label": "Heavy zombies per wave",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "WaveGiantZombieAmount",
+          "defaultValue": "21",
+          "label": "Giant zombies per wave",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "AnimalHealth",
+          "defaultValue": "17",
+          "label": "Animal health",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "AnimalDamage",
+          "defaultValue": "18",
+          "label": "Animal damage",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "30",
+              "value": "30"
+            },
+            {
+              "text": "60",
+              "value": "60"
+            },
+            {
+              "text": "120",
+              "value": "120"
+            },
+            {
+              "text": "180",
+              "value": "180"
+            },
+            {
+              "text": "240",
+              "value": "240"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "WorldNormalZombieRespawnTime",
+          "defaultValue": "120",
+          "label": "Light zombie respawn time (s)",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "120",
+              "value": "120"
+            },
+            {
+              "text": "300",
+              "value": "300"
+            },
+            {
+              "text": "600",
+              "value": "600"
+            },
+            {
+              "text": "900",
+              "value": "900"
+            },
+            {
+              "text": "1200",
+              "value": "1200"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "WorldSpecialZombieRespawnTime",
+          "defaultValue": "600",
+          "label": "Heavy zombie respawn time (s)",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "120",
+              "value": "120"
+            },
+            {
+              "text": "300",
+              "value": "300"
+            },
+            {
+              "text": "600",
+              "value": "600"
+            },
+            {
+              "text": "900",
+              "value": "900"
+            },
+            {
+              "text": "1200",
+              "value": "1200"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "WorldGiantZombieRespawnTime",
+          "defaultValue": "600",
+          "label": "Giant zombie respawn time (s)",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Advanced",
+          "defaultValue": null,
+          "label": "Custom difficulty: players and base",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "NoExperienceLoss",
+          "defaultValue": "0",
+          "label": "Keep experience on death",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "NoDeathItemDrop",
+          "defaultValue": "1",
+          "label": "Keep items on death",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "NoDeathEquipmentItemDrop",
+          "defaultValue": "1",
+          "label": "Keep equipment on death",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "ResearchDataConsumption",
+          "defaultValue": "50",
+          "label": "Research data consumption",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "FishSpeed",
+          "defaultValue": "66",
+          "label": "Fish speed",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "FishingGaugeDecrease",
+          "defaultValue": "40",
+          "label": "Fish power",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "SuperiorOrHigherEquipmentGainMultiplier",
+          "defaultValue": "40",
+          "label": "High-grade equipment drop rate",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "BuildingHit",
+          "defaultValue": "90",
+          "label": "Building health",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "TrapDamage",
+          "defaultValue": "66",
+          "label": "Trap damage",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "ResourcesReturnedAfterBuildingDestroyed",
+          "defaultValue": "30",
+          "label": "Materials returned when a building is destroyed",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "1",
+              "value": "1"
+            },
+            {
+              "text": "2",
+              "value": "2"
+            },
+            {
+              "text": "3",
+              "value": "3"
+            },
+            {
+              "text": "4",
+              "value": "4"
+            },
+            {
+              "text": "5",
+              "value": "5"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "AmountOfExperienceGained",
+          "defaultValue": "1",
+          "label": "Experience gained",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "1",
+              "value": "1"
+            },
+            {
+              "text": "2",
+              "value": "2"
+            },
+            {
+              "text": "3",
+              "value": "3"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "ResourceAcquisition",
+          "defaultValue": "1",
+          "label": "Items obtained",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "0",
+              "value": "0"
+            },
+            {
+              "text": "1",
+              "value": "1"
+            },
+            {
+              "text": "2",
+              "value": "2"
+            },
+            {
+              "text": "5",
+              "value": "5"
+            },
+            {
+              "text": "10",
+              "value": "10"
+            },
+            {
+              "text": "12",
+              "value": "12"
+            },
+            {
+              "text": "15",
+              "value": "15"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "InitialFoodAmount",
+          "defaultValue": "10",
+          "label": "Initial food",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "240",
+              "value": "240"
+            },
+            {
+              "text": "360",
+              "value": "360"
+            },
+            {
+              "text": "480",
+              "value": "480"
+            },
+            {
+              "text": "600",
+              "value": "600"
+            },
+            {
+              "text": "720",
+              "value": "720"
+            },
+            {
+              "text": "840",
+              "value": "840"
+            },
+            {
+              "text": "960",
+              "value": "960"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "NaturalObjectRespawnTime",
+          "defaultValue": "720",
+          "label": "Natural objects respawn time",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "240",
+              "value": "240"
+            },
+            {
+              "text": "360",
+              "value": "360"
+            },
+            {
+              "text": "480",
+              "value": "480"
+            },
+            {
+              "text": "600",
+              "value": "600"
+            },
+            {
+              "text": "720",
+              "value": "720"
+            },
+            {
+              "text": "840",
+              "value": "840"
+            },
+            {
+              "text": "960",
+              "value": "960"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "SyntheticObjectRespawnTime",
+          "defaultValue": "720",
+          "label": "Synthetic objects respawn time",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "1",
+              "value": "1"
+            },
+            {
+              "text": "1.25",
+              "value": "1.25"
+            },
+            {
+              "text": "1.5",
+              "value": "1.5"
+            },
+            {
+              "text": "1.75",
+              "value": "1.75"
+            },
+            {
+              "text": "2",
+              "value": "2"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "FarmResourceOutput",
+          "defaultValue": "1.25",
+          "label": "Farm production amount",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "0.5",
+              "value": "0.5"
+            },
+            {
+              "text": "1",
+              "value": "1"
+            },
+            {
+              "text": "1.25",
+              "value": "1.25"
+            },
+            {
+              "text": "1.5",
+              "value": "1.5"
+            },
+            {
+              "text": "2",
+              "value": "2"
+            },
+            {
+              "text": "2.5",
+              "value": "2.5"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "MachineResourceOutput",
+          "defaultValue": "1.25",
+          "label": "Machine production amount",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "0.5",
+              "value": "0.5"
+            },
+            {
+              "text": "1",
+              "value": "1"
+            },
+            {
+              "text": "1.5",
+              "value": "1.5"
+            },
+            {
+              "text": "2",
+              "value": "2"
+            },
+            {
+              "text": "2.5",
+              "value": "2.5"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "AnimalTrapTime",
+          "defaultValue": "1",
+          "label": "Animal trap time",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "0.5",
+              "value": "0.5"
+            },
+            {
+              "text": "1",
+              "value": "1"
+            },
+            {
+              "text": "1.5",
+              "value": "1.5"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "FarmResourceProductionTime",
+          "defaultValue": "1",
+          "label": "Farm production time",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "0.5",
+              "value": "0.5"
+            },
+            {
+              "text": "1",
+              "value": "1"
+            },
+            {
+              "text": "1.5",
+              "value": "1.5"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "MachineResourceProductionTime",
+          "defaultValue": "1",
+          "label": "Machine production time",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "0.5",
+              "value": "0.5"
+            },
+            {
+              "text": "1",
+              "value": "1"
+            },
+            {
+              "text": "1.5",
+              "value": "1.5"
+            },
+            {
+              "text": "2",
+              "value": "2"
+            },
+            {
+              "text": "2.5",
+              "value": "2.5"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "ElectricGeneration",
+          "defaultValue": "1",
+          "label": "Power generated",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "0.5",
+              "value": "0.5"
+            },
+            {
+              "text": "1",
+              "value": "1"
+            },
+            {
+              "text": "1.5",
+              "value": "1.5"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "ElectricConsumption",
+          "defaultValue": "1",
+          "label": "Power consumption",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "0.5",
+              "value": "0.5"
+            },
+            {
+              "text": "1",
+              "value": "1"
+            },
+            {
+              "text": "1.5",
+              "value": "1.5"
+            },
+            {
+              "text": "2",
+              "value": "2"
+            },
+            {
+              "text": "2.5",
+              "value": "2.5"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "ElectricOvercurrentLimit",
+          "defaultValue": "1",
+          "label": "Power limit",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "0.5",
+              "value": "0.5"
+            },
+            {
+              "text": "1",
+              "value": "1"
+            },
+            {
+              "text": "1.5",
+              "value": "1.5"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "ElectricStandbyPower",
+          "defaultValue": "1",
+          "label": "Standby power",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Detail",
+          "defaultValue": null,
+          "label": "Custom difficulty: time and progression",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "60",
+              "value": "60"
+            },
+            {
+              "text": "120",
+              "value": "120"
+            },
+            {
+              "text": "180",
+              "value": "180"
+            },
+            {
+              "text": "240",
+              "value": "240"
+            },
+            {
+              "text": "300",
+              "value": "300"
+            },
+            {
+              "text": "360",
+              "value": "360"
+            },
+            {
+              "text": "420",
+              "value": "420"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "OneDayTime",
+          "defaultValue": "240",
+          "label": "Length of one in-game day (real minutes)",
+          "description": "Used only when the difficulty is Custom.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "UnlockAllBuilding",
+          "defaultValue": "0",
+          "label": "Unlock all buildings",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "Hardcore",
+          "defaultValue": "0",
+          "label": "Hardcore",
+          "description": "Used only when the difficulty is Custom.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceCreated",
+          "BeforeServiceReinstalled",
+          "AfterServiceCreated",
+          "AfterServiceReinstalled"
+        ],
+        "name": "Install Wine and its dependencies",
+        "description": "Installs wine, winetricks, Xvfb and xdotool on the host (apt, dnf or yum) and prepares the Wine prefix of the server. Skips what is already installed.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll, TCAdmin.Monitor.SDK.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Wine (Linux host) only: installs what the panel needs to run this Windows server - wine, winetricks, Xvfb and\n// xdotool - with apt (Debian/Ubuntu) or dnf/yum (Red Hat), and the Windows runtimes listed in Verbs into the service\u0027s\n// own Wine prefix. Idempotent: anything already present is skipped. Runs before the create/reinstall (host packages,\n// so the panel\u0027s Wine check passes) and after it (prefix runtimes, once the service user and files exist).\nif (!System.OperatingSystem.IsLinux()) return;\n\n// Windows runtimes (winetricks verbs) the server needs inside the prefix. The server runs on Wine\u0027s built-in\n// Visual C\u002B\u002B runtime, so none are required today; add verbs here when a game update needs one.\nvar verbs = new string[] { };\n\nvar tools = new (string Command, string[] Apt, string[] Rpm)[]\n{\n    (\u0022wine\u0022, new[] { \u0022wine\u0022, \u0022wine64\u0022 }, new[] { \u0022wine\u0022 }),\n    (\u0022wineserver\u0022, new[] { \u0022wine\u0022, \u0022wine64\u0022 }, new[] { \u0022wine\u0022 }),\n    (\u0022winetricks\u0022, new[] { \u0022winetricks\u0022 }, new[] { \u0022winetricks\u0022 }),\n    (\u0022cabextract\u0022, new[] { \u0022cabextract\u0022 }, new[] { \u0022cabextract\u0022 }),\n    (\u0022Xvfb\u0022, new[] { \u0022xvfb\u0022 }, new[] { \u0022xorg-x11-server-Xvfb\u0022, \u0022xorg-x11-server-Xvfb.x86_64\u0022 }),\n    (\u0022xdotool\u0022, new[] { \u0022xdotool\u0022 }, new[] { \u0022xdotool\u0022 }),\n};\nvar apt = Shell(\u0022command -v apt-get\u0022, out _);\nvar installer = apt ? \u0022DEBIAN_FRONTEND=noninteractive apt-get install -y \u0022 : Shell(\u0022command -v dnf\u0022, out _) ? \u0022dnf install -y \u0022 : \u0022yum install -y \u0022;\nvar updated = false;\nforeach (var tool in tools)\n{\n    if (Shell(\u0022command -v \u0022 \u002B tool.Command, out _)) continue;\n    var names = apt ? tool.Apt : tool.Rpm;\n    ScriptConsole.WriteLine((object)(tool.Command \u002B \u0022 is missing on this host; installing \u0022 \u002B string.Join(\u0022 or \u0022, names) \u002B \u0022.\u0022));\n    var installed = names.Any(p =\u003E Shell(installer \u002B p, out _));\n    if (!installed \u0026\u0026 apt \u0026\u0026 !updated)\n    {\n        updated = Shell(\u0022DEBIAN_FRONTEND=noninteractive apt-get update\u0022, out _);\n        installed = names.Any(p =\u003E Shell(installer \u002B p, out _));\n    }\n    if (!installed || !Shell(\u0022command -v \u0022 \u002B tool.Command, out _))\n        throw new Exception(tool.Command \u002B \u0022 is missing and could not be installed. Install one of these packages on the host: \u0022 \u002B string.Join(\u0022, \u0022, names));\n}\nShell(\u0022wine --version\u0022, out var wineVersion);\nScriptConsole.WriteLine((object)(\u0022Wine on this host: \u0022 \u002B wineVersion.Trim()));\n\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(\u0027/\u0027);\n// Before the create/reinstall the service files and its run-as configuration do not exist yet.\nstring user = null;\nif (File.Exists(Path.Combine(root, \u0022LF\u0022, \u0022Binaries\u0022, \u0022Win64\u0022, \u0022LFServer-Win64-Shipping.exe\u0022)))\n{\n    try { user = ServiceManagerService.GetServiceCredential(ThisService.ServiceId)?.UserName; }\n    catch (FileNotFoundException) { }\n}\nif (string.IsNullOrEmpty(user) || !Shell(\u0022id -u \u0027\u0022 \u002B user \u002B \u0022\u0027\u0022, out _))\n{\n    ScriptConsole.WriteLine((object)\u0022The service is not created yet; the Wine prefix is prepared after the files are installed.\u0022);\n    return;\n}\nvar prefix = Path.Combine(root, \u0022.wine\u0022);\n// Every Wine call as the service user with the environment the panel starts the server with (root would leave\n// root-owned files in the prefix).\nvar wineEnv = \u0022runuser -u \u0027\u0022 \u002B user \u002B \u0022\u0027 -- env WINEPREFIX=\u0027\u0022 \u002B prefix \u002B \u0022\u0027 HOME=\u0027\u0022 \u002B root\n              \u002B \u0022\u0027 WINEARCH=win64 WINEDEBUG=-all WINEDLLOVERRIDES=\u0027mscoree=;mshtml=\u0027 \u0022;\n\n// The first start creates the Wine prefix (about a minute), longer than the panel waits for the start that follows\n// the create, so that start failed. Create the prefix here; the panel skips it when its marker file is present.\nvar marker = Path.Combine(prefix, \u0022.tcadmin-initialized\u0022);\nif (!File.Exists(marker))\n{\n    ScriptConsole.WriteLine((object)\u0022Creating the Wine prefix (about a minute).\u0022);\n    if (!Shell(wineEnv \u002B \u0022wineboot -u\u0022, out var bootOutput))\n        throw new Exception(\u0022wineboot failed: \u0022 \u002B string.Join(\u0022\\n\u0022, bootOutput.Split(\u0027\\n\u0027).TakeLast(15)));\n    Shell(wineEnv \u002B \u0022wineserver -w\u0022, out _);\n    Shell(\u0022runuser -u \u0027\u0022 \u002B user \u002B \u0022\u0027 -- sh -c \\\u0022date -u \u002B%Y-%m-%dT%H:%M:%SZ \u003E \u0027\u0022 \u002B marker \u002B \u0022\u0027\\\u0022\u0022, out _);\n    ScriptConsole.WriteLine((object)\u0022The Wine prefix is ready.\u0022);\n}\n\nif (verbs.Length == 0) return;\n// winetricks records every verb it installed in the prefix.\nvar log = Path.Combine(prefix, \u0022winetricks.log\u0022);\nvar done = File.Exists(log) ? File.ReadAllLines(log).Select(l =\u003E l.Trim()).ToHashSet() : new HashSet\u003Cstring\u003E();\nvar todo = verbs.Where(v =\u003E !done.Contains(v)).ToList();\nif (todo.Count == 0)\n{\n    ScriptConsole.WriteLine((object)(\u0022Windows runtimes already installed: \u0022 \u002B string.Join(\u0022, \u0022, verbs) \u002B \u0022.\u0022));\n    return;\n}\nScriptConsole.WriteLine((object)(\u0022Installing \u0022 \u002B string.Join(\u0022, \u0022, todo) \u002B \u0022 into the Wine prefix (a few minutes).\u0022));\nvar command = wineEnv \u002B \u0022winetricks -q \u0022 \u002B string.Join(\u0022 \u0022, todo);\nif (!Shell(command, out var output))\n    throw new Exception(\u0022winetricks failed: \u0022 \u002B string.Join(\u0022\\n\u0022, output.Split(\u0027\\n\u0027).TakeLast(15)));\nShell(wineEnv \u002B \u0022wineserver -w\u0022, out _);\nScriptConsole.WriteLine((object)\u0022Windows runtimes installed.\u0022);\n\nbool Shell(string cmd, out string text)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\u0022/bin/sh\u0022, new[] { \u0022-c\u0022, cmd }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        var stderr = process.StandardError.ReadToEndAsync();\n        text = process.StandardOutput.ReadToEnd() \u002B stderr.Result;\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 1,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "8122272f-9b9e-5e33-a5c9-42ada45a9489"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStopped"
+        ],
+        "name": "Shut down cleanly",
+        "description": "Sends Ctrl\u002BC to the server process, which saves and exits.",
+        "code": "//refAssemblies: System.Net.Http.dll, System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Graceful stop: the server shuts down cleanly on ONE Ctrl\u002BC.\n// Windows: a Ctrl\u002BC sent through its console does not reach it (it ignores console Ctrl\u002BC events), so windows-kill\n// delivers the event straight to the server process. Linux (Wine): a native SIGINT to the server\u0027s Wine process\n// becomes the console Ctrl\u002BC. Only the server process of THIS service is signalled.\nconst string binary = \u0022LFServer-Win64-Shipping\u0022;\nconst int maxWaitSeconds = 120;\n\nvar rootPath = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(\u0027/\u0027, \u0027\\\\\u0027);\nvar root = rootPath \u002B Path.DirectorySeparatorChar;\nvar rootSlash = rootPath.Replace(\u0027\\\\\u0027, \u0027/\u0027) \u002B \u0022/\u0022;\n\nList\u003Cint\u003E ServerPids()\n{\n    var pids = new List\u003Cint\u003E();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var p in Process.GetProcessesByName(binary))\n        {\n            try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) pids.Add(p.Id); }\n            catch { } // exited meanwhile\n        }\n        return pids;\n    }\n    // Wine shows the executable as Z:\\\u003Croot\u003E\\...\\LFServer-Win64-Shipping.exe in the command line.\n    foreach (var dir in Directory.EnumerateDirectories(\u0022/proc\u0022))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var args = File.ReadAllText(Path.Combine(dir, \u0022cmdline\u0022)).Replace(\u0027\\0\u0027, \u0027 \u0027).Replace(\u0027\\\\\u0027, \u0027/\u0027);\n            if (args.Contains(binary \u002B \u0022.exe\u0022, StringComparison.OrdinalIgnoreCase) \u0026\u0026 args.Contains(rootSlash, StringComparison.Ordinal)\n                \u0026\u0026 !args.Contains(\u0022start.exe\u0022, StringComparison.OrdinalIgnoreCase))\n                pids.Add(pid);\n        }\n        catch { } // gone meanwhile\n    }\n    pids.Sort();\n    return pids;\n}\n\nvar targets = ServerPids();\nif (targets.Count == 0)\n{\n    ScriptConsole.WriteLine((object)\u0022The server is not running.\u0022);\n    return;\n}\n\nif (System.OperatingSystem.IsWindows())\n{\n    // windows-kill is kept in the hidden .tca folder of the service and downloaded once.\n    var toolDir = Path.Combine(rootPath, \u0022.tca\u0022);\n    var killExe = Path.Combine(toolDir, \u0022windows-kill.exe\u0022);\n    if (!File.Exists(killExe))\n    {\n        const string url = \u0022https://github.com/ElyDotDev/windows-kill/releases/download/1.1.4/windows-kill_1.1.4_release.zip\u0022;\n        const string entryPath = \u0022windows-kill_x64_1.1.4_lib_release/windows-kill.exe\u0022;\n        try\n        {\n            Directory.CreateDirectory(toolDir);\n            using (var http = new HttpClient())\n            using (var zip = new ZipArchive(new MemoryStream(await http.GetByteArrayAsync(url, ThisCancellationToken))))\n            {\n                var entry = zip.GetEntry(entryPath);\n                if (entry == null) throw new Exception(\u0022\u0027\u0022 \u002B entryPath \u002B \u0022\u0027 is not in the archive.\u0022);\n                entry.ExtractToFile(killExe, true);\n            }\n        }\n        catch (Exception ex)\n        {\n            ScriptConsole.WriteLine((object)(\u0022Could not download windows-kill (\u0022 \u002B ex.Message \u002B \u0022); the panel stops the server without saving.\u0022));\n            return;\n        }\n    }\n    foreach (var pid in targets)\n    {\n        // CreateNoWindow gives windows-kill a console of its own, so the event never reaches the monitor.\n        var psi = new ProcessStartInfo(killExe, new[] { \u0022-SIGINT\u0022, pid.ToString() })\n        {\n            UseShellExecute = false, CreateNoWindow = true, RedirectStandardOutput = true, RedirectStandardError = true,\n            WorkingDirectory = toolDir\n        };\n        using (var killer = Process.Start(psi))\n        {\n            var output = (await killer.StandardOutput.ReadToEndAsync()).Trim();\n            await killer.WaitForExitAsync(ThisCancellationToken);\n            if (killer.ExitCode != 0) ScriptConsole.WriteLine((object)(\u0022windows-kill: \u0022 \u002B output));\n        }\n    }\n}\nelse\n{\n    // One SIGINT to the main server process (the lowest pid); its worker threads share it.\n    targets = targets.Take(1).ToList();\n    using (var kill = Process.Start(new ProcessStartInfo(\u0022kill\u0022, new[] { \u0022-INT\u0022, targets[0].ToString() }) { UseShellExecute = false }))\n        kill.WaitForExit();\n}\n\nScriptConsole.WriteLine((object)(\u0022Asked the server (\u0022 \u002B string.Join(\u0022, \u0022, targets) \u002B \u0022) to save and exit.\u0022));\nfor (var second = 1; second \u003C= maxWaitSeconds; second\u002B\u002B)\n{\n    await Task.Delay(1000, ThisCancellationToken);\n    if (!ServerPids().Any(targets.Contains))\n    {\n        ScriptConsole.WriteLine((object)(\u0022The server exited after \u0022 \u002B second \u002B \u0022 s.\u0022));\n        return;\n    }\n}\nScriptConsole.WriteLine((object)(\u0022The server did not exit within \u0022 \u002B maxWaitSeconds \u002B \u0022 s; the panel stops it now.\u0022));\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 2,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "e33d75cd-9ad3-59b9-bdc7-a83f6559af43"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "CustomQueryProtocol"
+        ],
+        "name": "Night of the Dead query",
+        "description": "Reports the server online while its game port is bound (the server lists itself through Epic Online Services and answers no Steam query).",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Night of the Dead lists its servers through Epic Online Services sessions: the Steam query port is bound by the\n// Steam API but never answers (the server never logs on to Steam), and the server has no RCON. The query runs on the\n// monitor of the server that hosts the service, so it checks that the game UDP port is bound on this machine.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\n// The game port is the one the server binds itself (-Port); the query port belongs to the Steam API.\nint port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners()\n        .Any(l =\u003E l.Port == port \u0026\u0026 (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \u0022online\u0022,\n            Protocol = \u0022custom_script\u0022,\n            Address = address,\n            Hostname = $\u0022{address}:{port}\u0022,\n            Name = ThisService.Name,\n            GameType = \u0022Night of the Dead\u0022,\n            Map = \u0022\u0022,\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, $\u0022Nothing is listening on {address}:{port} (UDP).\u0022);\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, ex.Message);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 4,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "b841e3df-0f70-5f08-a397-97e4a5206d08"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Delete old crash reports",
+        "description": "Under Wine the Steam client library crashes while the server unloads it at the end of a stop (after the game has shut down) and the engine writes a crash report on every stop; keeps the newest five.",
+        "code": "using System;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Wine: the Steam client library crashes while the server unloads it at the very end of a stop (after the game has\n// shut down), and the engine writes a crash report (about 550 KB) into LF/Saved/Crashes on every stop. Keep the\n// newest five reports, delete the rest. This script runs as root: it never follows a symbolic link (a linked\n// folder or report is left alone) and touches nothing outside the two crash folders below.\nif (!System.OperatingSystem.IsLinux()) return;\nconst int keep = 5;\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(\u0027/\u0027);\nvar removed = 0;\n// Each crash leaves a report folder in LF/Saved/Crashes and a small settings folder in LF/Saved/Config/CrashReportClient.\nforeach (var folder in new[] { new[] { \u0022LF\u0022, \u0022Saved\u0022, \u0022Crashes\u0022 }, new[] { \u0022LF\u0022, \u0022Saved\u0022, \u0022Config\u0022, \u0022CrashReportClient\u0022 } })\n    removed \u002B= Prune(folder);\nif (removed \u003E 0) ScriptConsole.WriteLine((object)(\u0022Deleted \u0022 \u002B removed \u002B \u0022 old crash report folder(s).\u0022));\n\nint Prune(string[] parts)\n{\n    var path = root;\n    foreach (var part in parts)\n    {\n        path = Path.Combine(path, part);\n        var info = new DirectoryInfo(path);\n        if (!info.Exists) return 0;\n        if (info.LinkTarget != null)\n        {\n            ScriptConsole.WriteLine((object)(path.Substring(root.Length) \u002B \u0022 is a symbolic link; it is left alone.\u0022));\n            return 0;\n        }\n    }\n    var count = 0;\n    var old = new DirectoryInfo(path).GetDirectories(\u0022UECC-*\u0022)\n        .Where(d =\u003E d.LinkTarget == null \u0026\u0026 (d.Attributes \u0026 FileAttributes.ReparsePoint) == 0)\n        .OrderByDescending(d =\u003E d.LastWriteTimeUtc)\n        .Skip(keep);\n    foreach (var dir in old)\n    {\n        try { dir.Delete(true); count\u002B\u002B; }\n        catch (Exception ex) { ScriptConsole.WriteLine((object)(\u0022Could not delete \u0022 \u002B dir.Name \u002B \u0022: \u0022 \u002B ex.Message)); }\n    }\n    return count;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 3,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "4277364f-a42d-5837-b89c-ba3c1e952f19"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-12T04:00:15.516623",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "LF/Saved/SaveGames/**/*",
+      "LF/Saved/Config/ServerSettings.ini",
+      "LF/Saved/Config/WindowsServer/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": [
+    {
+      "id": 158,
+      "blueprintId": 395,
+      "name": "SteamAppId",
+      "value": "1377380",
+      "valueType": "Static"
+    },
+    {
+      "id": 159,
+      "blueprintId": 395,
+      "name": "SteamGameId",
+      "value": "1377380",
+      "valueType": "Static"
+    },
+    {
+      "id": 160,
+      "blueprintId": 395,
+      "name": "WINEPATH",
+      "value": "${ThisService.RootDirectory}",
+      "valueType": "Template"
+    }
+  ]
+}
