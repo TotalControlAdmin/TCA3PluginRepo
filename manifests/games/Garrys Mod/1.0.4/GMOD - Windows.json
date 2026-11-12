@@ -664,7 +664,7 @@
     {
       "name": "Hostname",
       "defaultValue": null,
-      "required": true,
+      "required": false,
       "requiredMessage": "The hostname is required",
       "scriptParameter": false,
       "commandlineParameter": false,
@@ -681,7 +681,7 @@
         "defaultValue": null,
         "label": "Hostname",
         "description": "Up to 64 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
-        "required": true,
+        "required": false,
         "valueType": "string",
         "requiredMessage": "The hostname is required",
         "parentId": null,
