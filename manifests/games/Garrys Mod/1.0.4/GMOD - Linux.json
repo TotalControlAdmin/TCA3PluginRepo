@@ -536,50 +536,6 @@
       ]
     },
     {
-      "name": "Hostname",
-      "defaultValue": null,
-      "required": true,
-      "requiredMessage": "The hostname is required",
-      "scriptParameter": false,
-      "commandlineParameter": false,
-      "saveScriptParameter": false,
-      "syncCommandlineParameter": false,
-      "template": "${Hostname}",
-      "editor": {
-        "maxLength": 0,
-        "lines": 1,
-        "denyCharacters": [],
-        "regExValidation": "",
-        "inputType": 0,
-        "id": "Hostname",
-        "defaultValue": null,
-        "label": "Hostname",
-        "description": "",
-        "required": true,
-        "valueType": "string",
-        "requiredMessage": "The hostname is required",
-        "parentId": null,
-        "parentValue": null,
-        "controlType": "DynamicTextBox",
-        "sm": 4,
-        "xs": 12,
-        "requiresAnyVisible": []
-      },
-      "createdDate": "2024-12-14T22:57:43.798",
-      "modifiedDate": null,
-      "metadata": {
-        "Notes": ""
-      },
-      "variableRoles": [
-        {
-          "roleId": 2
-        },
-        {
-          "roleId": 3
-        }
-      ]
-    },
-    {
       "name": "RconAction",
       "defaultValue": null,
       "required": false,
@@ -694,6 +650,134 @@
         "requiresAnyVisible": []
       },
       "createdDate": "2026-11-03T02:29:42.798864",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": true,
+      "requiredMessage": "The hostname is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "The hostname is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 4,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-12-14T22:57:43.798",
+      "modifiedDate": null,
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:19:04.659536",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:19:05.942077",
       "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
