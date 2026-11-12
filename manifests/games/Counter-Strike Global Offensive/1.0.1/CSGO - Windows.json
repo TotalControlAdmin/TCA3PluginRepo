@@ -420,7 +420,7 @@
     },
     {
       "name": "GOTV",
-      "defaultValue": "",
+      "defaultValue": "-nohltv",
       "required": false,
       "requiredMessage": "",
       "scriptParameter": false,
@@ -433,7 +433,7 @@
         "checkedValue": "+tv_enable 1",
         "uncheckedValue": "-nohltv",
         "id": "GOTV",
-        "defaultValue": "",
+        "defaultValue": "-nohltv",
         "label": "Aktiver GOTV",
         "description": "Giver din server et ekstra slot til GOTV.",
         "required": false,
@@ -552,7 +552,112 @@
       "syncCommandlineParameter": false,
       "template": "+map ${map}",
       "editor": {
-        "items": [],
+        "items": [
+          {
+            "text": "de_dust2",
+            "value": "de_dust2"
+          },
+          {
+            "text": "de_mirage",
+            "value": "de_mirage"
+          },
+          {
+            "text": "de_inferno",
+            "value": "de_inferno"
+          },
+          {
+            "text": "de_nuke",
+            "value": "de_nuke"
+          },
+          {
+            "text": "de_overpass",
+            "value": "de_overpass"
+          },
+          {
+            "text": "de_vertigo",
+            "value": "de_vertigo"
+          },
+          {
+            "text": "de_ancient",
+            "value": "de_ancient"
+          },
+          {
+            "text": "de_anubis",
+            "value": "de_anubis"
+          },
+          {
+            "text": "de_train",
+            "value": "de_train"
+          },
+          {
+            "text": "de_cache",
+            "value": "de_cache"
+          },
+          {
+            "text": "de_cbble",
+            "value": "de_cbble"
+          },
+          {
+            "text": "de_lake",
+            "value": "de_lake"
+          },
+          {
+            "text": "de_safehouse",
+            "value": "de_safehouse"
+          },
+          {
+            "text": "de_stmarc",
+            "value": "de_stmarc"
+          },
+          {
+            "text": "de_sugarcane",
+            "value": "de_sugarcane"
+          },
+          {
+            "text": "de_bank",
+            "value": "de_bank"
+          },
+          {
+            "text": "de_shortdust",
+            "value": "de_shortdust"
+          },
+          {
+            "text": "de_shortnuke",
+            "value": "de_shortnuke"
+          },
+          {
+            "text": "cs_office",
+            "value": "cs_office"
+          },
+          {
+            "text": "cs_italy",
+            "value": "cs_italy"
+          },
+          {
+            "text": "cs_agency",
+            "value": "cs_agency"
+          },
+          {
+            "text": "cs_militia",
+            "value": "cs_militia"
+          },
+          {
+            "text": "ar_shoots",
+            "value": "ar_shoots"
+          },
+          {
+            "text": "ar_baggage",
+            "value": "ar_baggage"
+          },
+          {
+            "text": "ar_monastery",
+            "value": "ar_monastery"
+          },
+          {
+            "text": "dz_blacksite",
+            "value": "dz_blacksite"
+          }
+        ],
         "itemSource": "CustomList",
         "fileSystemSource": null,
         "id": "map",
