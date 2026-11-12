@@ -1,0 +1,1229 @@
+{
+  "__TCA:ExportVersion": "3.23.42",
+  "__TCA:ExportedAt": "2026-11-10T01:45:19.015874Z",
+  "name": "Arma 3",
+  "shortName": "Arma3",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/107410/3212af52faf994c558bd622cb0f360c1ef295a6b.jpg",
+  "backgroundImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/107410/ss_e9220742c6b786efc9145c58ce7b276af891e9d5.1920x1080.jpg",
+  "minSlots": 0,
+  "maxSlots": 0,
+  "defaultSlots": 32,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml"
+  ],
+  "logExtensions": [
+    ".log",
+    ".\\A3Master\\*.rpt"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "battleye",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "LogFile",
+    "logFile": ".\\A3Master\\*.rpt",
+    "inputSource": "RconProtocol",
+    "printRconResponse": true,
+    "outputFilters": "",
+    "stopCommand": "#shutdown",
+    "waitAfterStopCommand": 15000,
+    "screenCaptureTitleBar": true,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 2302,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 2303,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "RConPort",
+        "port": 2309,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "CustomPort1",
+        "port": 2305,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "CustomPort2",
+        "port": 2304,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 100
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "arma3server_x64.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "Arma3",
+    "failOnMissingExecutable": false,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 233780,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 107410,
+    "extraParameters": "",
+    "steamUsername": "STEAM_ACCOUNT_REQUIRED",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": true,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "-ip=${IPAddress} -port=${GamePort} -profiles=${RootDirectory}\\A3Master -name=A3Master -cfg=${RootDirectory}\\A3Master\\basic.cfg -config=${RootDirectory}\\A3Master\\server.cfg \"-bepath=${RootDirectory}\\Battleye\" -enableHT -limitFPS=80 -autoInit -malloc=tbb4malloc_bi_x64 ${addition} -mod=${Mods} -servermod=${ServerMods} ",
+    "defaultCustomCommandline": "",
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": true,
+    "elevated": false
+  },
+  "identifier": "9f0a29e7-d803-11f1-8d5f-00505654dd15",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "Mods",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Mods}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "Mods",
+        "defaultValue": "",
+        "label": "Mods",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-07-17T13:10:44.938418",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ServerMods",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ServerMods}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "ServerMods",
+        "defaultValue": "",
+        "label": "ServerMods",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-07-17T13:10:44.940134",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "addition",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${addition}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "addition",
+        "defaultValue": "",
+        "label": "Additional Parameters",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-07-17T13:10:44.940312",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:01:36.327193",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\; \\t]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, spaces, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:01:37.553788",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:01:38.722637",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 315,
+      "relativePath": "A3Master\\Users\\A3Master\\A3Master.Arma3Profile",
+      "description": "Main configuration file",
+      "template": "difficulty=\"Custom\";\nclass DifficultyPresets\n{\n\tclass CustomDifficulty\n\t{\n\t\tclass Options\n\t\t{\n\t\t\tgroupIndicators=0;\n\t\t\tfriendlyTags=0;\n\t\t\tenemyTags=0;\n\t\t\tdetectedMines=0;\n\t\t\tcommands=1;\n\t\t\twaypoints=2;\n\t\t\tweaponInfo=1;\n\t\t\tstanceIndicator=1;\n\t\t\treducedDamage=0;\n\t\t\tstaminaBar=0;\n\t\t\tweaponCrosshair=0;\n\t\t\tvisionAid=0;\n\t\t\tthirdPersonView=0;\n\t\t\tcameraShake=1;\n\t\t\tscoreTable=0;\n\t\t\tdeathMessages=0;\n\t\t\tvonID=1;\n\t\t\tmapContent=0;\n\t\t\tautoReport=0;\n\t\t\tmultipleSaves=0;\n\t\t};\n\t\taiLevelPreset=1;\n\t};\n\tclass CustomAILevel\n\t{\n\t\tskillAI=0.5;\n\t\tprecisionAI=0.5;\n\t};\n};\nversion=1;\nblood=1;\nvolumeCD=5;\nvolumeFX=5;\nvolumeSpeech=5;\nsingleVoice=0;\ngamma=1;\nbrightness=1;",
+      "order": 0,
+      "enableEditor": false,
+      "editor": []
+    },
+    {
+      "id": 316,
+      "relativePath": "A3Master\\basic.cfg",
+      "description": "Main configuration file",
+      "template": "// These options are created by default\nlanguage=\"English\";\nMaxPermanentCraters=200;\nadapter=-1;\n3D_Performance=1.000000;\nResolution_W=800;\nResolution_H=600;\nResolution_Bpp=32;\n\n// These options are important for performance tuning\n\nMinBandwidth = 107374182;   // Bandwidth the server is guaranteed to have (in bps). This value helps server to estimate bandwidth available. Increasing it to too optimistic values can increase lag and CPU load, as too many messages will be sent but discarded. Default: 131072\nMaxBandwidth = 1073741824;  // Bandwidth the server is guaranteed to never have. This value helps the server to estimate bandwidth available.\n\nMaxMsgSend = 256;           // Maximum number of messages that can be sent in one simulation cycle. Increasing this value can decrease lag on high upload bandwidth servers. Default: 128\nMaxSizeGuaranteed = 512;    // Maximum size of guaranteed packet in bytes (without headers). Small messages are packed to larger frames. Guaranteed messages are used for non-repetitive events like shooting. Default: 512\nMaxSizeNonguaranteed = 256; // Maximum size of non-guaranteed packet in bytes (without headers). Non-guaranteed messages are used for repetitive updates like soldier or vehicle position. Increasing this value may improve bandwidth requirement, but it may increase lag. Default: 256\n\nMinErrorToSend = 0.001;     // Minimal error to send updates across network. Using a smaller value can make units observed by binoculars or sniper rifle to move smoother. Default: 0.001\nMinErrorToSendNear = 0.01;  // Minimal error to send updates across network for near units. Using larger value can reduce traffic sent for near units. Used to control client to server traffic as well. Default: 0.01\n\nMaxCustomFileSize = 0;      // (bytes) Users with custom face or custom sound larger than this size are kicked when trying to connect.",
+      "order": 0,
+      "enableEditor": false,
+      "editor": []
+    },
+    {
+      "id": 317,
+      "relativePath": "A3Master\\server.cfg",
+      "description": "Main configuration file",
+      "template": "//\n// server.cfg\n//\n// comments are written with \"//\" in front of them.\n\n\n// GLOBAL SETTINGS\nhostname\t\t\t\t\t\t\t\t= \"${Hostname}\";\t\t// The name of the server that shall be displayed in the public server list\npassword\t\t\t\t\t\t\t\t= \"${PrivatePassword}\";\t\t\t\t\t\t\t// Password for joining, eg connecting to the server\npasswordAdmin\t\t\t\t\t\t\t\t= \"${RconPassword}\";\t\t\t\t\t// Password to become server admin. When you're in Arma MP and connected to the server, type '#login xyz'\n//serverCommandPassword\t\t\t\t\t\t\t= \"\";\t\t// Password required by alternate syntax of [[serverCommand]] server-side scripting.\nmaxPlayers\t\t\t\t\t\t\t\t= ${Slots};\t\t\t\t\t// Maximum amount of players. Civilians and watchers, beholder, bystanders and so on also count as player.\nsteamProtocolMaxDataSize\t\t\t\t\t\t= 4096;\nlogFile\t\t\t\t\t\t\t\t\t= \"server_console.log\";\t\t\t// Tells ArmA-server where the logfile should go and what it should be called\n\n\n// WELCOME MESSAGE \n\nmotd[] = {\n\t\t\t\"Welcome to ${Hostname}\",\n\t\t\t\"Please respect the server rules and have fun!\"\n};\n\nmotdInterval = 5;\t\t\t\t\t// Time interval (in seconds) between each message\n\n\n// JOINING RULES\n\nkickDuplicate\t\t\t\t\t\t\t\t= 1;\t\t\t\t\t// Each ArmA version has its own ID. If kickDuplicate is set to 1, a player will be kicked when he joins a server where another player with the same ID is playing.\nverifySignatures\t\t\t\t\t\t\t= 2;\t\t\t\t// Verifies .pbos against .bisign files. Valid values 0 (disabled), 1 (prefer v2 sigs but accept v1 too) and 2 (only v2 sigs are allowed).\nequalModRequired\t\t\t\t\t\t\t= 0;\t\t\t\t// Outdated. If set to 1, player has to use exactly the same -mod= startup parameter as the server.\nallowedFilePatching\t\t\t\t\t\t\t= 0;\t\t\t// Allow or prevent client using -filePatching to join the server. 0, is disallow, 1 is allow HC, 2 is allow all clients (since Arma 3 1.49+)\n//filePatchingExceptions[]\t\t\t\t\t\t= {\"123456789\",\"987654321\"}; // Whitelisted Steam IDs allowed to join with -filePatching enabled\n//requiredBuild\t\t\t\t\t\t\t\t= 12345;\t\t\t// Require clients joining to have at least build 12345 of game, preventing obsolete clients to connect\nheadlessClients[]                   \t\t\t\t\t= {\"127.0.0.1\"};\nlocalClient[]                       \t\t\t\t\t= {\"127.0.0.1\"};\n\n// VOTING\nvoteMissionPlayers\t\t\t\t\t\t\t= 1;\t\t\t\t// Tells the server how many people must connect so that it displays the mission selection screen.\nvoteThreshold\t\t\t\t\t\t\t\t= 0.33;\t\t\t\t// 33% or more players need to vote for something, for example an admin or a new map, to become effective\nallowedVoteCmds[]\t\t\t\t\t\t\t=            // Voting commands allowed to players\n{\n\t// {command, preinit, postinit, threshold} - specifying a threshold value will override \"voteThreshold\" for that command\n\t{\"admin\", false, false}, // vote admin\n\t{\"kick\", false, true, 0.51}, // vote kick\n\t{\"missions\", false, false}, // mission change\n\t{\"mission\", false, false}, // mission selection\n\t{\"restart\", false, false}, // mission restart\n\t{\"reassign\", false, false} // mission restart with roles unassigned\n};\n\n// INGAME SETTINGS\ndisableVoN\t\t\t\t\t\t\t\t= 1;\t\t\t\t\t// If set to 1, Voice over Net will not be available\nvonCodec\t\t\t\t\t\t\t\t= 1; \t\t\t\t\t// If set to 1 then it uses IETF standard OPUS codec, if to 0 then it uses SPEEX codec (since Arma 3 update 1.58+)\nvonCodecQuality\t\t\t\t\t\t\t\t= 30;\t\t\t// since 1.62.95417 supports range 1-20 //since 1.63.x will supports range 1-30 //8kHz is 0-10, 16kHz is 11-20, 32kHz(48kHz) is 21-30\npersistent\t\t\t\t\t\t\t\t= 1;\t\t\t\t\t// If 1, missions still run on even after the last player disconnected.\ntimeStampFormat\t\t\t\t\t\t\t\t= \"short\";\t\t// Set the timestamp format used on each report line in server-side RPT file. Possible values are \"none\" (default),\"short\",\"full\".\nBattlEye\t\t\t\t\t\t\t\t= 1;\t\t\t\t\t// Server to use BattlEye system\nallowedLoadFileExtensions[]\t\t\t\t\t\t= {\"hpp\",\"sqs\",\"sqf\",\"fsm\",\"cpp\",\"paa\",\"txt\",\"xml\",\"inc\",\"ext\",\"sqm\",\"ods\",\"fxy\",\"lip\",\"csv\",\"kb\",\"bik\",\"bikb\",\"html\",\"htm\",\"biedi\",\"ini\",\"b64\"}; //only allow files with those extensions to be loaded via loadFile command (since Arma 3 build 1.19.124216)\nallowedPreprocessFileExtensions[]\t\t\t\t\t= {\"hpp\",\"sqs\",\"sqf\",\"fsm\",\"cpp\",\"paa\",\"txt\",\"xml\",\"inc\",\"ext\",\"sqm\",\"ods\",\"fxy\",\"lip\",\"csv\",\"kb\",\"bik\",\"bikb\",\"html\",\"htm\",\"biedi\",\"b64\"}; //only allow files with those extensions to be loaded via preprocessFile/preprocessFileLineNumber commands (since Arma 3 build 1.19.124323)\nallowedHTMLLoadExtensions[]\t\t\t\t\t\t= {\"htm\",\"html\",\"xml\",\"txt\"}; //only allow files with those extensions to be loaded via HTMLLoad command (since Arma 3 build 1.27.126715)\n//allowedHTMLLoadURIs[]\t\t\t\t\t\t\t= {}; // Leave commented to let missions/campaigns/addons decide what URIs are supported. Uncomment to define server-level restrictions for URIs\n\n\n// TIMEOUTS\n\ndisconnectTimeout\t\t\t\t\t\t\t= 5;\t\t\t// Time to wait before disconnecting a user which temporarly lost connection. Range is 5 to 90 seconds.\nmaxDesync\t\t\t\t\t\t\t\t= 150;\t\t\t\t// Max desync value until server kick the user\nmaxPing\t\t\t\t\t\t\t\t\t= 300;\t\t\t\t\t// Max ping value until server kick the user\nmaxPacketLoss\t\t\t\t\t\t\t\t= 50;\t\t\t\t// Max packetloss value until server kick the user\nkickClientsOnSlowNetwork[]\t\t\t\t\t\t= { 0, 0, 0, 0 }; // Defines if {<MaxPing>, <MaxPacketLoss>, <MaxDesync>, <DisconnectTimeout>} will be logged (0) or kicked (1)\nkickTimeout[]\t\t\t\t\t\t\t\t= { {0, -1}, {1, 180}, {2, 180}, {3, 180} };\nvotingTimeOut[]\t\t\t\t\t\t\t\t= {60, 90};\t\t// Kicks users from server if they spend too much time in mission voting\nroleTimeOut[]\t\t\t\t\t\t\t\t= {90, 120};\t\t// Kicks users from server if they spend too much time in role selection\nbriefingTimeOut[]\t\t\t\t\t\t\t= {60, 90};\t// Kicks users from server if they spend too much time in briefing (map) screen\ndebriefingTimeOut[]\t\t\t\t\t\t\t= {45, 60};\t// Kicks users from server if they spend too much time in debriefing screen\nlobbyIdleTimeout\t\t\t\t\t\t\t= 360;\t\t\t// The amount of time the server will wait before force-starting a mission without a logged-in Admin.\n\n\n// SCRIPTING ISSUES\n\nonUserConnected\t\t\t\t\t\t\t\t= \"\";\nonUserDisconnected\t\t\t\t\t\t\t= \"\";\ndoubleIdDetected\t\t\t\t\t\t\t= \"\";\n//regularCheck\t\t\t\t\t\t\t\t= \"{}\";\t\t\t\t// Server checks files from time to time by hashing them and comparing the hash to the hash values of the clients. //deprecated\n\n\n// SIGNATURE VERIFICATION\n\nonUnsignedData\t\t\t\t\t\t\t\t= \"kick (_this select 0)\";\t// unsigned data detected\nonHackedData\t\t\t\t\t\t\t\t= \"kick (_this select 0)\";\t\t// tampering of the signature detected\nonDifferentData\t\t\t\t\t\t\t\t= \"\";\t\t\t\t// data with a valid signature, but different version than the one present on server detected\n\n\n// MISSIONS CYCLE (see below)\n//randomMissionOrder\t\t\t\t\t\t\t= true;\t// Randomly iterate through Missions list\n//autoSelectMission\t\t\t\t\t\t\t= true;\t// Server auto selects next mission in cycle\n\nforcedDifficulty = \"custom\";\n\nclass Missions\n{\n\t// Warlords on Altis ships with the base game, so every player can join it.\n\t// Missions that come with the game or a mod use their CfgMissions class name plus the world,\n\t// like this one. For your own mission, copy it to the mpmissions folder and use its folder\n\t// or file name without .pbo (for example \"MyMission.Altis\"). You can also pick one in game with #missions.\n\tclass Mission1\n\t{\n\t\ttemplate = \"MP_Warlords_official_01.Altis\";\n\t\tdifficulty = \"Custom\";\n\t};\n};\n\n\n\n//missionWhitelist[] = {};\t// An empty whitelist means there is no restriction on what missions' available",
+      "order": 0,
+      "enableEditor": false,
+      "editor": [
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": null,
+          "label": "Hostname",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": null,
+          "label": "Private Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "RconPassword",
+          "defaultValue": null,
+          "label": "RCON Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 318,
+      "relativePath": "BattlEye\\BEServer_x64.cfg",
+      "description": "Main configuration file",
+      "template": "RConPort ${RConPort}\nRConPassword ${RconPassword}\nRConIP ${IPAddress}\nMaxPing 300",
+      "order": 0,
+      "enableEditor": false,
+      "editor": [
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "RconPassword",
+          "defaultValue": null,
+          "label": "RCON Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 319,
+      "relativePath": "BattlEye\\bans.txt",
+      "description": "Main configuration file",
+      "template": "",
+      "order": 0,
+      "enableEditor": false,
+      "editor": []
+    }
+  ],
+  "fileSystemPermissions": [],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "IronPython3",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "AfterCustomModInstalled"
+        ],
+        "name": "Configure mod",
+        "description": "Configure mod",
+        "code": "import clr\nfrom System import Array, String\nfrom System.IO import File, Path, Directory, SearchOption\n \n# Move folder to correct location\nmodfolder=Path.Combine(ThisService.RootDirectory, String.Format(\"@{0}\", FileId))\nif Directory.Exists(modfolder) :\n  Directory.Delete(modfolder, True)\nDirectory.Move(InstallPath, modfolder)\n\n# Move keys to root key folder\nmodkeys=Path.Combine(modfolder, \"keys\")\nrootkeys=Path.Combine(ThisService.RootDirectory, \"keys\")\nDirectory.CreateDirectory(rootkeys)\nif Directory.Exists(modkeys) :\n  for file in Directory.GetFiles(modkeys, \"*\", SearchOption.AllDirectories):\n    keyfile = Path.Combine(rootkeys, Path.GetFileName(file))\n    if File.Exists(keyfile) :\n      File.Delete(keyfile)\n    File.Move(file, keyfile)\n\n# Move key to root key folder\nmodkeys=Path.Combine(modfolder, \"key\")\nif Directory.Exists(modkeys) :\n  for file in Directory.GetFiles(modkeys, \"*\", SearchOption.AllDirectories):\n    keyfile = Path.Combine(rootkeys, Path.GetFileName(file))\n    if File.Exists(keyfile) :\n      File.Delete(keyfile)\n    File.Move(file, keyfile)\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "4bbd6d28-ce17-4b5c-8fba-b638de22c7ed"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "IronPython3",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "AfterCustomModUninstalled"
+        ],
+        "name": "Configure mod",
+        "description": "Configure mod",
+        "code": "import clr\nfrom System import Array, String\nfrom System.IO import Path, Directory\n\n# Delete mod folder\nmodfolder=Path.Combine(ThisService.RootDirectory, String.Format(\"@{0}\", FileId))\nif Directory.Exists(modfolder) :\n  Directory.Delete(modfolder, True)\n\n# Update command line\nThisService.Save()\nThisService.Configure()",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "4e816067-037d-44dc-9aa8-ffde10d9a449"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-07-17T13:10:45.108562",
+  "modifiedDate": "2026-07-17T13:10:46.150498",
+  "metadata": {
+    "notes": "Game imported from plugin TCA.Games.V2.74 version 1.1.0.",
+    "PluginIdentifier": "TCA.Games.V2.74",
+    "PluginVersion": "1.1.0"
+  },
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "A3Master/*.cfg",
+      "A3Master/**/*.Arma3Profile",
+      "mpmissions/**/*",
+      "BattlEye/BEServer_x64.cfg",
+      "BattlEye/bans.txt"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart, SendEmail",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop, SendEmail",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop, SendEmail",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop, SendEmail",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}/",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": false,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}

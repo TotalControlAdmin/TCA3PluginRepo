@@ -1,0 +1,42 @@
+identifier: "Community.Games.Arma3"
+name: "Arma 3"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Arma 3 dedicated server (Windows x64 / Linux x64) with BattlEye RCON and Warlords as the default mission"
+longDescription: |
+  # Arma 3
+  
+  ## Description
+  Arma 3 dedicated server for Windows and Linux (Steam app 233780), with BattlEye anti-cheat and RCON. A new server starts Warlords on Altis right away, a mission that ships with the base game, so every player can join without DLC.
+  
+  ## Key Features
+  - **Windows and Linux** configs, both on the 64-bit server.
+  - **Default mission:** Warlords on Altis (`MP_Warlords_official_01.Altis`), loaded at start with `-autoInit`.
+  - **BattlEye RCON** for the console and admin commands, and a graceful stop with `#shutdown`.
+  - **Server-browser query** (A2S on the query port).
+  - **Config files:** `server.cfg` (name, passwords, slots, MOTD, voting, timeouts, mission cycle), `basic.cfg` (network tuning), the server profile (difficulty) and the BattlEye config.
+  - **Linux Steam Workshop scripts:** installing a mod moves it to `@<id>`, lowercases its files (the Linux server needs this), copies its keys to `keys/` and adds it to `-mod=`. Uninstalling removes the folder, its keys and the `-mod=` entry.
+  - **Backups** with the panel's backup feature: `server.cfg`, `basic.cfg` and the player profiles in `A3Master` (including the mission variables), the missions (`mpmissions`) and the BattlEye config and bans. The server is stopped first, so the saved profile data is complete. Logs are left out: Windows keeps the live `.rpt` log locked while the server runs.
+  
+  ## Ports
+  - Game port (UDP) 2302, query port (UDP) 2303, plus 2304 and 2305.
+  - BattlEye RCON (UDP) 2309.
+  
+  ## Instructions
+  - **Steam account required:** the dedicated server can't be downloaded anonymously. After importing, open the game's Steam settings and enter a Steam account. Steam Workshop mods also need an account that owns Arma 3.
+  - The Steam Workshop provider is off by default. Turn it on in the game's Custom Mods settings once a Steam account that owns Arma 3 is set.
+  - **Choosing a mission:** put your own mission in `mpmissions` and set its folder name (for example `MyMission.Altis`) as the template in `server.cfg`. Missions that ship with the game or a mod use their class name plus the world, like the default.
+  - `-autoInit` keeps the mission running with no players (about 2 GB of RAM for Warlords on Altis). Remove it from the command line if you'd rather the mission start when the first player joins.
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/107410/3212af52faf994c558bd622cb0f360c1ef295a6b.jpg"
+images:
+  - "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/107410/ss_e9220742c6b786efc9145c58ce7b276af891e9d5.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Arma3 - Windows.json"
+    type: "GameConfig"
+  - path: "Arma3 - Linux.json"
+    type: "GameConfig"
