@@ -1,0 +1,49 @@
+identifier: "Community.Games.NoMoreRoomInHell"
+name: "No More Room in Hell"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "No More Room in Hell dedicated server (Windows / Linux) with A2S query, RCON, console, graceful stop, config editor, map selection, Steam Workshop maps and backups"
+longDescription: |
+  # No More Room in Hell
+  
+  ## Description
+  No More Room in Hell dedicated server for Windows and Linux (Steam app 317670, anonymous download), the co-operative zombie survival game on the Source engine.
+  
+  ## Key Features
+  - **Windows and Linux** configs on srcds (the 32-bit server on both systems).
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S on the game port) and **Source RCON** on the game port.
+  - **Console** with all server commands: Terminal on Linux, the console window on Windows.
+  - **Graceful stop** with `quit`.
+  - **Starts out of the box:** a start script writes `steam_appid.txt`. On Linux it makes srcds executable and installs missing 32-bit system libraries (apt, dnf or yum). On Windows the Steam client libraries in `bin` do not match each other, so srcds cannot reach Steam. A script downloads SteamCMD from Valve once per host, into a folder only administrators can write, and places its matching `steamclient.dll`, `tier0_s.dll` and `vstdlib_s.dll` next to `srcds.exe`.
+  - **Config editor** for `server.cfg`: server name, join and RCON passwords, map time limit, friendly fire, realism mode, hardcore survival and the server-side Workshop switches. The map cycle (`mapcycle.txt`) is a config file too.
+  - **Command lines:** a startup map picker with every official map (objective `nmo_` and survival `nms_`), and an Advanced line with config file, `-insecure` and fps limit.
+  - **Steam Workshop maps:** install a map from the Steam Workshop page. It is added to the server's own Workshop list (`workshop_maps.txt`) and to the map cycle. The server keeps it up to date and players download it from the Workshop. A running server gets the map at once (`changelevel <map>`). Items that are not maps (skins, sounds) are skipped, also inside a collection.
+  - **Backups** of `nmrih/cfg`, `addons`, `custom` and the Workshop map list. The server keeps running.
+  - **Log viewer** for the console and server logs.
+  
+  ## Ports
+  - Game, query and RCON 27015 (UDP and TCP).
+  - Client port 27016 (UDP).
+  - SourceTV 27020 (UDP).
+  
+  All ports bind to the service IP (`-ip`, `-port`, `+clientport`, `+tv_port`, `-strictportbind`). The IP and port check passed on both Windows and Linux: after moving a service to a new IP and new ports, every port listened on the assigned IP and port, and the query, RCON and a custom command line worked. Query and RCON share the game port (srcds has no separate query port). The server does not answer A2S queries when the service IP is 127.0.0.1, so give the service a real IP. srcds also opens a TCP port on 127.0.0.1 with a random number (the Steam client's local port). It cannot be set and is not reachable from outside.
+  
+  ## Instructions
+  - Server-side Workshop maps work on anonymous servers only. Do not set a game server login token (`sv_setsteamaccount`) if you use them.
+  - Change to a Workshop map with `changelevel <map name>`. The install log shows the map name.
+  - Leave `Server-side Workshop maps` enabled in the config editor, or the Workshop page cannot add maps.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/224260/684de0d9c5749b5ddd52f120894fd97efd620b1d.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224260/ss_ffa28be6d53ca1dae98e3455c58aa2edab008da6.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "No More Room in Hell - Windows.json"
+    type: "GameConfig"
+  - path: "No More Room in Hell - Linux.json"
+    type: "GameConfig"
