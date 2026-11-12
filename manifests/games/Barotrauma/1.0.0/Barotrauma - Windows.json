@@ -1,0 +1,2024 @@
+{
+  "__TCA:ExportVersion": "3.23.46.17810",
+  "__TCA:ExportedAt": "2026-11-11T20:45:07.7040293Z",
+  "name": "Barotrauma",
+  "shortName": "Barotrauma",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/602960/a0adb0f29ce819c6dffa32446624fb7648defc5a.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/602960/ss_cdf5cbde141fb93a0b23c6adca5378f73e1beeca.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 16,
+  "defaultSlots": 16,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".xml",
+    ".txt"
+  ],
+  "logExtensions": [
+    "*_20??-??-??_*.txt",
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "quit",
+    "waitAfterStopCommand": 30000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": true,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 27015,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 27016,
+        "expression": "GamePort + 1",
+        "description": null,
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "DedicatedServer.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "barotrauma",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 1026340,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 602960,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": false,
+    "defaultCommandline": "-port ${GamePort} -queryport ${QueryPort} -maxplayers ${Slots} -public true",
+    "defaultCustomCommandline": "-port ${GamePort} -queryport ${QueryPort} -maxplayers ${Slots} -public true",
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": true,
+    "elevated": false
+  },
+  "identifier": "361fb6a3-d241-4c34-9b9d-2efd401ea4af",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "ServerMessage",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ServerMessage}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "ServerMessage",
+        "defaultValue": "",
+        "label": "Server message",
+        "description": "Shown to players in the lobby. Do not use the characters < > & or \".",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.412953",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PlayStyle",
+      "defaultValue": "Casual",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PlayStyle}",
+      "editor": {
+        "items": [
+          {
+            "text": "Serious",
+            "value": "Serious"
+          },
+          {
+            "text": "Casual",
+            "value": "Casual"
+          },
+          {
+            "text": "Roleplay",
+            "value": "Roleplay"
+          },
+          {
+            "text": "Rampage",
+            "value": "Rampage"
+          },
+          {
+            "text": "Something different",
+            "value": "SomethingDifferent"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "PlayStyle",
+        "defaultValue": "Casual",
+        "label": "Play style",
+        "description": "Shown in the server browser.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.425196",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AllowModDownloads",
+      "defaultValue": "True",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AllowModDownloads}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "AllowModDownloads",
+        "defaultValue": "True",
+        "label": "Players can download the server's mods from the server",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.430797",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "VoiceChatEnabled",
+      "defaultValue": "True",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${VoiceChatEnabled}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "VoiceChatEnabled",
+        "defaultValue": "True",
+        "label": "Voice chat",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.433833",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AllowVoteKick",
+      "defaultValue": "True",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AllowVoteKick}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "AllowVoteKick",
+        "defaultValue": "True",
+        "label": "Players can vote to kick",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.433862",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "KarmaEnabled",
+      "defaultValue": "False",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${KarmaEnabled}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "KarmaEnabled",
+        "defaultValue": "False",
+        "label": "Karma system",
+        "description": "Punishes griefing (friendly fire, sabotage) automatically.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.433874",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "GameMode",
+      "defaultValue": "sandbox",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${GameMode}",
+      "editor": {
+        "items": [
+          {
+            "text": "Sandbox",
+            "value": "sandbox"
+          },
+          {
+            "text": "Mission",
+            "value": "mission"
+          },
+          {
+            "text": "Campaign",
+            "value": "multiplayercampaign"
+          },
+          {
+            "text": "Player vs player",
+            "value": "pvp"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "GameMode",
+        "defaultValue": "sandbox",
+        "label": "Game mode",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.433889",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RespawnMode",
+      "defaultValue": "MidRound",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RespawnMode}",
+      "editor": {
+        "items": [
+          {
+            "text": "During the round",
+            "value": "MidRound"
+          },
+          {
+            "text": "Between rounds",
+            "value": "BetweenRounds"
+          },
+          {
+            "text": "Permadeath",
+            "value": "Permadeath"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "RespawnMode",
+        "defaultValue": "MidRound",
+        "label": "Respawn",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.433929",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "LevelDifficulty",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${LevelDifficulty}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "LevelDifficulty",
+        "defaultValue": "0",
+        "label": "Level difficulty (0-100)",
+        "description": "Mission and sandbox levels. The campaign sets its own difficulty.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.433948",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "BotCount",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BotCount}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 16,
+        "id": "BotCount",
+        "defaultValue": "0",
+        "label": "Bots",
+        "description": "Bots that join the crew.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.437756",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AllowFriendlyFire",
+      "defaultValue": "True",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AllowFriendlyFire}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "AllowFriendlyFire",
+        "defaultValue": "True",
+        "label": "Friendly fire",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.437782",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AllowRewiring",
+      "defaultValue": "True",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AllowRewiring}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "AllowRewiring",
+        "defaultValue": "True",
+        "label": "Players can rewire the submarine",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.437801",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AutoRestart",
+      "defaultValue": "False",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AutoRestart}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "AutoRestart",
+        "defaultValue": "False",
+        "label": "Start rounds automatically",
+        "description": "Starts a new round after the interval below when enough players are in the lobby.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.437811",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AutoRestartInterval",
+      "defaultValue": "60",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AutoRestartInterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 10,
+        "maxValue": 3600,
+        "id": "AutoRestartInterval",
+        "defaultValue": "60",
+        "label": "Automatic round start interval (seconds)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T01:47:21.437821",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\<&]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, < or &, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:41:29.188667",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\<&]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, < or &, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:41:30.421553",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 430,
+      "relativePath": "serversettings.xml",
+      "description": "Server settings (serversettings.xml). Stop the server before editing: it saves this file when it stops.",
+      "template": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<serversettings\n  port=\"${GamePort}\"\n  queryport=\"${QueryPort}\"\n  password=\"${PrivatePassword}\"\n  ServerName=\"${Hostname}\"\n  ServerMessageText=\"${ServerMessage}\"\n  MaxPlayers=\"${Slots}\"\n  PlayStyle=\"${PlayStyle}\"\n  AllowModDownloads=\"${AllowModDownloads}\"\n  VoiceChatEnabled=\"${VoiceChatEnabled}\"\n  AllowVoteKick=\"${AllowVoteKick}\"\n  KarmaEnabled=\"${KarmaEnabled}\"\n  GameModeIdentifier=\"${GameMode}\"\n  RespawnMode=\"${RespawnMode}\"\n  SelectedLevelDifficulty=\"${LevelDifficulty}\"\n  BotCount=\"${BotCount}\"\n  AllowFriendlyFire=\"${AllowFriendlyFire}\"\n  AllowRewiring=\"${AllowRewiring}\"\n  AutoRestart=\"${AutoRestart}\"\n  AutoRestartInterval=\"${AutoRestartInterval}\" />\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Server",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "Shown in the server browser (60 characters at most). Do not use the characters < > & or \".",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Password",
+          "description": "Leave empty for a public server. Do not use the characters < > & or \".",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "ServerMessage",
+          "defaultValue": "",
+          "label": "Server message",
+          "description": "Shown to players in the lobby. Do not use the characters < > & or \".",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Serious",
+              "value": "Serious"
+            },
+            {
+              "text": "Casual",
+              "value": "Casual"
+            },
+            {
+              "text": "Roleplay",
+              "value": "Roleplay"
+            },
+            {
+              "text": "Rampage",
+              "value": "Rampage"
+            },
+            {
+              "text": "Something different",
+              "value": "SomethingDifferent"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "PlayStyle",
+          "defaultValue": "Casual",
+          "label": "Play style",
+          "description": "Shown in the server browser.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "AllowModDownloads",
+          "defaultValue": "True",
+          "label": "Players can download the server's mods from the server",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "VoiceChatEnabled",
+          "defaultValue": "True",
+          "label": "Voice chat",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "AllowVoteKick",
+          "defaultValue": "True",
+          "label": "Players can vote to kick",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "KarmaEnabled",
+          "defaultValue": "False",
+          "label": "Karma system",
+          "description": "Punishes griefing (friendly fire, sabotage) automatically.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Gameplay",
+          "defaultValue": null,
+          "label": "Gameplay",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Sandbox",
+              "value": "sandbox"
+            },
+            {
+              "text": "Mission",
+              "value": "mission"
+            },
+            {
+              "text": "Campaign",
+              "value": "multiplayercampaign"
+            },
+            {
+              "text": "Player vs player",
+              "value": "pvp"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "GameMode",
+          "defaultValue": "sandbox",
+          "label": "Game mode",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "During the round",
+              "value": "MidRound"
+            },
+            {
+              "text": "Between rounds",
+              "value": "BetweenRounds"
+            },
+            {
+              "text": "Permadeath",
+              "value": "Permadeath"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "RespawnMode",
+          "defaultValue": "MidRound",
+          "label": "Respawn",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "LevelDifficulty",
+          "defaultValue": "0",
+          "label": "Level difficulty (0-100)",
+          "description": "Mission and sandbox levels. The campaign sets its own difficulty.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 16,
+          "id": "BotCount",
+          "defaultValue": "0",
+          "label": "Bots",
+          "description": "Bots that join the crew.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "AllowFriendlyFire",
+          "defaultValue": "True",
+          "label": "Friendly fire",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "AllowRewiring",
+          "defaultValue": "True",
+          "label": "Players can rewire the submarine",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "AutoRestart",
+          "defaultValue": "False",
+          "label": "Start rounds automatically",
+          "description": "Starts a new round after the interval below when enough players are in the lobby.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 10,
+          "maxValue": 3600,
+          "id": "AutoRestartInterval",
+          "defaultValue": "60",
+          "label": "Automatic round start interval (seconds)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted",
+          "AfterServiceCreated",
+          "AfterServiceReinstalled"
+        ],
+        "name": "Prepare the server",
+        "description": "Creates the mods folder and config_player.xml. On Linux: puts steamclient.so where the Steam game server looks for it and installs GNU screen (the console) and missing libraries.",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Xml.ReaderWriter.dll, System.Private.Xml.Linq.dll, System.Xml.XDocument.dll, System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Xml.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\n\n// The mods folder and a config_player.xml that lists the enabled content packages (the Workshop scripts add to it).\n// Created here, before any mod is installed, so that a mod install never owns (and an uninstall never deletes) them.\nvar localMods = Path.Combine(root, \"LocalMods\");\nif (NoLink(localMods) && !Directory.Exists(localMods))\n{\n    Directory.CreateDirectory(localMods);\n    GiveToServiceUser(localMods, true);\n}\nvar playerConfig = Path.Combine(root, \"config_player.xml\");\nvar playerConfigSafe = NoLink(playerConfig);\nif (playerConfigSafe && !File.Exists(playerConfig))\n{\n    File.WriteAllText(playerConfig, \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\"?>\\n<config language=\\\"English\\\" savepath=\\\"Saves\\\">\\n  <contentpackages>\\n    <corepackage path=\\\"Content/ContentPackages/Vanilla.xml\\\" />\\n    <regularpackages />\\n  </contentpackages>\\n</config>\\n\");\n    GiveToServiceUser(playerConfig, false);\n    ScriptConsole.WriteLine((object)\"Created config_player.xml (vanilla content, no mods).\");\n}\nelse if (playerConfigSafe)\n{\n    // Campaign saves go to the service's Saves folder, not the account's shared AppData (every service of the same\n    // account would share one save folder, and backups would miss it). Only an empty save path is filled in.\n    var config = XDocument.Load(playerConfig);\n    var savePath = config.Root.Attributes().FirstOrDefault(a => string.Equals(a.Name.LocalName, \"savepath\", StringComparison.OrdinalIgnoreCase));\n    if (savePath == null || string.IsNullOrWhiteSpace(savePath.Value))\n    {\n        if (savePath != null) savePath.Remove();\n        config.Root.SetAttributeValue(\"savepath\", \"Saves\");\n        config.Save(playerConfig);\n        ScriptConsole.WriteLine((object)\"Campaign saves are kept in the Saves folder.\");\n    }\n}\n\n// Windows: the panel creates serversettings.xml from its template with an ACL of its own (no write access for the\n// service account), and the server crashes on start when it saves its settings (\"Access to the path ... is denied\").\n// Reset the file to the service folder's inherited permissions.\nif (System.OperatingSystem.IsWindows())\n{\n    foreach (var name in new[] { \"serversettings.xml\", \"config_player.xml\" })\n    {\n        var file = Path.Combine(root, name);\n        if (!File.Exists(file)) continue;\n        using (var icacls = Process.Start(new ProcessStartInfo(\"icacls.exe\", new[] { file, \"/reset\", \"/Q\" }) { UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true }))\n        {\n            var output = icacls.StandardOutput.ReadToEnd() + icacls.StandardError.ReadToEnd();\n            icacls.WaitForExit();\n            if (icacls.ExitCode != 0) ScriptConsole.WriteLine((object)(\"Could not reset the permissions of \" + name + \": \" + output.Trim()));\n        }\n    }\n}\n\nif (System.OperatingSystem.IsLinux())\n{\n    // Steam downloads lose the execute bit now and then.\n    var server = Path.Combine(root, \"DedicatedServer\");\n    if (NoLink(server) && File.Exists(server)) File.SetUnixFileMode(server, File.GetUnixFileMode(server) | UnixFileMode.UserExecute | UnixFileMode.GroupExecute);\n\n    // The Steam game server (the query port, the server list) loads ~/.steam/sdk64/steamclient.so; the service root is\n    // the home directory. Without it the server runs LAN/IP-only and never answers the query.\n    var source = Path.Combine(root, \"linux64\", \"steamclient.so\");\n    var sdk = Path.Combine(root, \".steam\", \"sdk64\");\n    var target = Path.Combine(sdk, \"steamclient.so\");\n    if (NoLink(source) && NoLink(target) && File.Exists(source) && (!File.Exists(target) || new FileInfo(target).Length != new FileInfo(source).Length))\n    {\n        Directory.CreateDirectory(sdk);\n        File.Copy(source, target, true);\n        GiveToServiceUser(Path.Combine(root, \".steam\"), true);\n        ScriptConsole.WriteLine((object)\"Copied steamclient.so to .steam/sdk64.\");\n    }\n\n    // The console runs in GNU screen: the server only accepts commands on a terminal, and it asks that terminal for the\n    // cursor position after every console message. screen answers; without a terminal that answers, the server stalls\n    // until the next key press (and eats the stop command).\n    if (!Shell(\"command -v screen\", out _))\n    {\n        ScriptConsole.WriteLine((object)\"GNU screen is missing on this host; installing it.\");\n        var installed =\n            Shell(\"command -v apt-get && (DEBIAN_FRONTEND=noninteractive apt-get install -y screen || (apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y screen))\", out var aptLog)\n            || Shell(\"command -v dnf && dnf install -y screen\", out _)\n            || Shell(\"command -v yum && yum install -y screen\", out _);\n        if (!installed) throw new Exception(\"GNU screen is missing and could not be installed. Install the screen package on this host. \" + aptLog);\n        ScriptConsole.WriteLine((object)\"Installed GNU screen.\");\n    }\n}\n\n// The script runs as the monitor: hand what it creates to the service account (root-owned files are hidden in the file\n// manager, and the server cannot write them).\nvoid GiveToServiceUser(string path, bool directory)\n{\n    if (!System.OperatingSystem.IsLinux()) return;\n    var credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\n    if (directory) Globals.OperatingSystem.SetDirectoryOwner(path, credential.Domain, credential.UserName, true);\n    else Globals.OperatingSystem.SetFileOwnerAutoDetect(path);\n}\n\n// Linux: this script runs as root in a folder the service account can write to. A symbolic link anywhere between the\n// service root and a path it reads or writes could point it at any file on the host, so such a path is left alone.\nbool NoLink(string path)\n{\n    if (!System.OperatingSystem.IsLinux()) return true;\n    var top = Path.GetFullPath(root).TrimEnd('/');\n    var full = Path.GetFullPath(path);\n    if (!full.StartsWith(top + \"/\", StringComparison.Ordinal)) return Refuse(path, \"it is outside the service folder\");\n    var current = top;\n    foreach (var part in full.Substring(top.Length).Split('/', StringSplitOptions.RemoveEmptyEntries))\n    {\n        current = current + \"/\" + part;\n        var info = new FileInfo(current);\n        if (info.LinkTarget != null) return Refuse(path, current.Substring(top.Length + 1) + \" is a symbolic link\");\n        if (!info.Exists && !Directory.Exists(current)) break;\n    }\n    return true;\n}\n\nbool Refuse(string path, string reason)\n{\n    ScriptConsole.WriteLine((object)(\"Skipped \" + Path.GetFileName(path) + \": \" + reason + \".\"));\n    return false;\n}\n\n// Linux: install the shared libraries the server binary links but this host does not have.\nif (System.OperatingSystem.IsLinux())\n{\n    var binary = Path.Combine(root, \"DedicatedServer\");\n    var packages = new Dictionary<string, (string[] Apt, string[] Rpm)>\n    {\n        [\"libstdc++.so.6\"] = (new[] { \"libstdc++6\" }, new[] { \"libstdc++\" }),\n        [\"libgcc_s.so.1\"] = (new[] { \"libgcc-s1\", \"libgcc1\" }, new[] { \"libgcc\" }),\n        [\"libz.so.1\"] = (new[] { \"zlib1g\" }, new[] { \"zlib\" })\n    };\n    Shell(\"ldd '\" + binary + \"'\", out var lddOutput);\n    var missing = lddOutput.Split('\\n').Where(l => l.Contains(\"=> not found\")).Select(l => l.Trim().Split(' ')[0]).ToList();\n    foreach (var soname in missing)\n    {\n        if (!packages.TryGetValue(soname, out var candidates))\n        {\n            ScriptConsole.WriteLine((object)(\"The server needs \" + soname + \", which is not installed on this host.\"));\n            continue;\n        }\n        ScriptConsole.WriteLine((object)(soname + \" is missing on this host; installing it.\"));\n        var apt = Shell(\"command -v apt-get\", out _);\n        var tool = apt ? \"DEBIAN_FRONTEND=noninteractive apt-get install -y \" : Shell(\"command -v dnf\", out _) ? \"dnf install -y \" : \"yum install -y \";\n        var names = apt ? candidates.Apt : candidates.Rpm;\n        var installed = names.Any(p => Shell(tool + p, out _));\n        if (!installed && apt && Shell(\"apt-get update\", out _)) installed = names.Any(p => Shell(tool + p, out _));\n        if (!installed) throw new Exception(soname + \" is missing and could not be installed. Install one of these packages on the host: \" + string.Join(\", \", names));\n        ScriptConsole.WriteLine((object)(\"Installed \" + soname + \".\"));\n    }\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() + process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "67dc1f61-28b0-4af5-a766-717ab4cb7b7b"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterCustomModInstalled"
+        ],
+        "name": "Add the Workshop mod to the server",
+        "description": "Moves the downloaded content package to LocalMods/<id> and enables it in config_player.xml.",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Xml.ReaderWriter.dll, System.Private.Xml.Linq.dll, System.Xml.XDocument.dll\nusing System;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing System.Xml.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Barotrauma loads content packages from LocalMods/<folder>/filelist.xml when config_player.xml enables them.\n// The Workshop download lands in steamapps/workshop/content/602960/<id>; move it to LocalMods/<id> and enable it\n// in config_player.xml (a regular package, or the core package for a total conversion). The server loads it the\n// next time it starts; players who join download it from the Workshop or from the server.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]+$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\nstring installPath = Convert.ToString(Dynamic.InstallPath);\nstring root = (string)ThisService.RootDirectory;\n\nif (!Directory.Exists(installPath))\n{\n    ScriptConsole.WriteLine((object)(\"Nothing was downloaded for Workshop item \" + fileId + \".\"));\n    return;\n}\n\n// The content package is the folder that holds filelist.xml (the item root for every current mod).\nvar fileList = Directory.GetFiles(installPath, \"filelist.xml\", SearchOption.AllDirectories)\n    .OrderBy(p => p.Length).FirstOrDefault();\nif (fileList == null)\n{\n    ScriptConsole.WriteLine((object)(\"Workshop item \" + fileId + \" has no filelist.xml; it is not a Barotrauma content package.\"));\n    return;\n}\n\nstring localMods = Path.Combine(root, \"LocalMods\");\nstring target = Path.Combine(localMods, fileId);\nstring configPath = Path.Combine(root, \"config_player.xml\");\nNoLink(installPath, Path.GetDirectoryName(fileList));\nNoLink(root, target);\nNoLink(root, configPath);\nbool createdLocalMods = !Directory.Exists(localMods);\nDirectory.CreateDirectory(localMods);\nif (Directory.Exists(target)) Directory.Delete(target, true);\nDirectory.Move(Path.GetDirectoryName(fileList), target);\ntry { if (Directory.Exists(installPath)) Directory.Delete(installPath, true); } catch { }\n\nvar package = XDocument.Load(Path.Combine(target, \"filelist.xml\")).Root;\nstring name = (string)package.Attribute(\"name\") ?? fileId;\nbool core = string.Equals((string)package.Attribute(\"corepackage\"), \"true\", StringComparison.OrdinalIgnoreCase);\nstring packagePath = \"LocalMods/\" + fileId + \"/filelist.xml\";\nScriptConsole.WriteLine((object)(\"Installed \\\"\" + name + \"\\\" in LocalMods/\" + fileId + \".\"));\n\n// Enable it in config_player.xml (the server writes a full one on its first start; create a minimal one before that).\nbool configExisted = File.Exists(configPath);\nvar config = configExisted ? XDocument.Load(configPath) : new XDocument(new XElement(\"config\"));\nvar packages = Child(config.Root, \"contentpackages\");\nif (core)\n{\n    var corePackage = Child(packages, \"corepackage\");\n    corePackage.RemoveAttributes();\n    corePackage.SetAttributeValue(\"path\", packagePath);\n    ScriptConsole.WriteLine((object)(\"\\\"\" + name + \"\\\" is a core package (total conversion); it replaces the vanilla content.\"));\n}\nelse\n{\n    if (Child(packages, \"corepackage\").Attribute(\"path\") == null && Child(packages, \"corepackage\").Attribute(\"name\") == null)\n        Child(packages, \"corepackage\").SetAttributeValue(\"path\", \"Content/ContentPackages/Vanilla.xml\");\n    var regular = Child(packages, \"regularpackages\");\n    if (!regular.Elements().Any(e => string.Equals(((string)e.Attribute(\"path\") ?? \"\").Replace('\\\\', '/'), packagePath, StringComparison.OrdinalIgnoreCase)))\n        regular.Add(new XElement(\"package\", new XAttribute(\"path\", packagePath)));\n}\nconfig.Save(configPath);\nScriptConsole.WriteLine((object)(\"Enabled \\\"\" + name + \"\\\" in config_player.xml. The server loads it the next time it starts.\"));\n\n// The script runs as the monitor: give the new files to the service account (root-owned files are hidden in the\n// file manager and the server cannot update them).\nif (System.OperatingSystem.IsLinux())\n{\n    var credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\n    Globals.OperatingSystem.SetDirectoryOwner(createdLocalMods ? localMods : target, credential.Domain, credential.UserName, true);\n    if (!configExisted) Globals.OperatingSystem.SetFileOwnerAutoDetect(configPath);\n}\n\n// Linux: this script runs as root in a folder the service account can write to. A symbolic link anywhere between\n// top and path could point it at any file on the host, so the script stops instead of following one.\nvoid NoLink(string top, string path)\n{\n    if (!System.OperatingSystem.IsLinux()) return;\n    top = Path.GetFullPath(top).TrimEnd('/');\n    var full = Path.GetFullPath(path);\n    if (full != top && !full.StartsWith(top + \"/\", StringComparison.Ordinal)) throw new Exception(path + \" is outside \" + top + \".\");\n    var current = top;\n    foreach (var part in full.Substring(top.Length).Split('/', StringSplitOptions.RemoveEmptyEntries))\n    {\n        current = current + \"/\" + part;\n        var info = new FileInfo(current);\n        if (info.LinkTarget != null) throw new Exception(current.Substring(top.Length + 1) + \" is a symbolic link; remove it and try again.\");\n        if (!info.Exists && !Directory.Exists(current)) break;\n    }\n}\n\n// The element with this name (any case), created when missing.\nXElement Child(XElement parent, string elementName)\n{\n    var element = parent.Elements().FirstOrDefault(e => string.Equals(e.Name.LocalName, elementName, StringComparison.OrdinalIgnoreCase));\n    if (element == null) { element = new XElement(elementName); parent.Add(element); }\n    return element;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "<path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "d84ff8f9-e97b-4f20-b82a-9b29b1df8f9b"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeCustomModUninstalled"
+        ],
+        "name": "Remove the Workshop mod from the server",
+        "description": "Disables the content package in config_player.xml and removes LocalMods/<id>.",
+        "code": "//refAssemblies: System.Xml.ReaderWriter.dll, System.Private.Xml.Linq.dll, System.Xml.XDocument.dll\nusing System;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing System.Xml.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Disables the Workshop content package in config_player.xml and removes LocalMods/<id>, which the install script\n// created. A core package (total conversion) is replaced by the vanilla content again.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]+$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\nstring root = (string)ThisService.RootDirectory;\nstring packagePath = \"LocalMods/\" + fileId + \"/filelist.xml\";\n\nstring configPath = Path.Combine(root, \"config_player.xml\");\nstring target = Path.Combine(root, \"LocalMods\", fileId);\nNoLink(root, configPath);\nNoLink(root, target);\nif (File.Exists(configPath))\n{\n    var config = XDocument.Load(configPath);\n    var packages = config.Root.Elements().FirstOrDefault(e => string.Equals(e.Name.LocalName, \"contentpackages\", StringComparison.OrdinalIgnoreCase));\n    bool changed = false;\n    if (packages != null)\n    {\n        foreach (var element in packages.Descendants().ToList())\n        {\n            if (!string.Equals(((string)element.Attribute(\"path\") ?? \"\").Replace('\\\\', '/'), packagePath, StringComparison.OrdinalIgnoreCase)) continue;\n            if (string.Equals(element.Name.LocalName, \"corepackage\", StringComparison.OrdinalIgnoreCase))\n            {\n                element.RemoveAttributes();\n                element.SetAttributeValue(\"path\", \"Content/ContentPackages/Vanilla.xml\");\n            }\n            else element.Remove();\n            changed = true;\n        }\n    }\n    if (changed)\n    {\n        config.Save(configPath);\n        ScriptConsole.WriteLine((object)(\"Disabled LocalMods/\" + fileId + \" in config_player.xml.\"));\n    }\n}\n\nif (Directory.Exists(target))\n{\n    try\n    {\n        Directory.Delete(target, true);\n        ScriptConsole.WriteLine((object)(\"Removed LocalMods/\" + fileId + \".\"));\n    }\n    catch (Exception ex)\n    {\n        ScriptConsole.WriteLine((object)(\"Could not remove LocalMods/\" + fileId + \" (\" + ex.Message + \"). Stop the server and uninstall again.\"));\n        throw;\n    }\n}\n\n// Linux: this script runs as root in a folder the service account can write to. A symbolic link anywhere between\n// top and path could point it at any file on the host, so the script stops instead of following one.\nvoid NoLink(string top, string path)\n{\n    if (!System.OperatingSystem.IsLinux()) return;\n    top = Path.GetFullPath(top).TrimEnd('/');\n    var full = Path.GetFullPath(path);\n    if (full != top && !full.StartsWith(top + \"/\", StringComparison.Ordinal)) throw new Exception(path + \" is outside \" + top + \".\");\n    var current = top;\n    foreach (var part in full.Substring(top.Length).Split('/', StringSplitOptions.RemoveEmptyEntries))\n    {\n        current = current + \"/\" + part;\n        var info = new FileInfo(current);\n        if (info.LinkTarget != null) throw new Exception(current.Substring(top.Length + 1) + \" is a symbolic link; remove it and try again.\");\n        if (!info.Exists && !Directory.Exists(current)) break;\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "<path d=\"M19 13H5v-2h14v2z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "2423d7ac-db51-47ee-9540-0644c86807fb"
+      }
+    }
+  ],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 204,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 2,
+      "gameId": 204,
+      "enabled": true,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "AllowCollections": true,
+        "ShowDescription": true,
+        "ShowAuthorAndRating": true,
+        "Private.UseSteamAPI": false,
+        "SkipDownload": false
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 204,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 204,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 5,
+      "gameId": 204,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 204,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 204,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    }
+  ],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-11T01:47:21.384023",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": false,
+    "includedPaths": [
+      "serversettings.xml",
+      "config_player.xml",
+      "Data/**/*",
+      "LocalMods/**/*",
+      "Saves/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}

@@ -1,0 +1,46 @@
+identifier: "Community.Games.Barotrauma"
+name: "Barotrauma"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Barotrauma dedicated server (Windows / Linux) with A2S query, console, graceful stop, config editor, Steam Workshop mods and backups; starts out of the box"
+longDescription: |
+  # Barotrauma
+  
+  ## Description
+  Barotrauma dedicated server for Windows and Linux (Steam app 1026340, anonymous download).
+  
+  ## Key Features
+  - **Windows and Linux** configs with Steam update on install and from the panel.
+  - **Server-browser query** (A2S on the query port). The server always registers with Steam (`-public true`), because a private server does not answer the query. Set a password to keep it private.
+  - **Console** with every server command (`help`, `say`, `kick`, `ban`, `sub`, `gamemode`, `start`, ...). On Windows it runs in the Terminal. On Linux it runs in GNU screen: the server asks its terminal for the cursor position after every console message, and screen answers that query (the panel terminal does not, and the server would stall). The start script installs screen when the host does not have it (apt, dnf or yum).
+  - **Graceful stop** with `quit`: the server saves its settings, the ban list and the server log before it exits.
+  - **Config editor** for `serversettings.xml`: server name, password, server message, play style, game mode, respawn mode, level difficulty, bots, friendly fire, rewiring, karma, voice chat, vote kick, automatic round start and mod downloads. Ports and the player limit always come from the panel.
+  - **Steam Workshop mods**: an installed item is moved to `LocalMods/<id>` and enabled in `config_player.xml` (total conversions replace the vanilla core package). Uninstalling disables and removes it. Players download the mods from the server or the Workshop.
+  - **Campaign saves** are kept in the service's `Saves` folder, not in the account's shared profile.
+  - **Backups** of the settings, the ban list and permission files, the mods and the campaign saves.
+  - **Log viewer** for the server logs (`ServerLogs`) and crash reports.
+  - **Starts out of the box:** a start script puts `steamclient.so` where the Steam game server looks for it on Linux, installs missing libraries, and on Windows gives the service account write access to `serversettings.xml`.
+  
+  ## Ports
+  - Game 27015 (UDP) and query 27016 (UDP, A2S through Steam). The query port follows the game port (+1).
+  - The server has no bind-address setting: the game port listens on all addresses (IPv4 and IPv6) and the query on 0.0.0.0, so the game keeps every service on the server's primary IP.
+  - It also opens one UDP port with a random number (Steam networking) and a TCP port on 127.0.0.1 (local Steam connection). Neither can be set.
+  - IP and port changes in the service settings are written to `serversettings.xml`.
+  
+  ## Instructions
+  - Stop the server before editing `serversettings.xml`: the server saves this file when it stops.
+  - To make yourself the owner, add your SteamID or account id to `Data/clientpermissions.xml`, or use `giverank` in the console.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/602960/a0adb0f29ce819c6dffa32446624fb7648defc5a.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/602960/ss_cdf5cbde141fb93a0b23c6adca5378f73e1beeca.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Barotrauma - Windows.json"
+    type: "GameConfig"
+  - path: "Barotrauma - Linux.json"
+    type: "GameConfig"
