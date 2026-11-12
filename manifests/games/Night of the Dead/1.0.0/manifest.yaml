@@ -1,0 +1,55 @@
+identifier: "Community.Games.NightOfTheDead"
+name: "Night of the Dead"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Night of the Dead dedicated server (Windows / Linux with Wine) with a ServerSettings.ini form editor, online status, graceful Ctrl+C stop and backups; starts out of the box"
+longDescription: |
+  # Night of the Dead
+  
+  ## Description
+  Night of the Dead dedicated server (Steam app 1420710, anonymous download, about 7.3 GB). There is no Linux server build, so the Linux config runs the Windows server under Wine.
+  
+  ## Key Features
+  - **Windows and Linux (Wine)** configs.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box.** The Steam client files ship in the server's root folder, so the config puts that folder on the library search path (PATH on Windows, WINEPATH under Wine) and sets the Steam app id. On Linux a script installs wine, winetricks, Xvfb and xdotool when the host does not have them (apt, dnf or yum) and creates the Wine prefix.
+  - **Config editor** for `LF/Saved/Config/ServerSettings.ini`: server name, join password, in-game admin password, message of the day, save name, autosave interval, difficulty, PvE or PvP, waves, respawns, team kill, building decay, the wave zombie limit, and every Custom difficulty value.
+  - **Status query.** The server lists itself through Epic Online Services and answers no Steam query, so the panel reports it online while its game port is open.
+  - **Graceful stop:** the stop script sends Ctrl+C to the server process, which shuts down cleanly.
+  - **Console output** from the server window (Windows) or the server log (Wine).
+  - **Log viewer** for the server logs in `LF/Saved/Logs`.
+  - **Backups** of the save games and the settings file. The server is stopped first.
+  
+  ## Ports
+  - Game 7777 (UDP).
+  - Steam query 27015 (UDP). The Steam library opens it; it does not answer queries.
+  - The server binds the service IP (`-MULTIHOME`) for both ports.
+  
+  ## IP and ports
+  - Checked on both configs: first on 127.0.0.1 with the default ports, then on the server's public IP with the game port +1000 and the query port +1100.
+  - Game port: on the assigned IP and port on both.
+  - Steam query port: on the assigned port and IP. On 127.0.0.1 the Steam library binds it on every address.
+  - The only other socket is a Steam client link on 127.0.0.1 (TCP, random port). It is local only.
+  - A2S is not supported: the server is listed through EOS sessions, and the Steam query port never answers.
+  - A custom command line saves, previews and starts on both.
+  
+  ## Instructions
+  - Change the settings in Configuration Files, then restart the server.
+  - The Custom difficulty values apply only when Difficulty is Custom.
+  - A new save name starts a new world. The game's settings file names `LF/Saved/SaveGames/<save name>` as the save folder; the server writes it only once a world has been played, so it does not exist on a fresh server.
+  - The server has no console commands and no RCON. Players become admin in the game with the in-game admin password.
+  - Linux (Wine): the Steam library crashes while the server unloads it at the end of a stop, after the game has shut down. A start script keeps the newest five crash reports and deletes the rest.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/1377380/7b9307de9fa2d3fc98b5e56c1f234c0d7f5b1381.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1377380/ss_431316b2c52336fa8489256162cb439fd0db31f2.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Wine"
+files:
+  - path: "Night of the Dead - Windows.json"
+    type: "GameConfig"
+  - path: "Night of the Dead - Linux Wine.json"
+    type: "GameConfig"
