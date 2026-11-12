@@ -2707,7 +2707,7 @@
     },
     {
       "name": "ClampItemSpoilingTimes",
-      "defaultValue": "",
+      "defaultValue": "False",
       "required": false,
       "requiredMessage": "",
       "scriptParameter": false,
@@ -2726,19 +2726,24 @@
             "value": "True"
           }
         ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
         "id": "ClampItemSpoilingTimes",
-        "defaultValue": "",
+        "defaultValue": "False",
         "label": "Clamp Item Spoiling Times",
         "description": "Will clamp all spoiling times to the items' maximum spoiling times. Could potentially cause issues with Mods that alter spoiling time.",
         "required": false,
         "valueType": "string",
         "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicComboBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2026-04-19T20:24:11.110755",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
         {
@@ -6236,7 +6241,7 @@
     },
     {
       "name": "OnlyAutoDestroyCoreStructures",
-      "defaultValue": "",
+      "defaultValue": "False",
       "required": false,
       "requiredMessage": "",
       "scriptParameter": false,
@@ -6255,19 +6260,24 @@
             "value": "True"
           }
         ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
         "id": "OnlyAutoDestroyCoreStructures",
-        "defaultValue": "",
+        "defaultValue": "False",
         "label": "Only Auto Destroy Core Structures",
         "description": "You can launch an autodestroy enabled server with this opion to prevent any non-core/non-foundation structures from autodestroying (however they'll still get autodestroyed if a floor that they're on gets autodestroyed, of course). Official PvE Servers use this option.",
         "required": false,
         "valueType": "string",
         "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicComboBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2026-04-19T20:24:11.27217",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
         {
@@ -10809,7 +10819,7 @@
     },
     {
       "name": "VolcanoInterval",
-      "defaultValue": "0",
+      "defaultValue": 0,
       "required": false,
       "requiredMessage": "",
       "scriptParameter": false,
@@ -10822,10 +10832,10 @@
         "step": 1,
         "spinner": true,
         "valueType": "double",
-        "minValue": 0.1,
+        "minValue": 0,
         "maxValue": 9999999,
         "id": "VolcanoInterval",
-        "defaultValue": "0",
+        "defaultValue": 0,
         "label": "Volcano Interval",
         "description": "0 = 5000 (min) - 15000 (max) seconds between instances of the volcano becoming active. Any number above 0 acts as a multiplier, with a minimum value of .1",
         "required": false,
@@ -10838,6 +10848,7 @@
         "requiresAnyVisible": []
       },
       "createdDate": "2026-04-19T20:24:11.485915",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
         {
