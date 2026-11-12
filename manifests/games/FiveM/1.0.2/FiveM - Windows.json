@@ -97,11 +97,11 @@
     "steamTool": "DepotDownloader"
   },
   "gameCommandlineConfig": {
-    "privateCommandline": "\u002Bexec server.cfg"
+    "privateCommandline": "+exec server.cfg"
   },
   "commandlineConfig": {
     "enableSelection": false,
-    "defaultCommandline": "\u002Bexec server.cfg",
+    "defaultCommandline": "+exec server.cfg",
     "predefinedCommandlines": []
   },
   "runAsConfig": {
@@ -150,6 +150,90 @@
           "roleId": 3
         }
       ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:23:05.340073",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n; \\t]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: semicolons, spaces, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:23:06.757072",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     }
   ],
   "configFiles": [
@@ -157,7 +241,7 @@
       "id": 1,
       "relativePath": "server-data/server.cfg",
       "description": "Main configuration file",
-      "template": "set sv_licenseKey \u0022${LicenseKey}\u0022\r\n\r\n# you probably don\u0027t want to change these!\r\n# only change them if you\u0027re using a server with multiple network interfaces\r\nendpoint_add_tcp \u0022${IPAddress}:${GamePort}\u0022\r\nendpoint_add_udp \u0022${IPAddress}:${GamePort}\u0022\r\n\r\nstart mapmanager\r\nstart chat\r\nstart spawnmanager\r\nstart sessionmanager\r\nstart fivem\r\nstart hardcap\r\nstart rconlog\r\nstart scoreboard\r\nstart playernames\r\n\r\nsv_scriptHookAllowed 1\r\n\r\n# change this\r\nrcon_password ${RconPassword}\r\n\r\nsv_hostname \u0022${Hostname}\u0022\r\n\r\n# nested configs!\r\n#exec server_internal.cfg\r\n\r\n# loading a server icon (96x96 PNG file)\r\n#load_server_icon myLogo.png\r\n\r\n# convars for use from script\r\nset temp_convar \u0022hey world!\u0022\r\n\r\n# disable announcing? clear out the master by uncommenting this\r\n#sv_master1 \u0022\u0022\r\n\r\n# want to only allow players authenticated with a third-party provider like Steam?\r\n#sv_authMaxVariance 1\r\n#sv_authMinTrust 5\r\n\r\n# add system admins\r\nadd_ace group.admin command allow # allow all commands\r\nadd_ace group.admin command.quit deny # but don\u0027t allow quit\r\nadd_principal identifier.steam:110000112345678 group.admin # add the admin to the group\r\n\r\n# hide player endpoints in external log output\r\nsv_endpointprivacy true\r\n\r\n# server slots limit (default to 30)\r\nsv_maxclients ${Slots}\r\n\r\n# disable gui\r\nset svgui_disable true,",
+      "template": "set sv_licenseKey \"${LicenseKey}\"\r\n\r\n# you probably don't want to change these!\r\n# only change them if you're using a server with multiple network interfaces\r\nendpoint_add_tcp \"${IPAddress}:${GamePort}\"\r\nendpoint_add_udp \"${IPAddress}:${GamePort}\"\r\n\r\nstart mapmanager\r\nstart chat\r\nstart spawnmanager\r\nstart sessionmanager\r\nstart fivem\r\nstart hardcap\r\nstart rconlog\r\nstart scoreboard\r\nstart playernames\r\n\r\nsv_scriptHookAllowed 1\r\n\r\n# change this\r\nrcon_password ${RconPassword}\r\n\r\nsv_hostname \"${Hostname}\"\r\n\r\n# nested configs!\r\n#exec server_internal.cfg\r\n\r\n# loading a server icon (96x96 PNG file)\r\n#load_server_icon myLogo.png\r\n\r\n# convars for use from script\r\nset temp_convar \"hey world!\"\r\n\r\n# disable announcing? clear out the master by uncommenting this\r\n#sv_master1 \"\"\r\n\r\n# want to only allow players authenticated with a third-party provider like Steam?\r\n#sv_authMaxVariance 1\r\n#sv_authMinTrust 5\r\n\r\n# add system admins\r\nadd_ace group.admin command allow # allow all commands\r\nadd_ace group.admin command.quit deny # but don't allow quit\r\nadd_principal identifier.steam:110000112345678 group.admin # add the admin to the group\r\n\r\n# hide player endpoints in external log output\r\nsv_endpointprivacy true\r\n\r\n# server slots limit (default to 30)\r\nsv_maxclients ${Slots}\r\n\r\n# disable gui\r\nset svgui_disable true,",
       "order": 1,
       "enableEditor": true,
       "editor": [
@@ -238,12 +322,12 @@
           "DownloadGameFiles"
         ],
         "name": "Download Windows game files",
-        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Net;\nusing System.Net.Http;\nusing TCAdmin.SDK.Helpers;\nusing TCAdmin.SDK.Misc.Extensions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nusing(var p = new Process())\n{\n    p.StartInfo.FileName = \u0022git.exe\u0022;\n    try\n    {\n        p.Start();\n    }\n    catch (Exception)\n    {\n        throw new Exception(\u0022Please install git with \\\u0022Use Git from the Windows Command Prompt\\\u0022 checked and restart the monitor.\u0022);\n    }\n};\n\nvoid WriteLog(string s, int? progress = null, bool rewriteLastLog = false)\n{\n    if(Globals.ThisTaskStepHandler != null)\n    {\n        Globals.ThisTaskStepHandler.UpdateProgress(progress: progress, log: s);\n    }\n    else if(Globals.ThisTaskStep!=null)\n    {\n        if(progress.HasValue)\n        {\n            Globals.ThisTaskStep.Progress = progress.Value;\n        }\n\n        if(rewriteLastLog)\n        {\n            Globals.ThisTaskStep.DisplayLog = s;\n            Globals.ThisTaskStep.DisplayDebugLog = s;\n        }\n        else\n        {\n            Globals.ThisTaskStep.AddDebugLog(s, skipDuplicates:true);\n        }\n        Globals.TCATaskManager.Update(Globals.ThisTask, true);\n    }\n    else\n    {\n        Globals.ScriptConsole.WriteLine(s);\n    }\n}\n\nvar gameFilesPath = Globals.ThisServer.Configuration.GameFilesPath;\nvar fiveMPath = Path.Combine(gameFilesPath, Globals.ThisGame.FileAndDirectoryConfig.AutoSetupFolderName);\nvar downloadedFile = Path.Combine(gameFilesPath, \u0022__fivem.7z\u0022);\nvar tools = Path.Combine(InstallLocator.GetInstallRoot(), \u0022data\u0022, \u0022tools\u0022);\nif(!Directory.Exists(tools)) Directory.CreateDirectory(tools);\nvar _7zaUrl = \u0022https://www.7-zip.org/a/7za920.zip\u0022;\nvar _7zaZip = Path.Combine(InstallLocator.GetInstallRoot(), \u0022data\u0022, \u0022tools\u0022, \u00227za.zip\u0022);\nvar _7zaPath = Path.Combine(InstallLocator.GetInstallRoot(), \u0022data\u0022, \u0022tools\u0022, \u00227za\u0022);\nvar _7zaExe = Path.Combine(_7zaPath, \u00227za.exe\u0022);\n\nusing (HttpClient downloadClient = new HttpClient())\n{\n    // Download fivem server files\n    await downloadClient.DownloadFile(\u0022http://downloads.tcadmin.net/games/fivem-windows-7z.aspx\u0022, downloadedFile, Globals.ThisCancellationToken);\n}\n\n// Download 7zip if needed\nif (!File.Exists(_7zaExe))\n{\n    WriteLog(\u0022Downloading 7zip...\u0022);\n    using var wc = new HttpClient();\n    using var response = await wc.GetAsync(_7zaUrl, Globals.ThisCancellationToken);\n    using var fs = File.Create(_7zaZip);\n    await response.Content.CopyToAsync(fs, Globals.ThisCancellationToken);\n    fs.Close();\n    \n    ZipFile.ExtractToDirectory(_7zaZip, _7zaPath);\n    File.Delete(_7zaZip);\n}\n\n// Extract fivem.7z\nusing (var p = new Process())\n{\n    p.StartInfo.FileName = _7zaExe;\n    p.StartInfo.Arguments = $\u0022x -y -o\\\u0022{fiveMPath}\\\u0022 \\\u0022{downloadedFile}\\\u0022\u0022;\n    p.StartInfo.WorkingDirectory = _7zaPath;\n    p.Start();\n    p.WaitForExit();\n}\n\nFile.Delete(downloadedFile);\n\n// Download server-data\nusing (var p = new Process())\n{\n    p.StartInfo.FileName = \u0022git.exe\u0022;\n    p.StartInfo.Arguments = \u0022clone https://github.com/citizenfx/cfx-server-data.git server-data\u0022;\n    p.StartInfo.WorkingDirectory = fiveMPath;\n    p.Start();\n    p.WaitForExit();\n}",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Net;\nusing System.Net.Http;\nusing TCAdmin.SDK.Helpers;\nusing TCAdmin.SDK.Misc.Extensions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nusing(var p = new Process())\n{\n    p.StartInfo.FileName = \"git.exe\";\n    try\n    {\n        p.Start();\n    }\n    catch (Exception)\n    {\n        throw new Exception(\"Please install git with \\\"Use Git from the Windows Command Prompt\\\" checked and restart the monitor.\");\n    }\n};\n\nvoid WriteLog(string s, int? progress = null, bool rewriteLastLog = false)\n{\n    if(Globals.ThisTaskStepHandler != null)\n    {\n        Globals.ThisTaskStepHandler.UpdateProgress(progress: progress, log: s);\n    }\n    else if(Globals.ThisTaskStep!=null)\n    {\n        if(progress.HasValue)\n        {\n            Globals.ThisTaskStep.Progress = progress.Value;\n        }\n\n        if(rewriteLastLog)\n        {\n            Globals.ThisTaskStep.DisplayLog = s;\n            Globals.ThisTaskStep.DisplayDebugLog = s;\n        }\n        else\n        {\n            Globals.ThisTaskStep.AddDebugLog(s, skipDuplicates:true);\n        }\n        Globals.TCATaskManager.Update(Globals.ThisTask, true);\n    }\n    else\n    {\n        Globals.ScriptConsole.WriteLine(s);\n    }\n}\n\nvar gameFilesPath = Globals.ThisServer.Configuration.GameFilesPath;\nvar fiveMPath = Path.Combine(gameFilesPath, Globals.ThisGame.FileAndDirectoryConfig.AutoSetupFolderName);\nvar downloadedFile = Path.Combine(gameFilesPath, \"__fivem.7z\");\nvar tools = Path.Combine(InstallLocator.GetInstallRoot(), \"data\", \"tools\");\nif(!Directory.Exists(tools)) Directory.CreateDirectory(tools);\nvar _7zaUrl = \"https://www.7-zip.org/a/7za920.zip\";\nvar _7zaZip = Path.Combine(InstallLocator.GetInstallRoot(), \"data\", \"tools\", \"7za.zip\");\nvar _7zaPath = Path.Combine(InstallLocator.GetInstallRoot(), \"data\", \"tools\", \"7za\");\nvar _7zaExe = Path.Combine(_7zaPath, \"7za.exe\");\n\nusing (HttpClient downloadClient = new HttpClient())\n{\n    // Download fivem server files\n    await downloadClient.DownloadFile(\"http://downloads.tcadmin.net/games/fivem-windows-7z.aspx\", downloadedFile, Globals.ThisCancellationToken);\n}\n\n// Download 7zip if needed\nif (!File.Exists(_7zaExe))\n{\n    WriteLog(\"Downloading 7zip...\");\n    using var wc = new HttpClient();\n    using var response = await wc.GetAsync(_7zaUrl, Globals.ThisCancellationToken);\n    using var fs = File.Create(_7zaZip);\n    await response.Content.CopyToAsync(fs, Globals.ThisCancellationToken);\n    fs.Close();\n    \n    ZipFile.ExtractToDirectory(_7zaZip, _7zaPath);\n    File.Delete(_7zaZip);\n}\n\n// Extract fivem.7z\nusing (var p = new Process())\n{\n    p.StartInfo.FileName = _7zaExe;\n    p.StartInfo.Arguments = $\"x -y -o\\\"{fiveMPath}\\\" \\\"{downloadedFile}\\\"\";\n    p.StartInfo.WorkingDirectory = _7zaPath;\n    p.Start();\n    p.WaitForExit();\n}\n\nFile.Delete(downloadedFile);\n\n// Download server-data\nusing (var p = new Process())\n{\n    p.StartInfo.FileName = \"git.exe\";\n    p.StartInfo.Arguments = \"clone https://github.com/citizenfx/cfx-server-data.git server-data\";\n    p.StartInfo.WorkingDirectory = fiveMPath;\n    p.Start();\n    p.WaitForExit();\n}",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
         "order": 0,
-        "icon": "\u003Cpath d=\u0022M0 0h24v24H0V0z\u0022 fill=\u0022none\u0022/\u003E\u003Cpath d=\u0022M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z\u0022/\u003E",
+        "icon": "<path d=\"M0 0h24v24H0V0z\" fill=\"none\"/><path d=\"M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z\"/>",
         "scriptInputVariables": [],
         "scriptRoles": [],
         "editor": [],
