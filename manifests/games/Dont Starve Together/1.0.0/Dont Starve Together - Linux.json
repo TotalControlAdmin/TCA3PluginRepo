@@ -1,0 +1,1549 @@
+{
+  "__TCA:ExportVersion": "3.23.46.17810",
+  "__TCA:ExportedAt": "2026-11-11T22:47:25.2399693Z",
+  "name": "Don't Starve Together",
+  "shortName": "DST",
+  "description": "",
+  "operatingSystem": "Linux",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/322330/a80aa6cff8eebc1cbc18c367d9ab063e1553b0ee.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322330/ss_f863729856b94b3485ee80e6fd11289595f6634c.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 64,
+  "defaultSlots": 6,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".ini",
+    ".txt",
+    ".lua"
+  ],
+  "logExtensions": [
+    "server_log.txt",
+    "server_chat_log.txt"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "DoNotStarveTogether/Cluster_1/Master/server_log.txt",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "c_shutdown(true)",
+    "waitAfterStopCommand": 60000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 10999,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 11000,
+        "expression": "GamePort + 1",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "SteamAuthPort",
+        "port": 11001,
+        "expression": "GamePort + 2",
+        "description": "Steam authentication (UDP)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "bin64/dontstarve_dedicated_server_nullrenderer_x64",
+    "relativeWorkingDirectory": "bin64/",
+    "autoSetupFolderName": "dst-linux",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 343050,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 322330,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": false,
+    "defaultCommandline": "-console -persistent_storage_root .. -conf_dir DoNotStarveTogether -cluster Cluster_1 -shard Master -bind_ip ${IPAddress} -port ${GamePort} -steam_master_server_port ${QueryPort} -steam_authentication_port ${SteamAuthPort} -players ${Slots}",
+    "defaultCustomCommandline": "-console -persistent_storage_root .. -conf_dir DoNotStarveTogether -cluster Cluster_1 -shard Master -bind_ip ${IPAddress} -port ${GamePort} -steam_master_server_port ${QueryPort} -steam_authentication_port ${SteamAuthPort} -players ${Slots}",
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "0b16d020-7037-4aba-859c-a3f43454997d",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "ClusterDescription",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ClusterDescription}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[^\\x00-\\x1f\\x7f]*$",
+        "inputType": 0,
+        "id": "ClusterDescription",
+        "defaultValue": "",
+        "label": "Description",
+        "description": "Shown in the server details of the Browse Games screen.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:30:00.608192",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ClusterIntention",
+      "defaultValue": "cooperative",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ClusterIntention}",
+      "editor": {
+        "items": [
+          {
+            "text": "Cooperative",
+            "value": "cooperative"
+          },
+          {
+            "text": "Competitive",
+            "value": "competitive"
+          },
+          {
+            "text": "Social",
+            "value": "social"
+          },
+          {
+            "text": "Madness",
+            "value": "madness"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "ClusterIntention",
+        "defaultValue": "cooperative",
+        "label": "Play style",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:30:00.618467",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "GameMode",
+      "defaultValue": "survival",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${GameMode}",
+      "editor": {
+        "items": [
+          {
+            "text": "Survival",
+            "value": "survival"
+          },
+          {
+            "text": "Endless",
+            "value": "endless"
+          },
+          {
+            "text": "Wilderness",
+            "value": "wilderness"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "GameMode",
+        "defaultValue": "survival",
+        "label": "Game mode",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:30:00.625188",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Pvp",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Pvp}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "Pvp",
+        "defaultValue": "false",
+        "label": "Player vs player",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:30:00.625237",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PauseWhenEmpty",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PauseWhenEmpty}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "PauseWhenEmpty",
+        "defaultValue": "true",
+        "label": "Pause when nobody is online",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:30:00.627312",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ClusterToken",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ClusterToken}",
+      "editor": {
+        "maxLength": 512,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[!-~]*$",
+        "inputType": 0,
+        "id": "ClusterToken",
+        "defaultValue": "",
+        "label": "Cluster token",
+        "description": "Required: the server does not start without it. Create one at accounts.klei.com > Games > Game Servers (Don't Starve Together) > Add New Server, or in the game: Play > Account > Game Servers. Paste the token here.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T13:30:00.627364",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:41:07.210766",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:41:08.449946",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 403,
+      "relativePath": "DoNotStarveTogether/Cluster_1/cluster.ini",
+      "description": "Server settings (cluster.ini)",
+      "template": "[GAMEPLAY]\ngame_mode = ${GameMode}\nmax_players = ${Slots}\npvp = ${Pvp}\npause_when_empty = ${PauseWhenEmpty}\n\n[NETWORK]\ncluster_name = ${Hostname}\ncluster_description = ${ClusterDescription}\ncluster_password = ${PrivatePassword}\ncluster_intention = ${ClusterIntention}\nlan_only_cluster = false\noffline_cluster = false\ntick_rate = 15\n\n[MISC]\nconsole_enabled = true\nmax_snapshots = 6\n\n[SHARD]\nshard_enabled = false\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Cluster",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\\x00-\\x1f\\x7f]*$",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "One line, no control characters.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\\x00-\\x1f\\x7f]*$",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Password",
+          "description": "Leave empty for a public server.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\\x00-\\x1f\\x7f]*$",
+          "inputType": 0,
+          "id": "ClusterDescription",
+          "defaultValue": "",
+          "label": "Description",
+          "description": "Shown in the server details of the Browse Games screen.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Cooperative",
+              "value": "cooperative"
+            },
+            {
+              "text": "Competitive",
+              "value": "competitive"
+            },
+            {
+              "text": "Social",
+              "value": "social"
+            },
+            {
+              "text": "Madness",
+              "value": "madness"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "ClusterIntention",
+          "defaultValue": "cooperative",
+          "label": "Play style",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Gameplay",
+          "defaultValue": null,
+          "label": "Gameplay",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Survival",
+              "value": "survival"
+            },
+            {
+              "text": "Endless",
+              "value": "endless"
+            },
+            {
+              "text": "Wilderness",
+              "value": "wilderness"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "GameMode",
+          "defaultValue": "survival",
+          "label": "Game mode",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "Pvp",
+          "defaultValue": "false",
+          "label": "Player vs player",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "PauseWhenEmpty",
+          "defaultValue": "true",
+          "label": "Pause when nobody is online",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 404,
+      "relativePath": "DoNotStarveTogether/Cluster_1/cluster_token.txt",
+      "description": "Cluster token (cluster_token.txt)",
+      "template": "${ClusterToken}",
+      "order": 2,
+      "enableEditor": true,
+      "editor": [
+        {
+          "maxLength": 512,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[!-~]*$",
+          "inputType": 0,
+          "id": "ClusterToken",
+          "defaultValue": "",
+          "label": "Cluster token",
+          "description": "Required: the server does not start without it. Create one at accounts.klei.com > Games > Game Servers (Don't Starve Together) > Add New Server, or in the game: Play > Account > Game Servers. Paste the token here.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 405,
+      "relativePath": "DoNotStarveTogether/Cluster_1/Master/server.ini",
+      "description": "Shard ports (server.ini)",
+      "template": "[NETWORK]\nserver_port = ${GamePort}\n\n[SHARD]\nis_master = true\n\n[STEAM]\nmaster_server_port = ${QueryPort}\nauthentication_port = ${SteamAuthPort}\n",
+      "order": 3,
+      "enableEditor": false,
+      "editor": []
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server",
+        "description": "Warns when no cluster token is set and installs the libraries the server needs when the host does not have them.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\nvar cluster = Path.Combine(root, \"DoNotStarveTogether\", \"Cluster_1\");\n\n// Without a cluster token an online server stops at \"E_INVALID_TOKEN ... Your Server Will Not Start\" but its process\n// stays alive, so refuse the start with the reason instead. An offline (LAN) cluster needs no token.\nvar tokenFile = Path.Combine(cluster, \"cluster_token.txt\");\nvar clusterIni = Path.Combine(cluster, \"cluster.ini\");\nvar offline = File.Exists(clusterIni) && File.ReadAllLines(clusterIni).Any(l => l.Replace(\" \", \"\").Equals(\"offline_cluster=true\", StringComparison.OrdinalIgnoreCase));\nif (!offline && (!File.Exists(tokenFile) || File.ReadAllText(tokenFile).Trim().Length == 0))\n{\n    throw new Exception(\"The server needs a Klei cluster token. Create one at accounts.klei.com > Games > Game Servers (Don't Starve Together) > Add New Server (or in the game: Play > Account > Game Servers), then paste it in Configuration Files > Cluster token.\");\n}\n\n// Linux: install the shared libraries the server needs and this host does not have.\nif (System.OperatingSystem.IsLinux())\n{\n    var packages = new Dictionary<string, (string[] Apt, string[] Rpm)>\n    {\n        [\"libcurl-gnutls.so.4\"] = (new[] { \"libcurl3-gnutls\", \"libcurl3t64-gnutls\" }, new[] { \"libcurl\" })\n    };\n    Shell(\"ldconfig -p 2>/dev/null || /sbin/ldconfig -p\", out var cache);\n    foreach (var soname in packages.Keys.Where(so => !cache.Split('\\n').Any(l => l.Trim().StartsWith(so + \" (\") && l.Contains(\"x86-64\"))))\n    {\n        var candidates = packages[soname];\n        ScriptConsole.WriteLine((object)(soname + \" is missing on this host; installing it.\"));\n        var apt = Shell(\"command -v apt-get\", out _);\n        var tool = apt ? \"DEBIAN_FRONTEND=noninteractive apt-get install -y \" : Shell(\"command -v dnf\", out _) ? \"dnf install -y \" : \"yum install -y \";\n        var names = apt ? candidates.Apt : candidates.Rpm;\n        var installed = names.Any(p => Shell(tool + p, out _));\n        if (!installed && apt && Shell(\"apt-get update\", out _)) installed = names.Any(p => Shell(tool + p, out _));\n        if (!installed) throw new Exception(soname + \" is missing and could not be installed. Install one of these packages on the host: \" + string.Join(\", \", names));\n        ScriptConsole.WriteLine((object)(\"Installed \" + soname + \".\"));\n    }\n}\n\n// Runs a fixed command (no customer value ever reaches it).\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() + process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "443d6372-5027-413b-8225-b662d54ac001"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeCustomModInstalled"
+        ],
+        "name": "Add the Workshop mod to the server",
+        "description": "Lists the mod in dedicated_server_mods_setup.lua and enables it in modoverrides.lua",
+        "code": "using System;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Don't Starve Together downloads and updates its Workshop mods itself when they are listed in\n// mods/dedicated_server_mods_setup.lua (ServerModSetup(\"<id>\")), and loads the ones enabled in each shard's\n// modoverrides.lua ([\"workshop-<id>\"]={ enabled=true }). Add the item to both; the server downloads it the next\n// time it starts. Players who join download the mod on their own.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]+$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\nstring root = (string)ThisService.RootDirectory;\n\n// 1. The download list.\nstring setup = Path.Combine(root, \"mods\", \"dedicated_server_mods_setup.lua\");\nRefuse(setup);\nDirectory.CreateDirectory(Path.GetDirectoryName(setup));\nbool setupExisted = File.Exists(setup);\nstring setupText = setupExisted ? File.ReadAllText(setup) : \"\";\nif (Regex.IsMatch(setupText, @\"^\\s*ServerModSetup\\(\\s*[\"\"']\" + fileId + @\"[\"\"']\\s*\\)\", RegexOptions.Multiline))\n{\n    ScriptConsole.WriteLine((object)(\"mods/dedicated_server_mods_setup.lua already lists \" + fileId + \".\"));\n}\nelse\n{\n    if (setupText.Length > 0 && !setupText.EndsWith(\"\\n\")) setupText += \"\\n\";\n    setupText += \"ServerModSetup(\\\"\" + fileId + \"\\\")\\n\";\n    File.WriteAllText(setup, setupText);\n    if (!setupExisted) FixOwner(setup);\n    ScriptConsole.WriteLine((object)(\"Added ServerModSetup(\\\"\" + fileId + \"\\\") to mods/dedicated_server_mods_setup.lua.\"));\n}\n\n// 2. Enable it in every shard of the cluster (a shard is a folder with a server.ini).\nstring cluster = Path.Combine(root, \"DoNotStarveTogether\", \"Cluster_1\");\nvar shards = Directory.Exists(cluster)\n    ? Directory.GetDirectories(cluster).Where(d => File.Exists(Path.Combine(d, \"server.ini\"))).ToList()\n    : new System.Collections.Generic.List<string>();\nif (shards.Count == 0) shards.Add(Path.Combine(cluster, \"Master\"));\nforeach (var shard in shards)\n{\n    string overrides = Path.Combine(shard, \"modoverrides.lua\");\n    Refuse(overrides);\n    Directory.CreateDirectory(shard);\n    string shardName = Path.GetFileName(shard);\n    bool existed = File.Exists(overrides);\n    string text = existed ? File.ReadAllText(overrides) : \"\";\n    string key = \"[\\\"workshop-\" + fileId + \"\\\"]\";\n    if (Regex.IsMatch(text, @\"\\[\\s*[\"\"']workshop-\" + fileId + @\"[\"\"']\\s*\\]\"))\n    {\n        // Already listed (the owner may have set options): make sure it is enabled.\n        int start = Regex.Match(text, @\"\\[\\s*[\"\"']workshop-\" + fileId + @\"[\"\"']\\s*\\]\").Index;\n        int open = text.IndexOf('{', start);\n        int close = open < 0 ? -1 : MatchingBrace(text, open);\n        if (open >= 0 && close > open)\n        {\n            string entry = text.Substring(open, close - open + 1);\n            string fixedEntry = Regex.IsMatch(entry, @\"enabled\\s*=\\s*false\")\n                ? Regex.Replace(entry, @\"enabled\\s*=\\s*false\", \"enabled=true\")\n                : entry;\n            if (fixedEntry != entry)\n            {\n                File.WriteAllText(overrides, text.Substring(0, open) + fixedEntry + text.Substring(close + 1));\n                ScriptConsole.WriteLine((object)(\"Enabled workshop-\" + fileId + \" in \" + shardName + \"/modoverrides.lua.\"));\n            }\n            else ScriptConsole.WriteLine((object)(shardName + \"/modoverrides.lua already enables workshop-\" + fileId + \".\"));\n        }\n        continue;\n    }\n\n    string line = \"  \" + key + \"={ configuration_options={  }, enabled=true },\";\n    var ret = Regex.Match(text, @\"return\\s*\\{\");\n    if (!ret.Success)\n    {\n        text = \"return {\\n\" + line + \"\\n}\\n\";\n    }\n    else\n    {\n        int at = ret.Index + ret.Length;\n        text = text.Substring(0, at) + \"\\n\" + line + text.Substring(at);\n    }\n    File.WriteAllText(overrides, text);\n    if (!existed) FixOwner(overrides);\n    ScriptConsole.WriteLine((object)(\"Enabled workshop-\" + fileId + \" in \" + shardName + \"/modoverrides.lua.\"));\n}\nScriptConsole.WriteLine((object)\"The server downloads and loads the mod the next time it starts.\");\n\n// Index of the brace that closes the one at 'open', skipping Lua strings and comments.\nint MatchingBrace(string s, int open)\n{\n    int depth = 0;\n    for (int i = open; i < s.Length; i++)\n    {\n        char c = s[i];\n        if (c == '\"' || c == '\\'')\n        {\n            char q = c;\n            for (i++; i < s.Length && s[i] != q; i++) if (s[i] == '\\\\') i++;\n            continue;\n        }\n        if (c == '-' && i + 1 < s.Length && s[i + 1] == '-')\n        {\n            while (i < s.Length && s[i] != '\\n') i++;\n            continue;\n        }\n        if (c == '{') depth++;\n        else if (c == '}' && --depth == 0) return i;\n    }\n    return -1;\n}\n\n// The monitor runs this script with full rights in a folder the server account can write to. A link (symbolic link or\n// junction) anywhere between the service root and a path the script reads, writes or deletes could point it at any\n// file on the host, so such a path is refused. A path that does not exist yet passes (it is created below the check).\nstring Linked(string path)\n{\n    var cmp = System.OperatingSystem.IsWindows() ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;\n    var top = Path.GetFullPath(root).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);\n    var full = Path.GetFullPath(path);\n    if (!full.StartsWith(top + Path.DirectorySeparatorChar, cmp)) return Path.GetFileName(path) + \" is outside the service folder\";\n    var current = top;\n    foreach (var part in full.Substring(top.Length).Split(new[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries))\n    {\n        current = Path.Combine(current, part);\n        var info = new FileInfo(current);\n        // LinkTarget is read from the link itself, so a dangling link is caught too.\n        if (info.LinkTarget != null || (info.Exists || Directory.Exists(current)) && (File.GetAttributes(current) & FileAttributes.ReparsePoint) != 0)\n            return Path.GetRelativePath(top, current) + \" is a link\";\n        if (!info.Exists && !Directory.Exists(current)) break;\n    }\n    return null;\n}\n\nvoid Refuse(string path)\n{\n    var reason = Linked(path);\n    if (reason != null) throw new Exception(\"The mod was not added: \" + reason + \". The script does not follow links; replace it with a normal file or folder.\");\n}\n\n// A file this script creates belongs to the monitor; give it to the server's account like the rest of the root.\nvoid FixOwner(string path)\n{\n    try { Globals.OperatingSystem.SetFileOwnerAutoDetect(path); }\n    catch (Exception ex) { ScriptConsole.WriteLine((object)(\"Could not set the owner of \" + Path.GetFileName(path) + \": \" + ex.Message)); }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "e8d14eb4-a6af-4d4c-9446-3614d4e65ef2"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeCustomModUninstalled"
+        ],
+        "name": "Remove the Workshop mod from the server",
+        "description": "Removes the mod from dedicated_server_mods_setup.lua and modoverrides.lua and deletes its download",
+        "code": "using System;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Removes the Workshop mod from mods/dedicated_server_mods_setup.lua and from every shard's modoverrides.lua,\n// then deletes the copies the server downloaded (ugc_mods/<cluster>/<shard>/content/322330/<id> and the legacy\n// mods/workshop-<id>). The change applies the next time the server starts.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]+$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\nstring root = (string)ThisService.RootDirectory;\n\nstring setup = Path.Combine(root, \"mods\", \"dedicated_server_mods_setup.lua\");\nif (Allowed(setup) && File.Exists(setup))\n{\n    string text = File.ReadAllText(setup);\n    string updated = Regex.Replace(text, @\"^[ \\t]*ServerModSetup\\(\\s*[\"\"']\" + fileId + @\"[\"\"']\\s*\\)[ \\t]*\\r?\\n?\", \"\", RegexOptions.Multiline);\n    if (updated != text)\n    {\n        File.WriteAllText(setup, updated);\n        ScriptConsole.WriteLine((object)(\"Removed ServerModSetup(\\\"\" + fileId + \"\\\") from mods/dedicated_server_mods_setup.lua.\"));\n    }\n}\n\nstring cluster = Path.Combine(root, \"DoNotStarveTogether\", \"Cluster_1\");\nif (Directory.Exists(cluster))\n{\n    foreach (var shard in Directory.GetDirectories(cluster))\n    {\n        string overrides = Path.Combine(shard, \"modoverrides.lua\");\n        if (!Allowed(overrides) || !File.Exists(overrides)) continue;\n        string text = File.ReadAllText(overrides);\n        var key = Regex.Match(text, @\"\\[\\s*[\"\"']workshop-\" + fileId + @\"[\"\"']\\s*\\]\\s*=\\s*\");\n        if (!key.Success) continue;\n        int open = key.Index + key.Length;\n        if (open >= text.Length || text[open] != '{') continue;\n        int close = MatchingBrace(text, open);\n        if (close < 0) { ScriptConsole.WriteLine((object)(\"Could not parse \" + Path.GetFileName(shard) + \"/modoverrides.lua; remove workshop-\" + fileId + \" by hand.\")); continue; }\n        int end = close + 1;\n        // Drop the separator after the entry and the rest of its line.\n        while (end < text.Length && (text[end] == ' ' || text[end] == '\\t')) end++;\n        if (end < text.Length && (text[end] == ',' || text[end] == ';')) end++;\n        while (end < text.Length && (text[end] == ' ' || text[end] == '\\t')) end++;\n        if (end < text.Length && text[end] == '\\r') end++;\n        if (end < text.Length && text[end] == '\\n') end++;\n        int start = key.Index;\n        while (start > 0 && (text[start - 1] == ' ' || text[start - 1] == '\\t')) start--;\n        File.WriteAllText(overrides, text.Substring(0, start) + text.Substring(end));\n        ScriptConsole.WriteLine((object)(\"Removed workshop-\" + fileId + \" from \" + Path.GetFileName(shard) + \"/modoverrides.lua.\"));\n    }\n}\n\n// The server's own downloads.\nvar copies = new System.Collections.Generic.List<string> { Path.Combine(root, \"mods\", \"workshop-\" + fileId) };\nstring ugc = Path.Combine(root, \"ugc_mods\");\nif (Directory.Exists(ugc))\n{\n    foreach (var clusterDir in Directory.GetDirectories(ugc))\n        foreach (var shardDir in Directory.GetDirectories(clusterDir))\n            copies.Add(Path.Combine(shardDir, \"content\", \"322330\", fileId));\n}\nforeach (var dir in copies.Where(d => Allowed(d) && Directory.Exists(d)))\n{\n    try { Directory.Delete(dir, true); ScriptConsole.WriteLine((object)(\"Removed \" + Path.GetRelativePath(root, dir))); }\n    catch (Exception ex) { ScriptConsole.WriteLine((object)(\"Could not remove \" + Path.GetRelativePath(root, dir) + \" (\" + ex.Message + \").\")); }\n}\nScriptConsole.WriteLine((object)\"The mod is no longer loaded from the next server start.\");\n\n// The monitor runs this script with full rights in a folder the server account can write to. A link (symbolic link or\n// junction) anywhere between the service root and a path the script reads, writes or deletes could point it at any\n// file on the host, so such a path is refused. A path that does not exist yet passes (it is created below the check).\nstring Linked(string path)\n{\n    var cmp = System.OperatingSystem.IsWindows() ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;\n    var top = Path.GetFullPath(root).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);\n    var full = Path.GetFullPath(path);\n    if (!full.StartsWith(top + Path.DirectorySeparatorChar, cmp)) return Path.GetFileName(path) + \" is outside the service folder\";\n    var current = top;\n    foreach (var part in full.Substring(top.Length).Split(new[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries))\n    {\n        current = Path.Combine(current, part);\n        var info = new FileInfo(current);\n        // LinkTarget is read from the link itself, so a dangling link is caught too.\n        if (info.LinkTarget != null || (info.Exists || Directory.Exists(current)) && (File.GetAttributes(current) & FileAttributes.ReparsePoint) != 0)\n            return Path.GetRelativePath(top, current) + \" is a link\";\n        if (!info.Exists && !Directory.Exists(current)) break;\n    }\n    return null;\n}\n\nbool Allowed(string path)\n{\n    var reason = Linked(path);\n    if (reason == null) return true;\n    ScriptConsole.WriteLine((object)(\"Skipped \" + Path.GetFileName(path) + \": \" + reason + \" (the script does not follow links).\"));\n    return false;\n}\n\nint MatchingBrace(string s, int open)\n{\n    int depth = 0;\n    for (int i = open; i < s.Length; i++)\n    {\n        char c = s[i];\n        if (c == '\"' || c == '\\'')\n        {\n            char q = c;\n            for (i++; i < s.Length && s[i] != q; i++) if (s[i] == '\\\\') i++;\n            continue;\n        }\n        if (c == '-' && i + 1 < s.Length && s[i + 1] == '-')\n        {\n            while (i < s.Length && s[i] != '\\n') i++;\n            continue;\n        }\n        if (c == '{') depth++;\n        else if (c == '}' && --depth == 0) return i;\n    }\n    return -1;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "f4d879c6-b4d4-459f-8df4-67609d97db52"
+      }
+    }
+  ],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 180,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 2,
+      "gameId": 180,
+      "enabled": true,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "AllowCollections": true,
+        "ShowDescription": true,
+        "ShowAuthorAndRating": true,
+        "Private.UseSteamAPI": false,
+        "SkipDownload": true
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 180,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 180,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 5,
+      "gameId": 180,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 180,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 180,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    }
+  ],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-10T13:30:00.686445",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "DoNotStarveTogether/Cluster_1/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": [
+    {
+      "id": 104,
+      "blueprintId": 180,
+      "name": "LD_LIBRARY_PATH",
+      "value": "${ThisService.RootDirectory}/bin64/lib64",
+      "valueType": "Template"
+    }
+  ]
+}

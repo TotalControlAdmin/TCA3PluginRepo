@@ -1,0 +1,47 @@
+identifier: "Community.Games.DontStarveTogether"
+name: "Don't Starve Together"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Don't Starve Together dedicated server (Windows / Linux) with console commands, graceful save-and-stop, cluster config editor and backups"
+longDescription: |
+  # Don't Starve Together
+  
+  ## Description
+  Don't Starve Together dedicated server for Windows and Linux (Steam app 343050, anonymous download). It runs the overworld (Master shard) as one process.
+  
+  ## Key Features
+  - **Windows and Linux** configs on the 64-bit dedicated server.
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S on the Steam master server port).
+  - **Console** in the Terminal on both systems, with Lua console commands (`c_announce("...")`, `c_save()`, `c_rollback()` ...).
+  - **Graceful stop** with `c_shutdown(true)`, which saves the world.
+  - **Config editor** for `cluster.ini` (server name, password, description, play style, game mode, PvP, pause when empty) and for the cluster token.
+  - **Start script:** refuses to start with a clear message when no cluster token is set (an online server cannot start without one). On Linux it installs the `libcurl-gnutls` library the server needs when the host does not have it (apt on Debian/Ubuntu, dnf/yum on Red Hat based systems).
+  - **Steam Workshop mods:** browse and install mods from the panel. The mod is added to `mods/dedicated_server_mods_setup.lua` and enabled in `modoverrides.lua` of each shard, and the server downloads it on its next start (also in offline mode). Uninstall removes both entries and the copy the server downloaded.
+  - **Backups** of the whole cluster (`DoNotStarveTogether/Cluster_1`: world save and settings). The server is stopped first, so the save is complete.
+  
+  ## Ports
+  - Game 10999 (UDP), Steam query 11000 (UDP), Steam authentication 11001 (UDP).
+  - IP and ports: `-bind_ip` (the address the server listens on for players) is set to the service IP. The game port, the Steam query port and the Steam authentication port are passed on the command line (`-port`, `-steam_master_server_port`, `-steam_authentication_port`) and written to `Master/server.ini`, so a change of IP or ports in the service settings applies to both. Caves (a second shard and its shard port) are not part of this config.
+  - Not yet run-tested: the IP and port check needs a cluster token, so it was done without starting the server (Windows: create, IP and port change, `server.ini` and the command line follow; custom command line 200). The Linux config uses the same command line and config files and was previewed only (custom command line 200).
+  
+  ## Instructions
+  - **A cluster token is required.** Create one at accounts.klei.com > Games > Game Servers (Don't Starve Together) > Add New Server (or in the game: Play > Account > Game Servers), copy the token and paste it in Configuration Files > Cluster token. The server does not start without it.
+  - For a LAN-only server without a token, set `offline_cluster = true` in `cluster.ini`.
+  - Caves are not included: this config runs the Master shard only.
+  - Logs: `DoNotStarveTogether/Cluster_1/Master/server_log.txt`.
+  - Mod settings: edit `configuration_options` in `DoNotStarveTogether/Cluster_1/Master/modoverrides.lua`. Players download the mods themselves when they join.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/322330/a80aa6cff8eebc1cbc18c367d9ab063e1553b0ee.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322330/ss_f863729856b94b3485ee80e6fd11289595f6634c.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Dont Starve Together - Windows.json"
+    type: "GameConfig"
+  - path: "Dont Starve Together - Linux.json"
+    type: "GameConfig"
