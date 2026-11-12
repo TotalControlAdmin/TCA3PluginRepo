@@ -3,7 +3,7 @@
   "__TCA:ExportedAt": "2026-11-12T11:35:29.0951349Z",
   "name": "Assetto Corsa",
   "shortName": "ac",
-  "description": "Assetto Corsa dedicated server (Steam app 302550). The download needs a Steam account that owns Assetto Corsa: set it in Settings \u003E Steam or on the game Steam tab.",
+  "description": "Assetto Corsa dedicated server (Steam app 302550). The download needs a Steam account that owns Assetto Corsa: set it in Settings > Steam or on the game Steam tab.",
   "operatingSystem": "Windows",
   "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/244210/c35922c480816b55f18b2843c6d838ccbc8ff825.jpg",
   "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244210/ss_b97afb7a10ad6455c01d0e2a191e105007cf7504.1920x1080.jpg",
@@ -1312,6 +1312,132 @@
           "roleId": 3
         }
       ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:13:46.24746",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:13:47.484147",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:13:48.700646",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     }
   ],
   "configFiles": [
@@ -1388,7 +1514,7 @@
           "id": "RconPassword",
           "defaultValue": "",
           "label": "Admin password",
-          "description": "Players who type /admin \u003Cpassword\u003E in the chat get the admin commands (/kick, /ban, /next_session ...). One line.",
+          "description": "Players who type /admin <password> in the chat get the admin commands (/kick, /ban, /next_session ...). One line.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -2081,7 +2207,7 @@
         ],
         "name": "Assetto Corsa query",
         "description": "Reads the server name, track and players from the HTTP port (GET /INFO on the query port).",
-        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.Http.dll, System.Net.Primitives.dll, System.Text.Json.dll\nusing System;\nusing System.Net.Http;\nusing System.Text.Json;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Assetto Corsa has no Steam (A2S) query. acServer answers GET /INFO on its HTTP port (server_cfg.ini HTTP_PORT, the\n// service\u0027s QueryPort) with the lobby details: name, track, clients and maxclients. /INFO is the request the official\n// lobby makes; the per-car list (/JSON|) is not requested because the server logs every /JSON request to its console.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = ThisService.QueryPort;\n\nstring Str(JsonElement root, string name)\n{\n    return root.TryGetProperty(name, out var v) \u0026\u0026 v.ValueKind == JsonValueKind.String ? v.GetString() : string.Empty;\n}\n\nint Int(JsonElement root, string name)\n{\n    return root.TryGetProperty(name, out var v) \u0026\u0026 v.ValueKind == JsonValueKind.Number \u0026\u0026 v.TryGetInt32(out var i) ? i : 0;\n}\n\ntry\n{\n    string body;\n    using (var http = new HttpClient { Timeout = TimeSpan.FromSeconds(4) })\n        body = await http.GetStringAsync(\u0022http://\u0022 \u002B address \u002B \u0022:\u0022 \u002B port \u002B \u0022/INFO\u0022, ThisCancellationToken);\n    using (var doc = JsonDocument.Parse(body))\n    {\n        var root = doc.RootElement;\n        var name = Str(root, \u0022name\u0022);\n        var track = Str(root, \u0022track\u0022);\n        int max = Int(root, \u0022maxclients\u0022);\n        Globals.ReturnValue = new GameQueryResponse\n        {\n            Success = true,\n            Status = \u0022online\u0022,\n            Protocol = \u0022custom_script\u0022,\n            Address = address,\n            Hostname = address \u002B \u0022:\u0022 \u002B ThisService.GamePort,\n            Name = string.IsNullOrWhiteSpace(name) ? ThisService.Name : name,\n            GameType = \u0022Assetto Corsa\u0022,\n            Map = track,\n            NumPlayers = Int(root, \u0022clients\u0022),\n            MaxPlayers = max \u003E 0 ? max : ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        };\n    }\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, ex.Message);\n}\n",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.Http.dll, System.Net.Primitives.dll, System.Text.Json.dll\nusing System;\nusing System.Net.Http;\nusing System.Text.Json;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Assetto Corsa has no Steam (A2S) query. acServer answers GET /INFO on its HTTP port (server_cfg.ini HTTP_PORT, the\n// service's QueryPort) with the lobby details: name, track, clients and maxclients. /INFO is the request the official\n// lobby makes; the per-car list (/JSON|) is not requested because the server logs every /JSON request to its console.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = ThisService.QueryPort;\n\nstring Str(JsonElement root, string name)\n{\n    return root.TryGetProperty(name, out var v) && v.ValueKind == JsonValueKind.String ? v.GetString() : string.Empty;\n}\n\nint Int(JsonElement root, string name)\n{\n    return root.TryGetProperty(name, out var v) && v.ValueKind == JsonValueKind.Number && v.TryGetInt32(out var i) ? i : 0;\n}\n\ntry\n{\n    string body;\n    using (var http = new HttpClient { Timeout = TimeSpan.FromSeconds(4) })\n        body = await http.GetStringAsync(\"http://\" + address + \":\" + port + \"/INFO\", ThisCancellationToken);\n    using (var doc = JsonDocument.Parse(body))\n    {\n        var root = doc.RootElement;\n        var name = Str(root, \"name\");\n        var track = Str(root, \"track\");\n        int max = Int(root, \"maxclients\");\n        Globals.ReturnValue = new GameQueryResponse\n        {\n            Success = true,\n            Status = \"online\",\n            Protocol = \"custom_script\",\n            Address = address,\n            Hostname = address + \":\" + ThisService.GamePort,\n            Name = string.IsNullOrWhiteSpace(name) ? ThisService.Name : name,\n            GameType = \"Assetto Corsa\",\n            Map = track,\n            NumPlayers = Int(root, \"clients\"),\n            MaxPlayers = max > 0 ? max : ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        };\n    }\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", ex.Message);\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
@@ -2090,7 +2216,7 @@
         "maxConcurrentRuns": 1,
         "logApiExecutions": false,
         "order": 0,
-        "icon": "\u003Cpath d=\u0022M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.44zm-9.79 6.84a2 2 0 0 0 2.83 0l5.66-8.49-8.49 5.66a2 2 0 0 0 0 2.83z\u0022/\u003E",
+        "icon": "<path d=\"M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.44zm-9.79 6.84a2 2 0 0 0 2.83 0l5.66-8.49-8.49 5.66a2 2 0 0 0 0 2.83z\"/>",
         "scriptInputVariables": [],
         "scriptRoles": [],
         "editor": [],
