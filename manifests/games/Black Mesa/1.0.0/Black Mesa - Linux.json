@@ -1,0 +1,1684 @@
+{
+  "__TCA:ExportVersion": "3.23.47.17810",
+  "__TCA:ExportedAt": "2026-11-12T01:19:33.4795955Z",
+  "name": "Black Mesa",
+  "shortName": "BlackMesa",
+  "description": "",
+  "operatingSystem": "Linux",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/362890/51182b6a74035eb913b353d5d60e596c3804daf6.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/362890/ss_9857cad0e29e5cd905f1f9b6be3e20357a6ecb92.1920x1080.jpg",
+  "minSlots": 2,
+  "maxSlots": 32,
+  "defaultSlots": 16,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".ini",
+    ".json",
+    ".xml",
+    ".vdf"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "source",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "bms/console.log",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "quit",
+    "waitAfterStopCommand": 20000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 27015,
+        "expression": "",
+        "description": "Game, query and RCON (UDP + TCP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 27015,
+        "expression": "GamePort",
+        "description": "Steam query (UDP, same as the game port)",
+        "uriTemplate": null
+      },
+      {
+        "id": "RConPort",
+        "port": 27015,
+        "expression": "GamePort",
+        "description": "RCON (TCP, same as the game port)",
+        "uriTemplate": null
+      },
+      {
+        "id": "ClientPort",
+        "port": 27016,
+        "expression": "GamePort + 1",
+        "description": "Client port (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "TvPort",
+        "port": 27020,
+        "expression": "GamePort + 5",
+        "description": "SourceTV (UDP)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "srcds_run",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "blackmesa-linux",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 346680,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 362890,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "-game bms -console -norestart -strictportbind -condebug -ip ${IPAddress} -port ${GamePort} +clientport ${ClientPort} +tv_port ${TvPort} -maxplayers ${Slots} ${StartupMap}",
+    "defaultCustomCommandline": "-game bms -console -norestart -strictportbind -condebug -ip ${IPAddress} -port ${GamePort} +clientport ${ClientPort} +tv_port ${TvPort} -maxplayers ${Slots} ${StartupMap}",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "-game bms -console -norestart -strictportbind -condebug -ip ${IPAddress} -port ${GamePort} +clientport ${ClientPort} +tv_port ${TvPort} -maxplayers ${Slots} ${StartupMap}"
+      },
+      {
+        "id": 2,
+        "name": "Advanced",
+        "commandLine": "-game bms -console -norestart -strictportbind -condebug -ip ${IPAddress} -port ${GamePort} +clientport ${ClientPort} +tv_port ${TvPort} -maxplayers ${Slots} ${ConfigFile} ${Insecure} ${FpsMax} ${StartupMap}"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "5b1d8bd7-eef3-5617-8bdb-963b82def759",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "ConfigFile",
+      "defaultValue": "server.cfg",
+      "required": true,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "+exec \"${ConfigFile}\"",
+      "editor": {
+        "maxLength": 68,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[A-Za-z0-9_][A-Za-z0-9_.-]{0,63}\\.cfg$",
+        "inputType": 0,
+        "id": "ConfigFile",
+        "defaultValue": "server.cfg",
+        "label": "Server Config:",
+        "description": "A .cfg file in bms/cfg to execute when the server starts (letters, digits, \".\", \"-\" and \"_\").",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T00:31:46.785302",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FpsMax",
+      "defaultValue": "300",
+      "required": true,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "+fps_max ${FpsMax}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 300,
+        "maxValue": 1000,
+        "id": "FpsMax",
+        "defaultValue": "300",
+        "label": "Max FPS:",
+        "description": "Adjusts the frames per second that the server will process.",
+        "required": true,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T00:31:46.798996",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "Insecure",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Insecure}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "-insecure",
+        "uncheckedValue": "",
+        "id": "Insecure",
+        "defaultValue": "",
+        "label": "Insecure",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T00:31:46.803306",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "StartupMap",
+      "defaultValue": "dm_crossfire",
+      "required": true,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "+map ${StartupMap}",
+      "editor": {
+        "items": [
+          {
+            "text": "Boom - dm_boom",
+            "value": "dm_boom"
+          },
+          {
+            "text": "Bounce - dm_bounce",
+            "value": "dm_bounce"
+          },
+          {
+            "text": "Chopper - dm_chopper",
+            "value": "dm_chopper"
+          },
+          {
+            "text": "Crossfire - dm_crossfire",
+            "value": "dm_crossfire"
+          },
+          {
+            "text": "Gasworks - dm_gasworks",
+            "value": "dm_gasworks"
+          },
+          {
+            "text": "Lambdabunker - dm_lambdabunker",
+            "value": "dm_lambdabunker"
+          },
+          {
+            "text": "Power - dm_power",
+            "value": "dm_power"
+          },
+          {
+            "text": "Rail - dm_rail",
+            "value": "dm_rail"
+          },
+          {
+            "text": "Stack - dm_stack",
+            "value": "dm_stack"
+          },
+          {
+            "text": "Stalkyard - dm_stalkyard",
+            "value": "dm_stalkyard"
+          },
+          {
+            "text": "Subtransit - dm_subtransit",
+            "value": "dm_subtransit"
+          },
+          {
+            "text": "Undertow - dm_undertow",
+            "value": "dm_undertow"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "StartupMap",
+        "defaultValue": "dm_crossfire",
+        "label": "Startup map",
+        "description": "The map the server starts on. The map cycle continues from mapcycle.txt.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T00:31:46.805453",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "TeamPlay",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TeamPlay}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "TeamPlay",
+        "defaultValue": "0",
+        "label": "Team deathmatch",
+        "description": "Players fight in two teams (HECU marines and scientists) instead of free for all.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T00:31:46.809901",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FriendlyFire",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${FriendlyFire}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "FriendlyFire",
+        "defaultValue": "0",
+        "label": "Friendly fire (team deathmatch)",
+        "description": "Team mates can hurt each other.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T00:31:46.809958",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MapTimeLimit",
+      "defaultValue": "15",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MapTimeLimit}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 1440,
+        "id": "MapTimeLimit",
+        "defaultValue": "15",
+        "label": "Map time limit (minutes)",
+        "description": "Minutes before the server changes to the next map of the map cycle (0 = no limit).",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T00:31:46.809971",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FragLimit",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${FragLimit}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 1000,
+        "id": "FragLimit",
+        "defaultValue": "0",
+        "label": "Frag limit",
+        "description": "Kills that end the map (0 = no limit).",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T00:31:46.810004",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:58:54.312903",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:58:55.659073",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:58:56.97366",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 885,
+      "relativePath": "bms/cfg/server.cfg",
+      "description": "Server settings (server.cfg)",
+      "template": "// Server name\nhostname \"${Hostname}\"\n\n// RCON password\nrcon_password \"${RconPassword}\"\n\n// Join password (empty = public)\nsv_password \"${PrivatePassword}\"\n\n// Internet server (0) or LAN only (1)\nsv_lan 0\n\n// Gameplay\nmp_teamplay ${TeamPlay}\nmp_friendlyfire ${FriendlyFire}\nmp_timelimit ${MapTimeLimit}\nmp_fraglimit ${FragLimit}\n\n// Map cycle (bms/cfg/mapcycle.txt)\nmapcyclefile \"mapcycle.txt\"\n\n// Server logging\nlog on\nsv_logbans 1\nsv_logecho 1\nsv_logfile 1\n\n// Ban lists\nexec banned_user.cfg\nexec banned_ip.cfg\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Server",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 64,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\"\\x00-\\x1f]*$",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "Shown in the server browser. No double quotes.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 64,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\"\\x00-\\x1f]*$",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Join password",
+          "description": "Leave empty for a public server. No double quotes.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 64,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\"\\x00-\\x1f]*$",
+          "inputType": 0,
+          "id": "RconPassword",
+          "defaultValue": "",
+          "label": "RCON password",
+          "description": "Needed for the panel RCON and for rcon_password logins. No double quotes.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Gameplay",
+          "defaultValue": null,
+          "label": "Gameplay",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "TeamPlay",
+          "defaultValue": "0",
+          "label": "Team deathmatch",
+          "description": "Players fight in two teams (HECU marines and scientists) instead of free for all.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "FriendlyFire",
+          "defaultValue": "0",
+          "label": "Friendly fire (team deathmatch)",
+          "description": "Team mates can hurt each other.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 1440,
+          "id": "MapTimeLimit",
+          "defaultValue": "15",
+          "label": "Map time limit (minutes)",
+          "description": "Minutes before the server changes to the next map of the map cycle (0 = no limit).",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 1000,
+          "id": "FragLimit",
+          "defaultValue": "0",
+          "label": "Frag limit",
+          "description": "Kills that end the map (0 = no limit).",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 886,
+      "relativePath": "bms/cfg/mapcycle.txt",
+      "description": "Map cycle (mapcycle.txt): one map per line, in the order the server plays them.",
+      "template": "dm_boom\ndm_bounce\ndm_chopper\ndm_crossfire\ndm_gasworks\ndm_lambdabunker\ndm_power\ndm_rail\ndm_stack\ndm_stalkyard\ndm_subtransit\ndm_undertow\n",
+      "order": 2,
+      "enableEditor": false,
+      "editor": []
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "AfterServiceCreated",
+          "AfterServiceReinstalled",
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server",
+        "description": "Writes steam_appid.txt and keeps the previous console log. Makes srcds executable and installs missing 32-bit libraries (apt, dnf or yum).",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('/', '\\\\');\n\n// srcds writes steam_appid.txt next to itself only during its first run, which therefore starts without Steam.\n// Writing it before every start makes the first start work too.\nvar appIdFile = Path.Combine(root, \"steam_appid.txt\");\nNoLink(root, appIdFile);\nif (!File.Exists(appIdFile) || File.ReadAllText(appIdFile).Trim('\\0', '\\r', '\\n', ' ') != \"362890\")\n{\n    File.WriteAllText(appIdFile, \"362890\\n\");\n    // Scripts run as root on Linux: give the file to the service user (owner of the service root).\n    if (System.OperatingSystem.IsLinux()) Globals.OperatingSystem.SetFileOwnerAutoDetect(appIdFile);\n    ScriptConsole.WriteLine((object)\"Wrote steam_appid.txt (362890).\");\n}\n\n// -condebug appends to console.log forever; keep only the previous run next to the new one.\nvar log = Path.Combine(root, \"bms\", \"console.log\");\nvar previousLog = Path.Combine(root, \"bms\", \"console.previous.log\");\nNoLink(root, log);\nNoLink(root, previousLog);\nif (File.Exists(log)) File.Move(log, previousLog, true);\n\nif (System.OperatingSystem.IsLinux())\n{\n    // The Steam download does not keep the exec bit.\n    foreach (var name in new[] { \"srcds_run\", \"srcds_linux\" })\n    {\n        var path = Path.Combine(root, name);\n        NoLink(root, path);\n        if (!File.Exists(path)) continue;\n        var mode = File.GetUnixFileMode(path);\n        var wanted = mode | UnixFileMode.UserExecute | UnixFileMode.GroupExecute | UnixFileMode.OtherExecute;\n        if (mode != wanted) { File.SetUnixFileMode(path, wanted); ScriptConsole.WriteLine((object)(\"Made \" + name + \" executable.\")); }\n    }\n\n    // srcds_linux and the engine are 32-bit programs: install the 32-bit system libraries they need when the host\n    // lacks them (Debian/Ubuntu: apt-get, Red Hat: dnf or yum). The check reads the system library cache only; it\n    // never runs the server's own files as root.\n    var packages = new Dictionary<string, (string[] Apt, string[] Rpm)>\n    {\n        [\"libc.so.6\"] = (new[] { \"libc6-i386\" }, new[] { \"glibc.i686\" }),\n        [\"libm.so.6\"] = (new[] { \"libc6-i386\" }, new[] { \"glibc.i686\" }),\n        [\"libdl.so.2\"] = (new[] { \"libc6-i386\" }, new[] { \"glibc.i686\" }),\n        [\"libpthread.so.0\"] = (new[] { \"libc6-i386\" }, new[] { \"glibc.i686\" }),\n        [\"librt.so.1\"] = (new[] { \"libc6-i386\" }, new[] { \"glibc.i686\" }),\n        [\"libgcc_s.so.1\"] = (new[] { \"lib32gcc-s1\", \"lib32gcc1\" }, new[] { \"libgcc.i686\" }),\n        [\"libstdc++.so.6\"] = (new[] { \"lib32stdc++6\" }, new[] { \"libstdc++.i686\" }),\n    };\n    var missing = new List<string>();\n    if (!File.Exists(\"/lib/ld-linux.so.2\")) missing.Add(\"libc.so.6\");\n    var present32 = new HashSet<string>();\n    Run(\"/sbin/ldconfig\", new[] { \"-p\" }, out var cache);\n    if (string.IsNullOrEmpty(cache)) Run(\"ldconfig\", new[] { \"-p\" }, out cache);\n    foreach (var line in cache.Split('\\n'))\n    {\n        var m = System.Text.RegularExpressions.Regex.Match(line, @\"^\\s*(\\S+)\\s+\\(([^)]*)\\)\");\n        if (m.Success && m.Groups[2].Value.StartsWith(\"libc6\") && !m.Groups[2].Value.Contains(\"x86-64\")) present32.Add(m.Groups[1].Value);\n    }\n    missing.AddRange(packages.Keys.Where(k => !present32.Contains(k)));\n    foreach (var group in missing.Distinct().GroupBy(s => string.Join(\",\", packages[s].Apt)))\n    {\n        var soname = group.First();\n        var candidates = packages[soname];\n        ScriptConsole.WriteLine((object)(\"32-bit \" + string.Join(\", \", group) + \" missing on this host; installing it.\"));\n        var apt = Shell(\"command -v apt-get\");\n        string tool;\n        if (apt)\n        {\n            Shell(\"dpkg --print-foreign-architectures | grep -q i386 || dpkg --add-architecture i386\");\n            tool = \"DEBIAN_FRONTEND=noninteractive apt-get install -y \";\n        }\n        else tool = Shell(\"command -v dnf\") ? \"dnf install -y \" : \"yum install -y \";\n        var names = apt ? candidates.Apt : candidates.Rpm;\n        var installed = names.Any(p => Shell(tool + p));\n        if (!installed && apt && Shell(\"apt-get update\")) installed = names.Any(p => Shell(tool + p));\n        if (!installed) throw new Exception(\"32-bit \" + soname + \" is missing and could not be installed. Install one of these packages on the host: \" + string.Join(\", \", names));\n        ScriptConsole.WriteLine((object)(\"Installed \" + string.Join(\", \", names) + \".\"));\n    }\n}\n\n// Fixed commands only (no service or customer values reach the shell).\nbool Shell(string command) => Run(\"/bin/sh\", new[] { \"-c\", command }, out _);\n\nbool Run(string file, string[] arguments, out string output)\n{\n    output = \"\";\n    try\n    {\n        var startInfo = new ProcessStartInfo(file) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false };\n        foreach (var argument in arguments) startInfo.ArgumentList.Add(argument);\n        using (var process = Process.Start(startInfo))\n        {\n            var stdout = process.StandardOutput.ReadToEndAsync();\n            var stderr = process.StandardError.ReadToEndAsync();\n            process.WaitForExit();\n            output = stdout.Result + stderr.Result;\n            return process.ExitCode == 0;\n        }\n    }\n    catch (System.ComponentModel.Win32Exception)\n    {\n        return false;\n    }\n}\n\n// Linux: this script runs as root in a folder the service account can write to. A symbolic link anywhere between\n// top and path could point it at any file on the host, so the script stops instead of following one.\nvoid NoLink(string top, string path)\n{\n    if (!System.OperatingSystem.IsLinux()) return;\n    top = Path.GetFullPath(top).TrimEnd('/');\n    var full = Path.GetFullPath(path);\n    if (full != top && !full.StartsWith(top + \"/\", StringComparison.Ordinal)) throw new Exception(path + \" is outside \" + top + \".\");\n    var current = top;\n    foreach (var part in full.Substring(top.Length).Split('/', StringSplitOptions.RemoveEmptyEntries))\n    {\n        current = current + \"/\" + part;\n        var info = new FileInfo(current);\n        if (info.LinkTarget != null) throw new Exception(current.Substring(top.Length + 1) + \" is a symbolic link; remove it and try again.\");\n        if (!info.Exists && !Directory.Exists(current)) break;\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "2855c1ff-f6ef-5b83-b1da-8504b84b81ce"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "AfterCustomModInstalled"
+        ],
+        "name": "Add the Workshop item",
+        "description": "Adds the Workshop item to the server (bms/subscribed_file_ids.txt) and its maps to the map cycle. The server downloads and updates it when it starts; players get it from the Workshop.",
+        "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Black Mesa servers download and mount Workshop items themselves: the ids listed in bms/subscribed_file_ids.txt\n// are downloaded (and kept up to date) by the server's Steam client when it starts, into\n// addons/workshop/content/362890/<id>, and players get them from the Workshop. The panel downloaded this item to\n// learn its map names; hand that copy to the server, add the id to the list and its maps to the map cycle.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]{1,20}$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\nstring downloaded = Convert.ToString(Dynamic.InstallPath);\n\nvar target = ServerItemDir(fileId);\nvar maps = new List<string>();\nif (!string.IsNullOrEmpty(downloaded) && Directory.Exists(downloaded))\n{\n    NoLinkInside(downloaded);\n    maps = FindMaps(downloaded);\n    if (!string.Equals(Path.GetFullPath(downloaded).TrimEnd('/', '\\\\'), target, StringComparison.Ordinal))\n    {\n        NoLinkInside(target);\n        NoLink(Path.GetDirectoryName(target));\n        if (Directory.Exists(target)) Directory.Delete(target, true);\n        Directory.CreateDirectory(Path.GetDirectoryName(target));\n        Directory.Move(downloaded, target);\n        // The server's Steam client checks the copy and replaces it when it is outdated.\n        foreach (var staging in Directory.GetDirectories(target, \".DepotDownloader\", SearchOption.TopDirectoryOnly)) Directory.Delete(staging, true);\n        GiveToServiceUser(Path.Combine(Root(), \"addons\"), true);\n    }\n}\nif (maps.Count == 0) maps = FindMaps(target);\n\n// The server mounts the folder, not the packages in it: unpack them so it finds the maps.\nUnpackItem(target);\n\nvar list = ReadList();\nif (!list.Contains(fileId)) list.Add(fileId);\nWriteList(list);\nScriptConsole.WriteLine((object)(\"Added Workshop item \" + fileId + \" to bms/subscribed_file_ids.txt.\"));\n\nif (maps.Count > 0)\n{\n    var cycle = ReadCycle();\n    foreach (var map in maps.Where(m => !cycle.Contains(m, StringComparer.OrdinalIgnoreCase))) cycle.Add(map);\n    WriteCycle(cycle);\n    ScriptConsole.WriteLine((object)(\"Added \" + string.Join(\", \", maps) + \" to the map cycle. Change to it with: changelevel \" + maps[0]));\n}\nelse\n{\n    ScriptConsole.WriteLine((object)\"The item contains no map; the server loads it as an add-on.\");\n}\nScriptConsole.WriteLine((object)\"Restart the server to load it. Some old Workshop items use Steam's legacy file format, which a dedicated server cannot download: the console then shows \\\"failed to download\\\" for the item.\");\n\n// --- Shared helpers: the server's own Workshop list (bms/subscribed_file_ids.txt) and the map cycle. ---\nstring Root() => Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('/', '\\\\');\nstring ListFile() => Path.Combine(Root(), \"bms\", \"subscribed_file_ids.txt\");\nstring CycleFile() => Path.Combine(Root(), \"bms\", \"cfg\", \"mapcycle.txt\");\n// Where the server's own Steam client keeps and mounts its Workshop items.\nstring ServerItemDir(string id) => Path.Combine(Root(), \"addons\", \"workshop\", \"content\", \"362890\", id);\n\nList<string> ReadList()\n{\n    NoLink(ListFile());\n    if (!File.Exists(ListFile())) return new List<string>();\n    return File.ReadAllLines(ListFile()).Select(l => l.Trim()).Where(l => Regex.IsMatch(l, \"^[0-9]+$\")).Distinct().ToList();\n}\n\nvoid WriteList(List<string> ids)\n{\n    NoLink(ListFile());\n    File.WriteAllText(ListFile(), string.Join(\"\\n\", ids) + (ids.Count > 0 ? \"\\n\" : \"\"));\n    GiveToServiceUser(ListFile(), false);\n}\n\nList<string> ReadCycle()\n{\n    NoLink(CycleFile());\n    return File.Exists(CycleFile()) ? File.ReadAllLines(CycleFile()).Select(l => l.Trim()).Where(l => l != \"\").ToList() : new List<string>();\n}\n\nvoid WriteCycle(List<string> maps)\n{\n    NoLink(CycleFile());\n    File.WriteAllText(CycleFile(), string.Join(\"\\n\", maps) + \"\\n\");\n    GiveToServiceUser(CycleFile(), false);\n}\n\n// Scripts run as root on Linux: files they create must belong to the service user (the owner of the service root).\nvoid GiveToServiceUser(string path, bool directory)\n{\n    if (!System.OperatingSystem.IsLinux()) return;\n    if (directory) Globals.OperatingSystem.SetDirectoryOwnerAutoDetect(path, true);\n    else Globals.OperatingSystem.SetFileOwnerAutoDetect(path);\n}\n\n// Linux: this script runs as root in a folder the service account can write to. A symbolic link anywhere between\n// the service root and path could point it at any file on the host, so the script stops instead of following one.\nvoid NoLink(string path)\n{\n    var top = Root();\n    var full = Path.GetFullPath(path);\n    var sep = System.OperatingSystem.IsWindows() ? \"\\\\\" : \"/\";\n    if (!full.StartsWith(top + sep, System.OperatingSystem.IsWindows() ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal))\n        throw new Exception(path + \" is outside the service folder.\");\n    if (!System.OperatingSystem.IsLinux()) return;\n    var current = top;\n    foreach (var part in full.Substring(top.Length).Split('/', StringSplitOptions.RemoveEmptyEntries))\n    {\n        current = current + \"/\" + part;\n        var info = new FileInfo(current);\n        if (info.LinkTarget != null) throw new Exception(current.Substring(top.Length + 1) + \" is a symbolic link; remove it and try again.\");\n        if (!info.Exists && !Directory.Exists(current)) break;\n    }\n}\n\n// No symbolic link anywhere inside a folder the script is about to move or delete.\nvoid NoLinkInside(string dir)\n{\n    NoLink(dir);\n    if (!System.OperatingSystem.IsLinux() || !Directory.Exists(dir)) return;\n    foreach (var entry in new DirectoryInfo(dir).EnumerateFileSystemInfos(\"*\", new EnumerationOptions { RecurseSubdirectories = true, AttributesToSkip = 0 }))\n        if (entry.LinkTarget != null) throw new Exception(entry.FullName.Substring(Root().Length + 1) + \" is a symbolic link; remove it and try again.\");\n}\n\n// Map names (maps/<name>.bsp) of a Workshop item: loose .bsp files or .bsp entries inside a .vpk.\nList<string> FindMaps(string dir)\n{\n    var names = new List<string>();\n    if (!Directory.Exists(dir)) return names;\n    foreach (var f in Directory.GetFiles(dir, \"*.bsp\", SearchOption.AllDirectories))\n        names.Add(Path.GetFileNameWithoutExtension(f));\n    foreach (var f in Directory.GetFiles(dir, \"*.vpk\", SearchOption.AllDirectories))\n    {\n        if (Regex.IsMatch(Path.GetFileName(f), \"_[0-9]{3}\\\\.vpk$\")) continue; // data chunks of a multi-file vpk\n        try { names.AddRange(VpkMaps(f)); } catch { }\n    }\n    // Map names go into mapcycle.txt and console commands: keep plain names only.\n    return names.Where(n => Regex.IsMatch(n, \"^[A-Za-z0-9_.-]{1,64}$\")).Distinct(StringComparer.OrdinalIgnoreCase).OrderBy(x => x, StringComparer.OrdinalIgnoreCase).ToList();\n}\n\nList<string> VpkMaps(string file)\n{\n    var maps = new List<string>();\n    using (var r = new BinaryReader(File.OpenRead(file)))\n    {\n        if (r.ReadUInt32() != 0x55aa1234) return maps;\n        var version = r.ReadUInt32();\n        r.ReadUInt32(); // tree size\n        if (version == 2) { r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); }\n        string Str() { var b = new List<byte>(); byte c; while ((c = r.ReadByte()) != 0) b.Add(c); return Encoding.UTF8.GetString(b.ToArray()); }\n        while (true)\n        {\n            var ext = Str(); if (ext == \"\") break;\n            while (true)\n            {\n                var path = Str(); if (path == \"\") break;\n                while (true)\n                {\n                    var name = Str(); if (name == \"\") break;\n                    r.ReadUInt32(); var preload = r.ReadUInt16(); r.ReadUInt16(); r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt16();\n                    if (preload > 0) r.ReadBytes(preload);\n                    if (ext.Equals(\"bsp\", StringComparison.OrdinalIgnoreCase) && path.Trim('/').Equals(\"maps\", StringComparison.OrdinalIgnoreCase)) maps.Add(name);\n                }\n            }\n        }\n    }\n    return maps;\n}\n// The server mounts a Workshop item's folder as a loose game folder, not the .vpk packages inside it, so a map packed\n// in a .vpk is \"not found\". Unpack the packages next to them (maps/, materials/, models/, sound/ ...). A marker file\n// remembers which package versions were unpacked; the server's Steam client replaces the packages on an update and\n// the next unpack (before every start) refreshes the loose files.\nvoid UnpackItem(string dir)\n{\n    NoLinkInside(dir);\n    if (!Directory.Exists(dir)) return;\n    var marker = Path.Combine(dir, \".tca_unpacked\");\n    var packages = Directory.GetFiles(dir, \"*.vpk\", SearchOption.TopDirectoryOnly)\n        .Where(f => !Regex.IsMatch(Path.GetFileName(f), \"_[0-9]{3}\\\\.vpk$\")).OrderBy(f => f, StringComparer.Ordinal).ToList();\n    var state = string.Join(\"\\n\", packages.Select(f => Path.GetFileName(f) + \" \" + new FileInfo(f).Length + \" \" + File.GetLastWriteTimeUtc(f).Ticks));\n    if (packages.Count == 0 || (File.Exists(marker) && File.ReadAllText(marker) == state)) return;\n    var count = 0;\n    foreach (var package in packages) count += UnpackVpk(dir, package);\n    File.WriteAllText(marker, state);\n    GiveToServiceUser(dir, true);\n    ScriptConsole.WriteLine((object)(\"Unpacked \" + count + \" files of Workshop item \" + Path.GetFileName(dir) + \" for the server.\"));\n}\n\nint UnpackVpk(string dir, string package)\n{\n    var count = 0;\n    var dirFile = Path.GetFileName(package);\n    var chunkBase = dirFile.EndsWith(\"_dir.vpk\", StringComparison.OrdinalIgnoreCase) ? dirFile.Substring(0, dirFile.Length - 8) : null;\n    var entries = new List<(string Path, ushort Archive, uint Offset, uint Length, byte[] Preload)>();\n    long dataStart;\n    using (var r = new BinaryReader(File.OpenRead(package)))\n    {\n        if (r.ReadUInt32() != 0x55aa1234) return 0;\n        var version = r.ReadUInt32();\n        var treeSize = r.ReadUInt32();\n        if (version == 2) { r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); }\n        var headerSize = version == 2 ? 28 : 12;\n        dataStart = headerSize + treeSize;\n        string Str() { var b = new List<byte>(); byte c; while ((c = r.ReadByte()) != 0) { b.Add(c); if (b.Count > 512) throw new Exception(\"Bad package \" + dirFile); } return Encoding.UTF8.GetString(b.ToArray()); }\n        while (true)\n        {\n            var ext = Str(); if (ext == \"\") break;\n            while (true)\n            {\n                var folder = Str(); if (folder == \"\") break;\n                while (true)\n                {\n                    var name = Str(); if (name == \"\") break;\n                    r.ReadUInt32(); // crc\n                    var preloadLength = r.ReadUInt16();\n                    var archive = r.ReadUInt16();\n                    var offset = r.ReadUInt32();\n                    var length = r.ReadUInt32();\n                    r.ReadUInt16(); // terminator\n                    var preload = preloadLength > 0 ? r.ReadBytes(preloadLength) : new byte[0];\n                    var relative = (folder.Trim() == \"\" ? \"\" : folder.Trim('/') + \"/\") + name + \".\" + ext;\n                    entries.Add((relative, archive, offset, length, preload));\n                }\n            }\n        }\n    }\n    foreach (var e in entries)\n    {\n        // Package paths are data from the Workshop: plain relative names only, inside the item folder.\n        if (!Regex.IsMatch(e.Path, \"^[A-Za-z0-9 _.()+,'&!#@~=\\\\[\\\\]{}$%-]+(/[A-Za-z0-9 _.()+,'&!#@~=\\\\[\\\\]{}$%-]+)*$\") || e.Path.Split('/').Any(p => p == \".\" || p == \"..\"))\n        {\n            ScriptConsole.WriteLine((object)(\"Skipped a file with an unusual name in \" + dirFile + \".\"));\n            continue;\n        }\n        var target = Path.GetFullPath(Path.Combine(dir, e.Path));\n        if (!target.StartsWith(Path.GetFullPath(dir).TrimEnd('/', '\\\\') + Path.DirectorySeparatorChar, StringComparison.Ordinal)) continue;\n        string source;\n        long position;\n        if (e.Archive == 0x7fff) { source = package; position = dataStart + e.Offset; }\n        else if (chunkBase != null) { source = Path.Combine(dir, chunkBase + \"_\" + e.Archive.ToString(\"000\") + \".vpk\"); position = e.Offset; }\n        else continue;\n        NoLink(source);\n        NoLink(target);\n        Directory.CreateDirectory(Path.GetDirectoryName(target));\n        NoLink(target);\n        using (var output = new FileStream(target, FileMode.Create, FileAccess.Write))\n        {\n            output.Write(e.Preload, 0, e.Preload.Length);\n            if (e.Length > 0)\n            {\n                using (var input = File.OpenRead(source))\n                {\n                    if (position + e.Length > input.Length) throw new Exception(\"Bad package \" + dirFile + \": \" + e.Path + \" is outside the file.\");\n                    input.Position = position;\n                    var buffer = new byte[81920];\n                    long left = e.Length;\n                    while (left > 0)\n                    {\n                        var read = input.Read(buffer, 0, (int)Math.Min(buffer.Length, left));\n                        if (read <= 0) throw new Exception(\"Bad package \" + dirFile + \".\");\n                        output.Write(buffer, 0, read);\n                        left -= read;\n                    }\n                }\n            }\n        }\n        count++;\n    }\n    return count;\n}\n// --- end of shared helpers ---\n\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "<path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "68067ca9-1207-536d-be65-be48f4fb8486"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeCustomModUninstalled"
+        ],
+        "name": "Remove the Workshop item",
+        "description": "Removes the Workshop item from bms/subscribed_file_ids.txt and its maps from the map cycle, and deletes its files.",
+        "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Removes the Workshop item from bms/subscribed_file_ids.txt, its maps from the map cycle and the server's copy in\n// addons/workshop/content/362890/<id>. A running server keeps the item mounted until it restarts.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]{1,20}$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\n\nvar target = ServerItemDir(fileId);\nvar maps = FindMaps(target);\n\nvar list = ReadList();\nif (list.Remove(fileId)) WriteList(list);\n\nvar cycle = ReadCycle();\nif (maps.Count > 0 && cycle.RemoveAll(m => maps.Contains(m, StringComparer.OrdinalIgnoreCase)) > 0) WriteCycle(cycle);\n\nNoLinkInside(target);\nif (Directory.Exists(target)) Directory.Delete(target, true);\nScriptConsole.WriteLine((object)(\"Removed Workshop item \" + fileId + (maps.Count > 0 ? \" (\" + string.Join(\", \", maps) + \")\" : \"\") +\n    \". The server unloads it when it restarts.\"));\n\n// --- Shared helpers: the server's own Workshop list (bms/subscribed_file_ids.txt) and the map cycle. ---\nstring Root() => Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('/', '\\\\');\nstring ListFile() => Path.Combine(Root(), \"bms\", \"subscribed_file_ids.txt\");\nstring CycleFile() => Path.Combine(Root(), \"bms\", \"cfg\", \"mapcycle.txt\");\n// Where the server's own Steam client keeps and mounts its Workshop items.\nstring ServerItemDir(string id) => Path.Combine(Root(), \"addons\", \"workshop\", \"content\", \"362890\", id);\n\nList<string> ReadList()\n{\n    NoLink(ListFile());\n    if (!File.Exists(ListFile())) return new List<string>();\n    return File.ReadAllLines(ListFile()).Select(l => l.Trim()).Where(l => Regex.IsMatch(l, \"^[0-9]+$\")).Distinct().ToList();\n}\n\nvoid WriteList(List<string> ids)\n{\n    NoLink(ListFile());\n    File.WriteAllText(ListFile(), string.Join(\"\\n\", ids) + (ids.Count > 0 ? \"\\n\" : \"\"));\n    GiveToServiceUser(ListFile(), false);\n}\n\nList<string> ReadCycle()\n{\n    NoLink(CycleFile());\n    return File.Exists(CycleFile()) ? File.ReadAllLines(CycleFile()).Select(l => l.Trim()).Where(l => l != \"\").ToList() : new List<string>();\n}\n\nvoid WriteCycle(List<string> maps)\n{\n    NoLink(CycleFile());\n    File.WriteAllText(CycleFile(), string.Join(\"\\n\", maps) + \"\\n\");\n    GiveToServiceUser(CycleFile(), false);\n}\n\n// Scripts run as root on Linux: files they create must belong to the service user (the owner of the service root).\nvoid GiveToServiceUser(string path, bool directory)\n{\n    if (!System.OperatingSystem.IsLinux()) return;\n    if (directory) Globals.OperatingSystem.SetDirectoryOwnerAutoDetect(path, true);\n    else Globals.OperatingSystem.SetFileOwnerAutoDetect(path);\n}\n\n// Linux: this script runs as root in a folder the service account can write to. A symbolic link anywhere between\n// the service root and path could point it at any file on the host, so the script stops instead of following one.\nvoid NoLink(string path)\n{\n    var top = Root();\n    var full = Path.GetFullPath(path);\n    var sep = System.OperatingSystem.IsWindows() ? \"\\\\\" : \"/\";\n    if (!full.StartsWith(top + sep, System.OperatingSystem.IsWindows() ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal))\n        throw new Exception(path + \" is outside the service folder.\");\n    if (!System.OperatingSystem.IsLinux()) return;\n    var current = top;\n    foreach (var part in full.Substring(top.Length).Split('/', StringSplitOptions.RemoveEmptyEntries))\n    {\n        current = current + \"/\" + part;\n        var info = new FileInfo(current);\n        if (info.LinkTarget != null) throw new Exception(current.Substring(top.Length + 1) + \" is a symbolic link; remove it and try again.\");\n        if (!info.Exists && !Directory.Exists(current)) break;\n    }\n}\n\n// No symbolic link anywhere inside a folder the script is about to move or delete.\nvoid NoLinkInside(string dir)\n{\n    NoLink(dir);\n    if (!System.OperatingSystem.IsLinux() || !Directory.Exists(dir)) return;\n    foreach (var entry in new DirectoryInfo(dir).EnumerateFileSystemInfos(\"*\", new EnumerationOptions { RecurseSubdirectories = true, AttributesToSkip = 0 }))\n        if (entry.LinkTarget != null) throw new Exception(entry.FullName.Substring(Root().Length + 1) + \" is a symbolic link; remove it and try again.\");\n}\n\n// Map names (maps/<name>.bsp) of a Workshop item: loose .bsp files or .bsp entries inside a .vpk.\nList<string> FindMaps(string dir)\n{\n    var names = new List<string>();\n    if (!Directory.Exists(dir)) return names;\n    foreach (var f in Directory.GetFiles(dir, \"*.bsp\", SearchOption.AllDirectories))\n        names.Add(Path.GetFileNameWithoutExtension(f));\n    foreach (var f in Directory.GetFiles(dir, \"*.vpk\", SearchOption.AllDirectories))\n    {\n        if (Regex.IsMatch(Path.GetFileName(f), \"_[0-9]{3}\\\\.vpk$\")) continue; // data chunks of a multi-file vpk\n        try { names.AddRange(VpkMaps(f)); } catch { }\n    }\n    // Map names go into mapcycle.txt and console commands: keep plain names only.\n    return names.Where(n => Regex.IsMatch(n, \"^[A-Za-z0-9_.-]{1,64}$\")).Distinct(StringComparer.OrdinalIgnoreCase).OrderBy(x => x, StringComparer.OrdinalIgnoreCase).ToList();\n}\n\nList<string> VpkMaps(string file)\n{\n    var maps = new List<string>();\n    using (var r = new BinaryReader(File.OpenRead(file)))\n    {\n        if (r.ReadUInt32() != 0x55aa1234) return maps;\n        var version = r.ReadUInt32();\n        r.ReadUInt32(); // tree size\n        if (version == 2) { r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); }\n        string Str() { var b = new List<byte>(); byte c; while ((c = r.ReadByte()) != 0) b.Add(c); return Encoding.UTF8.GetString(b.ToArray()); }\n        while (true)\n        {\n            var ext = Str(); if (ext == \"\") break;\n            while (true)\n            {\n                var path = Str(); if (path == \"\") break;\n                while (true)\n                {\n                    var name = Str(); if (name == \"\") break;\n                    r.ReadUInt32(); var preload = r.ReadUInt16(); r.ReadUInt16(); r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt16();\n                    if (preload > 0) r.ReadBytes(preload);\n                    if (ext.Equals(\"bsp\", StringComparison.OrdinalIgnoreCase) && path.Trim('/').Equals(\"maps\", StringComparison.OrdinalIgnoreCase)) maps.Add(name);\n                }\n            }\n        }\n    }\n    return maps;\n}\n// The server mounts a Workshop item's folder as a loose game folder, not the .vpk packages inside it, so a map packed\n// in a .vpk is \"not found\". Unpack the packages next to them (maps/, materials/, models/, sound/ ...). A marker file\n// remembers which package versions were unpacked; the server's Steam client replaces the packages on an update and\n// the next unpack (before every start) refreshes the loose files.\nvoid UnpackItem(string dir)\n{\n    NoLinkInside(dir);\n    if (!Directory.Exists(dir)) return;\n    var marker = Path.Combine(dir, \".tca_unpacked\");\n    var packages = Directory.GetFiles(dir, \"*.vpk\", SearchOption.TopDirectoryOnly)\n        .Where(f => !Regex.IsMatch(Path.GetFileName(f), \"_[0-9]{3}\\\\.vpk$\")).OrderBy(f => f, StringComparer.Ordinal).ToList();\n    var state = string.Join(\"\\n\", packages.Select(f => Path.GetFileName(f) + \" \" + new FileInfo(f).Length + \" \" + File.GetLastWriteTimeUtc(f).Ticks));\n    if (packages.Count == 0 || (File.Exists(marker) && File.ReadAllText(marker) == state)) return;\n    var count = 0;\n    foreach (var package in packages) count += UnpackVpk(dir, package);\n    File.WriteAllText(marker, state);\n    GiveToServiceUser(dir, true);\n    ScriptConsole.WriteLine((object)(\"Unpacked \" + count + \" files of Workshop item \" + Path.GetFileName(dir) + \" for the server.\"));\n}\n\nint UnpackVpk(string dir, string package)\n{\n    var count = 0;\n    var dirFile = Path.GetFileName(package);\n    var chunkBase = dirFile.EndsWith(\"_dir.vpk\", StringComparison.OrdinalIgnoreCase) ? dirFile.Substring(0, dirFile.Length - 8) : null;\n    var entries = new List<(string Path, ushort Archive, uint Offset, uint Length, byte[] Preload)>();\n    long dataStart;\n    using (var r = new BinaryReader(File.OpenRead(package)))\n    {\n        if (r.ReadUInt32() != 0x55aa1234) return 0;\n        var version = r.ReadUInt32();\n        var treeSize = r.ReadUInt32();\n        if (version == 2) { r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); }\n        var headerSize = version == 2 ? 28 : 12;\n        dataStart = headerSize + treeSize;\n        string Str() { var b = new List<byte>(); byte c; while ((c = r.ReadByte()) != 0) { b.Add(c); if (b.Count > 512) throw new Exception(\"Bad package \" + dirFile); } return Encoding.UTF8.GetString(b.ToArray()); }\n        while (true)\n        {\n            var ext = Str(); if (ext == \"\") break;\n            while (true)\n            {\n                var folder = Str(); if (folder == \"\") break;\n                while (true)\n                {\n                    var name = Str(); if (name == \"\") break;\n                    r.ReadUInt32(); // crc\n                    var preloadLength = r.ReadUInt16();\n                    var archive = r.ReadUInt16();\n                    var offset = r.ReadUInt32();\n                    var length = r.ReadUInt32();\n                    r.ReadUInt16(); // terminator\n                    var preload = preloadLength > 0 ? r.ReadBytes(preloadLength) : new byte[0];\n                    var relative = (folder.Trim() == \"\" ? \"\" : folder.Trim('/') + \"/\") + name + \".\" + ext;\n                    entries.Add((relative, archive, offset, length, preload));\n                }\n            }\n        }\n    }\n    foreach (var e in entries)\n    {\n        // Package paths are data from the Workshop: plain relative names only, inside the item folder.\n        if (!Regex.IsMatch(e.Path, \"^[A-Za-z0-9 _.()+,'&!#@~=\\\\[\\\\]{}$%-]+(/[A-Za-z0-9 _.()+,'&!#@~=\\\\[\\\\]{}$%-]+)*$\") || e.Path.Split('/').Any(p => p == \".\" || p == \"..\"))\n        {\n            ScriptConsole.WriteLine((object)(\"Skipped a file with an unusual name in \" + dirFile + \".\"));\n            continue;\n        }\n        var target = Path.GetFullPath(Path.Combine(dir, e.Path));\n        if (!target.StartsWith(Path.GetFullPath(dir).TrimEnd('/', '\\\\') + Path.DirectorySeparatorChar, StringComparison.Ordinal)) continue;\n        string source;\n        long position;\n        if (e.Archive == 0x7fff) { source = package; position = dataStart + e.Offset; }\n        else if (chunkBase != null) { source = Path.Combine(dir, chunkBase + \"_\" + e.Archive.ToString(\"000\") + \".vpk\"); position = e.Offset; }\n        else continue;\n        NoLink(source);\n        NoLink(target);\n        Directory.CreateDirectory(Path.GetDirectoryName(target));\n        NoLink(target);\n        using (var output = new FileStream(target, FileMode.Create, FileAccess.Write))\n        {\n            output.Write(e.Preload, 0, e.Preload.Length);\n            if (e.Length > 0)\n            {\n                using (var input = File.OpenRead(source))\n                {\n                    if (position + e.Length > input.Length) throw new Exception(\"Bad package \" + dirFile + \": \" + e.Path + \" is outside the file.\");\n                    input.Position = position;\n                    var buffer = new byte[81920];\n                    long left = e.Length;\n                    while (left > 0)\n                    {\n                        var read = input.Read(buffer, 0, (int)Math.Min(buffer.Length, left));\n                        if (read <= 0) throw new Exception(\"Bad package \" + dirFile + \".\");\n                        output.Write(buffer, 0, read);\n                        left -= read;\n                    }\n                }\n            }\n        }\n        count++;\n    }\n    return count;\n}\n// --- end of shared helpers ---\n\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "<path d=\"M19 13H5v-2h14v2z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "3f5e0b0d-1bea-5be2-8e50-c695df5150b2"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Unpack Workshop items",
+        "description": "Unpacks the .vpk packages of the Workshop items in bms/subscribed_file_ids.txt that are new or were updated: the server mounts an item folder, not the packages in it.",
+        "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Before every start: unpack the .vpk packages of the server's Workshop items (listed in bms/subscribed_file_ids.txt)\n// that are new or were updated since the last unpack. The server mounts an item's folder, not the packages in it.\nforeach (var id in ReadList())\n{\n    try\n    {\n        UnpackItem(ServerItemDir(id));\n    }\n    catch (Exception e)\n    {\n        ScriptConsole.WriteLine((object)(\"Workshop item \" + id + \" was not unpacked: \" + e.Message));\n    }\n}\n\n// --- Shared helpers: the server's own Workshop list (bms/subscribed_file_ids.txt) and the map cycle. ---\nstring Root() => Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('/', '\\\\');\nstring ListFile() => Path.Combine(Root(), \"bms\", \"subscribed_file_ids.txt\");\nstring CycleFile() => Path.Combine(Root(), \"bms\", \"cfg\", \"mapcycle.txt\");\n// Where the server's own Steam client keeps and mounts its Workshop items.\nstring ServerItemDir(string id) => Path.Combine(Root(), \"addons\", \"workshop\", \"content\", \"362890\", id);\n\nList<string> ReadList()\n{\n    NoLink(ListFile());\n    if (!File.Exists(ListFile())) return new List<string>();\n    return File.ReadAllLines(ListFile()).Select(l => l.Trim()).Where(l => Regex.IsMatch(l, \"^[0-9]+$\")).Distinct().ToList();\n}\n\nvoid WriteList(List<string> ids)\n{\n    NoLink(ListFile());\n    File.WriteAllText(ListFile(), string.Join(\"\\n\", ids) + (ids.Count > 0 ? \"\\n\" : \"\"));\n    GiveToServiceUser(ListFile(), false);\n}\n\nList<string> ReadCycle()\n{\n    NoLink(CycleFile());\n    return File.Exists(CycleFile()) ? File.ReadAllLines(CycleFile()).Select(l => l.Trim()).Where(l => l != \"\").ToList() : new List<string>();\n}\n\nvoid WriteCycle(List<string> maps)\n{\n    NoLink(CycleFile());\n    File.WriteAllText(CycleFile(), string.Join(\"\\n\", maps) + \"\\n\");\n    GiveToServiceUser(CycleFile(), false);\n}\n\n// Scripts run as root on Linux: files they create must belong to the service user (the owner of the service root).\nvoid GiveToServiceUser(string path, bool directory)\n{\n    if (!System.OperatingSystem.IsLinux()) return;\n    if (directory) Globals.OperatingSystem.SetDirectoryOwnerAutoDetect(path, true);\n    else Globals.OperatingSystem.SetFileOwnerAutoDetect(path);\n}\n\n// Linux: this script runs as root in a folder the service account can write to. A symbolic link anywhere between\n// the service root and path could point it at any file on the host, so the script stops instead of following one.\nvoid NoLink(string path)\n{\n    var top = Root();\n    var full = Path.GetFullPath(path);\n    var sep = System.OperatingSystem.IsWindows() ? \"\\\\\" : \"/\";\n    if (!full.StartsWith(top + sep, System.OperatingSystem.IsWindows() ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal))\n        throw new Exception(path + \" is outside the service folder.\");\n    if (!System.OperatingSystem.IsLinux()) return;\n    var current = top;\n    foreach (var part in full.Substring(top.Length).Split('/', StringSplitOptions.RemoveEmptyEntries))\n    {\n        current = current + \"/\" + part;\n        var info = new FileInfo(current);\n        if (info.LinkTarget != null) throw new Exception(current.Substring(top.Length + 1) + \" is a symbolic link; remove it and try again.\");\n        if (!info.Exists && !Directory.Exists(current)) break;\n    }\n}\n\n// No symbolic link anywhere inside a folder the script is about to move or delete.\nvoid NoLinkInside(string dir)\n{\n    NoLink(dir);\n    if (!System.OperatingSystem.IsLinux() || !Directory.Exists(dir)) return;\n    foreach (var entry in new DirectoryInfo(dir).EnumerateFileSystemInfos(\"*\", new EnumerationOptions { RecurseSubdirectories = true, AttributesToSkip = 0 }))\n        if (entry.LinkTarget != null) throw new Exception(entry.FullName.Substring(Root().Length + 1) + \" is a symbolic link; remove it and try again.\");\n}\n\n// Map names (maps/<name>.bsp) of a Workshop item: loose .bsp files or .bsp entries inside a .vpk.\nList<string> FindMaps(string dir)\n{\n    var names = new List<string>();\n    if (!Directory.Exists(dir)) return names;\n    foreach (var f in Directory.GetFiles(dir, \"*.bsp\", SearchOption.AllDirectories))\n        names.Add(Path.GetFileNameWithoutExtension(f));\n    foreach (var f in Directory.GetFiles(dir, \"*.vpk\", SearchOption.AllDirectories))\n    {\n        if (Regex.IsMatch(Path.GetFileName(f), \"_[0-9]{3}\\\\.vpk$\")) continue; // data chunks of a multi-file vpk\n        try { names.AddRange(VpkMaps(f)); } catch { }\n    }\n    // Map names go into mapcycle.txt and console commands: keep plain names only.\n    return names.Where(n => Regex.IsMatch(n, \"^[A-Za-z0-9_.-]{1,64}$\")).Distinct(StringComparer.OrdinalIgnoreCase).OrderBy(x => x, StringComparer.OrdinalIgnoreCase).ToList();\n}\n\nList<string> VpkMaps(string file)\n{\n    var maps = new List<string>();\n    using (var r = new BinaryReader(File.OpenRead(file)))\n    {\n        if (r.ReadUInt32() != 0x55aa1234) return maps;\n        var version = r.ReadUInt32();\n        r.ReadUInt32(); // tree size\n        if (version == 2) { r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); }\n        string Str() { var b = new List<byte>(); byte c; while ((c = r.ReadByte()) != 0) b.Add(c); return Encoding.UTF8.GetString(b.ToArray()); }\n        while (true)\n        {\n            var ext = Str(); if (ext == \"\") break;\n            while (true)\n            {\n                var path = Str(); if (path == \"\") break;\n                while (true)\n                {\n                    var name = Str(); if (name == \"\") break;\n                    r.ReadUInt32(); var preload = r.ReadUInt16(); r.ReadUInt16(); r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt16();\n                    if (preload > 0) r.ReadBytes(preload);\n                    if (ext.Equals(\"bsp\", StringComparison.OrdinalIgnoreCase) && path.Trim('/').Equals(\"maps\", StringComparison.OrdinalIgnoreCase)) maps.Add(name);\n                }\n            }\n        }\n    }\n    return maps;\n}\n// The server mounts a Workshop item's folder as a loose game folder, not the .vpk packages inside it, so a map packed\n// in a .vpk is \"not found\". Unpack the packages next to them (maps/, materials/, models/, sound/ ...). A marker file\n// remembers which package versions were unpacked; the server's Steam client replaces the packages on an update and\n// the next unpack (before every start) refreshes the loose files.\nvoid UnpackItem(string dir)\n{\n    NoLinkInside(dir);\n    if (!Directory.Exists(dir)) return;\n    var marker = Path.Combine(dir, \".tca_unpacked\");\n    var packages = Directory.GetFiles(dir, \"*.vpk\", SearchOption.TopDirectoryOnly)\n        .Where(f => !Regex.IsMatch(Path.GetFileName(f), \"_[0-9]{3}\\\\.vpk$\")).OrderBy(f => f, StringComparer.Ordinal).ToList();\n    var state = string.Join(\"\\n\", packages.Select(f => Path.GetFileName(f) + \" \" + new FileInfo(f).Length + \" \" + File.GetLastWriteTimeUtc(f).Ticks));\n    if (packages.Count == 0 || (File.Exists(marker) && File.ReadAllText(marker) == state)) return;\n    var count = 0;\n    foreach (var package in packages) count += UnpackVpk(dir, package);\n    File.WriteAllText(marker, state);\n    GiveToServiceUser(dir, true);\n    ScriptConsole.WriteLine((object)(\"Unpacked \" + count + \" files of Workshop item \" + Path.GetFileName(dir) + \" for the server.\"));\n}\n\nint UnpackVpk(string dir, string package)\n{\n    var count = 0;\n    var dirFile = Path.GetFileName(package);\n    var chunkBase = dirFile.EndsWith(\"_dir.vpk\", StringComparison.OrdinalIgnoreCase) ? dirFile.Substring(0, dirFile.Length - 8) : null;\n    var entries = new List<(string Path, ushort Archive, uint Offset, uint Length, byte[] Preload)>();\n    long dataStart;\n    using (var r = new BinaryReader(File.OpenRead(package)))\n    {\n        if (r.ReadUInt32() != 0x55aa1234) return 0;\n        var version = r.ReadUInt32();\n        var treeSize = r.ReadUInt32();\n        if (version == 2) { r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); }\n        var headerSize = version == 2 ? 28 : 12;\n        dataStart = headerSize + treeSize;\n        string Str() { var b = new List<byte>(); byte c; while ((c = r.ReadByte()) != 0) { b.Add(c); if (b.Count > 512) throw new Exception(\"Bad package \" + dirFile); } return Encoding.UTF8.GetString(b.ToArray()); }\n        while (true)\n        {\n            var ext = Str(); if (ext == \"\") break;\n            while (true)\n            {\n                var folder = Str(); if (folder == \"\") break;\n                while (true)\n                {\n                    var name = Str(); if (name == \"\") break;\n                    r.ReadUInt32(); // crc\n                    var preloadLength = r.ReadUInt16();\n                    var archive = r.ReadUInt16();\n                    var offset = r.ReadUInt32();\n                    var length = r.ReadUInt32();\n                    r.ReadUInt16(); // terminator\n                    var preload = preloadLength > 0 ? r.ReadBytes(preloadLength) : new byte[0];\n                    var relative = (folder.Trim() == \"\" ? \"\" : folder.Trim('/') + \"/\") + name + \".\" + ext;\n                    entries.Add((relative, archive, offset, length, preload));\n                }\n            }\n        }\n    }\n    foreach (var e in entries)\n    {\n        // Package paths are data from the Workshop: plain relative names only, inside the item folder.\n        if (!Regex.IsMatch(e.Path, \"^[A-Za-z0-9 _.()+,'&!#@~=\\\\[\\\\]{}$%-]+(/[A-Za-z0-9 _.()+,'&!#@~=\\\\[\\\\]{}$%-]+)*$\") || e.Path.Split('/').Any(p => p == \".\" || p == \"..\"))\n        {\n            ScriptConsole.WriteLine((object)(\"Skipped a file with an unusual name in \" + dirFile + \".\"));\n            continue;\n        }\n        var target = Path.GetFullPath(Path.Combine(dir, e.Path));\n        if (!target.StartsWith(Path.GetFullPath(dir).TrimEnd('/', '\\\\') + Path.DirectorySeparatorChar, StringComparison.Ordinal)) continue;\n        string source;\n        long position;\n        if (e.Archive == 0x7fff) { source = package; position = dataStart + e.Offset; }\n        else if (chunkBase != null) { source = Path.Combine(dir, chunkBase + \"_\" + e.Archive.ToString(\"000\") + \".vpk\"); position = e.Offset; }\n        else continue;\n        NoLink(source);\n        NoLink(target);\n        Directory.CreateDirectory(Path.GetDirectoryName(target));\n        NoLink(target);\n        using (var output = new FileStream(target, FileMode.Create, FileAccess.Write))\n        {\n            output.Write(e.Preload, 0, e.Preload.Length);\n            if (e.Length > 0)\n            {\n                using (var input = File.OpenRead(source))\n                {\n                    if (position + e.Length > input.Length) throw new Exception(\"Bad package \" + dirFile + \": \" + e.Path + \" is outside the file.\");\n                    input.Position = position;\n                    var buffer = new byte[81920];\n                    long left = e.Length;\n                    while (left > 0)\n                    {\n                        var read = input.Read(buffer, 0, (int)Math.Min(buffer.Length, left));\n                        if (read <= 0) throw new Exception(\"Bad package \" + dirFile + \".\");\n                        output.Write(buffer, 0, read);\n                        left -= read;\n                    }\n                }\n            }\n        }\n        count++;\n    }\n    return count;\n}\n// --- end of shared helpers ---\n\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "e983da23-f1dd-5232-9482-a121ee5ea4a7"
+      }
+    }
+  ],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 392,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 2,
+      "gameId": 392,
+      "enabled": true,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "AllowCollections": true,
+        "ShowDescription": true,
+        "ShowAuthorAndRating": true,
+        "Private.UseSteamAPI": false,
+        "SkipDownload": false
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 392,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 392,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 5,
+      "gameId": 392,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 392,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 392,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    }
+  ],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-12T00:31:46.741504",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": false,
+    "includedPaths": [
+      "bms/cfg/**/*",
+      "bms/addons/**/*",
+      "bms/custom/**/*",
+      "bms/subscribed_file_ids.txt"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "bms/",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
