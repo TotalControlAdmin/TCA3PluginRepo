@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.10.28.45532",
-  "__TCA:ExportedAt": "2026-06-18T15:38:14.0305266Z",
+  "__TCA:ExportVersion": "3.23.47.17810",
+  "__TCA:ExportedAt": "2026-11-12T11:58:52.1485258Z",
   "name": "Counter-Strike: Source",
   "shortName": "CS:S",
   "description": "",
@@ -12,6 +12,7 @@
   "defaultSlots": 8,
   "startedUntilResponding": false,
   "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
   "categoryId": 1,
   "editableExtensions": [
     ".txt",
@@ -22,12 +23,18 @@
   "logExtensions": [
     ".log"
   ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
   "queryRconProtocolConfig": {
     "queryProtocol": "a2s",
     "rconProtocol": "source",
     "privateRule": "sv_password",
     "privateRuleValue": "1",
-    "hiddenRules": []
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
   },
   "consoleConfig": {
     "enabled": true,
@@ -54,22 +61,30 @@
       {
         "id": "GamePort",
         "port": 27015,
-        "expression": ""
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
       },
       {
         "id": "QueryPort",
         "port": 27015,
-        "expression": ""
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
       },
       {
         "id": "RConPort",
         "port": 27015,
-        "expression": ""
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
       },
       {
         "id": "CustomPort1",
         "port": 27016,
-        "expression": ""
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
       }
     ],
     "portIncrement": 10
@@ -80,13 +95,15 @@
     "autoSetupFolderName": "css",
     "failOnMissingExecutable": false,
     "externalDownloadEnable": false,
-    "externalDownloadUrl": ""
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
   },
   "steamConfig": {
     "steamUpdate": true,
     "appId": 232330,
     "runAsServiceUser": false,
     "branch": "public",
+    "branchPassword": null,
     "storeId": 240,
     "extraParameters": "",
     "steamUsername": "anonymous",
@@ -102,18 +119,18 @@
   },
   "commandlineConfig": {
     "enableSelection": true,
-    "defaultCommandline": "-norestart -console -game cstrike -condebug -nohltv \u002Btv_port ${CustomPort1} \u002Bmaxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} \u002Bexec \u0022server.cfg\u0022 ${StartupMap}",
-    "defaultCustomCommandline": "-norestart -console -game cstrike -condebug ${HLTV} \u002Btv_port ${CustomPort1} \u002Bmaxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} ${UserCommandLine} ${StartupMap} ${TickRate}",
+    "defaultCommandline": "-norestart -console -game cstrike -condebug -nohltv +tv_port ${CustomPort1} +maxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} +exec \"server.cfg\" ${StartupMap}",
+    "defaultCustomCommandline": "-norestart -console -game cstrike -condebug ${HLTV} +tv_port ${CustomPort1} +maxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} ${ConfigFile} ${Insecure} ${StartupMap} ${TickRate}",
     "predefinedCommandlines": [
       {
         "id": 1,
         "name": "Default",
-        "commandLine": "-norestart -console -game cstrike -condebug -nohltv \u002Btv_port ${CustomPort1} \u002Bmaxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} \u002Bexec \u0022server.cfg\u0022 \u002Bmap \u0022de_aztec\u0022"
+        "commandLine": "-norestart -console -game cstrike -condebug -nohltv +tv_port ${CustomPort1} +maxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} +exec \"server.cfg\" +map \"de_aztec\""
       },
       {
         "id": 2,
         "name": "Advanced",
-        "commandLine": "-norestart -console -game cstrike -condebug ${HLTV} \u002Btv_port ${CustomPort1} \u002Bmaxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} ${ConfigFile} ${Insecure} ${StartupMap}"
+        "commandLine": "-norestart -console -game cstrike -condebug ${HLTV} +tv_port ${CustomPort1} +maxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} ${ConfigFile} ${Insecure} ${StartupMap} ${TickRate}"
       }
     ]
   },
@@ -124,39 +141,51 @@
     "interactWithDesktop": true,
     "elevated": false
   },
+  "identifier": "9f0a16a7-d803-11f1-8d5f-00505654dd15",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
   "gameVariables": [
     {
       "name": "ConfigFile",
       "defaultValue": "server.cfg",
       "required": true,
-      "requiredMessage": "",
+      "requiredMessage": "Server config is required",
       "scriptParameter": false,
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "\u002Bexec \u0022${ConfigFile}\u0022",
+      "template": "+exec \"${ConfigFile}\"",
       "editor": {
         "maxLength": 0,
         "lines": 1,
         "denyCharacters": [
-          "\u002B",
-          "\u0022"
+          "+",
+          "\""
         ],
-        "regExValidation": "",
+        "regExValidation": "^[A-Za-z0-9_][A-Za-z0-9_./-]*\\.cfg$",
         "inputType": 0,
         "id": "ConfigFile",
         "defaultValue": "server.cfg",
         "label": "Server Config:",
-        "description": "The name of the configuration file to execute when the game server is started.",
+        "description": "A .cfg file in the game's cfg folder, e.g. server.cfg (letters, digits, _ . / - only).",
         "required": true,
         "valueType": "string",
-        "requiredMessage": "",
+        "requiredMessage": "Server config is required",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicTextBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2026-06-17T23:18:06.114883",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
         {
@@ -179,7 +208,7 @@
       "template": "${HLTV}",
       "editor": {
         "valueType": "bool",
-        "checkedValue": "\u002Btv_enable 1",
+        "checkedValue": "+tv_enable 1",
         "uncheckedValue": "-nohltv",
         "id": "HLTV",
         "defaultValue": "-nohltv",
@@ -187,12 +216,15 @@
         "description": "",
         "required": false,
         "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicCheckBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2026-06-17T23:18:06.117103",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
         {
@@ -223,12 +255,15 @@
         "description": "",
         "required": false,
         "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicCheckBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2026-06-17T23:18:06.117301",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": []
     },
@@ -236,12 +271,12 @@
       "name": "StartupMap",
       "defaultValue": "de_aztec",
       "required": true,
-      "requiredMessage": "",
+      "requiredMessage": "Startup map is required",
       "scriptParameter": false,
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "\u002Bmap \u0022${StartupMap}\u0022",
+      "template": "+map \"${StartupMap}\"",
       "editor": {
         "items": [
           {
@@ -317,19 +352,24 @@
             "value": "de_train"
           }
         ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
         "id": "StartupMap",
         "defaultValue": "de_aztec",
         "label": "Startup map:",
         "description": "Specifies which map to start with. ",
         "required": true,
         "valueType": "string",
-        "requiredMessage": "",
+        "requiredMessage": "Startup map is required",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicComboBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2026-06-17T23:18:06.126106",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
         {
@@ -342,33 +382,36 @@
     },
     {
       "name": "TickRate",
-      "defaultValue": 64,
+      "defaultValue": 66,
       "required": true,
-      "requiredMessage": "Max FPS: is required",
+      "requiredMessage": "Tick rate is required",
       "scriptParameter": false,
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "\u002Bfps_max ${TickRate}",
+      "template": "-tickrate ${TickRate}",
       "editor": {
         "decimals": 0,
         "step": 1,
         "spinner": false,
         "valueType": "double",
         "minValue": 66,
-        "maxValue": 1000,
+        "maxValue": 100,
         "id": "TickRate",
-        "defaultValue": "64",
-        "label": "Max FPS:",
-        "description": "Adjusts the frames per second that the server will process.",
+        "defaultValue": 66,
+        "label": "Tick rate:",
+        "description": "Server tick rate: 66 (Valve default) up to 100.",
         "required": true,
-        "requiredMessage": "Max FPS: is required",
+        "requiredMessage": "Tick rate is required",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicNumericTextBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2026-06-17T23:18:06.128341",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
         {
@@ -385,7 +428,7 @@
       "id": 105,
       "relativePath": "cstrike\\cfg\\server.cfg",
       "description": "Main configuration file",
-      "template": "// server name\nhostname \u0022${Hostname}\u0022 \n\n// rcon passsword\nrcon_password \u0022${RconPassword}\u0022 \n\nsv_rcon_banpenalty 60\nsv_rcon_maxfailures 5\nsv_rcon_minfailures 5\nsv_rcon_minfailuretime 45\n\n// Server password\nsv_password \u0022${PrivatePassword}\u0022 \n\n// server cvars\nmp_friendlyfire 0 \nmp_footsteps 1 \nmp_autoteambalance 1 \nmp_autokick 0 \nmp_flashlight 0 \nmp_tkpunish 1 \nmp_forcecamera 0 \nsv_alltalk 0 \nsv_pausable 0 \nsv_cheats 0 \nsv_consistency 1  \nsv_maxspeed 320 \nmp_limitteams 2 \nmp_hostagepenalty 5 \nsv_voiceenable 1 \nmp_allowspectators 1 \nmp_chattime 10 \nsv_timeout 65 \n\n// round specific cvars\nmp_freezetime 6 \nmp_roundtime 5 \nmp_startmoney 800 \nmp_c4timer 45 \nmp_fraglimit 0 \nmp_maxrounds 0 \nmp_winlimit 0 \nmp_playerid 0 \nmp_spawnprotectiontime 5 \n\n// bandwidth rates/settings\nsv_minrate 13000\nsv_maxrate 45000\nsv_minupdaterate 33\nsv_maxupdaterate 67\nsv_mincmdrate 33\nsv_maxcmdrate 67\n\n// Fast downloads\nsv_downloadurl \u0022${FastDownloadUrl}\u0022\nsv_allowdownload ${FastDownloadEnabled}\nsv_allowupload 1 \n\n// server logging\nlog off \nsv_logbans 0 \nsv_logecho 1 \nsv_logfile 1 \nsv_log_onefile 0 \n\n// operation\nsv_lan 0 \nsv_region 255 \n\n// execute ban files\nexec banned_user.cfg \nexec banned_ip.cfg ",
+      "template": "// server name\nhostname \"${Hostname}\" \n\n// rcon passsword\nrcon_password \"${RconPassword}\" \n\nsv_rcon_banpenalty 60\nsv_rcon_maxfailures 5\nsv_rcon_minfailures 5\nsv_rcon_minfailuretime 45\n\n// Server password\nsv_password \"${PrivatePassword}\" \n\n// server cvars\nmp_friendlyfire 0 \nmp_footsteps 1 \nmp_autoteambalance 1 \nmp_autokick 0 \nmp_flashlight 0 \nmp_tkpunish 1 \nmp_forcecamera 0 \nsv_alltalk 0 \nsv_pausable 0 \nsv_cheats 0 \nsv_consistency 1  \nsv_maxspeed 320 \nmp_limitteams 2 \nmp_hostagepenalty 5 \nsv_voiceenable 1 \nmp_allowspectators 1 \nmp_chattime 10 \nsv_timeout 65 \n\n// round specific cvars\nmp_freezetime 6 \nmp_roundtime 5 \nmp_startmoney 800 \nmp_c4timer 45 \nmp_fraglimit 0 \nmp_maxrounds 0 \nmp_winlimit 0 \nmp_playerid 0 \nmp_spawnprotectiontime 5 \n\n// bandwidth rates/settings\nsv_minrate 13000\nsv_maxrate 45000\nsv_minupdaterate 33\nsv_maxupdaterate 67\nsv_mincmdrate 33\nsv_maxcmdrate 67\n\n// Fast downloads\nsv_downloadurl \"${FastDownloadUrl}\"\nsv_allowdownload ${FastDownloadEnabled}\nsv_allowupload 1 \n\n// server logging\nlog off \nsv_logbans 0 \nsv_logecho 1 \nsv_logfile 1 \nsv_log_onefile 0 \n\n// operation\nsv_lan 0 \nsv_region 255 \n\n// execute ban files\nexec banned_user.cfg \nexec banned_ip.cfg ",
       "order": 1,
       "enableEditor": false,
       "editor": [
@@ -396,11 +439,14 @@
           "regExValidation": "",
           "inputType": 0,
           "id": "Hostname",
+          "defaultValue": null,
           "label": "Hostname",
           "description": "",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
           "controlType": "DynamicTextBox",
           "sm": 6,
           "xs": 12,
@@ -413,11 +459,14 @@
           "regExValidation": "",
           "inputType": 0,
           "id": "RconPassword",
+          "defaultValue": null,
           "label": "RCON Password",
           "description": "",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
           "controlType": "DynamicTextBox",
           "sm": 6,
           "xs": 12,
@@ -430,11 +479,14 @@
           "regExValidation": "",
           "inputType": 0,
           "id": "PrivatePassword",
+          "defaultValue": null,
           "label": "Private Password",
           "description": "",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
           "controlType": "DynamicTextBox",
           "sm": 6,
           "xs": 12,
@@ -449,8 +501,8 @@
       "rootPermission": {
         "permissionMode": "Basic",
         "defaultPermissions": "Write, Read, Delete",
-        "skipListingSecurityCheck": false,
-        "additionalPermissions": []
+        "additionalPermissions": [],
+        "customRootFolder": null
       }
     },
     {
@@ -458,8 +510,8 @@
       "rootPermission": {
         "permissionMode": "Basic",
         "defaultPermissions": "Write, Read, Delete",
-        "skipListingSecurityCheck": false,
-        "additionalPermissions": []
+        "additionalPermissions": [],
+        "customRootFolder": null
       }
     }
   ],
@@ -481,11 +533,16 @@
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
         "order": 0,
         "icon": "",
         "scriptInputVariables": [],
         "scriptRoles": [],
         "editor": [],
+        "translations": [],
         "identifier": "fc1dd431-f1de-476e-bc11-bc99035b0de4"
       }
     }
@@ -494,130 +551,22 @@
   "gamesCustomLinks": [],
   "updates": [],
   "createdDate": "2026-06-17T23:18:06.231748",
+  "modifiedDate": null,
   "metadata": {},
   "backupConfig": {
     "enabled": false,
     "backupType": "Full",
     "compressBackup": true,
-    "includedPaths": []
+    "stopServiceBeforeBackup": false,
+    "includedPaths": [],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
   },
   "rolePermissions": [
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Backups",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Block-SetVariable",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "CpuStats",
+      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -631,37 +580,9 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "CustomScripts",
+      "permission": "CpuStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 2,
@@ -674,13 +595,6 @@
       "roleId": 2,
       "module": "BpFeature",
       "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "KillService",
       "moduleData": "",
       "granted": true
     },
@@ -715,21 +629,7 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
       "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -743,13 +643,6 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Repair",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
       "permission": "ScheduledTasks",
       "moduleData": "",
       "granted": true
@@ -757,7 +650,28 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "ServiceActivity",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
       "moduleData": "",
       "granted": true
     },
@@ -771,9 +685,282 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "SteamUpdate",
+      "permission": "Block-SendCommand",
       "moduleData": "",
       "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "GeneralSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "FileSystem",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Cmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "IpAndPorts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Monitoring",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Variables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Scripts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "CustomLinks",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "FeaturePermissions",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "EnvironmentVariables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Limits",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "RconAndQuery",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Paths",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "RunAs",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Steam",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
     },
     {
       "roleId": 2,
@@ -783,121 +970,30 @@
       "granted": false
     },
     {
-      "roleId": 3,
+      "roleId": 2,
       "module": "BpFeature",
-      "permission": "Backups",
+      "permission": "Repair",
       "moduleData": "",
-      "granted": true
+      "granted": false
     },
     {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Compress",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-CreateFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFile",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DeleteFolder",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-DiscordWebhook",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-Extract",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-FtpUpload",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-SendCommand",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-ServiceControl",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
+      "roleId": 2,
       "module": "BpFeature",
       "permission": "Block-SetVariable",
       "moduleData": "",
       "granted": false
     },
     {
-      "roleId": 3,
+      "roleId": 2,
       "module": "BpFeature",
-      "permission": "ConfigFiles",
+      "permission": "Databases",
       "moduleData": "",
       "granted": true
     },
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "CpuStats",
+      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -911,37 +1007,9 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "CustomScripts",
+      "permission": "CpuStats",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 3,
@@ -954,13 +1022,6 @@
       "roleId": 3,
       "module": "BpFeature",
       "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "KillService",
       "moduleData": "",
       "granted": true
     },
@@ -995,21 +1056,7 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
       "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
       "moduleData": "",
       "granted": true
     },
@@ -1023,13 +1070,6 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Repair",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
       "permission": "ScheduledTasks",
       "moduleData": "",
       "granted": true
@@ -1037,7 +1077,56 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "ServiceActivity",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
       "moduleData": "",
       "granted": true
     },
@@ -1051,9 +1140,247 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "SteamUpdate",
+      "permission": "Block-DeleteFile",
       "moduleData": "",
       "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "GeneralSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FileSystem",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Cmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "IpAndPorts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Monitoring",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Variables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Scripts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "CustomLinks",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FeaturePermissions",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "EnvironmentVariables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Limits",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "RconAndQuery",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Paths",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "RunAs",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Steam",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
     },
     {
       "roleId": 3,
@@ -1061,6 +1388,34 @@
       "permission": "Updates",
       "moduleData": "",
       "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
     }
   ],
   "mods": [],
@@ -1072,14 +1427,24 @@
     "failureThreshold": 3,
     "failureAction": "Restart",
     "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
     "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
     "slotDetectionEnabled": true,
     "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
     "additionalAllowedSlots": 0,
     "privateDetectionEnabled": true,
     "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
     "brandDetectionEnabled": true,
     "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
     "brandedText": "",
     "brandedTextAtEnd": false,
     "brandedTextAddSpace": false,
@@ -1122,6 +1487,8 @@
     "syncOnServiceCreate": false,
     "autoSyncOnFileChange": false,
     "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
     "requiresHttps": false,
     "stripPaths": [
       "addons/"
