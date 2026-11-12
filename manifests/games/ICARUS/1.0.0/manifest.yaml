@@ -1,0 +1,48 @@
+identifier: "Community.Games.Icarus"
+name: "ICARUS"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "ICARUS dedicated server (Windows / Linux with Wine) with a settings form, A2S query, graceful save-and-stop and backups; starts out of the box"
+longDescription: |
+  # ICARUS
+  
+  ## Description
+  ICARUS dedicated server (Steam app 2089300, anonymous download). There is no Linux server build, so the Linux config runs the Windows server under Wine.
+  
+  ## Key Features
+  - **Windows and Linux (Wine)** configs.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box.** On Linux a script installs wine, winetricks, Xvfb and xdotool when the host does not have them (apt, dnf or yum).
+  - **Config editor** for `ServerSettings.ini`: server name, join and admin passwords, the start-up prospect (resume, load or create), who may launch or delete prospects, the autosave interval, save on exit and the idle return-to-lobby timers.
+  - **Server-browser query** (A2S on the query port): name and players.
+  - **Graceful stop:** a stop script sends one Ctrl+C to the server (windows-kill on Windows, SIGINT under Wine). The server saves the running prospect and exits.
+  - **Console output** from the server's own console on Windows, from the server log on Linux.
+  - **Log viewer** for `Icarus.log` and its backup copies.
+  - **Backups** of the saves (`Icarus/Saved/PlayerData`) and the server settings. The server is stopped first.
+  - No RCON: the admin commands are typed in the in-game chat.
+  - No mod provider: ICARUS mods are `.pak` files from Nexus Mods or the community mod manager. Upload them to `Icarus/Content/Paks/mods` with the file manager. Every player needs the same files.
+  
+  ## Ports
+  - Game 17777 (UDP): the Steam networking port players connect through. The server opened no socket of its own on it in testing.
+  - Query 27015 (UDP): the server-browser query (A2S). It listens on the service IP.
+  - The service IP is passed with `-MULTIHOME`, so services on different IPs of one server do not clash.
+  
+  ## Instructions
+  - Set an admin password. When it is empty, anyone who types `/AdminLogin` in the chat becomes admin.
+  - Players create or load prospects from the lobby when they connect. The server resumes the last prospect when it starts.
+  - Saves are in `Icarus/Saved/PlayerData/DedicatedServer/Prospects`. To move a prospect from your PC, upload its `.json` there and set "Load this prospect at start-up" to its name.
+  - When nobody is online, the server saves and returns to the lobby after the idle timers (300 s by default). Set them to -1 to keep the prospect running.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/1149460/3600ab7fb8dbc0898116ea1c0365de4f6d285d5a.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1149460/ss_71323ca651735d89764fa9e62c5d1756a9b64d4f.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Wine"
+files:
+  - path: "ICARUS - Windows.json"
+    type: "GameConfig"
+  - path: "ICARUS - Linux Wine.json"
+    type: "GameConfig"
