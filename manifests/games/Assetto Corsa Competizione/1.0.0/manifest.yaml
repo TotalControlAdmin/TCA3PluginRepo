@@ -1,0 +1,49 @@
+identifier: "Community.Games.AssettoCorsaCompetizione"
+name: "Assetto Corsa Competizione"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Assetto Corsa Competizione dedicated server (Windows) with form editors for settings, event, rules and assists, automatic UTF-16 config encoding, ports and slots from the panel, status check, terminal console and backups; download needs a Steam account that owns the game"
+longDescription: |
+  # Assetto Corsa Competizione
+  
+  ## Description
+  Assetto Corsa Competizione dedicated server for Windows (Steam app 1430110). The server is a Steam tool that only an account that **owns Assetto Corsa Competizione** can download: set that account in Settings > Steam (or on the game's Steam tab) before you create a service. Anonymous downloads fail.
+  
+  ## Key Features
+  - **Steam update** on install and from the panel (needs the owning account).
+  - **Config editors:**
+    - `server/cfg/settings.json`: server name, join, spectator and admin passwords, car group, track medal / safety / racecraft requirements, formation lap, race lock, automatic disqualification, results files.
+    - `server/cfg/event.json`: track, pre-race wait, overtime, temperature, clouds, rain and weather changes. The sessions (start hour, day, duration) are edited as text.
+    - `server/cfg/eventRules.json`: mandatory pit stops, pit window, refuelling, tyre change and driver swap rules, stints and drivers per car.
+    - `server/cfg/assistRules.json`: allowed driver assists.
+    - `server/cfg/configuration.json`: lobby listing and LAN discovery.
+    - `server/cfg/entrylist.json` (text): fixed entries and admins.
+  - **UTF-16 config files.** accServer only reads UTF-16 LE files. Before every start, a script rewrites any `server/cfg/*.json` that is not UTF-16 LE with a BOM, so panel edits always reach the server.
+  - **Ports from the panel:** the game port is written to `udpPort`, the TCP port to `tcpPort`, and the service slots to `maxConnections` and `maxCarSlots`. A port change in the service settings rewrites the file.
+  - **Status:** online while accServer listens on its TCP port, with the name and track from the config. ACC has no query protocol, so there is no player count.
+  - **Console** output in the panel terminal. Ctrl+C stops the server.
+  - **Input checks:** names and passwords cannot contain double quotes or backslashes.
+  - **Backups** of the service folder.
+  
+  ## Ports
+  - Game 9231 (UDP, `udpPort`) and 9232 (TCP, `tcpPort`).
+  - accServer has no bind-address setting and listens on every address, so the config uses the server's primary IP only.
+  - LAN discovery is off by default: its port is fixed by the game and cannot be set per service.
+  
+  ## Instructions
+  - Change the settings while the server is stopped.
+  - Type `/admin <admin password>` in the game chat for the admin commands.
+  
+  ## Not yet tested
+  This config was converted from a V2 config without a Steam account that owns the game. Service creation, the config files and their UTF-16 conversion, and port changes were checked; installing, starting, the status check, stopping and the IP binding were not.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/805550/413dfe7829dd6e2776b7daef24c45b6f8f1f9ae5.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/805550/ae39ccca56617ec8e3cf9495e84bee15c9a2dce1/ss_ae39ccca56617ec8e3cf9495e84bee15c9a2dce1.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+files:
+  - path: "Assetto Corsa Competizione - Windows.json"
+    type: "GameConfig"
