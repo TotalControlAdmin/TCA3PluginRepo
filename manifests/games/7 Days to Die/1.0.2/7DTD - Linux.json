@@ -35,7 +35,7 @@
     "logFile": "7DaysToDieServer_Data\\output_log.txt",
     "inputSource": "RconProtocol",
     "printRconResponse": true,
-    "outputFilters": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\s\u002B\\d\u002B\\.\\d\u002B\\s\u002BINF\\s\u002BTelnet connection from:\\s\u002B\\d{1,3}(?:\\.\\d{1,3}){3}:\\d\u002B$\n^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\s\u002B\\d\u002B\\.\\d\u002B\\s\u002BINF\\s\u002BStarted thread\\s\u002BTelnetClient_\\d{1,3}(?:\\.\\d{1,3}){3}:\\d\u002B$\n^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\s\u002B\\d\u002B\\.\\d\u002B\\s\u002BINF\\s\u002BTelnet connection closed:\\s\u002B\\d{1,3}(?:\\.\\d{1,3}){3}:\\d\u002B$\n^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\s\u002B\\d\u002B\\.\\d\u002B\\s\u002BINF\\s\u002BExited thread\\s\u002BTelnetClient_\\d{1,3}(?:\\.\\d{1,3}){3}:\\d\u002B$\n^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\s\u002B\\d\u002B\\.\\d\u002B\\s\u002BINF\\s\u002B(?:Telnet connection from:|Started thread TelnetClient_|Telnet connection closed:|Exited thread TelnetClient_)\\d{1,3}(?:\\.\\d{1,3}){3}:\\d\u002B$",
+    "outputFilters": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\s+\\d+\\.\\d+\\s+INF\\s+Telnet connection from:\\s+\\d{1,3}(?:\\.\\d{1,3}){3}:\\d+$\n^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\s+\\d+\\.\\d+\\s+INF\\s+Started thread\\s+TelnetClient_\\d{1,3}(?:\\.\\d{1,3}){3}:\\d+$\n^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\s+\\d+\\.\\d+\\s+INF\\s+Telnet connection closed:\\s+\\d{1,3}(?:\\.\\d{1,3}){3}:\\d+$\n^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\s+\\d+\\.\\d+\\s+INF\\s+Exited thread\\s+TelnetClient_\\d{1,3}(?:\\.\\d{1,3}){3}:\\d+$\n^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\s+\\d+\\.\\d+\\s+INF\\s+(?:Telnet connection from:|Started thread TelnetClient_|Telnet connection closed:|Exited thread TelnetClient_)\\d{1,3}(?:\\.\\d{1,3}){3}:\\d+$",
     "stopCommand": "shutdown",
     "waitAfterStopCommand": 10000,
     "screenCaptureTitleBar": false,
@@ -143,8 +143,8 @@
         "maxLength": 0,
         "lines": 1,
         "denyCharacters": [
-          "\u003C",
-          "\u003E"
+          "<",
+          ">"
         ],
         "regExValidation": "[a-zA-Z1-9]",
         "inputType": 0,
@@ -295,7 +295,7 @@
         "id": "BedrollDeadZoneSize",
         "defaultValue": "15",
         "label": "Bedroll Dead Zone Size",
-        "description": "Size of bedroll deadzone, no zombies will spawn inside this area, and any cleared sleeper volumes that touch a bedroll deadzone will not spawn after they\u0027ve been cleared.",
+        "description": "Size of bedroll deadzone, no zombies will spawn inside this area, and any cleared sleeper volumes that touch a bedroll deadzone will not spawn after they've been cleared.",
         "required": false,
         "requiredMessage": "",
         "controlType": "DynamicNumericTextBox",
@@ -1789,8 +1789,8 @@
         "maxLength": 0,
         "lines": 1,
         "denyCharacters": [
-          "\u003C",
-          "\u003E"
+          "<",
+          ">"
         ],
         "regExValidation": "",
         "inputType": 0,
@@ -1993,7 +1993,7 @@
         "id": "MaxSpawnedAnimals",
         "defaultValue": "50",
         "label": "Max Spawned Animals",
-        "description": " If your server has a large number of players you can increase this limit to add more wildlife. Animals don\u0027t consume as much CPU as zombies. NOTE: That this doesn\u0027t cause more animals to spawn arbitrarily: The biome spawning system only spawns a certain number of animals in a given area, but if you have lots of players that are all spread out then you may be hitting the limit and can increase it.",
+        "description": " If your server has a large number of players you can increase this limit to add more wildlife. Animals don't consume as much CPU as zombies. NOTE: That this doesn't cause more animals to spawn arbitrarily: The biome spawning system only spawns a certain number of animals in a given area, but if you have lots of players that are all spread out then you may be hitting the limit and can increase it.",
         "required": false,
         "requiredMessage": "",
         "controlType": "DynamicNumericTextBox",
@@ -2071,7 +2071,7 @@
         "id": "MaxUncoveredMapChunksPerPlayer",
         "defaultValue": "131072",
         "label": "Max Uncovered Map Chunks Per Player",
-        "description": "Override how many chunks can be uncovered on the ingame map by each player. Resulting max map file size limit per player is (x * 512 Bytes), uncovered area is (x * 256 m\u00B2). Default 131072 means max 32 km\u00B2 can be uncovered at any time",
+        "description": "Override how many chunks can be uncovered on the ingame map by each player. Resulting max map file size limit per player is (x * 512 Bytes), uncovered area is (x * 256 m²). Default 131072 means max 32 km² can be uncovered at any time",
         "required": false,
         "requiredMessage": "",
         "controlType": "DynamicNumericTextBox",
@@ -2576,15 +2576,15 @@
         "maxLength": 0,
         "lines": 1,
         "denyCharacters": [
-          "\u003C",
-          "\u003E"
+          "<",
+          ">"
         ],
         "regExValidation": "",
         "inputType": 0,
         "id": "ServerLoginConfirmationText",
         "defaultValue": "",
         "label": "Server Login Confirmation Text",
-        "description": "If set the user will see the message during joining the server and has to confirm it before continuing. For more complex changes to this window you can change the \u0022serverjoinrulesdialog\u0022 window in XUi",
+        "description": "If set the user will see the message during joining the server and has to confirm it before continuing. For more complex changes to this window you can change the \"serverjoinrulesdialog\" window in XUi",
         "required": false,
         "valueType": "string",
         "requiredMessage": "",
@@ -2810,7 +2810,7 @@
         "id": "ServerVisibility",
         "defaultValue": "2",
         "label": "Visibility",
-        "description": "Visibility of this server: 2 = public, 1 = only shown to friends, 0 = not listed. As you are never friend of a dedicated server setting this to \u00221\u0022 will only work when the first player connects manually by IP",
+        "description": "Visibility of this server: 2 = public, 1 = only shown to friends, 0 = not listed. As you are never friend of a dedicated server setting this to \"1\" will only work when the first player connects manually by IP",
         "required": false,
         "valueType": "string",
         "requiredMessage": "",
@@ -2873,7 +2873,7 @@
       "name": "TelnetEnabled",
       "defaultValue": "true",
       "required": true,
-      "requiredMessage": "You need to set a value for \u0027Telnet Enabled\u0027",
+      "requiredMessage": "You need to set a value for 'Telnet Enabled'",
       "scriptParameter": false,
       "commandlineParameter": false,
       "saveScriptParameter": false,
@@ -2888,7 +2888,7 @@
         "label": "Enabled",
         "description": "Telnet should always be enabled.",
         "required": false,
-        "requiredMessage": "You need to set a value for \u0027Telnet Enabled\u0027",
+        "requiredMessage": "You need to set a value for 'Telnet Enabled'",
         "controlType": "DynamicCheckBox",
         "sm": 6,
         "xs": 12,
@@ -2980,8 +2980,8 @@
         "maxLength": 0,
         "lines": 0,
         "denyCharacters": [
-          "\u003C",
-          "\u003E"
+          "<",
+          ">"
         ],
         "regExValidation": "",
         "inputType": 0,
@@ -3100,8 +3100,8 @@
         "maxLength": 64,
         "lines": 1,
         "denyCharacters": [
-          "\u003C",
-          "\u003E"
+          "<",
+          ">"
         ],
         "regExValidation": "[a-zA-Z1-9]",
         "inputType": 0,
@@ -3233,7 +3233,7 @@
         "id": "WebDashboardUrl",
         "defaultValue": "",
         "label": "Web Dashboard URL",
-        "description": "External URL to the web dashboard if not just using the public IP of the server, e.g. if the web dashboard is behind a reverse proxy. Needs to be the full URL, like \u0022https://domainOfReverseProxy.tld:1234/\u0022. Can be left empty if directly using the public IP and dashboard port",
+        "description": "External URL to the web dashboard if not just using the public IP of the server, e.g. if the web dashboard is behind a reverse proxy. Needs to be the full URL, like \"https://domainOfReverseProxy.tld:1234/\". Can be left empty if directly using the public IP and dashboard port",
         "required": false,
         "valueType": "string",
         "requiredMessage": "",
@@ -3299,8 +3299,8 @@
         "maxLength": 0,
         "lines": 1,
         "denyCharacters": [
-          "\u003C",
-          "\u003E"
+          "<",
+          ">"
         ],
         "regExValidation": "",
         "inputType": 0,
@@ -3667,14 +3667,140 @@
           "roleId": 3
         }
       ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\<&]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, < or &, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:23:22.244233",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\<&]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, < or &, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:23:23.592115",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\<&]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, < or &, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:23:24.954719",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     }
   ],
   "configFiles": [
     {
       "id": 59,
       "relativePath": "Saves\\serveradmincustom.xml",
-      "description": "Ready to go with all permissions, won\u0027t be overwritten.",
-      "template": "\u003CadminTools\u003E\n\t\u003Cadmins\u003E\n\t\t\u003C!-- \u003Cadmin steamID=\u0022add Guid\u0022 permission_level=\u00220\u0022 /\u003E --\u003E\n\t\t\u003C!-- \u003Cadmin steamID=\u0022add Guid\u0022 permission_level=\u00220\u0022 /\u003E --\u003E\n\t\u003C/admins\u003E\n\n\t\u003Cmoderators\u003E\n\t\t\u003C!-- \u003Cmoderator steamID=\u0022add Guid permission_level=\u00221\u0022 /\u003E --\u003E\n\t\t\u003C!-- \u003Cmoderator steamID=\u0022add Guid\u0022 permission_level=\u00221\u0022 /\u003E --\u003E\n\t\u003C/moderators\u003E\n\n\t\u003Cpermissions\u003E\n\t\t\u003Cpermission cmd=\u0022dm\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- debugmenu enables/disables the debugmenu (param=on|off) --\u003E\n\t\t\u003Cpermission cmd=\u0022mem\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- Prints memory information and calls garbage collector --\u003E\n\t\t\u003Cpermission cmd=\u0022sounddebug\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- Toggles SoundManager debug output. --\u003E\n\t\t\u003Cpermission cmd=\u0022admin\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- admin control (admin add \u003Cname\u003E \u003Clevel\u003E, admin remove \u003Cname\u003E, admin update \u003Cname\u003E \u003Clevel\u003E) --\u003E\n\t\t\u003Cpermission cmd=\u0022mod\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- mod control (mod add \u003Cname\u003E \u003Clevel\u003E, mod remove \u003Cname\u003E, mod update \u003Cname\u003E \u003Clevel\u003E --\u003E\n\t\t\u003Cpermission cmd=\u0022cp\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- command permission control (cp add \u003Ccommand\u003E \u003Clevel\u003E, cp remove \u003Ccommand\u003E, cp update \u003Ccommand\u003E \u003Clevel\u003E) --\u003E\n\t\t\u003Cpermission cmd=\u0022whitelist\u0022 permission_level=\u00221\u0022 /\u003E \u003C!-- whitelist control (whitelist add \u003Cname\u003E \u003Clevel\u003E, whitelist remove \u003Cname\u003E, whitelist update \u003Cname\u003E \u003Clevel\u003E) --\u003E\n\t\t\u003Cpermission cmd=\u0022kick\u0022 permission_level=\u00221\u0022 /\u003E \u003C!-- Kicks user with optional reason (kick \u003Cname\u003E \u003Creason\u003E) --\u003E\n\t\t\u003Cpermission cmd=\u0022ban\u0022 permission_level=\u00221\u0022 /\u003E \u003C!-- Bans user for x timeframe (ban \u003Cname\u003E \u003Ctime\u003E \u003Ctimeframes\u003E, timeframes allowed: x minutes, x hours, x days, x weeks, x months, x years) --\u003E\n\t\t\u003Cpermission cmd=\u0022say\u0022 permission_level=\u00221\u0022 /\u003E \u003C!-- Sends a message to all connected clients --\u003E\n\t\t\u003Cpermission cmd=\u0022lt\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- listthreads lists all threads --\u003E\n\t\t\u003Cpermission cmd=\u0022es\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- enablescope toggle debug scope --\u003E\n\t\t\u003Cpermission cmd=\u0022go\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- gameover sets the game state to GameOver --\u003E\n\t\t\u003Cpermission cmd=\u0022sg\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- setgamepref sets a game pref --\u003E\n\t\t\u003Cpermission cmd=\u0022shutdown\u0022 permission_level=\u00221\u0022 /\u003E \u003C!-- shuts down the game --\u003E\n\t\t\u003Cpermission cmd=\u0022se\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- spawnentity spawns an entity --\u003E\n\t\t\u003Cpermission cmd=\u0022st\u0022 permission_level=\u00221\u0022 /\u003E \u003C!-- settime sets the time --\u003E\n\t\t\u003Cpermission cmd=\u0022aiddebug\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- Toggles AIDirector debug output. --\u003E\n\t\t\u003Cpermission cmd=\u0022spawnwanderinghorde\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- Spawns a wandering horde of zombies --\u003E\n\t\t\u003Cpermission cmd=\u0022le\u0022 permission_level=\u00221\u0022 /\u003E \u003C!-- listents lists all entities --\u003E\n\t\t\u003Cpermission cmd=\u0022lp\u0022 permission_level=\u00221\u0022 /\u003E \u003C!-- listplayers lists all players --\u003E\n\t\t\u003Cpermission cmd=\u0022cc\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- chunkcache shows all loaded chunks in cache --\u003E\n\t\t\u003Cpermission cmd=\u0022sc\u0022 permission_level=\u00220\u0022 /\u003E \u003C!-- showchunkdata shows some date of the current chunk --\u003E\n\t\u003C/permissions\u003E\n\n\t\u003C!-- ONLY PUT ITEMS IN WHITELIST IF YOU WANT WHITELIST ONLY ENABLED!!! --\u003E\n\t\u003C!-- If there are any items in the whitelist, the whitelist only mode is enabled --\u003E\n\t\u003C!-- Nobody can join that ISN\u0027T in the whitelist once whitelist only mode is enabled --\u003E\n\n\t\u003Cwhitelist\u003E\n\t\t\u003C!-- \u003Cwhitelisted steamID=\u0022\u0022 permission_level=\u0022\u0022 /\u003E --\u003E\n\t\u003C/whitelist\u003E\n\n\t\u003Cblacklist\u003E\n\t\t\u003C!-- \u003Cblacklisted steamID=\u0022\u0022 unbandate=\u0022\u0022 /\u003E --\u003E\n\t\u003C/blacklist\u003E\n\u003C/adminTools\u003E",
+      "description": "Ready to go with all permissions, won't be overwritten.",
+      "template": "<adminTools>\n\t<admins>\n\t\t<!-- <admin steamID=\"add Guid\" permission_level=\"0\" /> -->\n\t\t<!-- <admin steamID=\"add Guid\" permission_level=\"0\" /> -->\n\t</admins>\n\n\t<moderators>\n\t\t<!-- <moderator steamID=\"add Guid permission_level=\"1\" /> -->\n\t\t<!-- <moderator steamID=\"add Guid\" permission_level=\"1\" /> -->\n\t</moderators>\n\n\t<permissions>\n\t\t<permission cmd=\"dm\" permission_level=\"0\" /> <!-- debugmenu enables/disables the debugmenu (param=on|off) -->\n\t\t<permission cmd=\"mem\" permission_level=\"0\" /> <!-- Prints memory information and calls garbage collector -->\n\t\t<permission cmd=\"sounddebug\" permission_level=\"0\" /> <!-- Toggles SoundManager debug output. -->\n\t\t<permission cmd=\"admin\" permission_level=\"0\" /> <!-- admin control (admin add <name> <level>, admin remove <name>, admin update <name> <level>) -->\n\t\t<permission cmd=\"mod\" permission_level=\"0\" /> <!-- mod control (mod add <name> <level>, mod remove <name>, mod update <name> <level> -->\n\t\t<permission cmd=\"cp\" permission_level=\"0\" /> <!-- command permission control (cp add <command> <level>, cp remove <command>, cp update <command> <level>) -->\n\t\t<permission cmd=\"whitelist\" permission_level=\"1\" /> <!-- whitelist control (whitelist add <name> <level>, whitelist remove <name>, whitelist update <name> <level>) -->\n\t\t<permission cmd=\"kick\" permission_level=\"1\" /> <!-- Kicks user with optional reason (kick <name> <reason>) -->\n\t\t<permission cmd=\"ban\" permission_level=\"1\" /> <!-- Bans user for x timeframe (ban <name> <time> <timeframes>, timeframes allowed: x minutes, x hours, x days, x weeks, x months, x years) -->\n\t\t<permission cmd=\"say\" permission_level=\"1\" /> <!-- Sends a message to all connected clients -->\n\t\t<permission cmd=\"lt\" permission_level=\"0\" /> <!-- listthreads lists all threads -->\n\t\t<permission cmd=\"es\" permission_level=\"0\" /> <!-- enablescope toggle debug scope -->\n\t\t<permission cmd=\"go\" permission_level=\"0\" /> <!-- gameover sets the game state to GameOver -->\n\t\t<permission cmd=\"sg\" permission_level=\"0\" /> <!-- setgamepref sets a game pref -->\n\t\t<permission cmd=\"shutdown\" permission_level=\"1\" /> <!-- shuts down the game -->\n\t\t<permission cmd=\"se\" permission_level=\"0\" /> <!-- spawnentity spawns an entity -->\n\t\t<permission cmd=\"st\" permission_level=\"1\" /> <!-- settime sets the time -->\n\t\t<permission cmd=\"aiddebug\" permission_level=\"0\" /> <!-- Toggles AIDirector debug output. -->\n\t\t<permission cmd=\"spawnwanderinghorde\" permission_level=\"0\" /> <!-- Spawns a wandering horde of zombies -->\n\t\t<permission cmd=\"le\" permission_level=\"1\" /> <!-- listents lists all entities -->\n\t\t<permission cmd=\"lp\" permission_level=\"1\" /> <!-- listplayers lists all players -->\n\t\t<permission cmd=\"cc\" permission_level=\"0\" /> <!-- chunkcache shows all loaded chunks in cache -->\n\t\t<permission cmd=\"sc\" permission_level=\"0\" /> <!-- showchunkdata shows some date of the current chunk -->\n\t</permissions>\n\n\t<!-- ONLY PUT ITEMS IN WHITELIST IF YOU WANT WHITELIST ONLY ENABLED!!! -->\n\t<!-- If there are any items in the whitelist, the whitelist only mode is enabled -->\n\t<!-- Nobody can join that ISN'T in the whitelist once whitelist only mode is enabled -->\n\n\t<whitelist>\n\t\t<!-- <whitelisted steamID=\"\" permission_level=\"\" /> -->\n\t</whitelist>\n\n\t<blacklist>\n\t\t<!-- <blacklisted steamID=\"\" unbandate=\"\" /> -->\n\t</blacklist>\n</adminTools>",
       "order": 0,
       "enableEditor": true,
       "editor": []
@@ -3683,7 +3809,7 @@
       "id": 60,
       "relativePath": "serverconfigmain.xml",
       "description": "Main Server Config",
-      "template": "\u003C?xml version=\u00221.0\u0022?\u003E\n\u003CServerSettings\u003E\n\t\u003C!-- GENERAL SERVER SETTINGS --\u003E\n\n\t\u003C!-- Server representation --\u003E\n\t\u003Cproperty name=\u0022ServerName\u0022\t\t\t\t\t\tvalue=\u0022${Hostname}\u0022/\u003E\t\t\u003C!-- Whatever you want the name of the server to be. --\u003E\n\t\u003Cproperty name=\u0022ServerDescription\u0022\t\t\t\tvalue=\u0022${Description}\u0022/\u003E\t\u003C!-- Whatever you want the server description to be, will be shown in the server browser. --\u003E\n\t\u003Cproperty name=\u0022ServerWebsiteURL\u0022\t\t\t\tvalue=\u0022${WebSite}\u0022/\u003E\t\t\t\t\t\u003C!-- Website URL for the server, will be shown in the serverbrowser as a clickable link --\u003E\n\t\u003Cproperty name=\u0022ServerPassword\u0022\t\t\t\t\tvalue=\u0022${PrivatePassword}\u0022/\u003E\t\t\t\t\t\u003C!-- Password to gain entry to the server --\u003E\n\t\u003Cproperty name=\u0022ServerLoginConfirmationText\u0022\tvalue=\u0022${ServerLoginConfirmationText}\u0022 /\u003E\t\t\t\t\t\u003C!-- If set the user will see the message during joining the server and has to confirm it before continuing. For more complex changes to this window you can change the \u0022serverjoinrulesdialog\u0022 window in XUi --\u003E\n\n\t\u003C!-- Networking --\u003E\n\t\u003Cproperty name=\u0022ServerPort\u0022\t\t\t\t\t\tvalue=\u0022${GamePort}\u0022/\u003E\t\t\t\t\u003C!-- Port you want the server to listen on. Keep it in the ranges 26900 to 26905 or 27015 to 27020 if you want PCs on the same LAN to find it as a LAN server. --\u003E\n\t\u003Cproperty name=\u0022ServerVisibility\u0022\t\t\t\tvalue=\u0022${ServerVisibility}\u0022/\u003E\t\t\t\t\t\u003C!-- Visibility of this server: 2 = public, 1 = only shown to friends, 0 = not listed. As you are never friend of a dedicated server setting this to \u00221\u0022 will only work when the first player connects manually by IP. --\u003E\n\t\u003Cproperty name=\u0022ServerDisabledNetworkProtocols\u0022\tvalue=\u0022${ServerDisabledNetworkProtocols}\u0022/\u003E\t\u003C!-- Networking protocols that should not be used. Separated by comma. Possible values: LiteNetLib, SteamNetworking. Dedicated servers should disable SteamNetworking if there is no NAT router in between your users and the server or when port-forwarding is set up correctly --\u003E\n\t\u003Cproperty name=\u0022ServerMaxWorldTransferSpeedKiBs\u0022 value=\u0022${ServerMaxWorldTransferSpeedKiBs}\u0022/\u003E\t\t\t\t\u003C!-- Maximum (!) speed in kiB/s the world is transferred at to a client on first connect if it does not have the world yet. Maximum is about 1300 kiB/s, even if you set a higher value. --\u003E\n\n\t\u003C!-- Slots --\u003E\n\t\u003Cproperty name=\u0022ServerMaxPlayerCount\u0022\t\t\tvalue=\u0022${Slots}\u0022/\u003E\t\t\t\t\t\u003C!-- Maximum Concurrent Players --\u003E\n\t\u003Cproperty name=\u0022ServerReservedSlots\u0022\t\t\tvalue=\u0022${ServerReservedSlots}\u0022/\u003E\t\t\t\t\t\u003C!-- Out of the MaxPlayerCount this many slots can only be used by players with a specific permission level --\u003E\n\t\u003Cproperty name=\u0022ServerReservedSlotsPermission\u0022\tvalue=\u0022${ServerReservedSlotsPermission}\u0022/\u003E\t\t\t\t\u003C!-- Required permission level to use reserved slots above --\u003E\n\t\u003Cproperty name=\u0022ServerAdminSlots\u0022\t\t\t\tvalue=\u0022${ServerAdminSlots}\u0022/\u003E\t\t\t\t\t\u003C!-- This many admins can still join even if the server has reached MaxPlayerCount --\u003E\n\t\u003Cproperty name=\u0022ServerAdminSlotsPermission\u0022\t\tvalue=\u0022${ServerAdminSlotsPermission}\u0022/\u003E\t\t\t\t\t\u003C!-- Required permission level to use the admin slots above --\u003E\n\n        \u003C!-- Admin interfaces --\u003E\n\t\u003Cproperty name=\u0022WebDashboardEnabled\u0022\t\t\tvalue=\u0022${WebDashboardEnabled}\u0022/\u003E\t\t\t\t\u003C!-- Enable/disable the web dashboard --\u003E\n\t\u003Cproperty name=\u0022WebDashboardPort\u0022\t\t\t\tvalue=\u0022${DashboardPort}\u0022/\u003E\t\t\t\t            \u003C!-- Port of the web dashboard --\u003E\n\t\u003Cproperty name=\u0022WebDashboardUrl\u0022\t\t\t\tvalue=\u0022${WebDashboardUrl}\u0022/\u003E\t\t\t\t\t\u003C!-- External URL to the web dashboard if not just using the public IP of the server, e.g. if the web dashboard is behind a reverse proxy. Needs to be the full URL, like \u0022https://domainOfReverseProxy.tld:1234/\u0022. Can be left empty if directly using the public IP and dashboard port --\u003E\n\t\u003Cproperty name=\u0022EnableMapRendering\u0022\t\t\t\tvalue=\u0022${EnableMapRendering}\u0022/\u003E\t\t\t\t\u003C!-- Enable/disable rendering of the map to tile images while exploring it. This is used e.g. by the web dashboard to display a view of the map. --\u003E\n\t\n        \u003Cproperty name=\u0022TelnetEnabled\u0022\t\t\t\t\tvalue=\u0022${TelnetEnabled}\u0022/\u003E\t\t\t\t\u003C!-- Enable/Disable the telnet --\u003E\n\t\u003Cproperty name=\u0022TelnetPort\u0022\t\t\t\t\t\tvalue=\u0022${TelnetPort}\u0022/\u003E\t\t\t\t\u003C!-- Port of the telnet server --\u003E\n\t\u003Cproperty name=\u0022TelnetPassword\u0022\t\t\t\t\tvalue=\u0022${RconPassword}\u0022/\u003E\t\t\t\t\t\u003C!-- Password to gain entry to telnet interface. If no password is set the server will only listen on the local loopback interface --\u003E\n\t\u003Cproperty name=\u0022TelnetFailedLoginLimit\u0022\t\t\tvalue=\u0022${TelnetFailedLoginLimit}\u0022/\u003E\t\t\t\t\u003C!-- After this many wrong passwords from a single remote client the client will be blocked from connecting to the Telnet interface --\u003E\n\t\u003Cproperty name=\u0022TelnetFailedLoginsBlocktime\u0022\tvalue=\u0022${TelnetFailedLoginsBlocktime}\u0022/\u003E\t\t\t\t\u003C!-- How long will the block persist (in seconds) --\u003E\n\n\t\u003Cproperty name=\u0022TerminalWindowEnabled\u0022\t\t\tvalue=\u0022true\u0022/\u003E\t\t\t\t\u003C!-- Show a terminal window for log output / command input (Windows only) --\u003E\n\n\t\u003C!-- Folder and file locations --\u003E\n\t\u003Cproperty name=\u0022AdminFileName\u0022\t\t\t\t\tvalue=\u0022${AdminFileName}\u0022/\u003E\t\u003C!-- Server admin file name. Path relative to the SaveGameFolder --\u003E\n\t\u003Cproperty name=\u0022UserDataFolder\u0022\t\t\t\tvalue=\u0022${RootDirectory}\u0022 /\u003E\t\u003C!-- Use this to override where the server stores all generated data, including RWG generated worlds. Do not forget to uncomment the entry! --\u003E\n\n\t\u003C!-- Other technical settings --\u003E\n\t\u003Cproperty name=\u0022EACEnabled\u0022\t\t\t\t\t\tvalue=\u0022${EACEnabled}\u0022/\u003E\t\t\t\t\u003C!-- Enables/Disables EasyAntiCheat --\u003E\n\t\u003Cproperty name=\u0022IgnoreEOSSanctions\u0022\t\t\t\tvalue=\u0022${IgnoreEOSSanctions}\u0022/\u003E\t\t\t\t\u003C!-- Ignore EOS sanctions when allowing players to join --\u003E\n\t\u003Cproperty name=\u0022HideCommandExecutionLog\u0022\t\tvalue=\u0022${HideCommandExecutionLog}\u0022/\u003E\t\t\t\t\t\u003C!-- Hide logging of command execution. 0 = show everything, 1 = hide only from Telnet/ControlPanel, 2 = also hide from remote game clients, 3 = hide everything --\u003E\n\t\u003Cproperty name=\u0022MaxUncoveredMapChunksPerPlayer\u0022\tvalue=\u0022${MaxUncoveredMapChunksPerPlayer}\u0022/\u003E\t\t\t\u003C!-- Override how many chunks can be uncovered on the ingame map by each player. Resulting max map file size limit per player is (x * 512 Bytes), uncovered area is (x * 256 m2). Default 131072 means max 32 km2 can be uncovered at any time --\u003E\n\t\u003Cproperty name=\u0022PersistentPlayerProfiles\u0022\t\tvalue=\u0022${PersistentPlayerProfiles}\u0022 /\u003E\t\t\t\u003C!-- If disabled a player can join with any selected profile. If true they will join with the last profile they joined with --\u003E\n\n\n\n\t\u003C!-- GAMEPLAY --\u003E\n\t\n\t\u003C!-- World --\u003E\n\t\u003Cproperty name=\u0022GameWorld\u0022\t\t\t\t\t\tvalue=\u0022${GameWorld}\u0022/\u003E\t\t\t\u003C!-- \u0022RWG\u0022 (see WorldGenSeed and WorldGenSize options below) or any already existing world name in the Worlds folder (currently shipping with e.g. \u0022Navezgane\u0022, \u0022PREGEN01\u0022, ...) --\u003E\n\t\u003Cproperty name=\u0022WorldGenSeed\u0022\t\t\t\t\tvalue=\u0022${WorldGenSeed}\u0022/\u003E\t\t\t\t\u003C!-- If RWG this is the seed for the generation of the new world. If a world with the resulting name already exists it will simply load it --\u003E\n\t\u003Cproperty name=\u0022WorldGenSize\u0022\t\t\t\t\tvalue=\u0022${WorldGenSize}\u0022/\u003E\t\t\t\t\u003C!-- If RWG this controls the width and height of the created world. It is also used in combination with WorldGenSeed to create the internal RWG seed thus also creating a unique map name even if using the same WorldGenSeed. Has to be a multiple of 2048 between 2048 and 16384, though large map sizes will take long to generate / download / load --\u003E\n\t\u003Cproperty name=\u0022GameName\u0022\t\t\t\t\t\tvalue=\u0022${GameName}\u0022/\u003E\t\t\t\u003C!-- Whatever you want the game name to be. This affects the save game name as well as the seed used when placing decoration (trees etc) in the world. It does not control the generic layout of the world if creating an RWG world --\u003E\n\t\u003Cproperty name=\u0022GameMode\u0022\t\t\t\t\t\tvalue=\u0022${GameMode}\u0022/\u003E\t\u003C!-- GameModeSurvival --\u003E\n\n\t\u003C!-- Difficulty --\u003E\n\t\u003Cproperty name=\u0022GameDifficulty\u0022\t\t\t\t\tvalue=\u0022${GameDifficulty}\u0022/\u003E\t\t\t\t\t\u003C!-- 0 - 5, 0=easiest, 5=hardest --\u003E\n\t\u003Cproperty name=\u0022BlockDamagePlayer\u0022\t\t\t\tvalue=\u0022${BlockDamagePlayer}\u0022 /\u003E\t\t\t\t\u003C!-- How much damage do players to blocks (percentage in whole numbers) --\u003E\n\t\u003Cproperty name=\u0022BlockDamageAI\u0022\t\t\t\t\tvalue=\u0022${BlockDamageAI}\u0022 /\u003E\t\t\t\t\u003C!-- How much damage do AIs to blocks (percentage in whole numbers) --\u003E\n\t\u003Cproperty name=\u0022BlockDamageAIBM\u0022\t\t\t\tvalue=\u0022${BlockDamageAIBM}\u0022 /\u003E\t\t\t\t\u003C!-- How much damage do AIs during blood moons to blocks (percentage in whole numbers) --\u003E\n\t\u003Cproperty name=\u0022XPMultiplier\u0022\t\t\t\t\tvalue=\u0022${XPMultiplier}\u0022 /\u003E\t\t\t\t\u003C!-- XP gain multiplier (percentage in whole numbers) --\u003E\n\t\u003Cproperty name=\u0022PlayerSafeZoneLevel\u0022\t\t\tvalue=\u0022${PlayerSafeZoneLevel}\u0022 /\u003E\t\t\t\t\u003C!-- If a player is less or equal this level he will create a safe zone (no enemies) when spawned --\u003E\n\t\u003Cproperty name=\u0022PlayerSafeZoneHours\u0022\t\t\tvalue=\u0022${PlayerSafeZoneHours}\u0022 /\u003E\t\t\t\t\u003C!-- Hours in world time this safe zone exists --\u003E\n\n\t\u003C!--  --\u003E\n\t\u003Cproperty name=\u0022BuildCreate\u0022\t\t\t\t\tvalue=\u0022${BuildCreate}\u0022 /\u003E\t\t\t\u003C!-- cheat mode on/off --\u003E\n\t\u003Cproperty name=\u0022DayNightLength\u0022\t\t\t\t\tvalue=\u0022${DayNightLength}\u0022 /\u003E\t\t\t\t\u003C!-- real time minutes per in game day: 60 minutes --\u003E\n\t\u003Cproperty name=\u0022DayLightLength\u0022\t\t\t\t\tvalue=\u0022${DayLightLength}\u0022 /\u003E\t\t\t\t\u003C!-- in game hours the sun shines per day: 18 hours day light per in game day --\u003E\n\t\u003Cproperty name=\u0022DropOnDeath\u0022\t\t\t\t\tvalue=\u0022${DropOnDeath}\u0022 /\u003E\t\t\t\t\u003C!-- 0 = nothing, 1 = everything, 2 = toolbelt only, 3 = backpack only, 4 = delete all --\u003E\n\t\u003Cproperty name=\u0022DropOnQuit\u0022\t\t\t\t\t\tvalue=\u0022${DropOnQuit}\u0022 /\u003E\t\t\t\t\u003C!-- 0 = nothing, 1 = everything, 2 = toolbelt only, 3 = backpack only --\u003E\n\t\u003Cproperty name=\u0022BedrollDeadZoneSize\u0022\t\t\tvalue=\u0022${BedrollDeadZoneSize}\u0022 /\u003E\t\t\t\t\u003C!-- Size (box \u0022radius\u0022, so a box with 2 times the given value for each side\u0027s length) of bedroll deadzone, no zombies will spawn inside this area, and any cleared sleeper volumes that touch a bedroll deadzone will not spawn after they\u0027ve been cleared. --\u003E\n\t\u003Cproperty name=\u0022BedrollExpiryTime\u0022\t\t\t\tvalue=\u0022${BedrollExpiryTime}\u0022 /\u003E\t\t\t\t\u003C!-- Number of days a bedroll stays active after owner was last online --\u003E\n\t\u003Cproperty name=\u0022AllowSpawnNearBackpack\u0022\t\t\tvalue=\u0022${AllowSpawnNearBackpack}\u0022/\u003E\t\t\t\t\u003C!-- Allow players to respawn near their last dropped backpack when they die --\u003E\n\n\t\u003C!-- Performance related --\u003E\n\t\u003Cproperty name=\u0022MaxSpawnedZombies\u0022\t\t\t\tvalue=\u0022${MaxSpawnedZombies}\u0022 /\u003E\t\t\t\t\u003C!-- This setting covers the entire map. There can only be this many zombies on the entire map at one time. Changing this setting has a huge impact on performance. --\u003E\n\t\u003Cproperty name=\u0022MaxSpawnedAnimals\u0022\t\t\t\tvalue=\u0022${MaxSpawnedAnimals}\u0022 /\u003E\t\t\t\t\u003C!-- If your server has a large number of players you can increase this limit to add more wildlife. Animals don\u0027t consume as much CPU as zombies. NOTE: That this doesn\u0027t cause more animals to spawn arbitrarily: The biome spawning system only spawns a certain number of animals in a given area, but if you have lots of players that are all spread out then you may be hitting the limit and can increase it. --\u003E\n\t\u003Cproperty name=\u0022ServerMaxAllowedViewDistance\u0022\tvalue=\u0022${ServerMaxAllowedViewDistance}\u0022 /\u003E\t\t\t\t\u003C!-- Max viewdistance a client may request (6 - 12). High impact on memory usage and performance. --\u003E\n\t\u003Cproperty name=\u0022MaxQueuedMeshLayers\u0022\t\t\tvalue=\u0022${MaxQueuedMeshLayers}\u0022 /\u003E\t\t\t   \u003C!-- Maximum amount of Chunk mesh layers that can be enqueued during mesh generation. Reducing this will improve memory usage but may increase Chunk generation time --\u003E\n\n\t\u003C!-- Zombie settings --\u003E\n\t\u003Cproperty name=\u0022EnemySpawnMode\u0022\t\t\t\t\tvalue=\u0022${EnemySpawnMode}\u0022 /\u003E\t\t\t\t\u003C!-- Enable/Disable enemy spawning --\u003E\n\t\u003Cproperty name=\u0022EnemyDifficulty\u0022\t\t\t\tvalue=\u0022${EnemyDifficulty}\u0022 /\u003E\t\t\t\t\u003C!-- 0 = Normal, 1 = Feral --\u003E\n\t\u003Cproperty name=\u0022ZombieFeralSense\u0022\t\t\t\tvalue=\u0022${ZombieFeralSense}\u0022 /\u003E\t\t\t\t\u003C!-- 0-3 (Off, Day, Night, All) --\u003E\n\t\u003Cproperty name=\u0022ZombieMove\u0022\t\t\t\t\t\tvalue=\u0022${ZombieMove}\u0022 /\u003E\t\t\t\t\u003C!-- 0-4 (walk, jog, run, sprint, nightmare) --\u003E\n\t\u003Cproperty name=\u0022ZombieMoveNight\u0022\t\t\t\tvalue=\u0022${ZombieMoveNight}\u0022 /\u003E\t\t\t\t\u003C!-- 0-4 (walk, jog, run, sprint, nightmare) --\u003E\n\t\u003Cproperty name=\u0022ZombieFeralMove\u0022\t\t\t\tvalue=\u0022${ZombieFeralMove}\u0022 /\u003E\t\t\t\t\u003C!-- 0-4 (walk, jog, run, sprint, nightmare) --\u003E\n\t\u003Cproperty name=\u0022ZombieBMMove\u0022\t\t\t\t\tvalue=\u0022${ZombieBMMove}\u0022 /\u003E\t\t\t\t\u003C!-- 0-4 (walk, jog, run, sprint, nightmare) --\u003E\n\t\u003Cproperty name=\u0022BloodMoonFrequency\u0022\t\t\t\tvalue=\u0022${BloodMoonFrequency}\u0022 /\u003E\t\t\t\t\u003C!-- What frequency (in days) should a blood moon take place. Set to \u00220\u0022 for no blood moons --\u003E\n\t\u003Cproperty name=\u0022BloodMoonRange\u0022\t\t\t\t\tvalue=\u0022${BloodMoonRange}\u0022 /\u003E\t\t\t\t\u003C!-- How many days can the actual blood moon day randomly deviate from the above setting. Setting this to 0 makes blood moons happen exactly each Nth day as specified in BloodMoonFrequency --\u003E\n\t\u003Cproperty name=\u0022BloodMoonWarning\u0022\t\t\t\tvalue=\u0022${BloodMoonWarning}\u0022 /\u003E\t\t\t\t\u003C!-- The Hour number that the red day number begins on a blood moon day. Setting this to -1 makes the red never show.  --\u003E\n\t\u003Cproperty name=\u0022BloodMoonEnemyCount\u0022\t\t\tvalue=\u0022${BloodMoonEnemyCount}\u0022 /\u003E\t\t\t\t\u003C!-- This is the number of zombies that can be alive (spawned at the same time) at any time PER PLAYER during a blood moon horde, however, MaxSpawnedZombies overrides this number in multiplayer games. Also note that your game stage sets the max number of zombies PER PARTY. Low game stage values can result in lower number of zombies than the BloodMoonEnemyCount setting. Changing this setting has a huge impact on performance. --\u003E\n\n\t\u003C!-- Loot --\u003E\n\t\u003Cproperty name=\u0022LootAbundance\u0022\t\t\t\t\tvalue=\u0022${LootAbundance}\u0022 /\u003E\t\t\t\t\u003C!-- percentage in whole numbers --\u003E\n\t\u003Cproperty name=\u0022LootRespawnDays\u0022\t\t\t\tvalue=\u0022${LootRespawnDays}\u0022 /\u003E\t\t\t\t\u003C!-- days in whole numbers --\u003E\n\t\u003Cproperty name=\u0022AirDropFrequency\u0022\t\t\t\tvalue=\u0022${AirDropFrequency}\u0022/\u003E\t\t\t\t\u003C!-- How often airdrop occur in game-hours, 0 == never --\u003E\n\t\u003Cproperty name=\u0022AirDropMarker\u0022\t\t\t\t\tvalue=\u0022${AirDropMarker}\u0022/\u003E\t\t\t\t\u003C!-- Sets if a marker is added to map/compass for air drops. --\u003E\n\n\t\u003C!-- Multiplayer --\u003E\n\t\u003Cproperty name=\u0022PartySharedKillRange\u0022\t\t\tvalue=\u0022${PartySharedKillRange}\u0022/\u003E\t\t\t\t\u003C!-- The distance you must be within to receive party shared kill xp and quest party kill objective credit. --\u003E\n\t\u003Cproperty name=\u0022PlayerKillingMode\u0022\t\t\t\tvalue=\u0022${PlayerKillingMode}\u0022 /\u003E\t\t\t\t\u003C!-- Player Killing Settings (0 = No Killing, 1 = Kill Allies Only, 2 = Kill Strangers Only, 3 = Kill Everyone) --\u003E\n\n\t\u003C!-- Land claim options --\u003E\n\t\u003Cproperty name=\u0022LandClaimCount\u0022\t\t\t\t\tvalue=\u0022${LandClaimCount}\u0022/\u003E\t\t\t\t\t\u003C!-- Maximum allowed land claims per player. --\u003E\n\t\u003Cproperty name=\u0022LandClaimSize\u0022\t\t\t\t\tvalue=\u0022${LandClaimSize}\u0022/\u003E\t\t\t\t\u003C!-- Size in blocks that is protected by a keystone --\u003E\n\t\u003Cproperty name=\u0022LandClaimDeadZone\u0022\t\t\t\tvalue=\u0022${LandClaimDeadZone}\u0022/\u003E\t\t\t\t\u003C!-- Keystones must be this many blocks apart (unless you are friends with the other player) --\u003E\n\t\u003Cproperty name=\u0022LandClaimExpiryTime\u0022\t\t\tvalue=\u0022${LandClaimExpiryTime}\u0022/\u003E\t\t\t\t\t\u003C!-- The number of days a player can be offline before their claims expire and are no longer protected --\u003E\n\t\u003Cproperty name=\u0022LandClaimDecayMode\u0022\t\t\t\tvalue=\u0022${LandClaimDecayMode}\u0022/\u003E\t\t\t\t\t\u003C!-- Controls how offline players land claims decay. 0=Slow (Linear) , 1=Fast (Exponential), 2=None (Full protection until claim is expired). --\u003E\n\t\u003Cproperty name=\u0022LandClaimOnlineDurabilityModifier\u0022\tvalue=\u0022${LandClaimOnlineDurabilityModifier}\u0022/\u003E\t\t\t\t\u003C!-- How much protected claim area block hardness is increased when a player is online. 0 means infinite (no damage will ever be taken). Default is 4x --\u003E\n\t\u003Cproperty name=\u0022LandClaimOfflineDurabilityModifier\u0022\tvalue=\u0022${LandClaimOfflineDurabilityModifier}\u0022/\u003E\t\t\t\t\u003C!-- How much protected claim area block hardness is increased when a player is offline. 0 means infinite (no damage will ever be taken). Default is 4x --\u003E\n\t\u003Cproperty name=\u0022LandClaimOfflineDelay\u0022\t\t\tvalue=\u0022${LandClaimOfflineDelay}\u0022/\u003E\t\t\t\t\t\u003C!-- The number of minutes after a player logs out that the land claim area hardness transitions from online to offline. Default is 0 --\u003E\n\n\n\t\u003Cproperty name=\u0022DynamicMeshEnabled\u0022\t\t\t\tvalue=\u0022${DynamicMeshEnabled}\u0022/\u003E\t\t\t\t\u003C!-- Is Dynamic Mesh system enabled --\u003E\n\t\u003Cproperty name=\u0022DynamicMeshLandClaimOnly\u0022\t\tvalue=\u0022${DynamicMeshLandClaimOnly}\u0022/\u003E\t\t\t\t\u003C!-- Is Dynamic Mesh system only active in player LCB areas --\u003E\n\t\u003Cproperty name=\u0022DynamicMeshLandClaimBuffer\u0022\t\tvalue=\u0022${DynamicMeshLandClaimBuffer}\u0022/\u003E\t\t\t\t\t\u003C!-- Dynamic Mesh LCB chunk radius --\u003E\n\t\u003Cproperty name=\u0022DynamicMeshMaxItemCache\u0022\t\tvalue=\u0022${DynamicMeshMaxItemCache}\u0022/\u003E\t\t\t\t\t\u003C!-- How many items can be processed concurrently, higher values use more RAM --\u003E\n\n\t\u003Cproperty name=\u0022TwitchServerPermission\u0022\t\t\tvalue=\u0022${TwitchServerPermission}\u0022/\u003E\t\t\t\t\u003C!-- Required permission level to use twitch integration on the server --\u003E\n\t\u003Cproperty name=\u0022TwitchBloodMoonAllowed\u0022\t\t\tvalue=\u0022${TwitchBloodMoonAllowed}\u0022/\u003E\t\t\t\t\u003C!-- If the server allows twitch actions during a blood moon. This could cause server lag with extra zombies being spawned during blood moon. --\u003E\n\n\t\u003Cproperty name=\u0022MaxChunkAge\u0022\t\t\t\t\tvalue=\u0022${MaxChunkAge}\u0022/\u003E\t\t\t\t\u003C!-- The number of in-game days which must pass since visiting a chunk before it will reset to its original state if not revisited or protected (e.g. by a land claim or bedroll being in close proximity). --\u003E\n\t\u003Cproperty name=\u0022SaveDataLimit\u0022\t\t\t\t\tvalue=\u0022${SaveDataLimit}\u0022/\u003E\t\t\t\t\u003C!-- The maximum disk space allowance for each saved game in megabytes (MB). Saved chunks may be forceably reset to their original states to free up space when this limit is reached. Negative values disable the limit. --\u003E\n\n\t\u003C!-- There are several game settings that you cannot change when starting a new game.\n\tYou can use console commands to change at least some of them ingame.\n\tsetgamepref BedrollDeadZoneSize 30 --\u003E\n\u003C/ServerSettings\u003E",
+      "template": "<?xml version=\"1.0\"?>\n<ServerSettings>\n\t<!-- GENERAL SERVER SETTINGS -->\n\n\t<!-- Server representation -->\n\t<property name=\"ServerName\"\t\t\t\t\t\tvalue=\"${Hostname}\"/>\t\t<!-- Whatever you want the name of the server to be. -->\n\t<property name=\"ServerDescription\"\t\t\t\tvalue=\"${Description}\"/>\t<!-- Whatever you want the server description to be, will be shown in the server browser. -->\n\t<property name=\"ServerWebsiteURL\"\t\t\t\tvalue=\"${WebSite}\"/>\t\t\t\t\t<!-- Website URL for the server, will be shown in the serverbrowser as a clickable link -->\n\t<property name=\"ServerPassword\"\t\t\t\t\tvalue=\"${PrivatePassword}\"/>\t\t\t\t\t<!-- Password to gain entry to the server -->\n\t<property name=\"ServerLoginConfirmationText\"\tvalue=\"${ServerLoginConfirmationText}\" />\t\t\t\t\t<!-- If set the user will see the message during joining the server and has to confirm it before continuing. For more complex changes to this window you can change the \"serverjoinrulesdialog\" window in XUi -->\n\n\t<!-- Networking -->\n\t<property name=\"ServerPort\"\t\t\t\t\t\tvalue=\"${GamePort}\"/>\t\t\t\t<!-- Port you want the server to listen on. Keep it in the ranges 26900 to 26905 or 27015 to 27020 if you want PCs on the same LAN to find it as a LAN server. -->\n\t<property name=\"ServerVisibility\"\t\t\t\tvalue=\"${ServerVisibility}\"/>\t\t\t\t\t<!-- Visibility of this server: 2 = public, 1 = only shown to friends, 0 = not listed. As you are never friend of a dedicated server setting this to \"1\" will only work when the first player connects manually by IP. -->\n\t<property name=\"ServerDisabledNetworkProtocols\"\tvalue=\"${ServerDisabledNetworkProtocols}\"/>\t<!-- Networking protocols that should not be used. Separated by comma. Possible values: LiteNetLib, SteamNetworking. Dedicated servers should disable SteamNetworking if there is no NAT router in between your users and the server or when port-forwarding is set up correctly -->\n\t<property name=\"ServerMaxWorldTransferSpeedKiBs\" value=\"${ServerMaxWorldTransferSpeedKiBs}\"/>\t\t\t\t<!-- Maximum (!) speed in kiB/s the world is transferred at to a client on first connect if it does not have the world yet. Maximum is about 1300 kiB/s, even if you set a higher value. -->\n\n\t<!-- Slots -->\n\t<property name=\"ServerMaxPlayerCount\"\t\t\tvalue=\"${Slots}\"/>\t\t\t\t\t<!-- Maximum Concurrent Players -->\n\t<property name=\"ServerReservedSlots\"\t\t\tvalue=\"${ServerReservedSlots}\"/>\t\t\t\t\t<!-- Out of the MaxPlayerCount this many slots can only be used by players with a specific permission level -->\n\t<property name=\"ServerReservedSlotsPermission\"\tvalue=\"${ServerReservedSlotsPermission}\"/>\t\t\t\t<!-- Required permission level to use reserved slots above -->\n\t<property name=\"ServerAdminSlots\"\t\t\t\tvalue=\"${ServerAdminSlots}\"/>\t\t\t\t\t<!-- This many admins can still join even if the server has reached MaxPlayerCount -->\n\t<property name=\"ServerAdminSlotsPermission\"\t\tvalue=\"${ServerAdminSlotsPermission}\"/>\t\t\t\t\t<!-- Required permission level to use the admin slots above -->\n\n        <!-- Admin interfaces -->\n\t<property name=\"WebDashboardEnabled\"\t\t\tvalue=\"${WebDashboardEnabled}\"/>\t\t\t\t<!-- Enable/disable the web dashboard -->\n\t<property name=\"WebDashboardPort\"\t\t\t\tvalue=\"${DashboardPort}\"/>\t\t\t\t            <!-- Port of the web dashboard -->\n\t<property name=\"WebDashboardUrl\"\t\t\t\tvalue=\"${WebDashboardUrl}\"/>\t\t\t\t\t<!-- External URL to the web dashboard if not just using the public IP of the server, e.g. if the web dashboard is behind a reverse proxy. Needs to be the full URL, like \"https://domainOfReverseProxy.tld:1234/\". Can be left empty if directly using the public IP and dashboard port -->\n\t<property name=\"EnableMapRendering\"\t\t\t\tvalue=\"${EnableMapRendering}\"/>\t\t\t\t<!-- Enable/disable rendering of the map to tile images while exploring it. This is used e.g. by the web dashboard to display a view of the map. -->\n\t\n        <property name=\"TelnetEnabled\"\t\t\t\t\tvalue=\"${TelnetEnabled}\"/>\t\t\t\t<!-- Enable/Disable the telnet -->\n\t<property name=\"TelnetPort\"\t\t\t\t\t\tvalue=\"${TelnetPort}\"/>\t\t\t\t<!-- Port of the telnet server -->\n\t<property name=\"TelnetPassword\"\t\t\t\t\tvalue=\"${RconPassword}\"/>\t\t\t\t\t<!-- Password to gain entry to telnet interface. If no password is set the server will only listen on the local loopback interface -->\n\t<property name=\"TelnetFailedLoginLimit\"\t\t\tvalue=\"${TelnetFailedLoginLimit}\"/>\t\t\t\t<!-- After this many wrong passwords from a single remote client the client will be blocked from connecting to the Telnet interface -->\n\t<property name=\"TelnetFailedLoginsBlocktime\"\tvalue=\"${TelnetFailedLoginsBlocktime}\"/>\t\t\t\t<!-- How long will the block persist (in seconds) -->\n\n\t<property name=\"TerminalWindowEnabled\"\t\t\tvalue=\"true\"/>\t\t\t\t<!-- Show a terminal window for log output / command input (Windows only) -->\n\n\t<!-- Folder and file locations -->\n\t<property name=\"AdminFileName\"\t\t\t\t\tvalue=\"${AdminFileName}\"/>\t<!-- Server admin file name. Path relative to the SaveGameFolder -->\n\t<property name=\"UserDataFolder\"\t\t\t\tvalue=\"${RootDirectory}\" />\t<!-- Use this to override where the server stores all generated data, including RWG generated worlds. Do not forget to uncomment the entry! -->\n\n\t<!-- Other technical settings -->\n\t<property name=\"EACEnabled\"\t\t\t\t\t\tvalue=\"${EACEnabled}\"/>\t\t\t\t<!-- Enables/Disables EasyAntiCheat -->\n\t<property name=\"IgnoreEOSSanctions\"\t\t\t\tvalue=\"${IgnoreEOSSanctions}\"/>\t\t\t\t<!-- Ignore EOS sanctions when allowing players to join -->\n\t<property name=\"HideCommandExecutionLog\"\t\tvalue=\"${HideCommandExecutionLog}\"/>\t\t\t\t\t<!-- Hide logging of command execution. 0 = show everything, 1 = hide only from Telnet/ControlPanel, 2 = also hide from remote game clients, 3 = hide everything -->\n\t<property name=\"MaxUncoveredMapChunksPerPlayer\"\tvalue=\"${MaxUncoveredMapChunksPerPlayer}\"/>\t\t\t<!-- Override how many chunks can be uncovered on the ingame map by each player. Resulting max map file size limit per player is (x * 512 Bytes), uncovered area is (x * 256 m2). Default 131072 means max 32 km2 can be uncovered at any time -->\n\t<property name=\"PersistentPlayerProfiles\"\t\tvalue=\"${PersistentPlayerProfiles}\" />\t\t\t<!-- If disabled a player can join with any selected profile. If true they will join with the last profile they joined with -->\n\n\n\n\t<!-- GAMEPLAY -->\n\t\n\t<!-- World -->\n\t<property name=\"GameWorld\"\t\t\t\t\t\tvalue=\"${GameWorld}\"/>\t\t\t<!-- \"RWG\" (see WorldGenSeed and WorldGenSize options below) or any already existing world name in the Worlds folder (currently shipping with e.g. \"Navezgane\", \"PREGEN01\", ...) -->\n\t<property name=\"WorldGenSeed\"\t\t\t\t\tvalue=\"${WorldGenSeed}\"/>\t\t\t\t<!-- If RWG this is the seed for the generation of the new world. If a world with the resulting name already exists it will simply load it -->\n\t<property name=\"WorldGenSize\"\t\t\t\t\tvalue=\"${WorldGenSize}\"/>\t\t\t\t<!-- If RWG this controls the width and height of the created world. It is also used in combination with WorldGenSeed to create the internal RWG seed thus also creating a unique map name even if using the same WorldGenSeed. Has to be a multiple of 2048 between 2048 and 16384, though large map sizes will take long to generate / download / load -->\n\t<property name=\"GameName\"\t\t\t\t\t\tvalue=\"${GameName}\"/>\t\t\t<!-- Whatever you want the game name to be. This affects the save game name as well as the seed used when placing decoration (trees etc) in the world. It does not control the generic layout of the world if creating an RWG world -->\n\t<property name=\"GameMode\"\t\t\t\t\t\tvalue=\"${GameMode}\"/>\t<!-- GameModeSurvival -->\n\n\t<!-- Difficulty -->\n\t<property name=\"GameDifficulty\"\t\t\t\t\tvalue=\"${GameDifficulty}\"/>\t\t\t\t\t<!-- 0 - 5, 0=easiest, 5=hardest -->\n\t<property name=\"BlockDamagePlayer\"\t\t\t\tvalue=\"${BlockDamagePlayer}\" />\t\t\t\t<!-- How much damage do players to blocks (percentage in whole numbers) -->\n\t<property name=\"BlockDamageAI\"\t\t\t\t\tvalue=\"${BlockDamageAI}\" />\t\t\t\t<!-- How much damage do AIs to blocks (percentage in whole numbers) -->\n\t<property name=\"BlockDamageAIBM\"\t\t\t\tvalue=\"${BlockDamageAIBM}\" />\t\t\t\t<!-- How much damage do AIs during blood moons to blocks (percentage in whole numbers) -->\n\t<property name=\"XPMultiplier\"\t\t\t\t\tvalue=\"${XPMultiplier}\" />\t\t\t\t<!-- XP gain multiplier (percentage in whole numbers) -->\n\t<property name=\"PlayerSafeZoneLevel\"\t\t\tvalue=\"${PlayerSafeZoneLevel}\" />\t\t\t\t<!-- If a player is less or equal this level he will create a safe zone (no enemies) when spawned -->\n\t<property name=\"PlayerSafeZoneHours\"\t\t\tvalue=\"${PlayerSafeZoneHours}\" />\t\t\t\t<!-- Hours in world time this safe zone exists -->\n\n\t<!--  -->\n\t<property name=\"BuildCreate\"\t\t\t\t\tvalue=\"${BuildCreate}\" />\t\t\t<!-- cheat mode on/off -->\n\t<property name=\"DayNightLength\"\t\t\t\t\tvalue=\"${DayNightLength}\" />\t\t\t\t<!-- real time minutes per in game day: 60 minutes -->\n\t<property name=\"DayLightLength\"\t\t\t\t\tvalue=\"${DayLightLength}\" />\t\t\t\t<!-- in game hours the sun shines per day: 18 hours day light per in game day -->\n\t<property name=\"DropOnDeath\"\t\t\t\t\tvalue=\"${DropOnDeath}\" />\t\t\t\t<!-- 0 = nothing, 1 = everything, 2 = toolbelt only, 3 = backpack only, 4 = delete all -->\n\t<property name=\"DropOnQuit\"\t\t\t\t\t\tvalue=\"${DropOnQuit}\" />\t\t\t\t<!-- 0 = nothing, 1 = everything, 2 = toolbelt only, 3 = backpack only -->\n\t<property name=\"BedrollDeadZoneSize\"\t\t\tvalue=\"${BedrollDeadZoneSize}\" />\t\t\t\t<!-- Size (box \"radius\", so a box with 2 times the given value for each side's length) of bedroll deadzone, no zombies will spawn inside this area, and any cleared sleeper volumes that touch a bedroll deadzone will not spawn after they've been cleared. -->\n\t<property name=\"BedrollExpiryTime\"\t\t\t\tvalue=\"${BedrollExpiryTime}\" />\t\t\t\t<!-- Number of days a bedroll stays active after owner was last online -->\n\t<property name=\"AllowSpawnNearBackpack\"\t\t\tvalue=\"${AllowSpawnNearBackpack}\"/>\t\t\t\t<!-- Allow players to respawn near their last dropped backpack when they die -->\n\n\t<!-- Performance related -->\n\t<property name=\"MaxSpawnedZombies\"\t\t\t\tvalue=\"${MaxSpawnedZombies}\" />\t\t\t\t<!-- This setting covers the entire map. There can only be this many zombies on the entire map at one time. Changing this setting has a huge impact on performance. -->\n\t<property name=\"MaxSpawnedAnimals\"\t\t\t\tvalue=\"${MaxSpawnedAnimals}\" />\t\t\t\t<!-- If your server has a large number of players you can increase this limit to add more wildlife. Animals don't consume as much CPU as zombies. NOTE: That this doesn't cause more animals to spawn arbitrarily: The biome spawning system only spawns a certain number of animals in a given area, but if you have lots of players that are all spread out then you may be hitting the limit and can increase it. -->\n\t<property name=\"ServerMaxAllowedViewDistance\"\tvalue=\"${ServerMaxAllowedViewDistance}\" />\t\t\t\t<!-- Max viewdistance a client may request (6 - 12). High impact on memory usage and performance. -->\n\t<property name=\"MaxQueuedMeshLayers\"\t\t\tvalue=\"${MaxQueuedMeshLayers}\" />\t\t\t   <!-- Maximum amount of Chunk mesh layers that can be enqueued during mesh generation. Reducing this will improve memory usage but may increase Chunk generation time -->\n\n\t<!-- Zombie settings -->\n\t<property name=\"EnemySpawnMode\"\t\t\t\t\tvalue=\"${EnemySpawnMode}\" />\t\t\t\t<!-- Enable/Disable enemy spawning -->\n\t<property name=\"EnemyDifficulty\"\t\t\t\tvalue=\"${EnemyDifficulty}\" />\t\t\t\t<!-- 0 = Normal, 1 = Feral -->\n\t<property name=\"ZombieFeralSense\"\t\t\t\tvalue=\"${ZombieFeralSense}\" />\t\t\t\t<!-- 0-3 (Off, Day, Night, All) -->\n\t<property name=\"ZombieMove\"\t\t\t\t\t\tvalue=\"${ZombieMove}\" />\t\t\t\t<!-- 0-4 (walk, jog, run, sprint, nightmare) -->\n\t<property name=\"ZombieMoveNight\"\t\t\t\tvalue=\"${ZombieMoveNight}\" />\t\t\t\t<!-- 0-4 (walk, jog, run, sprint, nightmare) -->\n\t<property name=\"ZombieFeralMove\"\t\t\t\tvalue=\"${ZombieFeralMove}\" />\t\t\t\t<!-- 0-4 (walk, jog, run, sprint, nightmare) -->\n\t<property name=\"ZombieBMMove\"\t\t\t\t\tvalue=\"${ZombieBMMove}\" />\t\t\t\t<!-- 0-4 (walk, jog, run, sprint, nightmare) -->\n\t<property name=\"BloodMoonFrequency\"\t\t\t\tvalue=\"${BloodMoonFrequency}\" />\t\t\t\t<!-- What frequency (in days) should a blood moon take place. Set to \"0\" for no blood moons -->\n\t<property name=\"BloodMoonRange\"\t\t\t\t\tvalue=\"${BloodMoonRange}\" />\t\t\t\t<!-- How many days can the actual blood moon day randomly deviate from the above setting. Setting this to 0 makes blood moons happen exactly each Nth day as specified in BloodMoonFrequency -->\n\t<property name=\"BloodMoonWarning\"\t\t\t\tvalue=\"${BloodMoonWarning}\" />\t\t\t\t<!-- The Hour number that the red day number begins on a blood moon day. Setting this to -1 makes the red never show.  -->\n\t<property name=\"BloodMoonEnemyCount\"\t\t\tvalue=\"${BloodMoonEnemyCount}\" />\t\t\t\t<!-- This is the number of zombies that can be alive (spawned at the same time) at any time PER PLAYER during a blood moon horde, however, MaxSpawnedZombies overrides this number in multiplayer games. Also note that your game stage sets the max number of zombies PER PARTY. Low game stage values can result in lower number of zombies than the BloodMoonEnemyCount setting. Changing this setting has a huge impact on performance. -->\n\n\t<!-- Loot -->\n\t<property name=\"LootAbundance\"\t\t\t\t\tvalue=\"${LootAbundance}\" />\t\t\t\t<!-- percentage in whole numbers -->\n\t<property name=\"LootRespawnDays\"\t\t\t\tvalue=\"${LootRespawnDays}\" />\t\t\t\t<!-- days in whole numbers -->\n\t<property name=\"AirDropFrequency\"\t\t\t\tvalue=\"${AirDropFrequency}\"/>\t\t\t\t<!-- How often airdrop occur in game-hours, 0 == never -->\n\t<property name=\"AirDropMarker\"\t\t\t\t\tvalue=\"${AirDropMarker}\"/>\t\t\t\t<!-- Sets if a marker is added to map/compass for air drops. -->\n\n\t<!-- Multiplayer -->\n\t<property name=\"PartySharedKillRange\"\t\t\tvalue=\"${PartySharedKillRange}\"/>\t\t\t\t<!-- The distance you must be within to receive party shared kill xp and quest party kill objective credit. -->\n\t<property name=\"PlayerKillingMode\"\t\t\t\tvalue=\"${PlayerKillingMode}\" />\t\t\t\t<!-- Player Killing Settings (0 = No Killing, 1 = Kill Allies Only, 2 = Kill Strangers Only, 3 = Kill Everyone) -->\n\n\t<!-- Land claim options -->\n\t<property name=\"LandClaimCount\"\t\t\t\t\tvalue=\"${LandClaimCount}\"/>\t\t\t\t\t<!-- Maximum allowed land claims per player. -->\n\t<property name=\"LandClaimSize\"\t\t\t\t\tvalue=\"${LandClaimSize}\"/>\t\t\t\t<!-- Size in blocks that is protected by a keystone -->\n\t<property name=\"LandClaimDeadZone\"\t\t\t\tvalue=\"${LandClaimDeadZone}\"/>\t\t\t\t<!-- Keystones must be this many blocks apart (unless you are friends with the other player) -->\n\t<property name=\"LandClaimExpiryTime\"\t\t\tvalue=\"${LandClaimExpiryTime}\"/>\t\t\t\t\t<!-- The number of days a player can be offline before their claims expire and are no longer protected -->\n\t<property name=\"LandClaimDecayMode\"\t\t\t\tvalue=\"${LandClaimDecayMode}\"/>\t\t\t\t\t<!-- Controls how offline players land claims decay. 0=Slow (Linear) , 1=Fast (Exponential), 2=None (Full protection until claim is expired). -->\n\t<property name=\"LandClaimOnlineDurabilityModifier\"\tvalue=\"${LandClaimOnlineDurabilityModifier}\"/>\t\t\t\t<!-- How much protected claim area block hardness is increased when a player is online. 0 means infinite (no damage will ever be taken). Default is 4x -->\n\t<property name=\"LandClaimOfflineDurabilityModifier\"\tvalue=\"${LandClaimOfflineDurabilityModifier}\"/>\t\t\t\t<!-- How much protected claim area block hardness is increased when a player is offline. 0 means infinite (no damage will ever be taken). Default is 4x -->\n\t<property name=\"LandClaimOfflineDelay\"\t\t\tvalue=\"${LandClaimOfflineDelay}\"/>\t\t\t\t\t<!-- The number of minutes after a player logs out that the land claim area hardness transitions from online to offline. Default is 0 -->\n\n\n\t<property name=\"DynamicMeshEnabled\"\t\t\t\tvalue=\"${DynamicMeshEnabled}\"/>\t\t\t\t<!-- Is Dynamic Mesh system enabled -->\n\t<property name=\"DynamicMeshLandClaimOnly\"\t\tvalue=\"${DynamicMeshLandClaimOnly}\"/>\t\t\t\t<!-- Is Dynamic Mesh system only active in player LCB areas -->\n\t<property name=\"DynamicMeshLandClaimBuffer\"\t\tvalue=\"${DynamicMeshLandClaimBuffer}\"/>\t\t\t\t\t<!-- Dynamic Mesh LCB chunk radius -->\n\t<property name=\"DynamicMeshMaxItemCache\"\t\tvalue=\"${DynamicMeshMaxItemCache}\"/>\t\t\t\t\t<!-- How many items can be processed concurrently, higher values use more RAM -->\n\n\t<property name=\"TwitchServerPermission\"\t\t\tvalue=\"${TwitchServerPermission}\"/>\t\t\t\t<!-- Required permission level to use twitch integration on the server -->\n\t<property name=\"TwitchBloodMoonAllowed\"\t\t\tvalue=\"${TwitchBloodMoonAllowed}\"/>\t\t\t\t<!-- If the server allows twitch actions during a blood moon. This could cause server lag with extra zombies being spawned during blood moon. -->\n\n\t<property name=\"MaxChunkAge\"\t\t\t\t\tvalue=\"${MaxChunkAge}\"/>\t\t\t\t<!-- The number of in-game days which must pass since visiting a chunk before it will reset to its original state if not revisited or protected (e.g. by a land claim or bedroll being in close proximity). -->\n\t<property name=\"SaveDataLimit\"\t\t\t\t\tvalue=\"${SaveDataLimit}\"/>\t\t\t\t<!-- The maximum disk space allowance for each saved game in megabytes (MB). Saved chunks may be forceably reset to their original states to free up space when this limit is reached. Negative values disable the limit. -->\n\n\t<!-- There are several game settings that you cannot change when starting a new game.\n\tYou can use console commands to change at least some of them ingame.\n\tsetgamepref BedrollDeadZoneSize 30 -->\n</ServerSettings>",
       "order": 0,
       "enableEditor": true,
       "editor": [
@@ -3773,15 +3899,15 @@
           "maxLength": 0,
           "lines": 1,
           "denyCharacters": [
-            "\u003C",
-            "\u003E"
+            "<",
+            ">"
           ],
           "regExValidation": "",
           "inputType": 0,
           "id": "ServerLoginConfirmationText",
           "defaultValue": "",
           "label": "Server Login Confirmation Text",
-          "description": "If set the user will see the message during joining the server and has to confirm it before continuing. For more complex changes to this window you can change the \u0022serverjoinrulesdialog\u0022 window in XUi",
+          "description": "If set the user will see the message during joining the server and has to confirm it before continuing. For more complex changes to this window you can change the \"serverjoinrulesdialog\" window in XUi",
           "required": false,
           "valueType": "string",
           "requiredMessage": "",
@@ -3824,7 +3950,7 @@
           "id": "ServerVisibility",
           "defaultValue": "2",
           "label": "Visibility",
-          "description": "Visibility of this server: 2 = public, 1 = only shown to friends, 0 = not listed. As you are never friend of a dedicated server setting this to \u00221\u0022 will only work when the first player connects manually by IP",
+          "description": "Visibility of this server: 2 = public, 1 = only shown to friends, 0 = not listed. As you are never friend of a dedicated server setting this to \"1\" will only work when the first player connects manually by IP",
           "required": false,
           "valueType": "string",
           "requiredMessage": "",
@@ -4018,7 +4144,7 @@
           "id": "WebDashboardUrl",
           "defaultValue": "",
           "label": "Web Dashboard URL",
-          "description": "External URL to the web dashboard if not just using the public IP of the server, e.g. if the web dashboard is behind a reverse proxy. Needs to be the full URL, like \u0022https://domainOfReverseProxy.tld:1234/\u0022. Can be left empty if directly using the public IP and dashboard port",
+          "description": "External URL to the web dashboard if not just using the public IP of the server, e.g. if the web dashboard is behind a reverse proxy. Needs to be the full URL, like \"https://domainOfReverseProxy.tld:1234/\". Can be left empty if directly using the public IP and dashboard port",
           "required": false,
           "valueType": "string",
           "requiredMessage": "",
@@ -4063,7 +4189,7 @@
           "label": "Enabled",
           "description": "Telnet should always be enabled.",
           "required": false,
-          "requiredMessage": "You need to set a value for \u0027Telnet Enabled\u0027",
+          "requiredMessage": "You need to set a value for 'Telnet Enabled'",
           "controlType": "DynamicCheckBox",
           "sm": 6,
           "xs": 12,
@@ -4228,7 +4354,7 @@
           "id": "MaxUncoveredMapChunksPerPlayer",
           "defaultValue": "131072",
           "label": "Max Uncovered Map Chunks Per Player",
-          "description": "Override how many chunks can be uncovered on the ingame map by each player. Resulting max map file size limit per player is (x * 512 Bytes), uncovered area is (x * 256 m\u00B2). Default 131072 means max 32 km\u00B2 can be uncovered at any time",
+          "description": "Override how many chunks can be uncovered on the ingame map by each player. Resulting max map file size limit per player is (x * 512 Bytes), uncovered area is (x * 256 m²). Default 131072 means max 32 km² can be uncovered at any time",
           "required": false,
           "requiredMessage": "",
           "controlType": "DynamicNumericTextBox",
@@ -4302,8 +4428,8 @@
           "maxLength": 0,
           "lines": 1,
           "denyCharacters": [
-            "\u003C",
-            "\u003E"
+            "<",
+            ">"
           ],
           "regExValidation": "",
           "inputType": 0,
@@ -4674,7 +4800,7 @@
           "id": "BedrollDeadZoneSize",
           "defaultValue": "15",
           "label": "Bedroll Dead Zone Size",
-          "description": "Size of bedroll deadzone, no zombies will spawn inside this area, and any cleared sleeper volumes that touch a bedroll deadzone will not spawn after they\u0027ve been cleared.",
+          "description": "Size of bedroll deadzone, no zombies will spawn inside this area, and any cleared sleeper volumes that touch a bedroll deadzone will not spawn after they've been cleared.",
           "required": false,
           "requiredMessage": "",
           "controlType": "DynamicNumericTextBox",
@@ -4743,7 +4869,7 @@
           "id": "MaxSpawnedAnimals",
           "defaultValue": "50",
           "label": "Max Spawned Animals",
-          "description": " If your server has a large number of players you can increase this limit to add more wildlife. Animals don\u0027t consume as much CPU as zombies. NOTE: That this doesn\u0027t cause more animals to spawn arbitrarily: The biome spawning system only spawns a certain number of animals in a given area, but if you have lots of players that are all spread out then you may be hitting the limit and can increase it.",
+          "description": " If your server has a large number of players you can increase this limit to add more wildlife. Animals don't consume as much CPU as zombies. NOTE: That this doesn't cause more animals to spawn arbitrarily: The biome spawning system only spawns a certain number of animals in a given area, but if you have lots of players that are all spread out then you may be hitting the limit and can increase it.",
           "required": false,
           "requiredMessage": "",
           "controlType": "DynamicNumericTextBox",
@@ -5602,8 +5728,8 @@
           "maxLength": 0,
           "lines": 1,
           "denyCharacters": [
-            "\u003C",
-            "\u003E"
+            "<",
+            ">"
           ],
           "regExValidation": "[a-zA-Z1-9]",
           "inputType": 0,
@@ -5657,7 +5783,7 @@
         ],
         "name": "Generate ControlPanel passwords",
         "description": "Generate ControlPanel passwords",
-        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing TCAdmin.SDK.Misc.Extensions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nGlobals.ThisService.Variables[\u0022ControlPanelPassword\u0022] = Random.Shared.GetRandomString(10,true,true);",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing TCAdmin.SDK.Misc.Extensions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nGlobals.ThisService.Variables[\"ControlPanelPassword\"] = Random.Shared.GetRandomString(10,true,true);",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
