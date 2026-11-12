@@ -1,0 +1,51 @@
+identifier: "Community.Games.AbioticFactor"
+name: "Abiotic Factor"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Abiotic Factor dedicated server (Windows / Linux with Wine) with a world-rules form, Admin.ini, predefined command line, A2S query, graceful save-and-stop, backups and mod.io mods; starts out of the box"
+longDescription: |
+  # Abiotic Factor
+  
+  ## Description
+  Abiotic Factor dedicated server (Steam app 2857200, anonymous download). There is no Linux server build, so the Linux config runs the Windows server under Wine.
+  
+  ## Key Features
+  - **Windows and Linux (Wine)** configs.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box.** On Linux a script installs wine, winetricks, Xvfb and xdotool when the host does not have them (apt, dnf or yum) and prepares the Wine prefix.
+  - **Config editor** for `SandboxSettings.ini`: every world rule (difficulty, hardcore, day/night, weather, enemies, hunger and thirst, items, death penalties and more), and the server name.
+  - **Admin.ini** in the config files: moderators and bans by Steam id.
+  - **Predefined command line** for the world save name, the server and admin passwords and mod.io mods.
+  - **Server-browser query** (A2S on the query port): name and players.
+  - **Graceful stop:** a stop script sends one Ctrl+C to the server (windows-kill on Windows, SIGINT under Wine). The server saves and exits.
+  - **Console output** from the server's own console on Windows, from the server log on Linux.
+  - **Log viewer** for `AbioticFactor.log` and its backup copies.
+  - **Backups** of the save games and the server settings. The server is stopped first.
+  - **mod.io mods:** put the mod ids (separated by `;`) in the command line. The server downloads them at start-up. An optional mod.io token caches them and installs their dependencies.
+  - No RCON: admins use the in-game admin menu.
+  
+  ## Ports
+  - Game 7777 (UDP).
+  - Query 27015 (UDP).
+  - Both bind to the service's IP (`-MultiHome`, `-PORT` and `-QueryPort` on the command line), so several servers can share a host. The server opens no other listening port.
+  
+  ## Instructions
+  - Set an admin password in Command Lines, or add your Steam id to `Admin.ini` as `Moderator=<SteamID64>`.
+  - The world is saved in `AbioticFactor/Saved/SaveGames/Server/Worlds/<world save name>`. A new name starts a new world.
+  - The world rules apply to every world of the server. Restart the server after a change.
+  - More than 6 players is possible (up to 24), but the game warns players above 6.
+  - The panel checks the command-line values: the world save name takes letters, digits, spaces, `-` and `_`; passwords have no spaces, quotes or backslashes; mod ids are numbers separated by `;`. The server name has no quotes or backslashes.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/427410/789cca4e4e51a6649f5728d870d3a602e3c453fe.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427410/ss_a0858ca74b521e17bc923f94d6e77c6ff224da2f.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Wine"
+files:
+  - path: "Abiotic Factor - Windows.json"
+    type: "GameConfig"
+  - path: "Abiotic Factor - Linux Wine.json"
+    type: "GameConfig"
