@@ -2956,6 +2956,132 @@
           "roleId": 3
         }
       ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:06:39.328434",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:06:40.889623",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:06:42.311077",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     }
   ],
   "configFiles": [
@@ -4693,8 +4819,8 @@
           "BeforeServiceStopped"
         ],
         "name": "Shut down cleanly",
-        "description": "Sends Ctrl\u002BC to the server process, which saves and exits.",
-        "code": "//refAssemblies: System.Net.Http.dll, System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Graceful stop: the server shuts down cleanly on ONE Ctrl\u002BC.\n// Windows: a Ctrl\u002BC sent through its console does not reach it (it ignores console Ctrl\u002BC events), so windows-kill\n// delivers the event straight to the server process. Linux (Wine): a native SIGINT to the server\u0027s Wine process\n// becomes the console Ctrl\u002BC. Only the server process of THIS service is signalled.\nconst string binary = \u0022LFServer-Win64-Shipping\u0022;\nconst int maxWaitSeconds = 120;\n\nvar rootPath = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(\u0027/\u0027, \u0027\\\\\u0027);\nvar root = rootPath \u002B Path.DirectorySeparatorChar;\nvar rootSlash = rootPath.Replace(\u0027\\\\\u0027, \u0027/\u0027) \u002B \u0022/\u0022;\n\nList\u003Cint\u003E ServerPids()\n{\n    var pids = new List\u003Cint\u003E();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var p in Process.GetProcessesByName(binary))\n        {\n            try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) pids.Add(p.Id); }\n            catch { } // exited meanwhile\n        }\n        return pids;\n    }\n    // Wine shows the executable as Z:\\\u003Croot\u003E\\...\\LFServer-Win64-Shipping.exe in the command line.\n    foreach (var dir in Directory.EnumerateDirectories(\u0022/proc\u0022))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var args = File.ReadAllText(Path.Combine(dir, \u0022cmdline\u0022)).Replace(\u0027\\0\u0027, \u0027 \u0027).Replace(\u0027\\\\\u0027, \u0027/\u0027);\n            if (args.Contains(binary \u002B \u0022.exe\u0022, StringComparison.OrdinalIgnoreCase) \u0026\u0026 args.Contains(rootSlash, StringComparison.Ordinal)\n                \u0026\u0026 !args.Contains(\u0022start.exe\u0022, StringComparison.OrdinalIgnoreCase))\n                pids.Add(pid);\n        }\n        catch { } // gone meanwhile\n    }\n    pids.Sort();\n    return pids;\n}\n\nvar targets = ServerPids();\nif (targets.Count == 0)\n{\n    ScriptConsole.WriteLine((object)\u0022The server is not running.\u0022);\n    return;\n}\n\nif (System.OperatingSystem.IsWindows())\n{\n    // windows-kill is kept in the hidden .tca folder of the service and downloaded once.\n    var toolDir = Path.Combine(rootPath, \u0022.tca\u0022);\n    var killExe = Path.Combine(toolDir, \u0022windows-kill.exe\u0022);\n    if (!File.Exists(killExe))\n    {\n        const string url = \u0022https://github.com/ElyDotDev/windows-kill/releases/download/1.1.4/windows-kill_1.1.4_release.zip\u0022;\n        const string entryPath = \u0022windows-kill_x64_1.1.4_lib_release/windows-kill.exe\u0022;\n        try\n        {\n            Directory.CreateDirectory(toolDir);\n            using (var http = new HttpClient())\n            using (var zip = new ZipArchive(new MemoryStream(await http.GetByteArrayAsync(url, ThisCancellationToken))))\n            {\n                var entry = zip.GetEntry(entryPath);\n                if (entry == null) throw new Exception(\u0022\u0027\u0022 \u002B entryPath \u002B \u0022\u0027 is not in the archive.\u0022);\n                entry.ExtractToFile(killExe, true);\n            }\n        }\n        catch (Exception ex)\n        {\n            ScriptConsole.WriteLine((object)(\u0022Could not download windows-kill (\u0022 \u002B ex.Message \u002B \u0022); the panel stops the server without saving.\u0022));\n            return;\n        }\n    }\n    foreach (var pid in targets)\n    {\n        // CreateNoWindow gives windows-kill a console of its own, so the event never reaches the monitor.\n        var psi = new ProcessStartInfo(killExe, new[] { \u0022-SIGINT\u0022, pid.ToString() })\n        {\n            UseShellExecute = false, CreateNoWindow = true, RedirectStandardOutput = true, RedirectStandardError = true,\n            WorkingDirectory = toolDir\n        };\n        using (var killer = Process.Start(psi))\n        {\n            var output = (await killer.StandardOutput.ReadToEndAsync()).Trim();\n            await killer.WaitForExitAsync(ThisCancellationToken);\n            if (killer.ExitCode != 0) ScriptConsole.WriteLine((object)(\u0022windows-kill: \u0022 \u002B output));\n        }\n    }\n}\nelse\n{\n    // One SIGINT to the main server process (the lowest pid); its worker threads share it.\n    targets = targets.Take(1).ToList();\n    using (var kill = Process.Start(new ProcessStartInfo(\u0022kill\u0022, new[] { \u0022-INT\u0022, targets[0].ToString() }) { UseShellExecute = false }))\n        kill.WaitForExit();\n}\n\nScriptConsole.WriteLine((object)(\u0022Asked the server (\u0022 \u002B string.Join(\u0022, \u0022, targets) \u002B \u0022) to save and exit.\u0022));\nfor (var second = 1; second \u003C= maxWaitSeconds; second\u002B\u002B)\n{\n    await Task.Delay(1000, ThisCancellationToken);\n    if (!ServerPids().Any(targets.Contains))\n    {\n        ScriptConsole.WriteLine((object)(\u0022The server exited after \u0022 \u002B second \u002B \u0022 s.\u0022));\n        return;\n    }\n}\nScriptConsole.WriteLine((object)(\u0022The server did not exit within \u0022 \u002B maxWaitSeconds \u002B \u0022 s; the panel stops it now.\u0022));\n",
+        "description": "Sends Ctrl+C to the server process, which saves and exits.",
+        "code": "//refAssemblies: System.Net.Http.dll, System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Graceful stop: the server shuts down cleanly on ONE Ctrl+C.\n// Windows: a Ctrl+C sent through its console does not reach it (it ignores console Ctrl+C events), so windows-kill\n// delivers the event straight to the server process. Linux (Wine): a native SIGINT to the server's Wine process\n// becomes the console Ctrl+C. Only the server process of THIS service is signalled.\nconst string binary = \"LFServer-Win64-Shipping\";\nconst int maxWaitSeconds = 120;\n\nvar rootPath = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('/', '\\\\');\nvar root = rootPath + Path.DirectorySeparatorChar;\nvar rootSlash = rootPath.Replace('\\\\', '/') + \"/\";\n\nList<int> ServerPids()\n{\n    var pids = new List<int>();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var p in Process.GetProcessesByName(binary))\n        {\n            try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) pids.Add(p.Id); }\n            catch { } // exited meanwhile\n        }\n        return pids;\n    }\n    // Wine shows the executable as Z:\\<root>\\...\\LFServer-Win64-Shipping.exe in the command line.\n    foreach (var dir in Directory.EnumerateDirectories(\"/proc\"))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var args = File.ReadAllText(Path.Combine(dir, \"cmdline\")).Replace('\\0', ' ').Replace('\\\\', '/');\n            if (args.Contains(binary + \".exe\", StringComparison.OrdinalIgnoreCase) && args.Contains(rootSlash, StringComparison.Ordinal)\n                && !args.Contains(\"start.exe\", StringComparison.OrdinalIgnoreCase))\n                pids.Add(pid);\n        }\n        catch { } // gone meanwhile\n    }\n    pids.Sort();\n    return pids;\n}\n\nvar targets = ServerPids();\nif (targets.Count == 0)\n{\n    ScriptConsole.WriteLine((object)\"The server is not running.\");\n    return;\n}\n\nif (System.OperatingSystem.IsWindows())\n{\n    // windows-kill is kept in the hidden .tca folder of the service and downloaded once.\n    var toolDir = Path.Combine(rootPath, \".tca\");\n    var killExe = Path.Combine(toolDir, \"windows-kill.exe\");\n    if (!File.Exists(killExe))\n    {\n        const string url = \"https://github.com/ElyDotDev/windows-kill/releases/download/1.1.4/windows-kill_1.1.4_release.zip\";\n        const string entryPath = \"windows-kill_x64_1.1.4_lib_release/windows-kill.exe\";\n        try\n        {\n            Directory.CreateDirectory(toolDir);\n            using (var http = new HttpClient())\n            using (var zip = new ZipArchive(new MemoryStream(await http.GetByteArrayAsync(url, ThisCancellationToken))))\n            {\n                var entry = zip.GetEntry(entryPath);\n                if (entry == null) throw new Exception(\"'\" + entryPath + \"' is not in the archive.\");\n                entry.ExtractToFile(killExe, true);\n            }\n        }\n        catch (Exception ex)\n        {\n            ScriptConsole.WriteLine((object)(\"Could not download windows-kill (\" + ex.Message + \"); the panel stops the server without saving.\"));\n            return;\n        }\n    }\n    foreach (var pid in targets)\n    {\n        // CreateNoWindow gives windows-kill a console of its own, so the event never reaches the monitor.\n        var psi = new ProcessStartInfo(killExe, new[] { \"-SIGINT\", pid.ToString() })\n        {\n            UseShellExecute = false, CreateNoWindow = true, RedirectStandardOutput = true, RedirectStandardError = true,\n            WorkingDirectory = toolDir\n        };\n        using (var killer = Process.Start(psi))\n        {\n            var output = (await killer.StandardOutput.ReadToEndAsync()).Trim();\n            await killer.WaitForExitAsync(ThisCancellationToken);\n            if (killer.ExitCode != 0) ScriptConsole.WriteLine((object)(\"windows-kill: \" + output));\n        }\n    }\n}\nelse\n{\n    // One SIGINT to the main server process (the lowest pid); its worker threads share it.\n    targets = targets.Take(1).ToList();\n    using (var kill = Process.Start(new ProcessStartInfo(\"kill\", new[] { \"-INT\", targets[0].ToString() }) { UseShellExecute = false }))\n        kill.WaitForExit();\n}\n\nScriptConsole.WriteLine((object)(\"Asked the server (\" + string.Join(\", \", targets) + \") to save and exit.\"));\nfor (var second = 1; second <= maxWaitSeconds; second++)\n{\n    await Task.Delay(1000, ThisCancellationToken);\n    if (!ServerPids().Any(targets.Contains))\n    {\n        ScriptConsole.WriteLine((object)(\"The server exited after \" + second + \" s.\"));\n        return;\n    }\n}\nScriptConsole.WriteLine((object)(\"The server did not exit within \" + maxWaitSeconds + \" s; the panel stops it now.\"));\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
@@ -4724,7 +4850,7 @@
         ],
         "name": "Night of the Dead query",
         "description": "Reports the server online while its game port is bound (the server lists itself through Epic Online Services and answers no Steam query).",
-        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Night of the Dead lists its servers through Epic Online Services sessions: the Steam query port is bound by the\n// Steam API but never answers (the server never logs on to Steam), and the server has no RCON. The query runs on the\n// monitor of the server that hosts the service, so it checks that the game UDP port is bound on this machine.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\n// The game port is the one the server binds itself (-Port); the query port belongs to the Steam API.\nint port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners()\n        .Any(l =\u003E l.Port == port \u0026\u0026 (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \u0022online\u0022,\n            Protocol = \u0022custom_script\u0022,\n            Address = address,\n            Hostname = $\u0022{address}:{port}\u0022,\n            Name = ThisService.Name,\n            GameType = \u0022Night of the Dead\u0022,\n            Map = \u0022\u0022,\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, $\u0022Nothing is listening on {address}:{port} (UDP).\u0022);\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, ex.Message);\n}\n",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Night of the Dead lists its servers through Epic Online Services sessions: the Steam query port is bound by the\n// Steam API but never answers (the server never logs on to Steam), and the server has no RCON. The query runs on the\n// monitor of the server that hosts the service, so it checks that the game UDP port is bound on this machine.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\n// The game port is the one the server binds itself (-Port); the query port belongs to the Steam API.\nint port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners()\n        .Any(l => l.Port == port && (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \"online\",\n            Protocol = \"custom_script\",\n            Address = address,\n            Hostname = $\"{address}:{port}\",\n            Name = ThisService.Name,\n            GameType = \"Night of the Dead\",\n            Map = \"\",\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", $\"Nothing is listening on {address}:{port} (UDP).\");\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", ex.Message);\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
