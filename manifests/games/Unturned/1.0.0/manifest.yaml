@@ -1,0 +1,38 @@
+identifier: "Community.Games.Unturned"
+name: "Unturned"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Unturned dedicated server (Windows / Linux) with Steam update, console and graceful stop"
+longDescription: |
+  # Unturned
+  
+  ## Description
+  Unturned dedicated server for Windows and Linux (Steam app 1110390, anonymous download).
+  
+  ## Key Features
+  - **Windows and Linux** configs (`Unturned.exe` / `Unturned_Headless.x86_64`).
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S).
+  - **Console:** Terminal on Linux, the console wrapper on Windows. Console commands work on both.
+  - **Graceful stop** with `shutdown`.
+  - **Config editor** for the server's `Config.json`, `Commands.dat` and Workshop config.
+  - **Backups** with the panel's backup feature: the whole `Servers` folder (world saves, players and config). The server is stopped first, so the saves are complete.
+  
+  ## Ports
+  - Windows default 29000, Linux default 27015 (game and query share the port).
+  
+  ## Instructions
+  - Without a Steam Game Server Login Token (GSLT) the server isn't listed in the internet server list. Add one to `Commands.dat` if needed.
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/304930/e18009fb628b35953826efe47dc3be556b689f4c.jpg"
+images:
+  - "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/304930/f634649eb2a50b49bc98f7cc27314b671c8cbff5/ss_f634649eb2a50b49bc98f7cc27314b671c8cbff5.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Unturned - Windows.json"
+    type: "GameConfig"
+  - path: "Unturned - Linux.json"
+    type: "GameConfig"
