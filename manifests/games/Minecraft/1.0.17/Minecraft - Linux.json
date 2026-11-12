@@ -476,19 +476,19 @@
         "items": [
           {
             "text": "peaceful",
-            "value": null
+            "value": "peaceful"
           },
           {
             "text": "easy",
-            "value": null
+            "value": "easy"
           },
           {
             "text": "normal",
-            "value": null
+            "value": "normal"
           },
           {
             "text": "hard",
-            "value": null
+            "value": "hard"
           }
         ],
         "itemSource": "CustomList",
@@ -923,7 +923,7 @@
     },
     {
       "name": "SyncChunkWrites",
-      "defaultValue": null,
+      "defaultValue": true,
       "required": false,
       "requiredMessage": "Value is required",
       "scriptParameter": false,
@@ -936,7 +936,7 @@
         "checkedValue": "true",
         "uncheckedValue": "false",
         "id": "SyncChunkWrites",
-        "defaultValue": null,
+        "defaultValue": true,
         "label": "Sync Chunk Writes",
         "description": "",
         "required": false,
@@ -964,7 +964,7 @@
     },
     {
       "name": "ForceGamemode",
-      "defaultValue": null,
+      "defaultValue": false,
       "required": false,
       "requiredMessage": "Value is required",
       "scriptParameter": false,
@@ -977,7 +977,7 @@
         "checkedValue": "true",
         "uncheckedValue": "false",
         "id": "ForceGamemode",
-        "defaultValue": null,
+        "defaultValue": false,
         "label": "Force Game mode",
         "description": "",
         "required": false,
@@ -1237,7 +1237,7 @@
     },
     {
       "name": "PVP",
-      "defaultValue": null,
+      "defaultValue": true,
       "required": false,
       "requiredMessage": "Value is required",
       "scriptParameter": false,
@@ -1250,7 +1250,7 @@
         "checkedValue": "true",
         "uncheckedValue": "false",
         "id": "PVP",
-        "defaultValue": null,
+        "defaultValue": true,
         "label": "PVP",
         "description": "",
         "required": false,
@@ -1290,23 +1290,23 @@
         "items": [
           {
             "text": "minecraft:normal",
-            "value": null
+            "value": "minecraft:normal"
           },
           {
             "text": "minecraft:flat",
-            "value": null
+            "value": "minecraft:flat"
           },
           {
             "text": "minecraft:large_biomes",
-            "value": null
+            "value": "minecraft:large_biomes"
           },
           {
             "text": "minecraft:amplified",
-            "value": null
+            "value": "minecraft:amplified"
           },
           {
             "text": "minecraft:single_biome_surface",
-            "value": null
+            "value": "minecraft:single_biome_surface"
           }
         ],
         "itemSource": "CustomList",
@@ -1558,7 +1558,7 @@
     },
     {
       "name": "FunctionPermissionLevel",
-      "defaultValue": null,
+      "defaultValue": "2",
       "required": false,
       "requiredMessage": "Value is required",
       "scriptParameter": false,
@@ -1588,7 +1588,7 @@
         "itemSource": "CustomList",
         "fileSystemSource": null,
         "id": "FunctionPermissionLevel",
-        "defaultValue": null,
+        "defaultValue": "2",
         "label": "Function Permission Level",
         "description": "",
         "required": false,
