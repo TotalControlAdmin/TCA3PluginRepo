@@ -677,7 +677,7 @@
     },
     {
       "name": "EnableSandStorm",
-      "defaultValue": "",
+      "defaultValue": true,
       "required": false,
       "requiredMessage": "",
       "scriptParameter": false,
@@ -690,17 +690,20 @@
         "checkedValue": "True",
         "uncheckedValue": "False",
         "id": "EnableSandStorm",
-        "defaultValue": "",
+        "defaultValue": true,
         "label": "Yes/No",
         "description": "",
         "required": false,
         "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicCheckBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2026-06-17T23:55:52.287565",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
         {
@@ -1514,6 +1517,10 @@
       "editor": {
         "items": [
           {
+            "text": "Not set",
+            "value": ""
+          },
+          {
             "text": "Relaxed",
             "value": "Relaxed"
           },
@@ -1534,6 +1541,8 @@
             "value": "Experimental"
           }
         ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
         "id": "ServerCommunity",
         "defaultValue": "",
         "label": "",
@@ -1541,12 +1550,15 @@
         "required": false,
         "valueType": "string",
         "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicComboBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2026-06-17T23:55:52.293768",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
         {
