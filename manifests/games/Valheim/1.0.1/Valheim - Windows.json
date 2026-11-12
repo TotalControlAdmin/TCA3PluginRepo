@@ -64,7 +64,7 @@
       {
         "id": "QueryPort",
         "port": 2457,
-        "expression": "GamePort\u002B1"
+        "expression": "GamePort+1"
       }
     ],
     "portIncrement": 10
@@ -97,13 +97,13 @@
   },
   "commandlineConfig": {
     "enableSelection": true,
-    "defaultCommandline": "-nographics -batchmode -port ${GamePort} -name \u0022${Hostname}\u0022 -world \u0022${world}\u0022 -password \u0022${PrivatePassword}\u0022 -public 1 -savedir ${RootDirectory} ${crossplay}",
-    "defaultCustomCommandline": "-nographics -batchmode -port ${GamePort} -name \u0022${Hostname}\u0022 -world \u0022${world}\u0022 -password \u0022${PrivatePassword}\u0022 -public 1 -savedir ${RootDirectory} ${crossplay}",
+    "defaultCommandline": "-nographics -batchmode -port ${GamePort} -name \"${Hostname}\" -world \"${world}\" -password \"${PrivatePassword}\" -public 1 -savedir ${RootDirectory} ${crossplay}",
+    "defaultCustomCommandline": "-nographics -batchmode -port ${GamePort} -name \"${Hostname}\" -world \"${world}\" -password \"${PrivatePassword}\" -public 1 -savedir ${RootDirectory} ${crossplay}",
     "predefinedCommandlines": [
       {
         "id": 1,
         "name": "Default",
-        "commandLine": "-nographics -batchmode -port ${GamePort} -name \u0022${Hostname}\u0022 -world \u0022${world}\u0022 -password \u0022${PrivatePassword}\u0022 -public 1 -savedir ${RootDirectory} ${crossplay}"
+        "commandLine": "-nographics -batchmode -port ${GamePort} -name \"${Hostname}\" -world \"${world}\" -password \"${PrivatePassword}\" -public 1 -savedir ${RootDirectory} ${crossplay}"
       }
     ]
   },
@@ -290,7 +290,7 @@
         "maxLength": 0,
         "lines": 1,
         "denyCharacters": [],
-        "regExValidation": "^([a-zA-Z0-9])\u002B",
+        "regExValidation": "^([a-zA-Z0-9])+",
         "inputType": 0,
         "id": "world",
         "defaultValue": "Dedicated",
@@ -317,32 +317,78 @@
     },
     {
       "name": "PrivatePassword",
+      "defaultValue": null,
       "required": true,
-      "requiredMessage": "A server password of at least 5 characters is required \u2014 Valheim refuses to create a public (-public 1) world without one.",
+      "requiredMessage": "A server password of at least 5 characters is required — Valheim refuses to create a public (-public 1) world without one.",
       "scriptParameter": false,
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
       "template": "${PrivatePassword}",
       "editor": {
-        "maxLength": 0,
+        "maxLength": 32,
         "lines": 1,
         "denyCharacters": [],
-        "regExValidation": "^.{5,}$",
+        "regExValidation": "\\A(?=[\\s\\S]{5})[^\\r\\n\"\\\\`$]{1,32}\\z",
         "inputType": 1,
         "id": "PrivatePassword",
-        "defaultValue": "ValheimTest123",
+        "defaultValue": null,
         "label": "Private Password",
-        "description": "Required. Minimum 5 characters.",
+        "description": "At least 5 characters. Up to 32 characters. Not allowed: double quotes, backslashes, ` or $, line breaks.",
         "required": true,
         "valueType": "string",
-        "requiredMessage": "A server password of at least 5 characters is required \u2014 Valheim refuses to create a public (-public 1) world without one.",
+        "requiredMessage": "A server password of at least 5 characters is required — Valheim refuses to create a public (-public 1) world without one.",
+        "parentId": null,
+        "parentValue": null,
         "controlType": "DynamicTextBox",
         "sm": 6,
         "xs": 12,
         "requiresAnyVisible": []
       },
       "createdDate": "2026-06-21T16:04:53.647",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\`$]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, ` or $, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:23:46.408933",
+      "modifiedDate": null,
       "metadata": {},
       "variableRoles": [
         {
@@ -473,7 +519,7 @@
         ],
         "name": "Set private password",
         "description": "Set private password",
-        "code": "using System;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// V2: if the PrivatePassword variable is empty, generate a 10-char password from\n// uppercase letters \u002B digits and ThisService.Save(). V3 has no GameService.Save();\n// mutate ThisService.Variables then persist with ServiceManager.UpdateAsync (the\n// ServiceManager global shares the same DbContext scope that loaded ThisService).\nstring current = ThisService.Variables.Parse\u003Cstring\u003E(\u0022PrivatePassword\u0022);\nif (string.IsNullOrEmpty(current))\n{\n    const string alphabet = \u0022ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\u0022;\n    var random = new Random();\n    string password = new string(Enumerable.Range(0, 10)\n        .Select(_ =\u003E alphabet[random.Next(alphabet.Length)])\n        .ToArray());\n\n    ThisService.Variables[\u0022PrivatePassword\u0022] = password;\n    await ServiceManager.UpdateAsync(ThisService, true, ThisCancellationToken);\n}\n",
+        "code": "using System;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// V2: if the PrivatePassword variable is empty, generate a 10-char password from\n// uppercase letters + digits and ThisService.Save(). V3 has no GameService.Save();\n// mutate ThisService.Variables then persist with ServiceManager.UpdateAsync (the\n// ServiceManager global shares the same DbContext scope that loaded ThisService).\nstring current = ThisService.Variables.Parse<string>(\"PrivatePassword\");\nif (string.IsNullOrEmpty(current))\n{\n    const string alphabet = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\";\n    var random = new Random();\n    string password = new string(Enumerable.Range(0, 10)\n        .Select(_ => alphabet[random.Next(alphabet.Length)])\n        .ToArray());\n\n    ThisService.Variables[\"PrivatePassword\"] = password;\n    await ServiceManager.UpdateAsync(ThisService, true, ThisCancellationToken);\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -499,7 +545,7 @@
         ],
         "name": "Switch update branch",
         "description": "Switch branch to either Staging or Public. Will not take effect before the server has been updated.",
-        "code": "using System;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// CustomServiceIcon. The user picks a branch (Public/Staging) from the icon\u0027s input form;\n// V3 already persists that input into ThisService.Variables[\u0022branch\u0022] before this script runs\n// (ServiceController.VerifyInputVariables, saveVariableValues:true on the web hub path).\n// We persist again explicitly so the behaviour matches V2\u0027s ThisService.Save() even if the\n// variable isn\u0027t flagged to auto-save, then tell the user to run the Steam update.\nstring branch = ThisService.Variables.Parse\u003Cstring\u003E(\u0022branch\u0022);\n\nawait ServiceManager.UpdateAsync(ThisService, true, ThisCancellationToken);\n\nScriptConsole.WriteLine($\u0022Branch switched to {branch}. Please run the Steam Update to update the server.\u0022);\n",
+        "code": "using System;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// CustomServiceIcon. The user picks a branch (Public/Staging) from the icon's input form;\n// V3 already persists that input into ThisService.Variables[\"branch\"] before this script runs\n// (ServiceController.VerifyInputVariables, saveVariableValues:true on the web hub path).\n// We persist again explicitly so the behaviour matches V2's ThisService.Save() even if the\n// variable isn't flagged to auto-save, then tell the user to run the Steam update.\nstring branch = ThisService.Variables.Parse<string>(\"branch\");\n\nawait ServiceManager.UpdateAsync(ThisService, true, ThisCancellationToken);\n\nScriptConsole.WriteLine($\"Branch switched to {branch}. Please run the Steam Update to update the server.\");\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -532,7 +578,7 @@
         ],
         "name": "Wipe server",
         "description": "Wipe map and player data",
-        "code": "using System;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// CustomServiceIcon, stop-service = true (the framework stops the service before this runs).\n// Deletes the Valheim world save folder. Faithful port of the V2 wipe: existence check,\n// recursive delete, wrap failures in a clear exception so the icon action reports an error.\nstring worldFolder = Path.Combine(ThisService.RootDirectory, \u0022worlds\u0022);\n\nif (Directory.Exists(worldFolder))\n{\n    try\n    {\n        Directory.Delete(worldFolder, true);\n        ScriptConsole.WriteLine(\u0022Server has been wiped\u0022);\n    }\n    catch (IOException e)\n    {\n        throw new Exception($\u0022Could not wipe data. Error was: {e.Message}\u0022, e);\n    }\n}\nelse\n{\n    ScriptConsole.WriteLine(\u0022No files to delete\u0022);\n}\n",
+        "code": "using System;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// CustomServiceIcon, stop-service = true (the framework stops the service before this runs).\n// Deletes the Valheim world save folder. Faithful port of the V2 wipe: existence check,\n// recursive delete, wrap failures in a clear exception so the icon action reports an error.\nstring worldFolder = Path.Combine(ThisService.RootDirectory, \"worlds\");\n\nif (Directory.Exists(worldFolder))\n{\n    try\n    {\n        Directory.Delete(worldFolder, true);\n        ScriptConsole.WriteLine(\"Server has been wiped\");\n    }\n    catch (IOException e)\n    {\n        throw new Exception($\"Could not wipe data. Error was: {e.Message}\", e);\n    }\n}\nelse\n{\n    ScriptConsole.WriteLine(\"No files to delete\");\n}\n",
         "runImpersonated": false,
         "stopService": true,
         "ignoreErrors": false,
@@ -565,7 +611,7 @@
         ],
         "name": "Update Valheim Plus after update",
         "description": "Update Valheim Plus after update",
-        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.IO;\nusing System.Net.Http;\nusing System.Threading.Tasks;\nusing TCAdmin.SDK.Misc.Compression;\nusing TCAdmin.Web.Shared.Models.Enums;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// DownloadGameFiles event \u2014 runs after the game files are updated. If ValheimPlus is\n// installed, re-download the matching release archive and extract it over the service root.\n//\n// V2 chose the archive by HOST OS (Environment.OSVersion.Platform). That is the exact\n// latent bug the V3 playbook warns about: a Windows Valheim server can run on a Linux host\n// (Wine) and vice versa (WSL), so the archive must follow the GAME\u0027s OS, not the host\u0027s.\nScriptConsole.WriteLine(\u0022Checking if Valheim Plus is installed...\u0022);\n\nstring modZipFile = ThisGame.OperatingSystem == EOperatingSystem.Windows\n    ? \u0022WindowsServer.zip\u0022\n    : \u0022UnixServer.tar.gz\u0022;\n\nstring pluginDll = Path.Combine(ThisService.RootDirectory, \u0022BepInEx\u0022, \u0022plugins\u0022, \u0022ValheimPlus.dll\u0022);\nif (!File.Exists(pluginDll))\n{\n    ScriptConsole.WriteLine(\u0022Valheim Plus not installed.\u0022);\n    return;\n}\n\nstring archivePath = Path.Combine(ThisService.RootDirectory, modZipFile);\nif (File.Exists(archivePath))\n    File.Delete(archivePath);\n\nScriptConsole.WriteLine(\u0022Found Valheim Plus installation... Updating mod.\u0022);\nstring url = \u0022https://github.com/valheimPlus/ValheimPlus/releases/latest/download/\u0022 \u002B modZipFile;\nScriptConsole.WriteLine($\u0022Downloading File {archivePath} from {url}...\\n\\n\u0022);\n\nusing (var httpClient = new HttpClient())\n{\n    httpClient.Timeout = TimeSpan.FromMinutes(10);\n    using var response = await httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken);\n    response.EnsureSuccessStatusCode();\n    using var httpStream = await response.Content.ReadAsStreamAsync(ThisCancellationToken);\n    using var fileStream = new FileStream(archivePath, FileMode.Create, FileAccess.Write, FileShare.None);\n    await httpStream.CopyToAsync(fileStream, ThisCancellationToken);\n}\n\nif (File.Exists(archivePath))\n{\n    // V2 used TCAdmin.SDK.Misc.CompressionTools().Decompress(zip, root). V3\u0027s CompressionTools\n    // takes the IOperatingSystem (the OperatingSystem global) and the overload that builds its\n    // own VirtualDirectoryRoot handles the extraction target.\n    var compressionTools = new CompressionTools(OperatingSystem)\n    {\n        SetFileOwnerAutomatically = true,\n        ThrowException = true\n    };\n    compressionTools.Decompress(archivePath, ThisService.RootDirectory, ThisCancellationToken);\n    File.Delete(archivePath);\n    ScriptConsole.WriteLine(\u0022Valheim Plus updated.\u0022);\n}\n",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.IO;\nusing System.Net.Http;\nusing System.Threading.Tasks;\nusing TCAdmin.SDK.Misc.Compression;\nusing TCAdmin.Web.Shared.Models.Enums;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// DownloadGameFiles event — runs after the game files are updated. If ValheimPlus is\n// installed, re-download the matching release archive and extract it over the service root.\n//\n// V2 chose the archive by HOST OS (Environment.OSVersion.Platform). That is the exact\n// latent bug the V3 playbook warns about: a Windows Valheim server can run on a Linux host\n// (Wine) and vice versa (WSL), so the archive must follow the GAME's OS, not the host's.\nScriptConsole.WriteLine(\"Checking if Valheim Plus is installed...\");\n\nstring modZipFile = ThisGame.OperatingSystem == EOperatingSystem.Windows\n    ? \"WindowsServer.zip\"\n    : \"UnixServer.tar.gz\";\n\nstring pluginDll = Path.Combine(ThisService.RootDirectory, \"BepInEx\", \"plugins\", \"ValheimPlus.dll\");\nif (!File.Exists(pluginDll))\n{\n    ScriptConsole.WriteLine(\"Valheim Plus not installed.\");\n    return;\n}\n\nstring archivePath = Path.Combine(ThisService.RootDirectory, modZipFile);\nif (File.Exists(archivePath))\n    File.Delete(archivePath);\n\nScriptConsole.WriteLine(\"Found Valheim Plus installation... Updating mod.\");\nstring url = \"https://github.com/valheimPlus/ValheimPlus/releases/latest/download/\" + modZipFile;\nScriptConsole.WriteLine($\"Downloading File {archivePath} from {url}...\\n\\n\");\n\nusing (var httpClient = new HttpClient())\n{\n    httpClient.Timeout = TimeSpan.FromMinutes(10);\n    using var response = await httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken);\n    response.EnsureSuccessStatusCode();\n    using var httpStream = await response.Content.ReadAsStreamAsync(ThisCancellationToken);\n    using var fileStream = new FileStream(archivePath, FileMode.Create, FileAccess.Write, FileShare.None);\n    await httpStream.CopyToAsync(fileStream, ThisCancellationToken);\n}\n\nif (File.Exists(archivePath))\n{\n    // V2 used TCAdmin.SDK.Misc.CompressionTools().Decompress(zip, root). V3's CompressionTools\n    // takes the IOperatingSystem (the OperatingSystem global) and the overload that builds its\n    // own VirtualDirectoryRoot handles the extraction target.\n    var compressionTools = new CompressionTools(OperatingSystem)\n    {\n        SetFileOwnerAutomatically = true,\n        ThrowException = true\n    };\n    compressionTools.Decompress(archivePath, ThisService.RootDirectory, ThisCancellationToken);\n    File.Delete(archivePath);\n    ScriptConsole.WriteLine(\"Valheim Plus updated.\");\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -591,7 +637,7 @@
         ],
         "name": "Delete ValheimPlus.dll",
         "description": "Delete ValheimPlus.dll",
-        "code": "from System.IO import File, Path\n\nif File.Exists(Path.Combine(ThisService.RootDirectory, \u0027BepInEx\u0027, \u0027plugins\u0027, \u0027ValheimPlus.dll\u0027)):\n  File.Delete(Path.Combine(ThisService.RootDirectory, \u0027BepInEx\u0027, \u0027plugins\u0027, \u0027ValheimPlus.dll\u0027))",
+        "code": "from System.IO import File, Path\n\nif File.Exists(Path.Combine(ThisService.RootDirectory, 'BepInEx', 'plugins', 'ValheimPlus.dll')):\n  File.Delete(Path.Combine(ThisService.RootDirectory, 'BepInEx', 'plugins', 'ValheimPlus.dll'))",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
