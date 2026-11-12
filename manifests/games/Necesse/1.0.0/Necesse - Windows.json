@@ -139,7 +139,7 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "-world \u0022${WorldName}\u0022",
+      "template": "-world \"${WorldName}\"",
       "editor": {
         "maxLength": 32,
         "lines": 1,
@@ -149,7 +149,7 @@
         "id": "WorldName",
         "defaultValue": "world",
         "label": "World name",
-        "description": "The save saves/\u003Cname\u003E.zip; a missing world is created. Letters, digits, spaces and _, up to 32 characters.",
+        "description": "The save saves/<name>.zip; a missing world is created. Letters, digits, spaces and _, up to 32 characters.",
         "required": false,
         "valueType": "string",
         "requiredMessage": "Value is required",
@@ -181,7 +181,7 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "${Owner.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022-owner \u0022 \u002B Owner}",
+      "template": "${Owner.ToString() == \"\" ? \"\" : \"-owner \" + Owner}",
       "editor": {
         "maxLength": 32,
         "lines": 1,
@@ -223,12 +223,12 @@
       "commandlineParameter": true,
       "saveScriptParameter": false,
       "syncCommandlineParameter": false,
-      "template": "${Motd.ToString() == \u0022\u0022 ? \u0022\u0022 : \u0022-motd \\\u0022\u0022 \u002B Motd \u002B \u0022\\\u0022\u0022}",
+      "template": "${Motd.ToString() == \"\" ? \"\" : \"-motd \\\"\" + Motd + \"\\\"\"}",
       "editor": {
         "maxLength": 200,
         "lines": 1,
         "denyCharacters": [],
-        "regExValidation": "^[^\u0022\\\\\\x00-\\x1f-]*$",
+        "regExValidation": "^[^\"\\\\\\x00-\\x1f-]*$",
         "inputType": 0,
         "id": "Motd",
         "defaultValue": "",
@@ -663,6 +663,48 @@
           "roleId": 3
         }
       ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n; \\t]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: semicolons, spaces, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:50:42.128073",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     }
   ],
   "configFiles": [
@@ -931,7 +973,7 @@
         ],
         "name": "Necesse query",
         "description": "Reports the server online while its game port (UDP) is bound (Necesse has no query protocol).",
-        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Necesse has no server-browser query (players join by address) and its game protocol has no status request, so a\n// probe on the game port would be handled as a connecting client. The query runs on the monitor of the server that\n// hosts the service, so it checks that the game\u0027s UDP port is bound on this machine (silent, no console noise).\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\n// Necesse uses one UDP port; the panel\u0027s query port is ignored so a changed QueryPort cannot break the status.\nint port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    // Java binds dual-stack sockets: on Linux the game socket is listed as ::ffff:\u003Caddress\u003E (an IPv4-mapped address).\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners()\n        .Select(l =\u003E new IPEndPoint(l.Address.IsIPv4MappedToIPv6 ? l.Address.MapToIPv4() : l.Address, l.Port))\n        .Any(l =\u003E l.Port == port \u0026\u0026 (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \u0022online\u0022,\n            Protocol = \u0022custom_script\u0022,\n            Address = address,\n            Hostname = $\u0022{address}:{port}\u0022,\n            Name = ThisService.Name,\n            GameType = \u0022Necesse\u0022,\n            Map = \u0022\u0022,\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, $\u0022Nothing is listening on {address}:{port} (UDP).\u0022);\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, ex.Message);\n}\n",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Necesse has no server-browser query (players join by address) and its game protocol has no status request, so a\n// probe on the game port would be handled as a connecting client. The query runs on the monitor of the server that\n// hosts the service, so it checks that the game's UDP port is bound on this machine (silent, no console noise).\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\n// Necesse uses one UDP port; the panel's query port is ignored so a changed QueryPort cannot break the status.\nint port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    // Java binds dual-stack sockets: on Linux the game socket is listed as ::ffff:<address> (an IPv4-mapped address).\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners()\n        .Select(l => new IPEndPoint(l.Address.IsIPv4MappedToIPv6 ? l.Address.MapToIPv4() : l.Address, l.Port))\n        .Any(l => l.Port == port && (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \"online\",\n            Protocol = \"custom_script\",\n            Address = address,\n            Hostname = $\"{address}:{port}\",\n            Name = ThisService.Name,\n            GameType = \"Necesse\",\n            Map = \"\",\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", $\"Nothing is listening on {address}:{port} (UDP).\");\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", ex.Message);\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
@@ -960,8 +1002,8 @@
           "AfterCustomModInstalled"
         ],
         "name": "Add the Workshop mod to the mods folder",
-        "description": "Copies the .jar of the downloaded Workshop mod to mods/workshop-\u003Cid\u003E.jar.",
-        "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Necesse servers load every mod .jar in the mods folder of their data folder (-localdir = the service root) when\n// they start. Copy the .jar of this Workshop item to mods/workshop-\u003Cid\u003E.jar; the server loads it at its next start.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \u0022^[0-9]\u002B$\u0022)) throw new Exception(\u0022Unexpected Workshop id: \u0022 \u002B fileId);\nstring installPath = Convert.ToString(Dynamic.InstallPath);\nstring root = (string)ThisService.RootDirectory;\n\nif (string.IsNullOrEmpty(installPath) || !Directory.Exists(installPath) || IsLink(installPath))\n    throw new Exception(\u0022Nothing was downloaded for Workshop item \u0022 \u002B fileId \u002B \u0022.\u0022);\n// The script runs as the monitor: never follow a link the service user could have planted in the download.\nvar walk = new EnumerationOptions { RecurseSubdirectories = true, AttributesToSkip = FileAttributes.ReparsePoint, IgnoreInaccessible = true };\nvar jars = Directory.EnumerateFiles(installPath, \u0022*.jar\u0022, walk)\n    .Where(f =\u003E !IsLink(f))\n    .OrderBy(f =\u003E f, StringComparer.Ordinal).ToList();\nif (jars.Count == 0) throw new Exception(\u0022Workshop item \u0022 \u002B fileId \u002B \u0022 has no mod file (.jar). Necesse servers load .jar mods only.\u0022);\n\nstring mods = ModsDir(root);\nvar locked = new List\u003Cstring\u003E();\nRemoveCopies(mods, fileId, locked);\nif (locked.Count \u003E 0) throw new Exception(\u0022The running server uses \u0022 \u002B string.Join(\u0022, \u0022, locked) \u002B \u0022: stop the server and install the mod again.\u0022);\nfor (int i = 0; i \u003C jars.Count; i\u002B\u002B)\n{\n    string name = \u0022workshop-\u0022 \u002B fileId \u002B (i == 0 ? \u0022\u0022 : \u0022-\u0022 \u002B i) \u002B \u0022.jar\u0022;\n    string target = Path.Combine(mods, name);\n    File.Copy(jars[i], target, false);\n    if (!System.OperatingSystem.IsWindows()) Globals.OperatingSystem.SetFileOwnerAutoDetect(target);\n    ScriptConsole.WriteLine((object)(\u0022Copied \u0022 \u002B Path.GetFileName(jars[i]) \u002B \u0022 to mods/\u0022 \u002B name \u002B \u0022.\u0022));\n}\nScriptConsole.WriteLine((object)\u0022The server loads the mod the next time it starts. Players need the same mod (the game offers to download it when they join).\u0022);\n\n// A symbolic link or junction (reparse point on Windows).\nbool IsLink(string path)\n{\n    // LinkTarget also sees a dangling link (File.Exists is false for one) and Windows junctions.\n    var info = new FileInfo(path);\n    if (info.LinkTarget != null) return true;\n    if (!info.Exists \u0026\u0026 !Directory.Exists(path)) return false;\n    return (File.GetAttributes(path) \u0026 FileAttributes.ReparsePoint) != 0;\n}\n\n// \u003Croot\u003E/mods, created when missing. The script runs as the monitor, so the folder must be a real folder inside the\n// service root: a link planted by the service user would make the monitor write or delete files elsewhere.\nstring ModsDir(string serviceRoot)\n{\n    if (IsLink(serviceRoot)) throw new Exception(\u0022The service folder is a link; refusing to change mods.\u0022);\n    string dir = Path.Combine(serviceRoot, \u0022mods\u0022);\n    if (!Directory.Exists(dir) \u0026\u0026 File.Exists(dir)) throw new Exception(\u0022mods is a file, not a folder.\u0022);\n    if (!Directory.Exists(dir))\n    {\n        Directory.CreateDirectory(dir);\n        if (!System.OperatingSystem.IsWindows()) Globals.OperatingSystem.SetFileOwnerAutoDetect(dir);\n    }\n    if (IsLink(dir)) throw new Exception(\u0022The mods folder is a link; refusing to change it. Delete the link and try again.\u0022);\n    return dir;\n}\n\n// Deletes mods/workshop-\u003Cid\u003E.jar and mods/workshop-\u003Cid\u003E-\u003Cn\u003E.jar. Returns the number deleted; a file the running\n// server keeps open (Windows) is added to locked.\nint RemoveCopies(string modsDir, string id, List\u003Cstring\u003E locked)\n{\n    var name = new Regex(\u0022^workshop-\u0022 \u002B id \u002B \u0022(-[0-9]\u002B)?\u0022 \u002B Regex.Escape(\u0022.jar\u0022) \u002B \u0022$\u0022, RegexOptions.IgnoreCase);\n    int count = 0;\n    foreach (var f in Directory.EnumerateFileSystemEntries(modsDir).Where(f =\u003E name.IsMatch(Path.GetFileName(f))).ToList())\n    {\n        if (Directory.Exists(f)) continue;\n        try { File.Delete(f); count\u002B\u002B; }\n        catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException) { locked.Add(Path.GetFileName(f)); }\n    }\n    return count;\n}\n\n",
+        "description": "Copies the .jar of the downloaded Workshop mod to mods/workshop-<id>.jar.",
+        "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Necesse servers load every mod .jar in the mods folder of their data folder (-localdir = the service root) when\n// they start. Copy the .jar of this Workshop item to mods/workshop-<id>.jar; the server loads it at its next start.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]+$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\nstring installPath = Convert.ToString(Dynamic.InstallPath);\nstring root = (string)ThisService.RootDirectory;\n\nif (string.IsNullOrEmpty(installPath) || !Directory.Exists(installPath) || IsLink(installPath))\n    throw new Exception(\"Nothing was downloaded for Workshop item \" + fileId + \".\");\n// The script runs as the monitor: never follow a link the service user could have planted in the download.\nvar walk = new EnumerationOptions { RecurseSubdirectories = true, AttributesToSkip = FileAttributes.ReparsePoint, IgnoreInaccessible = true };\nvar jars = Directory.EnumerateFiles(installPath, \"*.jar\", walk)\n    .Where(f => !IsLink(f))\n    .OrderBy(f => f, StringComparer.Ordinal).ToList();\nif (jars.Count == 0) throw new Exception(\"Workshop item \" + fileId + \" has no mod file (.jar). Necesse servers load .jar mods only.\");\n\nstring mods = ModsDir(root);\nvar locked = new List<string>();\nRemoveCopies(mods, fileId, locked);\nif (locked.Count > 0) throw new Exception(\"The running server uses \" + string.Join(\", \", locked) + \": stop the server and install the mod again.\");\nfor (int i = 0; i < jars.Count; i++)\n{\n    string name = \"workshop-\" + fileId + (i == 0 ? \"\" : \"-\" + i) + \".jar\";\n    string target = Path.Combine(mods, name);\n    File.Copy(jars[i], target, false);\n    if (!System.OperatingSystem.IsWindows()) Globals.OperatingSystem.SetFileOwnerAutoDetect(target);\n    ScriptConsole.WriteLine((object)(\"Copied \" + Path.GetFileName(jars[i]) + \" to mods/\" + name + \".\"));\n}\nScriptConsole.WriteLine((object)\"The server loads the mod the next time it starts. Players need the same mod (the game offers to download it when they join).\");\n\n// A symbolic link or junction (reparse point on Windows).\nbool IsLink(string path)\n{\n    // LinkTarget also sees a dangling link (File.Exists is false for one) and Windows junctions.\n    var info = new FileInfo(path);\n    if (info.LinkTarget != null) return true;\n    if (!info.Exists && !Directory.Exists(path)) return false;\n    return (File.GetAttributes(path) & FileAttributes.ReparsePoint) != 0;\n}\n\n// <root>/mods, created when missing. The script runs as the monitor, so the folder must be a real folder inside the\n// service root: a link planted by the service user would make the monitor write or delete files elsewhere.\nstring ModsDir(string serviceRoot)\n{\n    if (IsLink(serviceRoot)) throw new Exception(\"The service folder is a link; refusing to change mods.\");\n    string dir = Path.Combine(serviceRoot, \"mods\");\n    if (!Directory.Exists(dir) && File.Exists(dir)) throw new Exception(\"mods is a file, not a folder.\");\n    if (!Directory.Exists(dir))\n    {\n        Directory.CreateDirectory(dir);\n        if (!System.OperatingSystem.IsWindows()) Globals.OperatingSystem.SetFileOwnerAutoDetect(dir);\n    }\n    if (IsLink(dir)) throw new Exception(\"The mods folder is a link; refusing to change it. Delete the link and try again.\");\n    return dir;\n}\n\n// Deletes mods/workshop-<id>.jar and mods/workshop-<id>-<n>.jar. Returns the number deleted; a file the running\n// server keeps open (Windows) is added to locked.\nint RemoveCopies(string modsDir, string id, List<string> locked)\n{\n    var name = new Regex(\"^workshop-\" + id + \"(-[0-9]+)?\" + Regex.Escape(\".jar\") + \"$\", RegexOptions.IgnoreCase);\n    int count = 0;\n    foreach (var f in Directory.EnumerateFileSystemEntries(modsDir).Where(f => name.IsMatch(Path.GetFileName(f))).ToList())\n    {\n        if (Directory.Exists(f)) continue;\n        try { File.Delete(f); count++; }\n        catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException) { locked.Add(Path.GetFileName(f)); }\n    }\n    return count;\n}\n\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -970,7 +1012,7 @@
         "maxConcurrentRuns": 1,
         "logApiExecutions": false,
         "order": 0,
-        "icon": "\u003Cpath d=\u0022M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\u0022/\u003E",
+        "icon": "<path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/>",
         "scriptInputVariables": [],
         "scriptRoles": [
           {
@@ -997,8 +1039,8 @@
           "BeforeCustomModUninstalled"
         ],
         "name": "Remove the Workshop mod from the mods folder",
-        "description": "Deletes mods/workshop-\u003Cid\u003E.jar. On Windows the server must be stopped (it keeps its mods open).",
-        "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Deletes mods/workshop-\u003Cid\u003E.jar (and the extra .jar files of the same item); the server no longer loads the mod\n// from its next start.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \u0022^[0-9]\u002B$\u0022)) throw new Exception(\u0022Unexpected Workshop id: \u0022 \u002B fileId);\nstring root = (string)ThisService.RootDirectory;\n\nstring mods = ModsDir(root);\nvar locked = new List\u003Cstring\u003E();\nint removed = RemoveCopies(mods, fileId, locked);\n// The panel deletes the files the install created right after this script; a running Windows server keeps its mods\n// open, so both would fail.\nif (locked.Count \u003E 0) throw new Exception(\u0022The running server uses \u0022 \u002B string.Join(\u0022, \u0022, locked) \u002B \u0022: stop the server and uninstall the mod again.\u0022);\nScriptConsole.WriteLine((object)(removed == 0\n    ? \u0022Workshop item \u0022 \u002B fileId \u002B \u0022 was not in the mods folder.\u0022\n    : \u0022Removed Workshop item \u0022 \u002B fileId \u002B \u0022 from the mods folder. The server no longer loads it after its next start.\u0022));\n\n// A symbolic link or junction (reparse point on Windows).\nbool IsLink(string path)\n{\n    // LinkTarget also sees a dangling link (File.Exists is false for one) and Windows junctions.\n    var info = new FileInfo(path);\n    if (info.LinkTarget != null) return true;\n    if (!info.Exists \u0026\u0026 !Directory.Exists(path)) return false;\n    return (File.GetAttributes(path) \u0026 FileAttributes.ReparsePoint) != 0;\n}\n\n// \u003Croot\u003E/mods, created when missing. The script runs as the monitor, so the folder must be a real folder inside the\n// service root: a link planted by the service user would make the monitor write or delete files elsewhere.\nstring ModsDir(string serviceRoot)\n{\n    if (IsLink(serviceRoot)) throw new Exception(\u0022The service folder is a link; refusing to change mods.\u0022);\n    string dir = Path.Combine(serviceRoot, \u0022mods\u0022);\n    if (!Directory.Exists(dir) \u0026\u0026 File.Exists(dir)) throw new Exception(\u0022mods is a file, not a folder.\u0022);\n    if (!Directory.Exists(dir))\n    {\n        Directory.CreateDirectory(dir);\n        if (!System.OperatingSystem.IsWindows()) Globals.OperatingSystem.SetFileOwnerAutoDetect(dir);\n    }\n    if (IsLink(dir)) throw new Exception(\u0022The mods folder is a link; refusing to change it. Delete the link and try again.\u0022);\n    return dir;\n}\n\n// Deletes mods/workshop-\u003Cid\u003E.jar and mods/workshop-\u003Cid\u003E-\u003Cn\u003E.jar. Returns the number deleted; a file the running\n// server keeps open (Windows) is added to locked.\nint RemoveCopies(string modsDir, string id, List\u003Cstring\u003E locked)\n{\n    var name = new Regex(\u0022^workshop-\u0022 \u002B id \u002B \u0022(-[0-9]\u002B)?\u0022 \u002B Regex.Escape(\u0022.jar\u0022) \u002B \u0022$\u0022, RegexOptions.IgnoreCase);\n    int count = 0;\n    foreach (var f in Directory.EnumerateFileSystemEntries(modsDir).Where(f =\u003E name.IsMatch(Path.GetFileName(f))).ToList())\n    {\n        if (Directory.Exists(f)) continue;\n        try { File.Delete(f); count\u002B\u002B; }\n        catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException) { locked.Add(Path.GetFileName(f)); }\n    }\n    return count;\n}\n\n",
+        "description": "Deletes mods/workshop-<id>.jar. On Windows the server must be stopped (it keeps its mods open).",
+        "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Deletes mods/workshop-<id>.jar (and the extra .jar files of the same item); the server no longer loads the mod\n// from its next start.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]+$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\nstring root = (string)ThisService.RootDirectory;\n\nstring mods = ModsDir(root);\nvar locked = new List<string>();\nint removed = RemoveCopies(mods, fileId, locked);\n// The panel deletes the files the install created right after this script; a running Windows server keeps its mods\n// open, so both would fail.\nif (locked.Count > 0) throw new Exception(\"The running server uses \" + string.Join(\", \", locked) + \": stop the server and uninstall the mod again.\");\nScriptConsole.WriteLine((object)(removed == 0\n    ? \"Workshop item \" + fileId + \" was not in the mods folder.\"\n    : \"Removed Workshop item \" + fileId + \" from the mods folder. The server no longer loads it after its next start.\"));\n\n// A symbolic link or junction (reparse point on Windows).\nbool IsLink(string path)\n{\n    // LinkTarget also sees a dangling link (File.Exists is false for one) and Windows junctions.\n    var info = new FileInfo(path);\n    if (info.LinkTarget != null) return true;\n    if (!info.Exists && !Directory.Exists(path)) return false;\n    return (File.GetAttributes(path) & FileAttributes.ReparsePoint) != 0;\n}\n\n// <root>/mods, created when missing. The script runs as the monitor, so the folder must be a real folder inside the\n// service root: a link planted by the service user would make the monitor write or delete files elsewhere.\nstring ModsDir(string serviceRoot)\n{\n    if (IsLink(serviceRoot)) throw new Exception(\"The service folder is a link; refusing to change mods.\");\n    string dir = Path.Combine(serviceRoot, \"mods\");\n    if (!Directory.Exists(dir) && File.Exists(dir)) throw new Exception(\"mods is a file, not a folder.\");\n    if (!Directory.Exists(dir))\n    {\n        Directory.CreateDirectory(dir);\n        if (!System.OperatingSystem.IsWindows()) Globals.OperatingSystem.SetFileOwnerAutoDetect(dir);\n    }\n    if (IsLink(dir)) throw new Exception(\"The mods folder is a link; refusing to change it. Delete the link and try again.\");\n    return dir;\n}\n\n// Deletes mods/workshop-<id>.jar and mods/workshop-<id>-<n>.jar. Returns the number deleted; a file the running\n// server keeps open (Windows) is added to locked.\nint RemoveCopies(string modsDir, string id, List<string> locked)\n{\n    var name = new Regex(\"^workshop-\" + id + \"(-[0-9]+)?\" + Regex.Escape(\".jar\") + \"$\", RegexOptions.IgnoreCase);\n    int count = 0;\n    foreach (var f in Directory.EnumerateFileSystemEntries(modsDir).Where(f => name.IsMatch(Path.GetFileName(f))).ToList())\n    {\n        if (Directory.Exists(f)) continue;\n        try { File.Delete(f); count++; }\n        catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException) { locked.Add(Path.GetFileName(f)); }\n    }\n    return count;\n}\n\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -1007,7 +1049,7 @@
         "maxConcurrentRuns": 1,
         "logApiExecutions": false,
         "order": 0,
-        "icon": "\u003Cpath d=\u0022M19 13H5v-2h14v2z\u0022/\u003E",
+        "icon": "<path d=\"M19 13H5v-2h14v2z\"/>",
         "scriptInputVariables": [],
         "scriptRoles": [
           {
