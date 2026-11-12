@@ -318,7 +318,7 @@
     {
       "name": "PrivatePassword",
       "defaultValue": null,
-      "required": true,
+      "required": false,
       "requiredMessage": "A server password of at least 5 characters is required — Valheim refuses to create a public (-public 1) world without one.",
       "scriptParameter": false,
       "commandlineParameter": true,
@@ -335,7 +335,7 @@
         "defaultValue": null,
         "label": "Private Password",
         "description": "At least 5 characters. Up to 32 characters. Not allowed: double quotes, backslashes, ` or $, line breaks.",
-        "required": true,
+        "required": false,
         "valueType": "string",
         "requiredMessage": "A server password of at least 5 characters is required — Valheim refuses to create a public (-public 1) world without one.",
         "parentId": null,
