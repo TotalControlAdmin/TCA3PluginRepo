@@ -1,0 +1,44 @@
+identifier: "Community.Games.Soulmask"
+name: "Soulmask"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Soulmask dedicated server (Windows / Linux) with Steam update, console, graceful stop and Steam Workshop mods"
+longDescription: |
+  # Soulmask
+  
+  ## Description
+  Soulmask dedicated server for Windows and Linux (Steam apps 3017310 / 3017300, anonymous download). Both are native, so no Wine is needed.
+  
+  ## Key Features
+  - **Windows and Linux** configs, both on the shipping server binary (`WSServer-Win64-Shipping.exe` / `WSServer-Linux-Shipping`).
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S on the query port). The server name comes from the service name.
+  - **Console:** the console wrapper on Windows, Terminal on Linux. Console commands go through the server's maintenance console (EchoPort, bound to 127.0.0.1 only) with a small script.
+  - **Graceful stop:** a stop script sends `shutdown 1`, which saves the world, and waits until the process exits.
+  - **Steam Workshop mods:** install and uninstall from the panel. The mod list is passed to the server as `-mod="id1,id2"`, and the server downloads and loads the mods itself.
+  - **Config editor** for `WS/Saved/GameplaySettings/GameXishu.json` (gameplay settings).
+  - **Settings:** PvP or PvE, the backup and save intervals, and the join password.
+  - **Start scripts** put the Steam client library where the server looks for it.
+  - **Backups** with the panel's backup feature: the world saves and settings (`WS/Saved`). The server is stopped first, so the save is complete.
+  
+  ## Ports
+  - Game 8777, query 27015, console (EchoPort) 18888.
+  
+  ## Instructions
+  - The server exits with code 110 after a normal shutdown. That isn't a crash.
+  - Workshop downloads use SteamCmd. DepotDownloader can't download Soulmask Workshop items anonymously.
+  - The server also opens its own RCON on port 19000, which the panel doesn't use. Two servers on one IP both open 19000, which only produces an error in the log.
+  - Soulmask needs a lot of memory; plan for 12-16 GB per server.
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2646460/a6e8a3962f1110deb848aeb979e306c6416972fd.jpg"
+images:
+  - "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2646460/391bc8f8b77ba186c3bdea7431cf6b39b2dfe26a/ss_391bc8f8b77ba186c3bdea7431cf6b39b2dfe26a.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Soulmask - Windows.json"
+    type: "GameConfig"
+  - path: "Soulmask - Linux.json"
+    type: "GameConfig"
