@@ -1,6 +1,6 @@
 {
-  "__TCA:ExportVersion": "3.23.37.17810",
-  "__TCA:ExportedAt": "2026-11-08T20:16:12.4334605Z",
+  "__TCA:ExportVersion": "3.23.47.17810",
+  "__TCA:ExportedAt": "2026-11-12T11:59:11.4137432Z",
   "name": "Project Zomboid",
   "shortName": "PZ",
   "description": "",
@@ -71,7 +71,7 @@
       {
         "id": "UDPPort",
         "port": 16262,
-        "expression": "GamePort \u002B 1",
+        "expression": "GamePort + 1",
         "description": "Secondary UDP port (UDPPort in the ini).",
         "uriTemplate": null
       },
@@ -117,18 +117,18 @@
     "steamTool": "SteamCmd"
   },
   "gameCommandlineConfig": {
-    "privateCommandline": "-Djava.awt.headless=true -Dzomboid.steam=1 -Dzomboid.znetlog=1 -XX:\u002BUseZGC -XX:-CreateCoredumpOnCrash -XX:-OmitStackTraceInFastThrow -Xms${JavaMemory}m -Xmx${JavaMemory}m -Djava.library.path=natives/ -cp java/;java/projectzomboid.jar zombie.network.GameServer -cachedir=\u0022${RootDirectory}\\Zomboid\u0022 -servername servertest -adminusername admin -adminpassword ${RconPassword} -ip ${IPAddress} -port ${GamePort} -udpport ${UDPPort}",
-    "privateCustomCommandline": "-Djava.awt.headless=true -Dzomboid.steam=1 -Dzomboid.znetlog=1 -XX:\u002BUseZGC -XX:-CreateCoredumpOnCrash -XX:-OmitStackTraceInFastThrow -Xms${JavaMemory}m -Xmx${JavaMemory}m -Djava.library.path=natives/ -cp java/;java/projectzomboid.jar zombie.network.GameServer -cachedir=\u0022${RootDirectory}\\Zomboid\u0022 -servername servertest -adminusername admin -adminpassword ${RconPassword} -ip ${IPAddress} -port ${GamePort} -udpport ${UDPPort} ${UserCommandLine}"
+    "privateCommandline": "-Djava.awt.headless=true -Dzomboid.steam=1 -Dzomboid.znetlog=1 -XX:+UseZGC -XX:-CreateCoredumpOnCrash -XX:-OmitStackTraceInFastThrow -Xms${JavaMemory}m -Xmx${JavaMemory}m -Djava.library.path=natives/ -cp java/;java/projectzomboid.jar zombie.network.GameServer -cachedir=\"${RootDirectory}\\Zomboid\" -servername servertest -adminusername admin -adminpassword ${RconPassword} -ip ${IPAddress} -port ${GamePort} -udpport ${UDPPort}",
+    "privateCustomCommandline": "-Djava.awt.headless=true -Dzomboid.steam=1 -Dzomboid.znetlog=1 -XX:+UseZGC -XX:-CreateCoredumpOnCrash -XX:-OmitStackTraceInFastThrow -Xms${JavaMemory}m -Xmx${JavaMemory}m -Djava.library.path=natives/ -cp java/;java/projectzomboid.jar zombie.network.GameServer -cachedir=\"${RootDirectory}\\Zomboid\" -servername servertest -adminusername admin -adminpassword ${RconPassword} -ip ${IPAddress} -port ${GamePort} -udpport ${UDPPort} ${UserCommandLine}"
   },
   "commandlineConfig": {
     "enableSelection": true,
-    "defaultCommandline": "-Djava.awt.headless=true -Dzomboid.steam=1 -Dzomboid.znetlog=1 -XX:\u002BUseZGC -XX:-CreateCoredumpOnCrash -XX:-OmitStackTraceInFastThrow -Xms${JavaMemory}m -Xmx${JavaMemory}m -Djava.library.path=natives/ -cp java/;java/projectzomboid.jar zombie.network.GameServer -cachedir=\u0022${RootDirectory}\\Zomboid\u0022 -servername servertest -adminusername admin -adminpassword ${RconPassword} -ip ${IPAddress} -port ${GamePort} -udpport ${UDPPort}",
-    "defaultCustomCommandline": "-Djava.awt.headless=true -Dzomboid.steam=1 -Dzomboid.znetlog=1 -XX:\u002BUseZGC -XX:-CreateCoredumpOnCrash -XX:-OmitStackTraceInFastThrow -Xms${JavaMemory}m -Xmx${JavaMemory}m -Djava.library.path=natives/ -cp java/;java/projectzomboid.jar zombie.network.GameServer -cachedir=\u0022${RootDirectory}\\Zomboid\u0022 -servername servertest -adminusername admin -adminpassword ${RconPassword} -ip ${IPAddress} -port ${GamePort} -udpport ${UDPPort} ${UserCommandLine}",
+    "defaultCommandline": "-Djava.awt.headless=true -Dzomboid.steam=1 -Dzomboid.znetlog=1 -XX:+UseZGC -XX:-CreateCoredumpOnCrash -XX:-OmitStackTraceInFastThrow -Xms${JavaMemory}m -Xmx${JavaMemory}m -Djava.library.path=natives/ -cp java/;java/projectzomboid.jar zombie.network.GameServer -cachedir=\"${RootDirectory}\\Zomboid\" -servername servertest -adminusername admin -adminpassword ${RconPassword} -ip ${IPAddress} -port ${GamePort} -udpport ${UDPPort}",
+    "defaultCustomCommandline": "-Djava.awt.headless=true -Dzomboid.steam=1 -Dzomboid.znetlog=1 -XX:+UseZGC -XX:-CreateCoredumpOnCrash -XX:-OmitStackTraceInFastThrow -Xms${JavaMemory}m -Xmx${JavaMemory}m -Djava.library.path=natives/ -cp java/;java/projectzomboid.jar zombie.network.GameServer -cachedir=\"${RootDirectory}\\Zomboid\" -servername servertest -adminusername admin -adminpassword ${RconPassword} -ip ${IPAddress} -port ${GamePort} -udpport ${UDPPort} ${UserCommandLine}",
     "predefinedCommandlines": [
       {
         "id": 0,
         "name": "Standard",
-        "commandLine": "-Djava.awt.headless=true -Dzomboid.steam=1 -Dzomboid.znetlog=1 -XX:\u002BUseZGC -XX:-CreateCoredumpOnCrash -XX:-OmitStackTraceInFastThrow -Xms${JavaMemory}m -Xmx${JavaMemory}m -Djava.library.path=natives/ -cp java/;java/projectzomboid.jar zombie.network.GameServer -cachedir=\u0022${RootDirectory}\\Zomboid\u0022 -servername servertest -adminusername admin -adminpassword ${RconPassword} -ip ${IPAddress} -port ${GamePort} -udpport ${UDPPort}"
+        "commandLine": "-Djava.awt.headless=true -Dzomboid.steam=1 -Dzomboid.znetlog=1 -XX:+UseZGC -XX:-CreateCoredumpOnCrash -XX:-OmitStackTraceInFastThrow -Xms${JavaMemory}m -Xmx${JavaMemory}m -Djava.library.path=natives/ -cp java/;java/projectzomboid.jar zombie.network.GameServer -cachedir=\"${RootDirectory}\\Zomboid\" -servername servertest -adminusername admin -adminpassword ${RconPassword} -ip ${IPAddress} -port ${GamePort} -udpport ${UDPPort}"
       }
     ]
   },
@@ -837,7 +837,7 @@
         ],
         "name": "Add Workshop mod to WorkshopItems and Mods",
         "description": "Adds the Workshop item to WorkshopItems and its mod ids to Mods in servertest.ini and the service variables. Skips sub-mods whose requirements are not installed. Applies on the next start.",
-        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Project Zomboid loads a Workshop item only when its numeric id is in WorkshopItems= and the\n// ids from its mod.info files are in Mods= (both semicolon-separated, in servertest.ini).\nstring fileId = Convert.ToString(Dynamic.FileId);\nstring installPath = Convert.ToString(Dynamic.InstallPath);\nstring iniPath = Path.Combine(ThisService.RootDirectory, \u0022Zomboid\u0022, \u0022Server\u0022, \u0022servertest.ini\u0022);\n\n// mod.info \u0022require=\u0022 entries are written as \\ModId in Build 42; the server\u0027s Mods= list takes bare ids.\nstring Normalize(string entry) =\u003E entry.Trim().TrimStart(\u0027\\\\\u0027);\n\n// One entry per mod id in a Workshop item. Build 41 items keep mods\\\u003CMod\u003E\\mod.info, Build 42 items\n// keep mods\\\u003CMod\u003E\\42\\mod.info, and many keep both; the Build 42 file wins for the requirements.\nList\u003C(string Id, List\u003Cstring\u003E Requires)\u003E ReadMods(string itemPath)\n{\n    var mods = new List\u003C(string Id, List\u003Cstring\u003E Requires, bool IsB42)\u003E();\n    string modsDir = Path.Combine(itemPath ?? string.Empty, \u0022mods\u0022);\n    if (!Directory.Exists(modsDir)) return new List\u003C(string, List\u003Cstring\u003E)\u003E();\n    foreach (var info in Directory.EnumerateFiles(modsDir, \u0022mod.info\u0022, SearchOption.AllDirectories).OrderBy(p =\u003E p, StringComparer.OrdinalIgnoreCase))\n    {\n        string id = null;\n        var requires = new List\u003Cstring\u003E();\n        foreach (var raw in File.ReadLines(info))\n        {\n            string line = raw.Trim();\n            if (line.StartsWith(\u0022id=\u0022, StringComparison.OrdinalIgnoreCase)) id = line.Substring(3).Trim();\n            else if (line.StartsWith(\u0022require=\u0022, StringComparison.OrdinalIgnoreCase))\n                requires.AddRange(line.Substring(8).Split(\u0027,\u0027).Select(Normalize).Where(x =\u003E x.Length \u003E 0));\n        }\n        if (string.IsNullOrEmpty(id)) continue;\n        bool isB42 = Path.GetFileName(Path.GetDirectoryName(info)).StartsWith(\u002242\u0022, StringComparison.Ordinal);\n        int existing = mods.FindIndex(m =\u003E m.Id == id);\n        if (existing \u003C 0) mods.Add((id, requires, isB42));\n        else if (isB42 \u0026\u0026 !mods[existing].IsB42) mods[existing] = (id, requires, true);\n    }\n    return mods.Select(m =\u003E (m.Id, m.Requires)).ToList();\n}\n\nList\u003Cstring\u003E SplitList(string value) =\u003E\n    (value ?? string.Empty).Split(\u0027;\u0027).Select(x =\u003E x.Trim()).Where(x =\u003E x.Length \u003E 0).ToList();\n\nstring AddEntries(string value, IEnumerable\u003Cstring\u003E entries)\n{\n    var list = SplitList(value);\n    foreach (var e in entries)\n        if (!list.Any(x =\u003E Normalize(x) == Normalize(e))) list.Add(e);\n    return string.Join(\u0022;\u0022, list);\n}\n\nstring RemoveEntries(string value, IEnumerable\u003Cstring\u003E entries)\n{\n    var drop = new HashSet\u003Cstring\u003E(entries.Select(Normalize), StringComparer.Ordinal);\n    return string.Join(\u0022;\u0022, SplitList(value).Where(x =\u003E !drop.Contains(Normalize(x))));\n}\n\nstring SetIniValue(string text, string key, string value)\n{\n    var rx = new Regex(\u0022(?m)^\u0022 \u002B Regex.Escape(key) \u002B \u0022=[^\\\\r\\\\n]*\u0022);\n    if (rx.IsMatch(text)) return rx.Replace(text, key \u002B \u0022=\u0022 \u002B value.Replace(\u0022$\u0022, \u0022$$\u0022), 1);\n    string nl = text.Contains(\u0022\\r\\n\u0022) ? \u0022\\r\\n\u0022 : \u0022\\n\u0022;\n    return text.TrimEnd(\u0027\\r\u0027, \u0027\\n\u0027) \u002B nl \u002B key \u002B \u0022=\u0022 \u002B value \u002B nl;\n}\n\n// The live ini is what the server reads; the service variables back the config editor fields\n// and the file template, so both are kept in step.\nasync Task SaveLists(Func\u003Cstring, string\u003E workshop, Func\u003Cstring, string\u003E mods)\n{\n    var service = await GameServiceManager.GetAsync(ThisService.ServiceId);\n    var current = service.Variables ?? new TCAdminVars();\n    string text = File.Exists(iniPath) ? await File.ReadAllTextAsync(iniPath, ThisCancellationToken) : null;\n    // The ini wins when it exists: an owner may have edited it by hand since the variables were saved.\n    string oldWorkshop = text != null ? Regex.Match(text, @\u0022(?m)^WorkshopItems=([^\\r\\n]*)\u0022).Groups[1].Value : current.Parse\u003Cstring\u003E(\u0022WorkshopItems\u0022, string.Empty);\n    string oldMods = text != null ? Regex.Match(text, @\u0022(?m)^Mods=([^\\r\\n]*)\u0022).Groups[1].Value : current.Parse\u003Cstring\u003E(\u0022Mods\u0022, string.Empty);\n    string newWorkshop = workshop(oldWorkshop);\n    string newMods = mods(oldMods);\n\n    if (text != null)\n    {\n        text = SetIniValue(text, \u0022WorkshopItems\u0022, newWorkshop);\n        text = SetIniValue(text, \u0022Mods\u0022, newMods);\n        await File.WriteAllTextAsync(iniPath, text, ThisCancellationToken);\n    }\n\n    var updated = new TCAdminVars();\n    foreach (var pair in current) updated[pair.Key] = pair.Value;\n    updated[\u0022WorkshopItems\u0022] = newWorkshop;\n    updated[\u0022Mods\u0022] = newMods;\n    service.Variables = updated;\n    GameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\n    await GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n\n    ScriptConsole.WriteLine((object)(\u0022WorkshopItems=\u0022 \u002B newWorkshop));\n    ScriptConsole.WriteLine((object)(\u0022Mods=\u0022 \u002B newMods));\n}\n\nvar itemMods = ReadMods(installPath);\nif (itemMods.Count == 0)\n    ScriptConsole.WriteLine((object)$\u0022Workshop item {fileId} has no mod.info files. Only WorkshopItems is updated.\u0022);\n\n// Every mod id available on this server: the Workshop items downloaded so far, this one included.\nstring contentDir = Path.GetDirectoryName(installPath);\nvar available = new HashSet\u003Cstring\u003E(StringComparer.Ordinal);\nif (Directory.Exists(contentDir))\n    foreach (var item in Directory.GetDirectories(contentDir))\n        foreach (var m in ReadMods(item)) available.Add(m.Id);\n\n// Items often bundle optional sub-mods for other mods (map packs, UI frameworks). Enable only the\n// ones whose requirements are installed; the server skips the rest with a warning anyway.\nvar pending = itemMods.Where(m =\u003E m.Requires.All(available.Contains)).ToList();\nforeach (var skipped in itemMods.Where(m =\u003E !pending.Contains(m)))\n    ScriptConsole.WriteLine((object)$\u0022Not enabling {skipped.Id}: it needs {string.Join(\u0022, \u0022, skipped.Requires.Where(r =\u003E !available.Contains(r)))}, which is not installed. Add it to Mods after installing that.\u0022);\n\n// Requirements first, so Mods= reads in load order.\nvar enable = new List\u003Cstring\u003E();\nwhile (pending.Count \u003E 0)\n{\n    int next = pending.FindIndex(m =\u003E m.Requires.All(r =\u003E enable.Contains(r) || !pending.Any(p =\u003E p.Id == r)));\n    if (next \u003C 0) next = 0;\n    enable.Add(pending[next].Id);\n    pending.RemoveAt(next);\n}\nif (enable.Count \u003E 0)\n    ScriptConsole.WriteLine((object)$\u0022Workshop item {fileId}: enabling {string.Join(\u0022, \u0022, enable)}\u0022);\n\nawait SaveLists(\n    w =\u003E AddEntries(w, new[] { fileId }),\n    m =\u003E AddEntries(m, enable));\nScriptConsole.WriteLine((object)\u0022The mod is loaded the next time the server starts.\u0022);\n",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Project Zomboid loads a Workshop item only when its numeric id is in WorkshopItems= and the\n// ids from its mod.info files are in Mods= (both semicolon-separated, in servertest.ini).\nstring fileId = Convert.ToString(Dynamic.FileId);\nstring installPath = Convert.ToString(Dynamic.InstallPath);\nstring iniPath = Path.Combine(ThisService.RootDirectory, \"Zomboid\", \"Server\", \"servertest.ini\");\n\n// mod.info \"require=\" entries are written as \\ModId in Build 42; the server's Mods= list takes bare ids.\nstring Normalize(string entry) => entry.Trim().TrimStart('\\\\');\n\n// One entry per mod id in a Workshop item. Build 41 items keep mods\\<Mod>\\mod.info, Build 42 items\n// keep mods\\<Mod>\\42\\mod.info, and many keep both; the Build 42 file wins for the requirements.\nList<(string Id, List<string> Requires)> ReadMods(string itemPath)\n{\n    var mods = new List<(string Id, List<string> Requires, bool IsB42)>();\n    string modsDir = Path.Combine(itemPath ?? string.Empty, \"mods\");\n    if (!Directory.Exists(modsDir)) return new List<(string, List<string>)>();\n    foreach (var info in Directory.EnumerateFiles(modsDir, \"mod.info\", SearchOption.AllDirectories).OrderBy(p => p, StringComparer.OrdinalIgnoreCase))\n    {\n        string id = null;\n        var requires = new List<string>();\n        foreach (var raw in File.ReadLines(info))\n        {\n            string line = raw.Trim();\n            if (line.StartsWith(\"id=\", StringComparison.OrdinalIgnoreCase)) id = line.Substring(3).Trim();\n            else if (line.StartsWith(\"require=\", StringComparison.OrdinalIgnoreCase))\n                requires.AddRange(line.Substring(8).Split(',').Select(Normalize).Where(x => x.Length > 0));\n        }\n        if (string.IsNullOrEmpty(id)) continue;\n        bool isB42 = Path.GetFileName(Path.GetDirectoryName(info)).StartsWith(\"42\", StringComparison.Ordinal);\n        int existing = mods.FindIndex(m => m.Id == id);\n        if (existing < 0) mods.Add((id, requires, isB42));\n        else if (isB42 && !mods[existing].IsB42) mods[existing] = (id, requires, true);\n    }\n    return mods.Select(m => (m.Id, m.Requires)).ToList();\n}\n\nList<string> SplitList(string value) =>\n    (value ?? string.Empty).Split(';').Select(x => x.Trim()).Where(x => x.Length > 0).ToList();\n\nstring AddEntries(string value, IEnumerable<string> entries)\n{\n    var list = SplitList(value);\n    foreach (var e in entries)\n        if (!list.Any(x => Normalize(x) == Normalize(e))) list.Add(e);\n    return string.Join(\";\", list);\n}\n\nstring RemoveEntries(string value, IEnumerable<string> entries)\n{\n    var drop = new HashSet<string>(entries.Select(Normalize), StringComparer.Ordinal);\n    return string.Join(\";\", SplitList(value).Where(x => !drop.Contains(Normalize(x))));\n}\n\nstring SetIniValue(string text, string key, string value)\n{\n    var rx = new Regex(\"(?m)^\" + Regex.Escape(key) + \"=[^\\\\r\\\\n]*\");\n    if (rx.IsMatch(text)) return rx.Replace(text, key + \"=\" + value.Replace(\"$\", \"$$\"), 1);\n    string nl = text.Contains(\"\\r\\n\") ? \"\\r\\n\" : \"\\n\";\n    return text.TrimEnd('\\r', '\\n') + nl + key + \"=\" + value + nl;\n}\n\n// The live ini is what the server reads; the service variables back the config editor fields\n// and the file template, so both are kept in step.\nasync Task SaveLists(Func<string, string> workshop, Func<string, string> mods)\n{\n    var service = await GameServiceManager.GetAsync(ThisService.ServiceId);\n    var current = service.Variables ?? new TCAdminVars();\n    string text = File.Exists(iniPath) ? await File.ReadAllTextAsync(iniPath, ThisCancellationToken) : null;\n    // The ini wins when it exists: an owner may have edited it by hand since the variables were saved.\n    string oldWorkshop = text != null ? Regex.Match(text, @\"(?m)^WorkshopItems=([^\\r\\n]*)\").Groups[1].Value : current.Parse<string>(\"WorkshopItems\", string.Empty);\n    string oldMods = text != null ? Regex.Match(text, @\"(?m)^Mods=([^\\r\\n]*)\").Groups[1].Value : current.Parse<string>(\"Mods\", string.Empty);\n    string newWorkshop = workshop(oldWorkshop);\n    string newMods = mods(oldMods);\n\n    if (text != null)\n    {\n        text = SetIniValue(text, \"WorkshopItems\", newWorkshop);\n        text = SetIniValue(text, \"Mods\", newMods);\n        await File.WriteAllTextAsync(iniPath, text, ThisCancellationToken);\n    }\n\n    var updated = new TCAdminVars();\n    foreach (var pair in current) updated[pair.Key] = pair.Value;\n    updated[\"WorkshopItems\"] = newWorkshop;\n    updated[\"Mods\"] = newMods;\n    service.Variables = updated;\n    GameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\n    await GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n\n    ScriptConsole.WriteLine((object)(\"WorkshopItems=\" + newWorkshop));\n    ScriptConsole.WriteLine((object)(\"Mods=\" + newMods));\n}\n\nvar itemMods = ReadMods(installPath);\nif (itemMods.Count == 0)\n    ScriptConsole.WriteLine((object)$\"Workshop item {fileId} has no mod.info files. Only WorkshopItems is updated.\");\n\n// Every mod id available on this server: the Workshop items downloaded so far, this one included.\nstring contentDir = Path.GetDirectoryName(installPath);\nvar available = new HashSet<string>(StringComparer.Ordinal);\nif (Directory.Exists(contentDir))\n    foreach (var item in Directory.GetDirectories(contentDir))\n        foreach (var m in ReadMods(item)) available.Add(m.Id);\n\n// Items often bundle optional sub-mods for other mods (map packs, UI frameworks). Enable only the\n// ones whose requirements are installed; the server skips the rest with a warning anyway.\nvar pending = itemMods.Where(m => m.Requires.All(available.Contains)).ToList();\nforeach (var skipped in itemMods.Where(m => !pending.Contains(m)))\n    ScriptConsole.WriteLine((object)$\"Not enabling {skipped.Id}: it needs {string.Join(\", \", skipped.Requires.Where(r => !available.Contains(r)))}, which is not installed. Add it to Mods after installing that.\");\n\n// Requirements first, so Mods= reads in load order.\nvar enable = new List<string>();\nwhile (pending.Count > 0)\n{\n    int next = pending.FindIndex(m => m.Requires.All(r => enable.Contains(r) || !pending.Any(p => p.Id == r)));\n    if (next < 0) next = 0;\n    enable.Add(pending[next].Id);\n    pending.RemoveAt(next);\n}\nif (enable.Count > 0)\n    ScriptConsole.WriteLine((object)$\"Workshop item {fileId}: enabling {string.Join(\", \", enable)}\");\n\nawait SaveLists(\n    w => AddEntries(w, new[] { fileId }),\n    m => AddEntries(m, enable));\nScriptConsole.WriteLine((object)\"The mod is loaded the next time the server starts.\");\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -867,7 +867,7 @@
         ],
         "name": "Remove Workshop mod from WorkshopItems and Mods",
         "description": "Removes the Workshop item and its mod ids from servertest.ini and the service variables before the files are deleted. Applies on the next start.",
-        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Project Zomboid loads a Workshop item only when its numeric id is in WorkshopItems= and the\n// ids from its mod.info files are in Mods= (both semicolon-separated, in servertest.ini).\nstring fileId = Convert.ToString(Dynamic.FileId);\nstring installPath = Convert.ToString(Dynamic.InstallPath);\nstring iniPath = Path.Combine(ThisService.RootDirectory, \u0022Zomboid\u0022, \u0022Server\u0022, \u0022servertest.ini\u0022);\n\n// mod.info \u0022require=\u0022 entries are written as \\ModId in Build 42; the server\u0027s Mods= list takes bare ids.\nstring Normalize(string entry) =\u003E entry.Trim().TrimStart(\u0027\\\\\u0027);\n\n// One entry per mod id in a Workshop item. Build 41 items keep mods\\\u003CMod\u003E\\mod.info, Build 42 items\n// keep mods\\\u003CMod\u003E\\42\\mod.info, and many keep both; the Build 42 file wins for the requirements.\nList\u003C(string Id, List\u003Cstring\u003E Requires)\u003E ReadMods(string itemPath)\n{\n    var mods = new List\u003C(string Id, List\u003Cstring\u003E Requires, bool IsB42)\u003E();\n    string modsDir = Path.Combine(itemPath ?? string.Empty, \u0022mods\u0022);\n    if (!Directory.Exists(modsDir)) return new List\u003C(string, List\u003Cstring\u003E)\u003E();\n    foreach (var info in Directory.EnumerateFiles(modsDir, \u0022mod.info\u0022, SearchOption.AllDirectories).OrderBy(p =\u003E p, StringComparer.OrdinalIgnoreCase))\n    {\n        string id = null;\n        var requires = new List\u003Cstring\u003E();\n        foreach (var raw in File.ReadLines(info))\n        {\n            string line = raw.Trim();\n            if (line.StartsWith(\u0022id=\u0022, StringComparison.OrdinalIgnoreCase)) id = line.Substring(3).Trim();\n            else if (line.StartsWith(\u0022require=\u0022, StringComparison.OrdinalIgnoreCase))\n                requires.AddRange(line.Substring(8).Split(\u0027,\u0027).Select(Normalize).Where(x =\u003E x.Length \u003E 0));\n        }\n        if (string.IsNullOrEmpty(id)) continue;\n        bool isB42 = Path.GetFileName(Path.GetDirectoryName(info)).StartsWith(\u002242\u0022, StringComparison.Ordinal);\n        int existing = mods.FindIndex(m =\u003E m.Id == id);\n        if (existing \u003C 0) mods.Add((id, requires, isB42));\n        else if (isB42 \u0026\u0026 !mods[existing].IsB42) mods[existing] = (id, requires, true);\n    }\n    return mods.Select(m =\u003E (m.Id, m.Requires)).ToList();\n}\n\nList\u003Cstring\u003E SplitList(string value) =\u003E\n    (value ?? string.Empty).Split(\u0027;\u0027).Select(x =\u003E x.Trim()).Where(x =\u003E x.Length \u003E 0).ToList();\n\nstring AddEntries(string value, IEnumerable\u003Cstring\u003E entries)\n{\n    var list = SplitList(value);\n    foreach (var e in entries)\n        if (!list.Any(x =\u003E Normalize(x) == Normalize(e))) list.Add(e);\n    return string.Join(\u0022;\u0022, list);\n}\n\nstring RemoveEntries(string value, IEnumerable\u003Cstring\u003E entries)\n{\n    var drop = new HashSet\u003Cstring\u003E(entries.Select(Normalize), StringComparer.Ordinal);\n    return string.Join(\u0022;\u0022, SplitList(value).Where(x =\u003E !drop.Contains(Normalize(x))));\n}\n\nstring SetIniValue(string text, string key, string value)\n{\n    var rx = new Regex(\u0022(?m)^\u0022 \u002B Regex.Escape(key) \u002B \u0022=[^\\\\r\\\\n]*\u0022);\n    if (rx.IsMatch(text)) return rx.Replace(text, key \u002B \u0022=\u0022 \u002B value.Replace(\u0022$\u0022, \u0022$$\u0022), 1);\n    string nl = text.Contains(\u0022\\r\\n\u0022) ? \u0022\\r\\n\u0022 : \u0022\\n\u0022;\n    return text.TrimEnd(\u0027\\r\u0027, \u0027\\n\u0027) \u002B nl \u002B key \u002B \u0022=\u0022 \u002B value \u002B nl;\n}\n\n// The live ini is what the server reads; the service variables back the config editor fields\n// and the file template, so both are kept in step.\nasync Task SaveLists(Func\u003Cstring, string\u003E workshop, Func\u003Cstring, string\u003E mods)\n{\n    var service = await GameServiceManager.GetAsync(ThisService.ServiceId);\n    var current = service.Variables ?? new TCAdminVars();\n    string text = File.Exists(iniPath) ? await File.ReadAllTextAsync(iniPath, ThisCancellationToken) : null;\n    // The ini wins when it exists: an owner may have edited it by hand since the variables were saved.\n    string oldWorkshop = text != null ? Regex.Match(text, @\u0022(?m)^WorkshopItems=([^\\r\\n]*)\u0022).Groups[1].Value : current.Parse\u003Cstring\u003E(\u0022WorkshopItems\u0022, string.Empty);\n    string oldMods = text != null ? Regex.Match(text, @\u0022(?m)^Mods=([^\\r\\n]*)\u0022).Groups[1].Value : current.Parse\u003Cstring\u003E(\u0022Mods\u0022, string.Empty);\n    string newWorkshop = workshop(oldWorkshop);\n    string newMods = mods(oldMods);\n\n    if (text != null)\n    {\n        text = SetIniValue(text, \u0022WorkshopItems\u0022, newWorkshop);\n        text = SetIniValue(text, \u0022Mods\u0022, newMods);\n        await File.WriteAllTextAsync(iniPath, text, ThisCancellationToken);\n    }\n\n    var updated = new TCAdminVars();\n    foreach (var pair in current) updated[pair.Key] = pair.Value;\n    updated[\u0022WorkshopItems\u0022] = newWorkshop;\n    updated[\u0022Mods\u0022] = newMods;\n    service.Variables = updated;\n    GameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\n    await GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n\n    ScriptConsole.WriteLine((object)(\u0022WorkshopItems=\u0022 \u002B newWorkshop));\n    ScriptConsole.WriteLine((object)(\u0022Mods=\u0022 \u002B newMods));\n}\n\n// Runs before the files are deleted, so the item\u0027s mod.info files can still be read.\nvar itemMods = ReadMods(installPath);\nawait SaveLists(\n    w =\u003E RemoveEntries(w, new[] { fileId }),\n    m =\u003E RemoveEntries(m, itemMods.Select(x =\u003E x.Id)));\nScriptConsole.WriteLine((object)$\u0022Removed workshop item {fileId} from the server\u0027s mod lists. The change applies on the next start.\u0022);\n",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Project Zomboid loads a Workshop item only when its numeric id is in WorkshopItems= and the\n// ids from its mod.info files are in Mods= (both semicolon-separated, in servertest.ini).\nstring fileId = Convert.ToString(Dynamic.FileId);\nstring installPath = Convert.ToString(Dynamic.InstallPath);\nstring iniPath = Path.Combine(ThisService.RootDirectory, \"Zomboid\", \"Server\", \"servertest.ini\");\n\n// mod.info \"require=\" entries are written as \\ModId in Build 42; the server's Mods= list takes bare ids.\nstring Normalize(string entry) => entry.Trim().TrimStart('\\\\');\n\n// One entry per mod id in a Workshop item. Build 41 items keep mods\\<Mod>\\mod.info, Build 42 items\n// keep mods\\<Mod>\\42\\mod.info, and many keep both; the Build 42 file wins for the requirements.\nList<(string Id, List<string> Requires)> ReadMods(string itemPath)\n{\n    var mods = new List<(string Id, List<string> Requires, bool IsB42)>();\n    string modsDir = Path.Combine(itemPath ?? string.Empty, \"mods\");\n    if (!Directory.Exists(modsDir)) return new List<(string, List<string>)>();\n    foreach (var info in Directory.EnumerateFiles(modsDir, \"mod.info\", SearchOption.AllDirectories).OrderBy(p => p, StringComparer.OrdinalIgnoreCase))\n    {\n        string id = null;\n        var requires = new List<string>();\n        foreach (var raw in File.ReadLines(info))\n        {\n            string line = raw.Trim();\n            if (line.StartsWith(\"id=\", StringComparison.OrdinalIgnoreCase)) id = line.Substring(3).Trim();\n            else if (line.StartsWith(\"require=\", StringComparison.OrdinalIgnoreCase))\n                requires.AddRange(line.Substring(8).Split(',').Select(Normalize).Where(x => x.Length > 0));\n        }\n        if (string.IsNullOrEmpty(id)) continue;\n        bool isB42 = Path.GetFileName(Path.GetDirectoryName(info)).StartsWith(\"42\", StringComparison.Ordinal);\n        int existing = mods.FindIndex(m => m.Id == id);\n        if (existing < 0) mods.Add((id, requires, isB42));\n        else if (isB42 && !mods[existing].IsB42) mods[existing] = (id, requires, true);\n    }\n    return mods.Select(m => (m.Id, m.Requires)).ToList();\n}\n\nList<string> SplitList(string value) =>\n    (value ?? string.Empty).Split(';').Select(x => x.Trim()).Where(x => x.Length > 0).ToList();\n\nstring AddEntries(string value, IEnumerable<string> entries)\n{\n    var list = SplitList(value);\n    foreach (var e in entries)\n        if (!list.Any(x => Normalize(x) == Normalize(e))) list.Add(e);\n    return string.Join(\";\", list);\n}\n\nstring RemoveEntries(string value, IEnumerable<string> entries)\n{\n    var drop = new HashSet<string>(entries.Select(Normalize), StringComparer.Ordinal);\n    return string.Join(\";\", SplitList(value).Where(x => !drop.Contains(Normalize(x))));\n}\n\nstring SetIniValue(string text, string key, string value)\n{\n    var rx = new Regex(\"(?m)^\" + Regex.Escape(key) + \"=[^\\\\r\\\\n]*\");\n    if (rx.IsMatch(text)) return rx.Replace(text, key + \"=\" + value.Replace(\"$\", \"$$\"), 1);\n    string nl = text.Contains(\"\\r\\n\") ? \"\\r\\n\" : \"\\n\";\n    return text.TrimEnd('\\r', '\\n') + nl + key + \"=\" + value + nl;\n}\n\n// The live ini is what the server reads; the service variables back the config editor fields\n// and the file template, so both are kept in step.\nasync Task SaveLists(Func<string, string> workshop, Func<string, string> mods)\n{\n    var service = await GameServiceManager.GetAsync(ThisService.ServiceId);\n    var current = service.Variables ?? new TCAdminVars();\n    string text = File.Exists(iniPath) ? await File.ReadAllTextAsync(iniPath, ThisCancellationToken) : null;\n    // The ini wins when it exists: an owner may have edited it by hand since the variables were saved.\n    string oldWorkshop = text != null ? Regex.Match(text, @\"(?m)^WorkshopItems=([^\\r\\n]*)\").Groups[1].Value : current.Parse<string>(\"WorkshopItems\", string.Empty);\n    string oldMods = text != null ? Regex.Match(text, @\"(?m)^Mods=([^\\r\\n]*)\").Groups[1].Value : current.Parse<string>(\"Mods\", string.Empty);\n    string newWorkshop = workshop(oldWorkshop);\n    string newMods = mods(oldMods);\n\n    if (text != null)\n    {\n        text = SetIniValue(text, \"WorkshopItems\", newWorkshop);\n        text = SetIniValue(text, \"Mods\", newMods);\n        await File.WriteAllTextAsync(iniPath, text, ThisCancellationToken);\n    }\n\n    var updated = new TCAdminVars();\n    foreach (var pair in current) updated[pair.Key] = pair.Value;\n    updated[\"WorkshopItems\"] = newWorkshop;\n    updated[\"Mods\"] = newMods;\n    service.Variables = updated;\n    GameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\n    await GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n\n    ScriptConsole.WriteLine((object)(\"WorkshopItems=\" + newWorkshop));\n    ScriptConsole.WriteLine((object)(\"Mods=\" + newMods));\n}\n\n// Runs before the files are deleted, so the item's mod.info files can still be read.\nvar itemMods = ReadMods(installPath);\nawait SaveLists(\n    w => RemoveEntries(w, new[] { fileId }),\n    m => RemoveEntries(m, itemMods.Select(x => x.Id)));\nScriptConsole.WriteLine((object)$\"Removed workshop item {fileId} from the server's mod lists. The change applies on the next start.\");\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -966,6 +966,13 @@
     {
       "roleId": 2,
       "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
       "permission": "Backups",
       "moduleData": "",
       "granted": true
@@ -1043,13 +1050,6 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Block-SetVariable",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
       "permission": "ConfigFiles",
       "moduleData": "",
       "granted": true
@@ -1071,13 +1071,6 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
       "permission": "CpuStats",
       "moduleData": "",
       "granted": true
@@ -1095,34 +1088,6 @@
       "permission": "CustomScripts",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Databases",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
     },
     {
       "roleId": 2,
@@ -1204,13 +1169,6 @@
     {
       "roleId": 2,
       "module": "BpFeature",
-      "permission": "Repair",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 2,
-      "module": "BpFeature",
       "permission": "ScheduledTasks",
       "moduleData": "",
       "granted": true
@@ -1225,19 +1183,341 @@
     {
       "roleId": 2,
       "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "GeneralSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FileSystem",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Cmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "IpAndPorts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Monitoring",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Variables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Scripts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "CustomLinks",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FeaturePermissions",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "EnvironmentVariables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Limits",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "RconAndQuery",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Paths",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "RunAs",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Steam",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
       "permission": "ServiceSettings",
       "moduleData": "",
       "granted": false
     },
     {
-      "roleId": 2,
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
       "module": "BpFeature",
       "permission": "SteamUpdate",
       "moduleData": "",
       "granted": true
     },
     {
-      "roleId": 2,
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
       "module": "BpFeature",
       "permission": "Updates",
       "moduleData": "",
@@ -1246,7 +1526,7 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Backups",
+      "permission": "CustomScripts",
       "moduleData": "",
       "granted": true
     },
@@ -1316,13 +1596,6 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "Block-WebRequest",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
       "permission": "Block-SetVariable",
       "moduleData": "",
       "granted": false
@@ -1330,49 +1603,7 @@
     {
       "roleId": 3,
       "module": "BpFeature",
-      "permission": "ConfigFiles",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Console",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Control",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Create",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "CpuStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "CustomCmdlines",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "CustomScripts",
+      "permission": "Block-WebRequest",
       "moduleData": "",
       "granted": true
     },
@@ -1382,146 +1613,6 @@
       "permission": "Databases",
       "moduleData": "",
       "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Delete",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Detach",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "FastDL",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "FileManager",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "FTP",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "KillService",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "LiveStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Logs",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "MemoryStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Mods",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "NetworkStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "PlayerStats",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "PredefCmdlines",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Reinstall",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Repair",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "ScheduledTasks",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "ServiceActivity",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "ServiceSettings",
-      "moduleData": "",
-      "granted": false
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "SteamUpdate",
-      "moduleData": "",
-      "granted": true
-    },
-    {
-      "roleId": 3,
-      "module": "BpFeature",
-      "permission": "Updates",
-      "moduleData": "",
-      "granted": false
     }
   ],
   "mods": [],
