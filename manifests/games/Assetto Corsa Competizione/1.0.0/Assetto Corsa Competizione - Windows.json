@@ -3,7 +3,7 @@
   "__TCA:ExportedAt": "2026-11-12T11:35:38.6870487Z",
   "name": "Assetto Corsa Competizione",
   "shortName": "acc",
-  "description": "Assetto Corsa Competizione dedicated server (Steam app 1430110). The download needs a Steam account that owns Assetto Corsa Competizione: set it in Settings \u003E Steam or on the game Steam tab.",
+  "description": "Assetto Corsa Competizione dedicated server (Steam app 1430110). The download needs a Steam account that owns Assetto Corsa Competizione: set it in Settings > Steam or on the game Steam tab.",
   "operatingSystem": "Windows",
   "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/805550/413dfe7829dd6e2776b7daef24c45b6f8f1f9ae5.jpg",
   "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/805550/ae39ccca56617ec8e3cf9495e84bee15c9a2dce1/ss_ae39ccca56617ec8e3cf9495e84bee15c9a2dce1.1920x1080.jpg",
@@ -217,7 +217,7 @@
         "maxLength": 64,
         "lines": 1,
         "denyCharacters": [],
-        "regExValidation": "^[^\u0022\\\\\\x00-\\x1f]*$",
+        "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
         "inputType": 0,
         "id": "SpectatorPassword",
         "defaultValue": "",
@@ -841,7 +841,7 @@
         "id": "Track",
         "defaultValue": "mount_panorama",
         "label": "Track",
-        "description": "DLC tracks need the DLC on the drivers\u0027 side only.",
+        "description": "DLC tracks need the DLC on the drivers' side only.",
         "required": true,
         "valueType": "string",
         "requiredMessage": "Value is required",
@@ -1874,6 +1874,132 @@
           "roleId": 3
         }
       ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:13:50.554968",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:13:51.795162",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:13:53.106865",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     }
   ],
   "configFiles": [
@@ -1881,7 +2007,7 @@
       "id": 900,
       "relativePath": "server\\cfg\\settings.json",
       "description": "Server name, passwords, car group and race rules (server/cfg/settings.json)",
-      "template": "{\n    \u0022serverName\u0022: \u0022${Hostname}\u0022,\n    \u0022adminPassword\u0022: \u0022${RconPassword}\u0022,\n    \u0022carGroup\u0022: \u0022${CarGroup}\u0022,\n    \u0022trackMedalsRequirement\u0022: ${TrackMedals},\n    \u0022safetyRatingRequirement\u0022: ${SafetyRating},\n    \u0022racecraftRatingRequirement\u0022: ${RacecraftRating},\n    \u0022password\u0022: \u0022${PrivatePassword}\u0022,\n    \u0022spectatorPassword\u0022: \u0022${SpectatorPassword}\u0022,\n    \u0022maxCarSlots\u0022: ${Slots},\n    \u0022dumpLeaderboards\u0022: ${DumpLeaderboards},\n    \u0022dumpEntryList\u0022: ${DumpEntryList},\n    \u0022isRaceLocked\u0022: ${RaceLocked},\n    \u0022shortFormationLap\u0022: ${ShortFormationLap},\n    \u0022formationLapType\u0022: ${FormationLapType},\n    \u0022randomizeTrackWhenEmpty\u0022: ${RandomizeTrack},\n    \u0022ignorePrematureDisconnects\u0022: 1,\n    \u0022allowAutoDQ\u0022: ${AllowAutoDQ},\n    \u0022centralEntryListPath\u0022: \u0022\u0022,\n    \u0022configVersion\u0022: 1\n}",
+      "template": "{\n    \"serverName\": \"${Hostname}\",\n    \"adminPassword\": \"${RconPassword}\",\n    \"carGroup\": \"${CarGroup}\",\n    \"trackMedalsRequirement\": ${TrackMedals},\n    \"safetyRatingRequirement\": ${SafetyRating},\n    \"racecraftRatingRequirement\": ${RacecraftRating},\n    \"password\": \"${PrivatePassword}\",\n    \"spectatorPassword\": \"${SpectatorPassword}\",\n    \"maxCarSlots\": ${Slots},\n    \"dumpLeaderboards\": ${DumpLeaderboards},\n    \"dumpEntryList\": ${DumpEntryList},\n    \"isRaceLocked\": ${RaceLocked},\n    \"shortFormationLap\": ${ShortFormationLap},\n    \"formationLapType\": ${FormationLapType},\n    \"randomizeTrackWhenEmpty\": ${RandomizeTrack},\n    \"ignorePrematureDisconnects\": 1,\n    \"allowAutoDQ\": ${AllowAutoDQ},\n    \"centralEntryListPath\": \"\",\n    \"configVersion\": 1\n}",
       "order": 1,
       "enableEditor": true,
       "editor": [
@@ -1905,7 +2031,7 @@
           "maxLength": 100,
           "lines": 1,
           "denyCharacters": [],
-          "regExValidation": "^[^\u0022\\\\\\x00-\\x1f]*$",
+          "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
           "inputType": 0,
           "id": "Hostname",
           "defaultValue": "",
@@ -1925,7 +2051,7 @@
           "maxLength": 64,
           "lines": 1,
           "denyCharacters": [],
-          "regExValidation": "^[^\u0022\\\\\\x00-\\x1f]*$",
+          "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
           "inputType": 0,
           "id": "PrivatePassword",
           "defaultValue": "",
@@ -1945,7 +2071,7 @@
           "maxLength": 64,
           "lines": 1,
           "denyCharacters": [],
-          "regExValidation": "^[^\u0022\\\\\\x00-\\x1f]*$",
+          "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
           "inputType": 0,
           "id": "SpectatorPassword",
           "defaultValue": "",
@@ -1965,12 +2091,12 @@
           "maxLength": 64,
           "lines": 1,
           "denyCharacters": [],
-          "regExValidation": "^[^\u0022\\\\\\x00-\\x1f]*$",
+          "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
           "inputType": 0,
           "id": "RconPassword",
           "defaultValue": "",
           "label": "Admin password",
-          "description": "Drivers who type /admin \u003Cpassword\u003E in the chat get the admin commands. No double quotes or backslashes.",
+          "description": "Drivers who type /admin <password> in the chat get the admin commands. No double quotes or backslashes.",
           "required": false,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -2255,7 +2381,7 @@
       "id": 901,
       "relativePath": "server\\cfg\\event.json",
       "description": "Track and weather (server/cfg/event.json). Sessions (start hour, day, duration): text editor",
-      "template": "{\n    \u0022track\u0022: \u0022${Track}\u0022,\n    \u0022preRaceWaitingTimeSeconds\u0022: ${PreRaceWait},\n    \u0022sessionOverTimeSeconds\u0022: ${SessionOverTime},\n    \u0022ambientTemp\u0022: ${AmbientTemp},\n    \u0022cloudLevel\u0022: ${CloudLevel},\n    \u0022rain\u0022: ${Rain},\n    \u0022weatherRandomness\u0022: ${WeatherRandomness},\n    \u0022postQualySeconds\u0022: 10,\n    \u0022postRaceSeconds\u0022: 20,\n    \u0022simracerWeatherConditions\u0022: 0,\n    \u0022isFixedConditionQualification\u0022: 0,\n    \u0022sessions\u0022: [\n        {\n            \u0022hourOfDay\u0022: 10,\n            \u0022dayOfWeekend\u0022: 1,\n            \u0022timeMultiplier\u0022: 1,\n            \u0022sessionType\u0022: \u0022P\u0022,\n            \u0022sessionDurationMinutes\u0022: 20\n        },\n        {\n            \u0022hourOfDay\u0022: 14,\n            \u0022dayOfWeekend\u0022: 2,\n            \u0022timeMultiplier\u0022: 1,\n            \u0022sessionType\u0022: \u0022Q\u0022,\n            \u0022sessionDurationMinutes\u0022: 10\n        },\n        {\n            \u0022hourOfDay\u0022: 16,\n            \u0022dayOfWeekend\u0022: 3,\n            \u0022timeMultiplier\u0022: 1,\n            \u0022sessionType\u0022: \u0022R\u0022,\n            \u0022sessionDurationMinutes\u0022: 20\n        }\n    ],\n    \u0022configVersion\u0022: 1\n}",
+      "template": "{\n    \"track\": \"${Track}\",\n    \"preRaceWaitingTimeSeconds\": ${PreRaceWait},\n    \"sessionOverTimeSeconds\": ${SessionOverTime},\n    \"ambientTemp\": ${AmbientTemp},\n    \"cloudLevel\": ${CloudLevel},\n    \"rain\": ${Rain},\n    \"weatherRandomness\": ${WeatherRandomness},\n    \"postQualySeconds\": 10,\n    \"postRaceSeconds\": 20,\n    \"simracerWeatherConditions\": 0,\n    \"isFixedConditionQualification\": 0,\n    \"sessions\": [\n        {\n            \"hourOfDay\": 10,\n            \"dayOfWeekend\": 1,\n            \"timeMultiplier\": 1,\n            \"sessionType\": \"P\",\n            \"sessionDurationMinutes\": 20\n        },\n        {\n            \"hourOfDay\": 14,\n            \"dayOfWeekend\": 2,\n            \"timeMultiplier\": 1,\n            \"sessionType\": \"Q\",\n            \"sessionDurationMinutes\": 10\n        },\n        {\n            \"hourOfDay\": 16,\n            \"dayOfWeekend\": 3,\n            \"timeMultiplier\": 1,\n            \"sessionType\": \"R\",\n            \"sessionDurationMinutes\": 20\n        }\n    ],\n    \"configVersion\": 1\n}",
       "order": 2,
       "enableEditor": true,
       "editor": [
@@ -2383,7 +2509,7 @@
           "id": "Track",
           "defaultValue": "mount_panorama",
           "label": "Track",
-          "description": "DLC tracks need the DLC on the drivers\u0027 side only.",
+          "description": "DLC tracks need the DLC on the drivers' side only.",
           "required": true,
           "valueType": "string",
           "requiredMessage": "Value is required",
@@ -2536,7 +2662,7 @@
       "id": 902,
       "relativePath": "server\\cfg\\eventRules.json",
       "description": "Pit stops and driver stints (server/cfg/eventRules.json)",
-      "template": "{\n    \u0022qualifyStandingType\u0022: 1,\n    \u0022pitWindowLengthSec\u0022: ${PitWindowLength},\n    \u0022driverStintTimeSec\u0022: ${DriverStintTime},\n    \u0022mandatoryPitstopCount\u0022: ${MandatoryPitstops},\n    \u0022maxTotalDrivingTime\u0022: ${MaxTotalDrivingTime},\n    \u0022maxDriversCount\u0022: ${MaxDriversCount},\n    \u0022isRefuellingAllowedInRace\u0022: ${RefuellingAllowed},\n    \u0022isRefuellingTimeFixed\u0022: ${RefuellingTimeFixed},\n    \u0022isMandatoryPitstopRefuellingRequired\u0022: ${PitstopRefuelling},\n    \u0022isMandatoryPitstopTyreChangeRequired\u0022: ${PitstopTyreChange},\n    \u0022isMandatoryPitstopSwapDriverRequired\u0022: ${PitstopDriverSwap},\n    \u0022tyreSetCount\u0022: 50\n}",
+      "template": "{\n    \"qualifyStandingType\": 1,\n    \"pitWindowLengthSec\": ${PitWindowLength},\n    \"driverStintTimeSec\": ${DriverStintTime},\n    \"mandatoryPitstopCount\": ${MandatoryPitstops},\n    \"maxTotalDrivingTime\": ${MaxTotalDrivingTime},\n    \"maxDriversCount\": ${MaxDriversCount},\n    \"isRefuellingAllowedInRace\": ${RefuellingAllowed},\n    \"isRefuellingTimeFixed\": ${RefuellingTimeFixed},\n    \"isMandatoryPitstopRefuellingRequired\": ${PitstopRefuelling},\n    \"isMandatoryPitstopTyreChangeRequired\": ${PitstopTyreChange},\n    \"isMandatoryPitstopSwapDriverRequired\": ${PitstopDriverSwap},\n    \"tyreSetCount\": 50\n}",
       "order": 3,
       "enableEditor": true,
       "editor": [
@@ -2763,7 +2889,7 @@
       "id": 903,
       "relativePath": "server\\cfg\\assistRules.json",
       "description": "Driver assists (server/cfg/assistRules.json)",
-      "template": "{\n    \u0022stabilityControlLevelMax\u0022: ${StabilityControlMax},\n    \u0022disableAutosteer\u0022: ${DisableAutosteer},\n    \u0022disableAutoLights\u0022: ${DisableAutoLights},\n    \u0022disableAutoWiper\u0022: ${DisableAutoWiper},\n    \u0022disableAutoEngineStart\u0022: ${DisableAutoEngineStart},\n    \u0022disableAutoPitLimiter\u0022: ${DisableAutoPitLimiter},\n    \u0022disableAutoGear\u0022: ${DisableAutoGear},\n    \u0022disableAutoClutch\u0022: ${DisableAutoClutch},\n    \u0022disableIdealLine\u0022: ${DisableIdealLine}\n}",
+      "template": "{\n    \"stabilityControlLevelMax\": ${StabilityControlMax},\n    \"disableAutosteer\": ${DisableAutosteer},\n    \"disableAutoLights\": ${DisableAutoLights},\n    \"disableAutoWiper\": ${DisableAutoWiper},\n    \"disableAutoEngineStart\": ${DisableAutoEngineStart},\n    \"disableAutoPitLimiter\": ${DisableAutoPitLimiter},\n    \"disableAutoGear\": ${DisableAutoGear},\n    \"disableAutoClutch\": ${DisableAutoClutch},\n    \"disableIdealLine\": ${DisableIdealLine}\n}",
       "order": 4,
       "enableEditor": true,
       "editor": [
@@ -2945,7 +3071,7 @@
       "id": 904,
       "relativePath": "server\\cfg\\configuration.json",
       "description": "Ports, lobby and LAN discovery (server/cfg/configuration.json)",
-      "template": "{\n    \u0022udpPort\u0022: ${GamePort},\n    \u0022tcpPort\u0022: ${TcpPort},\n    \u0022maxConnections\u0022: ${Slots},\n    \u0022lanDiscovery\u0022: ${LanDiscovery},\n    \u0022registerToLobby\u0022: ${RegisterToLobby},\n    \u0022configVersion\u0022: 1\n}",
+      "template": "{\n    \"udpPort\": ${GamePort},\n    \"tcpPort\": ${TcpPort},\n    \"maxConnections\": ${Slots},\n    \"lanDiscovery\": ${LanDiscovery},\n    \"registerToLobby\": ${RegisterToLobby},\n    \"configVersion\": 1\n}",
       "order": 5,
       "enableEditor": true,
       "editor": [
@@ -3005,7 +3131,7 @@
       "id": 905,
       "relativePath": "server\\cfg\\entrylist.json",
       "description": "Entry list (server/cfg/entrylist.json, text): fixed driver/car slots and admins",
-      "template": "{\n    \u0022entries\u0022: [],\n    \u0022forceEntryList\u0022: 0,\n    \u0022configVersion\u0022: 1\n}",
+      "template": "{\n    \"entries\": [],\n    \"forceEntryList\": 0,\n    \"configVersion\": 1\n}",
       "order": 6,
       "enableEditor": false,
       "editor": []
@@ -3045,7 +3171,7 @@
         ],
         "name": "Save config files as UTF-16",
         "description": "Before each start, rewrites every server/cfg/*.json that is not UTF-16 LE with a BOM: accServer ignores other encodings and replaces the file with defaults. Never follows links.",
-        "code": "using System;\nusing System.IO;\nusing System.Text;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// accServer reads its cfg\\*.json files only as UTF-16 LE: a file in another encoding is ignored and replaced with the\n// game\u0027s defaults. The panel writes the config templates in UTF-8 when it creates or reinstalls the service, and its\n// config editor saves a UTF-16 LE file without the byte order mark. Before every start this script rewrites each\n// server\\cfg\\*.json that is not UTF-16 LE with a BOM. Files that are already right are not touched.\n// Never follows links: the service folder belongs to the customer, and this script runs as the monitor.\nconst long MaxSize = 4 * 1024 * 1024;\nstring root = (string)ThisService.RootDirectory;\nstring server = Path.Combine(root, \u0022server\u0022);\nstring cfg = Path.Combine(server, \u0022cfg\u0022);\n\nbool IsLink(string path)\n{\n    return (File.Exists(path) || Directory.Exists(path)) \u0026\u0026 (File.GetAttributes(path) \u0026 FileAttributes.ReparsePoint) != 0;\n}\n\nstring Decode(byte[] b)\n{\n    if (b.Length \u003E= 3 \u0026\u0026 b[0] == 0xEF \u0026\u0026 b[1] == 0xBB \u0026\u0026 b[2] == 0xBF) return new UTF8Encoding(false).GetString(b, 3, b.Length - 3);\n    if (b.Length \u003E= 2 \u0026\u0026 b[0] == 0xFE \u0026\u0026 b[1] == 0xFF) return Encoding.BigEndianUnicode.GetString(b, 2, b.Length - 2);\n    // No BOM: UTF-16 LE text (what the config editor saves) has a zero high byte on almost every ASCII character.\n    int zerosOdd = 0, zerosEven = 0;\n    for (int i = 0; i \u002B 1 \u003C b.Length; i \u002B= 2) { if (b[i \u002B 1] == 0) zerosOdd\u002B\u002B; if (b[i] == 0) zerosEven\u002B\u002B; }\n    int pairs = b.Length / 2;\n    if (b.Length % 2 == 0 \u0026\u0026 pairs \u003E 0 \u0026\u0026 zerosOdd * 2 \u003E pairs) return Encoding.Unicode.GetString(b);\n    if (b.Length % 2 == 0 \u0026\u0026 pairs \u003E 0 \u0026\u0026 zerosEven * 2 \u003E pairs) return Encoding.BigEndianUnicode.GetString(b);\n    return new UTF8Encoding(false).GetString(b);\n}\n\nif (!Directory.Exists(cfg)) { ScriptConsole.WriteLine((object)\u0022server\\\\cfg does not exist yet: nothing to convert.\u0022); return; }\nif (IsLink(server) || IsLink(cfg)) { ScriptConsole.WriteLine((object)\u0022server or server\\\\cfg is a link: skipped.\u0022); return; }\n\nint converted = 0;\nforeach (var file in Directory.GetFiles(cfg, \u0022*.json\u0022, SearchOption.TopDirectoryOnly))\n{\n    try\n    {\n        if (IsLink(file)) { ScriptConsole.WriteLine((object)(\u0022Skipped (link): \u0022 \u002B Path.GetFileName(file))); continue; }\n        var length = new FileInfo(file).Length;\n        if (length == 0 || length \u003E MaxSize) continue;\n        var bytes = File.ReadAllBytes(file);\n        if (bytes.Length \u003E= 2 \u0026\u0026 bytes[0] == 0xFF \u0026\u0026 bytes[1] == 0xFE) continue; // already UTF-16 LE with BOM\n        var text = Decode(bytes);\n        var output = new byte[2 \u002B Encoding.Unicode.GetByteCount(text)];\n        output[0] = 0xFF; output[1] = 0xFE;\n        Encoding.Unicode.GetBytes(text, 0, text.Length, output, 2);\n        // Overwrite in place so the file keeps its owner and permissions.\n        using (var fs = new FileStream(file, FileMode.Open, FileAccess.Write, FileShare.Read))\n        {\n            fs.SetLength(0);\n            fs.Write(output, 0, output.Length);\n        }\n        converted\u002B\u002B;\n        ScriptConsole.WriteLine((object)(\u0022Converted to UTF-16 LE: \u0022 \u002B Path.GetFileName(file)));\n    }\n    catch (Exception ex)\n    {\n        ScriptConsole.WriteLine((object)(\u0022Could not convert \u0022 \u002B Path.GetFileName(file) \u002B \u0022: \u0022 \u002B ex.Message));\n    }\n}\nScriptConsole.WriteLine((object)(\u0022UTF-16 LE check done, \u0022 \u002B converted \u002B \u0022 file(s) converted.\u0022));\n",
+        "code": "using System;\nusing System.IO;\nusing System.Text;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// accServer reads its cfg\\*.json files only as UTF-16 LE: a file in another encoding is ignored and replaced with the\n// game's defaults. The panel writes the config templates in UTF-8 when it creates or reinstalls the service, and its\n// config editor saves a UTF-16 LE file without the byte order mark. Before every start this script rewrites each\n// server\\cfg\\*.json that is not UTF-16 LE with a BOM. Files that are already right are not touched.\n// Never follows links: the service folder belongs to the customer, and this script runs as the monitor.\nconst long MaxSize = 4 * 1024 * 1024;\nstring root = (string)ThisService.RootDirectory;\nstring server = Path.Combine(root, \"server\");\nstring cfg = Path.Combine(server, \"cfg\");\n\nbool IsLink(string path)\n{\n    return (File.Exists(path) || Directory.Exists(path)) && (File.GetAttributes(path) & FileAttributes.ReparsePoint) != 0;\n}\n\nstring Decode(byte[] b)\n{\n    if (b.Length >= 3 && b[0] == 0xEF && b[1] == 0xBB && b[2] == 0xBF) return new UTF8Encoding(false).GetString(b, 3, b.Length - 3);\n    if (b.Length >= 2 && b[0] == 0xFE && b[1] == 0xFF) return Encoding.BigEndianUnicode.GetString(b, 2, b.Length - 2);\n    // No BOM: UTF-16 LE text (what the config editor saves) has a zero high byte on almost every ASCII character.\n    int zerosOdd = 0, zerosEven = 0;\n    for (int i = 0; i + 1 < b.Length; i += 2) { if (b[i + 1] == 0) zerosOdd++; if (b[i] == 0) zerosEven++; }\n    int pairs = b.Length / 2;\n    if (b.Length % 2 == 0 && pairs > 0 && zerosOdd * 2 > pairs) return Encoding.Unicode.GetString(b);\n    if (b.Length % 2 == 0 && pairs > 0 && zerosEven * 2 > pairs) return Encoding.BigEndianUnicode.GetString(b);\n    return new UTF8Encoding(false).GetString(b);\n}\n\nif (!Directory.Exists(cfg)) { ScriptConsole.WriteLine((object)\"server\\\\cfg does not exist yet: nothing to convert.\"); return; }\nif (IsLink(server) || IsLink(cfg)) { ScriptConsole.WriteLine((object)\"server or server\\\\cfg is a link: skipped.\"); return; }\n\nint converted = 0;\nforeach (var file in Directory.GetFiles(cfg, \"*.json\", SearchOption.TopDirectoryOnly))\n{\n    try\n    {\n        if (IsLink(file)) { ScriptConsole.WriteLine((object)(\"Skipped (link): \" + Path.GetFileName(file))); continue; }\n        var length = new FileInfo(file).Length;\n        if (length == 0 || length > MaxSize) continue;\n        var bytes = File.ReadAllBytes(file);\n        if (bytes.Length >= 2 && bytes[0] == 0xFF && bytes[1] == 0xFE) continue; // already UTF-16 LE with BOM\n        var text = Decode(bytes);\n        var output = new byte[2 + Encoding.Unicode.GetByteCount(text)];\n        output[0] = 0xFF; output[1] = 0xFE;\n        Encoding.Unicode.GetBytes(text, 0, text.Length, output, 2);\n        // Overwrite in place so the file keeps its owner and permissions.\n        using (var fs = new FileStream(file, FileMode.Open, FileAccess.Write, FileShare.Read))\n        {\n            fs.SetLength(0);\n            fs.Write(output, 0, output.Length);\n        }\n        converted++;\n        ScriptConsole.WriteLine((object)(\"Converted to UTF-16 LE: \" + Path.GetFileName(file)));\n    }\n    catch (Exception ex)\n    {\n        ScriptConsole.WriteLine((object)(\"Could not convert \" + Path.GetFileName(file) + \": \" + ex.Message));\n    }\n}\nScriptConsole.WriteLine((object)(\"UTF-16 LE check done, \" + converted + \" file(s) converted.\"));\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -3054,7 +3180,7 @@
         "maxConcurrentRuns": 1,
         "logApiExecutions": false,
         "order": 0,
-        "icon": "\u003Cpath d=\u0022M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z\u0022/\u003E",
+        "icon": "<path d=\"M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z\"/>",
         "scriptInputVariables": [],
         "scriptRoles": [],
         "editor": [],
@@ -3075,7 +3201,7 @@
         ],
         "name": "ACC status",
         "description": "Online when accServer listens on its TCP port. ACC has no query protocol; nothing connects to the game.",
-        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll, System.Text.Json.dll\nusing System;\nusing System.IO;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing System.Text;\nusing System.Text.Json;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Assetto Corsa Competizione has no server query protocol. The query runs on the monitor of the server that hosts the\n// service, so it checks that accServer listens on its TCP port (configuration.json tcpPort, the service\u0027s TcpPort).\n// Nothing connects to the game, so nothing shows in its console. The server name and track come from cfg\\settings.json and cfg\\event.json.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port;\ntry { port = Convert.ToInt32(ThisService.Ports[\u0022TcpPort\u0022]); }\ncatch { port = 0; }\n\nstring CfgString(string fileName, string key)\n{\n    try\n    {\n        var file = Path.Combine((string)ThisService.RootDirectory, \u0022server\u0022, \u0022cfg\u0022, fileName);\n        if (!File.Exists(file) || new FileInfo(file).Length \u003E 1024 * 1024) return string.Empty;\n        var b = File.ReadAllBytes(file);\n        string text;\n        if (b.Length \u003E= 2 \u0026\u0026 b[0] == 0xFF \u0026\u0026 b[1] == 0xFE) text = Encoding.Unicode.GetString(b, 2, b.Length - 2);\n        else if (b.Length \u003E= 2 \u0026\u0026 b[1] == 0) text = Encoding.Unicode.GetString(b);\n        else text = new UTF8Encoding(false).GetString(b).TrimStart((char)0xFEFF);\n        using (var doc = JsonDocument.Parse(text, new JsonDocumentOptions { AllowTrailingCommas = true, CommentHandling = JsonCommentHandling.Skip }))\n            return doc.RootElement.TryGetProperty(key, out var v) \u0026\u0026 v.ValueKind == JsonValueKind.String ? v.GetString() : string.Empty;\n    }\n    catch { return string.Empty; }\n}\n\ntry\n{\n    if (port \u003C= 0) throw new Exception(\u0022The service has no TcpPort.\u0022);\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners()\n        .Any(l =\u003E l.Port == port \u0026\u0026 (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    if (!listening)\n    {\n        Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, $\u0022Nothing is listening on {address}:{port} (TCP).\u0022);\n    }\n    else\n    {\n        var name = CfgString(\u0022settings.json\u0022, \u0022serverName\u0022);\n        Globals.ReturnValue = new GameQueryResponse\n        {\n            Success = true,\n            Status = \u0022online\u0022,\n            Protocol = \u0022custom_script\u0022,\n            Address = address,\n            Hostname = $\u0022{address}:{port}\u0022,\n            Name = string.IsNullOrWhiteSpace(name) ? ThisService.Name : name,\n            GameType = \u0022Assetto Corsa Competizione\u0022,\n            Map = CfgString(\u0022event.json\u0022, \u0022track\u0022),\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        };\n    }\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \u0022custom_script\u0022, ex.Message);\n}\n",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll, System.Text.Json.dll\nusing System;\nusing System.IO;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing System.Text;\nusing System.Text.Json;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Assetto Corsa Competizione has no server query protocol. The query runs on the monitor of the server that hosts the\n// service, so it checks that accServer listens on its TCP port (configuration.json tcpPort, the service's TcpPort).\n// Nothing connects to the game, so nothing shows in its console. The server name and track come from cfg\\settings.json and cfg\\event.json.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port;\ntry { port = Convert.ToInt32(ThisService.Ports[\"TcpPort\"]); }\ncatch { port = 0; }\n\nstring CfgString(string fileName, string key)\n{\n    try\n    {\n        var file = Path.Combine((string)ThisService.RootDirectory, \"server\", \"cfg\", fileName);\n        if (!File.Exists(file) || new FileInfo(file).Length > 1024 * 1024) return string.Empty;\n        var b = File.ReadAllBytes(file);\n        string text;\n        if (b.Length >= 2 && b[0] == 0xFF && b[1] == 0xFE) text = Encoding.Unicode.GetString(b, 2, b.Length - 2);\n        else if (b.Length >= 2 && b[1] == 0) text = Encoding.Unicode.GetString(b);\n        else text = new UTF8Encoding(false).GetString(b).TrimStart((char)0xFEFF);\n        using (var doc = JsonDocument.Parse(text, new JsonDocumentOptions { AllowTrailingCommas = true, CommentHandling = JsonCommentHandling.Skip }))\n            return doc.RootElement.TryGetProperty(key, out var v) && v.ValueKind == JsonValueKind.String ? v.GetString() : string.Empty;\n    }\n    catch { return string.Empty; }\n}\n\ntry\n{\n    if (port <= 0) throw new Exception(\"The service has no TcpPort.\");\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners()\n        .Any(l => l.Port == port && (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    if (!listening)\n    {\n        Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", $\"Nothing is listening on {address}:{port} (TCP).\");\n    }\n    else\n    {\n        var name = CfgString(\"settings.json\", \"serverName\");\n        Globals.ReturnValue = new GameQueryResponse\n        {\n            Success = true,\n            Status = \"online\",\n            Protocol = \"custom_script\",\n            Address = address,\n            Hostname = $\"{address}:{port}\",\n            Name = string.IsNullOrWhiteSpace(name) ? ThisService.Name : name,\n            GameType = \"Assetto Corsa Competizione\",\n            Map = CfgString(\"event.json\", \"track\"),\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        };\n    }\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", ex.Message);\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
@@ -3084,7 +3210,7 @@
         "maxConcurrentRuns": 1,
         "logApiExecutions": false,
         "order": 0,
-        "icon": "\u003Cpath d=\u0022M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.44zm-9.79 6.84a2 2 0 0 0 2.83 0l5.66-8.49-8.49 5.66a2 2 0 0 0 0 2.83z\u0022/\u003E",
+        "icon": "<path d=\"M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.44zm-9.79 6.84a2 2 0 0 0 2.83 0l5.66-8.49-8.49 5.66a2 2 0 0 0 0 2.83z\"/>",
         "scriptInputVariables": [],
         "scriptRoles": [],
         "editor": [],
