@@ -1,0 +1,3655 @@
+{
+  "__TCA:ExportVersion": "3.23.42",
+  "__TCA:ExportedAt": "2026-11-10T05:47:38.5907516Z",
+  "name": "Rust",
+  "shortName": "Rust",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/252490/acf87ad23570b3c81f8c9cfc19544a07edd8b632.ico",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/ss_d0fdacaeef5a28a7cee525fd73376adfe083c964.1920x1080.jpg?t=1781536981",
+  "minSlots": 1,
+  "maxSlots": 500,
+  "defaultSlots": 50,
+  "startedUntilResponding": true,
+  "startingTimeout": "00:30:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "custom_script",
+    "rconProtocol": "rustweb",
+    "privateRule": "passworded",
+    "privateRuleValue": "1",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "LogFile",
+    "logFile": "logs\\latest.log",
+    "inputSource": "RconProtocol",
+    "printRconResponse": true,
+    "outputFilters": "(Filename: C:\\buildslave\\",
+    "stopCommand": "quit",
+    "waitAfterStopCommand": 10000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 28015,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 28016,
+        "expression": "GamePort + 1",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "RConPort",
+        "port": 28017,
+        "expression": "GamePort + 2",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "CustomPort1",
+        "port": 28082,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "RustDedicated.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "rust",
+    "failOnMissingExecutable": false,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 258550,
+    "runAsServiceUser": true,
+    "branch": "public",
+    "branchPassword": "",
+    "storeId": 252490,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": true,
+    "verifyAll": true,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "-batchmode -nographics +server.maxplayers ${Slots} +server.ip ${IPAddress} +server.port ${GamePort} +server.queryport ${QueryPort} +rcon.web 1 +rcon.ip ${IPAddress} +rcon.port ${RConPort} +rcon.password \"${RconPassword}\" +app.listenip ${IPAddress} +app.port ${CustomPort1} -logfile \"logs\\latest.log\"",
+    "defaultCustomCommandline": "-batchmode -nographics +server.maxplayers ${Slots} +server.ip ${IPAddress} +server.port ${GamePort} +server.queryport ${QueryPort} +rcon.web 1 +rcon.ip ${IPAddress} +rcon.port ${RConPort} +rcon.password \"${RconPassword}\" +app.listenip ${IPAddress} +app.port ${CustomPort1} +fps.limit \"30\" -logfile \"logs\\latest.log\"",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Standard",
+        "commandLine": "-batchmode -nographics +server.maxplayers ${Slots} +server.ip ${IPAddress} +server.port ${GamePort} +server.queryport ${QueryPort} +rcon.web 1 +rcon.ip ${IPAddress} +rcon.port ${RConPort} +rcon.password \"${RconPassword}\" +app.listenip ${IPAddress} +app.port ${CustomPort1} +fps.limit \"30\" -logfile \"logs\\latest.log\""
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "OperatingSystemUserPerService",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": true,
+    "elevated": false
+  },
+  "identifier": "9bb6cace-db8b-11f1-9642-dc4628736f8b",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "antihackadmincheat",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${antihackadmincheat}",
+      "editor": {
+        "items": [
+          {
+            "text": "False",
+            "value": "false"
+          },
+          {
+            "text": "True",
+            "value": "true"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "antihackadmincheat",
+        "defaultValue": "true",
+        "label": "Antihack Admin Cheat",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.143528",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "antihackenabled",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${antihackenabled}",
+      "editor": {
+        "items": [
+          {
+            "text": "False",
+            "value": "false"
+          },
+          {
+            "text": "True",
+            "value": "true"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "antihackenabled",
+        "defaultValue": "true",
+        "label": "Antihack Enabled",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.143902",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "chatenabled",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${chatenabled}",
+      "editor": {
+        "items": [
+          {
+            "text": "False",
+            "value": "false"
+          },
+          {
+            "text": "True",
+            "value": "true"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "chatenabled",
+        "defaultValue": "true",
+        "label": "Chat Enabled",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.144366",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "CustomSeeds",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": true,
+      "syncCommandlineParameter": false,
+      "template": "${CustomSeeds}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 7,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "CustomSeeds",
+        "defaultValue": "",
+        "label": "Seed list",
+        "description": "One seed per line. A random seed from the list replaces the current one. To also set the world size use seed:size, for example 1234567890:3500.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.144748",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "deleteplayerdata",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${deleteplayerdata}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "rm -rf server/my_server_identity/Users",
+        "uncheckedValue": "",
+        "id": "deleteplayerdata",
+        "defaultValue": "",
+        "label": "Delete Player Data",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.144956",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "description",
+      "defaultValue": "This server is hosted by TCAdmin.com",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${description}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "description",
+        "defaultValue": "This server is hosted by TCAdmin.com",
+        "label": "Description",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.14509",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "gamemode",
+      "defaultValue": "vanilla",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${gamemode}",
+      "editor": {
+        "items": [
+          {
+            "text": "Vanilla",
+            "value": "vanilla"
+          },
+          {
+            "text": "Softcore",
+            "value": "softcore"
+          },
+          {
+            "text": "Hardcore",
+            "value": "hardcore"
+          },
+          {
+            "text": "WeaponTest",
+            "value": "weapontest"
+          },
+          {
+            "text": "Deathmatch",
+            "value": "deathmatch"
+          },
+          {
+            "text": "TeamDM",
+            "value": "teamdm"
+          },
+          {
+            "text": "OneDeath",
+            "value": "onedeath"
+          },
+          {
+            "text": "KoTH Solo",
+            "value": "koth_solo"
+          },
+          {
+            "text": "KoTH Team",
+            "value": "koth_team"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "gamemode",
+        "defaultValue": "vanilla",
+        "label": "Gamemode",
+        "description": "For information about gamemodes, please visit <a href=\"https://wiki.facepunch.com/rust/server-gamemodes\" target=\"blank\">Server Gamemodes - Rust Wiki</a>",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.145317",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "globalchat",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${globalchat}",
+      "editor": {
+        "items": [
+          {
+            "text": "False",
+            "value": "false"
+          },
+          {
+            "text": "True",
+            "value": "true"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "globalchat",
+        "defaultValue": "true",
+        "label": "Global Chat",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.145497",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "headerimage",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${headerimage}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "(?:(http|ftp|https):\\/\\/[\\w\\-_]+(\\.[\\w\\-_]+)+([\\w\\-\\.,@?^=%&amp;:/~\\+#]*[\\w\\-\\@?^=%&amp;/~\\+#])?)?",
+        "inputType": 0,
+        "id": "headerimage",
+        "defaultValue": "",
+        "label": "Header Image",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.145604",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "level",
+      "defaultValue": "Procedural Map",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "+server.level \"${level}\"",
+      "editor": {
+        "items": [
+          {
+            "text": "Procedural Map",
+            "value": "Procedural Map"
+          },
+          {
+            "text": "Craggy Island",
+            "value": "CraggyIsland"
+          },
+          {
+            "text": "Barren",
+            "value": "Barren"
+          },
+          {
+            "text": "Hapis Island",
+            "value": "HapisIsland"
+          },
+          {
+            "text": "Savas Island",
+            "value": "SavasIsland"
+          },
+          {
+            "text": "Savas Island KotH",
+            "value": "SavasIsland_koth"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "level",
+        "defaultValue": "Procedural Map",
+        "label": "Map",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": "UseCustomMap",
+        "parentValue": "False",
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.146037",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "levelurl",
+      "defaultValue": "",
+      "required": true,
+      "requiredMessage": "You need to set a value for level URL or uncheck \"Use custom map\"",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${levelurl}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 0,
+        "denyCharacters": [],
+        "regExValidation": "^^(http:\\/\\/www\\.|https:\\/\\/www\\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$",
+        "inputType": 0,
+        "id": "levelurl",
+        "defaultValue": "",
+        "label": "Level URL",
+        "description": "Use this if you want to use a custom map for your Rust server.\nPlease read <a href=\"https://wiki.facepunch.com/rust/Hosting_a_custom_map\" target=\"_blank\">this</a> for more information.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "You need to set a value for level URL or uncheck \"Use custom map\"",
+        "parentId": "UseCustomMap",
+        "parentValue": "True",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.146291",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "mapsize",
+      "defaultValue": "2000",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "+server.worldsize \"${mapsize}\"",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 500,
+        "maxValue": 8000,
+        "id": "mapsize",
+        "defaultValue": "2000",
+        "label": "Map Size",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": "UseCustomMap",
+        "parentValue": "False",
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.146538",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PerformSteamUpdate",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PerformSteamUpdate}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "PerformSteamUpdate",
+        "defaultValue": "",
+        "label": "Run a Steam update",
+        "description": "Updates the server through Steam before wiping.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.146757",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "pluginName",
+      "defaultValue": "",
+      "required": true,
+      "requiredMessage": "You must enter the valid part of the URL!",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${pluginName}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "pluginName",
+        "defaultValue": "",
+        "label": "http://oxidemod.org/plugins/",
+        "description": "Please write the valid URL of plugin from oxidemod.org</br>\nFor example: from http://oxidemod.org/plugins/metabolism.680/ you have to write only \"metabolism.680\" (without quotes)",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "You must enter the valid part of the URL!",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.146993",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "pve",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${pve}",
+      "editor": {
+        "items": [
+          {
+            "text": "False (PvP enabled)",
+            "value": "false"
+          },
+          {
+            "text": "True",
+            "value": "true"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "pve",
+        "defaultValue": "false",
+        "label": "PvE",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.147205",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RemoveUsedSeed",
+      "defaultValue": true,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": true,
+      "syncCommandlineParameter": false,
+      "template": "${RemoveUsedSeed}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "RemoveUsedSeed",
+        "defaultValue": true,
+        "label": "Remove the used seed from the list",
+        "description": "Once a seed from the seed list has been used it is removed, so it is not picked again.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.147385",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "saveinterval",
+      "defaultValue": "60",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "+server.saveinterval ${saveinterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 65535,
+        "id": "saveinterval",
+        "defaultValue": "60",
+        "label": "Save Interval",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.147561",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "secure",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "+server.secure ${secure}",
+      "editor": {
+        "items": [
+          {
+            "text": "False",
+            "value": "false"
+          },
+          {
+            "text": "True",
+            "value": "true"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "secure",
+        "defaultValue": "true",
+        "label": "Secure Server",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.147748",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "seed",
+      "defaultValue": "6738",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "+server.seed ${seed}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": -70368744177664,
+        "maxValue": 70368744177664,
+        "id": "seed",
+        "defaultValue": "6738",
+        "label": "Map Seed",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": "UseCustomMap",
+        "parentValue": "False",
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.148035",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "serverlog",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${serverlog}",
+      "editor": {
+        "items": [
+          {
+            "text": "False",
+            "value": "false"
+          },
+          {
+            "text": "True",
+            "value": "true"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "serverlog",
+        "defaultValue": "true",
+        "label": "Serverlog",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.14826",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "umodurl",
+      "defaultValue": "",
+      "required": true,
+      "requiredMessage": "You need to enter a URL from uMods website",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${umodurl}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 10,
+        "denyCharacters": [],
+        "regExValidation": "^https\\:\\/\\/umod\\.org\\/plugins\\/[a-zA-Z0-9-#]+(.cs)?",
+        "inputType": 0,
+        "id": "umodurl",
+        "defaultValue": "",
+        "label": "uMod plugin URL",
+        "description": "Insert the full URL to the plugin page on uMod's website.\n",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "You need to enter a URL from uMods website",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.148457",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "url",
+      "defaultValue": "https://tcadmin.com",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${url}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "url",
+        "defaultValue": "https://tcadmin.com",
+        "label": "URL",
+        "description": "URL for your website.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.148603",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "UseCustomMap",
+      "defaultValue": "False",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": true,
+      "syncCommandlineParameter": false,
+      "template": "${UseCustomMap}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "UseCustomMap",
+        "defaultValue": "False",
+        "label": "Use custom map",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.148791",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WipeFiles",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": true,
+      "syncCommandlineParameter": false,
+      "template": "${WipeFiles}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 10,
+        "denyCharacters": [],
+        "regExValidation": "^((?!\\.{2}).(\\r?\\n)?)*$",
+        "inputType": 0,
+        "id": "WipeFiles",
+        "defaultValue": "",
+        "label": "Additional files/folders to wipe",
+        "description": "One file or folder per line, relative to the service's root folder. Wildcards (*) work for files. A folder needs a trailing slash and is deleted with everything inside. Examples: logs/ or log.txt or userdata/*.sav",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.149012",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "wipemap",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${wipemap}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "wipemap",
+        "defaultValue": "false",
+        "label": "Wipe map?",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.149184",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "wipemapnewseed",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${wipemapnewseed}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "wipemapnewseed",
+        "defaultValue": "false",
+        "label": "Use random seed",
+        "description": "If ticked, a random seed will be entered into your server.cfg.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.149319",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "wipeplayers",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${wipeplayers}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "wipeplayers",
+        "defaultValue": "false",
+        "label": "Wipe players and blueprints?",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-17T23:41:53.149473",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RustRconQuery",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RustRconQuery}",
+      "editor": {
+        "maxLength": 200,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "RustRconQuery",
+        "defaultValue": "",
+        "label": "RustRconQuery",
+        "description": "Comma-separated queries: serverinfo, players, bans, console, chat.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 12,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T00:58:11.50108",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RustRconCommand",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RustRconCommand}",
+      "editor": {
+        "maxLength": 500,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "RustRconCommand",
+        "defaultValue": "",
+        "label": "RustRconCommand",
+        "description": "One RCON command line.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 12,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T00:58:11.90239",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:18:55.751105",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\; \\t`$]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, spaces, ` or $, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:18:56.910194",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 326,
+      "relativePath": "server\\my_server_identity\\cfg\\settings.cfg",
+      "description": "Main configuration file. Will be merged to server.cfg before server starts.",
+      "template": "antihack.enabled ${antihackenabled}\nantihack.admincheat ${antihackadmincheat}\ngamemode.set ${gamemode}\nchat.enabled ${chatenabled}\nchat.serverlog ${serverlog}\nserver.hostname \"${Hostname}\"\nserver.secure ${secure}\nserver.globalchat ${globalchat}\nserver.pve ${pve}\nserver.description \"${description}\"\nserver.headerimage ${headerimage}\nserver.url ${url}\nrcon.password ${RconPassword}\n$ipy<%\nif ThisService.Variables.GetValue(\"UseCustomMap\") == \"True\":\n  ReturnValue = \"server.levelurl {}\".format(ThisService.Variables.GetValue(\"levelurl\"))\nelse:\n  ReturnValue = \"server.level \\\"{}\\\"\\nserver.seed {}\\nserver.worldsize {}\".format(ThisService.Variables.GetValue(\"level\"), ThisService.Variables.GetValue(\"seed\"), ThisService.Variables.GetValue('mapsize'))\n%>\nserver.saveinterval 600\nserver.idlekick          \"10\"\nserver.idlekickmode      \"2\"\nfps.limit 120\n",
+      "order": 0,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_1",
+          "defaultValue": null,
+          "label": "Rust Server Configuration",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": null,
+          "label": "Hostname",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "(?:(http|ftp|https):\\/\\/[\\w\\-_]+(\\.[\\w\\-_]+)+([\\w\\-\\.,@?^=%&amp;:/~\\+#]*[\\w\\-\\@?^=%&amp;/~\\+#])?)?",
+          "inputType": 0,
+          "id": "headerimage",
+          "defaultValue": "",
+          "label": "Header Image",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "description",
+          "defaultValue": "This server is hosted by TCAdmin.com",
+          "label": "Description",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "url",
+          "defaultValue": "https://tcadmin.com",
+          "label": "URL",
+          "description": "URL for your website.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "False",
+              "value": "false"
+            },
+            {
+              "text": "True",
+              "value": "true"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "chatenabled",
+          "defaultValue": "true",
+          "label": "Chat Enabled",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "False (PvP enabled)",
+              "value": "false"
+            },
+            {
+              "text": "True",
+              "value": "true"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "pve",
+          "defaultValue": "false",
+          "label": "PvE",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "False",
+              "value": "false"
+            },
+            {
+              "text": "True",
+              "value": "true"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "antihackenabled",
+          "defaultValue": "true",
+          "label": "Antihack Enabled",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "False",
+              "value": "false"
+            },
+            {
+              "text": "True",
+              "value": "true"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "antihackadmincheat",
+          "defaultValue": "true",
+          "label": "Antihack Admin Cheat",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "False",
+              "value": "false"
+            },
+            {
+              "text": "True",
+              "value": "true"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "globalchat",
+          "defaultValue": "true",
+          "label": "Global Chat",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "False",
+              "value": "false"
+            },
+            {
+              "text": "True",
+              "value": "true"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "secure",
+          "defaultValue": "true",
+          "label": "Secure Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "False",
+              "value": "false"
+            },
+            {
+              "text": "True",
+              "value": "true"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "serverlog",
+          "defaultValue": "true",
+          "label": "Serverlog",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "RconPassword",
+          "defaultValue": null,
+          "label": "RCON Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "id": "LineBreak_14",
+          "defaultValue": null,
+          "label": "",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicLineBreak",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Vanilla",
+              "value": "vanilla"
+            },
+            {
+              "text": "Softcore",
+              "value": "softcore"
+            },
+            {
+              "text": "Hardcore",
+              "value": "hardcore"
+            },
+            {
+              "text": "WeaponTest",
+              "value": "weapontest"
+            },
+            {
+              "text": "Deathmatch",
+              "value": "deathmatch"
+            },
+            {
+              "text": "TeamDM",
+              "value": "teamdm"
+            },
+            {
+              "text": "OneDeath",
+              "value": "onedeath"
+            },
+            {
+              "text": "KoTH Solo",
+              "value": "koth_solo"
+            },
+            {
+              "text": "KoTH Team",
+              "value": "koth_team"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "gamemode",
+          "defaultValue": "vanilla",
+          "label": "Gamemode",
+          "description": "For information about gamemodes, please visit <a href=\"https://wiki.facepunch.com/rust/server-gamemodes\" target=\"blank\">Server Gamemodes - Rust Wiki</a>",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "UseCustomMap",
+          "defaultValue": "False",
+          "label": "Use custom map",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Procedural Map",
+              "value": "Procedural Map"
+            },
+            {
+              "text": "Craggy Island",
+              "value": "CraggyIsland"
+            },
+            {
+              "text": "Barren",
+              "value": "Barren"
+            },
+            {
+              "text": "Hapis Island",
+              "value": "HapisIsland"
+            },
+            {
+              "text": "Savas Island",
+              "value": "SavasIsland"
+            },
+            {
+              "text": "Savas Island KotH",
+              "value": "SavasIsland_koth"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "level",
+          "defaultValue": "Procedural Map",
+          "label": "Map",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": "UseCustomMap",
+          "parentValue": "False",
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 0,
+          "denyCharacters": [],
+          "regExValidation": "^^(http:\\/\\/www\\.|https:\\/\\/www\\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$",
+          "inputType": 0,
+          "id": "levelurl",
+          "defaultValue": "",
+          "label": "Level URL",
+          "description": "Use this if you want to use a custom map for your Rust server.\nPlease read <a href=\"https://wiki.facepunch.com/rust/Hosting_a_custom_map\" target=\"_blank\">this</a> for more information.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "You need to set a value for level URL or uncheck \"Use custom map\"",
+          "parentId": "UseCustomMap",
+          "parentValue": "True",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": -70368744177664,
+          "maxValue": 70368744177664,
+          "id": "seed",
+          "defaultValue": "6738",
+          "label": "Map Seed",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": "UseCustomMap",
+          "parentValue": "False",
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 500,
+          "maxValue": 8000,
+          "id": "mapsize",
+          "defaultValue": "2000",
+          "label": "Map Size",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": "UseCustomMap",
+          "parentValue": "False",
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 327,
+      "relativePath": "server\\my_server_identity\\cfg\\additionalsettings.cfg",
+      "description": "Configure additional settings here. Will be merged to server.cfg before server starts.",
+      "template": "",
+      "order": 2,
+      "enableEditor": false,
+      "editor": []
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [],
+        "name": "Wipe on Rust Wipe Day",
+        "description": "Wipe on Rust Wipe Day",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.Linq;\nusing System.Threading.Tasks;\nusing TCAdmin.SDK.Constants;\nusing TCAdmin.Web.Shared.Models.Enums;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Wipe on Rust Wipe Day.\n// Runs as a scheduled task; only wipes when today is the first Thursday of the month.\n// It stops the service (if running), runs the \"Wipe Server\" script, then restarts it.\n//\n// V2 called Script.Execute(gameId, 8) to run the wipe script by its numeric id. Script ids\n// change on import, so V3 looks the wipe script up by name among the game's CustomServiceIcon\n// scripts and runs it through the scripting environment.\n\nasync Task ReportProgress(string log)\n{\n    if (ThisTaskStepHandler != null)\n        await ThisTaskStepHandler.UpdateProgress(log: log);\n    else\n        ScriptConsole.WriteLine(log);\n}\n\n// Determine the first Thursday of the current month.\nvar now = DateTime.Now;\nvar firstOfMonth = new DateTime(now.Year, now.Month, 1);\nvar offset = ((int)DayOfWeek.Thursday - (int)firstOfMonth.DayOfWeek + 7) % 7;\nvar firstThursday = firstOfMonth.AddDays(offset);\n\nif (now.Date != firstThursday.Date)\n{\n    await ReportProgress(\"[Rust Wipe Script] Not wiping server as today is not the first Thursday of the month\");\n    return;\n}\n\n// Stop the service first so the wipe touches no open files. Remember whether it was running\n// so we can bring it back afterwards.\nvar wasRunning = ThisService.Status == EServiceStatus.Started;\nif (wasRunning)\n{\n    await ReportProgress(\"Service is running. Stopping the service...\");\n    await ServiceManagerService.StopService(ThisService.ServiceId);\n}\n\n// Find and run the \"Wipe Server\" script bound to this game.\nvar iconScripts = await ServiceManager.GetScripts(ThisService, GameScriptEvents.CustomServiceIcon);\nvar wipeScript = iconScripts.FirstOrDefault(s =>\n    string.Equals(s.Name, \"Wipe Server\", StringComparison.OrdinalIgnoreCase));\n\nif (wipeScript == null)\n{\n    await ReportProgress(\"[Rust Wipe Script] Could not find the 'Wipe Server' script to execute.\");\n}\nelse\n{\n    var result = await ScriptingEnvironment.ExecuteScript(ThisService, wipeScript, null, ThisCancellationToken);\n    if (!result.Success)\n        await ReportProgress($\"[Rust Wipe Script] Wipe Server script reported an error: {result.Error?.Message}\");\n}\n\n// Start the service again if it was running before the wipe.\nif (wasRunning)\n{\n    await ReportProgress(\"Starting service...\");\n    await ServiceManagerService.StartService(ThisService.ServiceId);\n    await ReportProgress(\"Service was started successfully.\");\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "ec211004-6037-41cd-b9f6-e150743a7875"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Combine settings files",
+        "description": "Combine settings files",
+        "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Combine settings files (BeforeServiceStarted).\n// Merges settings.cfg + additionalsettings.cfg into server.cfg, removes duplicate lines\n// (preserving first-seen order) and prepends a \"do not edit\" warning to the first line.\n\nvar cfgDir = Path.Combine(ThisService.RootDirectory, \"server\", \"my_server_identity\", \"cfg\");\nvar settingsFile = Path.Combine(cfgDir, \"settings.cfg\");\nvar additionalSettingsFile = Path.Combine(cfgDir, \"additionalsettings.cfg\");\nvar serverCfgFile = Path.Combine(cfgDir, \"server.cfg\");\n\n// Only include files that actually exist, in order.\nvar files = new[] { settingsFile, additionalSettingsFile }.Where(File.Exists).ToList();\nif (files.Count == 0)\n{\n    ScriptConsole.WriteLine(\"No settings.cfg or additionalsettings.cfg found. Nothing to combine.\");\n    return;\n}\n\n// Read all lines from each file in order, de-duplicating while keeping first-seen order.\nvar seen = new HashSet<string>();\nvar settings = new List<string>();\nforeach (var file in files)\n{\n    foreach (var line in await File.ReadAllLinesAsync(file, ThisCancellationToken))\n    {\n        if (seen.Add(line))\n            settings.Add(line);\n    }\n}\n\nif (settings.Count == 0)\n{\n    ScriptConsole.WriteLine(\"Settings files were empty. Nothing written.\");\n    return;\n}\n\n// Prepend the warning to the first content line (mirrors the V2 behaviour).\nsettings[0] = \"#Do not update this file manually. Use settings.cfg or additionalsettings.cfg instead.\\n\" + settings[0];\n\nawait File.WriteAllTextAsync(serverCfgFile, string.Join(\"\\n\", settings), ThisCancellationToken);\nScriptConsole.WriteLine($\"Combined {files.Count} settings file(s) into server.cfg.\");\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "1f3f54f5-886e-4e5b-bad9-15fdd7e15be7"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Move logfile",
+        "description": "Move logfile",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.IO;\nusing TCAdmin.Web.Shared.Models.Enums;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Move logfile (BeforeServiceStarted).\n// Archives logs/latest.log to a timestamped server_<date>.log before the server starts so\n// each run keeps its own log. Creates the logs directory if missing and (on a Linux host)\n// fixes the directory owner so the impersonated game user can write to it.\n\nvar logDir = Path.Combine(ThisService.RootDirectory, \"logs\");\nif (!Directory.Exists(logDir))\n{\n    Directory.CreateDirectory(logDir);\n    // The owner fixup is a server-box concern; only meaningful when the host runs Linux.\n    if (ThisServer.OperatingSystem == EOperatingSystem.Linux)\n        OperatingSystem.SetDirectoryOwnerAutoDetect(logDir, false);\n}\n\nvar logFile = Path.Combine(logDir, \"latest.log\");\nif (!File.Exists(logFile))\n{\n    ScriptConsole.WriteLine(\"No latest.log to archive.\");\n    return;\n}\n\n// V2 used ThisService.StartTime (the previous run's start). It can be null before the first\n// start, so fall back to now.\nvar lastStarted = ThisService.StartTime ?? DateTime.Now;\nvar timeFormat = $\"{lastStarted.Year}-{lastStarted.Month}-{lastStarted.Day}__{lastStarted.Hour}-{lastStarted.Minute}-{lastStarted.Second}\";\nvar newLogFileName = $\"server_{timeFormat}.log\";\nvar destination = Path.Combine(logDir, newLogFileName);\n// The previous start time can repeat (a start that failed leaves it unchanged), so never collide with an earlier archive.\nfor (var n = 2; File.Exists(destination); n++)\n{\n    newLogFileName = $\"server_{timeFormat}_{n}.log\";\n    destination = Path.Combine(logDir, newLogFileName);\n}\n\nFile.Move(logFile, destination);\nScriptConsole.WriteLine($\"Archived latest.log to {newLogFileName}.\");\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "542cc336-46d4-4784-bf53-0774fa58b613"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Set default priority to idle and random core",
+        "description": "Set default priority to idle and random core",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, Microsoft.EntityFrameworkCore.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Set default priority to idle and random core (BeforeServiceStarted, Windows only).\n//\n// V2 stashed the service's configured priority/affinity into the ServiceController's persistent\n// ServiceConfig and overrode them with Idle + a random N-core mask so the server would START on a\n// few cores at idle priority (then \"Set priority and affinity back to normal\" restored them once\n// the game logged \"Server startup complete\").\n//\n// V3 has no script-accessible per-service affinity/priority store, and this event fires BEFORE the\n// game process exists, so there is nothing to set affinity on yet. Instead we compute the random\n// startup mask here and hand it to the companion AfterServiceStarted script via a service variable;\n// that script applies Idle + this mask to the live process, then restores Normal + all cores.\n\nconst int startCores = 4; // how many cores the service should start on\n\n// NUMBER_OF_PROCESSORS - 1, mirroring the V2 calculation (which excludes the top core).\nvar coreCount = Environment.ProcessorCount - 1;\nif (coreCount < 1)\n{\n    ScriptConsole.WriteLine(\"Not enough cores to compute a startup affinity mask.\");\n    return;\n}\n\n// Pick `startCores` distinct cores from 1..coreCount (V2 excluded core 0 / the top index) and OR\n// their bits together. A core value c maps to affinity bit (c-1), exactly as the V2 bit-string math.\nvar candidates = Enumerable.Range(1, coreCount).ToList();\nvar take = Math.Min(startCores, candidates.Count);\nvar chosen = new List<int>();\nwhile (chosen.Count < take)\n{\n    var pick = candidates[Random.Shared.Next(candidates.Count)];\n    candidates.Remove(pick);\n    chosen.Add(pick);\n}\n\nlong affinityMask = 0;\nforeach (var core in chosen)\n    affinityMask |= 1L << (core - 1);\n\n// ThisService is detached in a power-event script, so the mask is saved through an instance tracked in this scope.\nvar service = await GameServiceManager.GetAsync(ThisService.ServiceId);\nvar variables = new TCAdminVars();\nforeach (var kv in service.Variables) variables[kv.Key] = kv.Value;\nvariables[\"__StartupAffinity\"] = affinityMask.ToString();\nservice.Variables = variables;\n// The JSON column has no value comparer; without this the write is silently dropped.\nGameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\nawait GameServiceManager.SaveChangesAsync(ThisCancellationToken);\nThisService.Variables[\"__StartupAffinity\"] = affinityMask.ToString();\n\nScriptConsole.WriteLine($\"Computed startup affinity mask {affinityMask} (cores {string.Join(\", \", chosen.OrderBy(x => x))}). \" +\n    \"The 'Set priority and affinity back to normal' script will apply it on startup.\");\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "ce9f66c8-9dcf-4f92-9d31-9b3ff8ab0a64"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterServiceStopped"
+        ],
+        "name": "Kill powershell",
+        "description": "Kill powershell",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Kill powershell (AfterServiceStopped, Windows only).\n// The \"Set priority and affinity back to normal\" script writes the PID of the PowerShell\n// log-watcher it spawns to \"<serviceId>_ps.pid\" one level above the service root. When the\n// service stops, kill that watcher (if still running) and remove the pid file.\n\nvar psPidFile = Path.Combine(ThisService.RootDirectory, \"..\", $\"{ThisService.ServiceId}_ps.pid\");\nif (!File.Exists(psPidFile))\n    return;\n\nvar pidText = await File.ReadAllTextAsync(psPidFile, ThisCancellationToken);\nFile.Delete(psPidFile);\n\nif (int.TryParse(pidText.Trim(), out var pid))\n{\n    try\n    {\n        using var process = Process.GetProcessById(pid);\n        process.Kill();\n        ScriptConsole.WriteLine($\"Killed PowerShell watcher process {pid}.\");\n    }\n    catch (Exception ex)\n    {\n        // Process may already be gone — not an error worth failing the stop over.\n        ScriptConsole.WriteLine($\"Could not kill PowerShell watcher process {pid}: {ex.Message}\");\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "a9c5d185-6960-478f-8265-1713fe260cf7"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterServiceStopped"
+        ],
+        "name": "Make sure all executables are stopped",
+        "description": "Make sure all executables are stopped",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Make sure all executables are stopped (AfterServiceStopped, Windows only).\n// Ends whatever is still running from the service's folder after a stop (e.g. UnityCrashHandler64).\n// Replaces the V2 wmic one-liner, which failed with \"Invalid query\" and whose LIKE pattern had lost its wildcard.\n\n// The trailing separator keeps service 173 from matching the folder of service 1730.\nvar root = ThisService.RootDirectory.TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;\nforeach (var pid in OperatingSystem.FindProcesses(root))\n{\n    try\n    {\n        using var process = Process.GetProcessById(pid);\n        var name = process.ProcessName;\n        // TCAdmin's own wrapper runs from the service folder too; the panel manages its lifetime.\n        if (name.StartsWith(\"TCAdmin\", StringComparison.OrdinalIgnoreCase)) continue;\n        process.Kill(entireProcessTree: true);\n        ScriptConsole.WriteLine($\"Ended leftover process {name} ({pid}).\");\n    }\n    catch (Exception ex) when (ex is ArgumentException or InvalidOperationException or System.ComponentModel.Win32Exception)\n    {\n        // Already exited, or not ours to end.\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "cb08baa2-fbe4-4965-b481-77a7ffa47548"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterServiceStarted"
+        ],
+        "name": "Set priority and affinity back to normal",
+        "description": "Set priority and affinity back to normal",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Set priority and affinity back to normal (AfterServiceStarted, Windows only).\n//\n// V2 spawned a PowerShell process to tail the Rust log until \"Server startup complete\" so the\n// start operation returned immediately. V3 equivalent: the wait + restore run as a detached\n// Task inside the Monitor process. This script returns right away, so Start doesn't hold the\n// power semaphore (or the HTTP response) for up to 15 minutes; the watcher task survives the\n// script exiting and restores priority when the log reports startup complete.\n//\n// The next Stop/Kill cancels ThisCancellationToken (the power-script scope), which ends the\n// watcher on its next poll. The restore runs in a finally so cancellation still restores.\n//\n// Detached-task rules: only singletons (OperatingSystem), detached entities (ThisService,\n// ThisGame) and BCL APIs may be used after the script returns — the *Manager globals die with\n// the scripting environment's DI scope, and ScriptConsole writes become silent no-ops.\n//\n// LIMITATIONS — a Windows Job Object pin overrides this script (changes are silently lost):\n// - Service priority set to anything but Normal → the Idle throttle and the restore won't stick.\n// - Service affinity configured → only subsets of that mask can be applied; the random startup\n//   core and the all-cores restore usually fail (skipped harmlessly).\n// - Windows Virtual Server: the VS sandbox job always pins priority (even at Normal), and pins\n//   affinity when the VS has a core partition — priority changes never stick inside a VS.\n\nvar root = ThisService.RootDirectory;\n\n// All-cores mask for the restore step.\nnint allCoresAffinity = (nint)((1L << Environment.ProcessorCount) - 1);\n\n// Startup mask handed over by \"Set default priority to idle and random core\" (0 = none/skip).\nvar startupMaskText = ThisService.Variables.Parse<string>(\"__StartupAffinity\");\nlong.TryParse(startupMaskText, out var startupMask);\n\n// Capture what the detached task needs into locals before the script returns.\nvar os = OperatingSystem;\nvar token = ThisCancellationToken;\nvar logFile = string.IsNullOrWhiteSpace(ThisGame.ConsoleConfig.LogFile)\n    ? null\n    : Path.Combine(root, ThisGame.ConsoleConfig.LogFile);\n\nvoid ApplyToServiceProcesses(ProcessPriorityClass priority, nint? affinity)\n{\n    foreach (var pid in os.FindProcesses(root))\n    {\n        try\n        {\n            using var process = Process.GetProcessById(pid);\n            process.PriorityClass = priority;\n            if (affinity.HasValue && affinity.Value != 0)\n                process.ProcessorAffinity = affinity.Value;\n        }\n        catch\n        {\n            // Process exited between enumeration and adjustment, or access denied — skip it.\n        }\n    }\n}\n\n// Throttle synchronously so the server is already throttled when Start returns.\nApplyToServiceProcesses(ProcessPriorityClass.Idle, startupMask != 0 ? (nint)startupMask : null);\n\nif (logFile == null)\n{\n    // No log file configured — nothing to wait for.\n    ApplyToServiceProcesses(ProcessPriorityClass.Normal, allCoresAffinity);\n}\nelse\n{\n    _ = Task.Run(async () =>\n    {\n        try\n        {\n            var deadline = DateTime.UtcNow.AddMinutes(15);\n            long lastLength = 0;\n            var started = false;\n            while (!started && DateTime.UtcNow < deadline && !token.IsCancellationRequested)\n            {\n                if (File.Exists(logFile))\n                {\n                    try\n                    {\n                        using var stream = new FileStream(logFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);\n                        if (stream.Length < lastLength) lastLength = 0; // log rotated/truncated\n                        stream.Seek(lastLength, SeekOrigin.Begin);\n                        using var reader = new StreamReader(stream);\n                        var text = await reader.ReadToEndAsync(token);\n                        lastLength = stream.Length;\n                        if (text.IndexOf(\"Server startup complete\", StringComparison.OrdinalIgnoreCase) >= 0)\n                            started = true;\n                    }\n                    catch (OperationCanceledException) { throw; }\n                    catch\n                    {\n                        // File momentarily locked by the game — try again on the next poll.\n                    }\n                }\n\n                if (!started)\n                    await Task.Delay(TimeSpan.FromSeconds(2), token);\n            }\n        }\n        catch (OperationCanceledException)\n        {\n            // Stop/Kill during startup — fall through to the restore.\n        }\n        catch\n        {\n            // Never let an exception escape a detached task.\n        }\n        finally\n        {\n            // Restore even on cancellation: per-pid try/catch makes this a no-op when the\n            // processes are already gone.\n            ApplyToServiceProcesses(ProcessPriorityClass.Normal, allCoresAffinity);\n        }\n    });\n}\n\nScriptConsole.WriteLine(\"Startup watcher detached; priority/affinity will be restored when the log reports startup complete.\");\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 1,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "3375e45b-cb98-4750-be95-adf65995ab70"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceIcon",
+          "ScheduledTask"
+        ],
+        "name": "Wipe Server",
+        "description": "This will wipe selected files on your server",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, Microsoft.EntityFrameworkCore.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.SDK.Database.Entities;\nusing TCAdmin.Web.Shared.Models.Enums;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Wipe Server (CustomServiceIcon / ScheduledTask).\n// Wipes the selected combination of map / players / additional files and optionally rolls a new\n// seed. Each section is gated by an input variable the popup (or scheduled step) sets.\n//\n// Notable V2 -> V3 changes:\n//  * The manual SteamCmd subprocess + Before/AfterSteamUpdate event scripts are replaced by\n//    GameServiceManager.RunServiceSteamUpdate, which runs the update and fires those events itself.\n//  * ThisService.Configure()/Save() are gone; service variable changes persist via\n//    ServiceManager.UpdateAsync.\n//  * Seed-list \"remove used seed\" updates the recurring step's Variables directly (V3 stores them\n//    as a clean JSON dictionary, not the V2 nested XML field).\n\nasync Task Report(string log)\n{\n    if (ThisTaskStepHandler != null)\n        await ThisTaskStepHandler.UpdateProgress(log: log);\n    else\n        ScriptConsole.WriteLine(log);\n}\n\nvar root = ThisService.RootDirectory;\nvar identityDir = Path.Combine(root, \"server\", \"my_server_identity\");\nvar cfgFile = Path.Combine(identityDir, \"cfg\", \"settings.cfg\");\n\n// The options arrive as input variables; the saved ones (seed list, extra files) are also on the service.\nstring GetVar(string name) => Variables.Parse<string>(name) ?? ThisService.Variables.Parse<string>(name) ?? string.Empty;\nbool IsTrue(string name) => string.Equals(GetVar(name), \"true\", StringComparison.OrdinalIgnoreCase);\n\n// A person running this from the panel confirms first; a scheduled run never prompts.\nif (IsInteractive)\n{\n    var confirmed = await ThisScript.ShowMessageBox(\"Wipe Server\", \"Are you sure you want to wipe this server?\", \"Yes\", \"No\");\n    if (confirmed != true)\n    {\n        ScriptConsole.WriteLine(\"Wipe cancelled. Nothing was deleted.\");\n        return;\n    }\n}\n\n// Stop Service is unchecked on this script: it stops the server itself, only once the wipe is confirmed.\nvar statusBefore = (await ServiceManagerService.GetServiceStatus(ThisService.ServiceId)).Status.ToString();\nvar wasRunning = statusBefore == \"Started\" || statusBefore == \"Starting\";\nif (wasRunning)\n{\n    await Report(\"Stopping the server\");\n    await ServiceManagerService.StopService(ThisService.ServiceId);\n}\n\ntry\n{\n    // --- Steam update -----------------------------------------------------------------------------\n    if (IsTrue(\"PerformSteamUpdate\"))\n    {\n        await Report(\"[Starting] Update Server\");\n        try\n        {\n            var steamResult = await GameServiceManager.RunServiceSteamUpdate(ThisService.ServiceId, cancellationToken: ThisCancellationToken);\n            if (!steamResult.Success)\n                await Report($\"Steam update reported a problem: {steamResult.Message}\");\n        }\n        catch (Exception ex)\n        {\n            await Report($\"Something went wrong during Steam Update. Error: {ex.Message}\");\n        }\n        await Report(\"[Complete] Update Server\");\n    }\n\n    // --- Wipe map ---------------------------------------------------------------------------------\n    if (IsTrue(\"wipemap\"))\n    {\n        await Report(\"[Starting] Wipe Map\");\n        if (Directory.Exists(identityDir))\n        {\n            var mapFiles = Directory.GetFiles(identityDir, \"*.sav*\")\n                .Concat(Directory.GetFiles(identityDir, \"*.map*\"));\n            foreach (var f in mapFiles)\n            {\n                try\n                {\n                    File.Delete(f);\n                    await Report($\"Deleted savefile {f}\");\n                }\n                catch (Exception ex)\n                {\n                    await Report($\"Could not delete {f}, error was: {ex.Message}\");\n                }\n            }\n        }\n        await Report(\"[Complete] Wipe Map\");\n    }\n\n    // --- New random seed --------------------------------------------------------------------------\n    // oldSize/newSize carry through to the cfg rewrite that runs after the CustomSeeds section.\n    string oldSize = null;\n    string newSize = null;\n\n    if (IsTrue(\"wipemapnewseed\") && File.Exists(cfgFile))\n    {\n        await Report(\"[Starting] New Seed\");\n        await Report(\"Specifying a new seed\");\n        var contents = await File.ReadAllTextAsync(cfgFile, ThisCancellationToken);\n        var match = Regex.Match(contents, @\"server.seed[ \\t]*(?<oldseed>-?[0-9, \\t]*)\", RegexOptions.IgnoreCase);\n        var oldSeed = match.Groups[\"oldseed\"].Value;\n\n        var newSeed = Random.Shared.Next(-2147483647, 2147483647).ToString();\n        while (oldSeed == newSeed)\n            newSeed = Random.Shared.Next(-2147483647, 2147483647).ToString();\n\n        await Report($\"New seed is {newSeed}\");\n        contents = contents.Replace($\"server.seed {oldSeed}\", $\"server.seed {newSeed}\");\n        await File.WriteAllTextAsync(cfgFile, contents, ThisCancellationToken);\n        await Report(\"[Complete] New Seed\");\n    }\n\n    // --- Wipe players -----------------------------------------------------------------------------\n    if (IsTrue(\"wipeplayers\"))\n    {\n        await Report(\"[Starting] Wipe Playerdata and Blueprints\");\n        var userdataFolder = Path.Combine(root, \"userdata\");\n        if (Directory.Exists(userdataFolder))\n        {\n            try\n            {\n                Directory.Delete(userdataFolder, true);\n                await Report(\"Userdata wiped\");\n            }\n            catch (Exception ex)\n            {\n                await Report($\"Could not delete {userdataFolder}, error was: {ex.Message}\");\n            }\n        }\n\n        if (Directory.Exists(identityDir))\n        {\n            foreach (var f in Directory.GetFiles(identityDir, \"*.db*\"))\n            {\n                try\n                {\n                    File.Delete(f);\n                    await Report($\"File {f} was deleted successfully\");\n                }\n                catch (Exception ex)\n                {\n                    await Report($\"Could not delete {f}, error was: {ex.Message}\");\n                }\n            }\n        }\n        await Report(\"[Complete] Wipe Playerdata and Blueprints\");\n    }\n\n    // --- Wipe additional files / folders ----------------------------------------------------------\n    var wipeFiles = GetVar(\"WipeFiles\");\n    if (!string.IsNullOrEmpty(wipeFiles))\n    {\n        await Report(\"[Starting] Wipe Additional Files/Folders\");\n        foreach (var raw in wipeFiles.Split('\\n', '\\r').Where(x => x.Length > 0))\n        {\n            var entry = raw.Trim();\n            if (entry.Length == 0) continue;\n\n            if (entry.EndsWith('/'))\n            {\n                // Folder\n                var folder = Path.Combine(root, entry);\n                if (Directory.Exists(folder))\n                {\n                    try\n                    {\n                        Directory.Delete(folder, true);\n                        await Report($\"Deleted folder {entry}\");\n                    }\n                    catch (Exception)\n                    {\n                        await Report($\"Could not delete folder {entry}\");\n                    }\n                }\n            }\n            else if (entry.Contains('*'))\n            {\n                // Glob within its directory\n                var combined = Path.Combine(root, entry);\n                var dir = Path.GetDirectoryName(combined) ?? root;\n                var pattern = Path.GetFileName(combined);\n                if (Directory.Exists(dir))\n                {\n                    foreach (var filePath in Directory.GetFiles(dir, pattern))\n                    {\n                        try\n                        {\n                            await Report($\"Deleting {filePath}\");\n                            File.Delete(filePath);\n                            await Report($\"Deleted file {filePath}\");\n                        }\n                        catch (Exception)\n                        {\n                            await Report($\"Could not delete file {filePath}\");\n                        }\n                    }\n                }\n            }\n            else\n            {\n                // Single file\n                var file = Path.Combine(root, entry);\n                if (File.Exists(file))\n                {\n                    try\n                    {\n                        File.Delete(file);\n                        await Report($\"Deleted file {entry}\");\n                    }\n                    catch (Exception)\n                    {\n                        await Report($\"Could not delete file {entry}\");\n                    }\n                }\n            }\n        }\n        await Report(\"[Complete] Wipe Additional Files/Folders\");\n    }\n\n    // --- Replace seed from the CustomSeeds list ---------------------------------------------------\n    var customSeeds = GetVar(\"CustomSeeds\");\n    if (!string.IsNullOrEmpty(customSeeds) && File.Exists(cfgFile))\n    {\n        await Report(\"[Starting] Replacing Seed\");\n        var seeds = customSeeds.Split('\\n', '\\r').Where(x => x.Trim().Length > 0).Select(x => x.Trim()).ToList();\n        if (seeds.Count > 0)\n        {\n            var contents = await File.ReadAllTextAsync(cfgFile, ThisCancellationToken);\n            var seedMatch = Regex.Match(contents, @\"server.seed[ \\t]*(?<oldseed>-?[0-9, \\t]*)\", RegexOptions.IgnoreCase);\n            var oldSeed = seedMatch.Groups[\"oldseed\"].Value;\n            var chosen = seeds[Random.Shared.Next(seeds.Count)];\n\n            // If RemoveUsedSeed is set, drop the chosen seed from the recurring step's stored list\n            // (so it isn't reused next run) and from the service variable.\n            if (string.Equals(GetVar(\"RemoveUsedSeed\"), \"True\", StringComparison.OrdinalIgnoreCase))\n            {\n                seeds.Remove(chosen);\n                var updatedSeeds = string.Join(\"\\n\", seeds);\n\n                var recurringTaskId = ThisTask?.RecurringTaskId;\n                if (recurringTaskId != null)\n                {\n                    try\n                    {\n                        var recurringTask = await RecurringTaskManager.TCAdminDbContext.RecurringTasks\n                            .Include(x => x.Steps)\n                            .FirstOrDefaultAsync(x => x.RecurringTaskId == recurringTaskId.Value, ThisCancellationToken);\n                        var step = recurringTask?.Steps.OrderBy(x => x.RecurringStepId).FirstOrDefault();\n                        if (step != null)\n                        {\n                            step.Variables[\"CustomSeeds\"] = updatedSeeds;\n                            await RecurringTaskManager.UpdateAsync(recurringTask, true, ThisCancellationToken);\n                        }\n                    }\n                    catch (Exception ex)\n                    {\n                        await Report($\"Could not update recurring task seed list: {ex.Message}\");\n                    }\n                }\n            }\n\n            var newSeed = chosen;\n            // A \"seed:size\" entry also sets the world size.\n            if (chosen.Contains(':'))\n            {\n                var parts = chosen.Split(':');\n                newSeed = parts[0];\n                newSize = parts[1];\n                await Report($\"Setting new seed. Was {oldSeed}, now {newSeed}\");\n                var sizeMatch = Regex.Match(contents, @\"server.worldsize[ \\t]*(?<oldsize>-?[0-9, \\t]*)\", RegexOptions.IgnoreCase);\n                oldSize = sizeMatch.Groups[\"oldsize\"].Value;\n                await Report($\"Setting new world size. Was {oldSize}, now {newSize}\");\n                ThisService.Variables[\"mapsize\"] = newSize;\n            }\n\n            // Persist the remaining seed list back to the service variable.\n            ThisService.Variables[\"CustomSeeds\"] = string.Join(\"\\n\", seeds);\n\n            contents = contents.Replace($\"server.seed {oldSeed}\", $\"server.seed {newSeed}\");\n            if (oldSize != null && newSize != null)\n                contents = contents.Replace($\"server.worldsize {oldSize}\", $\"server.worldsize {newSize}\");\n            await File.WriteAllTextAsync(cfgFile, contents, ThisCancellationToken);\n\n            ThisService.Variables[\"seed\"] = newSeed;\n            await Report(\"[Complete] Replacing Seed\");\n        }\n    }\n\n    await Report(\"The task completed successfully\");\n\n    // Persist any service variable changes (mapsize / seed / CustomSeeds).\n    await ServiceManager.UpdateAsync(ThisService, true, ThisCancellationToken);\n}\nfinally\n{\n    if (wasRunning)\n    {\n        await Report(\"Starting the server\");\n        await ServiceManagerService.StartService(ThisService.ServiceId);\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "<path d=\"M15 16h4v2h-4zm0-8h7v2h-7zm0 4h6v2h-6zM3 18c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8H3v10zM14 5h-3l-1-1H6L5 5H2v2h12z\"/>",
+        "scriptInputVariables": [
+          {
+            "variable": {
+              "name": "CustomSeeds",
+              "defaultValue": "",
+              "required": false,
+              "requiredMessage": "",
+              "scriptParameter": true,
+              "commandlineParameter": false,
+              "saveScriptParameter": true,
+              "syncCommandlineParameter": false,
+              "template": "${CustomSeeds}",
+              "editor": {
+                "maxLength": 0,
+                "lines": 7,
+                "denyCharacters": [],
+                "regExValidation": "",
+                "inputType": 0,
+                "id": "CustomSeeds",
+                "defaultValue": "",
+                "label": "Seed list",
+                "description": "One seed per line. A random seed from the list replaces the current one. To also set the world size use seed:size, for example 1234567890:3500.",
+                "required": false,
+                "valueType": "string",
+                "requiredMessage": "",
+                "parentId": null,
+                "parentValue": null,
+                "controlType": "DynamicTextBox",
+                "sm": 6,
+                "xs": 12,
+                "requiresAnyVisible": []
+              },
+              "createdDate": "2026-06-17T23:41:53.144748",
+              "modifiedDate": null,
+              "metadata": {},
+              "variableRoles": [
+                {
+                  "roleId": 2
+                },
+                {
+                  "roleId": 3
+                }
+              ]
+            },
+            "variableId": 5042
+          },
+          {
+            "variable": {
+              "name": "PerformSteamUpdate",
+              "defaultValue": "",
+              "required": false,
+              "requiredMessage": "",
+              "scriptParameter": true,
+              "commandlineParameter": false,
+              "saveScriptParameter": false,
+              "syncCommandlineParameter": false,
+              "template": "${PerformSteamUpdate}",
+              "editor": {
+                "valueType": "bool",
+                "checkedValue": "true",
+                "uncheckedValue": "false",
+                "id": "PerformSteamUpdate",
+                "defaultValue": "",
+                "label": "Run a Steam update",
+                "description": "Updates the server through Steam before wiping.",
+                "required": false,
+                "requiredMessage": "",
+                "parentId": null,
+                "parentValue": null,
+                "controlType": "DynamicCheckBox",
+                "sm": 6,
+                "xs": 12,
+                "requiresAnyVisible": []
+              },
+              "createdDate": "2026-06-17T23:41:53.146757",
+              "modifiedDate": null,
+              "metadata": {},
+              "variableRoles": [
+                {
+                  "roleId": 2
+                },
+                {
+                  "roleId": 3
+                }
+              ]
+            },
+            "variableId": 5051
+          },
+          {
+            "variable": {
+              "name": "RemoveUsedSeed",
+              "defaultValue": true,
+              "required": false,
+              "requiredMessage": "",
+              "scriptParameter": true,
+              "commandlineParameter": false,
+              "saveScriptParameter": true,
+              "syncCommandlineParameter": false,
+              "template": "${RemoveUsedSeed}",
+              "editor": {
+                "valueType": "bool",
+                "checkedValue": "True",
+                "uncheckedValue": "False",
+                "id": "RemoveUsedSeed",
+                "defaultValue": true,
+                "label": "Remove the used seed from the list",
+                "description": "Once a seed from the seed list has been used it is removed, so it is not picked again.",
+                "required": false,
+                "requiredMessage": "",
+                "parentId": null,
+                "parentValue": null,
+                "controlType": "DynamicCheckBox",
+                "sm": 6,
+                "xs": 12,
+                "requiresAnyVisible": []
+              },
+              "createdDate": "2026-06-17T23:41:53.147385",
+              "modifiedDate": null,
+              "metadata": {},
+              "variableRoles": [
+                {
+                  "roleId": 2
+                },
+                {
+                  "roleId": 3
+                }
+              ]
+            },
+            "variableId": 5054
+          },
+          {
+            "variable": {
+              "name": "WipeFiles",
+              "defaultValue": "",
+              "required": false,
+              "requiredMessage": "",
+              "scriptParameter": true,
+              "commandlineParameter": false,
+              "saveScriptParameter": true,
+              "syncCommandlineParameter": false,
+              "template": "${WipeFiles}",
+              "editor": {
+                "maxLength": 0,
+                "lines": 10,
+                "denyCharacters": [],
+                "regExValidation": "^((?!\\.{2}).(\\r?\\n)?)*$",
+                "inputType": 0,
+                "id": "WipeFiles",
+                "defaultValue": "",
+                "label": "Additional files/folders to wipe",
+                "description": "One file or folder per line, relative to the service's root folder. Wildcards (*) work for files. A folder needs a trailing slash and is deleted with everything inside. Examples: logs/ or log.txt or userdata/*.sav",
+                "required": false,
+                "valueType": "string",
+                "requiredMessage": "",
+                "parentId": null,
+                "parentValue": null,
+                "controlType": "DynamicTextBox",
+                "sm": 6,
+                "xs": 12,
+                "requiresAnyVisible": []
+              },
+              "createdDate": "2026-06-17T23:41:53.149012",
+              "modifiedDate": null,
+              "metadata": {},
+              "variableRoles": [
+                {
+                  "roleId": 2
+                },
+                {
+                  "roleId": 3
+                }
+              ]
+            },
+            "variableId": 5062
+          },
+          {
+            "variable": {
+              "name": "wipemap",
+              "defaultValue": "false",
+              "required": false,
+              "requiredMessage": "",
+              "scriptParameter": true,
+              "commandlineParameter": false,
+              "saveScriptParameter": false,
+              "syncCommandlineParameter": false,
+              "template": "${wipemap}",
+              "editor": {
+                "valueType": "bool",
+                "checkedValue": "true",
+                "uncheckedValue": "false",
+                "id": "wipemap",
+                "defaultValue": "false",
+                "label": "Wipe map?",
+                "description": "",
+                "required": false,
+                "requiredMessage": "",
+                "parentId": null,
+                "parentValue": null,
+                "controlType": "DynamicCheckBox",
+                "sm": 6,
+                "xs": 12,
+                "requiresAnyVisible": []
+              },
+              "createdDate": "2026-06-17T23:41:53.149184",
+              "modifiedDate": null,
+              "metadata": {},
+              "variableRoles": [
+                {
+                  "roleId": 2
+                },
+                {
+                  "roleId": 3
+                }
+              ]
+            },
+            "variableId": 5063
+          },
+          {
+            "variable": {
+              "name": "wipemapnewseed",
+              "defaultValue": "false",
+              "required": false,
+              "requiredMessage": "",
+              "scriptParameter": true,
+              "commandlineParameter": false,
+              "saveScriptParameter": false,
+              "syncCommandlineParameter": false,
+              "template": "${wipemapnewseed}",
+              "editor": {
+                "valueType": "bool",
+                "checkedValue": "true",
+                "uncheckedValue": "false",
+                "id": "wipemapnewseed",
+                "defaultValue": "false",
+                "label": "Use random seed",
+                "description": "If ticked, a random seed will be entered into your server.cfg.",
+                "required": false,
+                "requiredMessage": "",
+                "parentId": null,
+                "parentValue": null,
+                "controlType": "DynamicCheckBox",
+                "sm": 6,
+                "xs": 12,
+                "requiresAnyVisible": []
+              },
+              "createdDate": "2026-06-17T23:41:53.149319",
+              "modifiedDate": null,
+              "metadata": {},
+              "variableRoles": [
+                {
+                  "roleId": 2
+                },
+                {
+                  "roleId": 3
+                }
+              ]
+            },
+            "variableId": 5064
+          },
+          {
+            "variable": {
+              "name": "wipeplayers",
+              "defaultValue": "false",
+              "required": false,
+              "requiredMessage": "",
+              "scriptParameter": true,
+              "commandlineParameter": false,
+              "saveScriptParameter": false,
+              "syncCommandlineParameter": false,
+              "template": "${wipeplayers}",
+              "editor": {
+                "valueType": "bool",
+                "checkedValue": "true",
+                "uncheckedValue": "false",
+                "id": "wipeplayers",
+                "defaultValue": "false",
+                "label": "Wipe players and blueprints?",
+                "description": "",
+                "required": false,
+                "requiredMessage": "",
+                "parentId": null,
+                "parentValue": null,
+                "controlType": "DynamicCheckBox",
+                "sm": 6,
+                "xs": 12,
+                "requiresAnyVisible": []
+              },
+              "createdDate": "2026-06-17T23:41:53.149473",
+              "modifiedDate": null,
+              "metadata": {},
+              "variableRoles": [
+                {
+                  "roleId": 2
+                },
+                {
+                  "roleId": 3
+                }
+              ]
+            },
+            "variableId": 5065
+          }
+        ],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "e13d1348-17f9-4469-a42d-9297e20fdbe0"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "DownloadGameFiles"
+        ],
+        "name": "Update uMod after Steam Update",
+        "description": "Update uMod after Steam Update",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.IO;\nusing System.Net.Http;\nusing TCAdmin.SDK.Misc.Compression;\nusing TCAdmin.Web.Shared.Models.Enums;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Update uMod (Oxide) after a Steam update (DownloadGameFiles event).\n// Re-downloads the matching Oxide.Rust build and extracts it over the freshly-updated\n// game files, but only if uMod is already installed (the 'oxide' folder exists).\n//\n// V2 chose the Windows vs Linux build from the HOST OS. That is wrong under V3 because a\n// Rust server can run on a Linux box via Wine or a Windows box via WSL — the Oxide build\n// must match the GAME's OS, so we key off ThisGame.OperatingSystem.\n\nvar root = ThisService.RootDirectory;\nvar oxideDir = Path.Combine(root, \"oxide\");\nif (!Directory.Exists(oxideDir))\n{\n    ScriptConsole.WriteLine(\"uMod not installed.\");\n    return;\n}\n\nvar zipPath = Path.Combine(root, \"Oxide.Rust.zip\");\nif (File.Exists(zipPath))\n    File.Delete(zipPath);\n\nScriptConsole.WriteLine(\"Found uMod installation... Updating uMod.\");\n\nvar isWindowsGame = ThisGame.OperatingSystem == EOperatingSystem.Windows;\n// The Branch Switcher module keeps the chosen branch in BranchSwitcher_SelectedBranch; \"branch\" is the older variable.\nvar branch = ThisService.Variables.Parse<string>(\"BranchSwitcher_SelectedBranch\", \"\");\nif (string.IsNullOrWhiteSpace(branch))\n    branch = ThisService.Variables.Parse<string>(\"branch\", \"\");\n\nstring url;\nif (string.Equals(branch, \"staging\", StringComparison.OrdinalIgnoreCase))\n{\n    ScriptConsole.WriteLine(\"Staging branch detected\");\n    url = isWindowsGame\n        ? \"https://ci.appveyor.com/api/projects/oxidemod/oxide-rust/artifacts/Oxide.Rust-staging.zip?pr=false&branch=staging\"\n        : \"https://ci.appveyor.com/api/projects/oxidemod/oxide-rust/artifacts/Oxide.Rust-linux-staging.zip?pr=false&branch=staging\";\n}\nelse\n{\n    url = isWindowsGame\n        ? \"https://umod.org/games/rust/download\"\n        : \"https://umod.org/games/rust/download/develop\";\n}\n\nScriptConsole.WriteLine($\"Downloading file {zipPath} from {url}...\");\nusing (var httpClient = new HttpClient())\n{\n    httpClient.Timeout = TimeSpan.FromMinutes(5);\n    await using var stream = await httpClient.GetStreamAsync(url, ThisCancellationToken);\n    await using var fileStream = File.Create(zipPath);\n    await stream.CopyToAsync(fileStream, ThisCancellationToken);\n}\n\nif (!File.Exists(zipPath))\n{\n    ScriptConsole.WriteLine(\"Download failed - Oxide.Rust.zip was not created.\");\n    return;\n}\n\n// Stop the service before overwriting binaries if it is running.\nif (ThisService.Status == EServiceStatus.Started)\n{\n    ScriptConsole.WriteLine(\"Stopping the service.\");\n    await ServiceManagerService.StopService(ThisService.ServiceId);\n}\n\nvar compressionTools = new CompressionTools(OperatingSystem);\ncompressionTools.Decompress(zipPath, root, ThisCancellationToken);\nFile.Delete(zipPath);\nScriptConsole.WriteLine(\"uMod updated successfully.\");\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "67f0e518-0a1c-45e9-a195-91cc91cab61e"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomQueryProtocol"
+        ],
+        "name": "Custom query",
+        "description": "Custom query",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, OpenGSQ.dll\nusing System;\nusing System.Text.RegularExpressions;\nusing OpenGSQ.Protocols;\nusing OpenGSQ.Responses.Source;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Custom query protocol (bound to CustomQueryProtocol).\n//\n// V2 returned a qstat-style XML string. V3's custom_script provider instead JSON-serializes the\n// script's ReturnValue and deserializes it into a GameQueryResponse (see\n// CustomScriptQuery.cs), so we build and return that object directly with the same data the\n// V2 XML carried: name, gametype, map, players, rules and the game_tag cp/mp override.\n//\n// The provider injects Address/Port for the service being queried. At runtime, injected script\n// variables are read via Dynamic.X -- bare identifiers are only auto-rewritten to Dynamic.X by the\n// editor's syntax checker, not by the execution path, so they must be qualified here.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = Convert.ToInt32(Dynamic.Port);\nif (port <= 0) port = ThisService.QueryPort;\n\ntry\n{\n    // Rust answers the Source (A2S) query protocol.\n    var source = new Source(address, port, 5000);\n    var info = await source.GetInfo();\n    var players = await source.GetPlayers();\n    var rules = await source.GetRules();\n\n    var response = new GameQueryResponse\n    {\n        Success = true,\n        Status = \"online\",\n        Protocol = \"custom_script\",\n        Address = address,\n        Hostname = $\"{address}:{port}\",\n        Name = info.Name,\n        GameType = info.Game,\n        Map = info.Map,\n        NumPlayers = info.Players,\n        MaxPlayers = info.MaxPlayers,\n        NumSpectators = 0,\n        MaxSpectators = 0,\n        Retries = 0\n    };\n\n    if (rules != null)\n    {\n        foreach (var rule in rules)\n            response.Rules[rule.Key] = rule.Value;\n    }\n\n    if (players != null)\n    {\n        foreach (var player in players)\n        {\n            response.Players.Add(new GameQueryPlayer\n            {\n                Name = player.Name,\n                // Source A2S exposes Score and Duration but not a per-player ping.\n                Score = (int)player.Score,\n                Ping = 0\n            });\n        }\n    }\n\n    // Rust reports real player/slot counts in the \"game tag\" (A2S keywords), e.g. \"cp12,mp50\".\n    // Prefer the game_tag rule, falling back to the A2S keywords field on the info packet.\n    var gameTag = response.Rules.TryGetValue(\"game_tag\", out var tagFromRules) && !string.IsNullOrEmpty(tagFromRules)\n        ? tagFromRules\n        : (info as SourceInfo)?.Keywords ?? string.Empty;\n\n    if (!string.IsNullOrEmpty(gameTag))\n    {\n        var cp = Regex.Match(gameTag, @\"cp(\\d+)\");\n        if (cp.Success)\n            response.NumPlayers = int.Parse(cp.Groups[1].Value);\n\n        var mp = Regex.Match(gameTag, @\"mp(\\d+)\");\n        if (mp.Success)\n            response.MaxPlayers = int.Parse(mp.Groups[1].Value);\n    }\n\n    Globals.ReturnValue = response;\n}\ncatch (Exception ex)\n{\n    // Returning an offline response keeps the query subsystem happy when the server is down.\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", ex.Message);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "384253a6-e83a-4365-8335-f576cedc7e24"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "ApiFunction"
+        ],
+        "name": "RustRconQuery",
+        "description": "Rust RCON tool: read-only queries (server info, players, bans, console, chat).",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing System.Text.Json.Nodes;\nusing System.Threading.Tasks;\nusing TCAdmin.GameHosting.SDK.RconProviders.RustWeb;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar commands = new Dictionary<string, string>\n{\n    [\"serverinfo\"] = \"serverinfo\",\n    [\"players\"] = \"playerlist\",\n    [\"bans\"] = \"bans\",\n    [\"console\"] = \"console.tail 200\",\n    [\"chat\"] = \"chat.tail 500\",\n};\n\nvar requested = Variables.Parse<string>(\"RustRconQuery\", \"\")\n    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)\n    .Distinct()\n    .ToList();\nif (requested.Count == 0)\n    throw new Exception(\"RustRconQuery is required.\");\nforeach (var name in requested)\n    if (!commands.ContainsKey(name))\n        throw new Exception($\"Unknown query '{name}'\");\n\nvar serviceStatus = (await ServiceManagerService.GetServiceStatus(ThisService.ServiceId).WaitAsync(TimeSpan.FromSeconds(8)))\n    ?.Status.ToString() ?? \"Unknown\";\nif (serviceStatus != \"Started\")\n{\n    Globals.ReturnValue = new { running = false, serviceStatus };\n    return;\n}\n\n// Steam ids are bare JSON numbers above 2^53; the browser's JSON.parse would round them, so they travel as strings.\nJsonNode Safe(JsonNode node)\n{\n    switch (node)\n    {\n        case JsonObject obj:\n            foreach (var key in obj.Select(p => p.Key).ToList())\n            {\n                var child = obj[key];\n                var safe = Safe(child);\n                if (!ReferenceEquals(safe, child)) obj[key] = safe;\n            }\n            return obj;\n        case JsonArray arr:\n            for (var i = 0; i < arr.Count; i++)\n            {\n                var safe = Safe(arr[i]);\n                if (!ReferenceEquals(safe, arr[i])) arr[i] = safe;\n            }\n            return arr;\n        case JsonValue value when value.GetValueKind() == JsonValueKind.Number\n                                  && value.TryGetValue<long>(out var n) && Math.Abs(n) > 9007199254740991:\n            return JsonValue.Create(n.ToString());\n        default:\n            return node;\n    }\n}\n\n// Rust answers these commands with JSON text; a non-JSON reply is passed through as a string.\nobject ToJson(string reply)\n{\n    try { return JsonSerializer.SerializeToElement(Safe(JsonNode.Parse(reply))); }\n    catch (JsonException) { return reply; }\n}\n\nvar factory = RconClientFactories.FirstOrDefault(f => f.Protocol == ThisGame.QueryRconProtocolConfig.RconProtocol);\nvar rcon = factory?.Create() as RustWebRconClient\n    ?? throw new Exception(\"This blueprint's RCON protocol must be 'rustweb' (Rust WebRcon).\");\nawait using (rcon)\n{\n    rcon.ReplyTimeout = TimeSpan.FromSeconds(5);\n    await rcon.ConnectAsync(ThisService.IPAddress, ThisService.RconPort, ThisService.Variables.Parse<string>(\"RconPassword\", string.Empty));\n    var replies = await Task.WhenAll(requested.Select(name => rcon.ExecuteCommandAsync(commands[name])));\n\n    var result = new Dictionary<string, object> { [\"running\"] = true, [\"serviceStatus\"] = serviceStatus };\n    for (var i = 0; i < requested.Count; i++)\n        result[requested[i]] = ToJson(replies[i]);\n    Globals.ReturnValue = result;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 4,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [
+          {
+            "variable": {
+              "name": "RustRconQuery",
+              "defaultValue": "",
+              "required": false,
+              "requiredMessage": "",
+              "scriptParameter": true,
+              "commandlineParameter": false,
+              "saveScriptParameter": false,
+              "syncCommandlineParameter": false,
+              "template": "${RustRconQuery}",
+              "editor": {
+                "maxLength": 200,
+                "lines": 1,
+                "denyCharacters": [],
+                "regExValidation": "",
+                "inputType": 0,
+                "id": "RustRconQuery",
+                "defaultValue": "",
+                "label": "RustRconQuery",
+                "description": "Comma-separated queries: serverinfo, players, bans, console, chat.",
+                "required": false,
+                "valueType": "string",
+                "requiredMessage": "",
+                "parentId": null,
+                "parentValue": null,
+                "controlType": "DynamicTextBox",
+                "sm": 12,
+                "xs": 12,
+                "requiresAnyVisible": []
+              },
+              "createdDate": "2026-11-10T00:58:11.50108",
+              "modifiedDate": null,
+              "metadata": {},
+              "variableRoles": [
+                {
+                  "roleId": 2
+                },
+                {
+                  "roleId": 3
+                }
+              ]
+            },
+            "variableId": 5458
+          }
+        ],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "48d5368d-179b-4a3e-9302-3fe8b71fcf12"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "ApiFunction"
+        ],
+        "name": "RustRconCommand",
+        "description": "Rust RCON tool: runs one RCON command and returns the reply.",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing System.Linq;\nusing System.Threading.Tasks;\nusing TCAdmin.GameHosting.SDK.RconProviders;\nusing TCAdmin.GameHosting.SDK.RconProviders.RustWeb;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar command = (Variables.Parse<string>(\"RustRconCommand\", \"\") ?? \"\").Trim();\nif (command.Length == 0)\n    throw new Exception(\"RustRconCommand is required.\");\nif (command.Length > 500 || command.IndexOfAny(new[] { '\\r', '\\n' }) >= 0)\n    throw new Exception(\"A command is a single line of at most 500 characters.\");\n\nvar serviceStatus = (await ServiceManagerService.GetServiceStatus(ThisService.ServiceId).WaitAsync(TimeSpan.FromSeconds(8)))\n    ?.Status.ToString() ?? \"Unknown\";\nif (serviceStatus != \"Started\")\n    throw new Exception(\"The service is not running\");\n\nvar factory = RconClientFactories.FirstOrDefault(f => f.Protocol == ThisGame.QueryRconProtocolConfig.RconProtocol);\nvar rcon = factory?.Create() as RustWebRconClient\n    ?? throw new Exception(\"This blueprint's RCON protocol must be 'rustweb' (Rust WebRcon).\");\nawait using (rcon)\n{\n    rcon.ReplyTimeout = TimeSpan.FromSeconds(4);\n    await rcon.ConnectAsync(ThisService.IPAddress, ThisService.RconPort, ThisService.Variables.Parse<string>(\"RconPassword\", string.Empty));\n    try\n    {\n        Globals.ReturnValue = new { reply = await rcon.ExecuteCommandAsync(command), noReply = false };\n    }\n    catch (RconTimeoutException)\n    {\n        Globals.ReturnValue = new { reply = \"\", noReply = true };\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 2,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [
+          {
+            "variable": {
+              "name": "RustRconCommand",
+              "defaultValue": "",
+              "required": false,
+              "requiredMessage": "",
+              "scriptParameter": true,
+              "commandlineParameter": false,
+              "saveScriptParameter": false,
+              "syncCommandlineParameter": false,
+              "template": "${RustRconCommand}",
+              "editor": {
+                "maxLength": 500,
+                "lines": 1,
+                "denyCharacters": [],
+                "regExValidation": "",
+                "inputType": 0,
+                "id": "RustRconCommand",
+                "defaultValue": "",
+                "label": "RustRconCommand",
+                "description": "One RCON command line.",
+                "required": false,
+                "valueType": "string",
+                "requiredMessage": "",
+                "parentId": null,
+                "parentValue": null,
+                "controlType": "DynamicTextBox",
+                "sm": 12,
+                "xs": 12,
+                "requiresAnyVisible": []
+              },
+              "createdDate": "2026-11-10T00:58:11.90239",
+              "modifiedDate": null,
+              "metadata": {},
+              "variableRoles": [
+                {
+                  "roleId": 2
+                },
+                {
+                  "roleId": 3
+                }
+              ]
+            },
+            "variableId": 5459
+          }
+        ],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "0fad6ab9-a199-4930-82a4-bffe75ab0500"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CustomPage",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceIcon"
+        ],
+        "name": "Rust RCON",
+        "description": "Server console, players, bans and chat over Rust WebRcon.",
+        "code": "<style>\n  * { box-sizing: border-box; }\n  body { background: var(--tca-background); }\n  .rr { --radius: 14px; --tint: color-mix(in srgb, var(--tca-primary) 14%, transparent);\n        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 14px; color: var(--tca-text);\n        max-width: 1600px; margin: 0 auto; padding: 20px; }\n  .muted { color: var(--tca-text-secondary); }\n  .spacer { flex: 1 1 auto; }\n  [hidden] { display: none !important; }\n\n  .ico { display: inline-flex; flex: none; width: 18px; height: 18px; }\n  .ico svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.85; stroke-linecap: round; stroke-linejoin: round; }\n  .ico-tile { display: inline-grid; place-items: center; flex: none; width: 34px; height: 34px; border-radius: 10px;\n              background: var(--tint); color: var(--tca-primary); }\n  .ico-tile.lg { width: 48px; height: 48px; border-radius: 12px; }\n  .ico-tile.lg .ico { width: 24px; height: 24px; }\n  .ico-tile.neutral { background: color-mix(in srgb, var(--tca-text) 7%, transparent); color: var(--tca-text-secondary); }\n\n  .card { background: var(--tca-surface); border: 1px solid var(--tca-divider); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; }\n  .card-head { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 16px; }\n  .card-head h3 { margin: 0; font-size: 16px; font-weight: 650; }\n\n  button { font: inherit; color: inherit; cursor: pointer; border-radius: 8px; }\n  button:disabled { opacity: .5; cursor: default; }\n  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; font-weight: 600;\n         background: color-mix(in srgb, var(--tca-text) 5%, var(--tca-surface)); border: 1px solid var(--tca-divider); }\n  .btn:hover:not(:disabled) { border-color: color-mix(in srgb, var(--tca-primary) 50%, var(--tca-divider)); }\n  .btn.sm { padding: 5px 10px; font-size: 13px; }\n  .btn.warn { color: var(--tca-warning); }\n  .btn.danger { color: var(--tca-error); }\n  .icon-btn { display: inline-grid; place-items: center; width: 36px; height: 36px; padding: 0; background: transparent;\n              border: 1px solid transparent; color: var(--tca-text-secondary); }\n  .icon-btn:hover:not(:disabled) { background: color-mix(in srgb, var(--tca-text) 7%, transparent); }\n  .icon-btn.primary { background: var(--tca-primary); color: #fff; width: 40px; height: 40px; }\n  input[type=text], input[type=search] { font: inherit; color: var(--tca-text); background: transparent; border: 0; outline: 0; min-width: 0; flex: 1; }\n  :focus-visible { outline: 2px solid var(--tca-primary); outline-offset: 2px; }\n  .field { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 10px;\n           background: var(--tca-background); border: 1px solid var(--tca-divider); color: var(--tca-text-secondary); }\n  .field:focus-within { border-color: var(--tca-primary); }\n\n  .pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600;\n          border: 1px solid var(--tca-divider); color: var(--tca-text-secondary); white-space: nowrap; }\n  .pill.dot::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }\n  .pill.tone { --c: var(--tca-text-secondary); color: var(--c); border-color: color-mix(in srgb, var(--c) 35%, transparent);\n               background: color-mix(in srgb, var(--c) 12%, transparent); }\n  .tone.connected, .tone.online { --c: var(--tca-success); }\n  .tone.connecting { --c: var(--tca-info); }\n  .tone.error, .tone.offline-state { --c: var(--tca-error); }\n\n  .switch { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; color: var(--tca-text-secondary); position: relative; }\n  .switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }\n  .switch .track { width: 34px; height: 20px; border-radius: 999px; background: color-mix(in srgb, var(--tca-text) 22%, transparent);\n                   position: relative; transition: background .15s; }\n  .switch .track::after { content: ''; position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; border-radius: 50%;\n                          background: #fff; transition: transform .15s; }\n  .switch input:checked + .track { background: var(--tca-primary); }\n  .switch input:checked + .track::after { transform: translateX(14px); }\n  .switch input:focus-visible + .track { outline: 2px solid var(--tca-primary); outline-offset: 2px; }\n\n  .seg { display: inline-flex; gap: 4px; padding: 4px; border-radius: 12px; border: 1px solid var(--tca-divider);\n         background: color-mix(in srgb, var(--tca-surface) 70%, transparent); flex-wrap: wrap; }\n  .seg button { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border: 1px solid transparent;\n                background: transparent; color: var(--tca-text-secondary); font-weight: 600; }\n  .seg button[aria-selected=true] { color: var(--tca-text); background: color-mix(in srgb, var(--tca-text) 7%, var(--tca-surface));\n                                    border-color: var(--tca-divider); box-shadow: 0 1px 3px color-mix(in srgb, #000 25%, transparent); }\n  .seg button[aria-selected=true] .ico { color: var(--tca-primary); }\n  .count { min-width: 20px; padding: 0 6px; border-radius: 6px; font-size: 11px; text-align: center;\n           background: color-mix(in srgb, var(--tca-text) 8%, transparent); color: var(--tca-text-secondary); }\n  [aria-selected=true] .count { background: var(--tint); color: var(--tca-primary); }\n\n  .topbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }\n\n  .meta { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--tca-text-secondary); }\n  .meta > span { display: inline-flex; align-items: center; gap: 6px; }\n  .meta .ico { width: 15px; height: 15px; }\n\n  .stat-label { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: .06em;\n                text-transform: uppercase; color: var(--tca-text-secondary); }\n  .stat-label .ico-tile { width: 30px; height: 30px; border-radius: 8px; }\n  .stat-label .ico { width: 16px; height: 16px; }\n  .unit { font-weight: 500; font-size: .62em; color: var(--tca-text-secondary); margin-left: 3px; }\n  /* The 1px gap over a divider-coloured background draws the cell borders at any wrap. */\n  .stats { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; padding: 0; overflow: hidden; background: var(--tca-divider); }\n  .stats > div { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--tca-surface); min-width: 0; }\n  .stats .value { font-size: 18px; font-weight: 700; margin-top: 2px; font-variant-numeric: tabular-nums; white-space: nowrap; }\n  .stats .sub { display: block; font-size: 12px; color: var(--tca-text-secondary); white-space: nowrap; }\n\n  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }\n  .filter { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600;\n            background: transparent; color: var(--tca-text-secondary); border: 1px solid var(--tca-divider); }\n  .filter::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--c); }\n  .filter[aria-pressed=true] { color: var(--tca-text); border-color: color-mix(in srgb, var(--c) 60%, transparent);\n                               background: color-mix(in srgb, var(--c) 18%, transparent); }\n\n  .cat-all, .cat-info { --c: var(--tca-text-secondary); }\n  .cat-joins, .cat-spawn { --c: var(--tca-success); }\n  .cat-leaves, .cat-kicks, .cat-warnings { --c: var(--tca-warning); }\n  .cat-deaths, .cat-errors { --c: var(--tca-error); }\n  .cat-bans { --c: color-mix(in srgb, var(--tca-error) 60%, var(--tca-warning)); }\n  .cat-admin { --c: var(--tca-tertiary); }\n  .cat-server { --c: var(--tca-info); }\n  .cat-plugins { --c: var(--tca-secondary); }\n  .cat-command { --c: var(--tca-primary); }\n\n  .log { overflow-y: auto; background: var(--tca-background); border: 1px solid var(--tca-divider); border-radius: 10px; }\n  #console { height: 440px; }\n  .line { display: grid; grid-template-columns: 64px 76px 1fr; gap: 12px; align-items: baseline; padding: 9px 14px; line-height: 1.45; }\n  .line + .line { border-top: 1px solid color-mix(in srgb, var(--tca-divider) 45%, transparent); }\n  .line.cat-server, .line.cat-spawn { box-shadow: inset 3px 0 0 var(--c); }\n  .line .time { color: var(--tca-text-secondary); font-size: 12.5px; font-variant-numeric: tabular-nums; }\n  .badge { justify-self: start; width: 100%; text-align: center; padding: 2px 0; border-radius: 4px; font-size: 10.5px; font-weight: 700;\n           letter-spacing: .04em; text-transform: uppercase; color: var(--c); background: color-mix(in srgb, var(--c) 15%, transparent); }\n  .msg { white-space: pre-wrap; overflow-wrap: anywhere; }\n\n  .cmd { display: flex; gap: 10px; margin-top: 12px; }\n  .cmd .field { flex: 1; }\n  .prompt { color: var(--tca-primary); font-weight: 700; }\n\n  .quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }\n  .quick button { justify-content: flex-start; padding: 12px 14px; background: var(--tca-background); }\n  .quick .ico { color: var(--tca-primary); }\n\n  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 14px; }\n  .toolbar .field { width: 260px; max-width: 100%; }\n\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--tca-divider); overflow-wrap: anywhere; }\n  th { color: var(--tca-text-secondary); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }\n  tr:last-child td { border-bottom: 0; }\n  td.actions { white-space: nowrap; text-align: right; }\n  td.actions button { margin-left: 6px; }\n\n  .empty { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 40px 16px;\n           text-align: center; color: var(--tca-text-secondary); }\n  .empty strong { color: var(--tca-text); font-size: 15px; }\n\n  .chat-panel { min-height: 480px; display: flex; flex-direction: column; }\n  .chat-panel .empty { flex: 1; }\n  #chat { height: 480px; border: 0; border-radius: 10px; }\n  #chat .line { grid-template-columns: 64px minmax(80px, auto) 1fr; }\n  .who { font-weight: 650; color: var(--tca-primary); }\n  .footnote { text-align: center; font-size: 12px; margin: 12px 0 0; }\n\n  @media (max-width: 1300px) { .stats { grid-template-columns: repeat(4, 1fr); } .stats > :last-child { grid-column: span 2; } }\n  @media (max-width: 900px) { .quick { grid-template-columns: repeat(2, 1fr); } }\n  @media (max-width: 600px) {\n    .rr { padding: 12px; } .card { padding: 16px; }\n    .stats { grid-template-columns: repeat(2, 1fr); } .stats > div { padding: 10px 12px; } .stats .ico-tile { display: none; } .stats .sub { white-space: normal; } .quick { grid-template-columns: 1fr; }\n    .line, #chat .line { grid-template-columns: 56px 1fr; } .line .badge { display: none; }\n    thead { display: none; } tr { display: block; border-bottom: 1px solid var(--tca-divider); padding: 8px 0; }\n    td { display: block; border: 0; padding: 2px 12px; } td.actions { text-align: left; } td.actions button { margin: 6px 6px 0 0; }\n  }\n</style>\n\n<div class=\"rr\">\n  <div class=\"topbar\">\n    <div class=\"seg\" role=\"tablist\">\n      <button role=\"tab\" data-tab=\"overview\" aria-selected=\"true\"><span class=\"ico\" data-icon=\"grid\"></span>Overview</button>\n      <button role=\"tab\" data-tab=\"players\" aria-selected=\"false\"><span class=\"ico\" data-icon=\"users\"></span>Players</button>\n      <button role=\"tab\" data-tab=\"chat\" aria-selected=\"false\"><span class=\"ico\" data-icon=\"chat\"></span>Chat</button>\n    </div>\n    <div class=\"meta spacer\">\n      <span><span class=\"ico\" data-icon=\"map\"></span><span id=\"map\">—</span></span>\n      <span><span class=\"ico\" data-icon=\"users\"></span><span id=\"online\">—</span></span>\n      <span id=\"lastSaveWrap\" hidden><span class=\"ico\" data-icon=\"database\"></span><span id=\"lastSave\"></span></span>\n    </div>\n    <span id=\"chip\" class=\"pill dot tone connecting\">Connecting…</span>\n  </div>\n\n  <section data-panel=\"overview\">\n    <div id=\"stats\" class=\"card stats\"></div>\n\n    <div class=\"card\">\n      <div class=\"card-head\">\n        <span class=\"ico-tile\"><span class=\"ico\" data-icon=\"terminal\"></span></span>\n        <h3>Server console</h3>\n        <span class=\"spacer\"></span>\n        <label class=\"switch\"><input type=\"checkbox\" role=\"switch\" id=\"consolePause\"><span class=\"track\"></span>Pause console</label>\n        <span id=\"consoleCount\" class=\"pill\">0 entries</span>\n      </div>\n      <div id=\"filters\" class=\"filters\"></div>\n      <div id=\"console\" class=\"log\" aria-live=\"polite\"></div>\n      <form id=\"cmdForm\" class=\"cmd\">\n        <label class=\"field\"><span class=\"prompt\">&gt;</span>\n          <input id=\"cmd\" type=\"text\" maxlength=\"500\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"Enter command...\" aria-label=\"RCON command\" data-needs-server>\n        </label>\n        <button type=\"submit\" class=\"icon-btn primary\" aria-label=\"Send\" data-needs-server><span class=\"ico\" data-icon=\"send\"></span></button>\n      </form>\n    </div>\n\n    <div class=\"card\">\n      <div class=\"card-head\">\n        <span class=\"ico-tile\"><span class=\"ico\" data-icon=\"zap\"></span></span>\n        <h3>Quick commands</h3>\n      </div>\n      <div id=\"quick\" class=\"quick\"></div>\n    </div>\n  </section>\n\n  <section data-panel=\"players\" hidden>\n    <div class=\"card toolbar\">\n      <div class=\"seg\" role=\"tablist\">\n        <button role=\"tab\" data-sub=\"online\" aria-selected=\"true\"><span class=\"ico\" data-icon=\"users\"></span>Players online<span id=\"onlineCount\" class=\"count\">0</span></button>\n        <button role=\"tab\" data-sub=\"banned\" aria-selected=\"false\"><span class=\"ico\" data-icon=\"ban\"></span>Banned players<span id=\"bannedCount\" class=\"count\">0</span></button>\n      </div>\n      <span class=\"spacer\"></span>\n      <label class=\"field\"><span class=\"ico\" data-icon=\"search\"></span><input id=\"search\" type=\"search\" placeholder=\"Search players...\" aria-label=\"Search players\"></label>\n      <button id=\"playersRefresh\" class=\"btn\"><span class=\"ico\" data-icon=\"refresh\"></span>Refresh</button>\n    </div>\n    <div class=\"card\">\n      <table id=\"playersTable\">\n        <thead id=\"playersHead\"></thead>\n        <tbody id=\"playersBody\"></tbody>\n      </table>\n      <div id=\"playersEmpty\" class=\"empty\">\n        <span id=\"playersEmptyIcon\" class=\"ico-tile lg neutral\"></span>\n        <span id=\"playersEmptyText\"></span>\n      </div>\n    </div>\n  </section>\n\n  <section data-panel=\"chat\" hidden>\n    <div class=\"card\">\n      <div class=\"card-head\">\n        <span class=\"ico-tile\"><span class=\"ico\" data-icon=\"chat\"></span></span>\n        <h3>Server chat</h3>\n        <span class=\"spacer\"></span>\n        <label class=\"switch\"><input type=\"checkbox\" role=\"switch\" id=\"chatPause\"><span class=\"track\"></span>Pause chat</label>\n        <span id=\"chatCount\" class=\"pill\">0 messages</span>\n        <button id=\"chatRefresh\" class=\"icon-btn\" aria-label=\"Refresh chat\"><span class=\"ico\" data-icon=\"refresh\"></span></button>\n      </div>\n      <div class=\"log chat-panel\">\n        <div id=\"chat\" class=\"log\" aria-live=\"polite\"></div>\n        <div id=\"chatEmpty\" class=\"empty\">\n          <span class=\"ico-tile lg neutral\"><span class=\"ico\" data-icon=\"chat\"></span></span>\n          <strong>No chat messages yet</strong>\n          <span>Messages will appear here as players chat</span>\n        </div>\n      </div>\n      <p class=\"footnote muted\">Chat history is loaded from the server via RCON and refreshed every few seconds, keeping the last 500.</p>\n    </div>\n  </section>\n</div>\n\n<script>\n(() => {\n  const $ = id => document.getElementById(id);\n  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };\n  const KEEP = 500;\n  const POLL_MS = 3000, BACKOFF_MS = 10000;\n  const NO_REPLY = 'No response (unknown command?)';\n\n  // Static, authored stroke icons (24x24); never built from server data.\n  const ICONS = {\n    grid: '<rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"/>',\n    users: '<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75\"/>',\n    chat: '<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>',\n    server: '<rect x=\"2\" y=\"3\" width=\"20\" height=\"8\" rx=\"2\"/><rect x=\"2\" y=\"13\" width=\"20\" height=\"8\" rx=\"2\"/><path d=\"M6 7h.01M6 17h.01\"/>',\n    map: '<path d=\"M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z\"/><path d=\"M9 3v15M15 6v15\"/>',\n    database: '<ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M3 5v14a9 3 0 0 0 18 0V5\"/><path d=\"M3 12a9 3 0 0 0 18 0\"/>',\n    gauge: '<path d=\"m12 14 4-4\"/><path d=\"M3.34 19a10 10 0 1 1 17.32 0\"/>',\n    drive: '<path d=\"M22 12H2\"/><path d=\"M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z\"/><path d=\"M6 16h.01M10 16h.01\"/>',\n    cpu: '<rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><rect x=\"9\" y=\"9\" width=\"6\" height=\"6\"/><path d=\"M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2\"/>',\n    clock: '<circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 6v6l4 2\"/>',\n    network: '<rect x=\"16\" y=\"16\" width=\"6\" height=\"6\" rx=\"1\"/><rect x=\"2\" y=\"16\" width=\"6\" height=\"6\" rx=\"1\"/><rect x=\"9\" y=\"2\" width=\"6\" height=\"6\" rx=\"1\"/><path d=\"M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8\"/>',\n    download: '<path d=\"M12 3v12M7 10l5 5 5-5M5 21h14\"/>',\n    upload: '<path d=\"M12 21V9M7 14l5-5 5 5M5 3h14\"/>',\n    activity: '<path d=\"M22 12h-4l-3 9L9 3l-3 9H2\"/>',\n    terminal: '<path d=\"m4 17 6-6-6-6M12 19h8\"/>',\n    send: '<path d=\"m22 2-7 20-4-9-9-4z\"/><path d=\"M22 2 11 13\"/>',\n    zap: '<path d=\"M13 2 3 14h9l-1 8 10-12h-9z\"/>',\n    ban: '<circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"m4.9 4.9 14.2 14.2\"/>',\n    search: '<circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/>',\n    refresh: '<path d=\"M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16M8 16H3v5\"/>',\n    kick: '<path d=\"M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9\"/>',\n    unlock: '<rect x=\"3\" y=\"11\" width=\"18\" height=\"11\" rx=\"2\"/><path d=\"M7 11V7a5 5 0 0 1 9.9-1\"/>'\n  };\n  const svg = name => '<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\">' + ICONS[name] + '</svg>';\n  function icon(name) {\n    const s = el('span', 'ico');\n    s.innerHTML = svg(name);\n    return s;\n  }\n  document.querySelectorAll('[data-icon]').forEach(e => e.innerHTML = svg(e.dataset.icon));\n\n  const state = {\n    tab: 'overview', sub: 'online', filter: 'all', status: TCAdmin.Context.ThisService.Status, conn: null,\n    players: [], bans: [], history: [], historyAt: 0\n  };\n\n  // ---- call queue: one Execute in flight; commands go before the pending poll ----\n  const commands = [];\n  let pollJob = null, busy = false;\n\n  function call(fn, inputs, isPoll) {\n    return new Promise(resolve => {\n      const job = { fn, inputs, resolve };\n      if (isPoll) pollJob = job; else commands.push(job);\n      drain();\n    });\n  }\n\n  async function drain() {\n    if (busy) return;\n    const job = commands.shift() || pollJob;\n    if (!job) return;\n    if (job === pollJob) pollJob = null;\n    busy = true;\n    let r;\n    try { r = await TCAdmin.Script.Execute(job.fn, job.inputs); }\n    catch (e) { r = { success: false, error: e.message, noAccess: /^Unknown API function/.test(e.message) }; }\n    busy = false;\n    job.resolve(r);\n    drain();\n  }\n\n  // ---- polling ----\n  let timer = null, polling = false, pollAgain = false;\n  const canPoll = () => document.visibilityState === 'visible' && state.status === 'Started' && state.conn !== 'noaccess';\n\n  function pollQuery() {\n    if (state.tab === 'overview') return $('consolePause').checked ? 'serverinfo' : 'serverinfo,console';\n    if (state.tab === 'players') return 'serverinfo,players,bans';\n    return $('chatPause').checked ? 'serverinfo' : 'serverinfo,chat';\n  }\n\n  function pollNow() {\n    if (polling) { pollAgain = true; return; }\n    clearTimeout(timer);\n    timer = setTimeout(poll, 0);\n  }\n\n  async function poll() {\n    timer = null;\n    if (!canPoll()) return;\n    const query = pollQuery();\n    if (query) {\n      polling = true;\n      applyQuery(await call('RustRconQuery', { RustRconQuery: query }, true));\n      polling = false;\n    }\n    if (canPoll()) timer = setTimeout(poll, pollAgain ? 0 : state.conn === 'error' ? BACKOFF_MS : POLL_MS);\n    pollAgain = false;\n  }\n\n  function applyQuery(r) {\n    if (!r.success) return setConn(r.noAccess ? 'noaccess' : 'error', r.error);\n    const v = r.returnValue || {};\n    if (v.running === false) return setConn('offline');\n    setConn('connected');\n    if (v.serverinfo) renderInfo(v.serverinfo);\n    if (Array.isArray(v.console)) { mergeLog($('console'), consoleKeys, v.console, consoleRow); trackLastSave(v.console); }\n    if (Array.isArray(v.chat)) renderChat(v.chat);\n    if (Array.isArray(v.players)) state.players = v.players;\n    if (Array.isArray(v.bans)) state.bans = v.bans;\n    if (v.players || v.bans) renderPlayers();\n  }\n\n  // ---- connection chip + server state ----\n  const CHIP = { connected: 'Connected', connecting: 'Connecting…', offline: 'Server offline', error: 'RCON unreachable', noaccess: 'No access' };\n\n  function setConn(conn, detail) {\n    state.conn = conn;\n    const chip = $('chip');\n    chip.className = 'pill dot tone ' + conn;\n    chip.textContent = CHIP[conn];\n    chip.title = detail || '';\n  }\n\n  function applyStatus(status) {\n    state.status = status;\n    const running = status === 'Started';\n    document.querySelectorAll('[data-needs-server]').forEach(e => e.disabled = !running);\n    if (state.conn === 'noaccess') return;\n    if (!running) return setConn('offline');\n    if (state.conn !== 'connected') setConn('connecting');\n    pollNow();\n  }\n\n  // ---- overview cards ----\n  const num = n => (n == null || n === '') ? '—' : Number(n).toLocaleString();\n  const mbps = bytes => (Number(bytes || 0) * 8 / 1e6).toFixed(2);\n  const pad = n => String(n).padStart(2, '0');\n  const clock = unix => { const d = new Date(unix * 1000); return pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds()); };\n\n  // serverinfo has no last-save time (SaveCreatedTime is when the save file was created, i.e. the wipe),\n  // so it comes from the newest \"Saving complete\" line in the console tail.\n  let lastSave = 0;\n  function trackLastSave(tail) {\n    for (const e of tail) if (e.Time > lastSave && /^Saving complete/.test(e.Message || '')) lastSave = e.Time;\n    if (!lastSave) return;\n    const d = new Date(lastSave * 1000);\n    $('lastSave').textContent = 'Last save ' + pad(d.getHours()) + ':' + pad(d.getMinutes());\n    $('lastSaveWrap').title = d.toLocaleString();\n    $('lastSaveWrap').hidden = false;\n  }\n\n  const STATS = [['fps', 'Server FPS', 'gauge'], ['memory', 'Memory', 'drive', 'MB'], ['entities', 'Entities', 'cpu'],\n                 ['players', 'Players', 'users', null, 'playersSub'], ['netIn', 'Network In', 'download', 'Mbps'],\n                 ['netOut', 'Network Out', 'upload', 'Mbps'], ['gc', 'GC Collections', 'activity']];\n\n  function infoSpan(key, cls) {\n    const n = el('span', cls, '—');\n    n.dataset.info = key;\n    return n;\n  }\n\n  function statValue(key, unit) {\n    const v = el('div', 'value');\n    v.append(infoSpan(key));\n    if (unit) v.append(el('span', 'unit', unit));\n    return v;\n  }\n\n  function iconTile(name) {\n    const t = el('span', 'ico-tile');\n    t.append(icon(name));\n    return t;\n  }\n\n  function renderStats() {\n    $('stats').replaceChildren(...STATS.map(([key, label, ico, unit, sub]) => {\n      const cell = el('div');\n      const text = el('div');\n      text.append(el('div', 'stat-label', label), statValue(key, unit));\n      if (sub) text.append(infoSpan(sub, 'sub'));\n      cell.append(iconTile(ico), text);\n      return cell;\n    }));\n  }\n\n  function renderInfo(i) {\n    $('map').textContent = i.Map || '—';\n    $('online').textContent = num(i.Players) + '/' + num(i.MaxPlayers) + ' online';\n    const values = {\n      fps: num(Math.round(i.Framerate)), memory: num(i.Memory), entities: num(i.EntityCount),\n      players: num(i.Players) + ' / ' + num(i.MaxPlayers), playersSub: num(i.Queued) + ' queued · ' + num(i.Joining) + ' joining',\n      netIn: mbps(i.NetworkIn), netOut: mbps(i.NetworkOut), gc: num(i.Collections)\n    };\n    document.querySelectorAll('[data-info]').forEach(e => e.textContent = values[e.dataset.info]);\n  }\n\n  // ---- console ----\n  const CATEGORIES = [\n    ['all', 'All'], ['joins', 'Joins'], ['leaves', 'Leaves'], ['deaths', 'Deaths'], ['bans', 'Bans'], ['kicks', 'Kicks'],\n    ['admin', 'Admin'], ['warnings', 'Warnings'], ['errors', 'Errors'], ['server', 'Server'], ['plugins', 'Plugins'], ['info', 'Info']\n  ];\n  const LABEL = Object.assign(Object.fromEntries(CATEGORIES), { command: 'RCON', spawn: 'Spawn' });\n  // First match wins; kicks before leaves because a kick also logs a disconnect.\n  const RULES = [\n    ['bans', /\\b(un)?bann?ed\\b|\\bbanid\\b|\\bunban\\b/i],\n    ['kicks', /\\bkick(ed|ing)?\\b/i],\n    ['joins', /\\bjoined \\[|has entered the game/i],\n    ['leaves', /\\bdisconnect(ing|ed)\\b|has left/i],\n    ['deaths', /\\bwas killed by\\b|\\bdied\\b|\\bsuicide\\b/i],\n    ['spawn', /\\bSpawned at\\b|^\\[event\\] /],\n    ['plugins', /^\\[(oxide|carbon|umod)\\]|\\bplugins?\\b/i],\n    ['admin', /\\[ServerVar\\]|^RCON:|\\bownerid\\b|\\bmoderatorid\\b|\\bauth level\\b/i],\n    ['server', /^(Server startup complete|Saving complete|Saved [\\d,]+ ents|SteamServer (Initialized|Connected)|\\[Bootstrap\\]|WebSocket RCON Started)/]\n  ];\n  // Spawn has no chip of its own; it shows under Info.\n  const shows = (filter, cat) => filter === 'all' || filter === cat || (filter === 'info' && cat === 'spawn');\n\n  function classify(entry) {\n    if (/error|exception|assert/i.test(entry.Type || '')) return 'errors';\n    if (/warning/i.test(entry.Type || '')) return 'warnings';\n    const hit = RULES.find(([, re]) => re.test(entry.Message || ''));\n    return hit ? hit[0] : 'info';\n  }\n\n  function logRow(time, cat, text) {\n    const row = el('div', 'line cat-' + cat);\n    row.dataset.cat = cat;\n    row.append(el('span', 'time', time), el('span', 'badge', LABEL[cat]), el('span', 'msg', text));\n    return row;\n  }\n\n  const consoleRow = e => logRow(clock(e.Time), classify(e), e.Message || '');\n  const consoleKeys = [];\n  const entryKey = e => e.Time + '|' + (e.UserId || '') + '|' + e.Message;\n\n  // Append-only: the tail overlaps what is already shown, so only entries after the last shown one are added.\n  function mergeLog(list, keys, tail, rowFor) {\n    const fresh = tail.slice(overlapEnd(keys, tail.map(entryKey)));\n    if (!fresh.length) return;\n    const atBottom = list.scrollHeight - list.scrollTop - list.clientHeight < 8;\n    for (const entry of fresh) {\n      keys.push(entryKey(entry));\n      list.appendChild(applyFilter(rowFor(entry)));\n    }\n    trim(list, keys);\n    if (atBottom) list.scrollTop = list.scrollHeight;\n    if (list === $('console')) countConsole();\n  }\n\n  function overlapEnd(keys, tailKeys) {\n    if (!keys.length) return 0;\n    const last = keys.length - 1;\n    for (let p = tailKeys.length - 1; p >= 0; p--) {\n      let j = 0;\n      while (j <= Math.min(p, last, 20) && tailKeys[p - j] === keys[last - j]) j++;\n      if (j > Math.min(p, last, 20)) return p + 1;\n    }\n    return 0;\n  }\n\n  function trim(list, keys) {\n    while (list.children.length > KEEP) list.firstChild.remove();\n    if (keys.length > KEEP) keys.splice(0, keys.length - KEEP);\n  }\n\n  function appendLocal(cat, text) {\n    const list = $('console');\n    list.appendChild(applyFilter(logRow(clock(Date.now() / 1000), cat, text)));\n    trim(list, consoleKeys);\n    list.scrollTop = list.scrollHeight;\n    countConsole();\n  }\n\n  function applyFilter(row) {\n    row.hidden = !shows(state.filter, row.dataset.cat);\n    return row;\n  }\n\n  function countConsole() {\n    const n = $('console').querySelectorAll('.line:not([hidden])').length;\n    $('consoleCount').textContent = n + (n === 1 ? ' entry' : ' entries');\n  }\n\n  function renderFilters() {\n    $('filters').replaceChildren(...CATEGORIES.map(([id, label]) => {\n      const b = el('button', 'filter cat-' + id, label);\n      b.type = 'button';\n      b.setAttribute('aria-pressed', String(state.filter === id));\n      b.onclick = () => { state.filter = id; renderFilters(); $('console').querySelectorAll('.line').forEach(applyFilter); countConsole(); };\n      return b;\n    }));\n  }\n\n  // ---- commands ----\n  async function runCommand(command, opts = {}) {\n    appendLocal('command', '> ' + command);\n    const r = await call('RustRconCommand', { RustRconCommand: command });\n    if (!r.success) {\n      appendLocal('errors', r.error || 'The command failed');\n      TCAdmin.Toast.Error(r.error || 'The command failed');\n      return null;\n    }\n    const v = r.returnValue || {};\n    if (v.noReply) appendLocal('command', opts.noReplyText || NO_REPLY);\n    else if (v.reply) appendLocal('command', opts.derive ? derived(opts.derive, v.reply) : v.reply);\n    return v;\n  }\n\n  function derived(derive, reply) {\n    try { return derive(JSON.parse(reply)); } catch { return reply; }\n  }\n\n  // Rust has no entity-count or memory command; both are read from serverinfo.\n  const QUICK = [\n    ['Server Info', 'server', 'serverinfo'], ['Player List', 'users', 'playerlist'], ['Status', 'activity', 'status'],\n    ['Save', 'database', 'server.save'], ['FPS', 'gauge', 'fps'],\n    ['Entities', 'cpu', 'serverinfo', { derive: i => 'Entities: ' + num(i.EntityCount) }],\n    ['Memory', 'drive', 'serverinfo', { derive: i => 'Memory: ' + num(i.Memory) + ' MB (system ' + num(i.MemoryUsageSystem) + ' MB)' }],\n    ['Plugins', 'zap', 'plugins', { noReplyText: 'No reply — Oxide or Carbon is not installed?' }]\n  ];\n\n  function iconButton(label, cls, ico, onclick) {\n    const b = el('button', cls);\n    b.type = 'button';\n    b.dataset.needsServer = '';\n    b.disabled = state.status !== 'Started';\n    b.append(icon(ico), el('span', null, label));\n    b.onclick = onclick;\n    return b;\n  }\n\n  function renderQuick() {\n    $('quick').replaceChildren(...QUICK.map(([label, ico, command, opts]) => iconButton(label, 'btn', ico, () => runCommand(command, opts))));\n  }\n\n  $('cmdForm').onsubmit = e => {\n    e.preventDefault();\n    const command = $('cmd').value.trim();\n    if (!command) return;\n    state.history.push(command);\n    state.historyAt = state.history.length;\n    $('cmd').value = '';\n    runCommand(command);\n  };\n\n  $('cmd').onkeydown = e => {\n    if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;\n    e.preventDefault();\n    const h = state.history;\n    state.historyAt = Math.max(0, Math.min(h.length, state.historyAt + (e.key === 'ArrowUp' ? -1 : 1)));\n    $('cmd').value = h[state.historyAt] || '';\n  };\n\n  // ---- players ----\n  const quote = s => '\"' + String(s).replace(/[\"\\r\\n]/g, '') + '\"';\n  const duration = s => { s = Math.floor(+s || 0); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60); return h ? h + 'h ' + m + 'm' : m + 'm ' + (s % 60) + 's'; };\n\n  const VIEWS = {\n    online: {\n      rows: () => state.players, empty: 'No players currently online', icon: 'users',\n      head: ['Name', 'SteamID', 'Ping', 'Connected', 'Address', ''],\n      cells: p => [p.DisplayName, p.SteamID, p.Ping + ' ms', duration(p.ConnectedSeconds), p.Address],\n      id: p => p.SteamID, name: p => p.DisplayName,\n      actions: p => [iconButton('Kick', 'btn sm warn', 'kick', () => kick(p)), iconButton('Ban', 'btn sm danger', 'ban', () => ban(p))]\n    },\n    banned: {\n      rows: () => state.bans, empty: 'No banned players', icon: 'ban',\n      head: ['Name', 'SteamID', 'Reason', ''],\n      cells: b => [b.username, b.steamid, b.notes],\n      id: b => b.steamid, name: b => b.username,\n      actions: b => [iconButton('Unban', 'btn sm', 'unlock', () => unban(b))]\n    }\n  };\n\n  function renderPlayers() {\n    const view = VIEWS[state.sub];\n    const term = $('search').value.trim().toLowerCase();\n    const rows = view.rows().filter(r => !term || (String(view.name(r)) + ' ' + String(view.id(r))).toLowerCase().includes(term));\n    $('onlineCount').textContent = state.players.length;\n    $('bannedCount').textContent = state.bans.length;\n    const head = el('tr');\n    head.append(...view.head.map(h => el('th', null, h)));\n    $('playersHead').replaceChildren(head);\n    $('playersBody').replaceChildren(...rows.map(r => {\n      const tr = el('tr');\n      tr.append(...view.cells(r).map(c => el('td', null, String(c ?? ''))));\n      const actions = el('td', 'actions');\n      actions.append(...view.actions(r));\n      tr.append(actions);\n      return tr;\n    }));\n    $('playersTable').hidden = rows.length === 0;\n    $('playersEmpty').hidden = rows.length > 0;\n    $('playersEmptyIcon').replaceChildren(icon(term ? 'search' : view.icon));\n    $('playersEmptyText').textContent = term ? 'No players match \"' + term + '\"' : view.empty;\n  }\n\n  async function playerAction(command, done) {\n    const v = await runCommand(command);\n    if (v) { TCAdmin.Toast.Success(done); pollNow(); }\n  }\n\n  async function askReason(verb, p) {\n    const reason = await TCAdmin.Dialog.Prompt(verb + ' ' + p.DisplayName + '? Reason:', '', { title: verb + ' player', okText: 'Next' });\n    if (reason === null) return null;\n    const ok = await TCAdmin.Dialog.Confirm(verb + ' ' + p.DisplayName + ' (' + p.SteamID + ')?', { title: verb + ' player', okText: verb });\n    return ok ? reason.trim() : null;\n  }\n\n  async function kick(p) {\n    const reason = await askReason('Kick', p);\n    if (reason !== null) playerAction('kick ' + quote(p.SteamID) + ' ' + quote(reason), 'Kicked ' + p.DisplayName);\n  }\n\n  async function ban(p) {\n    const reason = await askReason('Ban', p);\n    if (reason !== null) playerAction('banid ' + quote(p.SteamID) + ' ' + quote(p.DisplayName) + ' ' + quote(reason), 'Banned ' + p.DisplayName);\n  }\n\n  async function unban(b) {\n    const id = VIEWS.banned.id(b);\n    if (await TCAdmin.Dialog.Confirm('Unban ' + (VIEWS.banned.name(b) || id) + ' (' + id + ')?', { title: 'Unban player', okText: 'Unban' }))\n      playerAction('unban ' + quote(id), 'Unbanned ' + id);\n  }\n\n  document.querySelectorAll('[data-sub]').forEach(b => b.onclick = () => {\n    state.sub = b.dataset.sub;\n    document.querySelectorAll('[data-sub]').forEach(x => x.setAttribute('aria-selected', String(x === b)));\n    renderPlayers();\n  });\n  $('search').oninput = renderPlayers;\n  $('playersRefresh').onclick = pollNow;\n\n  // ---- chat ----\n  const chatKeys = [];\n\n  // ConVar.Chat.ChatChannel; Global (0) and Server (2) carry no tag.\n  const CHAT_CHANNELS = { 1: 'Team', 3: 'Cards', 4: 'Local', 5: 'Clan', 6: 'DM' };\n\n  function chatRow(m) {\n    const row = el('div', 'line');\n    const tag = CHAT_CHANNELS[m.Channel];\n    const who = el('span', 'who', (tag ? '[' + tag + '] ' : '') + (m.Username || 'SERVER'));\n    if (/^#[0-9a-f]{3,8}$/i.test(m.Color || '')) who.style.color = m.Color;\n    row.append(el('span', 'time', clock(m.Time)), who, el('span', 'msg', m.Message || ''));\n    return row;\n  }\n\n  function renderChat(messages) {\n    mergeLog($('chat'), chatKeys, messages, chatRow);\n    const n = $('chat').children.length;\n    $('chatCount').textContent = n + (n === 1 ? ' message' : ' messages');\n    $('chatEmpty').hidden = n > 0;\n    $('chat').hidden = n === 0;\n  }\n\n  $('chatRefresh').onclick = pollNow;\n  $('consolePause').onchange = $('chatPause').onchange = pollNow;\n\n  // ---- tabs + startup ----\n  document.querySelectorAll('[data-tab]').forEach(b => b.onclick = () => {\n    state.tab = b.dataset.tab;\n    document.querySelectorAll('[data-tab]').forEach(x => x.setAttribute('aria-selected', String(x === b)));\n    document.querySelectorAll('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== state.tab);\n    pollNow();\n  });\n\n  document.addEventListener('visibilitychange', () => { if (canPoll()) pollNow(); });\n  TCAdmin.Service.OnStatusChange(e => applyStatus(e.status));\n\n  renderStats();\n  renderFilters();\n  renderQuick();\n  renderPlayers();\n  renderChat([]);\n  setConn(state.status === 'Started' ? 'connecting' : 'offline');\n  applyStatus(state.status);\n})();\n</script>\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 0,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "<path d=\"M20 19V7H4v12h16m0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16M7 9l4 3-4 3V9m6 6h4v-1.5h-4V15z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 2
+          },
+          {
+            "roleId": 3
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "4edaf9de-cc84-45d6-b6cd-70a61d3d415f"
+      }
+    }
+  ],
+  "customModProviderConfigs": [
+    {
+      "providerId": 6,
+      "gameId": 123,
+      "enabled": true,
+      "customName": "uMod plugins",
+      "customIcon": null,
+      "configuration": {
+        "Category": "rust"
+      }
+    }
+  ],
+  "gamesCustomLinks": [],
+  "updates": [
+    {
+      "name": "uMod - Latest",
+      "groupName": "uMod",
+      "comments": "Latest version of uMod",
+      "source": "https://umod.org/games/rust/download",
+      "saveAsFilename": "Oxide.Rust.zip",
+      "extractPath": null,
+      "reinstallable": true,
+      "defaultInstall": false,
+      "viewOrder": 0,
+      "icon": null,
+      "version": null,
+      "releaseType": null,
+      "releaseDate": null,
+      "fileSizeBytes": null,
+      "identifier": "aa053626-0f2b-4f69-b9d0-f57387975645",
+      "updateRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ],
+      "updateScripts": []
+    }
+  ],
+  "createdDate": "2026-07-30T17:09:59.074588",
+  "modifiedDate": "2026-11-09T23:49:24.560452",
+  "metadata": {
+    "notes": "Game imported from plugin Community.Games.Rust version 1.0.0.Game imported from plugin Community.Games.Rust version 1.0.1.Game imported from plugin Community.Games.Rust version 1.0.2.",
+    "PluginVersion": "1.0.2",
+    "PluginIdentifier": "Community.Games.Rust"
+  },
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "server/my_server_identity/**/*",
+      "oxide/config/**/*",
+      "oxide/data/**/*",
+      "oxide/plugins/**/*",
+      "oxide/lang/**/*",
+      "oxide/oxide.config.json"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": true
+    }
+  ],
+  "mods": [
+    {
+      "name": "Rust:IO",
+      "groupName": "uMod",
+      "comments": null,
+      "homepageUrl": "http://playrust.io/",
+      "helpUrl": "http://playrust.io/manual/",
+      "icon": null,
+      "source": "http://playrust.io/latest",
+      "saveAsFilename": null,
+      "extractPath": "RustDedicated_Data/Managed",
+      "commandline": null,
+      "postInstallMessage": null,
+      "installType": "Silent",
+      "version": "0",
+      "releaseType": null,
+      "releaseDate": null,
+      "fileSizeBytes": null,
+      "updateVisible": false,
+      "uninstallable": true,
+      "defaultInstall": false,
+      "disableRestart": false,
+      "trackInstalledFiles": true,
+      "viewOrder": 0,
+      "identifier": "b7921b1f-a5a3-404c-8120-9c55c6193559",
+      "addLines": [],
+      "removeLines": [],
+      "requiredModNames": [
+        "uMod"
+      ],
+      "requiredUpdateNames": [],
+      "incompatibleModNames": [],
+      "configFileRelativePaths": [],
+      "modRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ],
+      "modScripts": []
+    },
+    {
+      "name": "uMod",
+      "groupName": "uMod",
+      "comments": null,
+      "homepageUrl": null,
+      "helpUrl": null,
+      "icon": null,
+      "source": "https://umod.org/games/rust/download",
+      "saveAsFilename": "Oxide.Rust.zip",
+      "extractPath": null,
+      "commandline": null,
+      "postInstallMessage": null,
+      "installType": "Silent",
+      "version": "0",
+      "releaseType": null,
+      "releaseDate": null,
+      "fileSizeBytes": null,
+      "updateVisible": false,
+      "uninstallable": true,
+      "defaultInstall": false,
+      "disableRestart": false,
+      "trackInstalledFiles": true,
+      "viewOrder": 0,
+      "identifier": "8077179e-7acf-42fd-8283-55c335f9f301",
+      "addLines": [],
+      "removeLines": [],
+      "requiredModNames": [],
+      "requiredUpdateNames": [],
+      "incompatibleModNames": [],
+      "configFileRelativePaths": [],
+      "modRoles": [
+        {
+          "roleId": 3
+        },
+        {
+          "roleId": 2
+        }
+      ],
+      "modScripts": []
+    }
+  ],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "None",
+    "maxFailureAction": "Stop",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": false,
+    "privateDetectionAction": "None",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": false,
+    "brandDetectionAction": "None",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "| By TCAdmin.com",
+    "brandedTextAtEnd": true,
+    "brandedTextAddSpace": true,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}/",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": false,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}

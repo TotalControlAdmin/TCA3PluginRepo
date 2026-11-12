@@ -1,0 +1,41 @@
+identifier: "Community.Games.Rust"
+name: "Rust"
+version: "1.0.3"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Rust"
+longDescription: |
+  # Rust
+  
+  **Rust** is a multiplayer survival game where players gather resources, build bases and fight to survive against the environment and each other.
+  
+  ## Key Features
+  - **Rust RCON page:** a live server console with quick commands, the online and banned players (kick, ban, unban), the server chat tagged by channel (team, local, clan) and the last save time, using the panel's built-in Rust WebRcon client.
+  - **Wipe Server:** wipe the map, players and blueprints, pick a new seed (optionally from a seed list) and run a Steam update first. It can also run as a scheduled task.
+  - **uMod (Oxide)** updated automatically after a Steam update.
+  - **Supports the Steam Branch Switcher script module** from the plugin repository: customers pick a Steam branch (such as staging) from a list, and the uMod update follows the chosen branch.
+  - Startup on an idle priority and random cores until the server is up (Windows and Linux).
+  
+  ## What's new in 1.0.3
+  - New built-in RCON client: the "Rust RCON" page (console, players, bans and chat) replaces the external "Rcon Login" link to the Facepunch WebRcon site.
+  - The server installs and updates from the `public` Steam branch by default. The old "Switch update branch" script is removed: install the Steam Branch Switcher script module to let customers switch branches.
+  - The uMod update downloads the staging build when the Branch Switcher has the staging branch selected.
+  - Wipe Server can run as a scheduled task, has an icon, and stops the server itself only once the wipe is confirmed.
+  - Move logfile never overwrites an earlier archived log.
+  - The startup random-core mask is saved reliably.
+  - Backups are enabled: the server identity folder (map, player data and configs) and uMod's settings plus its config, data, plugins and lang folders. The server is stopped during a backup so the player databases are copied consistently.
+  - Sub-administrators and users can see network stats and install game updates (uMod), and users can reinstall.
+  - The uMod mod and the "uMod - Latest" update install uMod again: the download was saved as a single file named "download" and never extracted.
+  - On Linux, the "uMod - Latest" update downloads the Linux build of uMod instead of the Windows one.
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/252490/acf87ad23570b3c81f8c9cfc19544a07edd8b632.ico"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/ss_d0fdacaeef5a28a7cee525fd73376adfe083c964.1920x1080.jpg?t=1781536981"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Rust - Windows.json"
+    type: "GameConfig"
+  - path: "Rust - Linux.json"
+    type: "GameConfig"
