@@ -97,13 +97,13 @@
   },
   "commandlineConfig": {
     "enableSelection": false,
-    "defaultCommandline": "${Map}?Port=${GamePort}?QueryPort=${QueryPort}?MaxPlayers=${Slots}?listen -MultiHome=${IPAddress} -nosteamclient -game -server -log -RconEnabled=1 -RconPassword=\u0022${RconPassword}\u0022 -RconPort=${RConPort}",
+    "defaultCommandline": "${Map}?Port=${GamePort}?QueryPort=${QueryPort}?MaxPlayers=${Slots}?listen -MultiHome=${IPAddress} -nosteamclient -game -server -log -RconEnabled=1 -RconPassword=\"${RconPassword}\" -RconPort=${RConPort}",
     "defaultCustomCommandline": "",
     "predefinedCommandlines": [
       {
         "id": 1,
         "name": "Default",
-        "commandLine": "${Map}?Port=${GamePort}?QueryPort=${QueryPort}?MaxPlayers=${Slots}?listen -MultiHome=${IPAddress} -nosteamclient -game -server -log -RconEnabled=1 -RconPassword=\u0022${RconPassword}\u0022 -RconPort=${RConPort}"
+        "commandLine": "${Map}?Port=${GamePort}?QueryPort=${QueryPort}?MaxPlayers=${Slots}?listen -MultiHome=${IPAddress} -nosteamclient -game -server -log -RconEnabled=1 -RconPassword=\"${RconPassword}\" -RconPort=${RConPort}"
       }
     ]
   },
@@ -170,7 +170,7 @@
         "id": "CanDamagePlayerOwnedStructures",
         "defaultValue": "False",
         "label": "True/False",
-        "description": "If this is flagged, players can attack and destroy other player\u2019s\nstructures. ",
+        "description": "If this is flagged, players can attack and destroy other player’s\nstructures. ",
         "required": false,
         "requiredMessage": "",
         "controlType": "DynamicCheckBox",
@@ -1668,6 +1668,132 @@
           "roleId": 3
         }
       ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:43:05.138645",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\`$]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, ` or $, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:43:06.369558",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:43:07.531341",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
     }
   ],
   "configFiles": [
@@ -1758,7 +1884,7 @@
         },
         {
           "id": "Header_2",
-          "label": "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+          "label": "▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁",
           "description": "",
           "required": false,
           "valueType": "string",
@@ -1994,7 +2120,7 @@
           "id": "CanDamagePlayerOwnedStructures",
           "defaultValue": "False",
           "label": "True/False",
-          "description": "If this is flagged, players can attack and destroy other player\u2019s\nstructures. ",
+          "description": "If this is flagged, players can attack and destroy other player’s\nstructures. ",
           "required": false,
           "requiredMessage": "",
           "controlType": "DynamicCheckBox",
@@ -2529,7 +2655,7 @@
         ],
         "name": "Copy mod files",
         "description": "Copy mod files",
-        "code": "// Conan Exiles (gameId 65) - AfterCustomModInstalled\n// V2: IronPython3 \u0022Copy mod files\u0022 (scriptId 371)\n// Moves the freshly downloaded workshop files out of the steam download\n// location (Dynamic.InstallPath) into ConanSandbox/Mods, records the moved\n// file names in {FileId}.txt so the uninstall script can remove them later,\n// then rebuilds modlist.txt from every .pak ordered by creation time.\nusing System;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring installPath = (string)Dynamic.InstallPath;\nstring fileId = Convert.ToString(Dynamic.FileId);\n\nstring modPath = Path.Combine(ThisService.RootDirectory, \u0022ConanSandbox\u0022, \u0022Mods\u0022);\nDirectory.CreateDirectory(modPath);\n\n// Save a list of the mod\u0027s files so we can delete them when uninstalling the mod.\nstring modFileList = Path.Combine(modPath, $\u0022{fileId}.txt\u0022);\nforeach (string file in Directory.GetFiles(installPath, \u0022*\u0022, SearchOption.AllDirectories))\n{\n    string modFile = Path.Combine(modPath, Path.GetFileName(file));\n    if (File.Exists(modFile))\n    {\n        File.Delete(modFile);\n    }\n    File.Move(file, modFile);\n    File.AppendAllText(modFileList, $\u0022{Path.GetFileName(file)}\\r\u0022);\n}\n\n// Create modlist.txt\nstring modListTxt = Path.Combine(modPath, \u0022modlist.txt\u0022);\nif (File.Exists(modListTxt))\n{\n    File.Delete(modListTxt);\n}\n\nvar modPathInfo = new DirectoryInfo(modPath);\nvar pakFiles = modPathInfo.GetFiles(\u0022*.pak\u0022, SearchOption.AllDirectories)\n    .OrderBy(f =\u003E f.CreationTime)\n    .ToArray();\nforeach (var file in pakFiles)\n{\n    File.AppendAllText(modListTxt, $\u0022{Path.GetFileName(file.FullName)}\\r\u0022);\n}\n",
+        "code": "// Conan Exiles (gameId 65) - AfterCustomModInstalled\n// V2: IronPython3 \"Copy mod files\" (scriptId 371)\n// Moves the freshly downloaded workshop files out of the steam download\n// location (Dynamic.InstallPath) into ConanSandbox/Mods, records the moved\n// file names in {FileId}.txt so the uninstall script can remove them later,\n// then rebuilds modlist.txt from every .pak ordered by creation time.\nusing System;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring installPath = (string)Dynamic.InstallPath;\nstring fileId = Convert.ToString(Dynamic.FileId);\n\nstring modPath = Path.Combine(ThisService.RootDirectory, \"ConanSandbox\", \"Mods\");\nDirectory.CreateDirectory(modPath);\n\n// Save a list of the mod's files so we can delete them when uninstalling the mod.\nstring modFileList = Path.Combine(modPath, $\"{fileId}.txt\");\nforeach (string file in Directory.GetFiles(installPath, \"*\", SearchOption.AllDirectories))\n{\n    string modFile = Path.Combine(modPath, Path.GetFileName(file));\n    if (File.Exists(modFile))\n    {\n        File.Delete(modFile);\n    }\n    File.Move(file, modFile);\n    File.AppendAllText(modFileList, $\"{Path.GetFileName(file)}\\r\");\n}\n\n// Create modlist.txt\nstring modListTxt = Path.Combine(modPath, \"modlist.txt\");\nif (File.Exists(modListTxt))\n{\n    File.Delete(modListTxt);\n}\n\nvar modPathInfo = new DirectoryInfo(modPath);\nvar pakFiles = modPathInfo.GetFiles(\"*.pak\", SearchOption.AllDirectories)\n    .OrderBy(f => f.CreationTime)\n    .ToArray();\nforeach (var file in pakFiles)\n{\n    File.AppendAllText(modListTxt, $\"{Path.GetFileName(file.FullName)}\\r\");\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -2555,7 +2681,7 @@
         ],
         "name": "Delete mod files",
         "description": "Delete mod files",
-        "code": "// Conan Exiles (gameId 65) - AfterCustomModUninstalled\n// V2: IronPython3 \u0022Delete mod files\u0022 (scriptId 372)\n// Reads the {FileId}.txt manifest written by the install script, deletes each\n// listed file from ConanSandbox/Mods, removes the manifest, then rebuilds\n// modlist.txt from the remaining .pak files ordered by creation time.\nusing System;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring fileId = Convert.ToString(Dynamic.FileId);\n\nstring modPath = Path.Combine(ThisService.RootDirectory, \u0022ConanSandbox\u0022, \u0022Mods\u0022);\nstring modFileList = Path.Combine(modPath, $\u0022{fileId}.txt\u0022);\n\nif (File.Exists(modFileList))\n{\n    string[] modFiles = File.ReadAllLines(modFileList);\n    foreach (string entry in modFiles)\n    {\n        string modFile = Path.Combine(modPath, entry);\n        if (File.Exists(modFile))\n        {\n            File.Delete(modFile);\n        }\n    }\n    File.Delete(modFileList);\n}\n\n// Create modlist.txt\nstring modListTxt = Path.Combine(modPath, \u0022modlist.txt\u0022);\nif (File.Exists(modListTxt))\n{\n    File.Delete(modListTxt);\n}\n\nvar modPathInfo = new DirectoryInfo(modPath);\nvar pakFiles = modPathInfo.GetFiles(\u0022*.pak\u0022, SearchOption.AllDirectories)\n    .OrderBy(f =\u003E f.CreationTime)\n    .ToArray();\nforeach (var file in pakFiles)\n{\n    File.AppendAllText(modListTxt, $\u0022{Path.GetFileName(file.FullName)}\\r\u0022);\n}\n",
+        "code": "// Conan Exiles (gameId 65) - AfterCustomModUninstalled\n// V2: IronPython3 \"Delete mod files\" (scriptId 372)\n// Reads the {FileId}.txt manifest written by the install script, deletes each\n// listed file from ConanSandbox/Mods, removes the manifest, then rebuilds\n// modlist.txt from the remaining .pak files ordered by creation time.\nusing System;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring fileId = Convert.ToString(Dynamic.FileId);\n\nstring modPath = Path.Combine(ThisService.RootDirectory, \"ConanSandbox\", \"Mods\");\nstring modFileList = Path.Combine(modPath, $\"{fileId}.txt\");\n\nif (File.Exists(modFileList))\n{\n    string[] modFiles = File.ReadAllLines(modFileList);\n    foreach (string entry in modFiles)\n    {\n        string modFile = Path.Combine(modPath, entry);\n        if (File.Exists(modFile))\n        {\n            File.Delete(modFile);\n        }\n    }\n    File.Delete(modFileList);\n}\n\n// Create modlist.txt\nstring modListTxt = Path.Combine(modPath, \"modlist.txt\");\nif (File.Exists(modListTxt))\n{\n    File.Delete(modListTxt);\n}\n\nvar modPathInfo = new DirectoryInfo(modPath);\nvar pakFiles = modPathInfo.GetFiles(\"*.pak\", SearchOption.AllDirectories)\n    .OrderBy(f => f.CreationTime)\n    .ToArray();\nforeach (var file in pakFiles)\n{\n    File.AppendAllText(modListTxt, $\"{Path.GetFileName(file.FullName)}\\r\");\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
@@ -2581,7 +2707,7 @@
         ],
         "name": "Moves mod files.",
         "description": "Moves mod files.",
-        "code": "// Conan Exiles (gameId 65) - AfterCustomModUpdated\n// V2: IronPython3 \u0022Moves mod files.\u0022 (scriptId 373)\n// Moves the updated workshop files out of the steam download location\n// (Dynamic.InstallPath) into ConanSandbox/Mods and appends each moved file\n// name to the {FileId}.txt manifest. Faithful port of the V2 behaviour:\n// the manifest is appended to (not recreated) and modlist.txt is NOT rebuilt\n// by this event. (The V2 original also tracked the last .pak file name in a\n// local that it never used afterwards; that dead assignment is dropped.)\nusing System;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring installPath = (string)Dynamic.InstallPath;\nstring fileId = Convert.ToString(Dynamic.FileId);\n\nstring modPath = Path.Combine(ThisService.RootDirectory, \u0022ConanSandbox\u0022, \u0022Mods\u0022);\nDirectory.CreateDirectory(modPath);\n\n// Save a list of the mod\u0027s files so we can delete them when uninstalling the mod.\nstring modFileList = Path.Combine(modPath, $\u0022{fileId}.txt\u0022);\nforeach (string file in Directory.GetFiles(installPath, \u0022*\u0022, SearchOption.AllDirectories))\n{\n    string modFile = Path.Combine(modPath, Path.GetFileName(file));\n    if (File.Exists(modFile))\n    {\n        File.Delete(modFile);\n    }\n    File.Move(file, modFile);\n    string modFileName = Path.GetFileName(file);\n    File.AppendAllText(modFileList, $\u0022{modFileName}\\r\u0022);\n}\n",
+        "code": "// Conan Exiles (gameId 65) - AfterCustomModUpdated\n// V2: IronPython3 \"Moves mod files.\" (scriptId 373)\n// Moves the updated workshop files out of the steam download location\n// (Dynamic.InstallPath) into ConanSandbox/Mods and appends each moved file\n// name to the {FileId}.txt manifest. Faithful port of the V2 behaviour:\n// the manifest is appended to (not recreated) and modlist.txt is NOT rebuilt\n// by this event. (The V2 original also tracked the last .pak file name in a\n// local that it never used afterwards; that dead assignment is dropped.)\nusing System;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring installPath = (string)Dynamic.InstallPath;\nstring fileId = Convert.ToString(Dynamic.FileId);\n\nstring modPath = Path.Combine(ThisService.RootDirectory, \"ConanSandbox\", \"Mods\");\nDirectory.CreateDirectory(modPath);\n\n// Save a list of the mod's files so we can delete them when uninstalling the mod.\nstring modFileList = Path.Combine(modPath, $\"{fileId}.txt\");\nforeach (string file in Directory.GetFiles(installPath, \"*\", SearchOption.AllDirectories))\n{\n    string modFile = Path.Combine(modPath, Path.GetFileName(file));\n    if (File.Exists(modFile))\n    {\n        File.Delete(modFile);\n    }\n    File.Move(file, modFile);\n    string modFileName = Path.GetFileName(file);\n    File.AppendAllText(modFileList, $\"{modFileName}\\r\");\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": false,
