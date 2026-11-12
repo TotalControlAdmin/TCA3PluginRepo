@@ -1,0 +1,49 @@
+identifier: "Community.Games.BlackMesa"
+name: "Black Mesa"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Black Mesa dedicated server (Windows / Linux) with A2S query, RCON, console, graceful stop, config editor, map selection, Steam Workshop and backups"
+longDescription: |
+  # Black Mesa
+  
+  ## Description
+  Black Mesa dedicated server for Windows and Linux (Steam app 346680, anonymous download). It runs the multiplayer deathmatch and team deathmatch maps of Black Mesa, the Source engine remake of Half-Life. The server files take about 29 GB.
+  
+  ## Key Features
+  - **Windows and Linux** configs on srcds (the 32-bit server on both systems).
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S on the game port) and **Source RCON** on the game port.
+  - **Console** with all server commands: Terminal on Linux, the console window on Windows.
+  - **Graceful stop** with `quit`.
+  - **Starts out of the box:** a start script writes `steam_appid.txt`. On Linux it also makes srcds executable and installs missing 32-bit system libraries (apt, dnf or yum).
+  - **Config editor** for `server.cfg`: server name, join and RCON passwords, team deathmatch, friendly fire, time limit and frag limit. The map cycle (`mapcycle.txt`) is a config file too.
+  - **Command lines:** a startup map picker with every official deathmatch map, and an Advanced line with config file, `-insecure` and fps limit.
+  - **Steam Workshop:** install maps and add-ons from the Steam Workshop page. The item is added to the server's own Workshop list (`bms/subscribed_file_ids.txt`) and its maps to the map cycle. The server keeps the item up to date and players get it from the Workshop.
+  - **Backups** of `bms/cfg`, `addons`, `custom` and the Workshop list. The server keeps running.
+  - **Log viewer** for the console and server logs.
+  
+  ## Ports
+  - Game, query and RCON 27015 (UDP and TCP).
+  - Client port 27016 (UDP).
+  - SourceTV 27020 (UDP).
+  
+  All ports bind to the service IP (`-ip`, `-port`, `+clientport`, `+tv_port`, `-strictportbind`). The IP and port check passed on both Windows and Linux: after moving a service to a new IP and new ports, every port listened on the assigned IP and port, and the query, RCON and a custom command line worked. Query and RCON share the game port (srcds has no separate query port). The server does not answer A2S queries when the service IP is 127.0.0.1, so give the service a real IP. srcds also opens a TCP port on 127.0.0.1 with a random number (the Steam client's local port). It cannot be set and is not reachable from outside.
+  
+  ## Instructions
+  - Restart the server after you install or remove a Workshop item. Change to a Workshop map with `changelevel <map name>`; the install log shows the map name.
+  - The server mounts a Workshop item's folder but not the `.vpk` packages inside it. A start script unpacks them next to the packages, so the server finds the maps. After Steam updates an item, the next start refreshes the unpacked files.
+  - Some old Workshop items use Steam's legacy file format, which a dedicated server cannot download. The console then shows `failed to download` for the item.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/362890/51182b6a74035eb913b353d5d60e596c3804daf6.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/362890/ss_9857cad0e29e5cd905f1f9b6be3e20357a6ecb92.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Black Mesa - Windows.json"
+    type: "GameConfig"
+  - path: "Black Mesa - Linux.json"
+    type: "GameConfig"
