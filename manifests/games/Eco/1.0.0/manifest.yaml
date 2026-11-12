@@ -1,0 +1,52 @@
+identifier: "Community.Games.Eco"
+name: "Eco"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Eco dedicated server (Windows / Linux) with Network/Difficulty/ModKit form editors, offline or online (server token) mode, mod.io mods with automatic uninstall, web-API status, RCON, terminal console, graceful save-and-stop and backups; starts out of the box"
+longDescription: |
+  # Eco
+  
+  ## Description
+  Eco dedicated server for Windows and Linux (Steam app 739590, anonymous download). Both configs run the native server; the host needs nothing else.
+  
+  ## Key Features
+  - **Windows and Linux** configs, both native.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box** in offline mode. On Linux a script makes `EcoServer` executable (Steam downloads can lose the bit).
+  - **Online or offline.** Without a server token the server runs in offline mode: players switch their game to offline mode to join, and the server is not listed in the server browser. For online mode, paste the server token from your play.eco account (Account > Server Authentication > Generate Token) in Command Lines. The account must own Eco.
+  - **Config editors:**
+    - `Configs/Network.eco`: server name, join password, detailed description, server browser listing and category, play times, Discord invite and RCON password.
+    - `Configs/Difficulty.eco`: collaboration, game speed, ecosystem simulation, meteor, exhaustion, drowning, and the skill cost, crafting, stack size and growth multipliers.
+    - `Configs/ModKit.eco`: mod.io mods.
+  - **mod.io mods.** List the mod.io ids in the Mods field of `Configs/ModKit.eco`. The server installs them about a minute after it starts, and they load at the next restart. A mod whose id you remove is uninstalled at the next start.
+  - **Console** output in the panel terminal. Eco does not read commands from its console: use the RCON tool with the RCON password (`/manage save`, `/manage players`, `/manage admin <name>`, `/mods list`, ...).
+  - **Graceful stop:** the panel sends Ctrl+C, so the server saves the world before it exits.
+  - **Status** from the server's web API: name, online players and world size.
+  - **Web map** link on the web server port.
+  - **Log viewer** for the files in `Logs`.
+  - **Backups** of the world, settings and mods. The server is stopped first.
+  
+  ## Ports
+  - Game 3000 (UDP), web server 3001 (TCP), RCON 3002 (TCP) and Steam 3003 (UDP, online mode). The game, web server and RCON are bound to the service IP.
+  - IP and ports were checked on Windows and on Linux. With a non-default IP and ports, every port followed the service IP and port. The status check, RCON and a custom command line worked.
+  
+  ## Instructions
+  - Change the settings in Configuration Files while the server is stopped. The server writes its config files back when it runs.
+  - Make yourself an admin with the RCON tool: `/manage admin <your Steam or SLG name>`.
+  - The first start creates the world, which takes a few minutes.
+  - The web server's admin API needs an Eco login. The public pages (map, server info) are open, as on every Eco server.
+  - On Linux the server token is visible in the host's process list. Use a token you can revoke on play.eco.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/382310/a96eb4bd8b20008867c38bbc400d79003c32d6cf.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382310/ss_1274926dada7ac4f001d973fa7db6028c06c6b70.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Eco - Windows.json"
+    type: "GameConfig"
+  - path: "Eco - Linux.json"
+    type: "GameConfig"
