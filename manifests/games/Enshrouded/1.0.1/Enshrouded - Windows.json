@@ -107,13 +107,56 @@
     "interactWithDesktop": true,
     "elevated": false
   },
-  "gameVariables": [],
+  "gameVariables": [
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:23:50.656255",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
   "configFiles": [
     {
       "id": 248,
       "relativePath": "enshrouded_server.json",
       "description": "Main configuration file",
-      "template": "{\n\n                \u0022name\u0022: \u0022${Hostname}\u0022,\n\n                \u0022password\u0022: \u0022\u0022,\n\n                \u0022saveDirectory\u0022: \u0022./savegame\u0022,\n\n                \u0022logDirectory\u0022: \u0022./logs\u0022,\n\n                \u0022ip\u0022: \u0022${IPAddress}\u0022,\n\n                \u0022gamePort\u0022: ${GamePort},\n\n                \u0022queryPort\u0022: ${QueryPort},\n\n                \u0022slotCount\u0022: ${Slots}\n\n}",
+      "template": "{\n\n                \"name\": \"${Hostname}\",\n\n                \"password\": \"\",\n\n                \"saveDirectory\": \"./savegame\",\n\n                \"logDirectory\": \"./logs\",\n\n                \"ip\": \"${IPAddress}\",\n\n                \"gamePort\": ${GamePort},\n\n                \"queryPort\": ${QueryPort},\n\n                \"slotCount\": ${Slots}\n\n}",
       "order": 0,
       "enableEditor": false,
       "editor": [
@@ -152,7 +195,7 @@
         ],
         "name": "rename enshrouded_server.json",
         "description": "rename enshrouded_server.json",
-        "code": "@echo off\nsetlocal enabledelayedexpansion\n\nset \u0022targetFile=%ThisService_RootDirectory%\\enshrouded_server.json\u0022\nset \u0022backupFile=enshrouded_server.json.backup\u0022\n\nif exist \u0022!targetFile!\u0022 (\n    ren \u0022!targetFile!\u0022 \u0022!backupFile!\u0022\n    echo Renamed !targetFile! to !backupFile!\n) else (\n    echo !targetFile! not found in the specified directory.\n)\n\nendlocal\n",
+        "code": "@echo off\nsetlocal enabledelayedexpansion\n\nset \"targetFile=%ThisService_RootDirectory%\\enshrouded_server.json\"\nset \"backupFile=enshrouded_server.json.backup\"\n\nif exist \"!targetFile!\" (\n    ren \"!targetFile!\" \"!backupFile!\"\n    echo Renamed !targetFile! to !backupFile!\n) else (\n    echo !targetFile! not found in the specified directory.\n)\n\nendlocal\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
@@ -177,7 +220,7 @@
         ],
         "name": "Restore enshrouded_server.json",
         "description": "Restore enshrouded_server.json",
-        "code": "@echo off\nsetlocal enabledelayedexpansion\n\nset \u0022ThisService_RootDirectory=%ThisService_RootDirectory%\u0022\nset \u0022targetFile=%ThisService_RootDirectory%\\enshrouded_server.json\u0022\nset \u0022backupFile=%ThisService_RootDirectory%\\enshrouded_server.json.backup\u0022\n\nif exist \u0022!backupFile!\u0022 (\n    if exist \u0022!targetFile!\u0022 (\n        del \u0022!targetFile!\u0022\n        echo Deleted existing !targetFile!\n    )\n    ren \u0022!backupFile!\u0022 \u0022server.properties\u0022\n    echo Renamed !backupFile! to enshrouded_server.json\n) else (\n    echo !backupFile! not found in the specified directory.\n)\n\nendlocal\n",
+        "code": "@echo off\nsetlocal enabledelayedexpansion\n\nset \"ThisService_RootDirectory=%ThisService_RootDirectory%\"\nset \"targetFile=%ThisService_RootDirectory%\\enshrouded_server.json\"\nset \"backupFile=%ThisService_RootDirectory%\\enshrouded_server.json.backup\"\n\nif exist \"!backupFile!\" (\n    if exist \"!targetFile!\" (\n        del \"!targetFile!\"\n        echo Deleted existing !targetFile!\n    )\n    ren \"!backupFile!\" \"server.properties\"\n    echo Renamed !backupFile! to enshrouded_server.json\n) else (\n    echo !backupFile! not found in the specified directory.\n)\n\nendlocal\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
@@ -203,9 +246,9 @@
           "AfterServiceReinstalled",
           "BeforeServiceStarted"
         ],
-        "name": "Install Wine dependencies (VC\u002B\u002B)",
+        "name": "Install Wine dependencies (VC++)",
         "description": "Startup fix",
-        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.IO;\nusing System.Diagnostics;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY\n\n// Wine dependency provisioning. The script must be marked Windows (the game\u0027s OS) so the script\n// DB-filter (which keys on the GAME OS) fetches it at all; we then gate on the HOST being Linux so\n// winetricks only runs on the Wine path and is a no-op on native Windows hosts.\n// Bound to AfterServiceCreated / AfterServiceReinstalled (runs inside the create/reinstall task, no\n// start timeout) AND BeforeServiceStarted (safety net). Idempotent via a marker. Installs the VC\u002B\u002B /\n// D3D runtimes the game needs into the wine prefix via winetricks, run as the prefix\u0027s owning user.\n// winetricks creates the prefix (wineboot) if it doesn\u0027t exist yet (create-time); EnsurePrefixAsync\n// at first start then reuses it. The marker is stamped by the shell after winetricks so it survives a\n// cancelled/slow start.\n\nif (!System.OperatingSystem.IsLinux())\n{\n    ScriptConsole.WriteLine(\u0022[wine-deps] Native Windows host \u00E2\u20AC\u201D runtimes installed by the OS installer; skipping winetricks.\u0022);\n    return;\n}\n\nstring root = ThisService.RootDirectory;\nstring prefix = Path.Combine(root, \u0022.wine\u0022);\nstring marker = Path.Combine(prefix, \u0022.tcadmin-winedeps\u0022);\n\nif (File.Exists(marker))\n{\n    ScriptConsole.WriteLine(\u0022[wine-deps] Runtimes already installed in the wine prefix.\u0022);\n    return;\n}\n\nScriptConsole.WriteLine(\u0022[wine-deps] Installing VC\u002B\u002B/D3D runtimes into the wine prefix via winetricks (can take a few minutes)...\u0022);\n\n// Owner is taken from the service ROOT (always present and chowned to the service user by the create\u0027s\n// file-permission pass) \u00E2\u20AC\u201D the .wine prefix may not exist yet at create-time. winetricks creates it.\nstring b = string.Join(\u0022 \u0022,\n    \u0022set -e;\u0022,\n    $\u0022ROOT=\u0027{root}\u0027;\u0022,\n    \u0022PREFIX=\\\u0022$ROOT/.wine\\\u0022;\u0022,\n    \u0022MARKER=\\\u0022$PREFIX/.tcadmin-winedeps\\\u0022;\u0022,\n    \u0022OWNER=$(stat -c \u0027%U\u0027 \\\u0022$ROOT\\\u0022);\u0022,\n    \u0022echo \\\u0022[wine-deps] service user: $OWNER\\\u0022;\u0022,\n    \u0022RT=\\\u0022$ROOT/.tca/xdg-runtime\\\u0022; mkdir -p \\\u0022$RT\\\u0022; chmod 700 \\\u0022$RT\\\u0022; chown \\\u0022$OWNER\\\u0022 \\\u0022$RT\\\u0022;\u0022,\n    \u0022runuser -u \\\u0022$OWNER\\\u0022 -- env WINEPREFIX=\\\u0022$PREFIX\\\u0022 HOME=\\\u0022$ROOT\\\u0022 XDG_RUNTIME_DIR=\\\u0022$RT\\\u0022 WINEDEBUG=-all WINEDLLOVERRIDES=\u0027mscoree=;mshtml=\u0027 xvfb-run -a winetricks -q vcrun2019 d3dcompiler_47;\u0022,\n    \u0022touch \\\u0022$MARKER\\\u0022; chown \\\u0022$OWNER\\\u0022 \\\u0022$MARKER\\\u0022;\u0022,\n    \u0022echo \u0027[wine-deps] winetricks finished\u0027;\u0022);\n\nvar psi = new ProcessStartInfo\n{\n    FileName = \u0022/bin/bash\u0022,\n    UseShellExecute = false,\n    RedirectStandardOutput = true,\n    RedirectStandardError = true,\n};\npsi.ArgumentList.Add(\u0022-c\u0022);\npsi.ArgumentList.Add(b);\n\nusing (var p = Process.Start(psi))\n{\n    string outText = await p.StandardOutput.ReadToEndAsync();\n    string errText = await p.StandardError.ReadToEndAsync();\n    await p.WaitForExitAsync();\n    if (!string.IsNullOrWhiteSpace(outText))\n        ScriptConsole.WriteLine(outText.Length \u003E 2500 ? outText.Substring(outText.Length - 2500) : outText);\n    if (!string.IsNullOrWhiteSpace(errText))\n        ScriptConsole.WriteLine(\u0022[wine-deps stderr] \u0022 \u002B (errText.Length \u003E 1200 ? errText.Substring(errText.Length - 1200) : errText));\n    ScriptConsole.WriteLine($\u0022[wine-deps] winetricks exit code: {p.ExitCode}\u0022);\n}\n",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.IO;\nusing System.Diagnostics;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY\n\n// Wine dependency provisioning. The script must be marked Windows (the game's OS) so the script\n// DB-filter (which keys on the GAME OS) fetches it at all; we then gate on the HOST being Linux so\n// winetricks only runs on the Wine path and is a no-op on native Windows hosts.\n// Bound to AfterServiceCreated / AfterServiceReinstalled (runs inside the create/reinstall task, no\n// start timeout) AND BeforeServiceStarted (safety net). Idempotent via a marker. Installs the VC++ /\n// D3D runtimes the game needs into the wine prefix via winetricks, run as the prefix's owning user.\n// winetricks creates the prefix (wineboot) if it doesn't exist yet (create-time); EnsurePrefixAsync\n// at first start then reuses it. The marker is stamped by the shell after winetricks so it survives a\n// cancelled/slow start.\n\nif (!System.OperatingSystem.IsLinux())\n{\n    ScriptConsole.WriteLine(\"[wine-deps] Native Windows host â€” runtimes installed by the OS installer; skipping winetricks.\");\n    return;\n}\n\nstring root = ThisService.RootDirectory;\nstring prefix = Path.Combine(root, \".wine\");\nstring marker = Path.Combine(prefix, \".tcadmin-winedeps\");\n\nif (File.Exists(marker))\n{\n    ScriptConsole.WriteLine(\"[wine-deps] Runtimes already installed in the wine prefix.\");\n    return;\n}\n\nScriptConsole.WriteLine(\"[wine-deps] Installing VC++/D3D runtimes into the wine prefix via winetricks (can take a few minutes)...\");\n\n// Owner is taken from the service ROOT (always present and chowned to the service user by the create's\n// file-permission pass) â€” the .wine prefix may not exist yet at create-time. winetricks creates it.\nstring b = string.Join(\" \",\n    \"set -e;\",\n    $\"ROOT='{root}';\",\n    \"PREFIX=\\\"$ROOT/.wine\\\";\",\n    \"MARKER=\\\"$PREFIX/.tcadmin-winedeps\\\";\",\n    \"OWNER=$(stat -c '%U' \\\"$ROOT\\\");\",\n    \"echo \\\"[wine-deps] service user: $OWNER\\\";\",\n    \"RT=\\\"$ROOT/.tca/xdg-runtime\\\"; mkdir -p \\\"$RT\\\"; chmod 700 \\\"$RT\\\"; chown \\\"$OWNER\\\" \\\"$RT\\\";\",\n    \"runuser -u \\\"$OWNER\\\" -- env WINEPREFIX=\\\"$PREFIX\\\" HOME=\\\"$ROOT\\\" XDG_RUNTIME_DIR=\\\"$RT\\\" WINEDEBUG=-all WINEDLLOVERRIDES='mscoree=;mshtml=' xvfb-run -a winetricks -q vcrun2019 d3dcompiler_47;\",\n    \"touch \\\"$MARKER\\\"; chown \\\"$OWNER\\\" \\\"$MARKER\\\";\",\n    \"echo '[wine-deps] winetricks finished';\");\n\nvar psi = new ProcessStartInfo\n{\n    FileName = \"/bin/bash\",\n    UseShellExecute = false,\n    RedirectStandardOutput = true,\n    RedirectStandardError = true,\n};\npsi.ArgumentList.Add(\"-c\");\npsi.ArgumentList.Add(b);\n\nusing (var p = Process.Start(psi))\n{\n    string outText = await p.StandardOutput.ReadToEndAsync();\n    string errText = await p.StandardError.ReadToEndAsync();\n    await p.WaitForExitAsync();\n    if (!string.IsNullOrWhiteSpace(outText))\n        ScriptConsole.WriteLine(outText.Length > 2500 ? outText.Substring(outText.Length - 2500) : outText);\n    if (!string.IsNullOrWhiteSpace(errText))\n        ScriptConsole.WriteLine(\"[wine-deps stderr] \" + (errText.Length > 1200 ? errText.Substring(errText.Length - 1200) : errText));\n    ScriptConsole.WriteLine($\"[wine-deps] winetricks exit code: {p.ExitCode}\");\n}\n",
         "runImpersonated": false,
         "stopService": false,
         "ignoreErrors": true,
