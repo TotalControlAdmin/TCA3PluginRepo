@@ -1,0 +1,43 @@
+identifier: "Community.Games.AssettoCorsa"
+name: "Assetto Corsa"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Assetto Corsa dedicated server (Windows) with a server_cfg.ini form editor, ports and slots from the panel, HTTP status query, terminal console and backups; download needs a Steam account that owns the game"
+longDescription: |
+  # Assetto Corsa
+  
+  ## Description
+  Assetto Corsa dedicated server for Windows (Steam app 302550). The server is a Steam tool that only an account that **owns Assetto Corsa** can download: set that account in Settings > Steam (or on the game's Steam tab) before you create a service. Anonymous downloads fail.
+  
+  ## Key Features
+  - **Steam update** on install and from the panel (needs the owning account).
+  - **Config editor** for `cfg/server_cfg.ini`: server name, join and admin passwords, lobby listing, pickup and loop mode, track and layout, cars, allowed tyres, time of day, practice / qualifying / race length, ABS, traction control and other assists, fuel, damage and tyre wear rates, votes and kick rules.
+  - **Grid slots** in `cfg/entry_list.ini`, edited as text: one `[CAR_n]` block per slot. Every `MODEL` must also be listed in Cars.
+  - **Ports from the panel:** the game port is written to `TCP_PORT` and `UDP_PORT`, the HTTP port to `HTTP_PORT`, and the service slots to `MAX_CLIENTS`. A port change in the service settings rewrites the file.
+  - **Status** from the server's HTTP port (`GET /INFO`): server name, track and connected drivers.
+  - **Console** output in the panel terminal. Ctrl+C stops the server.
+  - **Input checks:** names and passwords must be one line; cars, track and layout must be folder names.
+  - **Backups** of the service folder.
+  
+  ## Ports
+  - Game 9600 (TCP and UDP) and HTTP 8081 (TCP).
+  - acServer has no bind-address setting and listens on every address, so the config uses the server's primary IP only.
+  
+  ## Instructions
+  - Use cars and tracks that exist in the server's `content/cars` and `content/tracks` folders. For mod content, upload the server data of the car or track there.
+  - Keep the slots at or below the track's pit boxes and the number of `[CAR_n]` blocks in the entry list.
+  - Type `/admin <admin password>` in the game chat for the admin commands.
+  
+  ## Not yet tested
+  This config was converted from a V2 config without a Steam account that owns the game. Service creation, the config files, the command line and port changes were checked; installing, starting, the status query, stopping and the IP binding were not.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/244210/c35922c480816b55f18b2843c6d838ccbc8ff825.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244210/ss_b97afb7a10ad6455c01d0e2a191e105007cf7504.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+files:
+  - path: "Assetto Corsa - Windows.json"
+    type: "GameConfig"
