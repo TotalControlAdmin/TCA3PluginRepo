@@ -20,7 +20,7 @@ longDescription: |
   - **Campaign saves** are kept in the service's `Saves` folder, not in the account's shared profile.
   - **Backups** of the settings, the ban list and permission files, the mods and the campaign saves.
   - **Log viewer** for the server logs (`ServerLogs`) and crash reports.
-  - **Starts out of the box:** a start script puts `steamclient.so` where the Steam game server looks for it on Linux, installs missing libraries, and on Windows gives the service account write access to `serversettings.xml`.
+  - **Starts out of the box:** a start script puts `steamclient.so` where the Steam game server looks for it on Linux and installs missing libraries.
   
   ## Ports
   - Game 27015 (UDP) and query 27016 (UDP, A2S through Steam). The query port follows the game port (+1).
