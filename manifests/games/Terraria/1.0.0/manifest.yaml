@@ -1,0 +1,42 @@
+identifier: "Community.Games.Terraria"
+name: "Terraria"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Vanilla Terraria dedicated server (Windows / Linux) installed and updated from terraria.org, with console, graceful save-and-stop, world settings editor and backups"
+longDescription: |
+  # Terraria
+  
+  ## Description
+  Vanilla Terraria dedicated server for Windows and Linux, downloaded from terraria.org (no Steam account needed).
+  
+  ## Key Features
+  - **Install and update from terraria.org:** the newest official server is downloaded on install, and an **Update Terraria** button (also available as a scheduled task) installs a newer release, keeping worlds and settings. The server is stopped for the update and started again.
+  - **Starts out of the box:** the world is created on the first start with the size, difficulty and seed from the config editor. On Windows the start script installs the Microsoft XNA Framework 4.0 the server needs when the host does not have it.
+  - **Console** in the Terminal on both systems, with Terraria's console commands (`say`, `save`, `playing`, `kick`, `ban`, `password`, `motd` ...).
+  - **Graceful stop** with `exit`, which saves the world.
+  - **Status:** the server shows online while its game port is open (vanilla Terraria has no server-browser query).
+  - **Config editor** for `serverconfig.txt`: password, message of the day, anti-cheat, world name, and size, difficulty and seed for new worlds.
+  - **Backups** of the worlds, `serverconfig.txt` and the ban list. The server is stopped first.
+  
+  ## Ports
+  - Game 7777 (TCP). The query port is the same port.
+  - The server binds the service's IP and game port, passed on the command line (`-ip`, `-port`). `serverconfig.txt` holds no IP or port, so IP and port changes in the service settings apply on the next start.
+  - The server also opens one UDP socket with a random port number on all addresses. It is not a game port and cannot be set.
+  
+  ## Instructions
+  - Worlds are in the `worlds` folder. To switch worlds, change the world name; a missing world is created on the next start.
+  - Player counts are not shown: vanilla Terraria cannot be queried without joining it.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/105600/858961e95fbf869f136e1770d586e0caefd4cfac.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/ss_8c03886f214d2108cafca13845533eaa3d87d83f.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Terraria - Windows.json"
+    type: "GameConfig"
+  - path: "Terraria - Linux.json"
+    type: "GameConfig"
