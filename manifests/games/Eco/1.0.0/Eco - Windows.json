@@ -1,0 +1,2634 @@
+{
+  "__TCA:ExportVersion": "3.23.47.17810",
+  "__TCA:ExportedAt": "2026-11-12T04:39:27.410068Z",
+  "name": "Eco",
+  "shortName": "Eco",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/382310/a96eb4bd8b20008867c38bbc400d79003c32d6cf.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382310/ss_1274926dada7ac4f001d973fa7db6028c06c6b70.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 200,
+  "defaultSlots": 20,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".eco",
+    ".json",
+    ".txt",
+    ".cs",
+    ".md"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "custom_script",
+    "rconProtocol": "source",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": true,
+    "outputFilters": "",
+    "stopCommand": "^c",
+    "waitAfterStopCommand": 60000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 3000,
+        "expression": "",
+        "description": "Game (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 3001,
+        "expression": "",
+        "description": "Web server (TCP): web map, server info and the status query",
+        "uriTemplate": "http://${HostnameOrIP}:${QueryPort}"
+      },
+      {
+        "id": "RConPort",
+        "port": 3002,
+        "expression": "",
+        "description": "RCON (TCP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "SteamPort",
+        "port": 3003,
+        "expression": "",
+        "description": "Steam server (UDP, online mode)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "EcoServer.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "eco",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 739590,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 382310,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "${UserToken}",
+    "defaultCustomCommandline": "${UserToken}",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "${UserToken}"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "619630dc-ab5d-5ddb-affb-f12bd08fe9fa",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "UserToken",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${UserToken.ToString() == \"\" ? \"-offline\" : \"-userToken=\" + UserToken}",
+      "editor": {
+        "maxLength": 2048,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[A-Za-z0-9._~+/=-]*$",
+        "inputType": 0,
+        "id": "UserToken",
+        "defaultValue": "",
+        "label": "Server token (online mode)",
+        "description": "Online mode: the server token from your account on play.eco (Account > Server Authentication > Generate Token); the account must own Eco. Leave empty to run in offline mode: players switch their game to offline mode to join, and the server is not listed in the server browser.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.842177",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "DetailedDescription",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${DetailedDescription}",
+      "editor": {
+        "maxLength": 500,
+        "lines": 3,
+        "denyCharacters": [],
+        "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
+        "inputType": 0,
+        "id": "DetailedDescription",
+        "defaultValue": "",
+        "label": "Detailed description",
+        "description": "The long description in the server browser. No double quotes or backslashes.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 12,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.856526",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PublicServer",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PublicServer}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "PublicServer",
+        "defaultValue": "true",
+        "label": "Listed in the server browser",
+        "description": "Needs online mode (a server token on the command line). An offline server is never listed.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.856598",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ServerCategory",
+      "defaultValue": "None",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ServerCategory}",
+      "editor": {
+        "items": [
+          {
+            "text": "None",
+            "value": "None"
+          },
+          {
+            "text": "Beginner",
+            "value": "Beginner"
+          },
+          {
+            "text": "Established",
+            "value": "Established"
+          },
+          {
+            "text": "Beginner (hard)",
+            "value": "BeginnerHard"
+          },
+          {
+            "text": "Strange",
+            "value": "Strange"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "ServerCategory",
+        "defaultValue": "None",
+        "label": "Server category",
+        "description": "The category the server browser shows the server under.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.859769",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Playtime",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Playtime}",
+      "editor": {
+        "maxLength": 100,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
+        "inputType": 0,
+        "id": "Playtime",
+        "defaultValue": "",
+        "label": "Play times",
+        "description": "When the community usually plays, e.g. \"Weekdays 18-22 UTC\". No double quotes or backslashes.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.869416",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "DiscordAddress",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${DiscordAddress}",
+      "editor": {
+        "maxLength": 200,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
+        "inputType": 0,
+        "id": "DiscordAddress",
+        "defaultValue": "",
+        "label": "Discord invite",
+        "description": "Shown in the server browser. No double quotes or backslashes.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.869476",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "CollaborationLevel",
+      "defaultValue": "MediumCollaboration",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${CollaborationLevel}",
+      "editor": {
+        "items": [
+          {
+            "text": "No collaboration",
+            "value": "NoCollaboration"
+          },
+          {
+            "text": "Low",
+            "value": "LowCollaboration"
+          },
+          {
+            "text": "Medium",
+            "value": "MediumCollaboration"
+          },
+          {
+            "text": "High",
+            "value": "HighCollaboration"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "CollaborationLevel",
+        "defaultValue": "MediumCollaboration",
+        "label": "Collaboration",
+        "description": "How much players must work together (skill costs and specialization).",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.869497",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "GameSpeed",
+      "defaultValue": "Normal",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${GameSpeed}",
+      "editor": {
+        "items": [
+          {
+            "text": "Very slow",
+            "value": "VerySlow"
+          },
+          {
+            "text": "Slow",
+            "value": "Slow"
+          },
+          {
+            "text": "Normal",
+            "value": "Normal"
+          },
+          {
+            "text": "Fast",
+            "value": "Fast"
+          },
+          {
+            "text": "Very fast",
+            "value": "VeryFast"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "GameSpeed",
+        "defaultValue": "Normal",
+        "label": "Game speed",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.869525",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SimulationLevel",
+      "defaultValue": "Normal",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SimulationLevel}",
+      "editor": {
+        "items": [
+          {
+            "text": "Generous",
+            "value": "Generous"
+          },
+          {
+            "text": "Normal",
+            "value": "Normal"
+          },
+          {
+            "text": "Hardcore",
+            "value": "Hardcore"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "SimulationLevel",
+        "defaultValue": "Normal",
+        "label": "Ecosystem simulation",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.869545",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "HasMeteor",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${HasMeteor}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "HasMeteor",
+        "defaultValue": "true",
+        "label": "Meteor",
+        "description": "A meteor threatens the world; players must stop it.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.869559",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MeteorImpactInDays",
+      "defaultValue": "30",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MeteorImpactInDays}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 365,
+        "id": "MeteorImpactInDays",
+        "defaultValue": "30",
+        "label": "Meteor impact (days)",
+        "description": "Days of game time before the meteor hits.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.869582",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ExhaustionEnabled",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ExhaustionEnabled}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "ExhaustionEnabled",
+        "defaultValue": "true",
+        "label": "Exhaustion",
+        "description": "Limits the hours a player can play per day (Exhaustion.eco has the details).",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.873586",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PlayerCanDrown",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PlayerCanDrown}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "PlayerCanDrown",
+        "defaultValue": "true",
+        "label": "Players can drown",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.873623",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SkillCostMultiplier",
+      "defaultValue": "1.0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SkillCostMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0.01,
+        "maxValue": 100,
+        "id": "SkillCostMultiplier",
+        "defaultValue": "1.0",
+        "label": "Skill cost",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.873637",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "CraftResourceMultiplier",
+      "defaultValue": "1.0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${CraftResourceMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0.01,
+        "maxValue": 100,
+        "id": "CraftResourceMultiplier",
+        "defaultValue": "1.0",
+        "label": "Crafting resources",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.873657",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "CraftTimeMultiplier",
+      "defaultValue": "1.0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${CraftTimeMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0.01,
+        "maxValue": 100,
+        "id": "CraftTimeMultiplier",
+        "defaultValue": "1.0",
+        "label": "Crafting time",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.873669",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "StackSizeMultiplier",
+      "defaultValue": "1.0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${StackSizeMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0.1,
+        "maxValue": 100,
+        "id": "StackSizeMultiplier",
+        "defaultValue": "1.0",
+        "label": "Stack size",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.873682",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "GrowthRateMultiplier",
+      "defaultValue": "1.0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${GrowthRateMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0.01,
+        "maxValue": 100,
+        "id": "GrowthRateMultiplier",
+        "defaultValue": "1.0",
+        "label": "Plant growth rate",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.873693",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SubscribedMods",
+      "defaultValue": "[]",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SubscribedMods}",
+      "editor": {
+        "maxLength": 2000,
+        "lines": 2,
+        "denyCharacters": [],
+        "regExValidation": "^\\s*\\[\\s*(\\d{1,10}\\s*(,\\s*\\d{1,10}\\s*)*)?\\]\\s*$",
+        "inputType": 0,
+        "id": "SubscribedMods",
+        "defaultValue": "[]",
+        "label": "Mods (mod.io ids)",
+        "description": "The mod.io ids (the number under Mod ID on the mod's mod.io page) the server keeps installed, as a list: [4358905, 123456]. Keep [] for none. A mod is installed about a minute after the server starts and loads at the next restart. A mod whose id is removed is uninstalled at the next start.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 12,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.873705",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ModVersions",
+      "defaultValue": "[]",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ModVersions}",
+      "editor": {
+        "maxLength": 2000,
+        "lines": 2,
+        "denyCharacters": [],
+        "regExValidation": "^\\s*\\[\\s*(\"\\d{1,10}=[^\"\\\\\\x00-\\x1f]{1,64}\"\\s*(,\\s*\"\\d{1,10}=[^\"\\\\\\x00-\\x1f]{1,64}\"\\s*)*)?\\]\\s*$",
+        "inputType": 0,
+        "id": "ModVersions",
+        "defaultValue": "[]",
+        "label": "Mod versions",
+        "description": "For a mod that ships several versions (one per language), which one installs: [\"4358905=English\"]. Keep [] when not needed.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 12,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.873728",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ModUpdateMode",
+      "defaultValue": "Install",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ModUpdateMode}",
+      "editor": {
+        "items": [
+          {
+            "text": "Install it",
+            "value": "Install"
+          },
+          {
+            "text": "Download it only",
+            "value": "Download"
+          },
+          {
+            "text": "Only notify admins",
+            "value": "Notify"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "ModUpdateMode",
+        "defaultValue": "Install",
+        "label": "When a mod is missing or has an update",
+        "description": "Install: the server installs missing mods and updates itself (they load at the next restart). Notify: an admin runs /mods sync.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.873743",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ModIoAccessToken",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ModIoAccessToken}",
+      "editor": {
+        "maxLength": 2048,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[A-Za-z0-9._~+/=-]*$",
+        "inputType": 0,
+        "id": "ModIoAccessToken",
+        "defaultValue": "",
+        "label": "mod.io access token",
+        "description": "Optional. A token from your mod.io account (mod.io > Access > OAuth) lets the server follow the mods and collections that account subscribes to.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T04:24:29.873766",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:13:37.959619",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:13:39.114577",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T20:13:40.403869",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 891,
+      "relativePath": "Configs\\Network.eco",
+      "description": "Server name, password and network (Configs/Network.eco)",
+      "template": "{\n  \"PublicServer\": ${PublicServer},\n  \"Playtime\": \"${Playtime}\",\n  \"DiscordAddress\": \"${DiscordAddress}\",\n  \"Password\": \"${PrivatePassword}\",\n  \"Name\": \"${Hostname}\",\n  \"DetailedDescription\": \"${DetailedDescription}\",\n  \"ListModsInServerBrowser\": true,\n  \"ServerCategory\": \"${ServerCategory}\",\n  \"IPAddress\": \"${IPAddress}\",\n  \"RemoteAddress\": \"\",\n  \"WebServerUrl\": \"\",\n  \"GameServerPort\": ${GamePort},\n  \"WebServerPort\": ${QueryPort},\n  \"RconServerPort\": ${RConPort},\n  \"SteamServerPort\": ${SteamPort},\n  \"RconIPAddress\": \"${IPAddress}\",\n  \"RconPassword\": \"${RconPassword}\",\n  \"Rate\": 20,\n  \"DefaultSlots\": ${Slots},\n  \"ReservedSlots\": 5,\n  \"MaxUsersLoadingAtSameTime\": 20,\n  \"UPnPEnabled\": false,\n  \"RelayServerAddress\": \"\"\n}",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Server",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 100,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "Shown in the server browser and on the web map. No double quotes or backslashes.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 64,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Join password",
+          "description": "Leave empty for no password. No double quotes or backslashes.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 500,
+          "lines": 3,
+          "denyCharacters": [],
+          "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
+          "inputType": 0,
+          "id": "DetailedDescription",
+          "defaultValue": "",
+          "label": "Detailed description",
+          "description": "The long description in the server browser. No double quotes or backslashes.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "PublicServer",
+          "defaultValue": "true",
+          "label": "Listed in the server browser",
+          "description": "Needs online mode (a server token on the command line). An offline server is never listed.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "None",
+              "value": "None"
+            },
+            {
+              "text": "Beginner",
+              "value": "Beginner"
+            },
+            {
+              "text": "Established",
+              "value": "Established"
+            },
+            {
+              "text": "Beginner (hard)",
+              "value": "BeginnerHard"
+            },
+            {
+              "text": "Strange",
+              "value": "Strange"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "ServerCategory",
+          "defaultValue": "None",
+          "label": "Server category",
+          "description": "The category the server browser shows the server under.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 100,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
+          "inputType": 0,
+          "id": "Playtime",
+          "defaultValue": "",
+          "label": "Play times",
+          "description": "When the community usually plays, e.g. \"Weekdays 18-22 UTC\". No double quotes or backslashes.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 200,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
+          "inputType": 0,
+          "id": "DiscordAddress",
+          "defaultValue": "",
+          "label": "Discord invite",
+          "description": "Shown in the server browser. No double quotes or backslashes.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Rcon",
+          "defaultValue": null,
+          "label": "Remote console",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 64,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\"\\\\\\x00-\\x1f]*$",
+          "inputType": 0,
+          "id": "RconPassword",
+          "defaultValue": "",
+          "label": "RCON password",
+          "description": "Needed for the panel console commands (RCON tool). Leave empty to turn RCON logins off. No double quotes or backslashes.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 892,
+      "relativePath": "Configs\\Difficulty.eco",
+      "description": "Game settings (Configs/Difficulty.eco)",
+      "template": "{\n  \"GameSettings\": {\n    \"DesiredNumberOfPlayers\": 4,\n    \"HoursPlayedPerDay\": 3.0,\n    \"CollaborationLevel\": \"${CollaborationLevel}\",\n    \"GameSpeed\": \"${GameSpeed}\",\n    \"AnimalBehavior\": \"AttackNormally\",\n    \"SimulationLevel\": \"${SimulationLevel}\",\n    \"ExhaustionEnabled\": ${ExhaustionEnabled},\n    \"HasMeteor\": ${HasMeteor},\n    \"AllowFriendsToJoin\": true,\n    \"GenerateRandomWorld\": false,\n    \"AdvancedGameSettings\": {\n      \"MeteorImpactInDays\": ${MeteorImpactInDays},\n      \"MaxProfessionsPerCitizen\": 10.0,\n      \"MaxSpecialtiesPerCitizen\": 34.0,\n      \"SkillCostMultiplier\": ${SkillCostMultiplier},\n      \"CostPerAdditionalSpecialty\": 0.0,\n      \"CraftResourceMultiplier\": ${CraftResourceMultiplier},\n      \"CraftTimeMultiplier\": ${CraftTimeMultiplier},\n      \"ClaimStakesGrantedUponSkillscrollConsumed\": 0.0,\n      \"ClaimPapersGrantedUponSkillscrollConsumed\": 0.0,\n      \"CanAbandonSpecialties\": true,\n      \"AreaBonusRequiresProfessionCitizens\": true,\n      \"AreaBonusMinProfessionCitizens\": 1,\n      \"SpecialtyRefundPercentage\": 0.0,\n      \"GainCharacterExperienceWithSpecialtyExperience\": 0.0,\n      \"StackSizeMultiplier\": ${StackSizeMultiplier},\n      \"WeightMultiplier\": 1.0,\n      \"FuelEfficiencyMultiplier\": 1.0,\n      \"GrowthRateMultiplier\": ${GrowthRateMultiplier},\n      \"ConnectionRangeMultiplier\": 1.0,\n      \"ShelfLifeMultiplier\": 1.0,\n      \"AllowDeepOceanBuilding\": false,\n      \"RequireSkillsToReplaceParts\": true,\n      \"BrokenPartsWillDisableVehicles\": true,\n      \"AnimalUnprovokedAttackFrequencyMultiplier\": 1.0\n    }\n  },\n  \"EndgameCraftCost\": \"Normal\",\n  \"SkillbookCraftCost\": \"Normal\",\n  \"SwimSpeed\": {\n    \"Ocean\": 0.75,\n    \"DeepOcean\": 0.25\n  },\n  \"CalorieConsumptionRate\": {\n    \"Ocean\": 2.0,\n    \"DeepOcean\": 30.0\n  },\n  \"PlayerCanDrownWhenSwimming\": ${PlayerCanDrown}\n}",
+      "order": 2,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Difficulty",
+          "defaultValue": null,
+          "label": "Game settings",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "No collaboration",
+              "value": "NoCollaboration"
+            },
+            {
+              "text": "Low",
+              "value": "LowCollaboration"
+            },
+            {
+              "text": "Medium",
+              "value": "MediumCollaboration"
+            },
+            {
+              "text": "High",
+              "value": "HighCollaboration"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "CollaborationLevel",
+          "defaultValue": "MediumCollaboration",
+          "label": "Collaboration",
+          "description": "How much players must work together (skill costs and specialization).",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Very slow",
+              "value": "VerySlow"
+            },
+            {
+              "text": "Slow",
+              "value": "Slow"
+            },
+            {
+              "text": "Normal",
+              "value": "Normal"
+            },
+            {
+              "text": "Fast",
+              "value": "Fast"
+            },
+            {
+              "text": "Very fast",
+              "value": "VeryFast"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "GameSpeed",
+          "defaultValue": "Normal",
+          "label": "Game speed",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Generous",
+              "value": "Generous"
+            },
+            {
+              "text": "Normal",
+              "value": "Normal"
+            },
+            {
+              "text": "Hardcore",
+              "value": "Hardcore"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "SimulationLevel",
+          "defaultValue": "Normal",
+          "label": "Ecosystem simulation",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "HasMeteor",
+          "defaultValue": "true",
+          "label": "Meteor",
+          "description": "A meteor threatens the world; players must stop it.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 365,
+          "id": "MeteorImpactInDays",
+          "defaultValue": "30",
+          "label": "Meteor impact (days)",
+          "description": "Days of game time before the meteor hits.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "ExhaustionEnabled",
+          "defaultValue": "true",
+          "label": "Exhaustion",
+          "description": "Limits the hours a player can play per day (Exhaustion.eco has the details).",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "PlayerCanDrown",
+          "defaultValue": "true",
+          "label": "Players can drown",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Multipliers",
+          "defaultValue": null,
+          "label": "Multipliers",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0.01,
+          "maxValue": 100,
+          "id": "SkillCostMultiplier",
+          "defaultValue": "1.0",
+          "label": "Skill cost",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0.01,
+          "maxValue": 100,
+          "id": "CraftResourceMultiplier",
+          "defaultValue": "1.0",
+          "label": "Crafting resources",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0.01,
+          "maxValue": 100,
+          "id": "CraftTimeMultiplier",
+          "defaultValue": "1.0",
+          "label": "Crafting time",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0.1,
+          "maxValue": 100,
+          "id": "StackSizeMultiplier",
+          "defaultValue": "1.0",
+          "label": "Stack size",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0.01,
+          "maxValue": 100,
+          "id": "GrowthRateMultiplier",
+          "defaultValue": "1.0",
+          "label": "Plant growth rate",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 893,
+      "relativePath": "Configs\\ModKit.eco",
+      "description": "mod.io mods (Configs/ModKit.eco)",
+      "template": "{\n  \"WhitelistEnabled\": false,\n  \"Whitelist\": {\n    \"System.String\": {\n      \"$type\": \"System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib\",\n      \"$values\": []\n    }\n  },\n  \"LiveUpdateUnityFiles\": false,\n  \"SubscribedMods\": {\n    \"System.Int32\": {\n      \"$type\": \"System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib]], System.Private.CoreLib\",\n      \"$values\": ${SubscribedMods}\n    }\n  },\n  \"TrackedCollections\": {\n    \"System.Int32\": {\n      \"$type\": \"System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib]], System.Private.CoreLib\",\n      \"$values\": []\n    }\n  },\n  \"ModIoAccessToken\": \"${ModIoAccessToken}\",\n  \"TrackModIoSubscriptions\": false,\n  \"FollowModIoCollections\": false,\n  \"SubscribeOnModIo\": false,\n  \"SkippedMods\": {\n    \"System.Int32\": {\n      \"$type\": \"System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib]], System.Private.CoreLib\",\n      \"$values\": []\n    }\n  },\n  \"ModVersions\": {\n    \"System.String\": {\n      \"$type\": \"System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib\",\n      \"$values\": ${ModVersions}\n    }\n  },\n  \"PinnedMods\": {\n    \"System.Int32\": {\n      \"$type\": \"System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib]], System.Private.CoreLib\",\n      \"$values\": []\n    }\n  },\n  \"UpdateCheckIntervalHours\": 6,\n  \"CheckForUpdatesOnStartup\": true,\n  \"ModUpdateMode\": \"${ModUpdateMode}\",\n  \"NotifyAdminsOfModUpdates\": true,\n  \"PreserveGeneratedModsAssembly\": false,\n  \"MaxNumberOfDownloadRequests\": 10\n}",
+      "order": 3,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Mods",
+          "defaultValue": null,
+          "label": "mod.io mods",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 2000,
+          "lines": 2,
+          "denyCharacters": [],
+          "regExValidation": "^\\s*\\[\\s*(\\d{1,10}\\s*(,\\s*\\d{1,10}\\s*)*)?\\]\\s*$",
+          "inputType": 0,
+          "id": "SubscribedMods",
+          "defaultValue": "[]",
+          "label": "Mods (mod.io ids)",
+          "description": "The mod.io ids (the number under Mod ID on the mod's mod.io page) the server keeps installed, as a list: [4358905, 123456]. Keep [] for none. A mod is installed about a minute after the server starts and loads at the next restart. A mod whose id is removed is uninstalled at the next start.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 2000,
+          "lines": 2,
+          "denyCharacters": [],
+          "regExValidation": "^\\s*\\[\\s*(\"\\d{1,10}=[^\"\\\\\\x00-\\x1f]{1,64}\"\\s*(,\\s*\"\\d{1,10}=[^\"\\\\\\x00-\\x1f]{1,64}\"\\s*)*)?\\]\\s*$",
+          "inputType": 0,
+          "id": "ModVersions",
+          "defaultValue": "[]",
+          "label": "Mod versions",
+          "description": "For a mod that ships several versions (one per language), which one installs: [\"4358905=English\"]. Keep [] when not needed.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Install it",
+              "value": "Install"
+            },
+            {
+              "text": "Download it only",
+              "value": "Download"
+            },
+            {
+              "text": "Only notify admins",
+              "value": "Notify"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "ModUpdateMode",
+          "defaultValue": "Install",
+          "label": "When a mod is missing or has an update",
+          "description": "Install: the server installs missing mods and updates itself (they load at the next restart). Notify: an admin runs /mods sync.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 2048,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[A-Za-z0-9._~+/=-]*$",
+          "inputType": 0,
+          "id": "ModIoAccessToken",
+          "defaultValue": "",
+          "label": "mod.io access token",
+          "description": "Optional. A token from your mod.io account (mod.io > Access > OAuth) lets the server follow the mods and collections that account subscribes to.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "CustomQueryProtocol"
+        ],
+        "name": "Eco query",
+        "description": "Reads the server name and online players from the web server (GET /info on the query port).",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.Http.dll, System.Net.Primitives.dll, System.Text.Json.dll\nusing System;\nusing System.Net.Http;\nusing System.Text.Json;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Eco has no Steam (A2S) query: its web server (the service's QueryPort, Network.eco WebServerPort) answers GET /info\n// with the server name, the online players and the world. The request needs no login and does not show in the console\n// (only in the web server's request log, Logs/Microsoft.AspNetCore.Hosting.Diagnostics).\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = ThisService.QueryPort;\n\nstring Str(JsonElement root, string name)\n{\n    return root.TryGetProperty(name, out var v) && v.ValueKind == JsonValueKind.String ? v.GetString() : string.Empty;\n}\n\nint Int(JsonElement root, string name)\n{\n    return root.TryGetProperty(name, out var v) && v.ValueKind == JsonValueKind.Number && v.TryGetInt32(out var i) ? i : 0;\n}\n\ntry\n{\n    string body;\n    using (var http = new HttpClient { Timeout = TimeSpan.FromSeconds(4) })\n        body = await http.GetStringAsync(\"http://\" + address + \":\" + port + \"/info\", ThisCancellationToken);\n    using (var doc = JsonDocument.Parse(body))\n    {\n        var root = doc.RootElement;\n        // The name can carry Eco's rich-text tags (<color=...>): strip them for the panel.\n        var name = System.Text.RegularExpressions.Regex.Replace(Str(root, \"Description\"), \"<[^>]*>\", string.Empty).Trim();\n        Globals.ReturnValue = new GameQueryResponse\n        {\n            Success = true,\n            Status = \"online\",\n            Protocol = \"custom_script\",\n            Address = address,\n            Hostname = address + \":\" + ThisService.GamePort,\n            Name = string.IsNullOrWhiteSpace(name) ? ThisService.Name : name,\n            GameType = \"Eco\",\n            Map = Str(root, \"WorldSize\"),\n            NumPlayers = Int(root, \"OnlinePlayers\"),\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        };\n    }\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", ex.Message);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "9d95dd6e-6434-5ab9-9dae-518138eb9fee"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Uninstall removed mod.io mods",
+        "description": "Before each start, uninstalls the mod.io mods the server installed whose id is no longer in the Mods list (Configs/ModKit.eco): Eco only stops following them. Never follows links, never leaves the Mods folder.",
+        "code": "//refAssemblies: System.Text.Json.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.Json;\nusing System.Text.Json.Nodes;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Eco installs the mod.io mods listed in Configs/ModKit.eco (SubscribedMods) itself, but removing an id from the list\n// only stops the server following it: the files stay and the mod keeps loading. Before each start, uninstall every\n// mod the server installed from mod.io (Mods/UserCode/mod.io/<mod>/manifest.json lists its files) that is no longer\n// listed, pinned or needed by another mod. Skipped when the server follows a mod.io collection or account\n// subscriptions (those mods are not in the list). A listed mod whose files were deleted by hand gets its stale install\n// record removed so the server installs it again. Never follows symbolic links or junctions, never leaves Mods (and never touches Mods/__core__).\nvar root = Path.GetFullPath((string)ThisService.RootDirectory);\nvar mods = Path.Combine(root, \"Mods\");\nvar userCode = Path.Combine(mods, \"UserCode\");\nvar core = Path.Combine(mods, \"__core__\");\nvar records = Path.Combine(userCode, \"mod.io\");\nvar modKit = Path.Combine(root, \"Configs\", \"ModKit.eco\");\n\nbool IsLink(string path)\n{\n    // LinkTarget also sees a dangling link (File.Exists is false for one) and Windows junctions.\n    var info = new FileInfo(path);\n    if (info.LinkTarget != null) return true;\n    if (!info.Exists && !Directory.Exists(path)) return false;\n    return (File.GetAttributes(path) & FileAttributes.ReparsePoint) != 0;\n}\n\nif (!Directory.Exists(records) || !File.Exists(modKit)) return;\n// The script runs as root on Linux in folders the service user owns: refuse linked folders/files outright.\nif (IsLink(root) || IsLink(mods) || IsLink(userCode) || IsLink(records) || IsLink(Path.GetDirectoryName(modKit)) || IsLink(modKit)) return;\n\n// True when the path is inside Mods (never Mods/__core__, never Mods/UserCode itself) and no folder between it and the\n// service root is a link.\nbool Safe(string full)\n{\n    var sep = Path.DirectorySeparatorChar.ToString();\n    if (!full.StartsWith(mods + sep, StringComparison.OrdinalIgnoreCase)) return false;\n    if (full.StartsWith(core + sep, StringComparison.OrdinalIgnoreCase) || string.Equals(full, core, StringComparison.OrdinalIgnoreCase)) return false;\n    if (string.Equals(full, userCode, StringComparison.OrdinalIgnoreCase)) return false;\n    for (var p = full; p != null && p.Length > root.Length; p = Path.GetDirectoryName(p))\n        if (IsLink(p)) return false;\n    return true;\n}\n\nHashSet<long> Ids(JsonNode config, string key)\n{\n    var set = new HashSet<long>();\n    var values = config?[key]?[\"System.Int32\"]?[\"$values\"] as JsonArray;\n    if (values != null)\n        foreach (var v in values)\n            if (v != null && long.TryParse(v.ToString(), out var id)) set.Add(id);\n    return set;\n}\n\nJsonNode kit;\ntry { kit = JsonNode.Parse(File.ReadAllText(modKit)); }\ncatch (Exception ex) { ScriptConsole.WriteLine((object)(\"mod.io cleanup skipped: Configs/ModKit.eco is not valid JSON (\" + ex.Message + \").\")); return; }\nvar follows = (kit?[\"TrackModIoSubscriptions\"]?.GetValue<bool>() ?? false) || Ids(kit, \"TrackedCollections\").Count > 0;\nif (follows) return;\nvar keep = Ids(kit, \"SubscribedMods\");\nkeep.UnionWith(Ids(kit, \"PinnedMods\"));\n\nvar updatesPath = Path.Combine(records, \"updates.json\");\nJsonNode updates = null;\nif (File.Exists(updatesPath) && !IsLink(updatesPath))\n{\n    try { updates = JsonNode.Parse(File.ReadAllText(updatesPath)); } catch { updates = null; }\n}\nvar updateMods = updates?[\"Mods\"] as JsonObject;\n\nvar changed = false;\nvar downloads = Path.Combine(records, \"Downloads\");\n// Forgets the server's install record of a mod (and its downloaded package), so the server sees it as not installed.\nvoid DropRecord(string dir, string manifestPath, long id)\n{\n    File.Delete(manifestPath);\n    if (!Directory.EnumerateFileSystemEntries(dir).Any()) Directory.Delete(dir);\n    if (Directory.Exists(downloads) && !IsLink(downloads))\n        foreach (var zip in Directory.GetFiles(downloads, Path.GetFileName(dir) + \"_*.zip\"))\n            if (!IsLink(zip)) File.Delete(zip);\n    if (updateMods != null && updateMods.Remove(id.ToString())) changed = true;\n}\n\nforeach (var dir in Directory.GetDirectories(records))\n{\n    var manifestPath = Path.Combine(dir, \"manifest.json\");\n    if (IsLink(dir) || !File.Exists(manifestPath) || IsLink(manifestPath)) continue;\n    JsonNode manifest;\n    try { manifest = JsonNode.Parse(File.ReadAllText(manifestPath)); } catch { continue; }\n    long id;\n    if (!long.TryParse(manifest?[\"mod\"]?[\"id\"]?.ToString(), out id)) continue;\n    var name = manifest?[\"mod\"]?[\"name\"]?.ToString() ?? id.ToString();\n    var files = new List<string>();\n    foreach (var f in (manifest?[\"files\"] as JsonArray) ?? new JsonArray())\n    {\n        var rel = f?.ToString();\n        if (string.IsNullOrEmpty(rel)) continue;\n        var full = Path.GetFullPath(Path.Combine(root, rel.Replace('/', Path.DirectorySeparatorChar)));\n        if (Safe(full)) files.Add(full);\n    }\n\n    if (keep.Contains(id))\n    {\n        // A listed mod whose files were deleted by hand keeps its install record, and the server then never installs\n        // it again. Forget the record so the server reinstalls it (Install mode) or /mods sync does.\n        if (files.Count > 0 && files.Any(x => !File.Exists(x)))\n        {\n            DropRecord(dir, manifestPath, id);\n            ScriptConsole.WriteLine((object)(\"The mod.io mod \" + id + \" (\" + name + \") is missing files: the server will install it again.\"));\n        }\n        continue;\n    }\n    var entry = updateMods?[id.ToString()];\n    if (entry?[\"RequiredBy\"] is JsonArray requiredBy && requiredBy.Count > 0) continue;\n\n    var removed = 0;\n    var folders = new HashSet<string>(StringComparer.OrdinalIgnoreCase);\n    foreach (var full in files)\n    {\n        if (!File.Exists(full)) continue;\n        File.Delete(full);\n        removed++;\n        folders.Add(Path.GetDirectoryName(full));\n    }\n    // Remove the folders the mod leaves empty, deepest first, up to Mods/UserCode (kept).\n    foreach (var folder in folders.OrderByDescending(x => x.Length))\n        for (var p = folder; p != null && Safe(p) && Directory.Exists(p) && !Directory.EnumerateFileSystemEntries(p).Any(); p = Path.GetDirectoryName(p))\n            Directory.Delete(p);\n    DropRecord(dir, manifestPath, id);\n    ScriptConsole.WriteLine((object)(\"Uninstalled the mod.io mod \" + id + \" (\" + name + \"): no longer in the Mods list of Configs/ModKit.eco. \" + removed + \" file(s) removed.\"));\n}\nif (changed)\n    File.WriteAllText(updatesPath, updates.ToJsonString(new JsonSerializerOptions { WriteIndented = true }));\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "d45d36bf-79e3-5ff3-839f-d505cad144b2"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-12T04:24:29.776836",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "Storage/*",
+      "Storage/UserTextures/**/*",
+      "Configs/*.eco",
+      "Mods/UserCode/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
