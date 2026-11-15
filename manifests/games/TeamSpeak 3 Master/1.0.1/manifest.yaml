@@ -1,0 +1,40 @@
+identifier: "Community.Games.TeamSpeak3Master"
+name: "TeamSpeak 3 Master"
+version: "1.0.1"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "TeamSpeak 3 server instance that hosts virtual servers as hosted TCAdmin services (Windows x64 / Linux x64)"
+longDescription: |
+  # TeamSpeak 3 Master
+  
+  ## Description
+  Runs a TeamSpeak 3 server instance (the "master") on Windows x64 or Linux x64. The master starts with no virtual servers: every virtual server is its own hosted TCAdmin service created with the **TeamSpeak 3 Virtual Server** blueprint, so each customer gets one virtual server inside a master you run. The serveradmin ServerQuery password is the service RCON password and is applied at every start.
+  
+  ## Key Features
+  - Downloads the current TeamSpeak 3 server build from teamspeak.com with SHA-256 verification
+  - ServerQuery console (RCON) with the serveradmin password kept in sync with the service RCON password; "Change serveradmin password" action
+  - Query: total slots and connected clients across all virtual servers, shown as "N virtual servers (M running)"
+  - Graceful shutdown through ServerQuery
+  - TeamSpeak Browser page: virtual servers, clients (kick / ban / move / poke / message), channels, bans, privilege keys, host info, message all virtual servers, rename
+  - Create / Modify / Delete virtual server actions for admins who do not use hosted services
+  - Linux: LD_LIBRARY_PATH set to the service root; the logind RemoveIPC drop-in that keeps TeamSpeak's shared memory alive is applied automatically on the first start on a node
+  
+  ## What's new
+  - 1.0.0: first release
+  
+  ## Instructions
+  1. Install this plugin together with the **TeamSpeak 3 Virtual Server** plugin for the same operating system. The master links to its virtual-server blueprint by identifier, in either install order.
+  2. Create a master service (defaults: voice 9987 / ServerQuery 10011 / file transfer 30033) and start it.
+  3. Create virtual servers from the Create Service wizard: pick the running master on the target step, then the TeamSpeak 3 Virtual Server blueprint.
+  
+  Note: TeamSpeak's free license allows one running virtual server with 32 slots; more need a license from TeamSpeak.
+icon: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/TeamSpeak_logo_renovado.png/250px-TeamSpeak_logo_renovado.png"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "TS3 Master - Windows.json"
+    type: "GameConfig"
+  - path: "TS3 Master - Linux.json"
+    type: "GameConfig"
