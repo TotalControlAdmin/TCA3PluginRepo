@@ -1,0 +1,45 @@
+identifier: "Community.Games.Left4Dead2"
+name: "Left 4 Dead 2"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Left 4 Dead 2 dedicated server (Windows / Linux) with A2S query, RCON, console, graceful stop, game mode and map selection, and backups"
+longDescription: |
+  # Left 4 Dead 2
+  
+  ## Description
+  Left 4 Dead 2 dedicated server for Windows and Linux (Steam app 222860, anonymous download).
+  
+  ## Key Features
+  - **Windows and Linux** configs on the Source dedicated server (`srcds`).
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S) and **Source RCON** on the game port.
+  - **Console:** the console wrapper on Windows, Terminal on Linux, with console commands.
+  - **Graceful stop** with the `quit` command.
+  - **Game mode and map:** campaign (co-op), realism, versus, realism versus, survival or scavenge, starting on any of the 14 campaigns.
+  - **Config editor** for `left4dead2/cfg/server.cfg` (server name, RCON password, join password). Direct connections are allowed, not only lobby matchmaking.
+  - **Start script:** writes `steam_appid.txt` so even the very first start connects to Steam (otherwise the server runs in LAN mode), and keeps the previous console log as `console.previous.log`.
+  - **Steam Workshop add-ons:** browse and install Workshop maps, campaigns, scripts and skins from the panel. The `.vpk` downloads anonymously into `left4dead2/addons/workshop` and loads on the next map change or restart. Uninstall removes it.
+  - **Backups** of `left4dead2/cfg` and `left4dead2/addons`.
+  
+  ## Ports
+  - Game, query and RCON: 27015 (UDP + TCP).
+  - Steam master server: 27016 (UDP).
+  - All ports bind to the service IP.
+  
+  ## Instructions
+  - The player limit is 4 in the co-op modes and 8 in versus and scavenge. More players need a server mod.
+  - Set the difficulty with `z_difficulty` in `server.cfg` (Easy, Normal, Hard, Impossible).
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/550/7d5a243f9500d2f8467312822f8af2a2928777ed.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_2eae29fbdfe8e5e8999b96d8bb28c5db70507968.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Left 4 Dead 2 - Windows.json"
+    type: "GameConfig"
+  - path: "Left 4 Dead 2 - Linux.json"
+    type: "GameConfig"
