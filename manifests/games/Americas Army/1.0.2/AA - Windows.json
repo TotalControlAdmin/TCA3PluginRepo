@@ -1,0 +1,3932 @@
+{
+  "__TCA:ExportVersion": "3.23.47.17810",
+  "__TCA:ExportedAt": "2026-11-12T11:58:41.366798Z",
+  "name": "America's Army",
+  "shortName": "AA",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Americasarmy-logo.svg/1280px-Americasarmy-logo.svg.png",
+  "backgroundImage": "",
+  "minSlots": 0,
+  "maxSlots": 128,
+  "defaultSlots": 8,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "ams",
+    "rconProtocol": "",
+    "privateRule": "password",
+    "privateRuleValue": "1",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": false,
+    "outputSource": "LogFile",
+    "logFile": "",
+    "inputSource": "RconProtocol",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "",
+    "waitAfterStopCommand": 1000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 1716,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 1717,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "RConPort",
+        "port": 1718,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "system\\server.exe",
+    "relativeWorkingDirectory": "system\\",
+    "autoSetupFolderName": "aa",
+    "failOnMissingExecutable": false,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 0,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 0,
+    "extraParameters": "",
+    "steamUsername": "",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "global Tunnel.aao?multihome=${IPAddress}?port=${GamePort} -nohomedir",
+    "privateCustomCommandline": "${Map}?multihome=${IPAddress}?port=${GamePort} -nohomedir"
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "global Tunnel.aao?multihome=${IPAddress}?port=${GamePort} -nohomedir",
+    "defaultCustomCommandline": "${Map}?multihome=${IPAddress}?port=${GamePort} -nohomedir",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "global Tunnel.aao?multihome=${IPAddress}?port=${GamePort} -nohomedir"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "9f0a1599-d803-11f1-8d5f-00505654dd15",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "adminname1",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${adminname1}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [
+          "\""
+        ],
+        "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+        "inputType": 0,
+        "id": "adminname1",
+        "defaultValue": "",
+        "label": "Admin name",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:48.909003",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "adminemail1",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${adminemail1}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [
+          "\""
+        ],
+        "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+        "inputType": 0,
+        "id": "adminemail1",
+        "defaultValue": "",
+        "label": "Admin e-mail",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:49.940917",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "motd11",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${motd11}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [
+          "\""
+        ],
+        "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+        "inputType": 0,
+        "id": "motd11",
+        "defaultValue": "",
+        "label": "MOTD line 1",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:50.316451",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "motd21",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${motd21}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [
+          "\""
+        ],
+        "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+        "inputType": 0,
+        "id": "motd21",
+        "defaultValue": "",
+        "label": "MOTD line 2",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:50.685432",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "motd31",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${motd31}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [
+          "\""
+        ],
+        "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+        "inputType": 0,
+        "id": "motd31",
+        "defaultValue": "",
+        "label": "MOTD line 3",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:51.044716",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "playeradmin11",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${playeradmin11}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [
+          "\""
+        ],
+        "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+        "inputType": 0,
+        "id": "playeradmin11",
+        "defaultValue": "",
+        "label": "Player admin 1",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:51.422399",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "playeradmin21",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${playeradmin21}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [
+          "\""
+        ],
+        "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+        "inputType": 0,
+        "id": "playeradmin21",
+        "defaultValue": "",
+        "label": "Player admin 2",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:51.765891",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "playeradmin31",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${playeradmin31}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [
+          "\""
+        ],
+        "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+        "inputType": 0,
+        "id": "playeradmin31",
+        "defaultValue": "",
+        "label": "Player admin 3",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:52.126882",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "minhonor1",
+      "defaultValue": 0,
+      "required": true,
+      "requiredMessage": "Minimum honor is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${minhonor1}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "minhonor1",
+        "defaultValue": 0,
+        "label": "Minimum honor",
+        "description": "",
+        "required": true,
+        "requiredMessage": "Minimum honor is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:52.50776",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "maxhonor1",
+      "defaultValue": 100,
+      "required": true,
+      "requiredMessage": "Maximum honor is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${maxhonor1}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "maxhonor1",
+        "defaultValue": 100,
+        "label": "Maximum honor",
+        "description": "",
+        "required": true,
+        "requiredMessage": "Maximum honor is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:52.91012",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "cheats1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${cheats1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "cheats1",
+        "defaultValue": false,
+        "label": "Cheats enabled",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:53.278495",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "autobalance1",
+      "defaultValue": true,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${autobalance1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "autobalance1",
+        "defaultValue": true,
+        "label": "Players balance teams",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:53.653036",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "autobalancebetweenrounds1",
+      "defaultValue": true,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${autobalancebetweenrounds1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "autobalancebetweenrounds1",
+        "defaultValue": true,
+        "label": "Auto balance between rounds",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:54.01082",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "neverautobalance1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${neverautobalance1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "neverautobalance1",
+        "defaultValue": false,
+        "label": "Never auto balance",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:54.417078",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "votekickcooldown1",
+      "defaultValue": 300,
+      "required": true,
+      "requiredMessage": "Vote kick cooldown is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${votekickcooldown1}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 3600,
+        "id": "votekickcooldown1",
+        "defaultValue": 300,
+        "label": "Vote kick cooldown",
+        "description": "",
+        "required": true,
+        "requiredMessage": "Vote kick cooldown is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:54.805009",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "maxplayersperteam1",
+      "defaultValue": 14,
+      "required": true,
+      "requiredMessage": "Max players per team is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${maxplayersperteam1}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 32,
+        "id": "maxplayersperteam1",
+        "defaultValue": 14,
+        "label": "Max players per team",
+        "description": "",
+        "required": true,
+        "requiredMessage": "Max players per team is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:55.198037",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "minplayers1",
+      "defaultValue": 0,
+      "required": true,
+      "requiredMessage": "Min players to start is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${minplayers1}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 32,
+        "id": "minplayers1",
+        "defaultValue": 0,
+        "label": "Min players to start",
+        "description": "",
+        "required": true,
+        "requiredMessage": "Min players to start is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:55.585987",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "maxroe1",
+      "defaultValue": -300,
+      "required": true,
+      "requiredMessage": "ROE score limit is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${maxroe1}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": -10000,
+        "maxValue": 0,
+        "id": "maxroe1",
+        "defaultValue": -300,
+        "label": "ROE score limit",
+        "description": "",
+        "required": true,
+        "requiredMessage": "ROE score limit is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:55.925616",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "roundtimelimit1",
+      "defaultValue": 0,
+      "required": true,
+      "requiredMessage": "Round time limit (minutes, 0 = map default) is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${roundtimelimit1}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 120,
+        "id": "roundtimelimit1",
+        "defaultValue": 0,
+        "label": "Round time limit (minutes, 0 = map default)",
+        "description": "",
+        "required": true,
+        "requiredMessage": "Round time limit (minutes, 0 = map default) is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:56.34368",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "roundspermatch1",
+      "defaultValue": 10,
+      "required": true,
+      "requiredMessage": "Rounds per match is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${roundspermatch1}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 100,
+        "id": "roundspermatch1",
+        "defaultValue": 10,
+        "label": "Rounds per match",
+        "description": "",
+        "required": true,
+        "requiredMessage": "Rounds per match is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:56.733411",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "kickidlespectators1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${kickidlespectators1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "kickidlespectators1",
+        "defaultValue": false,
+        "label": "Kick idle spectators",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:57.086431",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "kickidleplayerstimed1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${kickidleplayerstimed1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "kickidleplayerstimed1",
+        "defaultValue": false,
+        "label": "Kick idle players after a time",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:57.436932",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "kickidleplayerstime1",
+      "defaultValue": 120,
+      "required": true,
+      "requiredMessage": "Idle player kick time (seconds) is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${kickidleplayerstime1}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 3600,
+        "id": "kickidleplayerstime1",
+        "defaultValue": 120,
+        "label": "Idle player kick time (seconds)",
+        "description": "",
+        "required": true,
+        "requiredMessage": "Idle player kick time (seconds) is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:57.808805",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "kickidleplayersround1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${kickidleplayersround1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "kickidleplayersround1",
+        "defaultValue": false,
+        "label": "Kick idle players after rounds",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:58.184531",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "kickidleplayersrounds1",
+      "defaultValue": 2,
+      "required": true,
+      "requiredMessage": "Idle player kick rounds is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${kickidleplayersrounds1}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "kickidleplayersrounds1",
+        "defaultValue": 2,
+        "label": "Idle player kick rounds",
+        "description": "",
+        "required": true,
+        "requiredMessage": "Idle player kick rounds is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:58.558717",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "spectateplayersonly1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${spectateplayersonly1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "spectateplayersonly1",
+        "defaultValue": false,
+        "label": "Spectate players only",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:58.903698",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "spectatefirstpersononly1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${spectatefirstpersononly1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "spectatefirstpersononly1",
+        "defaultValue": false,
+        "label": "Spectate first person only",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:59.306068",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "spectatefriendsonly1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${spectatefriendsonly1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "spectatefriendsonly1",
+        "defaultValue": false,
+        "label": "Spectate friends only",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:43:59.689663",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "hideammocount1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${hideammocount1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "hideammocount1",
+        "defaultValue": false,
+        "label": "Hide ammo count",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:44:00.068887",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "hideweaponstatus1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${hideweaponstatus1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "hideweaponstatus1",
+        "defaultValue": false,
+        "label": "Hide weapon status",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:44:00.413491",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "hideweapon1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${hideweapon1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "hideweapon1",
+        "defaultValue": false,
+        "label": "Hide weapon",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:44:00.821036",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "hidegrenades1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${hidegrenades1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "hidegrenades1",
+        "defaultValue": false,
+        "label": "Hide grenades",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:44:01.232864",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "hidemedical1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${hidemedical1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "hidemedical1",
+        "defaultValue": false,
+        "label": "Hide medical",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:44:01.586199",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "hidehealth1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${hidehealth1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "hidehealth1",
+        "defaultValue": false,
+        "label": "Hide health",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:44:02.001027",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "hidecombateffect1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${hidecombateffect1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "hidecombateffect1",
+        "defaultValue": false,
+        "label": "Hide combat effect",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:44:02.395344",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "hideoptics1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${hideoptics1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "hideoptics1",
+        "defaultValue": false,
+        "label": "Hide optics",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:44:02.755826",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "hidecompass1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${hidecompass1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "hidecompass1",
+        "defaultValue": false,
+        "label": "Hide compass",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:44:03.101475",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "hidetimer1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${hidetimer1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "hidetimer1",
+        "defaultValue": false,
+        "label": "Hide timer",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:44:03.516626",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "hideobjectives1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${hideobjectives1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "hideobjectives1",
+        "defaultValue": false,
+        "label": "Hide objectives",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:44:03.937414",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "hideradar1",
+      "defaultValue": false,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${hideradar1}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "hideradar1",
+        "defaultValue": false,
+        "label": "Hide radar",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:44:04.306604",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Map",
+      "defaultValue": "global Tunnel.aao",
+      "required": true,
+      "requiredMessage": "Map is required",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Map}",
+      "editor": {
+        "items": [
+          {
+            "text": "Bridge",
+            "value": "global Bridge.aao"
+          },
+          {
+            "text": "Bridge SE",
+            "value": "global Bridge_SE.aao"
+          },
+          {
+            "text": "Collapsed Tunnel",
+            "value": "global Tunnel.aao"
+          },
+          {
+            "text": "FLS Assault",
+            "value": "global FLS.aao"
+          },
+          {
+            "text": "Headquarters Raid",
+            "value": "global HQ_Raid.aao"
+          },
+          {
+            "text": "Insurgent Camp",
+            "value": "global Insurgent_Camp.aao"
+          },
+          {
+            "text": "JRTC Farm",
+            "value": "global JRTC_Farm.aao"
+          },
+          {
+            "text": "MOUT McKenna",
+            "value": "global MOUT_McKenna.aao"
+          },
+          {
+            "text": "Mountain Ambush",
+            "value": "global Mountain_Ambush.aao"
+          },
+          {
+            "text": "Mountain Pass",
+            "value": "global Mountain_Pass.aao"
+          },
+          {
+            "text": "Mountain Pass SE",
+            "value": "global Mountain_Pass_SE.aao"
+          },
+          {
+            "text": "Pipeline",
+            "value": "global Pipeline.aao"
+          },
+          {
+            "text": "Pipeline SF",
+            "value": "global Pipeline_SF.aao"
+          },
+          {
+            "text": "Radio Tower",
+            "value": "global Radio_Tower.aao"
+          },
+          {
+            "text": "River Basin",
+            "value": "global River_Basin.aao"
+          },
+          {
+            "text": "SF Arctic",
+            "value": "global SFarctic.aao"
+          },
+          {
+            "text": "SF Blizzard",
+            "value": "global SFblizzard.aao"
+          },
+          {
+            "text": "SF CSAR",
+            "value": "global SFcsar.aao"
+          },
+          {
+            "text": "SF Courtyard",
+            "value": "global SFCourtyard.aao"
+          },
+          {
+            "text": "SF Hospital",
+            "value": "global SFhospital.aao"
+          },
+          {
+            "text": "SF Oasis",
+            "value": "global SFoasis.aao"
+          },
+          {
+            "text": "SF PCR",
+            "value": "global SFPCR.aao"
+          },
+          {
+            "text": "SF Recon",
+            "value": "global SFrecon.aao"
+          },
+          {
+            "text": "SF Sandstorm",
+            "value": "global SFsandstorm.aao"
+          },
+          {
+            "text": "SF Taiga",
+            "value": "global SFtaiga.aao"
+          },
+          {
+            "text": "SF Village",
+            "value": "global SFvillage.aao"
+          },
+          {
+            "text": "SF Water Treatment",
+            "value": "global SFWaterTreatment.aao"
+          },
+          {
+            "text": "Swamp Raid",
+            "value": "global Swamp_Raid.aao"
+          },
+          {
+            "text": "Urban Assault",
+            "value": "global Urban_Assault.aao"
+          },
+          {
+            "text": "Weapons Cache",
+            "value": "global Weapons_Cache.aao"
+          },
+          {
+            "text": "Weapons Cache SE",
+            "value": "global Weapons_Cache_SE.aao"
+          },
+          {
+            "text": "Woodland Outpost",
+            "value": "global Woodland_Outpost.aao"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "Map",
+        "defaultValue": "global Tunnel.aao",
+        "label": "Map",
+        "description": "Map the server starts on (custom command lines).",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Map is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T11:44:04.650746",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:23:26.725258",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:23:28.11381",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:23:29.416855",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 71,
+      "relativePath": "system\\ArmyOps.ini",
+      "description": "Americas Army Server Configuration",
+      "template": "[URL]\nProtocol=armyops\nProtocolDescription=ArmyOps Protocol\nMapExt=aao\nPort=1716\n\n[Engine.Engine]\nNetworkDevice=IpDrv.TcpNetDriver\nGameEngine=Engine.GameEngine\nDefaultServerGame=AGP_Gameplay.AGP_GameTeamObjective\n\n[Core.System]\nPurgeCacheDays=30\nSavePath=../Save\nCachePath=../Cache\nCacheExt=.uxx\nPaths=../System/*.u\nPaths=../Maps/*.aao\nPaths=../Textures/*.utx\nPaths=../Sounds/*.uax\nPaths=../Music/*.umx\nPaths=../StaticMeshes/*.usx\nPaths=../Animations/*.ukx\nSuppress=DevLoad\nSuppress=DevSave\nSuppress=DevNetTraffic\nSuppress=DevGarbage\nSuppress=DevKill\nSuppress=DevReplace\nSuppress=DevCompile\nSuppress=DevBind\nSuppress=DevBsp\n\n[Engine.GameEngine]\nServerActors=IpDrv.GameSpyQR\nServerActors=IpDrv.SCIQR\nServerPackages=GamePlay\nServerPackages=AGP_Effects\nServerPackages=AGP_UI\nServerPackages=AGP\nServerPackages=AGP_Gameplay\nServerPackages=AGP_Characters\nServerPackages=AGP_AI\nServerPackages=AGP_Inventory\nServerPackages=AGP_Script\nServerPackages=AGP_Objects\n\n[IpDrv.TcpNetDriver]\nAllowDownloads=False\nConnectionTimeout=60.0\nInitialConnectTimeout=500.0\nAckTimeout=1.0\nKeepAliveTime=0.2\nMaxClientRate=20000\nSimLatency=0\nRelevantTimeout=5.0\nSpawnPrioritySeconds=1.0\nServerTravelPause=4.0\nNetServerMaxTickRate=20\nLanServerMaxTickRate=35\nDownloadManagers=IpDrv.HTTPDownload\nDownloadManagers=Engine.ChannelDownload\nAllowPlayerPortUnreach=False\nLogPortUnreach=False\nMaxConnPerIPPerMinute=5\nLogMaxConnPerIPPerMin=False\n\n[Engine.GameReplicationInfo]\nServerName=${Hostname}\nShortName=${Hostname}\nServerRegion=3\nAdminName=${adminname1}\nAdminEmail=${adminemail1}\nMessageOfTheDay=${motd11}\nRegion=3\nMOTDLine1=${motd11}\nMOTDLine2=${motd21}\nMOTDLine3=${motd31}\nMOTDLine4=\nbHUDHideAmmoCount=${hideammocount1}\nbHUDHideWeaponStatus=${hideweaponstatus1}\nbHUDHideWeapon=${hideweapon1}\nbHUDHideGrenades=${hidegrenades1}\nbHUDHideMedical=${hidemedical1}\nbHUDHideHealth=${hidehealth1}\nbHUDHideCombatEffect=${hidecombateffect1}\nbHUDHideOptics=${hideoptics1}\nbHUDHideCompass=${hidecompass1}\nbHUDHideTimer=${hidetimer1}\nbHUDHideObjectives=${hideobjectives1}\nbHUDHideRadar=${hideradar1}\n\n[Engine.AccessControl]\nAdminPassword=${RconPassword}\nGamePassword=${PrivatePassword}\nPlayerAdmin=${playeradmin11}\nPlayerAdmin=${playeradmin21}\nPlayerAdmin=${playeradmin31}\n\n[Engine.GameInfo]\nbLowGore=False\nbVeryLowGore=False\nbChangeLevels=False\nGoreLevel=0\nMaxSpectators=2\nMaxPlayers=${Slots}\nMaxAdmins=0\nAutoAim=0.930000\nbLocalLog=True\nbWorldLog=True\nGameDifficulty=1.000000\nGameSpeed=1.000000\nbChangeLevels=True\nbStartUpLocked=False\nbNoBots=False\nbAttractAlwaysFirstPerson=False\nNumMusicFiles=13\nbEnableStatLogging=false\nHUDType=Engine.Hud\nMaxLives=0\nTimeLimit=0\nGoalScore=0\n;GameStatsClass=IpDrv.MasterServerGameStats\n;SecurityClass=UnrealGame.UnrealSecurity\nAccessControlClass=Engine.AccessControl\n;VotingHandlerType=xVoting.xVotingHandler\nMaxIdleTime=+0.0\nServerSetting=AccessControl.AdminPassword\nServerSetting=AccessControl.GamePassword\nServerSetting=AGP_GameTeamObjective.MaxPlayers\nServerSetting=AGP_GameTeamObjective.MaxAdmins\nServerSetting=AGP_GameTeamObjective.ForceGameplay\nServerSetting=AGP_GameTeamObjective.bRequireAuthorization\nServerSetting=AGP_GameTeamObjective.bMPCheatsEnabled\nServerSetting=AGP_GameTeamObjective.MinHonor\nServerSetting=AGP_GameTeamObjective.MaxHonor\nServerSetting=AGP_GameTeam.bSpectatePlayersOnly\nServerSetting=AGP_GameTeam.bSpectateFriendsOnly\nServerSetting=AGP_GameTeamObjective.FFScoreLimit\nServerSetting=AGP_GameTeamObjective.MaxTeamSize\nServerSetting=AGP_GameTeamObjective.bPlayersBalanceTeams\nServerSetting=AGP_GameTeamObjective.bAutoBalanceBetweenRounds\nServerSetting=AGP_GameTeamObjective.MinNetPlayers\nServerSetting=AGP_GameTeamObjective.TimeLimit\nServerSetting=AGP_GameTeamObjective.bMustJoinBeforeStart\nServerSetting=AGP_GameTeamObjective.bSpectatePlayersOnly\nServerSetting=AGP_GameTeamObjective.bSpectateFirstPersonOnly\nServerSetting=AGP_GameTeamObjective.bSpectateFriendsOnly\nServerSetting=AGP_GameTeamObjective.RoundsPerMatch\nServerSetting=AGP_GameTeamObjective.MatchesBeforeCycle\nServerSetting=AGP_GameTeamObjective.bCycleMaps\nServerSetting=AGP_GameTeamObjective.bKickIdlePlayersTimed\nServerSetting=AGP_GameTeamObjective.bKickIdleSpectators\nServerSetting=AGP_GameTeamObjective.IdlePlayerKickTime\nServerSetting=AGP_GameTeamObjective.bKickIdlePlayersRounds\nServerSetting=AGP_GameTeamObjective.IdlePlayerKickRounds\nServerSetting=AGP_GameTeamObjective.bTournamentMode\n;ServerSetting=AGP_GameTeamObjective.TournamentWarmupTime\n;ServerSetting=AGP_GameTeamObjective.TournamentStartTime\n;ServerSetting=AGP_GameTeamObjective.bTournamentSLCanAddToTeam\n;ServerSetting=AGP_GameTeamObjective.bTournamentSLCanStartTournament\n;ServerSetting=AGP_GameTeamObjective.bTournamentSLCanStartWarmUp\n;ServerSetting=AGP_GameTeamObjective.bTournamentSLCanSetStartTime\n;ServerSetting=AGP_GameTeamObjective.bTournamentSLCanStartCountDown\n;ServerSetting=AGP_GameTeamObjective.bTournamentSLCanRestartTournament\nServerSetting=GameReplicationInfo.bHUDHideAmmoCount\nServerSetting=GameReplicationInfo.bHUDHideWeaponStatus\nServerSetting=GameReplicationInfo.bHUDHideWeapon\nServerSetting=GameReplicationInfo.bHUDHideGrenades\nServerSetting=GameReplicationInfo.bHUDHideHealth\nServerSetting=GameReplicationInfo.bHUDHideMedical\nServerSetting=GameReplicationInfo.bHUDHideCombatEffect\nServerSetting=GameReplicationInfo.bHUDHideOptics\nServerSetting=GameReplicationInfo.bHUDHideCompass\nServerSetting=GameReplicationInfo.bHUDHideTimer\nServerSetting=GameReplicationInfo.bHUDHideObjectives\nServerSetting=GameReplicationInfo.bHUDHideRadar\n\n[IpDrv.GameSpyQR]\n;(delete the ';' in front of 'IP=1.2.3.4' when setting your IP)\nIP=${IPAddress}\nbNAT=True\n\n[IpDrv.SCIQR]\n;(delete the ';' in front of 'IP=1.2.3.4' when setting your IP)\nIP=${IPAddress}\n\n[AGP_Gameplay.AGP_GameTeamObjective]\nMinHonor=${minhonor1}\nMaxHonor=${maxhonor1}\nbRequireAuthorization=true\nbMPCheatsEnabled=${cheats1}\nbPlayersBalanceTeams=${autobalance1}\nbAutoBalanceBetweenRounds=${autobalancebetweenrounds1}\nbNeverAutoBalance=${neverautobalance1}\nVoteKick_Cooldown=${votekickcooldown1}\nMaxTeamSize=${maxplayersperteam1}\nMinNetPlayers=${minplayers1}\nFFScoreLimit=${maxroe1}\nTimeLimit=${roundtimelimit1}\nbKickIdleSpectators=${kickidlespectators1}\nbKickIdlePlayersTimed=${kickidleplayerstimed1}\t\nIdlePlayerKickTime=${kickidleplayerstime1}\nbKickIdlePlayersRounds=${kickidleplayersround1}\nIdlePlayerKickRounds=${kickidleplayersrounds1}\nbSpectatePlayersOnly=${spectateplayersonly1}\nbSpectateFirstPersonOnly=${spectatefirstpersononly1}\nbSpectateFriendsOnly=${spectatefriendsonly1}\nForceGameplay=FORCE_Normal\nRoundsPerMatch=${roundspermatch1}\nMatchesBeforeCycle=1\nbCycleMaps=false\nInitialWarmupTime=0\n\n[AGP_Gameplay.AGP_MapList]\nMaps[1]=Weapon_Cache.aao\n\n[AGP.AGP_GameInfo]\nMaxAuthConnections=1",
+      "order": 0,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_1",
+          "defaultValue": null,
+          "label": "Server Configuration",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": null,
+          "label": "Server name",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [
+            "\""
+          ],
+          "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+          "inputType": 0,
+          "id": "adminname1",
+          "defaultValue": "",
+          "label": "Admin name",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [
+            "\""
+          ],
+          "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+          "inputType": 0,
+          "id": "adminemail1",
+          "defaultValue": "",
+          "label": "Admin e-mail",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_2",
+          "defaultValue": null,
+          "label": "Message of the Day",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [
+            "\""
+          ],
+          "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+          "inputType": 0,
+          "id": "motd11",
+          "defaultValue": "",
+          "label": "MOTD line 1",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [
+            "\""
+          ],
+          "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+          "inputType": 0,
+          "id": "motd21",
+          "defaultValue": "",
+          "label": "MOTD line 2",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [
+            "\""
+          ],
+          "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+          "inputType": 0,
+          "id": "motd31",
+          "defaultValue": "",
+          "label": "MOTD line 3",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_3",
+          "defaultValue": null,
+          "label": "Password Settings",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "RconPassword",
+          "defaultValue": null,
+          "label": "Admin password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": null,
+          "label": "Game password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_4",
+          "defaultValue": null,
+          "label": "Player Admins (Can play while logged in as an administrator)",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [
+            "\""
+          ],
+          "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+          "inputType": 0,
+          "id": "playeradmin11",
+          "defaultValue": "",
+          "label": "Player admin 1",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [
+            "\""
+          ],
+          "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+          "inputType": 0,
+          "id": "playeradmin21",
+          "defaultValue": "",
+          "label": "Player admin 2",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [
+            "\""
+          ],
+          "regExValidation": "^[^\\x00-\\x1f\\x7f\"]*$",
+          "inputType": 0,
+          "id": "playeradmin31",
+          "defaultValue": "",
+          "label": "Player admin 3",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_5",
+          "defaultValue": null,
+          "label": "Gameplay Settings",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "minhonor1",
+          "defaultValue": "0",
+          "label": "Minimum honor",
+          "description": "",
+          "required": true,
+          "requiredMessage": "Minimum honor is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "maxhonor1",
+          "defaultValue": "100",
+          "label": "Maximum honor",
+          "description": "",
+          "required": true,
+          "requiredMessage": "Maximum honor is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "cheats1",
+          "defaultValue": "False",
+          "label": "Cheats enabled",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "autobalance1",
+          "defaultValue": "True",
+          "label": "Players balance teams",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "autobalancebetweenrounds1",
+          "defaultValue": "True",
+          "label": "Auto balance between rounds",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "neverautobalance1",
+          "defaultValue": "False",
+          "label": "Never auto balance",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 3600,
+          "id": "votekickcooldown1",
+          "defaultValue": "300",
+          "label": "Vote kick cooldown",
+          "description": "",
+          "required": true,
+          "requiredMessage": "Vote kick cooldown is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 32,
+          "id": "maxplayersperteam1",
+          "defaultValue": "14",
+          "label": "Max players per team",
+          "description": "",
+          "required": true,
+          "requiredMessage": "Max players per team is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 32,
+          "id": "minplayers1",
+          "defaultValue": "0",
+          "label": "Min players to start",
+          "description": "",
+          "required": true,
+          "requiredMessage": "Min players to start is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": -10000,
+          "maxValue": 0,
+          "id": "maxroe1",
+          "defaultValue": "-300",
+          "label": "ROE score limit",
+          "description": "",
+          "required": true,
+          "requiredMessage": "ROE score limit is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 120,
+          "id": "roundtimelimit1",
+          "defaultValue": "0",
+          "label": "Round time limit (minutes, 0 = map default)",
+          "description": "",
+          "required": true,
+          "requiredMessage": "Round time limit (minutes, 0 = map default) is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 100,
+          "id": "roundspermatch1",
+          "defaultValue": "10",
+          "label": "Rounds per match",
+          "description": "",
+          "required": true,
+          "requiredMessage": "Rounds per match is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "kickidlespectators1",
+          "defaultValue": "False",
+          "label": "Kick idle spectators",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "kickidleplayerstimed1",
+          "defaultValue": "False",
+          "label": "Kick idle players after a time",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 3600,
+          "id": "kickidleplayerstime1",
+          "defaultValue": "120",
+          "label": "Idle player kick time (seconds)",
+          "description": "",
+          "required": true,
+          "requiredMessage": "Idle player kick time (seconds) is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "kickidleplayersround1",
+          "defaultValue": "False",
+          "label": "Kick idle players after rounds",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "kickidleplayersrounds1",
+          "defaultValue": "2",
+          "label": "Idle player kick rounds",
+          "description": "",
+          "required": true,
+          "requiredMessage": "Idle player kick rounds is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "spectateplayersonly1",
+          "defaultValue": "False",
+          "label": "Spectate players only",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "spectatefirstpersononly1",
+          "defaultValue": "False",
+          "label": "Spectate first person only",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "spectatefriendsonly1",
+          "defaultValue": "False",
+          "label": "Spectate friends only",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_6",
+          "defaultValue": null,
+          "label": "Hud Settings",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "hideammocount1",
+          "defaultValue": "False",
+          "label": "Hide ammo count",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "hideweaponstatus1",
+          "defaultValue": "False",
+          "label": "Hide weapon status",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "hideweapon1",
+          "defaultValue": "False",
+          "label": "Hide weapon",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "hidegrenades1",
+          "defaultValue": "False",
+          "label": "Hide grenades",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "hidemedical1",
+          "defaultValue": "False",
+          "label": "Hide medical",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "hidehealth1",
+          "defaultValue": "False",
+          "label": "Hide health",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "hidecombateffect1",
+          "defaultValue": "False",
+          "label": "Hide combat effect",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "hideoptics1",
+          "defaultValue": "False",
+          "label": "Hide optics",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "hidecompass1",
+          "defaultValue": "False",
+          "label": "Hide compass",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "hidetimer1",
+          "defaultValue": "False",
+          "label": "Hide timer",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "hideobjectives1",
+          "defaultValue": "False",
+          "label": "Hide objectives",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "hideradar1",
+          "defaultValue": "False",
+          "label": "Hide radar",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-04-17T02:56:38.965006",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Incremental",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": false,
+    "includedPaths": [
+      "system/*.ini",
+      "pb/**/*.cfg",
+      "pb/**/*.dat",
+      "pb/**/*.use"
+    ],
+    "maxBackupCount": 5,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Variables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Steam",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Scripts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "RunAs",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "RconAndQuery",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Paths",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Monitoring",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Limits",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "IpAndPorts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "GeneralSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "FileSystem",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "FeaturePermissions",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "EnvironmentVariables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "CustomLinks",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Cmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpEditFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Variables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Steam",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Scripts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "RunAs",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "RconAndQuery",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Paths",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Monitoring",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Limits",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "IpAndPorts",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "GeneralSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FileSystem",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FeaturePermissions",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "EnvironmentVariables",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "CustomLinks",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Cmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpEditFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": false,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "Disable",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": false,
+    "slotDetectionAction": "None",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": false,
+    "privateDetectionAction": "None",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": false,
+    "brandDetectionAction": "None",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": true,
+    "brandedTextAddSpace": true,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": true,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": false,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": []
+  },
+  "environmentVariables": []
+}
