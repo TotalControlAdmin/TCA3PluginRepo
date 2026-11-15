@@ -1,0 +1,2243 @@
+{
+  "__TCA:ExportVersion": "3.23.42",
+  "__TCA:ExportedAt": "2026-11-10T02:31:06.1396437Z",
+  "name": "Dayz Stand Alone",
+  "shortName": "dayzsa",
+  "description": "",
+  "operatingSystem": "Linux",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/221100/16a985dfee9b093d76a0ffc4cf4c77ba20c2eb0d.jpg",
+  "backgroundImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/221100/ss_8280fd5f119096bcdda930bc4d0bb6c80abe7358.1920x1080.jpg",
+  "minSlots": 8,
+  "maxSlots": 200,
+  "defaultSlots": 32,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "battleye",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "LogFile",
+    "logFile": "instance/*.RPT",
+    "inputSource": "RconProtocol",
+    "printRconResponse": true,
+    "outputFilters": "",
+    "stopCommand": "",
+    "waitAfterStopCommand": 30000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": true,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 2302,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 2303,
+        "expression": "GamePort + 1",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "RConPort",
+        "port": 2305,
+        "expression": "GamePort + 3",
+        "description": null,
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "DayZServer",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "dayz-linux",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 223350,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 221100,
+    "extraParameters": "",
+    "steamUsername": "STEAM_ACCOUNT_REQUIRED",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "-ip=${IPAddress} -port=${GamePort} \"-mod=${Mods}\" \"-servermod=${ServerMods}\" -config=serverDZ.cfg -bepath=${RootDirectory}/battleye -profiles=${RootDirectory}/instance -autoinit -noFilePatching",
+    "defaultCustomCommandline": "",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Stock",
+        "commandLine": "-ip=${IPAddress} -port=${GamePort} \"-mod=${Mods}\" \"-servermod=${ServerMods}\" -config=serverDZ.cfg -bepath=${RootDirectory}/battleye -profiles=${RootDirectory}/instance -autoinit -noFilePatching"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "211cefcd-67f1-462b-a940-57bccd42531f",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "disable3rdPerson",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${disable3rdPerson}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "disable3rdPerson",
+        "defaultValue": "0",
+        "label": "Disable 3rd Person",
+        "description": "turn on/off 3rd person view for players on the particular server instance (value 0-1)",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.087006",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "disableCrosshair",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${disableCrosshair}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "disableCrosshair",
+        "defaultValue": "0",
+        "label": "disable Crosshair",
+        "description": "turn on/off cross-hair on the particular server instance (value 0-1)",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.087446",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "enableDebugMonitor",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${enableDebugMonitor}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "enableDebugMonitor",
+        "defaultValue": "0",
+        "label": "Enable Debug Monitor",
+        "description": "shows info about the character using a debug window in a corner of the screen (value 0-1)",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.087536",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "instanceId",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${instanceId}",
+      "editor": {
+        "decimals": 2,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 65535,
+        "id": "instanceId",
+        "defaultValue": "1",
+        "label": "instance Id",
+        "description": "DayZ server instance id to identify number of instances per box and their storage folders with persistence files",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.088211",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "maxPing",
+      "defaultValue": "200",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${maxPing}",
+      "editor": {
+        "decimals": 2,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 100,
+        "maxValue": 900,
+        "id": "maxPing",
+        "defaultValue": "200",
+        "label": "Max Ping",
+        "description": "Max ping value until server kick the user (value in milliseconds)",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.088396",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Mods",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Mods}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "Mods",
+        "defaultValue": "",
+        "label": "",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.088684",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "motd1",
+      "defaultValue": "welcome to the server",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${motd1}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "motd1",
+        "defaultValue": "welcome to the server",
+        "label": "Message of the day 1",
+        "description": "Message of the day displayed in the in-game chat",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.088815",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "motd2",
+      "defaultValue": "no cheaters allowed",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${motd2}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "motd2",
+        "defaultValue": "no cheaters allowed",
+        "label": "Message of the day 2",
+        "description": "Message of the day displayed in the in-game chat",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.088925",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "motdInterval",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${motdInterval}",
+      "editor": {
+        "decimals": 2,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 240,
+        "id": "motdInterval",
+        "defaultValue": "1",
+        "label": "motdInterval",
+        "description": "Time interval (in seconds) between each message",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.089043",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "respawnTime",
+      "defaultValue": "5",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${respawnTime}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 5,
+        "maxValue": 120,
+        "id": "respawnTime",
+        "defaultValue": "5",
+        "label": "respawn Time",
+        "description": "Sets the respawn delay (in seconds) before the player is able to get a new character on the server when the previous one is dead",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.089159",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ServerMods",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ServerMods}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "ServerMods",
+        "defaultValue": "",
+        "label": "",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.089276",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "servertime",
+      "defaultValue": "SystemTime",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${servertime}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "servertime",
+        "defaultValue": "SystemTime",
+        "label": "Server Start Time",
+        "description": "Initial in-game time of the server. SystemTime uses the machine's local time; or set a fixed time as YYYY/M/D/H/M, e.g. 2015/4/8/17/23",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.089378",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "serverTimeAcceleration",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${serverTimeAcceleration}",
+      "editor": {
+        "decimals": 2,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 24,
+        "id": "serverTimeAcceleration",
+        "defaultValue": "1",
+        "label": "server Time Acceleration",
+        "description": "his is a time multiplier for in-game time. In this case time would move 24 times faster than normal, an entire day would pass in one hour.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.089485",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "serverTimePersistent",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${serverTimePersistent}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "serverTimePersistent",
+        "defaultValue": "1",
+        "label": "server Time Persistent",
+        "description": " Actual server time is saved to storage, so when active, next server start will use saved time value.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-09-02T18:17:54.089587",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:19:18.260041",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\; \\t]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, spaces, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:19:20.568427",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:19:21.841967",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 385,
+      "relativePath": "battleye/beserver_x64.cfg",
+      "description": "Rcon Info",
+      "template": "RConPassword ${RconPassword}\nRconport ${RConPort}\nRestrictRCon 0",
+      "order": 0,
+      "enableEditor": false,
+      "editor": [
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "RconPassword",
+          "defaultValue": null,
+          "label": "RCON Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 386,
+      "relativePath": "serverDZ.cfg",
+      "description": "Main configuration file",
+      "template": "steamQueryPort = ${QueryPort};\nhostname = \"${Hostname}\";         // Server name\npassword = \"${PrivatePassword}\";         // Password for connection to the server\npasswordAdmin = \"${RconPassword}\";         // Password to become server admin  \n \n \nmaxPlayers = ${Slots};         // Maximum amount of players\n \n \nverifySignatures = 2;         // Verifies .pbos against .bisign files. (use only 2)\nforceSameBuild = 1;         // Server will allow connection only to clients with same exe revision as server when active (value 0-1)\n \n \ndisableVoN = 0;         // Enable/disable voice over network (value 0-1)\nvonCodecQuality = 7;    // Voice over network codec quality (values 0-30)\n\n \ndisable3rdPerson=${disable3rdPerson};         //turn on/off 3rd person view for players on the particular server instance (value 0-1)\ndisableCrosshair=${disableCrosshair};         //turn on/off cross-hair on the particular server instance (value 0-1)\n \n \nserverTime=\"${servertime}\";         // Server Start Time         // Initial ingame time of server. \"SystemTime\" means local time of machine. Another possibility is to set the time to some value in \"YYYY/MM/DD/HH/MM\" format, f.e. \"2015/4/8/17/23\" .\nserverTimeAcceleration=${serverTimeAcceleration};         // Accelerated Time (value 0-24)        // This is a time multiplier for in-game time. In this case time would move 24 times faster than normal, an entire day would pass in one hour.\nserverTimePersistent=${serverTimePersistent};         // Persistent Time (value 0-1)        // Actual server time is saved to storage, so when active, next server start will use saved time value.\n \n \nguaranteedUpdates=1;         // Communication protocol used with game server (use only number 1) \n \n \nloginQueueConcurrentPlayers=5;         // Number of players concurrently processed during login process. Should prevent massive performance drop during connection when a lot of people are connecting in the same time.   \nloginQueueMaxPlayers=500;         // Maximum number of players that can wait in login queue\n \nrespawnTime = ${respawnTime};            // Sets the respawn delay (in seconds) before the player is able to get a new character on the server when the previous one is dead\n \nmotd[] = {\"${motd1}\",\"${motd2}\"}; // Message of the day displayed in the in-game chat\nmotdInterval = ${motdInterval};           // Time interval (in seconds) between each message\n \nmaxPing= ${maxPing};               // Max ping value until server kick the user (value in milliseconds)\n \ntimeStampFormat = \"Short\";  // Format for timestamps in the .rpt file (value Full/Short)\nlogAverageFps = 1;          // Logs the average server FPS (value in seconds), needs to have -dologs launch parameter active\nlogMemory = 1;              // Logs the server memory usage (value in seconds), needs to have the -dologs launch parameter active\nlogPlayers = 1;             // Logs the count of currently connected players (value in seconds), needs to have the -dologs launch parameter active\nlogFile = \"server_console.log\";// Saves the server console log to a file in the folder with the other server logs\n \nenableDebugMonitor = ${enableDebugMonitor};     //shows info about the character using a debug window in a corner of the screen (value 0-1)\n\n\ninstanceId = ${instanceId};         // DayZ server instance id to identify number of instances per box and their storage folders with persistence files\nlootHistory = 1;         // how many persistence history files should been kept by instance, number is looped over during save\nstoreHouseStateDisabled = false;          // Disable houses/doors persistence (value true/false), usable in case of problems with persistence\nstorageAutoFix = 1;         // Checks if persistence files are corrupted and replaces corrupted ones with empty ones (value 0-1)\n \n \nclass Missions\n{\n    class DayZ\n    {\n        template=\"dayzOffline.chernarusplus\";        //used mission         //first part is mission name, second part is used map\n    };\n};",
+      "order": 0,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_1",
+          "defaultValue": null,
+          "label": "=====================================================================",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_2",
+          "defaultValue": null,
+          "label": "DayZ Standalone Configuration Editor",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_3",
+          "defaultValue": null,
+          "label": "=====================================================================",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": null,
+          "label": "Hostname",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_5",
+          "defaultValue": null,
+          "label": "/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "disable3rdPerson",
+          "defaultValue": "0",
+          "label": "Disable 3rd Person",
+          "description": "turn on/off 3rd person view for players on the particular server instance (value 0-1)",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_7",
+          "defaultValue": null,
+          "label": "/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "disableCrosshair",
+          "defaultValue": "0",
+          "label": "disable Crosshair",
+          "description": "turn on/off cross-hair on the particular server instance (value 0-1)",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_9",
+          "defaultValue": null,
+          "label": "/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "enableDebugMonitor",
+          "defaultValue": "0",
+          "label": "Enable Debug Monitor",
+          "description": "shows info about the character using a debug window in a corner of the screen (value 0-1)",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_11",
+          "defaultValue": null,
+          "label": "/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 100,
+          "maxValue": 900,
+          "id": "maxPing",
+          "defaultValue": "200",
+          "label": "Max Ping",
+          "description": "Max ping value until server kick the user (value in milliseconds)",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_13",
+          "defaultValue": null,
+          "label": "/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "motd1",
+          "defaultValue": "welcome to the server",
+          "label": "Message of the day 1",
+          "description": "Message of the day displayed in the in-game chat",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_15",
+          "defaultValue": null,
+          "label": "/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "motd2",
+          "defaultValue": "no cheaters allowed",
+          "label": "Message of the day 2",
+          "description": "Message of the day displayed in the in-game chat",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_17",
+          "defaultValue": null,
+          "label": "/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 240,
+          "id": "motdInterval",
+          "defaultValue": "1",
+          "label": "motdInterval",
+          "description": "Time interval (in seconds) between each message",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_19",
+          "defaultValue": null,
+          "label": "/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "servertime",
+          "defaultValue": "SystemTime",
+          "label": "Server Start Time",
+          "description": "Initial in-game time. \"SystemTime\" uses the machine's clock; or a date as YYYY/MM/DD/HH/MM.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 5,
+          "maxValue": 120,
+          "id": "respawnTime",
+          "defaultValue": "5",
+          "label": "Respawn Time",
+          "description": "Sets the respawn delay (in seconds) before the player is able to get a new character on the server when the previous one is dead",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_21",
+          "defaultValue": null,
+          "label": "/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 24,
+          "id": "serverTimeAcceleration",
+          "defaultValue": "1",
+          "label": "server Time Acceleration",
+          "description": "his is a time multiplier for in-game time. In this case time would move 24 times faster than normal, an entire day would pass in one hour.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_23",
+          "defaultValue": null,
+          "label": "/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "serverTimePersistent",
+          "defaultValue": "1",
+          "label": "server Time Persistent",
+          "description": " Actual server time is saved to storage, so when active, next server start will use saved time value.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_25",
+          "defaultValue": null,
+          "label": "/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 65535,
+          "id": "instanceId",
+          "defaultValue": "1",
+          "label": "instance Id",
+          "description": "DayZ server instance id to identify number of instances per box and their storage folders with persistence files",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_27",
+          "defaultValue": null,
+          "label": "/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceIcon"
+        ],
+        "name": "Remove Persistance Files",
+        "description": "Remove The Server Persistence Files ",
+        "code": "using System;\nusing System.Globalization;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Deletes the Chernarus mission's persistence folder (storage_<instanceId>), the same folder the Windows\n// batch version removes. The server recreates it, with a fresh world state, on its next start.\nstring raw = ThisService.Variables?.Parse<string>(\"instanceId\", \"1\") ?? \"1\";\nint instanceId = double.TryParse(raw, NumberStyles.Float, CultureInfo.InvariantCulture, out var parsed) && parsed >= 1\n    ? (int)parsed\n    : 1;\n\nstring storage = Path.Combine(ThisService.RootDirectory, \"mpmissions\", \"dayzOffline.chernarusplus\", $\"storage_{instanceId}\");\nif (Directory.Exists(storage))\n{\n    Directory.Delete(storage, true);\n    ScriptConsole.WriteLine($\"Deleted {storage}.\");\n}\nelse\n{\n    ScriptConsole.WriteLine($\"Nothing to delete: {storage} does not exist.\");\n}\n",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 2
+          },
+          {
+            "roleId": 3
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "e58e9ad7-72ae-432a-a0a2-6840ccdd17d1"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "AfterCustomModInstalled"
+        ],
+        "name": "After Workshop Content Installed",
+        "description": "After Workshop Content Installed",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring fileTitle = Convert.ToString(Globals.Dynamic.FileTitle) ?? string.Empty;\nstring fileId = Convert.ToString(Globals.Dynamic.FileId) ?? string.Empty;\nstring installPath = Convert.ToString(Globals.Dynamic.InstallPath) ?? string.Empty;\nvar tagsArray = Globals.Dynamic.TagsArray as IEnumerable<string>;\n\n// Keep only the characters the mod folder name may contain, collapse double spaces, then use \"_\" as the\n// word separator. Falls back to the file id when the provider gave us no title.\nstring modName = fileTitle.Length != 0\n    ? Regex.Replace(fileTitle, @\"[^a-zA-Z0-9 \\]\\[_'+-]\", string.Empty)\n        .Replace(\"  \", \" \").Replace(\" \", \"_\").Trim()\n    : fileId;\n\n// DayZ on Linux opens mod folders and files case-sensitively, with lowercase names (Windows doesn't care).\n// Use a lowercase folder name there; the uninstall script must build the same name.\nif (!System.OperatingSystem.IsWindows())\n    modName = modName.ToLowerInvariant();\n\n// Tags are only populated when the custom mod provider is configured to use the Steam API. No tags means\n// no \"Server\" tag, so the mod is registered as a client mod - the same fallback the V2 script had.\nbool isServer = tagsArray != null && tagsArray.Contains(\"Server\");\n\n// 1) Move the downloaded workshop folder to the \"@ModName\" location the game expects.\nstring modFolder = Path.Combine(ThisService.RootDirectory, $\"@{modName}\");\nif (Directory.Exists(modFolder))\n    Directory.Delete(modFolder, true);\nDirectory.Move(installPath, modFolder);\n\n// On Linux, lowercase every file and folder inside the mod, deepest first so a parent rename never\n// invalidates a child path still to be visited. A name differing only in case is renamed via a temporary\n// name, since a case-only Move is a no-op on case-insensitive file systems.\nif (!System.OperatingSystem.IsWindows())\n{\n    void Rename(string path, bool isDirectory)\n    {\n        string name = Path.GetFileName(path);\n        string lower = name.ToLowerInvariant();\n        if (name == lower)\n            return;\n        string target = Path.Combine(Path.GetDirectoryName(path)!, lower);\n        if (isDirectory)\n        {\n            if (Directory.Exists(target))\n            {\n                // Merge into an existing lowercase folder of the same name.\n                foreach (string child in Directory.GetFileSystemEntries(path))\n                {\n                    string dest = Path.Combine(target, Path.GetFileName(child));\n                    if (Directory.Exists(child)) Directory.Move(child, dest);\n                    else File.Move(child, dest, true);\n                }\n                Directory.Delete(path, true);\n            }\n            else\n            {\n                Directory.Move(path, target);\n            }\n        }\n        else\n        {\n            File.Move(path, target, true);\n        }\n    }\n\n    foreach (string file in Directory.GetFiles(modFolder, \"*\", SearchOption.AllDirectories))\n        Rename(file, false);\n    foreach (string dir in Directory.GetDirectories(modFolder, \"*\", SearchOption.AllDirectories)\n                 .OrderByDescending(d => d.Length))\n        Rename(dir, true);\n}\n\n// 2) Copy every key the mod ships (*.bikey, wherever it keeps them) into the service's root \"keys\" folder so\n//    the server accepts the signed content.\nstring rootKeys = Path.Combine(ThisService.RootDirectory, \"keys\");\nDirectory.CreateDirectory(rootKeys);\nforeach (string file in Directory.GetFiles(modFolder, \"*.bikey\", SearchOption.AllDirectories))\n    File.Copy(file, Path.Combine(rootKeys, Path.GetFileName(file)), true);\n\n// 3) Only once the files are in place, register the mod in the service's variables - a failed move must not\n//    leave a mod listed that is not on disk. ThisService belongs to the task handler's DbContext, so load\n//    the row tracked in THIS script's scope before editing it.\nvar service = await GameServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null)\n{\n    ScriptConsole.WriteLine($\"[err] Service {ThisService.ServiceId} not found. '@{modName}' was installed but not registered.\");\n    return;\n}\n\nvar currentVariables = service.Variables ?? new TCAdminVars();\nstring serverMods = currentVariables.Parse<string>(\"ServerMods\", string.Empty) ?? string.Empty;\nstring mods = currentVariables.Parse<string>(\"Mods\", string.Empty) ?? string.Empty;\n\nvar updatedVariables = new TCAdminVars();\nforeach (var pair in currentVariables)\n    updatedVariables[pair.Key] = pair.Value;\n\nif (isServer)\n    updatedVariables[\"ServerMods\"] = $\"@{modName};{serverMods}\";\nelse\n    updatedVariables[\"Mods\"] = $\"@{modName};{mods}\";\n\n// Service.Variables is a JSON column with no value comparer, so change tracking sees neither an in-place\n// edit nor a reassignment - force the row Modified or the write is silently dropped.\nservice.Variables = updatedVariables;\nGameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\nawait GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n\n// 4) The V2 equivalent of ThisService.Configure(): rebuild the parsed command line so the new mod reaches\n//    the launch arguments. The monitor starts Service.Commandline verbatim with no re-parse, so without\n//    this the mod is installed but never loaded.\nvar refresh = await ServiceManager.RefreshActiveCommandLine(null, service);\nif (refresh.Error != null)\n    ScriptConsole.WriteLine($\"[warn] Command line refresh failed: {refresh.Error}\");\n\nScriptConsole.WriteLine($\"Installed '@{modName}' and added it to {(isServer ? \"ServerMods\" : \"Mods\")}.\");\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "3354cdaa-2c3e-4510-b0cf-e2117e0fb9dd"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "AfterCustomModUninstalled"
+        ],
+        "name": "After Workshop Content Uninstalled",
+        "description": "After Workshop Content Uninstalled",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, TCAdmin.Web.Shared.dll\nusing System;\nusing System.IO;\nusing System.Text;\nusing System.Text.RegularExpressions;\nusing Microsoft.EntityFrameworkCore;\nusing TCAdmin.Web.Shared.Models;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Must produce exactly the same name the install script built, or the folder and the mod-list entry are\n// both left behind.\nstring fileTitle = Convert.ToString(Dynamic.FileTitle) ?? string.Empty;\nstring modName;\n\nif (fileTitle.Length != 0)\n{\n    var builder = new StringBuilder();\n    foreach (char character in fileTitle)\n    {\n        builder.Append(Regex.IsMatch(character.ToString(), @\"[a-zA-Z0-9 \\]\\[_\\'+-]\") ? character : '\\0');\n    }\n\n    modName = builder.ToString().Replace(\"\\0\", string.Empty);\n    modName = modName.Replace(\"  \", \" \").Replace(\" \", \"_\").Trim();\n}\nelse\n{\n    modName = Convert.ToString(Dynamic.FileId) ?? string.Empty;\n}\n\n// The install script lowercases the folder name on Linux (DayZ there reads mod names case-sensitively).\nif (!System.OperatingSystem.IsWindows())\n{\n    modName = modName.ToLowerInvariant();\n}\n\n// ThisService belongs to the task handler's scope, so load the row tracked in THIS script's scope.\nvar service = await GameServiceManager.GetAsync(ThisService.ServiceId);\nif (service == null)\n{\n    ScriptConsole.WriteLine($\"Service {ThisService.ServiceId} no longer exists.\");\n    return;\n}\n\n// Strip the entry from both lists - the tags that decided which one it went into are not reliably\n// available at uninstall time.\nvar currentVariables = service.Variables ?? new TCAdminVars();\nstring serverMods = currentVariables.Parse<string>(\"ServerMods\", string.Empty) ?? string.Empty;\nstring mods = currentVariables.Parse<string>(\"Mods\", string.Empty) ?? string.Empty;\n\nvar updatedVariables = new TCAdminVars();\nforeach (var pair in currentVariables)\n{\n    updatedVariables[pair.Key] = pair.Value;\n}\n\nupdatedVariables[\"ServerMods\"] = serverMods.Replace($\"@{modName};\", string.Empty);\nupdatedVariables[\"Mods\"] = mods.Replace($\"@{modName};\", string.Empty);\nservice.Variables = updatedVariables;\n\n// The uninstall handler already removed the files it tracked at install time; this clears anything the\n// game itself wrote inside the mod folder afterwards.\nstring modFolder = Path.Combine(ThisService.RootDirectory, $\"@{modName}\");\nif (Directory.Exists(modFolder))\n{\n    Directory.Delete(modFolder, true);\n}\n\n// Persist only once the folder is gone, the way V2's trailing ThisService.Save() did. Service.Variables is\n// a JSON column with no value comparer, so the forced state is what makes the write happen at all.\nGameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\nawait GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n\n// V2's ThisService.Configure(): rebuild the launch arguments so the removed mod stops being passed.\nvar refresh = await ServiceManager.RefreshActiveCommandLine(null, service);\nif (refresh.Error != null)\n{\n    ScriptConsole.WriteLine($\"[warn] Command line refresh failed: {refresh.Error}\");\n}\n\nScriptConsole.WriteLine($\"Removed '@{modName}' from the service's mod list.\");\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "6368a0f2-70a7-46dd-923c-319ed917f583"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "Batch",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server binary, Steam client library and mission files",
+        "description": "Prepare the server binary, Steam client library and mission files",
+        "code": "chmod +x DayZServer 2>/dev/null\n# The server loads the Steam client library from ~/.steam/sdk64; the depot ships it at the root.\nmkdir -p .steam/sdk64\nif [ -f steamclient.so ]; then cp -f steamclient.so .steam/sdk64/steamclient.so; fi\n# A Steam account that doesn't own DayZ gets no mission files (depot 223354). Fetch Bohemia's vanilla\n# missions from github.com/BohemiaInteractive/DayZ-Central-Economy the first time they are missing.\nif [ -z \"$(ls -A mpmissions 2>/dev/null)\" ]; then\n  echo \"mpmissions is empty - downloading the vanilla missions from BohemiaInteractive/DayZ-Central-Economy...\"\n  mkdir -p mpmissions\n  url=$(curl -fsSL https://api.github.com/repos/BohemiaInteractive/DayZ-Central-Economy/releases/latest | grep -m1 '\"tarball_url\"' | cut -d'\"' -f4)\n  if [ -n \"$url\" ] && curl -fsSL -o mpmissions/.missions.tar.gz \"$url\"; then\n    tar -xzf mpmissions/.missions.tar.gz -C mpmissions --strip-components=1 --wildcards '*/dayzOffline.*'\n    echo \"Installed: $(ls mpmissions | tr '\\n' ' ')\"\n  else\n    echo \"Could not download the mission files. Upload them to mpmissions/ by hand.\"\n  fi\n  rm -f mpmissions/.missions.tar.gz\nfi\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": null,
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "194a3189-b830-4d38-b26c-a333799ff298"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStopped"
+        ],
+        "name": "Graceful stop",
+        "description": "Asks the server to shut down (taskkill without /f on Windows, SIGTERM on Linux), which saves the persistence, and waits until it has exited.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Graceful stop for DayZ: the server saves its persistence and exits on a normal termination request\n// (taskkill without /f on Windows, SIGTERM on Linux) and writes \"--- Termination successfully completed ---\"\n// to its .rpt log when done. Wait until the process is gone so the panel's stop doesn't kill it mid-save.\nvar pid = ThisService.ProcessId;\nconst int maxWaitSeconds = 300;\n\nbool IsRunning(int id)\n{\n    try { using (var p = Process.GetProcessById(id)) return !p.HasExited; }\n    catch (ArgumentException) { return false; }\n    catch (InvalidOperationException) { return false; }\n}\n\nif (pid == null || pid <= 0 || !IsRunning(pid.Value))\n{\n    ScriptConsole.WriteLine((object)\"The server is not running; nothing to save.\");\n    return;\n}\n\nvar request = System.OperatingSystem.IsWindows()\n    ? new ProcessStartInfo(\"taskkill\", \"/pid \" + pid.Value)\n    : new ProcessStartInfo(\"kill\", \"-TERM \" + pid.Value);\nrequest.UseShellExecute = false;\nrequest.RedirectStandardOutput = true;\nrequest.RedirectStandardError = true;\nusing (var p = Process.Start(request))\n{\n    var output = (p.StandardOutput.ReadToEnd() + p.StandardError.ReadToEnd()).Trim();\n    p.WaitForExit();\n    if (p.ExitCode != 0)\n    {\n        // The panel's own stop takes over (closes the window, then kills after the stop wait).\n        ScriptConsole.WriteLine((object)(\"Could not ask the server to shut down (\" + output + \"); the panel stops it now.\"));\n        return;\n    }\n}\n\nfor (var second = 1; second <= maxWaitSeconds; second++)\n{\n    await Task.Delay(1000, ThisCancellationToken);\n    if (!IsRunning(pid.Value))\n    {\n        ScriptConsole.WriteLine((object)(\"The server saved and exited after \" + second + \" s.\" + TerminationNote()));\n        return;\n    }\n}\nScriptConsole.WriteLine((object)(\"The server did not exit within \" + maxWaitSeconds + \" s; the panel stops it now.\"));\n\n// The .rpt in the profiles folder (-profiles=<root>/instance) records whether the shutdown completed.\nstring TerminationNote()\n{\n    try\n    {\n        var profiles = Path.Combine(ThisService.RootDirectory, \"instance\");\n        var rpt = new DirectoryInfo(profiles).EnumerateFiles(\"*.RPT\").OrderByDescending(f => f.LastWriteTimeUtc).FirstOrDefault()\n               ?? new DirectoryInfo(profiles).EnumerateFiles(\"*.rpt\").OrderByDescending(f => f.LastWriteTimeUtc).FirstOrDefault();\n        if (rpt == null) return \"\";\n        using var stream = new FileStream(rpt.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete);\n        using var reader = new StreamReader(stream);\n        return reader.ReadToEnd().Contains(\"Termination successfully completed\")\n            ? \" The log confirms: termination successfully completed.\"\n            : \" The log does not show a completed termination.\";\n    }\n    catch { return \"\"; }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": null,
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "a4585cdc-c0ed-40d5-b3c4-6062519d73ff"
+      }
+    }
+  ],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 166,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 2,
+      "gameId": 166,
+      "enabled": true,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "ShowDescription": true,
+        "AllowCollections": true,
+        "Private.UseSteamAPI": true
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 166,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 166,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "ModsPath": "mods"
+      }
+    },
+    {
+      "providerId": 5,
+      "gameId": 166,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 166,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 166,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    }
+  ],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-08T23:15:25.213111",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "mpmissions/*/storage_*/**/*",
+      "mpmissions/**/*.c",
+      "mpmissions/**/*.xml",
+      "mpmissions/**/*.json",
+      "serverDZ.cfg",
+      "*.txt",
+      "battleye/*.cfg"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": false,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "None",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": false,
+    "slotDetectionAction": "None",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": false,
+    "privateDetectionAction": "None",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": false,
+    "brandDetectionAction": "None",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}/",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": false,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": [
+    {
+      "id": 94,
+      "blueprintId": 166,
+      "name": "LD_LIBRARY_PATH",
+      "value": "${ThisService.RootDirectory}",
+      "valueType": "Template"
+    }
+  ]
+}
