@@ -1,0 +1,1639 @@
+{
+  "__TCA:ExportVersion": "3.23.42",
+  "__TCA:ExportedAt": "2026-11-09T21:25:51.193659Z",
+  "name": "Unturned",
+  "shortName": "unturned",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/304930/e18009fb628b35953826efe47dc3be556b689f4c.jpg",
+  "backgroundImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/304930/f634649eb2a50b49bc98f7cc27314b671c8cbff5/ss_f634649eb2a50b49bc98f7cc27314b671c8cbff5.1920x1080.jpg",
+  "minSlots": 8,
+  "maxSlots": 32,
+  "defaultSlots": 12,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "hl1",
+    "privateRule": "password",
+    "privateRuleValue": "1",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "MemoryWrapper",
+    "logFile": "Logs\\Server_VServer.log",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "shutdown",
+    "waitAfterStopCommand": 10000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": true,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 29000,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 29000,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 5
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "Unturned.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "unturned",
+    "failOnMissingExecutable": false,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 1110390,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 304930,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": true,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "-nographics -batchmode +secureserver/VServer",
+    "defaultCustomCommandline": "",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "-nographics -batchmode +secureserver/VServer"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": true,
+    "elevated": false
+  },
+  "identifier": "9f0a24c6-d803-11f1-8d5f-00505654dd15",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "cheats",
+      "defaultValue": "on",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${cheats}",
+      "editor": {
+        "items": [
+          {
+            "text": "on",
+            "value": "on"
+          },
+          {
+            "text": "off",
+            "value": "off"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "cheats",
+        "defaultValue": "on",
+        "label": "cheats",
+        "description": "whether admins can use cheats and commands or not. Recommended on",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-18T00:00:04.482897",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "map",
+      "defaultValue": "Russia",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${map}",
+      "editor": {
+        "items": [
+          {
+            "text": "Russia",
+            "value": "Russia"
+          },
+          {
+            "text": "Hawaii",
+            "value": "Hawaii"
+          },
+          {
+            "text": "Germany",
+            "value": "Germany"
+          },
+          {
+            "text": "PEI",
+            "value": "PEI"
+          },
+          {
+            "text": "Yukon",
+            "value": "Yukon"
+          },
+          {
+            "text": "Washington",
+            "value": "Washington"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "map",
+        "defaultValue": "Russia",
+        "label": "Map",
+        "description": "If you want a different map",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-18T00:00:04.483002",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "mode",
+      "defaultValue": "easy",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${mode}",
+      "editor": {
+        "items": [
+          {
+            "text": "easy",
+            "value": "easy"
+          },
+          {
+            "text": "normal",
+            "value": "normal"
+          },
+          {
+            "text": "hard",
+            "value": "hard"
+          },
+          {
+            "text": "gold",
+            "value": "gold"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "mode",
+        "defaultValue": "easy",
+        "label": "Mode",
+        "description": "How difficult zombies are, how rare items are.\nEasy, normal, hard, gold",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-18T00:00:04.48316",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MySQLPassword",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MySQLPassword}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "MySQLPassword",
+        "defaultValue": "",
+        "label": "",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-18T00:00:04.483282",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "MySQLUser",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MySQLUser}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "MySQLUser",
+        "defaultValue": "",
+        "label": "",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-18T00:00:04.483394",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "owner",
+      "defaultValue": "ID",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${owner}",
+      "editor": {
+        "maxLength": 17,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "owner",
+        "defaultValue": "ID",
+        "label": "Owner ID",
+        "description": "Steam ID to make admin",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-18T00:00:04.483487",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "perspective",
+      "defaultValue": "both",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${perspective}",
+      "editor": {
+        "items": [
+          {
+            "text": "both",
+            "value": "both"
+          },
+          {
+            "text": "first-person",
+            "value": "first-person"
+          },
+          {
+            "text": "third-person",
+            "value": "third-person"
+          },
+          {
+            "text": "vehicle",
+            "value": "vehicle"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "perspective",
+        "defaultValue": "both",
+        "label": "Perspective",
+        "description": "1st, 3rd person or both",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-18T00:00:04.483643",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "pvp",
+      "defaultValue": "pvp",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${pvp}",
+      "editor": {
+        "items": [
+          {
+            "text": "pvp",
+            "value": "pvp"
+          },
+          {
+            "text": "pve",
+            "value": "pve"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "pvp",
+        "defaultValue": "pvp",
+        "label": "PVP or PVE",
+        "description": "Player vs Player or Player vs Environment",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-18T00:00:04.483812",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "welcome",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${welcome}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 0,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "welcome",
+        "defaultValue": "",
+        "label": "Welcome Message",
+        "description": "This is the message the server will automatically send in chat to anyone who joins. It can be friendly, or stating the rules. Customize yours!",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-18T00:00:04.483923",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:01:28.384099",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:01:29.940401",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 226,
+      "relativePath": "Servers\\VServer\\Config.json",
+      "description": "Adjustable Settings",
+      "template": "{\n  \"Browser\": {\n    \"Icon\": \"\",\n    \"Thumbnail\": \"\",\n    \"Desc_Hint\": \"\",\n    \"Desc_Full\": \"\",\n    \"Desc_Server_List\": \"\"\n  },\n  \"Server\": {\n    \"VAC_Secure\": true,\n    \"BattlEye_Secure\": true,\n    \"Max_Ping_Milliseconds\": 750,\n    \"Timeout_Queue_Seconds\": 15.0,\n    \"Timeout_Game_Seconds\": 30.0,\n    \"Max_Packets_Per_Second\": 50.0\n  },\n  \"Easy\": {\n    \"Items\": {\n      \"Spawn_Chance\": 0.35,\n      \"Despawn_Dropped_Time\": 600.0,\n      \"Despawn_Natural_Time\": 900.0,\n      \"Respawn_Time\": 50.0,\n      \"Quality_Full_Chance\": 0.1,\n      \"Quality_Multiplier\": 1.0,\n      \"Gun_Bullets_Full_Chance\": 0.1,\n      \"Gun_Bullets_Multiplier\": 1.0,\n      \"Magazine_Bullets_Full_Chance\": 0.1,\n      \"Magazine_Bullets_Multiplier\": 1.0,\n      \"Crate_Bullets_Full_Chance\": 0.1,\n      \"Crate_Bullets_Multiplier\": 1.0,\n      \"Has_Durability\": false\n    },\n    \"Vehicles\": {\n      \"Has_Battery_Chance\": 1.0,\n      \"Min_Battery_Charge\": 0.8,\n      \"Max_Battery_Charge\": 1.0,\n      \"Has_Tire_Chance\": 1.0,\n      \"Respawn_Time\": 300.0,\n      \"Unlocked_After_Seconds_In_Safezone\": 3600.0,\n      \"Armor_Multiplier\": 1.0,\n      \"Child_Explosion_Armor_Multiplier\": 1.0,\n      \"Gun_Lowcal_Damage_Multiplier\": 1.0,\n      \"Gun_Highcal_Damage_Multiplier\": 1.0,\n      \"Melee_Damage_Multiplier\": 1.0,\n      \"Max_Instances_Tiny\": 4,\n      \"Max_Instances_Small\": 8,\n      \"Max_Instances_Medium\": 16,\n      \"Max_Instances_Large\": 32,\n      \"Max_Instances_Insane\": 64\n    },\n    \"Zombies\": {\n      \"Spawn_Chance\": 0.2,\n      \"Loot_Chance\": 0.55,\n      \"Crawler_Chance\": 0.0,\n      \"Sprinter_Chance\": 0.0,\n      \"Flanker_Chance\": 0.0,\n      \"Burner_Chance\": 0.0,\n      \"Acid_Chance\": 0.0,\n      \"Boss_Electric_Chance\": 0.0,\n      \"Boss_Wind_Chance\": 0.0,\n      \"Boss_Fire_Chance\": 0.0,\n      \"Spirit_Chance\": 0.0,\n      \"Respawn_Day_Time\": 360.0,\n      \"Respawn_Night_Time\": 30.0,\n      \"Respawn_Beacon_Time\": 0.0,\n      \"Damage_Multiplier\": 0.75,\n      \"Armor_Multiplier\": 1.25,\n      \"Backstab_Multiplier\": 1.25,\n      \"Beacon_Experience_Multiplier\": 1.0,\n      \"Full_Moon_Experience_Multiplier\": 2.0,\n      \"Min_Drops\": 1,\n      \"Max_Drops\": 1,\n      \"Min_Mega_Drops\": 5,\n      \"Max_Mega_Drops\": 5,\n      \"Min_Boss_Drops\": 8,\n      \"Max_Boss_Drops\": 10,\n      \"Slow_Movement\": true,\n      \"Can_Stun\": true,\n      \"Only_Critical_Stuns\": false,\n      \"Weapons_Use_Player_Damage\": false,\n      \"Beacon_Max_Rewards\": 0,\n      \"Beacon_Max_Participants\": 0,\n      \"Beacon_Rewards_Multiplier\": 1.0\n    },\n    \"Animals\": {\n      \"Respawn_Time\": 180.0,\n      \"Damage_Multiplier\": 0.75,\n      \"Armor_Multiplier\": 1.25,\n      \"Max_Instances_Tiny\": 4,\n      \"Max_Instances_Small\": 8,\n      \"Max_Instances_Medium\": 16,\n      \"Max_Instances_Large\": 32,\n      \"Max_Instances_Insane\": 64,\n      \"Weapons_Use_Player_Damage\": false\n    },\n    \"Barricades\": {\n      \"Decay_Time\": 604800,\n      \"Armor_Lowtier_Multiplier\": 1.0,\n      \"Armor_Hightier_Multiplier\": 0.5,\n      \"Gun_Lowcal_Damage_Multiplier\": 1.0,\n      \"Gun_Highcal_Damage_Multiplier\": 1.0,\n      \"Melee_Damage_Multiplier\": 1.0\n    },\n    \"Structures\": {\n      \"Decay_Time\": 604800,\n      \"Armor_Lowtier_Multiplier\": 1.0,\n      \"Armor_Hightier_Multiplier\": 0.5,\n      \"Gun_Lowcal_Damage_Multiplier\": 1.0,\n      \"Gun_Highcal_Damage_Multiplier\": 1.0,\n      \"Melee_Damage_Multiplier\": 1.0\n    },\n    \"Players\": {\n      \"Health_Regen_Min_Food\": 90,\n      \"Health_Regen_Min_Water\": 90,\n      \"Health_Regen_Ticks\": 60,\n      \"Food_Use_Ticks\": 350,\n      \"Food_Damage_Ticks\": 15,\n      \"Water_Use_Ticks\": 320,\n      \"Water_Damage_Ticks\": 20,\n      \"Virus_Infect\": 50,\n      \"Virus_Use_Ticks\": 125,\n      \"Virus_Damage_Ticks\": 25,\n      \"Leg_Regen_Ticks\": 750,\n      \"Bleed_Damage_Ticks\": 10,\n      \"Bleed_Regen_Ticks\": 750,\n      \"Armor_Multiplier\": 1.0,\n      \"Experience_Multiplier\": 1.5,\n      \"Detect_Radius_Multiplier\": 0.5,\n      \"Ray_Aggressor_Distance\": 8.0,\n      \"Lose_Skills_PvP\": 0.75,\n      \"Lose_Skills_PvE\": 0.75,\n      \"Lose_Items_PvP\": 1.0,\n      \"Lose_Items_PvE\": 1.0,\n      \"Lose_Clothes_PvP\": true,\n      \"Lose_Clothes_PvE\": true,\n      \"Can_Hurt_Legs\": true,\n      \"Can_Break_Legs\": false,\n      \"Can_Fix_Legs\": true,\n      \"Can_Start_Bleeding\": false,\n      \"Can_Stop_Bleeding\": true,\n      \"Spawn_With_Max_Skills\": false,\n      \"Spawn_With_Stamina_Skills\": false,\n      \"Allow_Instakill_Headshots\": false\n    },\n    \"Objects\": {\n      \"Binary_State_Reset_Multiplier\": 1.0,\n      \"Fuel_Reset_Multiplier\": 1.0,\n      \"Water_Reset_Multiplier\": 1.0,\n      \"Resource_Reset_Multiplier\": 1.0,\n      \"Resource_Drops_Multiplier\": 1.0,\n      \"Rubble_Reset_Multiplier\": 1.0,\n      \"Allow_Holiday_Drops\": true\n    },\n    \"Events\": {\n      \"Rain_Frequency_Min\": 2.3,\n      \"Rain_Frequency_Max\": 5.6,\n      \"Rain_Duration_Min\": 0.05,\n      \"Rain_Duration_Max\": 0.15,\n      \"Snow_Frequency_Min\": 1.3,\n      \"Snow_Frequency_Max\": 4.6,\n      \"Snow_Duration_Min\": 0.2,\n      \"Snow_Duration_Max\": 0.5,\n      \"Airdrop_Frequency_Min\": 0.8,\n      \"Airdrop_Frequency_Max\": 6.5,\n      \"Airdrop_Speed\": 128.0,\n      \"Airdrop_Force\": 9.5,\n      \"Arena_Min_Players\": 2,\n      \"Arena_Compactor_Damage\": 10,\n      \"Arena_Clear_Timer\": 5,\n      \"Arena_Finale_Timer\": 10,\n      \"Arena_Restart_Timer\": 15,\n      \"Arena_Compactor_Delay_Timer\": 1,\n      \"Arena_Compactor_Pause_Timer\": 5,\n      \"Arena_Use_Airdrops\": true,\n      \"Arena_Use_Compactor_Pause\": true,\n      \"Arena_Compactor_Speed_Tiny\": 0.5,\n      \"Arena_Compactor_Speed_Small\": 1.5,\n      \"Arena_Compactor_Speed_Medium\": 3.0,\n      \"Arena_Compactor_Speed_Large\": 4.5,\n      \"Arena_Compactor_Speed_Insane\": 6.0,\n      \"Arena_Compactor_Shrink_Factor\": 0.5\n    },\n    \"Gameplay\": {\n      \"Repair_Level_Max\": 3,\n      \"Hitmarkers\": true,\n      \"Crosshair\": true,\n      \"Ballistics\": false,\n      \"Chart\": true,\n      \"Satellite\": false,\n      \"Compass\": false,\n      \"Group_Map\": true,\n      \"Group_HUD\": true,\n      \"Allow_Static_Groups\": true,\n      \"Allow_Dynamic_Groups\": true,\n      \"Allow_Shoulder_Camera\": true,\n      \"Can_Suicide\": true,\n      \"Timer_Exit\": 10,\n      \"Timer_Respawn\": 10,\n      \"Timer_Home\": 30,\n      \"Timer_Leave_Group\": 30,\n      \"Max_Group_Members\": 0\n    }\n  },\n  \"Normal\": {\n    \"Items\": {\n      \"Spawn_Chance\": 0.35,\n      \"Despawn_Dropped_Time\": 600.0,\n      \"Despawn_Natural_Time\": 900.0,\n      \"Respawn_Time\": 100.0,\n      \"Quality_Full_Chance\": 0.1,\n      \"Quality_Multiplier\": 1.0,\n      \"Gun_Bullets_Full_Chance\": 0.05,\n      \"Gun_Bullets_Multiplier\": 0.25,\n      \"Magazine_Bullets_Full_Chance\": 0.05,\n      \"Magazine_Bullets_Multiplier\": 0.5,\n      \"Crate_Bullets_Full_Chance\": 0.05,\n      \"Crate_Bullets_Multiplier\": 1.0,\n      \"Has_Durability\": true\n    },\n    \"Vehicles\": {\n      \"Has_Battery_Chance\": 0.8,\n      \"Min_Battery_Charge\": 0.5,\n      \"Max_Battery_Charge\": 0.75,\n      \"Has_Tire_Chance\": 0.85,\n      \"Respawn_Time\": 300.0,\n      \"Unlocked_After_Seconds_In_Safezone\": 3600.0,\n      \"Armor_Multiplier\": 1.0,\n      \"Child_Explosion_Armor_Multiplier\": 1.0,\n      \"Gun_Lowcal_Damage_Multiplier\": 1.0,\n      \"Gun_Highcal_Damage_Multiplier\": 1.0,\n      \"Melee_Damage_Multiplier\": 1.0,\n      \"Max_Instances_Tiny\": 4,\n      \"Max_Instances_Small\": 8,\n      \"Max_Instances_Medium\": 16,\n      \"Max_Instances_Large\": 32,\n      \"Max_Instances_Insane\": 64\n    },\n    \"Zombies\": {\n      \"Spawn_Chance\": 0.25,\n      \"Loot_Chance\": 0.5,\n      \"Crawler_Chance\": 0.15,\n      \"Sprinter_Chance\": 0.15,\n      \"Flanker_Chance\": 0.025,\n      \"Burner_Chance\": 0.025,\n      \"Acid_Chance\": 0.025,\n      \"Boss_Electric_Chance\": 0.0,\n      \"Boss_Wind_Chance\": 0.0,\n      \"Boss_Fire_Chance\": 0.0,\n      \"Spirit_Chance\": 0.0,\n      \"Respawn_Day_Time\": 360.0,\n      \"Respawn_Night_Time\": 30.0,\n      \"Respawn_Beacon_Time\": 0.0,\n      \"Damage_Multiplier\": 1.0,\n      \"Armor_Multiplier\": 1.0,\n      \"Backstab_Multiplier\": 1.25,\n      \"Beacon_Experience_Multiplier\": 1.0,\n      \"Full_Moon_Experience_Multiplier\": 2.0,\n      \"Min_Drops\": 1,\n      \"Max_Drops\": 1,\n      \"Min_Mega_Drops\": 5,\n      \"Max_Mega_Drops\": 5,\n      \"Min_Boss_Drops\": 8,\n      \"Max_Boss_Drops\": 10,\n      \"Slow_Movement\": false,\n      \"Can_Stun\": true,\n      \"Only_Critical_Stuns\": false,\n      \"Weapons_Use_Player_Damage\": false,\n      \"Beacon_Max_Rewards\": 0,\n      \"Beacon_Max_Participants\": 0,\n      \"Beacon_Rewards_Multiplier\": 1.0\n    },\n    \"Animals\": {\n      \"Respawn_Time\": 180.0,\n      \"Damage_Multiplier\": 1.0,\n      \"Armor_Multiplier\": 1.0,\n      \"Max_Instances_Tiny\": 4,\n      \"Max_Instances_Small\": 8,\n      \"Max_Instances_Medium\": 16,\n      \"Max_Instances_Large\": 32,\n      \"Max_Instances_Insane\": 64,\n      \"Weapons_Use_Player_Damage\": false\n    },\n    \"Barricades\": {\n      \"Decay_Time\": 604800,\n      \"Armor_Lowtier_Multiplier\": 1.0,\n      \"Armor_Hightier_Multiplier\": 0.5,\n      \"Gun_Lowcal_Damage_Multiplier\": 1.0,\n      \"Gun_Highcal_Damage_Multiplier\": 1.0,\n      \"Melee_Damage_Multiplier\": 1.0\n    },\n    \"Structures\": {\n      \"Decay_Time\": 604800,\n      \"Armor_Lowtier_Multiplier\": 1.0,\n      \"Armor_Hightier_Multiplier\": 0.5,\n      \"Gun_Lowcal_Damage_Multiplier\": 1.0,\n      \"Gun_Highcal_Damage_Multiplier\": 1.0,\n      \"Melee_Damage_Multiplier\": 1.0\n    },\n    \"Players\": {\n      \"Health_Regen_Min_Food\": 90,\n      \"Health_Regen_Min_Water\": 90,\n      \"Health_Regen_Ticks\": 60,\n      \"Food_Use_Ticks\": 300,\n      \"Food_Damage_Ticks\": 15,\n      \"Water_Use_Ticks\": 270,\n      \"Water_Damage_Ticks\": 20,\n      \"Virus_Infect\": 50,\n      \"Virus_Use_Ticks\": 125,\n      \"Virus_Damage_Ticks\": 25,\n      \"Leg_Regen_Ticks\": 750,\n      \"Bleed_Damage_Ticks\": 10,\n      \"Bleed_Regen_Ticks\": 750,\n      \"Armor_Multiplier\": 1.0,\n      \"Experience_Multiplier\": 1.0,\n      \"Detect_Radius_Multiplier\": 1.0,\n      \"Ray_Aggressor_Distance\": 8.0,\n      \"Lose_Skills_PvP\": 0.75,\n      \"Lose_Skills_PvE\": 0.75,\n      \"Lose_Items_PvP\": 1.0,\n      \"Lose_Items_PvE\": 1.0,\n      \"Lose_Clothes_PvP\": true,\n      \"Lose_Clothes_PvE\": true,\n      \"Can_Hurt_Legs\": true,\n      \"Can_Break_Legs\": true,\n      \"Can_Fix_Legs\": true,\n      \"Can_Start_Bleeding\": true,\n      \"Can_Stop_Bleeding\": true,\n      \"Spawn_With_Max_Skills\": false,\n      \"Spawn_With_Stamina_Skills\": false,\n      \"Allow_Instakill_Headshots\": false\n    },\n    \"Objects\": {\n      \"Binary_State_Reset_Multiplier\": 1.0,\n      \"Fuel_Reset_Multiplier\": 1.0,\n      \"Water_Reset_Multiplier\": 1.0,\n      \"Resource_Reset_Multiplier\": 1.0,\n      \"Resource_Drops_Multiplier\": 1.0,\n      \"Rubble_Reset_Multiplier\": 1.0,\n      \"Allow_Holiday_Drops\": true\n    },\n    \"Events\": {\n      \"Rain_Frequency_Min\": 2.3,\n      \"Rain_Frequency_Max\": 5.6,\n      \"Rain_Duration_Min\": 0.05,\n      \"Rain_Duration_Max\": 0.15,\n      \"Snow_Frequency_Min\": 1.3,\n      \"Snow_Frequency_Max\": 4.6,\n      \"Snow_Duration_Min\": 0.2,\n      \"Snow_Duration_Max\": 0.5,\n      \"Airdrop_Frequency_Min\": 0.8,\n      \"Airdrop_Frequency_Max\": 6.5,\n      \"Airdrop_Speed\": 128.0,\n      \"Airdrop_Force\": 9.5,\n      \"Arena_Min_Players\": 2,\n      \"Arena_Compactor_Damage\": 10,\n      \"Arena_Clear_Timer\": 5,\n      \"Arena_Finale_Timer\": 10,\n      \"Arena_Restart_Timer\": 15,\n      \"Arena_Compactor_Delay_Timer\": 1,\n      \"Arena_Compactor_Pause_Timer\": 5,\n      \"Arena_Use_Airdrops\": true,\n      \"Arena_Use_Compactor_Pause\": true,\n      \"Arena_Compactor_Speed_Tiny\": 0.5,\n      \"Arena_Compactor_Speed_Small\": 1.5,\n      \"Arena_Compactor_Speed_Medium\": 3.0,\n      \"Arena_Compactor_Speed_Large\": 4.5,\n      \"Arena_Compactor_Speed_Insane\": 6.0,\n      \"Arena_Compactor_Shrink_Factor\": 0.5\n    },\n    \"Gameplay\": {\n      \"Repair_Level_Max\": 3,\n      \"Hitmarkers\": true,\n      \"Crosshair\": true,\n      \"Ballistics\": true,\n      \"Chart\": false,\n      \"Satellite\": false,\n      \"Compass\": false,\n      \"Group_Map\": true,\n      \"Group_HUD\": true,\n      \"Allow_Static_Groups\": true,\n      \"Allow_Dynamic_Groups\": true,\n      \"Allow_Shoulder_Camera\": true,\n      \"Can_Suicide\": true,\n      \"Timer_Exit\": 10,\n      \"Timer_Respawn\": 10,\n      \"Timer_Home\": 30,\n      \"Timer_Leave_Group\": 30,\n      \"Max_Group_Members\": 0\n    }\n  },\n  \"Hard\": {\n    \"Items\": {\n      \"Spawn_Chance\": 0.15,\n      \"Despawn_Dropped_Time\": 600.0,\n      \"Despawn_Natural_Time\": 900.0,\n      \"Respawn_Time\": 150.0,\n      \"Quality_Full_Chance\": 0.01,\n      \"Quality_Multiplier\": 1.0,\n      \"Gun_Bullets_Full_Chance\": 0.025,\n      \"Gun_Bullets_Multiplier\": 0.1,\n      \"Magazine_Bullets_Full_Chance\": 0.025,\n      \"Magazine_Bullets_Multiplier\": 0.25,\n      \"Crate_Bullets_Full_Chance\": 0.025,\n      \"Crate_Bullets_Multiplier\": 0.75,\n      \"Has_Durability\": true\n    },\n    \"Vehicles\": {\n      \"Has_Battery_Chance\": 0.25,\n      \"Min_Battery_Charge\": 0.1,\n      \"Max_Battery_Charge\": 0.3,\n      \"Has_Tire_Chance\": 0.7,\n      \"Respawn_Time\": 300.0,\n      \"Unlocked_After_Seconds_In_Safezone\": 3600.0,\n      \"Armor_Multiplier\": 1.0,\n      \"Child_Explosion_Armor_Multiplier\": 1.0,\n      \"Gun_Lowcal_Damage_Multiplier\": 1.0,\n      \"Gun_Highcal_Damage_Multiplier\": 1.0,\n      \"Melee_Damage_Multiplier\": 1.0,\n      \"Max_Instances_Tiny\": 4,\n      \"Max_Instances_Small\": 8,\n      \"Max_Instances_Medium\": 16,\n      \"Max_Instances_Large\": 32,\n      \"Max_Instances_Insane\": 64\n    },\n    \"Zombies\": {\n      \"Spawn_Chance\": 0.3,\n      \"Loot_Chance\": 0.3,\n      \"Crawler_Chance\": 0.125,\n      \"Sprinter_Chance\": 0.175,\n      \"Flanker_Chance\": 0.05,\n      \"Burner_Chance\": 0.05,\n      \"Acid_Chance\": 0.05,\n      \"Boss_Electric_Chance\": 0.0,\n      \"Boss_Wind_Chance\": 0.0,\n      \"Boss_Fire_Chance\": 0.0,\n      \"Spirit_Chance\": 0.0,\n      \"Respawn_Day_Time\": 360.0,\n      \"Respawn_Night_Time\": 30.0,\n      \"Respawn_Beacon_Time\": 0.0,\n      \"Damage_Multiplier\": 1.5,\n      \"Armor_Multiplier\": 0.75,\n      \"Backstab_Multiplier\": 1.25,\n      \"Beacon_Experience_Multiplier\": 1.0,\n      \"Full_Moon_Experience_Multiplier\": 2.0,\n      \"Min_Drops\": 1,\n      \"Max_Drops\": 1,\n      \"Min_Mega_Drops\": 5,\n      \"Max_Mega_Drops\": 5,\n      \"Min_Boss_Drops\": 8,\n      \"Max_Boss_Drops\": 10,\n      \"Slow_Movement\": false,\n      \"Can_Stun\": false,\n      \"Only_Critical_Stuns\": true,\n      \"Weapons_Use_Player_Damage\": true,\n      \"Beacon_Max_Rewards\": 0,\n      \"Beacon_Max_Participants\": 0,\n      \"Beacon_Rewards_Multiplier\": 1.0\n    },\n    \"Animals\": {\n      \"Respawn_Time\": 180.0,\n      \"Damage_Multiplier\": 1.5,\n      \"Armor_Multiplier\": 0.75,\n      \"Max_Instances_Tiny\": 4,\n      \"Max_Instances_Small\": 8,\n      \"Max_Instances_Medium\": 16,\n      \"Max_Instances_Large\": 32,\n      \"Max_Instances_Insane\": 64,\n      \"Weapons_Use_Player_Damage\": true\n    },\n    \"Barricades\": {\n      \"Decay_Time\": 604800,\n      \"Armor_Lowtier_Multiplier\": 1.0,\n      \"Armor_Hightier_Multiplier\": 0.5,\n      \"Gun_Lowcal_Damage_Multiplier\": 1.0,\n      \"Gun_Highcal_Damage_Multiplier\": 1.0,\n      \"Melee_Damage_Multiplier\": 1.0\n    },\n    \"Structures\": {\n      \"Decay_Time\": 604800,\n      \"Armor_Lowtier_Multiplier\": 1.0,\n      \"Armor_Hightier_Multiplier\": 0.5,\n      \"Gun_Lowcal_Damage_Multiplier\": 1.0,\n      \"Gun_Highcal_Damage_Multiplier\": 1.0,\n      \"Melee_Damage_Multiplier\": 1.0\n    },\n    \"Players\": {\n      \"Health_Regen_Min_Food\": 90,\n      \"Health_Regen_Min_Water\": 90,\n      \"Health_Regen_Ticks\": 60,\n      \"Food_Use_Ticks\": 250,\n      \"Food_Damage_Ticks\": 15,\n      \"Water_Use_Ticks\": 220,\n      \"Water_Damage_Ticks\": 20,\n      \"Virus_Infect\": 50,\n      \"Virus_Use_Ticks\": 125,\n      \"Virus_Damage_Ticks\": 25,\n      \"Leg_Regen_Ticks\": 750,\n      \"Bleed_Damage_Ticks\": 10,\n      \"Bleed_Regen_Ticks\": 750,\n      \"Armor_Multiplier\": 1.0,\n      \"Experience_Multiplier\": 1.5,\n      \"Detect_Radius_Multiplier\": 1.25,\n      \"Ray_Aggressor_Distance\": 8.0,\n      \"Lose_Skills_PvP\": 0.75,\n      \"Lose_Skills_PvE\": 0.75,\n      \"Lose_Items_PvP\": 1.0,\n      \"Lose_Items_PvE\": 1.0,\n      \"Lose_Clothes_PvP\": true,\n      \"Lose_Clothes_PvE\": true,\n      \"Can_Hurt_Legs\": true,\n      \"Can_Break_Legs\": true,\n      \"Can_Fix_Legs\": false,\n      \"Can_Start_Bleeding\": true,\n      \"Can_Stop_Bleeding\": false,\n      \"Spawn_With_Max_Skills\": false,\n      \"Spawn_With_Stamina_Skills\": false,\n      \"Allow_Instakill_Headshots\": true\n    },\n    \"Objects\": {\n      \"Binary_State_Reset_Multiplier\": 1.0,\n      \"Fuel_Reset_Multiplier\": 1.0,\n      \"Water_Reset_Multiplier\": 1.0,\n      \"Resource_Reset_Multiplier\": 1.0,\n      \"Resource_Drops_Multiplier\": 1.0,\n      \"Rubble_Reset_Multiplier\": 1.0,\n      \"Allow_Holiday_Drops\": true\n    },\n    \"Events\": {\n      \"Rain_Frequency_Min\": 2.3,\n      \"Rain_Frequency_Max\": 5.6,\n      \"Rain_Duration_Min\": 0.05,\n      \"Rain_Duration_Max\": 0.15,\n      \"Snow_Frequency_Min\": 1.3,\n      \"Snow_Frequency_Max\": 4.6,\n      \"Snow_Duration_Min\": 0.2,\n      \"Snow_Duration_Max\": 0.5,\n      \"Airdrop_Frequency_Min\": 0.8,\n      \"Airdrop_Frequency_Max\": 6.5,\n      \"Airdrop_Speed\": 128.0,\n      \"Airdrop_Force\": 9.5,\n      \"Arena_Min_Players\": 2,\n      \"Arena_Compactor_Damage\": 10,\n      \"Arena_Clear_Timer\": 5,\n      \"Arena_Finale_Timer\": 10,\n      \"Arena_Restart_Timer\": 15,\n      \"Arena_Compactor_Delay_Timer\": 1,\n      \"Arena_Compactor_Pause_Timer\": 5,\n      \"Arena_Use_Airdrops\": true,\n      \"Arena_Use_Compactor_Pause\": true,\n      \"Arena_Compactor_Speed_Tiny\": 0.5,\n      \"Arena_Compactor_Speed_Small\": 1.5,\n      \"Arena_Compactor_Speed_Medium\": 3.0,\n      \"Arena_Compactor_Speed_Large\": 4.5,\n      \"Arena_Compactor_Speed_Insane\": 6.0,\n      \"Arena_Compactor_Shrink_Factor\": 0.5\n    },\n    \"Gameplay\": {\n      \"Repair_Level_Max\": 3,\n      \"Hitmarkers\": false,\n      \"Crosshair\": false,\n      \"Ballistics\": true,\n      \"Chart\": false,\n      \"Satellite\": false,\n      \"Compass\": false,\n      \"Group_Map\": false,\n      \"Group_HUD\": true,\n      \"Allow_Static_Groups\": true,\n      \"Allow_Dynamic_Groups\": true,\n      \"Allow_Shoulder_Camera\": true,\n      \"Can_Suicide\": true,\n      \"Timer_Exit\": 10,\n      \"Timer_Respawn\": 10,\n      \"Timer_Home\": 30,\n      \"Timer_Leave_Group\": 30,\n      \"Max_Group_Members\": 0\n    }\n  }\n}",
+      "order": 0,
+      "enableEditor": false,
+      "editor": []
+    },
+    {
+      "id": 227,
+      "relativePath": "Servers\\VServer\\Server\\Commands.dat",
+      "description": "Commands.dat",
+      "template": "name ${Hostname}\npassword ${PrivatePassword}\ntimeout 500\nchatrate 2\ncycle 600\nmap ${map}\nbindip ${IPAddress}\nport ${GamePort}\nmaxplayers ${Slots}\nperspective ${perspective}\nmode ${mode}\ncheats ${cheats}\nowner ${owner}\n${pvp}\nwelcome ${welcome}\n",
+      "order": 0,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_1",
+          "defaultValue": null,
+          "label": "Main Configuration",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "id": "LineBreak_2",
+          "defaultValue": null,
+          "label": "",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicLineBreak",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": null,
+          "label": "Hostname",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Russia",
+              "value": "Russia"
+            },
+            {
+              "text": "Hawaii",
+              "value": "Hawaii"
+            },
+            {
+              "text": "Germany",
+              "value": "Germany"
+            },
+            {
+              "text": "PEI",
+              "value": "PEI"
+            },
+            {
+              "text": "Yukon",
+              "value": "Yukon"
+            },
+            {
+              "text": "Washington",
+              "value": "Washington"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "map",
+          "defaultValue": "Russia",
+          "label": "Map",
+          "description": "If you want a different map",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "both",
+              "value": "both"
+            },
+            {
+              "text": "first-person",
+              "value": "first-person"
+            },
+            {
+              "text": "third-person",
+              "value": "third-person"
+            },
+            {
+              "text": "vehicle",
+              "value": "vehicle"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "perspective",
+          "defaultValue": "both",
+          "label": "Perspective",
+          "description": "1st, 3rd person or both",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "easy",
+              "value": "easy"
+            },
+            {
+              "text": "normal",
+              "value": "normal"
+            },
+            {
+              "text": "hard",
+              "value": "hard"
+            },
+            {
+              "text": "gold",
+              "value": "gold"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "mode",
+          "defaultValue": "easy",
+          "label": "Mode",
+          "description": "How difficult zombies are, how rare items are.\nEasy, normal, hard, gold",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 0,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "welcome",
+          "defaultValue": "",
+          "label": "Welcome Message",
+          "description": "This is the message the server will automatically send in chat to anyone who joins. It can be friendly, or stating the rules. Customize yours!",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 17,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "owner",
+          "defaultValue": "ID",
+          "label": "Owner ID",
+          "description": "Steam ID to make admin",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "pvp",
+              "value": "pvp"
+            },
+            {
+              "text": "pve",
+              "value": "pve"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "pvp",
+          "defaultValue": "pvp",
+          "label": "PVP or PVE",
+          "description": "Player vs Player or Player vs Environment",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 228,
+      "relativePath": "Servers\\VServer\\WorkshopDownloadIDs.json",
+      "description": "Workshop Mods IDs",
+      "template": "[]",
+      "order": 0,
+      "enableEditor": false,
+      "editor": []
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "Batch",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "DownloadGameFiles"
+        ],
+        "name": "Restore configs after update",
+        "description": "Restore configs after update",
+        "code": "xcopy \".\\backups\\Config.json\" \"Servers\\VServer\\Config.json\"  /E /I /Y\nxcopy \".\\backups\\server\\Commands.dat\" \"Servers\\VServer\\server\\Commands.dat\"  /E /I /Y",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "6600691a-6a08-424e-9b6e-37529629c9ba"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "Batch",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "DownloadGameFiles"
+        ],
+        "name": "Backup server files",
+        "description": "Backup server files",
+        "code": "mkdir \"backups\\\"\nxcopy \"Servers\\VServer\" \".\\backups\\\"  /E /I /Y",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "8211c423-922d-40af-bcb1-891ed099502b"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-06-18T00:00:04.494509",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "Servers/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "None",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Restart",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 4,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": [
+      {
+        "id": 2,
+        "description": "Service.CurrentMemory >= 2048",
+        "enabled": true,
+        "source": "QueryRule",
+        "ruleKey": "Service.CurrentMemory",
+        "operator": "GreaterThanOrEqual",
+        "value": "2048",
+        "caseInsensitive": true,
+        "action": "Stop",
+        "emailTemplateKey": null
+      }
+    ]
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}/",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": false,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
