@@ -1,0 +1,1899 @@
+{
+  "__TCA:ExportVersion": "3.23.46.17810",
+  "__TCA:ExportedAt": "2026-11-11T17:39:39.1220616Z",
+  "name": "No More Room in Hell",
+  "shortName": "NMRiH",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/224260/684de0d9c5749b5ddd52f120894fd97efd620b1d.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224260/ss_ffa28be6d53ca1dae98e3455c58aa2edab008da6.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 9,
+  "defaultSlots": 8,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".ini",
+    ".json",
+    ".xml",
+    ".vdf"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "source",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "MemoryWrapper",
+    "logFile": "nmrih\\console.log",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": true,
+    "outputFilters": "",
+    "stopCommand": "quit",
+    "waitAfterStopCommand": 20000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 27015,
+        "expression": "",
+        "description": "Game, query and RCON (UDP + TCP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 27015,
+        "expression": "GamePort",
+        "description": "Steam query (UDP, same as the game port)",
+        "uriTemplate": null
+      },
+      {
+        "id": "RConPort",
+        "port": 27015,
+        "expression": "GamePort",
+        "description": "RCON (TCP, same as the game port)",
+        "uriTemplate": null
+      },
+      {
+        "id": "ClientPort",
+        "port": 27016,
+        "expression": "GamePort + 1",
+        "description": "Client port (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "TvPort",
+        "port": 27020,
+        "expression": "GamePort + 5",
+        "description": "SourceTV (UDP)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "srcds.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "nmrih",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 317670,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 224260,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "-game nmrih -console -norestart -strictportbind -condebug -ip ${IPAddress} -port ${GamePort} +clientport ${ClientPort} +tv_port ${TvPort} +maxplayers ${Slots} ${StartupMap}",
+    "defaultCustomCommandline": "-game nmrih -console -norestart -strictportbind -condebug -ip ${IPAddress} -port ${GamePort} +clientport ${ClientPort} +tv_port ${TvPort} +maxplayers ${Slots} ${StartupMap}",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "-game nmrih -console -norestart -strictportbind -condebug -ip ${IPAddress} -port ${GamePort} +clientport ${ClientPort} +tv_port ${TvPort} +maxplayers ${Slots} ${StartupMap}"
+      },
+      {
+        "id": 2,
+        "name": "Advanced",
+        "commandLine": "-game nmrih -console -norestart -strictportbind -condebug -ip ${IPAddress} -port ${GamePort} +clientport ${ClientPort} +tv_port ${TvPort} +maxplayers ${Slots} ${ConfigFile} ${Insecure} ${FpsMax} ${StartupMap}"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "0189cc4c-993c-5732-a8a4-ff01c38a8cef",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "ConfigFile",
+      "defaultValue": "server.cfg",
+      "required": true,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "+exec \"${ConfigFile}\"",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [
+          "+",
+          "\""
+        ],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "ConfigFile",
+        "defaultValue": "server.cfg",
+        "label": "Server Config:",
+        "description": "The name of the configuration file to execute when the game server is started.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:36:21.932856",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FpsMax",
+      "defaultValue": "300",
+      "required": true,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "+fps_max ${FpsMax}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 300,
+        "maxValue": 1000,
+        "id": "FpsMax",
+        "defaultValue": "300",
+        "label": "Max FPS:",
+        "description": "Adjusts the frames per second that the server will process.",
+        "required": true,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:36:21.945182",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "Insecure",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Insecure}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "-insecure",
+        "uncheckedValue": "",
+        "id": "Insecure",
+        "defaultValue": "",
+        "label": "Insecure",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:36:21.953286",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "StartupMap",
+      "defaultValue": "nmo_broadway",
+      "required": true,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "+map ${StartupMap}",
+      "editor": {
+        "items": [
+          {
+            "text": "Anxiety (objective) - nmo_anxiety",
+            "value": "nmo_anxiety"
+          },
+          {
+            "text": "Asylum (objective) - nmo_asylum",
+            "value": "nmo_asylum"
+          },
+          {
+            "text": "Boardwalk (objective) - nmo_boardwalk",
+            "value": "nmo_boardwalk"
+          },
+          {
+            "text": "Broadway (objective) - nmo_broadway",
+            "value": "nmo_broadway"
+          },
+          {
+            "text": "Broadway2 (objective) - nmo_broadway2",
+            "value": "nmo_broadway2"
+          },
+          {
+            "text": "Brooklyn (objective) - nmo_brooklyn",
+            "value": "nmo_brooklyn"
+          },
+          {
+            "text": "Cabin (objective) - nmo_cabin",
+            "value": "nmo_cabin"
+          },
+          {
+            "text": "Chinatown (objective) - nmo_chinatown",
+            "value": "nmo_chinatown"
+          },
+          {
+            "text": "Cleopas (objective) - nmo_cleopas",
+            "value": "nmo_cleopas"
+          },
+          {
+            "text": "Fema (objective) - nmo_fema",
+            "value": "nmo_fema"
+          },
+          {
+            "text": "Junction (objective) - nmo_junction",
+            "value": "nmo_junction"
+          },
+          {
+            "text": "Lakeside (objective) - nmo_lakeside",
+            "value": "nmo_lakeside"
+          },
+          {
+            "text": "Quarantine (objective) - nmo_quarantine",
+            "value": "nmo_quarantine"
+          },
+          {
+            "text": "Rockpit (objective) - nmo_rockpit",
+            "value": "nmo_rockpit"
+          },
+          {
+            "text": "Shelter (objective) - nmo_shelter",
+            "value": "nmo_shelter"
+          },
+          {
+            "text": "Shoreline (objective) - nmo_shoreline",
+            "value": "nmo_shoreline"
+          },
+          {
+            "text": "Suzhou (objective) - nmo_suzhou",
+            "value": "nmo_suzhou"
+          },
+          {
+            "text": "Toxteth (objective) - nmo_toxteth",
+            "value": "nmo_toxteth"
+          },
+          {
+            "text": "Toxtethdark (objective) - nmo_toxtethdark",
+            "value": "nmo_toxtethdark"
+          },
+          {
+            "text": "Underground (objective) - nmo_underground",
+            "value": "nmo_underground"
+          },
+          {
+            "text": "Zephyr (objective) - nmo_zephyr",
+            "value": "nmo_zephyr"
+          },
+          {
+            "text": "Arpley (survival) - nms_arpley",
+            "value": "nms_arpley"
+          },
+          {
+            "text": "Camilla (survival) - nms_camilla",
+            "value": "nms_camilla"
+          },
+          {
+            "text": "Campblood (survival) - nms_campblood",
+            "value": "nms_campblood"
+          },
+          {
+            "text": "Drugstore (survival) - nms_drugstore",
+            "value": "nms_drugstore"
+          },
+          {
+            "text": "Favela (survival) - nms_favela",
+            "value": "nms_favela"
+          },
+          {
+            "text": "Flooded (survival) - nms_flooded",
+            "value": "nms_flooded"
+          },
+          {
+            "text": "Isolated (survival) - nms_isolated",
+            "value": "nms_isolated"
+          },
+          {
+            "text": "Laundry (survival) - nms_laundry",
+            "value": "nms_laundry"
+          },
+          {
+            "text": "Midwest (survival) - nms_midwest",
+            "value": "nms_midwest"
+          },
+          {
+            "text": "Northway (survival) - nms_northway",
+            "value": "nms_northway"
+          },
+          {
+            "text": "Notld (survival) - nms_notld",
+            "value": "nms_notld"
+          },
+          {
+            "text": "Ransack (survival) - nms_ransack",
+            "value": "nms_ransack"
+          },
+          {
+            "text": "Silence (survival) - nms_silence",
+            "value": "nms_silence"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "StartupMap",
+        "defaultValue": "nmo_broadway",
+        "label": "Startup map",
+        "description": "The map the server starts on (nmo_ = objective, nms_ = survival). The map cycle continues from mapcycle.txt.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:36:21.957518",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "MapTimeLimit",
+      "defaultValue": "20",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MapTimeLimit}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 1440,
+        "id": "MapTimeLimit",
+        "defaultValue": "20",
+        "label": "Map time limit (minutes)",
+        "description": "Minutes before the server changes to the next map of the map cycle (0 = no limit).",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:36:21.963465",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FriendlyFire",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${FriendlyFire}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "FriendlyFire",
+        "defaultValue": "1",
+        "label": "Friendly fire",
+        "description": "Players can hurt each other.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:36:21.96353",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Realism",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Realism}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "Realism",
+        "defaultValue": "0",
+        "label": "Realism mode",
+        "description": "No crosshair and no HUD hints, as in the menu option.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:36:21.963554",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "HardcoreSurvival",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${HardcoreSurvival}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "HardcoreSurvival",
+        "defaultValue": "0",
+        "label": "Hardcore survival",
+        "description": "Survival maps without respawns.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:36:21.963563",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ServerWorkshop",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ServerWorkshop}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "ServerWorkshop",
+        "defaultValue": "1",
+        "label": "Server-side Workshop maps",
+        "description": "Lets the server download Workshop maps (the Steam Workshop page of the panel uses it).",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:36:21.963571",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WorkshopAutoUpdate",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WorkshopAutoUpdate}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "WorkshopAutoUpdate",
+        "defaultValue": "0",
+        "label": "Update Workshop maps on every map change",
+        "description": "The server always updates them when it starts.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T17:36:21.963581",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:50:37.898645",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:50:39.153961",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:50:40.455133",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 769,
+      "relativePath": "nmrih\\cfg\\server.cfg",
+      "description": "Server settings (server.cfg)",
+      "template": "// Server name\nhostname \"${Hostname}\"\n\n// RCON password\nrcon_password \"${RconPassword}\"\n\n// Join password (empty = public)\nsv_password \"${PrivatePassword}\"\n\n// Internet server (0) or LAN only (1)\nsv_lan 0\n\n// Gameplay\nmp_timelimit ${MapTimeLimit}\nmp_friendlyfire ${FriendlyFire}\nsv_realism ${Realism}\nsv_hardcore_survival ${HardcoreSurvival}\n\n// Map cycle (nmrih/cfg/mapcycle.txt)\nmapcyclefile \"mapcycle.txt\"\n\n// Server-side Steam Workshop maps (anonymous servers only, no GSLT token)\nsv_workshop ${ServerWorkshop}\nsv_workshop_autoupdate ${WorkshopAutoUpdate}\n\n// Server logging\nlog on\nsv_logbans 1\nsv_logecho 1\nsv_logfile 1\n\n// Ban lists\nexec banned_user.cfg\nexec banned_ip.cfg\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Server",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "Shown in the server browser.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Join password",
+          "description": "Leave empty for a public server.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "RconPassword",
+          "defaultValue": "",
+          "label": "RCON password",
+          "description": "Needed for the panel RCON and for rcon_password logins.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Gameplay",
+          "defaultValue": null,
+          "label": "Gameplay",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 1440,
+          "id": "MapTimeLimit",
+          "defaultValue": "20",
+          "label": "Map time limit (minutes)",
+          "description": "Minutes before the server changes to the next map of the map cycle (0 = no limit).",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "FriendlyFire",
+          "defaultValue": "1",
+          "label": "Friendly fire",
+          "description": "Players can hurt each other.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "Realism",
+          "defaultValue": "0",
+          "label": "Realism mode",
+          "description": "No crosshair and no HUD hints, as in the menu option.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "HardcoreSurvival",
+          "defaultValue": "0",
+          "label": "Hardcore survival",
+          "description": "Survival maps without respawns.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Workshop",
+          "defaultValue": null,
+          "label": "Steam Workshop",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "ServerWorkshop",
+          "defaultValue": "1",
+          "label": "Server-side Workshop maps",
+          "description": "Lets the server download Workshop maps (the Steam Workshop page of the panel uses it).",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "WorkshopAutoUpdate",
+          "defaultValue": "0",
+          "label": "Update Workshop maps on every map change",
+          "description": "The server always updates them when it starts.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 770,
+      "relativePath": "nmrih\\cfg\\mapcycle.txt",
+      "description": "Map cycle (mapcycle.txt): one map per line, in the order the server plays them.",
+      "template": "nmo_anxiety\nnmo_asylum\nnmo_boardwalk\nnmo_broadway\nnmo_broadway2\nnmo_brooklyn\nnmo_cabin\nnmo_chinatown\nnmo_cleopas\nnmo_fema\nnmo_junction\nnmo_lakeside\nnmo_quarantine\nnmo_rockpit\nnmo_shelter\nnmo_shoreline\nnmo_suzhou\nnmo_toxteth\nnmo_underground\nnmo_zephyr\nnms_arpley\nnms_camilla\nnms_campblood\nnms_drugstore\nnms_favela\nnms_flooded\nnms_isolated\nnms_laundry\nnms_midwest\nnms_northway\nnms_notld\nnms_ransack\nnms_silence\n",
+      "order": 2,
+      "enableEditor": false,
+      "editor": []
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterServiceCreated",
+          "AfterServiceReinstalled",
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server",
+        "description": "Writes steam_appid.txt and keeps the previous console log.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\n\n// srcds writes steam_appid.txt next to itself only during its first run, which therefore starts without Steam.\n// Writing it before every start makes the first start work too.\nvar appIdFile = Path.Combine(root, \"steam_appid.txt\");\nif (!File.Exists(appIdFile) || File.ReadAllText(appIdFile).Trim('\\0', '\\r', '\\n', ' ') != \"224260\")\n{\n    File.WriteAllText(appIdFile, \"224260\\n\");\n    // Scripts run as root on Linux: give the file to the service user (owner of the service root).\n    if (System.OperatingSystem.IsLinux()) Globals.OperatingSystem.SetFileOwnerAutoDetect(appIdFile);\n    ScriptConsole.WriteLine((object)\"Wrote steam_appid.txt (224260).\");\n}\n\n// -condebug appends to console.log forever; keep only the previous run next to the new one.\nvar log = Path.Combine(root, \"nmrih\", \"console.log\");\nif (File.Exists(log))\n{\n    File.Move(log, Path.Combine(Path.GetDirectoryName(log), \"console.previous.log\"), true);\n}\n\nif (System.OperatingSystem.IsLinux())\n{\n    // The Steam download does not keep the exec bit.\n    foreach (var name in new[] { \"srcds_run\", \"srcds_linux\" })\n    {\n        var path = Path.Combine(root, name);\n        if (!File.Exists(path)) continue;\n        var mode = File.GetUnixFileMode(path);\n        var wanted = mode | UnixFileMode.UserExecute | UnixFileMode.GroupExecute | UnixFileMode.OtherExecute;\n        if (mode != wanted) { File.SetUnixFileMode(path, wanted); ScriptConsole.WriteLine((object)(\"Made \" + name + \" executable.\")); }\n    }\n\n    // srcds_linux is a 32-bit program: install the 32-bit system libraries it and the engine need when the host\n    // lacks them (Debian/Ubuntu: apt-get, Red Hat: dnf or yum).\n    var packages = new Dictionary<string, (string[] Apt, string[] Rpm)>\n    {\n        [\"ld-linux.so.2\"] = (new[] { \"libc6-i386\" }, new[] { \"glibc.i686\" }),\n        [\"libc.so.6\"] = (new[] { \"libc6-i386\" }, new[] { \"glibc.i686\" }),\n        [\"libm.so.6\"] = (new[] { \"libc6-i386\" }, new[] { \"glibc.i686\" }),\n        [\"libdl.so.2\"] = (new[] { \"libc6-i386\" }, new[] { \"glibc.i686\" }),\n        [\"libpthread.so.0\"] = (new[] { \"libc6-i386\" }, new[] { \"glibc.i686\" }),\n        [\"librt.so.1\"] = (new[] { \"libc6-i386\" }, new[] { \"glibc.i686\" }),\n        [\"libgcc_s.so.1\"] = (new[] { \"lib32gcc-s1\", \"lib32gcc1\" }, new[] { \"libgcc.i686\" }),\n        [\"libstdc++.so.6\"] = (new[] { \"lib32stdc++6\" }, new[] { \"libstdc++.i686\" }),\n        [\"libz.so.1\"] = (new[] { \"lib32z1\" }, new[] { \"zlib.i686\" }),\n    };\n    var missing = new List<string>();\n    if (!File.Exists(\"/lib/ld-linux.so.2\")) missing.Add(\"ld-linux.so.2\");\n    else\n    {\n        var bin = Path.Combine(root, \"bin\");\n        foreach (var file in new[] { Path.Combine(root, \"srcds_linux\"), Path.Combine(bin, \"dedicated_srv.so\"), Path.Combine(bin, \"engine_srv.so\"),\n                                     Path.Combine(root, \"nmrih\", \"bin\", \"server_srv.so\") })\n        {\n            if (!File.Exists(file)) continue;\n            Shell(\"LD_LIBRARY_PATH='\" + root + \":\" + bin + \"' ldd '\" + file + \"'\", out var lddOutput);\n            missing.AddRange(lddOutput.Split('\\n').Where(l => l.Contains(\"=> not found\")).Select(l => l.Trim().Split(' ')[0]));\n        }\n    }\n    foreach (var soname in missing.Distinct())\n    {\n        if (!packages.TryGetValue(soname, out var candidates))\n        {\n            ScriptConsole.WriteLine((object)(\"The server needs \" + soname + \", which is not installed on this host.\"));\n            continue;\n        }\n        ScriptConsole.WriteLine((object)(soname + \" (32-bit) is missing on this host; installing it.\"));\n        var apt = Shell(\"command -v apt-get\", out _);\n        string tool;\n        if (apt)\n        {\n            Shell(\"dpkg --print-foreign-architectures | grep -q i386 || dpkg --add-architecture i386\", out _);\n            tool = \"DEBIAN_FRONTEND=noninteractive apt-get install -y \";\n        }\n        else tool = Shell(\"command -v dnf\", out _) ? \"dnf install -y \" : \"yum install -y \";\n        var names = apt ? candidates.Apt : candidates.Rpm;\n        var installed = names.Any(p => Shell(tool + p, out _));\n        if (!installed && apt && Shell(\"apt-get update\", out _)) installed = names.Any(p => Shell(tool + p, out _));\n        if (!installed) throw new Exception(soname + \" (32-bit) is missing and could not be installed. Install one of these packages on the host: \" + string.Join(\", \", names));\n        ScriptConsole.WriteLine((object)(\"Installed \" + soname + \".\"));\n    }\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() + process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "0494b729-ffbc-54a2-bbd0-6ff29438b806"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterCustomModInstalled"
+        ],
+        "name": "Add the Workshop map",
+        "description": "Adds the Workshop map to the server (workshop_maps.txt and the map cycle). The server keeps it up to date and players download it from the Workshop.",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// No More Room in Hell servers run Workshop MAPS themselves (sv_workshop 1): the maps listed in\n// nmrih/workshop_maps.txt are updated when the server starts, players who join get them from the Workshop, and\n// the server's Steam client keeps them in workshop/content/224260/<id>. The panel downloaded this item to learn its\n// map name; move it to where the server keeps it, add it to the list and the map cycle, and tell a running server.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]+$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\nstring downloaded = Convert.ToString(Dynamic.InstallPath);\n\nvar maps = FindMaps(downloaded);\nif (maps.Count == 0) maps = FindMaps(ServerItemDir(fileId));\nif (maps.Count == 0)\n{\n    // Like the server's own workshop_download_collection: a non-map item (skin, sound, ...) is ignored, so a\n    // collection that mixes maps and other add-ons still installs its maps.\n    try { if (Directory.Exists(downloaded)) Directory.Delete(downloaded, true); } catch { }\n    ScriptConsole.WriteLine((object)(\"Workshop item \" + fileId + \" contains no map (.bsp) and was ignored. No More Room in Hell servers load Workshop maps only; skins, sounds and other add-ons are installed by the players.\"));\n    return;\n}\n\n// Keep one copy, where the server's own Workshop client looks for it.\nvar target = ServerItemDir(fileId);\nif (Directory.Exists(downloaded) && !string.Equals(Path.GetFullPath(downloaded), Path.GetFullPath(target), StringComparison.Ordinal))\n{\n    if (Directory.Exists(target)) Directory.Delete(target, true);\n    Directory.CreateDirectory(Path.GetDirectoryName(target));\n    Directory.Move(downloaded, target);\n}\nGiveToServiceUser(Path.Combine(Root(), \"workshop\"), true);\n\nvar list = ReadMaps();\nvar cycle = ReadCycle();\nforeach (var map in maps)\n{\n    list.RemoveAll(kv => kv.Key.Equals(map, StringComparison.OrdinalIgnoreCase));\n    list.Add(new KeyValuePair<string, string>(map, fileId));\n    if (!cycle.Any(m => m.Equals(map, StringComparison.OrdinalIgnoreCase))) cycle.Add(map);\n    ScriptConsole.WriteLine((object)(\"Added Workshop map \" + map + \" (\" + fileId + \") to workshop_maps.txt and mapcycle.txt.\"));\n}\nWriteMaps(list);\nWriteCycle(cycle);\n\n// A running server keeps its list in memory: let it download and register the map now.\nif (await SendToServer(\"workshop_download \" + fileId))\n    ScriptConsole.WriteLine((object)(\"Sent workshop_download \" + fileId + \" to the server. Change to the map with: changelevel \" + maps[0]));\nelse\n    ScriptConsole.WriteLine((object)\"The server is not running; it loads the map list the next time it starts.\");\n\n// --- Shared helpers: the server's own Workshop map list (nmrih/workshop_maps.txt) and the map cycle. ---\nstring Root() => (string)ThisService.RootDirectory;\nstring MapsFile() => Path.Combine(Root(), \"nmrih\", \"workshop_maps.txt\");\nstring CycleFile() => Path.Combine(Root(), \"nmrih\", \"cfg\", \"mapcycle.txt\");\nstring ServerItemDir(string id) => Path.Combine(Root(), \"workshop\", \"content\", \"224260\", id);\n\n// workshop_maps.txt is a KeyValues file: \"WorkshopMaps\" { \"<map name>\" \"<workshop id>\" ... }\nList<KeyValuePair<string, string>> ReadMaps()\n{\n    var list = new List<KeyValuePair<string, string>>();\n    if (!File.Exists(MapsFile())) return list;\n    foreach (Match m in Regex.Matches(File.ReadAllText(MapsFile()), \"\\\"([^\\\"]+)\\\"\\\\s+\\\"([0-9]+)\\\"\"))\n        list.Add(new KeyValuePair<string, string>(m.Groups[1].Value, m.Groups[2].Value));\n    return list;\n}\n\nvoid WriteMaps(List<KeyValuePair<string, string>> list)\n{\n    var sb = new StringBuilder(\"\\\"WorkshopMaps\\\"\\n{\\n\");\n    foreach (var kv in list) sb.Append(\"\\t\\\"\" + kv.Key + \"\\\"\\t\\t\\\"\" + kv.Value + \"\\\"\\n\");\n    sb.Append(\"}\\n\");\n    File.WriteAllText(MapsFile(), sb.ToString());\n    GiveToServiceUser(MapsFile(), false);\n}\n\nList<string> ReadCycle() => File.Exists(CycleFile())\n    ? File.ReadAllLines(CycleFile()).Select(l => l.Trim()).Where(l => l != \"\").ToList()\n    : new List<string>();\n\nvoid WriteCycle(List<string> maps)\n{\n    File.WriteAllText(CycleFile(), string.Join(\"\\n\", maps) + \"\\n\");\n    GiveToServiceUser(CycleFile(), false);\n}\n\n// Scripts run as root on Linux: files they create must belong to the service user (the owner of the service root).\nvoid GiveToServiceUser(string path, bool directory)\n{\n    if (!System.OperatingSystem.IsLinux()) return;\n    if (directory) Globals.OperatingSystem.SetDirectoryOwnerAutoDetect(path, true);\n    else Globals.OperatingSystem.SetFileOwnerAutoDetect(path);\n}\n\nasync Task<bool> SendToServer(string command)\n{\n    try\n    {\n        await ServiceManagerService.SendConsoleInput(ThisService.ServiceId, command);\n        return true;\n    }\n    catch\n    {\n        return false;\n    }\n}\n\n// Map names (maps/<name>.bsp) of a Workshop item: loose .bsp files or .bsp entries inside a .vpk.\nList<string> FindMaps(string dir)\n{\n    var names = new List<string>();\n    if (!Directory.Exists(dir)) return names;\n    foreach (var f in Directory.GetFiles(dir, \"*.bsp\", SearchOption.AllDirectories))\n        names.Add(Path.GetFileNameWithoutExtension(f));\n    foreach (var f in Directory.GetFiles(dir, \"*.vpk\", SearchOption.AllDirectories))\n    {\n        if (Regex.IsMatch(Path.GetFileName(f), \"_[0-9]{3}\\\\.vpk$\")) continue; // data chunks of a multi-file vpk\n        try { names.AddRange(VpkMaps(f)); } catch { }\n    }\n    return names.Distinct(StringComparer.OrdinalIgnoreCase).OrderBy(x => x, StringComparer.OrdinalIgnoreCase).ToList();\n}\n\nList<string> VpkMaps(string file)\n{\n    var maps = new List<string>();\n    using (var r = new BinaryReader(File.OpenRead(file)))\n    {\n        if (r.ReadUInt32() != 0x55aa1234) return maps;\n        var version = r.ReadUInt32();\n        r.ReadUInt32(); // tree size\n        if (version == 2) { r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); }\n        string Str() { var b = new List<byte>(); byte c; while ((c = r.ReadByte()) != 0) b.Add(c); return Encoding.UTF8.GetString(b.ToArray()); }\n        while (true)\n        {\n            var ext = Str(); if (ext == \"\") break;\n            while (true)\n            {\n                var path = Str(); if (path == \"\") break;\n                while (true)\n                {\n                    var name = Str(); if (name == \"\") break;\n                    r.ReadUInt32(); var preload = r.ReadUInt16(); r.ReadUInt16(); r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt16();\n                    if (preload > 0) r.ReadBytes(preload);\n                    if (ext.Equals(\"bsp\", StringComparison.OrdinalIgnoreCase) && path.Trim('/').Equals(\"maps\", StringComparison.OrdinalIgnoreCase)) maps.Add(name);\n                }\n            }\n        }\n    }\n    return maps;\n}\n// --- end of shared helpers ---\n\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "<path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "4a974c83-3a9a-5987-8938-228ab9c1d37f"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeCustomModUninstalled"
+        ],
+        "name": "Remove the Workshop map",
+        "description": "Removes the Workshop map from workshop_maps.txt and the map cycle and deletes its files.",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Removes the Workshop map(s) of this item from nmrih/workshop_maps.txt and the map cycle, deletes the server's\n// copy in workshop/content/224260/<id> and tells a running server (workshop_remove <map>).\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]+$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\n\nvar list = ReadMaps();\nvar maps = list.Where(kv => kv.Value == fileId).Select(kv => kv.Key).ToList();\nmaps.AddRange(FindMaps(ServerItemDir(fileId)).Where(m => !maps.Contains(m, StringComparer.OrdinalIgnoreCase)));\n\nforeach (var map in maps)\n{\n    if (await SendToServer(\"workshop_remove \" + map)) ScriptConsole.WriteLine((object)(\"Sent workshop_remove \" + map + \" to the server.\"));\n}\n// The server rewrites workshop_maps.txt after workshop_remove; give it a moment before writing our version.\nawait Task.Delay(2000);\n\nlist = ReadMaps();\nlist.RemoveAll(kv => kv.Value == fileId || maps.Contains(kv.Key, StringComparer.OrdinalIgnoreCase));\nWriteMaps(list);\n\nvar cycle = ReadCycle();\nif (cycle.RemoveAll(m => maps.Contains(m, StringComparer.OrdinalIgnoreCase)) > 0) WriteCycle(cycle);\n\nif (Directory.Exists(ServerItemDir(fileId))) Directory.Delete(ServerItemDir(fileId), true);\nScriptConsole.WriteLine((object)(maps.Count == 0\n    ? \"Workshop item \" + fileId + \" was not in workshop_maps.txt.\"\n    : \"Removed Workshop map \" + string.Join(\", \", maps) + \" (\" + fileId + \").\"));\n\n// --- Shared helpers: the server's own Workshop map list (nmrih/workshop_maps.txt) and the map cycle. ---\nstring Root() => (string)ThisService.RootDirectory;\nstring MapsFile() => Path.Combine(Root(), \"nmrih\", \"workshop_maps.txt\");\nstring CycleFile() => Path.Combine(Root(), \"nmrih\", \"cfg\", \"mapcycle.txt\");\nstring ServerItemDir(string id) => Path.Combine(Root(), \"workshop\", \"content\", \"224260\", id);\n\n// workshop_maps.txt is a KeyValues file: \"WorkshopMaps\" { \"<map name>\" \"<workshop id>\" ... }\nList<KeyValuePair<string, string>> ReadMaps()\n{\n    var list = new List<KeyValuePair<string, string>>();\n    if (!File.Exists(MapsFile())) return list;\n    foreach (Match m in Regex.Matches(File.ReadAllText(MapsFile()), \"\\\"([^\\\"]+)\\\"\\\\s+\\\"([0-9]+)\\\"\"))\n        list.Add(new KeyValuePair<string, string>(m.Groups[1].Value, m.Groups[2].Value));\n    return list;\n}\n\nvoid WriteMaps(List<KeyValuePair<string, string>> list)\n{\n    var sb = new StringBuilder(\"\\\"WorkshopMaps\\\"\\n{\\n\");\n    foreach (var kv in list) sb.Append(\"\\t\\\"\" + kv.Key + \"\\\"\\t\\t\\\"\" + kv.Value + \"\\\"\\n\");\n    sb.Append(\"}\\n\");\n    File.WriteAllText(MapsFile(), sb.ToString());\n    GiveToServiceUser(MapsFile(), false);\n}\n\nList<string> ReadCycle() => File.Exists(CycleFile())\n    ? File.ReadAllLines(CycleFile()).Select(l => l.Trim()).Where(l => l != \"\").ToList()\n    : new List<string>();\n\nvoid WriteCycle(List<string> maps)\n{\n    File.WriteAllText(CycleFile(), string.Join(\"\\n\", maps) + \"\\n\");\n    GiveToServiceUser(CycleFile(), false);\n}\n\n// Scripts run as root on Linux: files they create must belong to the service user (the owner of the service root).\nvoid GiveToServiceUser(string path, bool directory)\n{\n    if (!System.OperatingSystem.IsLinux()) return;\n    if (directory) Globals.OperatingSystem.SetDirectoryOwnerAutoDetect(path, true);\n    else Globals.OperatingSystem.SetFileOwnerAutoDetect(path);\n}\n\nasync Task<bool> SendToServer(string command)\n{\n    try\n    {\n        await ServiceManagerService.SendConsoleInput(ThisService.ServiceId, command);\n        return true;\n    }\n    catch\n    {\n        return false;\n    }\n}\n\n// Map names (maps/<name>.bsp) of a Workshop item: loose .bsp files or .bsp entries inside a .vpk.\nList<string> FindMaps(string dir)\n{\n    var names = new List<string>();\n    if (!Directory.Exists(dir)) return names;\n    foreach (var f in Directory.GetFiles(dir, \"*.bsp\", SearchOption.AllDirectories))\n        names.Add(Path.GetFileNameWithoutExtension(f));\n    foreach (var f in Directory.GetFiles(dir, \"*.vpk\", SearchOption.AllDirectories))\n    {\n        if (Regex.IsMatch(Path.GetFileName(f), \"_[0-9]{3}\\\\.vpk$\")) continue; // data chunks of a multi-file vpk\n        try { names.AddRange(VpkMaps(f)); } catch { }\n    }\n    return names.Distinct(StringComparer.OrdinalIgnoreCase).OrderBy(x => x, StringComparer.OrdinalIgnoreCase).ToList();\n}\n\nList<string> VpkMaps(string file)\n{\n    var maps = new List<string>();\n    using (var r = new BinaryReader(File.OpenRead(file)))\n    {\n        if (r.ReadUInt32() != 0x55aa1234) return maps;\n        var version = r.ReadUInt32();\n        r.ReadUInt32(); // tree size\n        if (version == 2) { r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt32(); }\n        string Str() { var b = new List<byte>(); byte c; while ((c = r.ReadByte()) != 0) b.Add(c); return Encoding.UTF8.GetString(b.ToArray()); }\n        while (true)\n        {\n            var ext = Str(); if (ext == \"\") break;\n            while (true)\n            {\n                var path = Str(); if (path == \"\") break;\n                while (true)\n                {\n                    var name = Str(); if (name == \"\") break;\n                    r.ReadUInt32(); var preload = r.ReadUInt16(); r.ReadUInt16(); r.ReadUInt32(); r.ReadUInt32(); r.ReadUInt16();\n                    if (preload > 0) r.ReadBytes(preload);\n                    if (ext.Equals(\"bsp\", StringComparison.OrdinalIgnoreCase) && path.Trim('/').Equals(\"maps\", StringComparison.OrdinalIgnoreCase)) maps.Add(name);\n                }\n            }\n        }\n    }\n    return maps;\n}\n// --- end of shared helpers ---\n\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "<path d=\"M19 13H5v-2h14v2z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "044a96c8-95c5-58c8-8885-9d3b92cf9b96"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterServiceCreated",
+          "AfterServiceReinstalled",
+          "BeforeServiceStarted"
+        ],
+        "name": "Steam client libraries",
+        "description": "Places a matching set of Steam client libraries (steamclient.dll, tier0_s.dll, vstdlib_s.dll from SteamCMD) next to srcds.exe: the set in bin is mismatched and srcds cannot load it.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll, System.Net.Http.dll, System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.IO.FileSystem.AccessControl.dll, System.Security.AccessControl.dll, System.Security.Principal.Windows.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Security.AccessControl;\nusing System.Security.Principal;\nusing System.Threading;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Windows: the server's bin\\steamclient.dll (32-bit) is newer than the bin\\tier0_s.dll and bin\\vstdlib_s.dll shipped\n// with it (it imports functions they lack, so loading it fails with error 127): srcds prints \"Unable to load Steam\n// support library\" and exits. SteamCMD carries a matching set. It is downloaded from Valve once per host into a\n// folder only SYSTEM and Administrators can write (it runs as SYSTEM, so customers must not be able to touch it),\n// and its three libraries are copied next to srcds.exe, the first place srcds loads them from.\nvar root = (string)ThisService.RootDirectory;\nvar names = new[] { \"steamclient.dll\", \"tier0_s.dll\", \"vstdlib_s.dll\" };\nvar shared = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), \"TCAdmin\", \"SteamCmdLibraries\");\nvar steamcmd = Path.Combine(shared, \"steamcmd.exe\");\nbool HaveSet() => names.All(n => File.Exists(Path.Combine(shared, n)));\n\nusing (var mutex = new Mutex(false, @\"Global\\TCAdmin-SteamCmdLibraries\"))\n{\n    // Synchronous on purpose: a mutex must be released by the thread that took it.\n    bool owned;\n    try { owned = mutex.WaitOne(TimeSpan.FromMinutes(6)); } catch (AbandonedMutexException) { owned = true; }\n    try\n    {\n        if (!HaveSet())\n        {\n            var dir = Directory.CreateDirectory(shared);\n            var acl = new DirectorySecurity();\n            acl.SetAccessRuleProtection(true, false);\n            foreach (var sid in new[] { WellKnownSidType.LocalSystemSid, WellKnownSidType.BuiltinAdministratorsSid })\n                acl.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(sid, null), FileSystemRights.FullControl,\n                    InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));\n            dir.SetAccessControl(acl);\n            if (!File.Exists(steamcmd))\n            {\n                ScriptConsole.WriteLine((object)\"Downloading SteamCMD from Valve for a matching set of Steam client libraries...\");\n                var zip = Path.Combine(shared, \"steamcmd.zip\");\n                using (var http = new HttpClient { Timeout = TimeSpan.FromMinutes(5) })\n                using (var s = http.GetStreamAsync(\"https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip\").GetAwaiter().GetResult())\n                using (var f = File.Create(zip))\n                    s.CopyTo(f);\n                ZipFile.ExtractToDirectory(zip, shared, true);\n                File.Delete(zip);\n            }\n            // Its first run updates SteamCMD itself, which installs steamclient.dll, tier0_s.dll and vstdlib_s.dll.\n            for (var attempt = 1; attempt <= 3 && !HaveSet(); attempt++)\n            {\n                ScriptConsole.WriteLine((object)(\"Updating SteamCMD (attempt \" + attempt + \")...\"));\n                using (var p = Process.Start(new ProcessStartInfo(steamcmd, \"+quit\") { WorkingDirectory = shared, UseShellExecute = false, CreateNoWindow = true, RedirectStandardOutput = true, RedirectStandardError = true }))\n                {\n                    p.OutputDataReceived += (o, e) => { }; p.ErrorDataReceived += (o, e) => { };\n                    p.BeginOutputReadLine(); p.BeginErrorReadLine();\n                    if (!p.WaitForExit(240000)) { try { p.Kill(true); } catch { } }\n                }\n            }\n            if (!HaveSet()) throw new Exception(\"SteamCMD did not provide \" + string.Join(\", \", names) + \" in \" + shared + \"; the server cannot connect to Steam.\");\n        }\n        foreach (var n in names)\n        {\n            var source = Path.Combine(shared, n);\n            var target = Path.Combine(root, n);\n            if (File.Exists(target) && new FileInfo(target).Length == new FileInfo(source).Length && File.GetLastWriteTimeUtc(target) >= File.GetLastWriteTimeUtc(source)) continue;\n            File.Copy(source, target, true);\n            ScriptConsole.WriteLine((object)(\"Placed \" + n + \" (from SteamCMD) next to srcds.exe.\"));\n        }\n    }\n    finally { if (owned) mutex.ReleaseMutex(); }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "0c95919f-4894-5f2d-8553-efa6f497cfa1"
+      }
+    }
+  ],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 339,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 2,
+      "gameId": 339,
+      "enabled": true,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "AllowCollections": true,
+        "ShowDescription": true,
+        "ShowAuthorAndRating": true,
+        "Private.UseSteamAPI": false,
+        "SkipDownload": false
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 339,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 339,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 5,
+      "gameId": 339,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 339,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 339,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    }
+  ],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-11T17:36:21.898359",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": false,
+    "includedPaths": [
+      "nmrih/cfg/**/*",
+      "nmrih/addons/**/*",
+      "nmrih/custom/**/*",
+      "nmrih/workshop_maps.txt"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "nmrih/",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
