@@ -1,0 +1,41 @@
+identifier: "Community.Games.TheIsle"
+name: "The Isle"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "The Isle (Evrima) dedicated server (Windows / Linux) with EOS query, RCON console, graceful stop, Game.ini editor and backups"
+longDescription: |
+  # The Isle
+  
+  ## Description
+  The Isle (Evrima) dedicated server for Windows and Linux (Steam app 412680, branch `evrima`, anonymous download). Both are native, so no Wine is needed.
+  
+  ## Key Features
+  - **Windows and Linux** configs on the Evrima server binary (`TheIsleServer-Win64-Shipping.exe` / `TheIsleServer-Linux-Shipping`).
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** through Epic Online Services (EOS). The server name comes from the service name.
+  - **RCON console:** console commands go through the Evrima RCON protocol with a script. Commands: `announce`, `directmessage`, `serverdetails`, `playerlist`, `kick`, `ban`, `save`, `wipecorpses`, the whitelist, AI, humans, global chat, migration and growth toggles, and more. Type `help` for the full list.
+  - **Console output:** the server log file on Windows, Terminal on Linux.
+  - **Graceful stop:** a stop script sends Ctrl+C (Windows, with windows-kill) or SIGINT (Linux), so the server saves and exits.
+  - **Config editor** for `Game.ini`: the map, server password, queue, humans, whitelist, global chat, AI, migration, mutations, growth and corpse-decay multipliers, day and night length, admin and whitelist Steam ids.
+  - **Backups** of the player data (`TheIslePersistence.db`) and the server config. The server is stopped first.
+  
+  ## Ports
+  - Game 7777 (UDP), query = game port, RCON = game port + 2 (TCP), queue = game port + 3 (TCP).
+  
+  ## Instructions
+  - The `EOS_IGNORE_ORCHESTRATOR_PORT=true` environment variable is required. Without it the server advertises port 7777 to EOS whatever its own port is, and the query shows it offline.
+  - The command line passes the public The Isle dedicated-server EOS client id and secret.
+  - The dinosaur roster is the `AllowedClasses=` list in `Game.ini`. Edit it in the file manager.
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/376210/7ae88c1923dbcdee670769fca9c89cc0e540ab46.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/376210/ss_8d63cb38072130b757b20c230b0c8acb5277c111.1920x1080.jpg?t=1653237914"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "The Isle - Windows.json"
+    type: "GameConfig"
+  - path: "The Isle - Linux.json"
+    type: "GameConfig"
