@@ -1,0 +1,42 @@
+identifier: "Community.Games.CoreKeeper"
+name: "Core Keeper"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Core Keeper dedicated server (Linux) with a managed virtual display, direct connections, graceful save-and-stop, world settings and backups"
+longDescription: |
+  # Core Keeper
+  
+  ## Description
+  Core Keeper dedicated server for Linux (Steam app 1963720, anonymous download). On Windows the server cannot be stopped without losing the world, so only Linux is provided.
+  
+  ## Key Features
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box:** the server needs an X display even in batch mode; a start script gives each service its own virtual display (Xvfb) and installs `xvfb` and `libxi6` when the host does not have them (apt on Debian/Ubuntu, dnf/yum on Red Hat based systems). A stop script removes the display again.
+  - **Direct connections** on the game port (cross-play), next to the Steam Game ID.
+  - **Graceful stop:** a stop script sends SIGTERM, so the server saves the world and the settings before it exits.
+  - **Console output** from the server log (`CoreKeeperServerLog.txt`).
+  - **Query:** status, world name and player count from the Steam server query (game port + 1).
+  - **Command-line settings:** world name, world slot, world mode and seed for new worlds, a fixed Game ID and the direct-connect password. The values are checked before they are saved (no quotes, backslashes or shell characters; Game ID format).
+  - **Backups** of the `data` folder (worlds, settings, admins, bans). The server is stopped first.
+  
+  ## Ports
+  - Game 27015 (UDP), bound to the service IP (`-ip`).
+  - Query 27016 (UDP), always the game port + 1 (Steam server query).
+  - The Steam client also opens one random outgoing UDP port and one local-only TCP port; neither needs to be opened.
+  - IP and ports checked on Linux: with a non-default IP and ports the game and query ports follow the service IP and ports.
+  
+  ## Instructions
+  - Players join with the Steam Game ID, or by IP, port and password. Both are in `GameInfo.txt` (Log Files).
+  - Leave the Game ID and password empty to keep the ones the server generated; they are stored in `data/ServerConfig.json`.
+  - Admins and bans: `data/Admins.json` and `data/PlayerBans.json`.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/1621690/53517a1b2eb22e22ac4a1f71c814209f1b84c063.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1621690/bca1feb5ec1bf64543f80c74effdcaed4216033c/ss_bca1feb5ec1bf64543f80c74effdcaed4216033c.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Linux"
+files:
+  - path: "Core Keeper - Linux.json"
+    type: "GameConfig"
