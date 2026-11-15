@@ -1,0 +1,53 @@
+identifier: "Community.Games.Avorion"
+name: "Avorion"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Avorion dedicated server (Windows / native Linux) with a server.ini config editor, admin ids on a predefined command line, RCON, console input, Steam status query, graceful save-and-stop, a Save the galaxy button, backups and Steam Workshop mods; starts out of the box"
+longDescription: |
+  # Avorion
+  
+  ## Description
+  Avorion dedicated server (Steam app 565060, anonymous download). The Windows config runs `bin\AvorionServer.exe`. The Linux config runs the native Linux server `bin/AvorionServer`. The galaxy is stored in `galaxies/avorion_galaxy`.
+  
+  ## Key Features
+  - **Windows and Linux** configs, both native.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box.** A new galaxy gets a random seed. On Linux a script makes the server executable and installs missing shared libraries (apt, dnf or yum).
+  - **Config editor for server.ini:** server name, description, password, message of the day, public listing, access list, scenario, difficulty, hardcore, storyline, barrier, Behemoth events, start sector, collision damage, PvP, offline invincibility, boarding, ship and station limits, wreckage times, autosave interval, threads and the server's own backups.
+  - **The editor settings win.** The server rewrites `server.ini` on every save. A script writes the editor settings back into it before each start, so a change made while the server runs is applied on the next start.
+  - **Predefined command line** with the admin Steam ids. Ports, IP and slots come from the service.
+  - **RCON** with the service's RCON password (`/status`, `/players`, `/say`, `/save` and the other admin commands).
+  - **Console** with input: type commands such as `/help`, `/players` or `/save`.
+  - **Status query** from the Steam query port: server name, seed and players.
+  - **Graceful stop:** `/stop` saves the galaxy, and the panel waits until the server exits.
+  - **Save the galaxy** button for players.
+  - **Log viewer** for the server logs (`serverlog *.txt`).
+  - **Backups** of the galaxy folder. The server is stopped first.
+  - **Steam Workshop mods.** Install a mod on the Steam Workshop page: a script adds it to `modconfig.lua`, and the server downloads and loads it on its next start. Uninstalling removes it again.
+  
+  ## Ports
+  - Game 27000, Steam query 27020 (UDP, the status query), Avorion query 27003 (UDP), Steam master server 27021 and RCON 27015 (TCP). Each port is set on its own in the service settings; none follows another.
+  - IP and ports: the command line passes the service IP to `--ip` and `--rcon-ip` and every port to its own flag, so the Steam query, Avorion query and RCON ports listen on the service's IP and its assigned ports (tested on Windows, moved to a second IP with new ports; the Linux config uses the same flags and was previewed only).
+  - With Steam networking (the default) the server opens no socket of its own on the game port or the Steam master port; the ports are still passed to the server.
+  - On 127.0.0.1 Steam does not accept the loopback address and the Steam query port listens on 0.0.0.0. Use a real IP.
+  - The server also listens on one TCP port with a random number on 127.0.0.1 only (internal). It cannot be set and is not reachable from outside.
+  
+  ## Instructions
+  - Change the settings in Configuration Files, then restart the server.
+  - Add your SteamID64 to "Admin Steam IDs" in Command Lines to become an admin (digits only). Separate several ids with commas. Remove an admin with `/admin -r <name>` in the console.
+  - The galaxy seed is used when the galaxy is generated. To start a new galaxy, stop the server and delete `galaxies/avorion_galaxy`, or reinstall.
+  - A setting changed in the game with an admin command is reset to the editor value on the next start.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/445220/680eadbf8eef917be5023310fb364c947af4e203.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/445220/ss_5ecd07c695f48055606ab68b82bd16f3ef4b40a6.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Avorion - Windows.json"
+    type: "GameConfig"
+  - path: "Avorion - Linux.json"
+    type: "GameConfig"
