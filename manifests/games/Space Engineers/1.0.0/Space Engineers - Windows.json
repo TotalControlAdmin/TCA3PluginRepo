@@ -1,0 +1,4393 @@
+{
+  "__TCA:ExportVersion": "3.23.46.17810",
+  "__TCA:ExportedAt": "2026-11-11T21:09:43.5955654Z",
+  "name": "Space Engineers",
+  "shortName": "SpaceEngineers",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/244850/f9856a90000d88e9a89441a7381fe9877e91eaca.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244850/b5acf6443fc427146b1c01dfde5fd1d1bd151c3b/ss_b5acf6443fc427146b1c01dfde5fd1d1bd151c3b.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 64,
+  "defaultSlots": 16,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".cfg",
+    ".sbc",
+    ".sbl",
+    ".txt",
+    ".xml"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "MemoryWrapper",
+    "logFile": "",
+    "inputSource": "None",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "",
+    "waitAfterStopCommand": 30000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 27016,
+        "expression": "",
+        "description": "Game (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 27016,
+        "expression": "GamePort",
+        "description": "Steam query (the game port)",
+        "uriTemplate": null
+      },
+      {
+        "id": "SteamPort",
+        "port": 8766,
+        "expression": "",
+        "description": "Steam (UDP)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "DedicatedServer64\\SpaceEngineersDedicated.exe",
+    "relativeWorkingDirectory": "DedicatedServer64",
+    "autoSetupFolderName": "spaceengineers",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 298740,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 244850,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": false,
+    "defaultCommandline": "-console -path ..\\Instance -ip ${IPAddress} -port ${GamePort} -maxPlayers ${Slots} -noupdate -nogui",
+    "defaultCustomCommandline": "-console -path ..\\Instance -ip ${IPAddress} -port ${GamePort} -maxPlayers ${Slots} -noupdate -nogui",
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": true,
+    "elevated": false
+  },
+  "identifier": "3ec149e0-fe0c-5043-a19a-cd26a5aa6d9f",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "ServerDescription",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ServerDescription}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "ServerDescription",
+        "defaultValue": "",
+        "label": "Description",
+        "description": "Shown in the server details.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.006895",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MessageOfTheDay",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MessageOfTheDay}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "MessageOfTheDay",
+        "defaultValue": "",
+        "label": "Message of the day",
+        "description": "Shown to players when they join.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.065959",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AdminSteamIds",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AdminSteamIds}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "AdminSteamIds",
+        "defaultValue": "",
+        "label": "Administrators",
+        "description": "SteamID64s of the server administrators, separated by commas. Replaces the Administrators list of the configuration on every start.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.066075",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PauseGameWhenEmpty",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PauseGameWhenEmpty}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "PauseGameWhenEmpty",
+        "defaultValue": "false",
+        "label": "Pause the game when nobody is online",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.066097",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WorldName",
+      "defaultValue": "World",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WorldName}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "WorldName",
+        "defaultValue": "World",
+        "label": "World name",
+        "description": "The name of a NEW world (its folder in Instance/Saves).",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.074678",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Scenario",
+      "defaultValue": "..\\Content\\CustomWorlds\\Star System",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Scenario}",
+      "editor": {
+        "items": [
+          {
+            "text": "Star System",
+            "value": "..\\Content\\CustomWorlds\\Star System"
+          },
+          {
+            "text": "Home System",
+            "value": "..\\Content\\CustomWorlds\\Home System"
+          },
+          {
+            "text": "Distant Moons",
+            "value": "..\\Content\\CustomWorlds\\Distant Moons"
+          },
+          {
+            "text": "Pertam Orbiter",
+            "value": "..\\Content\\CustomWorlds\\Pertam Orbiter"
+          },
+          {
+            "text": "Empty World",
+            "value": "..\\Content\\CustomWorlds\\Empty World"
+          },
+          {
+            "text": "Lone Survivor",
+            "value": "..\\Content\\CustomWorlds\\Lone Survivor"
+          },
+          {
+            "text": "Crashed Red Ship",
+            "value": "..\\Content\\CustomWorlds\\Crashed Red Ship"
+          },
+          {
+            "text": "Asteroid Armory",
+            "value": "..\\Content\\CustomWorlds\\Asteroid Armory"
+          },
+          {
+            "text": "Green Station",
+            "value": "..\\Content\\CustomWorlds\\Green Station"
+          },
+          {
+            "text": "Red Ship",
+            "value": "..\\Content\\CustomWorlds\\Red Ship"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "Scenario",
+        "defaultValue": "..\\Content\\CustomWorlds\\Star System",
+        "label": "Start a new world from",
+        "description": "Used only when the server creates a new world: on the first start, or after the world was deleted.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.074753",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "GameMode",
+      "defaultValue": "Survival",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${GameMode}",
+      "editor": {
+        "items": [
+          {
+            "text": "Survival",
+            "value": "Survival"
+          },
+          {
+            "text": "Creative",
+            "value": "Creative"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "GameMode",
+        "defaultValue": "Survival",
+        "label": "Game mode",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.09801",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnvironmentHostility",
+      "defaultValue": "NORMAL",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnvironmentHostility}",
+      "editor": {
+        "items": [
+          {
+            "text": "Safe (none)",
+            "value": "SAFE"
+          },
+          {
+            "text": "Normal",
+            "value": "NORMAL"
+          },
+          {
+            "text": "Cataclysm",
+            "value": "CATACLYSM"
+          },
+          {
+            "text": "Armageddon",
+            "value": "CATACLYSM_UNREAL"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "EnvironmentHostility",
+        "defaultValue": "NORMAL",
+        "label": "Meteorites",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.098073",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "InventorySizeMultiplier",
+      "defaultValue": "3",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${InventorySizeMultiplier}",
+      "editor": {
+        "items": [
+          {
+            "text": "Realistic (x1)",
+            "value": "1"
+          },
+          {
+            "text": "x3",
+            "value": "3"
+          },
+          {
+            "text": "x5",
+            "value": "5"
+          },
+          {
+            "text": "x10",
+            "value": "10"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "InventorySizeMultiplier",
+        "defaultValue": "3",
+        "label": "Inventory size",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.098094",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AssemblerSpeedMultiplier",
+      "defaultValue": "3",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AssemblerSpeedMultiplier}",
+      "editor": {
+        "items": [
+          {
+            "text": "Realistic (x1)",
+            "value": "1"
+          },
+          {
+            "text": "x3",
+            "value": "3"
+          },
+          {
+            "text": "x5",
+            "value": "5"
+          },
+          {
+            "text": "x10",
+            "value": "10"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "AssemblerSpeedMultiplier",
+        "defaultValue": "3",
+        "label": "Assembler speed",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.098113",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AssemblerEfficiencyMultiplier",
+      "defaultValue": "3",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AssemblerEfficiencyMultiplier}",
+      "editor": {
+        "items": [
+          {
+            "text": "Realistic (x1)",
+            "value": "1"
+          },
+          {
+            "text": "x3",
+            "value": "3"
+          },
+          {
+            "text": "x5",
+            "value": "5"
+          },
+          {
+            "text": "x10",
+            "value": "10"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "AssemblerEfficiencyMultiplier",
+        "defaultValue": "3",
+        "label": "Assembler efficiency",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.098131",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RefinerySpeedMultiplier",
+      "defaultValue": "3",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RefinerySpeedMultiplier}",
+      "editor": {
+        "items": [
+          {
+            "text": "Realistic (x1)",
+            "value": "1"
+          },
+          {
+            "text": "x3",
+            "value": "3"
+          },
+          {
+            "text": "x5",
+            "value": "5"
+          },
+          {
+            "text": "x10",
+            "value": "10"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "RefinerySpeedMultiplier",
+        "defaultValue": "3",
+        "label": "Refinery speed",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.098147",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AutoSaveInMinutes",
+      "defaultValue": "5",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AutoSaveInMinutes}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 1440,
+        "id": "AutoSaveInMinutes",
+        "defaultValue": "5",
+        "label": "Autosave every (minutes)",
+        "description": "0 = no autosave. The world is also saved when the server stops.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.098164",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ViewDistance",
+      "defaultValue": "15000",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ViewDistance}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1000,
+        "maxValue": 50000,
+        "id": "ViewDistance",
+        "defaultValue": "15000",
+        "label": "View distance (meters)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108155",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TotalPCU",
+      "defaultValue": "600000",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TotalPCU}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1000,
+        "maxValue": 10000000,
+        "id": "TotalPCU",
+        "defaultValue": "600000",
+        "label": "Total PCU limit",
+        "description": "Performance cost units of all grids in the world.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108196",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "BlockLimitsEnabled",
+      "defaultValue": "NONE",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BlockLimitsEnabled}",
+      "editor": {
+        "items": [
+          {
+            "text": "None",
+            "value": "NONE"
+          },
+          {
+            "text": "Global",
+            "value": "GLOBALLY"
+          },
+          {
+            "text": "Per faction",
+            "value": "PER_FACTION"
+          },
+          {
+            "text": "Per player",
+            "value": "PER_PLAYER"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "BlockLimitsEnabled",
+        "defaultValue": "NONE",
+        "label": "Block limits",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108209",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxFloatingObjects",
+      "defaultValue": "100",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxFloatingObjects}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 1024,
+        "id": "MaxFloatingObjects",
+        "defaultValue": "100",
+        "label": "Max floating objects",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108245",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxBackupSaves",
+      "defaultValue": "5",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxBackupSaves}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 1000,
+        "id": "MaxBackupSaves",
+        "defaultValue": "5",
+        "label": "World backups kept by the game",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108256",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableSpectator",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableSpectator}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableSpectator",
+        "defaultValue": "false",
+        "label": "Spectator camera",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108265",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableCopyPaste",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableCopyPaste}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableCopyPaste",
+        "defaultValue": "true",
+        "label": "Copy and paste",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108283",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WeaponsEnabled",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WeaponsEnabled}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "WeaponsEnabled",
+        "defaultValue": "true",
+        "label": "Weapons",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108299",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ThrusterDamage",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ThrusterDamage}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "ThrusterDamage",
+        "defaultValue": "true",
+        "label": "Thruster damage",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108315",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "CargoShipsEnabled",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${CargoShipsEnabled}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "CargoShipsEnabled",
+        "defaultValue": "true",
+        "label": "Cargo ships",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108325",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableEncounters",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableEncounters}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableEncounters",
+        "defaultValue": "true",
+        "label": "Random encounters",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108339",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableDrones",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableDrones}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableDrones",
+        "defaultValue": "true",
+        "label": "Drones",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108349",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableWolfs",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableWolfs}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableWolfs",
+        "defaultValue": "true",
+        "label": "Wolves",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108358",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableSpiders",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableSpiders}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableSpiders",
+        "defaultValue": "false",
+        "label": "Spiders",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108369",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableIngameScripts",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableIngameScripts}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableIngameScripts",
+        "defaultValue": "true",
+        "label": "In-game scripts",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108376",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableOxygen",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableOxygen}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableOxygen",
+        "defaultValue": "true",
+        "label": "Oxygen",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108384",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableOxygenPressurization",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableOxygenPressurization}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableOxygenPressurization",
+        "defaultValue": "true",
+        "label": "Airtightness",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108392",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Enable3rdPersonView",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Enable3rdPersonView}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "Enable3rdPersonView",
+        "defaultValue": "true",
+        "label": "Third-person camera",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108399",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableSunRotation",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableSunRotation}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableSunRotation",
+        "defaultValue": "true",
+        "label": "Sun rotation",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108406",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableJetpack",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableJetpack}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableJetpack",
+        "defaultValue": "true",
+        "label": "Jetpack",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108415",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SpawnWithTools",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SpawnWithTools}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "SpawnWithTools",
+        "defaultValue": "true",
+        "label": "Spawn with tools",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108422",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableRespawnShips",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableRespawnShips}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableRespawnShips",
+        "defaultValue": "true",
+        "label": "Respawn ships",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108429",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PermanentDeath",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PermanentDeath}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "PermanentDeath",
+        "defaultValue": "false",
+        "label": "Permanent death",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108438",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableEconomy",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableEconomy}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableEconomy",
+        "defaultValue": "true",
+        "label": "Economy",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108457",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WeatherSystem",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WeatherSystem}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "WeatherSystem",
+        "defaultValue": "true",
+        "label": "Weather",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108464",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnableVoxelDestruction",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnableVoxelDestruction}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "EnableVoxelDestruction",
+        "defaultValue": "true",
+        "label": "Voxel destruction",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108473",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TrashRemovalEnabled",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TrashRemovalEnabled}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "TrashRemovalEnabled",
+        "defaultValue": "true",
+        "label": "Trash removal",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108482",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ExperimentalMode",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ExperimentalMode}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "ExperimentalMode",
+        "defaultValue": "false",
+        "label": "Experimental mode",
+        "description": "Required by some mods and settings.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108563",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TorchChatName",
+      "defaultValue": "Server",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TorchChatName}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "TorchChatName",
+        "defaultValue": "Server",
+        "label": "Chat name",
+        "description": "The name of messages the server sends to the chat.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108588",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TorchChatColor",
+      "defaultValue": "Red",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TorchChatColor}",
+      "editor": {
+        "items": [
+          {
+            "text": "Red",
+            "value": "Red"
+          },
+          {
+            "text": "Blue",
+            "value": "Blue"
+          },
+          {
+            "text": "White",
+            "value": "White"
+          },
+          {
+            "text": "Green",
+            "value": "Green"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "TorchChatColor",
+        "defaultValue": "Red",
+        "label": "Chat color",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108619",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TorchPluginUpdates",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TorchPluginUpdates}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "TorchPluginUpdates",
+        "defaultValue": "true",
+        "label": "Update plugins on start",
+        "description": "Downloads new versions of the plugins listed in Torch.cfg when the server starts.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108641",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TorchLocalPlugins",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TorchLocalPlugins}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "TorchLocalPlugins",
+        "defaultValue": "false",
+        "label": "Load every plugin in the Plugins folder",
+        "description": "Ignores the plugin list of Torch.cfg.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108656",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TorchTickTimeout",
+      "defaultValue": "60",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TorchTickTimeout}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 10,
+        "maxValue": 3600,
+        "id": "TorchTickTimeout",
+        "defaultValue": "60",
+        "label": "Watchdog timeout (seconds)",
+        "description": "Torch restarts a server that stops ticking for this long.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108667",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TorchWhitelist",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TorchWhitelist}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "TorchWhitelist",
+        "defaultValue": "false",
+        "label": "Whitelist",
+        "description": "Only the SteamIDs in the Whitelist of Torch.cfg can join.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T08:01:15.108681",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n; \\t]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: semicolons, spaces, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:41:32.128359",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n; \\t]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: semicolons, spaces, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:41:33.250271",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 690,
+      "relativePath": "Instance\\SpaceEngineers-Dedicated.cfg",
+      "description": "Server settings (SpaceEngineers-Dedicated.cfg). The gameplay settings also apply to the current world on the next start.",
+      "template": "<?xml version=\"1.0\"?>\n<MyConfigDedicated xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <SessionSettings>\n    <MaxPlayers>${Slots}</MaxPlayers>\n    <OnlineMode>PUBLIC</OnlineMode>\n    <GameMode>${GameMode}</GameMode>\n    <EnvironmentHostility>${EnvironmentHostility}</EnvironmentHostility>\n    <InventorySizeMultiplier>${InventorySizeMultiplier}</InventorySizeMultiplier>\n    <AssemblerSpeedMultiplier>${AssemblerSpeedMultiplier}</AssemblerSpeedMultiplier>\n    <AssemblerEfficiencyMultiplier>${AssemblerEfficiencyMultiplier}</AssemblerEfficiencyMultiplier>\n    <RefinerySpeedMultiplier>${RefinerySpeedMultiplier}</RefinerySpeedMultiplier>\n    <AutoSaveInMinutes>${AutoSaveInMinutes}</AutoSaveInMinutes>\n    <ViewDistance>${ViewDistance}</ViewDistance>\n    <TotalPCU>${TotalPCU}</TotalPCU>\n    <BlockLimitsEnabled>${BlockLimitsEnabled}</BlockLimitsEnabled>\n    <MaxFloatingObjects>${MaxFloatingObjects}</MaxFloatingObjects>\n    <MaxBackupSaves>${MaxBackupSaves}</MaxBackupSaves>\n    <EnableSpectator>${EnableSpectator}</EnableSpectator>\n    <EnableCopyPaste>${EnableCopyPaste}</EnableCopyPaste>\n    <WeaponsEnabled>${WeaponsEnabled}</WeaponsEnabled>\n    <ThrusterDamage>${ThrusterDamage}</ThrusterDamage>\n    <CargoShipsEnabled>${CargoShipsEnabled}</CargoShipsEnabled>\n    <EnableEncounters>${EnableEncounters}</EnableEncounters>\n    <EnableDrones>${EnableDrones}</EnableDrones>\n    <EnableWolfs>${EnableWolfs}</EnableWolfs>\n    <EnableSpiders>${EnableSpiders}</EnableSpiders>\n    <EnableIngameScripts>${EnableIngameScripts}</EnableIngameScripts>\n    <EnableOxygen>${EnableOxygen}</EnableOxygen>\n    <EnableOxygenPressurization>${EnableOxygenPressurization}</EnableOxygenPressurization>\n    <Enable3rdPersonView>${Enable3rdPersonView}</Enable3rdPersonView>\n    <EnableSunRotation>${EnableSunRotation}</EnableSunRotation>\n    <EnableJetpack>${EnableJetpack}</EnableJetpack>\n    <SpawnWithTools>${SpawnWithTools}</SpawnWithTools>\n    <EnableRespawnShips>${EnableRespawnShips}</EnableRespawnShips>\n    <PermanentDeath>${PermanentDeath}</PermanentDeath>\n    <EnableEconomy>${EnableEconomy}</EnableEconomy>\n    <WeatherSystem>${WeatherSystem}</WeatherSystem>\n    <EnableVoxelDestruction>${EnableVoxelDestruction}</EnableVoxelDestruction>\n    <TrashRemovalEnabled>${TrashRemovalEnabled}</TrashRemovalEnabled>\n    <ExperimentalMode>${ExperimentalMode}</ExperimentalMode>\n  </SessionSettings>\n  <LoadWorld />\n  <IP>${IPAddress}</IP>\n  <SteamPort>${SteamPort}</SteamPort>\n  <ServerPort>${GamePort}</ServerPort>\n  <AsteroidAmount>4</AsteroidAmount>\n  <Administrators />\n  <Banned />\n  <GroupID>0</GroupID>\n  <ServerName>${Hostname}</ServerName>\n  <WorldName>${WorldName}</WorldName>\n  <PauseGameWhenEmpty>${PauseGameWhenEmpty}</PauseGameWhenEmpty>\n  <MessageOfTheDay>${MessageOfTheDay}</MessageOfTheDay>\n  <AutoRestartEnabled>false</AutoRestartEnabled>\n  <AutoRestartSave>true</AutoRestartSave>\n  <AutoUpdateEnabled>false</AutoUpdateEnabled>\n  <IgnoreLastSession>false</IgnoreLastSession>\n  <PremadeCheckpointPath>${Scenario}</PremadeCheckpointPath>\n  <ServerDescription>${ServerDescription}</ServerDescription>\n  <ServerPassword>${PrivatePassword}</ServerPassword>\n  <AdminSteamIds>${AdminSteamIds}</AdminSteamIds>\n  <RemoteApiEnabled>false</RemoteApiEnabled>\n  <NetworkType>steam</NetworkType>\n</MyConfigDedicated>\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Server",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "Shown in the server browser.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Password",
+          "description": "Leave empty for a public server. The server receives it as the salted hash the game expects, on the next start.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "ServerDescription",
+          "defaultValue": "",
+          "label": "Description",
+          "description": "Shown in the server details.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "MessageOfTheDay",
+          "defaultValue": "",
+          "label": "Message of the day",
+          "description": "Shown to players when they join.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "AdminSteamIds",
+          "defaultValue": "",
+          "label": "Administrators",
+          "description": "SteamID64s of the server administrators, separated by commas. Replaces the Administrators list of the configuration on every start.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "PauseGameWhenEmpty",
+          "defaultValue": "false",
+          "label": "Pause the game when nobody is online",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_World",
+          "defaultValue": null,
+          "label": "World",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "WorldName",
+          "defaultValue": "World",
+          "label": "World name",
+          "description": "The name of a NEW world (its folder in Instance/Saves).",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Star System",
+              "value": "..\\Content\\CustomWorlds\\Star System"
+            },
+            {
+              "text": "Home System",
+              "value": "..\\Content\\CustomWorlds\\Home System"
+            },
+            {
+              "text": "Distant Moons",
+              "value": "..\\Content\\CustomWorlds\\Distant Moons"
+            },
+            {
+              "text": "Pertam Orbiter",
+              "value": "..\\Content\\CustomWorlds\\Pertam Orbiter"
+            },
+            {
+              "text": "Empty World",
+              "value": "..\\Content\\CustomWorlds\\Empty World"
+            },
+            {
+              "text": "Lone Survivor",
+              "value": "..\\Content\\CustomWorlds\\Lone Survivor"
+            },
+            {
+              "text": "Crashed Red Ship",
+              "value": "..\\Content\\CustomWorlds\\Crashed Red Ship"
+            },
+            {
+              "text": "Asteroid Armory",
+              "value": "..\\Content\\CustomWorlds\\Asteroid Armory"
+            },
+            {
+              "text": "Green Station",
+              "value": "..\\Content\\CustomWorlds\\Green Station"
+            },
+            {
+              "text": "Red Ship",
+              "value": "..\\Content\\CustomWorlds\\Red Ship"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "Scenario",
+          "defaultValue": "..\\Content\\CustomWorlds\\Star System",
+          "label": "Start a new world from",
+          "description": "Used only when the server creates a new world: on the first start, or after the world was deleted.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Gameplay",
+          "defaultValue": null,
+          "label": "Gameplay",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Survival",
+              "value": "Survival"
+            },
+            {
+              "text": "Creative",
+              "value": "Creative"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "GameMode",
+          "defaultValue": "Survival",
+          "label": "Game mode",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Safe (none)",
+              "value": "SAFE"
+            },
+            {
+              "text": "Normal",
+              "value": "NORMAL"
+            },
+            {
+              "text": "Cataclysm",
+              "value": "CATACLYSM"
+            },
+            {
+              "text": "Armageddon",
+              "value": "CATACLYSM_UNREAL"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "EnvironmentHostility",
+          "defaultValue": "NORMAL",
+          "label": "Meteorites",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Realistic (x1)",
+              "value": "1"
+            },
+            {
+              "text": "x3",
+              "value": "3"
+            },
+            {
+              "text": "x5",
+              "value": "5"
+            },
+            {
+              "text": "x10",
+              "value": "10"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "InventorySizeMultiplier",
+          "defaultValue": "3",
+          "label": "Inventory size",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Realistic (x1)",
+              "value": "1"
+            },
+            {
+              "text": "x3",
+              "value": "3"
+            },
+            {
+              "text": "x5",
+              "value": "5"
+            },
+            {
+              "text": "x10",
+              "value": "10"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "AssemblerSpeedMultiplier",
+          "defaultValue": "3",
+          "label": "Assembler speed",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Realistic (x1)",
+              "value": "1"
+            },
+            {
+              "text": "x3",
+              "value": "3"
+            },
+            {
+              "text": "x5",
+              "value": "5"
+            },
+            {
+              "text": "x10",
+              "value": "10"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "AssemblerEfficiencyMultiplier",
+          "defaultValue": "3",
+          "label": "Assembler efficiency",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Realistic (x1)",
+              "value": "1"
+            },
+            {
+              "text": "x3",
+              "value": "3"
+            },
+            {
+              "text": "x5",
+              "value": "5"
+            },
+            {
+              "text": "x10",
+              "value": "10"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "RefinerySpeedMultiplier",
+          "defaultValue": "3",
+          "label": "Refinery speed",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 1440,
+          "id": "AutoSaveInMinutes",
+          "defaultValue": "5",
+          "label": "Autosave every (minutes)",
+          "description": "0 = no autosave. The world is also saved when the server stops.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1000,
+          "maxValue": 50000,
+          "id": "ViewDistance",
+          "defaultValue": "15000",
+          "label": "View distance (meters)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1000,
+          "maxValue": 10000000,
+          "id": "TotalPCU",
+          "defaultValue": "600000",
+          "label": "Total PCU limit",
+          "description": "Performance cost units of all grids in the world.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "None",
+              "value": "NONE"
+            },
+            {
+              "text": "Global",
+              "value": "GLOBALLY"
+            },
+            {
+              "text": "Per faction",
+              "value": "PER_FACTION"
+            },
+            {
+              "text": "Per player",
+              "value": "PER_PLAYER"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "BlockLimitsEnabled",
+          "defaultValue": "NONE",
+          "label": "Block limits",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 1024,
+          "id": "MaxFloatingObjects",
+          "defaultValue": "100",
+          "label": "Max floating objects",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 1000,
+          "id": "MaxBackupSaves",
+          "defaultValue": "5",
+          "label": "World backups kept by the game",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableSpectator",
+          "defaultValue": "false",
+          "label": "Spectator camera",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableCopyPaste",
+          "defaultValue": "true",
+          "label": "Copy and paste",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "WeaponsEnabled",
+          "defaultValue": "true",
+          "label": "Weapons",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "ThrusterDamage",
+          "defaultValue": "true",
+          "label": "Thruster damage",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "CargoShipsEnabled",
+          "defaultValue": "true",
+          "label": "Cargo ships",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableEncounters",
+          "defaultValue": "true",
+          "label": "Random encounters",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableDrones",
+          "defaultValue": "true",
+          "label": "Drones",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableWolfs",
+          "defaultValue": "true",
+          "label": "Wolves",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableSpiders",
+          "defaultValue": "false",
+          "label": "Spiders",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableIngameScripts",
+          "defaultValue": "true",
+          "label": "In-game scripts",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableOxygen",
+          "defaultValue": "true",
+          "label": "Oxygen",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableOxygenPressurization",
+          "defaultValue": "true",
+          "label": "Airtightness",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "Enable3rdPersonView",
+          "defaultValue": "true",
+          "label": "Third-person camera",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableSunRotation",
+          "defaultValue": "true",
+          "label": "Sun rotation",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableJetpack",
+          "defaultValue": "true",
+          "label": "Jetpack",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "SpawnWithTools",
+          "defaultValue": "true",
+          "label": "Spawn with tools",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableRespawnShips",
+          "defaultValue": "true",
+          "label": "Respawn ships",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "PermanentDeath",
+          "defaultValue": "false",
+          "label": "Permanent death",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableEconomy",
+          "defaultValue": "true",
+          "label": "Economy",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "WeatherSystem",
+          "defaultValue": "true",
+          "label": "Weather",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "EnableVoxelDestruction",
+          "defaultValue": "true",
+          "label": "Voxel destruction",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "TrashRemovalEnabled",
+          "defaultValue": "true",
+          "label": "Trash removal",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "ExperimentalMode",
+          "defaultValue": "false",
+          "label": "Experimental mode",
+          "description": "Required by some mods and settings.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 699,
+      "relativePath": "Torch.cfg",
+      "description": "Torch settings (Torch.cfg). Used only when the Torch update is installed.",
+      "template": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<TorchConfig xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <InstanceName>Instance</InstanceName>\n  <InstancePath>Instance</InstancePath>\n  <Autostart>true</Autostart>\n  <RestartOnCrash>false</RestartOnCrash>\n  <RestartOnGameUpdate>false</RestartOnGameUpdate>\n  <NoGui>true</NoGui>\n  <GetTorchUpdates>false</GetTorchUpdates>\n  <GetPluginUpdates>${TorchPluginUpdates}</GetPluginUpdates>\n  <TickTimeout>${TorchTickTimeout}</TickTimeout>\n  <Plugins />\n  <LocalPlugins>${TorchLocalPlugins}</LocalPlugins>\n  <DisconnectOnRestart>false</DisconnectOnRestart>\n  <ChatName>${TorchChatName}</ChatName>\n  <ChatColor>${TorchChatColor}</ChatColor>\n  <EnableWhitelist>${TorchWhitelist}</EnableWhitelist>\n  <Whitelist />\n  <IndependentConsole>false</IndependentConsole>\n  <EnableAnalytics>false</EnableAnalytics>\n</TorchConfig>\n",
+      "order": 2,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Torch",
+          "defaultValue": null,
+          "label": "Torch (used only when the Torch update is installed)",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "TorchChatName",
+          "defaultValue": "Server",
+          "label": "Chat name",
+          "description": "The name of messages the server sends to the chat.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Red",
+              "value": "Red"
+            },
+            {
+              "text": "Blue",
+              "value": "Blue"
+            },
+            {
+              "text": "White",
+              "value": "White"
+            },
+            {
+              "text": "Green",
+              "value": "Green"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "TorchChatColor",
+          "defaultValue": "Red",
+          "label": "Chat color",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "TorchPluginUpdates",
+          "defaultValue": "true",
+          "label": "Update plugins on start",
+          "description": "Downloads new versions of the plugins listed in Torch.cfg when the server starts.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "TorchLocalPlugins",
+          "defaultValue": "false",
+          "label": "Load every plugin in the Plugins folder",
+          "description": "Ignores the plugin list of Torch.cfg.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 10,
+          "maxValue": 3600,
+          "id": "TorchTickTimeout",
+          "defaultValue": "60",
+          "label": "Watchdog timeout (seconds)",
+          "description": "Torch restarts a server that stops ticking for this long.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "TorchWhitelist",
+          "defaultValue": "false",
+          "label": "Whitelist",
+          "description": "Only the SteamIDs in the Whitelist of Torch.cfg can join.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterServiceCreated",
+          "AfterServiceReinstalled",
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server",
+        "description": "Installs missing Visual C++ runtimes, syncs the configuration with the service (IP, ports, slots, password hash, admins) and applies the gameplay settings to the current world.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll, System.Security.Cryptography.dll, System.Xml.ReaderWriter.dll, System.Private.Xml.Linq.dll, System.Xml.XDocument.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Security.Cryptography;\nusing System.Text;\nusing System.Text.RegularExpressions;\nusing System.Xml;\nusing System.Xml.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\nvar instance = Path.Combine(root, \"Instance\");\n\n// 1. Space Engineers' physics engine (Havok.dll) needs the Visual C++ 2013 runtime, its other native libraries the\n//    2015-2022 one. The server ships both installers in _CommonRedist; install whichever is missing (once per host).\nif (System.OperatingSystem.IsWindows())\n{\n    var system32 = Environment.SystemDirectory;\n    var redists = new[]\n    {\n        new { Name = \"Visual C++ 2013 (x64)\", Files = new[] { \"msvcr120.dll\", \"msvcp120.dll\" }, Installer = Path.Combine(\"_CommonRedist\", \"vcredist\", \"2013\", \"vcredist_x64.exe\") },\n        new { Name = \"Visual C++ 2015-2022 (x64)\", Files = new[] { \"vcruntime140.dll\", \"vcruntime140_1.dll\", \"msvcp140.dll\" }, Installer = Path.Combine(\"_CommonRedist\", \"vcredist\", \"2019\", \"VC_redist.x64.exe\") },\n    };\n    foreach (var redist in redists)\n    {\n        if (redist.Files.All(f => File.Exists(Path.Combine(system32, f)))) continue;\n        var installer = Path.Combine(root, redist.Installer);\n        if (!File.Exists(installer))\n        {\n            ScriptConsole.WriteLine((object)(\"The \" + redist.Name + \" runtime is missing and its installer (\" + redist.Installer + \") was not found. Reinstall the service, or install the runtime on this host.\"));\n            continue;\n        }\n        ScriptConsole.WriteLine((object)(\"Installing the \" + redist.Name + \" runtime...\"));\n        var psi = new ProcessStartInfo(installer, new[] { \"/install\", \"/quiet\", \"/norestart\" }) { UseShellExecute = false, CreateNoWindow = true };\n        using (var process = Process.Start(psi))\n        {\n            await process.WaitForExitAsync(ThisCancellationToken);\n            // 0 = installed, 1638 = a newer version is already there, 3010 = installed, a reboot is pending.\n            if (process.ExitCode == 0 || process.ExitCode == 1638 || process.ExitCode == 3010)\n                ScriptConsole.WriteLine((object)(\"Installed the \" + redist.Name + \" runtime.\"));\n            else\n                throw new Exception(\"The \" + redist.Name + \" runtime installer failed with exit code \" + process.ExitCode + \".\");\n        }\n    }\n}\n\n// 2. The instance folder (-path): configuration, worlds, logs and the mods the server downloads. The server exits at\n//    once when it does not exist.\nDirectory.CreateDirectory(instance);\n\n// Torch saves Torch.cfg when it starts; the panel writes its config files with an ACL of their own on Windows (no write\n// access for the service account). Reset the file to the service folder's inherited permissions.\nvar torchConfig = Path.Combine(root, \"Torch.cfg\");\nif (System.OperatingSystem.IsWindows() && File.Exists(torchConfig) && Safe(torchConfig, root))\n{\n    using (var icacls = Process.Start(new ProcessStartInfo(\"icacls.exe\", new[] { torchConfig, \"/reset\", \"/Q\" }) { UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true, CreateNoWindow = true }))\n        await icacls.WaitForExitAsync(ThisCancellationToken);\n}\n\n// 3. The configuration. The panel's editor writes the plain password and the administrator list into elements of\n//    its own (the server ignores unknown elements); the server gets the salted hash and the Administrators list.\nvar cfgPath = Path.Combine(instance, \"SpaceEngineers-Dedicated.cfg\");\nif (!Safe(cfgPath, instance))\n    throw new Exception(\"Instance/SpaceEngineers-Dedicated.cfg (or the Instance folder) is a symbolic link: replace it with a regular file.\");\nif (!File.Exists(cfgPath))\n{\n    ScriptConsole.WriteLine((object)\"SpaceEngineers-Dedicated.cfg is missing; the server starts with its defaults.\");\n    return;\n}\nvar cfgDoc = XDocument.Load(cfgPath);\nvar cfg = cfgDoc.Root;\nvar changed = new List<string>();\n\nXElement Child(XElement parent, string name, bool create = true)\n{\n    var element = parent.Elements().FirstOrDefault(e => e.Name.LocalName == name);\n    if (element == null && create) { element = new XElement(name); parent.Add(element); }\n    return element;\n}\nvoid Set(XElement parent, string name, string value)\n{\n    var element = Child(parent, name);\n    if (element.HasElements || element.Value != value) { element.RemoveNodes(); element.Value = value; changed.Add(name); }\n}\n\n// The service owns the address, the ports and the player limit (also passed on the command line).\nSet(cfg, \"IP\", Convert.ToString(ThisService.IPAddress));\nSet(cfg, \"ServerPort\", Convert.ToString(ThisService.GamePort));\ntry { Set(cfg, \"SteamPort\", Convert.ToString(ThisService.Ports[\"SteamPort\"])); } catch { } // a service created before the port existed\nvar session = Child(cfg, \"SessionSettings\");\nSet(session, \"MaxPlayers\", Convert.ToString(ThisService.Slots));\n\n// The server rewrites the whole file (and drops the panel's elements) the first time it needs a DedicatedId.\nvar dedicatedId = Child(cfg, \"DedicatedId\");\nif (!long.TryParse(dedicatedId.Value, out var id) || id == 0)\n{\n    var bytes = RandomNumberGenerator.GetBytes(8);\n    bytes[7] &= 0x7f;\n    Set(cfg, \"DedicatedId\", Math.Max(1, BitConverter.ToInt64(bytes, 0)).ToString());\n}\n\n// Password: PBKDF2-SHA1 (10000 iterations, 20 bytes) over the base64 salt, exactly like the game's own SetPassword.\nvar password = Child(cfg, \"ServerPassword\", false)?.Value ?? \"\";\nvar saltElement = Child(cfg, \"ServerPasswordSalt\");\nbyte[] salt;\ntry { salt = Convert.FromBase64String(saltElement.Value); } catch { salt = new byte[0]; }\nif (salt.Length == 0)\n{\n    salt = RandomNumberGenerator.GetBytes(16);\n    Set(cfg, \"ServerPasswordSalt\", Convert.ToBase64String(salt));\n}\nvar hash = \"\";\nif (password.Length > 0)\n{\n    using (var kdf = new Rfc2898DeriveBytes(password, salt, 10000, HashAlgorithmName.SHA1))\n        hash = Convert.ToBase64String(kdf.GetBytes(20));\n}\nSet(cfg, \"ServerPasswordHash\", hash);\n\n// Administrators: SteamID64s from the panel's comma-separated list.\nvar adminList = Child(cfg, \"AdminSteamIds\", false);\nif (adminList != null)\n{\n    var ids = Regex.Matches(adminList.Value, \"[0-9]{17}\").Select(m => m.Value).Distinct().ToList();\n    var admins = Child(cfg, \"Administrators\");\n    var current = admins.Elements().Select(e => e.Value.Trim()).ToList();\n    if (!current.SequenceEqual(ids))\n    {\n        admins.RemoveNodes();\n        foreach (var steamId in ids) admins.Add(new XElement(\"string\", steamId));\n        changed.Add(\"Administrators\");\n    }\n}\n\nif (changed.Count > 0)\n{\n    Save(cfgDoc, cfgPath);\n    ScriptConsole.WriteLine((object)(\"Updated SpaceEngineers-Dedicated.cfg: \" + string.Join(\", \", changed.Distinct()) + \".\"));\n}\n\n// 4. The gameplay settings of the editor are the settings of a new world; an existing world keeps its own copy in\n//    Sandbox_config.sbc. Copy the panel-managed settings into the world the server loads, so an edit applies to it.\nvar saves = Path.Combine(instance, \"Saves\");\nstring world = null;\nvar outside = new List<string>();\nvar lastSession = Path.Combine(saves, \"LastSession.sbl\");\nif (File.Exists(lastSession) && Safe(lastSession, saves))\n{\n    var last = XDocument.Load(lastSession);\n    var pathElement = last.Root.Elements().FirstOrDefault(e => e.Name.LocalName == \"Path\");\n    var recorded = pathElement?.Value ?? \"\";\n    if (recorded.Length > 0)\n    {\n        var local = LocalPath(recorded);\n        var candidate = Path.IsPathRooted(local) ? local : Path.Combine(saves, local);\n        if (!Directory.Exists(candidate) || !Safe(candidate, saves))\n        {\n            // The service was moved or copied (the path is another service's folder, which may still exist): the same\n            // world folder in this service's Saves.\n            var moved = Path.Combine(saves, recorded.TrimEnd('\\\\', '/').Split('\\\\', '/').Last());\n            if (Directory.Exists(moved) && Safe(moved, saves))\n            {\n                pathElement.Value = System.OperatingSystem.IsWindows() ? moved : \"Z:\" + moved.Replace('/', '\\\\');\n                Save(last, lastSession);\n                ScriptConsole.WriteLine((object)(\"LastSession.sbl now points to \" + moved + \".\"));\n                candidate = moved;\n            }\n        }\n        if (Directory.Exists(candidate) && Safe(candidate, saves)) world = candidate;\n        else if (Directory.Exists(candidate)) outside.Add(\"LastSession.sbl\");\n    }\n}\nif (world == null)\n{\n    var loadWorld = Child(cfg, \"LoadWorld\", false)?.Value ?? \"\";\n    if (loadWorld.Length > 0)\n    {\n        var localWorld = LocalPath(loadWorld);\n        var candidate = Path.IsPathRooted(localWorld) ? localWorld : Path.Combine(saves, localWorld);\n        if (Path.HasExtension(candidate) && File.Exists(candidate)) candidate = Path.GetDirectoryName(candidate);\n        if (Directory.Exists(candidate) && !Safe(candidate, saves)) outside.Add(\"LoadWorld\");\n        else if (Directory.Exists(candidate)) world = candidate;\n    }\n}\nif (outside.Count > 0)\n    ScriptConsole.WriteLine((object)(\"Ignored the world path of \" + string.Join(\" and \", outside) + \": a world must be a folder in Instance/Saves (no symbolic links).\"));\nvar worldConfig = world == null ? null : Path.Combine(world, \"Sandbox_config.sbc\");\nif (worldConfig == null || !File.Exists(worldConfig) || !Safe(worldConfig, saves))\n{\n    ScriptConsole.WriteLine((object)\"No world yet: the server creates one from the configuration.\");\n    return;\n}\nvar worldDoc = XDocument.Load(worldConfig);\nvar settings = Child(worldDoc.Root, \"Settings\");\nvar applied = new List<string>();\nforeach (var name in \"MaxPlayers,GameMode,EnvironmentHostility,InventorySizeMultiplier,AssemblerSpeedMultiplier,AssemblerEfficiencyMultiplier,RefinerySpeedMultiplier,AutoSaveInMinutes,ViewDistance,TotalPCU,BlockLimitsEnabled,MaxFloatingObjects,MaxBackupSaves,EnableSpectator,EnableCopyPaste,WeaponsEnabled,ThrusterDamage,CargoShipsEnabled,EnableEncounters,EnableDrones,EnableWolfs,EnableSpiders,EnableIngameScripts,EnableOxygen,EnableOxygenPressurization,Enable3rdPersonView,EnableSunRotation,EnableJetpack,SpawnWithTools,EnableRespawnShips,PermanentDeath,EnableEconomy,WeatherSystem,EnableVoxelDestruction,TrashRemovalEnabled,ExperimentalMode\".Split(','))\n{\n    var source = Child(session, name, false);\n    if (source == null || source.HasElements) continue;\n    var target = Child(settings, name);\n    if (target.HasElements || target.Value != source.Value) { target.RemoveNodes(); target.Value = source.Value; applied.Add(name); }\n}\n// Workshop mods installed in the panel (Instance/WorkshopMods.txt, \"<id><TAB><title>\") that the world does not list yet,\n// e.g. a mod installed before the world existed. Mods added to the world by hand are left alone.\nvar modList = Path.Combine(instance, \"WorkshopMods.txt\");\nvar addedMods = new List<string>();\nif (File.Exists(modList) && Safe(modList, instance))\n{\n    var mods = Child(worldDoc.Root, \"Mods\");\n    foreach (var line in File.ReadAllLines(modList))\n    {\n        var parts = line.Split('\\t');\n        var modId = parts[0].Trim();\n        if (!Regex.IsMatch(modId, \"^[0-9]+$\") || mods.Elements().Any(m => (string)m.Element(\"PublishedFileId\") == modId)) continue;\n        var title = parts.Length > 1 && parts[1].Trim().Length > 0 ? parts[1].Trim() : modId;\n        mods.Add(new XElement(\"ModItem\", new XAttribute(\"FriendlyName\", title),\n            new XElement(\"Name\", modId + \".sbm\"), new XElement(\"PublishedFileId\", modId), new XElement(\"PublishedServiceName\", \"Steam\")));\n        addedMods.Add(title);\n    }\n}\n// Workshop mods uninstalled in the panel while the server was running (it wrote them back when it saved).\nvar removedList = Path.Combine(instance, \"WorkshopMods.removed.txt\");\nvar removedMods = new List<string>();\nvar removedListSafe = Safe(removedList, instance);\nif (File.Exists(removedList) && removedListSafe)\n{\n    var mods = Child(worldDoc.Root, \"Mods\");\n    foreach (var modId in File.ReadAllLines(removedList).Select(l => l.Trim()).Where(l => l.Length > 0))\n    {\n        var items = mods.Elements().Where(m => (string)m.Element(\"PublishedFileId\") == modId).ToList();\n        if (items.Count == 0) continue;\n        items.ForEach(i => i.Remove());\n        removedMods.Add(modId);\n    }\n}\nif (applied.Count > 0 || addedMods.Count > 0 || removedMods.Count > 0)\n{\n    Save(worldDoc, worldConfig);\n    if (applied.Count > 0) ScriptConsole.WriteLine((object)(\"Applied to the world \" + Path.GetFileName(world) + \": \" + string.Join(\", \", applied) + \".\"));\n    if (addedMods.Count > 0) ScriptConsole.WriteLine((object)(\"Added the Workshop mods to the world \" + Path.GetFileName(world) + \": \" + string.Join(\", \", addedMods) + \".\"));\n    if (removedMods.Count > 0) ScriptConsole.WriteLine((object)(\"Removed the uninstalled Workshop mods from the world \" + Path.GetFileName(world) + \": \" + string.Join(\", \", removedMods) + \".\"));\n}\nif (File.Exists(removedList) && removedListSafe) File.Delete(removedList);\n\n// A path the server wrote, as this host sees it: under Wine the server writes Windows paths (Z:\\usr\\... = /usr/...).\nstring LocalPath(string path)\n{\n    if (System.OperatingSystem.IsWindows()) return path;\n    if (path.StartsWith(\"Z:\", StringComparison.OrdinalIgnoreCase)) path = path.Substring(2);\n    return path.Replace('\\\\', '/');\n}\n\n// The script runs as the monitor (root on Linux). A path the customer controls (LastSession.sbl, LoadWorld, a symbolic\n// link a Torch plugin made) must stay in the service folder: inside `within`, with no symbolic link below the root.\nbool Safe(string path, string within)\n{\n    var cmp = System.OperatingSystem.IsWindows() ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;\n    var top = Path.GetFullPath(root).TrimEnd('\\\\', '/');\n    var inside = Path.GetFullPath(within).TrimEnd('\\\\', '/');\n    var full = Path.GetFullPath(path).TrimEnd('\\\\', '/');\n    bool Under(string p, string dir) => p.Equals(dir, cmp) || p.StartsWith(dir + Path.DirectorySeparatorChar, cmp);\n    if (!Under(inside, top) || !Under(full, inside)) return false;\n    for (var p = full; p != null && p.Length > top.Length; p = Path.GetDirectoryName(p))\n        if (new FileInfo(p).LinkTarget != null) return false;\n    return true;\n}\n\n// UTF-8 without a byte order mark, the way the server writes its files.\nvoid Save(XDocument document, string path)\n{\n    var writerSettings = new XmlWriterSettings { Encoding = new UTF8Encoding(false), Indent = true };\n    using (var writer = XmlWriter.Create(path, writerSettings)) document.Save(writer);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 1,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "43032dbe-ccbb-597e-aa6f-e134e295382d"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStopped"
+        ],
+        "name": "Save the world and shut down",
+        "description": "Sends Ctrl+C to the server, which saves the world and shuts down, then ends the process (it waits for a key press).",
+        "code": "//refAssemblies: System.Net.Http.dll, System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.Diagnostics.Process.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Graceful stop: on Ctrl+C the server ends the session, saves the world (\"Autosave in unload\", AutoRestartSave) and\n// shuts down Steam. It then waits for a key press in its console window before the process exits, so this script\n// ends the process itself once the shutdown is complete. On Windows windows-kill delivers the Ctrl+C event straight to\n// the server process (it has a console of its own); under Wine a SIGINT does. Only the server of THIS service is\n// signalled.\n// The plain dedicated server or Torch (the \"Torch\" game update), whichever this service runs.\nvar binaries = new[] { \"SpaceEngineersDedicated\", \"Torch.Server\" };\nconst int maxWaitSeconds = 170;\n\nvar rootPath = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('\\\\', '/');\nvar root = rootPath + Path.DirectorySeparatorChar;\nvar instance = Path.Combine(rootPath, \"Instance\");\n\nList<Process> ServerProcesses()\n{\n    var list = new List<Process>();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var p in binaries.SelectMany(Process.GetProcessesByName))\n        {\n            try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) list.Add(p); }\n            catch { } // exited meanwhile\n        }\n        return list;\n    }\n    // Wine: the server's process shows Z:\\<root>\\DedicatedServer64\\SpaceEngineersDedicated.exe in its command line.\n    var rootSlash = rootPath.Replace('\\\\', '/') + \"/\";\n    foreach (var dir in Directory.EnumerateDirectories(\"/proc\"))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var args = File.ReadAllText(Path.Combine(dir, \"cmdline\")).Replace('\\0', ' ').Replace('\\\\', '/');\n            if (binaries.Any(b => args.Contains(b + \".exe\", StringComparison.OrdinalIgnoreCase)) && args.Contains(rootSlash, StringComparison.Ordinal)\n                && !args.Contains(\"start.exe\", StringComparison.OrdinalIgnoreCase))\n                list.Add(Process.GetProcessById(pid));\n        }\n        catch { } // gone meanwhile\n    }\n    return list.OrderBy(p => p.Id).Take(1).ToList();\n}\n\n// The logs this run writes, and how far each was written before the stop: Instance/SpaceEngineersDedicated*.log (the\n// plain server; under Torch the copy its NLog-user.config writes) and Torch's own Logs/Keen-*.log and Logs/Torch-*.log.\nDictionary<string, long> LogOffsets()\n{\n    var offsets = new Dictionary<string, long>();\n    foreach (var (dir, pattern) in new[] { (instance, \"SpaceEngineersDedicated*.log\"), (Path.Combine(rootPath, \"Logs\"), \"Keen-*.log\"), (Path.Combine(rootPath, \"Logs\"), \"Torch-*.log\") })\n    {\n        if (!Directory.Exists(dir)) continue;\n        var newest = new DirectoryInfo(dir).GetFiles(pattern).OrderBy(f => f.LastWriteTimeUtc).LastOrDefault();\n        if (newest != null) offsets[newest.FullName] = newest.Length;\n    }\n    return offsets;\n}\nstring ReadFrom(string path, long offset)\n{\n    try\n    {\n        using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete))\n        {\n            if (stream.Length <= offset) return \"\";\n            stream.Position = offset;\n            using (var reader = new StreamReader(stream)) return reader.ReadToEnd();\n        }\n    }\n    catch { return \"\"; }\n}\n\nvar targets = ServerProcesses();\nif (targets.Count == 0)\n{\n    ScriptConsole.WriteLine((object)\"The server is not running.\");\n    return;\n}\nvar logs = LogOffsets();\n\nif (System.OperatingSystem.IsWindows())\n{\n    // windows-kill is kept in the hidden .tca folder of the service and downloaded once.\n    var toolDir = Path.Combine(rootPath, \".tca\");\n    var killExe = Path.Combine(toolDir, \"windows-kill.exe\");\n    if (!File.Exists(killExe))\n    {\n        const string url = \"https://github.com/ElyDotDev/windows-kill/releases/download/1.1.4/windows-kill_1.1.4_release.zip\";\n        const string entryPath = \"windows-kill_x64_1.1.4_lib_release/windows-kill.exe\";\n        try\n        {\n            Directory.CreateDirectory(toolDir);\n            using (var http = new HttpClient())\n            using (var zip = new ZipArchive(new MemoryStream(await http.GetByteArrayAsync(url, ThisCancellationToken))))\n            {\n                var entry = zip.GetEntry(entryPath);\n                if (entry == null) throw new Exception(\"'\" + entryPath + \"' is not in the archive.\");\n                entry.ExtractToFile(killExe, true);\n            }\n        }\n        catch (Exception ex)\n        {\n            ScriptConsole.WriteLine((object)(\"Could not download windows-kill (\" + ex.Message + \"); the panel stops the server without saving. The last autosave is kept.\"));\n            return;\n        }\n    }\n    foreach (var target in targets)\n    {\n        // CreateNoWindow gives windows-kill a console of its own, so the event never reaches the monitor.\n        var psi = new ProcessStartInfo(killExe, new[] { \"-SIGINT\", target.Id.ToString() })\n        {\n            UseShellExecute = false, CreateNoWindow = true, RedirectStandardOutput = true, RedirectStandardError = true, WorkingDirectory = toolDir\n        };\n        using (var killer = Process.Start(psi))\n        {\n            var output = (await killer.StandardOutput.ReadToEndAsync()).Trim();\n            await killer.WaitForExitAsync(ThisCancellationToken);\n            if (killer.ExitCode != 0) ScriptConsole.WriteLine((object)(\"windows-kill: \" + output));\n        }\n    }\n}\nelse\n{\n    // Wine turns SIGINT into the console Ctrl+C event of the Windows process.\n    using (var kill = Process.Start(new ProcessStartInfo(\"kill\", new[] { \"-INT\", targets[0].Id.ToString() }) { UseShellExecute = false }))\n        kill.WaitForExit();\n}\nScriptConsole.WriteLine((object)(\"Asked the server (\" + string.Join(\", \", targets.Select(t => t.Id)) + \") to save the world and shut down.\"));\n\nfor (var second = 1; second <= maxWaitSeconds; second++)\n{\n    await Task.Delay(1000, ThisCancellationToken);\n    if (targets.All(t => { try { return t.HasExited; } catch { return true; } }))\n    {\n        ScriptConsole.WriteLine((object)(\"The server exited after \" + second + \" s.\"));\n        return;\n    }\n    var written = string.Concat(logs.Select(l => ReadFrom(l.Key, l.Value)));\n    // The plain server closes Steam last; Torch ends with \"Unloaded torch session\" and keeps its process alive.\n    if (written.Contains(\"Steam closed\") || written.Contains(\"Log Closed\") || written.Contains(\"Unloaded torch session\"))\n    {\n        var saved = written.Contains(\"Session snapshot save - END\");\n        ScriptConsole.WriteLine((object)((saved ? \"The world was saved; the server shut down after \" : \"The server shut down after \") + second + \" s.\"));\n        // It now waits for a key press in its console; end it.\n        foreach (var target in targets) { try { if (!target.HasExited) target.Kill(); } catch { } }\n        return;\n    }\n}\nScriptConsole.WriteLine((object)(\"The server did not shut down within \" + maxWaitSeconds + \" s; the panel stops it now.\"));\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 2,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "291fe90b-c62f-5786-9c79-8d11997ed6e7"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterCustomModInstalled"
+        ],
+        "name": "Add the Workshop mod to the world",
+        "description": "Adds the mod to the mod list of the world; the server downloads and loads it on its next start.",
+        "code": "//refAssemblies: System.Xml.ReaderWriter.dll, System.Private.Xml.Linq.dll, System.Xml.XDocument.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.RegularExpressions;\nusing System.Xml;\nusing System.Xml.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Space Engineers downloads a world's Workshop mods itself when it loads the world (into Instance/content/244850), so\n// the panel downloads nothing: this script adds the mod to the world's mod list (Sandbox_config.sbc) and to the panel's\n// list (Instance/WorkshopMods.txt), from which the \"Prepare the server\" script adds it again before every start: a\n// running server writes its own mod list back when it saves, and a world created later has none.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]+$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\nstring title = Convert.ToString(Dynamic.FileTitle ?? \"\").Replace('\\r', ' ').Replace('\\n', ' ').Replace('\\t', ' ').Trim();\nif (title.Length == 0) title = fileId;\nstring instance = Path.Combine((string)ThisService.RootDirectory, \"Instance\");\nDirectory.CreateDirectory(instance);\n\n// The panel's list: \"<id><TAB><title>\" per line.\nstring listPath = Path.Combine(instance, \"WorkshopMods.txt\");\nstring removedPath = Path.Combine(instance, \"WorkshopMods.removed.txt\");\nif (!Safe(listPath, instance) || !Safe(removedPath, instance))\n    throw new Exception(\"The Instance folder or its WorkshopMods files are symbolic links: replace them with a regular folder and files.\");\nvar lines = File.Exists(listPath) ? File.ReadAllLines(listPath).Where(l => l.Trim().Length > 0).ToList() : new List<string>();\nlines.RemoveAll(l => l.Split('\\t')[0].Trim() == fileId);\nlines.Add(fileId + \"\\t\" + title);\nFile.WriteAllLines(listPath, lines, new UTF8Encoding(false));\nGiveToServiceUser(listPath);\nif (File.Exists(removedPath))\n{\n    var removed = File.ReadAllLines(removedPath).Where(l => l.Trim().Length > 0 && l.Trim() != fileId).ToList();\n    File.WriteAllLines(removedPath, removed, new UTF8Encoding(false));\n    GiveToServiceUser(removedPath);\n}\n\n// The world the server loads (LastSession.sbl, else LoadWorld of the configuration).\nstring world = CurrentWorld(instance);\nif (world == null)\n{\n    ScriptConsole.WriteLine((object)(\"Added \\\"\" + title + \"\\\" (\" + fileId + \"). There is no world yet: the mod is added to the world the server creates, on the start after that.\"));\n    return;\n}\nstring worldConfig = Path.Combine(world, \"Sandbox_config.sbc\");\nvar doc = XDocument.Load(worldConfig);\nvar mods = doc.Root.Elements().FirstOrDefault(e => e.Name.LocalName == \"Mods\");\nif (mods == null) { mods = new XElement(\"Mods\"); doc.Root.Add(mods); }\nif (mods.Elements().Any(m => (string)m.Element(\"PublishedFileId\") == fileId))\n{\n    ScriptConsole.WriteLine((object)(\"\\\"\" + title + \"\\\" is already in the mod list of the world \" + Path.GetFileName(world) + \".\"));\n    return;\n}\nmods.Add(new XElement(\"ModItem\", new XAttribute(\"FriendlyName\", title),\n    new XElement(\"Name\", fileId + \".sbm\"), new XElement(\"PublishedFileId\", fileId), new XElement(\"PublishedServiceName\", \"Steam\")));\nusing (var writer = XmlWriter.Create(worldConfig, new XmlWriterSettings { Encoding = new UTF8Encoding(false), Indent = true })) doc.Save(writer);\nScriptConsole.WriteLine((object)(\"Added \\\"\" + title + \"\\\" (\" + fileId + \") to the world \" + Path.GetFileName(world) + \". The server downloads and loads it on its next start (restart it if it is running).\"));\n\nstring CurrentWorld(string instanceDir)\n{\n    string saves = Path.Combine(instanceDir, \"Saves\");\n    string lastSession = Path.Combine(saves, \"LastSession.sbl\");\n    var candidates = new List<string>();\n    if (File.Exists(lastSession))\n    {\n        var path = XDocument.Load(lastSession).Root.Elements().FirstOrDefault(e => e.Name.LocalName == \"Path\")?.Value ?? \"\";\n        if (path.Length > 0)\n        {\n            var local = LocalPath(path);\n            candidates.Add(Path.IsPathRooted(local) ? local : Path.Combine(saves, local));\n            candidates.Add(Path.Combine(saves, path.TrimEnd('\\\\', '/').Split('\\\\', '/').Last()));\n        }\n    }\n    string cfgPath = Path.Combine(instanceDir, \"SpaceEngineers-Dedicated.cfg\");\n    if (File.Exists(cfgPath))\n    {\n        var loadWorld = XDocument.Load(cfgPath).Root.Elements().FirstOrDefault(e => e.Name.LocalName == \"LoadWorld\")?.Value ?? \"\";\n        var localWorld = LocalPath(loadWorld);\n        if (loadWorld.Length > 0) candidates.Add(Path.IsPathRooted(localWorld) ? localWorld : Path.Combine(saves, localWorld));\n    }\n    // Only a world folder of this service (the recorded path can be another service's folder after a copy).\n    return candidates.FirstOrDefault(c => File.Exists(Path.Combine(c, \"Sandbox_config.sbc\")) && Safe(Path.Combine(c, \"Sandbox_config.sbc\"), saves));\n}\n\n// A path the server wrote, as this host sees it: under Wine the server writes Windows paths (Z:\\usr\\... = /usr/...).\nstring LocalPath(string path)\n{\n    if (System.OperatingSystem.IsWindows()) return path;\n    if (path.StartsWith(\"Z:\", StringComparison.OrdinalIgnoreCase)) path = path.Substring(2);\n    return path.Replace('\\\\', '/');\n}\n\n// The script runs as the monitor (root on Linux): a file it creates belongs to the service user (root-owned files are\n// hidden in the file manager).\nvoid GiveToServiceUser(string path)\n{\n    if (System.OperatingSystem.IsLinux()) Globals.OperatingSystem.SetFileOwnerAutoDetect(path);\n}\n\n// The script runs as the monitor (root on Linux). A path the customer controls (LastSession.sbl, LoadWorld, a symbolic\n// link a Torch plugin made) must stay in the service folder: inside `within`, with no symbolic link below the root.\nbool Safe(string path, string within)\n{\n    var cmp = System.OperatingSystem.IsWindows() ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;\n    var top = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('\\\\', '/');\n    var inside = Path.GetFullPath(within).TrimEnd('\\\\', '/');\n    var full = Path.GetFullPath(path).TrimEnd('\\\\', '/');\n    bool Under(string p, string dir) => p.Equals(dir, cmp) || p.StartsWith(dir + Path.DirectorySeparatorChar, cmp);\n    if (!Under(inside, top) || !Under(full, inside)) return false;\n    for (var p = full; p != null && p.Length > top.Length; p = Path.GetDirectoryName(p))\n        if (new FileInfo(p).LinkTarget != null) return false;\n    return true;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 3,
+        "icon": "<path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "7f1debaa-f18b-5c60-aebe-a479440dcd95"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeCustomModUninstalled"
+        ],
+        "name": "Remove the Workshop mod from the world",
+        "description": "Removes the mod from the mod list of the world and deletes its downloaded files.",
+        "code": "//refAssemblies: System.Xml.ReaderWriter.dll, System.Private.Xml.Linq.dll, System.Xml.XDocument.dll\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.RegularExpressions;\nusing System.Xml;\nusing System.Xml.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Removes the mod from the panel's list (Instance/WorkshopMods.txt), from the mod list of every world in Instance/Saves\n// and deletes the copy the server downloaded.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \"^[0-9]+$\")) throw new Exception(\"Unexpected Workshop id: \" + fileId);\nstring instance = Path.Combine((string)ThisService.RootDirectory, \"Instance\");\n\nstring listPath = Path.Combine(instance, \"WorkshopMods.txt\");\nstring removedPath = Path.Combine(instance, \"WorkshopMods.removed.txt\");\nif (!Safe(listPath, instance) || !Safe(removedPath, instance))\n    throw new Exception(\"The Instance folder or its WorkshopMods files are symbolic links: replace them with a regular folder and files.\");\nif (File.Exists(listPath))\n{\n    var lines = File.ReadAllLines(listPath).Where(l => l.Trim().Length > 0).ToList();\n    if (lines.RemoveAll(l => l.Split('\\t')[0].Trim() == fileId) > 0) File.WriteAllLines(listPath, lines, new UTF8Encoding(false));\n}\n\n// A running server writes its own mod list back when it saves: the \"Prepare the server\" script removes the ids listed\n// in WorkshopMods.removed.txt from the world before the next start.\nvar removed = File.Exists(removedPath) ? File.ReadAllLines(removedPath).Where(l => l.Trim().Length > 0).ToList() : new List<string>();\nif (!removed.Contains(fileId)) { removed.Add(fileId); Directory.CreateDirectory(instance); File.WriteAllLines(removedPath, removed, new UTF8Encoding(false)); GiveToServiceUser(removedPath); }\n\nstring saves = Path.Combine(instance, \"Saves\");\nif (Directory.Exists(saves))\n{\n    foreach (var worldConfig in Directory.GetDirectories(saves).Select(d => Path.Combine(d, \"Sandbox_config.sbc\")).Where(f => File.Exists(f) && Safe(f, saves)))\n    {\n        var doc = XDocument.Load(worldConfig);\n        var mods = doc.Root.Elements().FirstOrDefault(e => e.Name.LocalName == \"Mods\");\n        var items = mods?.Elements().Where(m => (string)m.Element(\"PublishedFileId\") == fileId).ToList() ?? new List<XElement>();\n        if (items.Count == 0) continue;\n        items.ForEach(i => i.Remove());\n        using (var writer = XmlWriter.Create(worldConfig, new XmlWriterSettings { Encoding = new UTF8Encoding(false), Indent = true })) doc.Save(writer);\n        ScriptConsole.WriteLine((object)(\"Removed \" + fileId + \" from the world \" + Path.GetFileName(Path.GetDirectoryName(worldConfig)) + \".\"));\n    }\n}\n\n// The server's download of the mod.\nforeach (var dir in new[] { Path.Combine(instance, \"content\", \"244850\", fileId), Path.Combine(instance, \"Mods\", fileId + \".sbm\") })\n{\n    if (!Safe(dir, instance)) { ScriptConsole.WriteLine((object)(\"Skipped \" + dir.Substring(instance.Length + 1) + \": a symbolic link.\")); continue; }\n    try\n    {\n        if (Directory.Exists(dir)) { Directory.Delete(dir, true); ScriptConsole.WriteLine((object)(\"Deleted \" + dir.Substring(instance.Length + 1) + \".\")); }\n        else if (File.Exists(dir)) { File.Delete(dir); ScriptConsole.WriteLine((object)(\"Deleted \" + dir.Substring(instance.Length + 1) + \".\")); }\n    }\n    catch (Exception ex) { ScriptConsole.WriteLine((object)(\"Could not delete \" + dir + \" (\" + ex.Message + \"); the server no longer loads it.\")); }\n}\nScriptConsole.WriteLine((object)\"The server no longer loads the mod after its next start (restart it if it is running).\");\n\n// The script runs as the monitor (root on Linux): a file it creates belongs to the service user (root-owned files are\n// hidden in the file manager).\nvoid GiveToServiceUser(string path)\n{\n    if (System.OperatingSystem.IsLinux()) Globals.OperatingSystem.SetFileOwnerAutoDetect(path);\n}\n\n// The script runs as the monitor (root on Linux). A path the customer controls (LastSession.sbl, LoadWorld, a symbolic\n// link a Torch plugin made) must stay in the service folder: inside `within`, with no symbolic link below the root.\nbool Safe(string path, string within)\n{\n    var cmp = System.OperatingSystem.IsWindows() ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;\n    var top = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('\\\\', '/');\n    var inside = Path.GetFullPath(within).TrimEnd('\\\\', '/');\n    var full = Path.GetFullPath(path).TrimEnd('\\\\', '/');\n    bool Under(string p, string dir) => p.Equals(dir, cmp) || p.StartsWith(dir + Path.DirectorySeparatorChar, cmp);\n    if (!Under(inside, top) || !Under(full, inside)) return false;\n    for (var p = full; p != null && p.Length > top.Length; p = Path.GetDirectoryName(p))\n        if (new FileInfo(p).LinkTarget != null) return false;\n    return true;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 4,
+        "icon": "<path d=\"M19 13H5v-2h14v2z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "6fbd3ddd-aa2a-5d2a-84e6-175c09166108"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterUpdateInstall"
+        ],
+        "name": "Torch: switch to Torch",
+        "description": "Sets Torch up (log file, permissions) and starts the service with Torch.Server.exe. Runs after the Torch update.",
+        "code": "//refAssemblies: System.Net.Http.dll, System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.Diagnostics.Process.dll, TCAdmin.Monitor.SDK.dll, TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, Microsoft.EntityFrameworkCore.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing Microsoft.EntityFrameworkCore;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Torch (a community server wrapper with a plugin system) runs the same dedicated server from Torch.Server.exe in the\n// service root, with the same Instance folder. The \"Torch\" game update downloads it; the \"Vanilla\" update switches back.\n//   update   - after the Torch update: set Torch up and start the service with Torch.Server.exe.\n//   maintain - after a reinstall or a Steam update: a service that runs Torch gets the latest Torch again (a\n//              reinstall deletes it; a game update usually needs a new Torch build).\n//   vanilla  - after the Vanilla update: start the service with the plain dedicated server again.\nconst string mode = \"update\";\nconst string torchUrl = \"https://build.torchapi.com/job/Torch/job/master/lastSuccessfulBuild/artifact/bin/torch-server.zip\";\n\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('\\\\', '/');\nvar torchExe = Path.Combine(root, \"Torch.Server.exe\");\nvar current = Convert.ToString(ThisService.Executable) ?? \"\";\nvar sep = current.Contains('/') || System.OperatingSystem.IsLinux() ? \"/\" : \"\\\\\";\nvar vanillaExe = \"DedicatedServer64\" + sep + \"SpaceEngineersDedicated.exe\";\n\nif (mode == \"maintain\")\n{\n    if (!current.EndsWith(\"Torch.Server.exe\", StringComparison.OrdinalIgnoreCase)) return; // runs the plain server\n    ScriptConsole.WriteLine((object)\"The service runs Torch: downloading the latest Torch build.\");\n    var zip = Path.Combine(root, \".tca\", \"torch-server.zip\");\n    Directory.CreateDirectory(Path.GetDirectoryName(zip));\n    using (var http = new HttpClient { Timeout = TimeSpan.FromMinutes(10) })\n        File.WriteAllBytes(zip, await http.GetByteArrayAsync(torchUrl, ThisCancellationToken));\n    // The extraction runs as root: no file of the archive may land on (or under) a symbolic link of the service folder.\n    using (var archive = ZipFile.OpenRead(zip))\n        foreach (var entry in archive.Entries)\n            if (!Safe(Path.Combine(root, entry.FullName), root)) throw new Exception(\"Torch was not updated: \" + entry.FullName + \" in the service folder is a symbolic link.\");\n    ZipFile.ExtractToDirectory(zip, root, true);\n    File.Delete(zip);\n}\n\nif (mode == \"vanilla\")\n{\n    await SetExecutable(vanillaExe);\n    ScriptConsole.WriteLine((object)\"The service now starts the plain dedicated server (Torch's files stay in place for a later switch).\");\n    return;\n}\n\nif (!File.Exists(torchExe)) throw new Exception(\"Torch.Server.exe is missing in the service folder; the Torch download failed.\");\n\n// Wine: the plain server runs on Wine Mono, Torch does not (it loads the game from DedicatedServer64 through an\n// AppDomain probing path Mono ignores). Torch needs Microsoft .NET Framework 4.8 in the service's Wine prefix: a one-time\n// install of 10-20 minutes. The plain server then runs on it too.\nif (System.OperatingSystem.IsLinux())\n{\n    var prefix = Path.Combine(root, \".wine\");\n    var tricksLog = Path.Combine(prefix, \"winetricks.log\");\n    if (!File.Exists(tricksLog) || !File.ReadAllLines(tricksLog).Any(l => l.Trim() == \"dotnet48\"))\n    {\n        var user = ServiceManagerService.GetServiceCredential(ThisService.ServiceId)?.UserName;\n        if (string.IsNullOrEmpty(user)) throw new Exception(\"The service user is unknown; cannot prepare the Wine prefix for Torch.\");\n        ScriptConsole.WriteLine((object)\"Installing Microsoft .NET Framework 4.8 into the Wine prefix for Torch (10-20 minutes, once).\");\n        var display = Run(\"command -v xvfb-run\", out _) ? \"xvfb-run -a \" : \"\";\n        var installed = Run(\"runuser -u '\" + user + \"' -- env WINEPREFIX='\" + prefix + \"' HOME='\" + root + \"' WINEARCH=win64 WINEDEBUG=-all WINEDLLOVERRIDES='mscoree=;mshtml=' \"\n                 + display + \"winetricks -q dotnet48\", out var output);\n        // End the prefix's processes the install left running (the server is stopped during an update).\n        Run(\"runuser -u '\" + user + \"' -- env WINEPREFIX='\" + prefix + \"' wineserver -k\", out _);\n        if (!installed) throw new Exception(\".NET Framework 4.8 did not install: \" + string.Join(\"\\n\", output.Split('\\n').TakeLast(15)));\n        ScriptConsole.WriteLine((object)\".NET Framework 4.8 installed.\");\n    }\n}\n\n// Torch logs to Logs/Keen-<date>.log and Logs/Torch-<date>.log. NLog-user.config (its file for custom rules, part of\n// every Torch download) adds the server and Torch messages to Instance/SpaceEngineersDedicated.log, the file the panel's\n// console shows under Wine and the stop script watches.\nforeach (var name in new[] { \"NLog-user.config\", \"Torch.cfg\", \"Instance\" })\n    if (!Safe(Path.Combine(root, name), root)) throw new Exception(name + \" in the service folder is a symbolic link: replace it with a regular file or folder.\");\nFile.WriteAllText(Path.Combine(root, \"NLog-user.config\"), string.Join(\"\\n\", new[]\n{\n    \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\" ?>\",\n    \"<nlog xmlns=\\\"http://www.nlog-project.org/schemas/NLog.xsd\\\" xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\">\",\n    \"  <targets async=\\\"true\\\">\",\n    \"    <target xsi:type=\\\"File\\\" name=\\\"tcadmin\\\" layout=\\\"${longdate} ${logger:shortName=true}: ${message:withException=true}\\\" fileName=\\\"Instance\\\\SpaceEngineersDedicated.log\\\" deleteOldFileOnStartup=\\\"true\\\" />\",\n    \"  </targets>\",\n    \"  <rules>\",\n    \"    <logger name=\\\"Keen\\\" minlevel=\\\"Debug\\\" writeTo=\\\"tcadmin\\\" />\",\n    \"    <logger name=\\\"*\\\" minlevel=\\\"Info\\\" writeTo=\\\"tcadmin\\\" />\",\n    \"  </rules>\",\n    \"</nlog>\",\n    \"\"\n}));\nDirectory.CreateDirectory(Path.Combine(root, \"Instance\"));\n\n// Torch.cfg is a config file of the game (created with the service); a service created before it existed gets the same\n// defaults here. Torch never updates itself or the game (the panel does), runs without its window and uses Instance.\nvar torchConfig = Path.Combine(root, \"Torch.cfg\");\nif (!File.Exists(torchConfig))\n{\n    File.WriteAllText(torchConfig, string.Join(\"\\n\", new[]\n    {\n        \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\"?>\",\n        \"<TorchConfig xmlns:xsd=\\\"http://www.w3.org/2001/XMLSchema\\\" xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\">\",\n        \"  <InstanceName>Instance</InstanceName>\", \"  <InstancePath>Instance</InstancePath>\", \"  <Autostart>true</Autostart>\",\n        \"  <RestartOnCrash>false</RestartOnCrash>\", \"  <RestartOnGameUpdate>false</RestartOnGameUpdate>\", \"  <NoGui>true</NoGui>\",\n        \"  <GetTorchUpdates>false</GetTorchUpdates>\", \"  <GetPluginUpdates>true</GetPluginUpdates>\", \"  <TickTimeout>60</TickTimeout>\",\n        \"  <Plugins />\", \"  <LocalPlugins>false</LocalPlugins>\", \"  <DisconnectOnRestart>false</DisconnectOnRestart>\",\n        \"  <ChatName>Server</ChatName>\", \"  <ChatColor>Red</ChatColor>\", \"  <EnableWhitelist>false</EnableWhitelist>\", \"  <Whitelist />\",\n        \"  <IndependentConsole>false</IndependentConsole>\", \"  <EnableAnalytics>false</EnableAnalytics>\", \"</TorchConfig>\", \"\"\n    }));\n}\n\n// Files the monitor created belong to the service user (Linux); the panel's config files may carry an ACL without\n// write access for the service account (Windows), and Torch saves Torch.cfg when it starts.\nif (System.OperatingSystem.IsLinux())\n{\n    foreach (var entry in Directory.GetFiles(root).Concat(Directory.GetDirectories(root, \"Instance\")).Where(e => Safe(e, root)))\n        Globals.OperatingSystem.SetFileOwnerAutoDetect(entry);\n}\nelse\n{\n    foreach (var name in new[] { \"Torch.cfg\", \"NLog-user.config\" })\n    {\n        var file = Path.Combine(root, name);\n        if (!File.Exists(file) || !Safe(file, root)) continue;\n        using (var icacls = Process.Start(new ProcessStartInfo(\"icacls.exe\", new[] { file, \"/reset\", \"/Q\" }) { UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true }))\n            icacls.WaitForExit();\n    }\n}\n\nif (mode == \"update\")\n{\n    await SetExecutable(\"Torch.Server.exe\");\n    ScriptConsole.WriteLine((object)\"The service now starts Torch. Its settings are in Torch.cfg (Configuration Files); plugins go in the Plugins folder or Torch.cfg.\");\n}\nelse\n{\n    ScriptConsole.WriteLine((object)\"Torch is up to date.\");\n}\n\nbool Run(string cmd, out string text)\n{\n    // The output goes to a file, not a pipe: Wine's background processes (wineserver, services.exe) inherit the shell's\n    // output and keep a pipe open after winetricks ended, so reading the pipe to its end never returned (the task hung).\n    var log = Path.Combine(Path.GetTempPath(), \"tca-torch-\" + Guid.NewGuid().ToString(\"N\") + \".log\");\n    try\n    {\n        using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", \"(\" + cmd + \") > '\" + log + \"' 2>&1 < /dev/null\" }) { UseShellExecute = false }))\n        {\n            process.WaitForExit();\n            text = File.Exists(log) ? File.ReadAllText(log) : \"\";\n            return process.ExitCode == 0;\n        }\n    }\n    finally { try { File.Delete(log); } catch { } }\n}\n\n// The executable the monitor starts. ThisService belongs to the caller's DbContext: load the row tracked here.\nasync System.Threading.Tasks.Task SetExecutable(string executable)\n{\n    var service = await GameServiceManager.GetAsync(ThisService.ServiceId);\n    if (service == null) throw new Exception(\"Service \" + ThisService.ServiceId + \" not found.\");\n    if (string.Equals(service.Executable, executable, StringComparison.OrdinalIgnoreCase)) return;\n    service.Executable = executable;\n    GameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\n    await GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n}\n\n// The script runs as the monitor (root on Linux). A path the customer controls (LastSession.sbl, LoadWorld, a symbolic\n// link a Torch plugin made) must stay in the service folder: inside `within`, with no symbolic link below the root.\nbool Safe(string path, string within)\n{\n    var cmp = System.OperatingSystem.IsWindows() ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;\n    var top = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('\\\\', '/');\n    var inside = Path.GetFullPath(within).TrimEnd('\\\\', '/');\n    var full = Path.GetFullPath(path).TrimEnd('\\\\', '/');\n    bool Under(string p, string dir) => p.Equals(dir, cmp) || p.StartsWith(dir + Path.DirectorySeparatorChar, cmp);\n    if (!Under(inside, top) || !Under(full, inside)) return false;\n    for (var p = full; p != null && p.Length > top.Length; p = Path.GetDirectoryName(p))\n        if (new FileInfo(p).LinkTarget != null) return false;\n    return true;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 5,
+        "icon": "<path d=\"M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "182fa47f-4112-51b0-9192-f883eb28d746"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterUpdateInstall"
+        ],
+        "name": "Torch: switch to the plain server",
+        "description": "Starts the service with the plain dedicated server again. Runs after the Vanilla update.",
+        "code": "//refAssemblies: System.Net.Http.dll, System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.Diagnostics.Process.dll, TCAdmin.Monitor.SDK.dll, TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, Microsoft.EntityFrameworkCore.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing Microsoft.EntityFrameworkCore;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Torch (a community server wrapper with a plugin system) runs the same dedicated server from Torch.Server.exe in the\n// service root, with the same Instance folder. The \"Torch\" game update downloads it; the \"Vanilla\" update switches back.\n//   update   - after the Torch update: set Torch up and start the service with Torch.Server.exe.\n//   maintain - after a reinstall or a Steam update: a service that runs Torch gets the latest Torch again (a\n//              reinstall deletes it; a game update usually needs a new Torch build).\n//   vanilla  - after the Vanilla update: start the service with the plain dedicated server again.\nconst string mode = \"vanilla\";\nconst string torchUrl = \"https://build.torchapi.com/job/Torch/job/master/lastSuccessfulBuild/artifact/bin/torch-server.zip\";\n\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('\\\\', '/');\nvar torchExe = Path.Combine(root, \"Torch.Server.exe\");\nvar current = Convert.ToString(ThisService.Executable) ?? \"\";\nvar sep = current.Contains('/') || System.OperatingSystem.IsLinux() ? \"/\" : \"\\\\\";\nvar vanillaExe = \"DedicatedServer64\" + sep + \"SpaceEngineersDedicated.exe\";\n\nif (mode == \"maintain\")\n{\n    if (!current.EndsWith(\"Torch.Server.exe\", StringComparison.OrdinalIgnoreCase)) return; // runs the plain server\n    ScriptConsole.WriteLine((object)\"The service runs Torch: downloading the latest Torch build.\");\n    var zip = Path.Combine(root, \".tca\", \"torch-server.zip\");\n    Directory.CreateDirectory(Path.GetDirectoryName(zip));\n    using (var http = new HttpClient { Timeout = TimeSpan.FromMinutes(10) })\n        File.WriteAllBytes(zip, await http.GetByteArrayAsync(torchUrl, ThisCancellationToken));\n    // The extraction runs as root: no file of the archive may land on (or under) a symbolic link of the service folder.\n    using (var archive = ZipFile.OpenRead(zip))\n        foreach (var entry in archive.Entries)\n            if (!Safe(Path.Combine(root, entry.FullName), root)) throw new Exception(\"Torch was not updated: \" + entry.FullName + \" in the service folder is a symbolic link.\");\n    ZipFile.ExtractToDirectory(zip, root, true);\n    File.Delete(zip);\n}\n\nif (mode == \"vanilla\")\n{\n    await SetExecutable(vanillaExe);\n    ScriptConsole.WriteLine((object)\"The service now starts the plain dedicated server (Torch's files stay in place for a later switch).\");\n    return;\n}\n\nif (!File.Exists(torchExe)) throw new Exception(\"Torch.Server.exe is missing in the service folder; the Torch download failed.\");\n\n// Wine: the plain server runs on Wine Mono, Torch does not (it loads the game from DedicatedServer64 through an\n// AppDomain probing path Mono ignores). Torch needs Microsoft .NET Framework 4.8 in the service's Wine prefix: a one-time\n// install of 10-20 minutes. The plain server then runs on it too.\nif (System.OperatingSystem.IsLinux())\n{\n    var prefix = Path.Combine(root, \".wine\");\n    var tricksLog = Path.Combine(prefix, \"winetricks.log\");\n    if (!File.Exists(tricksLog) || !File.ReadAllLines(tricksLog).Any(l => l.Trim() == \"dotnet48\"))\n    {\n        var user = ServiceManagerService.GetServiceCredential(ThisService.ServiceId)?.UserName;\n        if (string.IsNullOrEmpty(user)) throw new Exception(\"The service user is unknown; cannot prepare the Wine prefix for Torch.\");\n        ScriptConsole.WriteLine((object)\"Installing Microsoft .NET Framework 4.8 into the Wine prefix for Torch (10-20 minutes, once).\");\n        var display = Run(\"command -v xvfb-run\", out _) ? \"xvfb-run -a \" : \"\";\n        var installed = Run(\"runuser -u '\" + user + \"' -- env WINEPREFIX='\" + prefix + \"' HOME='\" + root + \"' WINEARCH=win64 WINEDEBUG=-all WINEDLLOVERRIDES='mscoree=;mshtml=' \"\n                 + display + \"winetricks -q dotnet48\", out var output);\n        // End the prefix's processes the install left running (the server is stopped during an update).\n        Run(\"runuser -u '\" + user + \"' -- env WINEPREFIX='\" + prefix + \"' wineserver -k\", out _);\n        if (!installed) throw new Exception(\".NET Framework 4.8 did not install: \" + string.Join(\"\\n\", output.Split('\\n').TakeLast(15)));\n        ScriptConsole.WriteLine((object)\".NET Framework 4.8 installed.\");\n    }\n}\n\n// Torch logs to Logs/Keen-<date>.log and Logs/Torch-<date>.log. NLog-user.config (its file for custom rules, part of\n// every Torch download) adds the server and Torch messages to Instance/SpaceEngineersDedicated.log, the file the panel's\n// console shows under Wine and the stop script watches.\nforeach (var name in new[] { \"NLog-user.config\", \"Torch.cfg\", \"Instance\" })\n    if (!Safe(Path.Combine(root, name), root)) throw new Exception(name + \" in the service folder is a symbolic link: replace it with a regular file or folder.\");\nFile.WriteAllText(Path.Combine(root, \"NLog-user.config\"), string.Join(\"\\n\", new[]\n{\n    \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\" ?>\",\n    \"<nlog xmlns=\\\"http://www.nlog-project.org/schemas/NLog.xsd\\\" xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\">\",\n    \"  <targets async=\\\"true\\\">\",\n    \"    <target xsi:type=\\\"File\\\" name=\\\"tcadmin\\\" layout=\\\"${longdate} ${logger:shortName=true}: ${message:withException=true}\\\" fileName=\\\"Instance\\\\SpaceEngineersDedicated.log\\\" deleteOldFileOnStartup=\\\"true\\\" />\",\n    \"  </targets>\",\n    \"  <rules>\",\n    \"    <logger name=\\\"Keen\\\" minlevel=\\\"Debug\\\" writeTo=\\\"tcadmin\\\" />\",\n    \"    <logger name=\\\"*\\\" minlevel=\\\"Info\\\" writeTo=\\\"tcadmin\\\" />\",\n    \"  </rules>\",\n    \"</nlog>\",\n    \"\"\n}));\nDirectory.CreateDirectory(Path.Combine(root, \"Instance\"));\n\n// Torch.cfg is a config file of the game (created with the service); a service created before it existed gets the same\n// defaults here. Torch never updates itself or the game (the panel does), runs without its window and uses Instance.\nvar torchConfig = Path.Combine(root, \"Torch.cfg\");\nif (!File.Exists(torchConfig))\n{\n    File.WriteAllText(torchConfig, string.Join(\"\\n\", new[]\n    {\n        \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\"?>\",\n        \"<TorchConfig xmlns:xsd=\\\"http://www.w3.org/2001/XMLSchema\\\" xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\">\",\n        \"  <InstanceName>Instance</InstanceName>\", \"  <InstancePath>Instance</InstancePath>\", \"  <Autostart>true</Autostart>\",\n        \"  <RestartOnCrash>false</RestartOnCrash>\", \"  <RestartOnGameUpdate>false</RestartOnGameUpdate>\", \"  <NoGui>true</NoGui>\",\n        \"  <GetTorchUpdates>false</GetTorchUpdates>\", \"  <GetPluginUpdates>true</GetPluginUpdates>\", \"  <TickTimeout>60</TickTimeout>\",\n        \"  <Plugins />\", \"  <LocalPlugins>false</LocalPlugins>\", \"  <DisconnectOnRestart>false</DisconnectOnRestart>\",\n        \"  <ChatName>Server</ChatName>\", \"  <ChatColor>Red</ChatColor>\", \"  <EnableWhitelist>false</EnableWhitelist>\", \"  <Whitelist />\",\n        \"  <IndependentConsole>false</IndependentConsole>\", \"  <EnableAnalytics>false</EnableAnalytics>\", \"</TorchConfig>\", \"\"\n    }));\n}\n\n// Files the monitor created belong to the service user (Linux); the panel's config files may carry an ACL without\n// write access for the service account (Windows), and Torch saves Torch.cfg when it starts.\nif (System.OperatingSystem.IsLinux())\n{\n    foreach (var entry in Directory.GetFiles(root).Concat(Directory.GetDirectories(root, \"Instance\")).Where(e => Safe(e, root)))\n        Globals.OperatingSystem.SetFileOwnerAutoDetect(entry);\n}\nelse\n{\n    foreach (var name in new[] { \"Torch.cfg\", \"NLog-user.config\" })\n    {\n        var file = Path.Combine(root, name);\n        if (!File.Exists(file) || !Safe(file, root)) continue;\n        using (var icacls = Process.Start(new ProcessStartInfo(\"icacls.exe\", new[] { file, \"/reset\", \"/Q\" }) { UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true }))\n            icacls.WaitForExit();\n    }\n}\n\nif (mode == \"update\")\n{\n    await SetExecutable(\"Torch.Server.exe\");\n    ScriptConsole.WriteLine((object)\"The service now starts Torch. Its settings are in Torch.cfg (Configuration Files); plugins go in the Plugins folder or Torch.cfg.\");\n}\nelse\n{\n    ScriptConsole.WriteLine((object)\"Torch is up to date.\");\n}\n\nbool Run(string cmd, out string text)\n{\n    // The output goes to a file, not a pipe: Wine's background processes (wineserver, services.exe) inherit the shell's\n    // output and keep a pipe open after winetricks ended, so reading the pipe to its end never returned (the task hung).\n    var log = Path.Combine(Path.GetTempPath(), \"tca-torch-\" + Guid.NewGuid().ToString(\"N\") + \".log\");\n    try\n    {\n        using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", \"(\" + cmd + \") > '\" + log + \"' 2>&1 < /dev/null\" }) { UseShellExecute = false }))\n        {\n            process.WaitForExit();\n            text = File.Exists(log) ? File.ReadAllText(log) : \"\";\n            return process.ExitCode == 0;\n        }\n    }\n    finally { try { File.Delete(log); } catch { } }\n}\n\n// The executable the monitor starts. ThisService belongs to the caller's DbContext: load the row tracked here.\nasync System.Threading.Tasks.Task SetExecutable(string executable)\n{\n    var service = await GameServiceManager.GetAsync(ThisService.ServiceId);\n    if (service == null) throw new Exception(\"Service \" + ThisService.ServiceId + \" not found.\");\n    if (string.Equals(service.Executable, executable, StringComparison.OrdinalIgnoreCase)) return;\n    service.Executable = executable;\n    GameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\n    await GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n}\n\n// The script runs as the monitor (root on Linux). A path the customer controls (LastSession.sbl, LoadWorld, a symbolic\n// link a Torch plugin made) must stay in the service folder: inside `within`, with no symbolic link below the root.\nbool Safe(string path, string within)\n{\n    var cmp = System.OperatingSystem.IsWindows() ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;\n    var top = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('\\\\', '/');\n    var inside = Path.GetFullPath(within).TrimEnd('\\\\', '/');\n    var full = Path.GetFullPath(path).TrimEnd('\\\\', '/');\n    bool Under(string p, string dir) => p.Equals(dir, cmp) || p.StartsWith(dir + Path.DirectorySeparatorChar, cmp);\n    if (!Under(inside, top) || !Under(full, inside)) return false;\n    for (var p = full; p != null && p.Length > top.Length; p = Path.GetDirectoryName(p))\n        if (new FileInfo(p).LinkTarget != null) return false;\n    return true;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 6,
+        "icon": "<path d=\"M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "fa7c4263-43e1-5e30-ba37-28eb1bc1ea9c"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterServiceReinstalled",
+          "AfterSteamUpdate"
+        ],
+        "name": "Torch: keep it installed",
+        "description": "A service that runs Torch gets the latest Torch build again after a reinstall or a Steam update.",
+        "code": "//refAssemblies: System.Net.Http.dll, System.IO.Compression.dll, System.IO.Compression.ZipFile.dll, System.Diagnostics.Process.dll, TCAdmin.Monitor.SDK.dll, TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, Microsoft.EntityFrameworkCore.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing Microsoft.EntityFrameworkCore;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Torch (a community server wrapper with a plugin system) runs the same dedicated server from Torch.Server.exe in the\n// service root, with the same Instance folder. The \"Torch\" game update downloads it; the \"Vanilla\" update switches back.\n//   update   - after the Torch update: set Torch up and start the service with Torch.Server.exe.\n//   maintain - after a reinstall or a Steam update: a service that runs Torch gets the latest Torch again (a\n//              reinstall deletes it; a game update usually needs a new Torch build).\n//   vanilla  - after the Vanilla update: start the service with the plain dedicated server again.\nconst string mode = \"maintain\";\nconst string torchUrl = \"https://build.torchapi.com/job/Torch/job/master/lastSuccessfulBuild/artifact/bin/torch-server.zip\";\n\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('\\\\', '/');\nvar torchExe = Path.Combine(root, \"Torch.Server.exe\");\nvar current = Convert.ToString(ThisService.Executable) ?? \"\";\nvar sep = current.Contains('/') || System.OperatingSystem.IsLinux() ? \"/\" : \"\\\\\";\nvar vanillaExe = \"DedicatedServer64\" + sep + \"SpaceEngineersDedicated.exe\";\n\nif (mode == \"maintain\")\n{\n    if (!current.EndsWith(\"Torch.Server.exe\", StringComparison.OrdinalIgnoreCase)) return; // runs the plain server\n    ScriptConsole.WriteLine((object)\"The service runs Torch: downloading the latest Torch build.\");\n    var zip = Path.Combine(root, \".tca\", \"torch-server.zip\");\n    Directory.CreateDirectory(Path.GetDirectoryName(zip));\n    using (var http = new HttpClient { Timeout = TimeSpan.FromMinutes(10) })\n        File.WriteAllBytes(zip, await http.GetByteArrayAsync(torchUrl, ThisCancellationToken));\n    // The extraction runs as root: no file of the archive may land on (or under) a symbolic link of the service folder.\n    using (var archive = ZipFile.OpenRead(zip))\n        foreach (var entry in archive.Entries)\n            if (!Safe(Path.Combine(root, entry.FullName), root)) throw new Exception(\"Torch was not updated: \" + entry.FullName + \" in the service folder is a symbolic link.\");\n    ZipFile.ExtractToDirectory(zip, root, true);\n    File.Delete(zip);\n}\n\nif (mode == \"vanilla\")\n{\n    await SetExecutable(vanillaExe);\n    ScriptConsole.WriteLine((object)\"The service now starts the plain dedicated server (Torch's files stay in place for a later switch).\");\n    return;\n}\n\nif (!File.Exists(torchExe)) throw new Exception(\"Torch.Server.exe is missing in the service folder; the Torch download failed.\");\n\n// Wine: the plain server runs on Wine Mono, Torch does not (it loads the game from DedicatedServer64 through an\n// AppDomain probing path Mono ignores). Torch needs Microsoft .NET Framework 4.8 in the service's Wine prefix: a one-time\n// install of 10-20 minutes. The plain server then runs on it too.\nif (System.OperatingSystem.IsLinux())\n{\n    var prefix = Path.Combine(root, \".wine\");\n    var tricksLog = Path.Combine(prefix, \"winetricks.log\");\n    if (!File.Exists(tricksLog) || !File.ReadAllLines(tricksLog).Any(l => l.Trim() == \"dotnet48\"))\n    {\n        var user = ServiceManagerService.GetServiceCredential(ThisService.ServiceId)?.UserName;\n        if (string.IsNullOrEmpty(user)) throw new Exception(\"The service user is unknown; cannot prepare the Wine prefix for Torch.\");\n        ScriptConsole.WriteLine((object)\"Installing Microsoft .NET Framework 4.8 into the Wine prefix for Torch (10-20 minutes, once).\");\n        var display = Run(\"command -v xvfb-run\", out _) ? \"xvfb-run -a \" : \"\";\n        var installed = Run(\"runuser -u '\" + user + \"' -- env WINEPREFIX='\" + prefix + \"' HOME='\" + root + \"' WINEARCH=win64 WINEDEBUG=-all WINEDLLOVERRIDES='mscoree=;mshtml=' \"\n                 + display + \"winetricks -q dotnet48\", out var output);\n        // End the prefix's processes the install left running (the server is stopped during an update).\n        Run(\"runuser -u '\" + user + \"' -- env WINEPREFIX='\" + prefix + \"' wineserver -k\", out _);\n        if (!installed) throw new Exception(\".NET Framework 4.8 did not install: \" + string.Join(\"\\n\", output.Split('\\n').TakeLast(15)));\n        ScriptConsole.WriteLine((object)\".NET Framework 4.8 installed.\");\n    }\n}\n\n// Torch logs to Logs/Keen-<date>.log and Logs/Torch-<date>.log. NLog-user.config (its file for custom rules, part of\n// every Torch download) adds the server and Torch messages to Instance/SpaceEngineersDedicated.log, the file the panel's\n// console shows under Wine and the stop script watches.\nforeach (var name in new[] { \"NLog-user.config\", \"Torch.cfg\", \"Instance\" })\n    if (!Safe(Path.Combine(root, name), root)) throw new Exception(name + \" in the service folder is a symbolic link: replace it with a regular file or folder.\");\nFile.WriteAllText(Path.Combine(root, \"NLog-user.config\"), string.Join(\"\\n\", new[]\n{\n    \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\" ?>\",\n    \"<nlog xmlns=\\\"http://www.nlog-project.org/schemas/NLog.xsd\\\" xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\">\",\n    \"  <targets async=\\\"true\\\">\",\n    \"    <target xsi:type=\\\"File\\\" name=\\\"tcadmin\\\" layout=\\\"${longdate} ${logger:shortName=true}: ${message:withException=true}\\\" fileName=\\\"Instance\\\\SpaceEngineersDedicated.log\\\" deleteOldFileOnStartup=\\\"true\\\" />\",\n    \"  </targets>\",\n    \"  <rules>\",\n    \"    <logger name=\\\"Keen\\\" minlevel=\\\"Debug\\\" writeTo=\\\"tcadmin\\\" />\",\n    \"    <logger name=\\\"*\\\" minlevel=\\\"Info\\\" writeTo=\\\"tcadmin\\\" />\",\n    \"  </rules>\",\n    \"</nlog>\",\n    \"\"\n}));\nDirectory.CreateDirectory(Path.Combine(root, \"Instance\"));\n\n// Torch.cfg is a config file of the game (created with the service); a service created before it existed gets the same\n// defaults here. Torch never updates itself or the game (the panel does), runs without its window and uses Instance.\nvar torchConfig = Path.Combine(root, \"Torch.cfg\");\nif (!File.Exists(torchConfig))\n{\n    File.WriteAllText(torchConfig, string.Join(\"\\n\", new[]\n    {\n        \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\"?>\",\n        \"<TorchConfig xmlns:xsd=\\\"http://www.w3.org/2001/XMLSchema\\\" xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\">\",\n        \"  <InstanceName>Instance</InstanceName>\", \"  <InstancePath>Instance</InstancePath>\", \"  <Autostart>true</Autostart>\",\n        \"  <RestartOnCrash>false</RestartOnCrash>\", \"  <RestartOnGameUpdate>false</RestartOnGameUpdate>\", \"  <NoGui>true</NoGui>\",\n        \"  <GetTorchUpdates>false</GetTorchUpdates>\", \"  <GetPluginUpdates>true</GetPluginUpdates>\", \"  <TickTimeout>60</TickTimeout>\",\n        \"  <Plugins />\", \"  <LocalPlugins>false</LocalPlugins>\", \"  <DisconnectOnRestart>false</DisconnectOnRestart>\",\n        \"  <ChatName>Server</ChatName>\", \"  <ChatColor>Red</ChatColor>\", \"  <EnableWhitelist>false</EnableWhitelist>\", \"  <Whitelist />\",\n        \"  <IndependentConsole>false</IndependentConsole>\", \"  <EnableAnalytics>false</EnableAnalytics>\", \"</TorchConfig>\", \"\"\n    }));\n}\n\n// Files the monitor created belong to the service user (Linux); the panel's config files may carry an ACL without\n// write access for the service account (Windows), and Torch saves Torch.cfg when it starts.\nif (System.OperatingSystem.IsLinux())\n{\n    foreach (var entry in Directory.GetFiles(root).Concat(Directory.GetDirectories(root, \"Instance\")).Where(e => Safe(e, root)))\n        Globals.OperatingSystem.SetFileOwnerAutoDetect(entry);\n}\nelse\n{\n    foreach (var name in new[] { \"Torch.cfg\", \"NLog-user.config\" })\n    {\n        var file = Path.Combine(root, name);\n        if (!File.Exists(file) || !Safe(file, root)) continue;\n        using (var icacls = Process.Start(new ProcessStartInfo(\"icacls.exe\", new[] { file, \"/reset\", \"/Q\" }) { UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true }))\n            icacls.WaitForExit();\n    }\n}\n\nif (mode == \"update\")\n{\n    await SetExecutable(\"Torch.Server.exe\");\n    ScriptConsole.WriteLine((object)\"The service now starts Torch. Its settings are in Torch.cfg (Configuration Files); plugins go in the Plugins folder or Torch.cfg.\");\n}\nelse\n{\n    ScriptConsole.WriteLine((object)\"Torch is up to date.\");\n}\n\nbool Run(string cmd, out string text)\n{\n    // The output goes to a file, not a pipe: Wine's background processes (wineserver, services.exe) inherit the shell's\n    // output and keep a pipe open after winetricks ended, so reading the pipe to its end never returned (the task hung).\n    var log = Path.Combine(Path.GetTempPath(), \"tca-torch-\" + Guid.NewGuid().ToString(\"N\") + \".log\");\n    try\n    {\n        using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", \"(\" + cmd + \") > '\" + log + \"' 2>&1 < /dev/null\" }) { UseShellExecute = false }))\n        {\n            process.WaitForExit();\n            text = File.Exists(log) ? File.ReadAllText(log) : \"\";\n            return process.ExitCode == 0;\n        }\n    }\n    finally { try { File.Delete(log); } catch { } }\n}\n\n// The executable the monitor starts. ThisService belongs to the caller's DbContext: load the row tracked here.\nasync System.Threading.Tasks.Task SetExecutable(string executable)\n{\n    var service = await GameServiceManager.GetAsync(ThisService.ServiceId);\n    if (service == null) throw new Exception(\"Service \" + ThisService.ServiceId + \" not found.\");\n    if (string.Equals(service.Executable, executable, StringComparison.OrdinalIgnoreCase)) return;\n    service.Executable = executable;\n    GameServiceManager.TCAdminDbContext.Entry(service).State = EntityState.Modified;\n    await GameServiceManager.SaveChangesAsync(ThisCancellationToken);\n}\n\n// The script runs as the monitor (root on Linux). A path the customer controls (LastSession.sbl, LoadWorld, a symbolic\n// link a Torch plugin made) must stay in the service folder: inside `within`, with no symbolic link below the root.\nbool Safe(string path, string within)\n{\n    var cmp = System.OperatingSystem.IsWindows() ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;\n    var top = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('\\\\', '/');\n    var inside = Path.GetFullPath(within).TrimEnd('\\\\', '/');\n    var full = Path.GetFullPath(path).TrimEnd('\\\\', '/');\n    bool Under(string p, string dir) => p.Equals(dir, cmp) || p.StartsWith(dir + Path.DirectorySeparatorChar, cmp);\n    if (!Under(inside, top) || !Under(full, inside)) return false;\n    for (var p = full; p != null && p.Length > top.Length; p = Path.GetDirectoryName(p))\n        if (new FileInfo(p).LinkTarget != null) return false;\n    return true;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 7,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "2f247f33-7ad5-57ef-83c8-7992e0ba7511"
+      }
+    }
+  ],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 303,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 2,
+      "gameId": 303,
+      "enabled": true,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "AllowCollections": true,
+        "ShowDescription": true,
+        "ShowAuthorAndRating": true,
+        "Private.UseSteamAPI": false,
+        "SkipDownload": true
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 303,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 303,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 5,
+      "gameId": 303,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 303,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 303,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    }
+  ],
+  "gamesCustomLinks": [],
+  "updates": [
+    {
+      "name": "Vanilla",
+      "groupName": "Server build",
+      "comments": "The plain Space Engineers dedicated server.",
+      "source": "",
+      "saveAsFilename": null,
+      "extractPath": "",
+      "reinstallable": true,
+      "defaultInstall": false,
+      "viewOrder": 1,
+      "icon": "https://shared.fastly.steamstatic.com/community_assets/images/apps/244850/f9856a90000d88e9a89441a7381fe9877e91eaca.jpg",
+      "version": null,
+      "releaseType": null,
+      "releaseDate": null,
+      "fileSizeBytes": null,
+      "identifier": "f52959f0-278f-50e9-92eb-2d9ff3a8892c",
+      "updateRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ],
+      "updateScripts": [
+        {
+          "scriptIdentifier": "fa7c4263-43e1-5e30-ba37-28eb1bc1ea9c"
+        }
+      ]
+    },
+    {
+      "name": "Torch",
+      "groupName": "Server build",
+      "comments": "Torch server wrapper with plugin support (latest build). Install it again to update Torch.",
+      "source": "https://build.torchapi.com/job/Torch/job/master/lastSuccessfulBuild/artifact/bin/torch-server.zip",
+      "saveAsFilename": "torch-server.zip",
+      "extractPath": "",
+      "reinstallable": true,
+      "defaultInstall": false,
+      "viewOrder": 2,
+      "icon": "https://raw.githubusercontent.com/TorchAPI/Torch/master/Torch.Server/torchicon.ico",
+      "version": null,
+      "releaseType": null,
+      "releaseDate": null,
+      "fileSizeBytes": null,
+      "identifier": "a1b19dda-2b7e-5810-a413-558a88166892",
+      "updateRoles": [
+        {
+          "roleId": 3
+        },
+        {
+          "roleId": 2
+        }
+      ],
+      "updateScripts": [
+        {
+          "scriptIdentifier": "182fa47f-4112-51b0-9192-f883eb28d746"
+        }
+      ]
+    }
+  ],
+  "createdDate": "2026-11-11T08:01:14.829442",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "Instance/Saves/**/*",
+      "Instance/SpaceEngineers-Dedicated.cfg",
+      "Instance/WorkshopMods*.txt"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": true
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
