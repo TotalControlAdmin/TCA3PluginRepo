@@ -1,0 +1,2036 @@
+{
+  "__TCA:ExportVersion": "3.23.42",
+  "__TCA:ExportedAt": "2026-11-10T05:42:25.0315987Z",
+  "name": "Garry's Mod",
+  "shortName": "GMOD",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://raw.githubusercontent.com/github/explore/436fc28ceb6837723d4f307c400f179bc5cdab92/topics/garrysmod/garrysmod.png",
+  "backgroundImage": "https://getwallpapers.com/wallpaper/full/9/4/e/1027889-widescreen-gmod-wallpapers-1920x1080-phone.jpg",
+  "minSlots": 2,
+  "maxSlots": 64,
+  "defaultSlots": 32,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "source",
+    "privateRule": "password",
+    "privateRuleValue": "1",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "MemoryWrapper",
+    "logFile": "garrysmod/console.log",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "quit",
+    "waitAfterStopCommand": 5000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": true,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 27015,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "RConPort",
+        "port": 27015,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 27015,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "HLTVPort",
+        "port": null,
+        "expression": "GamePort + 1",
+        "description": "HLTV Port",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "srcds.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "garrysmod-windows",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": ""
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 4020,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 4000,
+    "extraParameters": null,
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "-norestart -console -game garrysmod -nohltv +tv_port ${HLTVPort} -condebug +maxplayers ${Slots} +ip ${IPAddress} -port ${GamePort} +exec \"server.cfg\" +map \"gm_flatgrass\"",
+    "privateCustomCommandline": "-norestart -console -game garrysmod -nohltv +tv_port ${HLTVPort} -condebug +maxplayers ${Slots} +ip ${IPAddress} -port ${GamePort}"
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "-norestart -console -game garrysmod -nohltv +tv_port ${HLTVPort} -condebug +maxplayers ${Slots} +ip ${IPAddress} -port ${GamePort} +exec \"server.cfg\" +map \"gm_flatgrass\"",
+    "defaultCustomCommandline": "-norestart -console -game garrysmod -nohltv +tv_port ${HLTVPort} -condebug +maxplayers ${Slots} +ip ${IPAddress} -port ${GamePort}",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "-norestart -console -game garrysmod -nohltv +tv_port ${HLTVPort} -condebug +maxplayers ${Slots} +ip ${IPAddress} -port ${GamePort} +exec \"server.cfg\" +map \"gm_flatgrass\""
+      },
+      {
+        "id": 2,
+        "name": "Custom",
+        "commandLine": "-norestart -console -game garrysmod -nohltv +tv_port ${HLTVPort} -condebug +maxplayers ${Slots} +ip ${IPAddress} -port ${GamePort} ${exec} ${map}"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": null,
+    "specificPassword": null,
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "9f0a1352-d803-11f1-8d5f-00505654dd15",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "sv_region",
+      "defaultValue": 255,
+      "required": true,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${sv_region}",
+      "editor": {
+        "items": [
+          {
+            "text": "US - East",
+            "value": "0"
+          },
+          {
+            "text": "US - West",
+            "value": "1"
+          },
+          {
+            "text": "South America",
+            "value": "2"
+          },
+          {
+            "text": "Europe",
+            "value": "3"
+          },
+          {
+            "text": "Asia",
+            "value": "4"
+          },
+          {
+            "text": "Australia",
+            "value": "5"
+          },
+          {
+            "text": "Middle East",
+            "value": "6"
+          },
+          {
+            "text": "Africa",
+            "value": "7"
+          },
+          {
+            "text": "World (default)",
+            "value": "255"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "sv_region",
+        "defaultValue": 255,
+        "label": "Region",
+        "description": "The region of the world to report this server in.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-08-11T16:11:21.129989",
+      "modifiedDate": null,
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "exec",
+      "defaultValue": "server.cfg",
+      "required": true,
+      "requiredMessage": "The script file is required",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": " +exec \"${exec}\"",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "exec",
+        "defaultValue": "server.cfg",
+        "label": "Exec",
+        "description": "Execute a script file",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "The script file is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-08-11T16:11:21.130216",
+      "modifiedDate": null,
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "map",
+      "defaultValue": "gm_flatgrass",
+      "required": true,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": " +map \"${map}\"",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "map",
+        "defaultValue": "gm_flatgrass",
+        "label": "Map",
+        "description": "Start playing on specified map",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-08-11T16:11:21.13049",
+      "modifiedDate": null,
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "host_workshop_collection",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": " +host_workshop_collection ${host_workshop_collection}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "host_workshop_collection",
+        "defaultValue": null,
+        "label": "Workshop Collection",
+        "description": "The server will download Workshop items from given collection on start up",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-08-11T16:11:21.130491",
+      "modifiedDate": null,
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AuthKey",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "  -authkey ${AuthKey}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "AuthKey",
+        "defaultValue": null,
+        "label": "AuthKey",
+        "description": "Authorization key for Steam Web API",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-08-11T16:11:21.130491",
+      "modifiedDate": null,
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "sv_lan",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${sv_lan}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "sv_lan",
+        "defaultValue": null,
+        "label": "Server is a lan server",
+        "description": "No heartbeat, no authentication, no non-class C addresses",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicSwitch",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-12-11T00:40:01.555",
+      "modifiedDate": null,
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "sv_minrate",
+      "defaultValue": "0",
+      "required": true,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${sv_minrate}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": null,
+        "maxValue": null,
+        "id": "sv_minrate",
+        "defaultValue": "0",
+        "label": "Min bandwidth rate",
+        "description": "Min bandwidth rate allowed on server, 0 == unlimited",
+        "required": true,
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-12-11T03:52:32.065",
+      "modifiedDate": null,
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "sv_maxrate",
+      "defaultValue": "20000",
+      "required": true,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${sv_maxrate}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": null,
+        "maxValue": null,
+        "id": "sv_maxrate",
+        "defaultValue": "20000",
+        "label": "Max bandwidth rate",
+        "description": "Max bandwidth rate allowed on server, 0 == unlimited",
+        "required": true,
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-12-11T03:55:39.175",
+      "modifiedDate": null,
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconAction",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": null,
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconAction}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "RconAction",
+        "defaultValue": null,
+        "label": "RCON tool action",
+        "description": "Action for the RCON web tool",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": null,
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 12,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-03T02:29:25.943477",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconTarget",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": null,
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconTarget}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "RconTarget",
+        "defaultValue": null,
+        "label": "RCON tool target",
+        "description": "Player name, convar or map for the RCON web tool",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": null,
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 12,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-03T02:29:27.188606",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconValue",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": null,
+      "scriptParameter": true,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconValue}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "RconValue",
+        "defaultValue": null,
+        "label": "RCON tool value",
+        "description": "Value, reason or message for the RCON web tool",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": null,
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 12,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-03T02:29:27.558834",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "The hostname is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "The hostname is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 4,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2024-12-14T22:57:43.798",
+      "modifiedDate": null,
+      "metadata": {
+        "Notes": ""
+      },
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:19:00.160594",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:19:01.504907",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 10,
+      "relativePath": "garrysmod/cfg/server.cfg",
+      "description": "Main configuration file",
+      "template": "log\t\t\ton\r\n\r\nhostname\t\t\"${Hostname}\"\r\nrcon_password\t\t\"${RconPassword}\"\r\nsv_password\t\t\"${PrivatePassword}\"\r\nsv_region\t\t${sv_region}\r\nsv_lan\t\t\t${sv_lan}\r\nsv_logbans\t\t0\r\nsv_logecho\t\t0\r\nsv_logfile\t\t1 \r\nsv_log_onefile\t\t0\r\nsv_noclipspeed\t\t5\r\nsv_noclipaccelerate\t5\r\n\r\nsbox_allownpcs\t\t1\r\nsbox_godmode\t\t0\r\nsbox_plpldamage\t\t0\r\nsbox_playergod\t\t0\r\nsbox_noclip\t\t1\r\n\r\nsbox_maxprops\t\t150\r\nsbox_maxragdolls\t5\r\nsbox_maxnpcs\t\t10\r\nsbox_maxballoons\t10\r\nsbox_maxeffects\t\t50\r\nsbox_maxdynamite\t10\r\nsbox_maxlamps\t\t20\r\nsbox_maxthrusters\t30\r\nsbox_maxwheels\t\t20\r\nsbox_maxhoverballs\t20\r\nsbox_maxvehicles\t6\r\nsbox_maxbuttons\t\t20\r\nsbox_maxsents\t\t20\r\nsbox_maxemitters\t5\r\nsbox_maxspawners\t3\r\nsbox_maxturrets\t\t2\r\n\r\nnet_maxfilesize\t\t30\r\n\r\nsv_minrate\t\t${sv_minrate} \r\nsv_maxrate\t\t${sv_maxrate}\r\ndecalfrequency\t\t10 \r\nsv_maxupdaterate\t66 \r\nsv_minupdaterate\t10 \r\n\r\n// execute ban files\r\nexec banned_ip.cfg \r\nexec banned_user.cfg ",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header-49557",
+          "defaultValue": null,
+          "label": "Basic Configuration",
+          "description": "extra info here",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": null,
+          "label": "Hostname",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "RconPassword",
+          "defaultValue": null,
+          "label": "Rcon Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": null,
+          "label": "Private Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header-84225",
+          "defaultValue": null,
+          "label": "Advanced Configuration",
+          "description": "extra info here",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "US - East",
+              "value": "0"
+            },
+            {
+              "text": "US - West",
+              "value": "1"
+            },
+            {
+              "text": "South America",
+              "value": "2"
+            },
+            {
+              "text": "Europe",
+              "value": "3"
+            },
+            {
+              "text": "Asia",
+              "value": "4"
+            },
+            {
+              "text": "Australia",
+              "value": "5"
+            },
+            {
+              "text": "Middle East",
+              "value": "6"
+            },
+            {
+              "text": "Africa",
+              "value": "7"
+            },
+            {
+              "text": "World (default)",
+              "value": "255"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "sv_region",
+          "defaultValue": null,
+          "label": "Region",
+          "description": "The region of the world to report this server in.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "sv_lan",
+          "defaultValue": null,
+          "label": "Server is a lan server",
+          "description": "No heartbeat, no authentication, no non-class C addresses",
+          "required": false,
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicSwitch",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": null,
+          "maxValue": null,
+          "id": "sv_minrate",
+          "defaultValue": null,
+          "label": "Min bandwidth rate",
+          "description": "Min bandwidth rate allowed on server, 0 == unlimited",
+          "required": false,
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": null,
+          "maxValue": null,
+          "id": "sv_maxrate",
+          "defaultValue": null,
+          "label": "Max bandwidth rate",
+          "description": "Max bandwidth rate allowed on server, 0 == unlimited",
+          "required": false,
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "Powershell",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [],
+        "name": "Backup Config Files",
+        "description": "Backup your config files",
+        "code": "Write-Host $(Get-ExecutionPolicy -Verbose)\r\nImport-Module Microsoft.PowerShell.Archive -Verbose\r\n# & \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\Modules\\Microsoft.PowerShell.Archive\\Microsoft.PowerShell.Archive.psm1\"\r\n\r\n# Define the source folder and backup directory\r\n$sourceFolder = Join-Path $ThisService.RootDirectory \"garrysmod\\cfg\"\r\n$backupDirectory = Join-Path $ThisService.RootDirectory \"Backups\"\r\n\r\n# Ensure the backup directory exists\r\nif (!(Test-Path $backupDirectory)) {\r\n    New-Item -ItemType Directory -Path $backupDirectory | Out-Null\r\n}\r\n\r\n# Generate the timestamped zip file name\r\n$timestamp = (Get-Date).ToString(\"yyyyMMdd-HHmmss\")\r\n$backupFileName = \"$timestamp.zip\"\r\n$backupFilePath = Join-Path $backupDirectory $backupFileName\r\n\r\nWrite-Host \"Creating backup: $backupFileName\"\r\n\r\n# Create the zip archive\r\ntry {\r\n    Compress-Archive -Path $sourceFolder -DestinationPath $backupFilePath -Force -Verbose\r\n    Write-Host \"Backup created successfully: $backupFileName\"\r\n} catch {\r\n    Write-Host \"Error creating backup: $_\" -ForegroundColor Red\r\n}",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\" width=\"24px\" fill=\"#e8eaed\"><path d=\"M260-160q-91 0-155.5-63T40-377q0-78 47-139t123-78q25-92 100-149t170-57q117 0 198.5 81.5T760-520q69 8 114.5 59.5T920-340q0 75-52.5 127.5T740-160H520q-33 0-56.5-23.5T440-240v-206l-64 62-56-56 160-160 160 160-56 56-64-62v206h220q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-80q0-83-58.5-141.5T480-720q-83 0-141.5 58.5T280-520h-20q-58 0-99 41t-41 99q0 58 41 99t99 41h100v80H260Zm220-280Z\"/></svg>",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "9d5a75ac-34b3-432b-8004-928fedcae487"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterCustomModInstalled"
+        ],
+        "name": "Extract Workshop Addon",
+        "description": "Moves the downloaded Steam Workshop .gma into garrysmod/addons and extracts it with the game's gmad binary.",
+        "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring fileId = Convert.ToString(Dynamic.FileId);\nstring installPath = Convert.ToString(Dynamic.InstallPath);\nstring addonDir = Path.Combine(ThisService.RootDirectory, \"garrysmod\", \"addons\", fileId);\n\nif (string.IsNullOrEmpty(installPath) || !Directory.Exists(installPath))\n{\n    ScriptConsole.WriteLine((object)$\"Nothing was downloaded for workshop file {fileId}: {installPath} does not exist.\");\n    return;\n}\n\nstring[] downloaded = Directory.GetFiles(installPath, \"*\", SearchOption.AllDirectories);\nif (downloaded.Length == 0)\n    throw new InvalidOperationException($\"Workshop file {fileId} left no files in {installPath}.\");\n\nstring payload = downloaded.FirstOrDefault(f => f.EndsWith(\".gma\", StringComparison.OrdinalIgnoreCase))\n    ?? downloaded.FirstOrDefault(f => f.EndsWith(\".gm\", StringComparison.OrdinalIgnoreCase))\n    ?? downloaded.OrderByDescending(f => new FileInfo(f).Length).First();\n\nif (payload.EndsWith(\".gm\", StringComparison.OrdinalIgnoreCase))\n{\n    string renamed = payload + \"a\";\n    if (File.Exists(renamed))\n        File.Delete(renamed);\n    File.Move(payload, renamed);\n    payload = renamed;\n}\n\nif (!payload.EndsWith(\".gma\", StringComparison.OrdinalIgnoreCase))\n{\n    Directory.CreateDirectory(addonDir);\n    string loosePath = Path.Combine(addonDir, Path.GetFileName(payload));\n    File.Move(payload, loosePath, true);\n    ScriptConsole.WriteLine((object)$\"{Path.GetFileName(payload)} is not an addon archive; installed as-is to {loosePath}.\");\n    return;\n}\n\nbyte[] magic = ReadMagic(payload);\nif (!IsGmad(magic))\n{\n    // Some workshop items arrive as an LZMA-alone wrapper around the real GMAD payload.\n    ScriptConsole.WriteLine(\"Addon is compressed. Decompressing...\");\n    DecompressLzmaInPlace(payload);\n    magic = ReadMagic(payload);\n    if (!IsGmad(magic))\n        throw new InvalidDataException($\"{payload} is not a Garry's Mod addon. First bytes: {BitConverter.ToString(magic)}\");\n}\n\nDirectory.CreateDirectory(addonDir);\nint extractedCount = ExtractGma(payload, addonDir);\nFile.Delete(payload);\nScriptConsole.WriteLine((object)$\"Workshop file {fileId}: extracted {extractedCount} files to {addonDir}.\");\n\nbyte[] ReadMagic(string path)\n{\n    using var stream = File.OpenRead(path);\n    byte[] buffer = new byte[4];\n    return stream.Read(buffer, 0, buffer.Length) == buffer.Length ? buffer : Array.Empty<byte>();\n}\n\nbool IsGmad(byte[] header)\n{\n    return header.Length == 4 && header[0] == (byte)'G' && header[1] == (byte)'M' && header[2] == (byte)'A' && header[3] == (byte)'D';\n}\n\nvoid DecompressLzmaInPlace(string path)\n{\n    string tempPath = path + \".tmp\";\n    try\n    {\n        using (var input = File.OpenRead(path))\n        {\n            if (input.Length < 13)\n                throw new InvalidDataException($\"{path} is too small to be an LZMA stream.\");\n\n            byte[] properties = new byte[5];\n            byte[] sizeBytes = new byte[8];\n            input.ReadExactly(properties, 0, properties.Length);\n            input.ReadExactly(sizeBytes, 0, sizeBytes.Length);\n\n            long uncompressedSize = BitConverter.ToInt64(sizeBytes, 0);\n            if (uncompressedSize < 0)\n                throw new InvalidDataException($\"{path} declares an unknown uncompressed size, which the LZMA decoder cannot handle.\");\n\n            var decoder = new SevenZip.Compression.LZMA.Decoder();\n            decoder.SetDecoderProperties(properties);\n            using var output = File.Create(tempPath);\n            decoder.Code(input, output, input.Length - input.Position, uncompressedSize, null);\n        }\n\n        File.Move(tempPath, path, true);\n    }\n    finally\n    {\n        if (File.Exists(tempPath))\n            File.Delete(tempPath);\n    }\n}\n\nstring ReadNullTerminatedString(BinaryReader reader)\n{\n    var bytes = new List<byte>();\n    byte current;\n    while ((current = reader.ReadByte()) != 0)\n        bytes.Add(current);\n    return Encoding.UTF8.GetString(bytes.ToArray());\n}\n\nint ExtractGma(string gmaPath, string destinationDir)\n{\n    using var stream = File.OpenRead(gmaPath);\n    using var reader = new BinaryReader(stream);\n\n    byte[] ident = reader.ReadBytes(4);\n    byte formatVersion = reader.ReadByte();\n    if (formatVersion > 3)\n        throw new InvalidDataException($\"{gmaPath} uses GMA format version {formatVersion}, which this script cannot read.\");\n\n    long steamId = reader.ReadInt64();\n    long timestamp = reader.ReadInt64();\n\n    if (formatVersion > 1)\n        while (ReadNullTerminatedString(reader).Length > 0) { } // an empty string terminates the required-content list\n\n    string addonName = ReadNullTerminatedString(reader);\n    string addonDescription = ReadNullTerminatedString(reader);\n    string addonAuthor = ReadNullTerminatedString(reader);\n    int addonVersion = reader.ReadInt32();\n\n    var entries = new List<KeyValuePair<string, long>>();\n    while (reader.ReadUInt32() != 0)\n    {\n        string entryName = ReadNullTerminatedString(reader);\n        long entrySize = reader.ReadInt64();\n        uint entryCrc = reader.ReadUInt32();\n        entries.Add(new KeyValuePair<string, long>(entryName, entrySize));\n    }\n\n    string root = Path.GetFullPath(destinationDir);\n    string rootPrefix = root + Path.DirectorySeparatorChar;\n    byte[] buffer = new byte[81920];\n\n    foreach (var entry in entries)\n    {\n        ThisCancellationToken.ThrowIfCancellationRequested();\n\n        if (Path.IsPathRooted(entry.Key))\n            throw new InvalidDataException($\"Addon {gmaPath} contains a rooted entry '{entry.Key}'. Refusing to extract it.\");\n\n        string destination = Path.GetFullPath(Path.Combine(root, entry.Key));\n        if (!destination.StartsWith(rootPrefix, StringComparison.Ordinal))\n            throw new InvalidDataException($\"Addon {gmaPath} contains an entry '{entry.Key}' that escapes {destinationDir}. Refusing to extract it.\");\n\n        Directory.CreateDirectory(Path.GetDirectoryName(destination));\n\n        using var output = File.Create(destination);\n        long remaining = entry.Value;\n        while (remaining > 0)\n        {\n            int read = stream.Read(buffer, 0, (int)Math.Min(buffer.Length, remaining));\n            if (read == 0)\n                throw new EndOfStreamException($\"{gmaPath} ended while reading '{entry.Key}'.\");\n            output.Write(buffer, 0, read);\n            remaining -= read;\n        }\n    }\n\n    return entries.Count;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": null,
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "4a5fbdc4-a149-4f40-8434-e60dae18fe44"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterCustomModUninstalled"
+        ],
+        "name": "Remove Workshop Addon",
+        "description": "Deletes the addon folder for an uninstalled Steam Workshop file from garrysmod/addons.",
+        "code": "using System;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring fileId = Convert.ToString(Dynamic.FileId);\nstring addonsRoot = Path.Combine(ThisService.RootDirectory, \"garrysmod\", \"addons\");\n\nif (string.IsNullOrWhiteSpace(fileId))\n{\n    ScriptConsole.WriteLine(\"No workshop file id was supplied; nothing to remove.\");\n    return;\n}\n\n// Anything but a plain folder name would let the recursive delete land on the addons root and wipe every addon.\nif (Path.IsPathRooted(fileId)\n    || fileId.IndexOfAny(new char[] { '/', '\\\\' }) >= 0\n    || fileId.Contains(\"..\", StringComparison.Ordinal))\n    throw new InvalidOperationException($\"Refusing to uninstall: workshop file id '{fileId}' is not a plain folder name.\");\n\nstring addonDir = ResolveUnderAddons(addonsRoot, fileId);\nstring looseGma = ResolveUnderAddons(addonsRoot, fileId + \".gma\");\n\nbool removedFolder = Directory.Exists(addonDir);\nif (removedFolder)\n    Directory.Delete(addonDir, true);\n\nbool removedArchive = File.Exists(looseGma);\nif (removedArchive)\n    File.Delete(looseGma);\n\nif (removedFolder && removedArchive)\n    ScriptConsole.WriteLine((object)$\"Removed addon folder {addonDir} and leftover archive {looseGma}.\");\nelse if (removedFolder)\n    ScriptConsole.WriteLine((object)$\"Removed addon folder {addonDir}.\");\nelse if (removedArchive)\n    ScriptConsole.WriteLine((object)$\"Removed leftover archive {looseGma}.\");\nelse\n    ScriptConsole.WriteLine((object)$\"Workshop file {fileId} left nothing behind in {addonsRoot}.\");\n\nstring ResolveUnderAddons(string addonsDirectory, string name)\n{\n    string resolved = Path.GetFullPath(Path.Combine(addonsDirectory, name));\n    string prefix = Path.GetFullPath(addonsDirectory) + Path.DirectorySeparatorChar;\n    if (!resolved.StartsWith(prefix, StringComparison.Ordinal))\n        throw new InvalidOperationException($\"Refusing to uninstall '{name}': it resolves to {resolved}, outside {addonsDirectory}.\");\n    return resolved;\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": null,
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "b9b7061a-73b7-44d9-9ca2-501aabd4b580"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "ApiFunction"
+        ],
+        "name": "SourceRconTool",
+        "description": "Backend for the Source RCON web tool page (status, convars, kick, ban, say, map).",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\nusing TCAdmin.GameHosting.SDK.RconProviders;\nusing TCAdmin.GameHosting.SDK.RconProviders.Source;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar action = Variables.Parse(\"RconAction\", \"status\");\nvar target = Variables.Parse(\"RconTarget\", \"\");\nvar value = Variables.Parse(\"RconValue\", \"\");\n\nstring Clean(string s)\n{\n    s = s ?? \"\";\n    s = s.Replace(\"\\r\", \" \").Replace(\"\\n\", \" \").Replace(\";\", \" \").Replace(\"\\\"\", \"'\");\n    return s.Trim();\n}\nvar rawTarget = (target ?? \"\").Replace(\"\\r\", \" \").Replace(\"\\n\", \" \").Trim();\ntarget = Clean(target);\nvalue = Clean(value);\n\nasync Task<T> WithTimeout<T>(Task<T> task, int ms, string what)\n{\n    if (await Task.WhenAny(task, Task.Delay(ms)) != task) throw new Exception(what + \" timed out.\");\n    return await task;\n}\n\n// One RCON connection per run, opened on first use; every reply is read straight off the socket.\nSourceRconClient rcon = null;\nasync Task<string> Rcon(string cmd)\n{\n    if (rcon == null)\n    {\n        var factory = RconClientFactories.FirstOrDefault(f => f.Protocol == ThisGame.QueryRconProtocolConfig.RconProtocol);\n        rcon = factory?.Create() as SourceRconClient\n            ?? throw new Exception(\"This blueprint's RCON protocol must be 'source' (Valve Source RCON).\");\n        try\n        {\n            await rcon.ConnectAsync(ThisService.IPAddress, ThisService.RconPort, ThisService.Variables.Parse<string>(\"RconPassword\", string.Empty));\n        }\n        catch (RconAuthenticationException)\n        {\n            throw new Exception(\"RCON refused the password. Restart the server so server.cfg picks up the panel's RCON password.\");\n        }\n    }\n    return await rcon.ExecuteCommandAsync(cmd);\n}\n\nIEnumerable<string> Lines(string text) => (text ?? \"\").Split('\\n').Select(l => l.TrimEnd('\\r'));\n\n// srcds `status` rows: #  2 \"Bot01\" BOT active  /  #  3 \"Name\" STEAM_0:1:123 00:31 50 0 active ip:port\nasync Task<List<(int UserId, string Name, string SteamId)>> StatusRows()\n{\n    var rows = new List<(int, string, string)>();\n    foreach (var line in Lines(await Rcon(\"status\")))\n    {\n        var m = Regex.Match(line, \"^#\\\\s*(\\\\d+)\\\\s+\\\"(.*)\\\"\\\\s+(BOT|STEAM_\\\\d+:\\\\d+:\\\\d+)\\\\b\");\n        if (m.Success) rows.Add((int.Parse(m.Groups[1].Value), m.Groups[2].Value, m.Groups[3].Value));\n    }\n    return rows;\n}\n\nasync Task<Dictionary<string, int>> GetBotNames()\n{\n    var bots = new Dictionary<string, int>();\n    foreach (var row in await StatusRows())\n        if (row.SteamId == \"BOT\") bots[row.Name] = row.UserId;\n    return bots;\n}\n\ntry\n{\n    string svcStatus = \"Unknown\";\n    try {\n        var svcInfo = await WithTimeout(ServiceManagerService.GetServiceStatus(ThisService.ServiceId), 8000, \"Status check\");\n        if (svcInfo != null) svcStatus = svcInfo.Status.ToString();\n    } catch (Exception) { }\n    var isRunning = svcStatus == \"Started\";\n    if (!isRunning)\n    {\n        // Service is not running: never send RCON commands.\n        if (action != \"status\") throw new Exception(\"The service is not running (\" + svcStatus + \"). RCON commands are disabled.\");\n        Globals.ReturnValue = new { running = false, serviceStatus = svcStatus, online = \"Offline\", hostname = \"\", map = \"\", numPlayers = 0, maxPlayers = 0, players = new object[0] };\n    }\n    else switch (action)\n    {\n        case \"status\":\n        {\n            var q = await WithTimeout(GameServiceManager.QueryService(ThisService), 10000, \"Server query\");\n            var list = q.Players ?? new List<TCAdmin.SDK.Hubs.Models.GameQuery.GameQueryPlayer>();\n            var botNames = list.Count > 0 ? await GetBotNames() : new Dictionary<string, int>();\n            var players = list.Select(p => new { name = p.Name, score = p.Score, connectedSeconds = p.ConnectTime, isBot = botNames.ContainsKey(p.Name) }).ToList();\n            Globals.ReturnValue = new { running = true, serviceStatus = svcStatus, online = q.Status, hostname = q.Name, map = q.Map, numPlayers = q.NumPlayers, maxPlayers = q.MaxPlayers, players };\n            break;\n        }\n        case \"convar\":\n        {\n            var allowed = new[] { \"sv_cheats\", \"sv_gravity\", \"sv_alltalk\", \"sbox_godmode\", \"sbox_noclip\", \"sbox_weapons\", \"sbox_playershurtplayers\", \"sbox_maxprops\", \"sv_friction\", \"phys_timescale\", \"host_timescale\", \"gmod_physiterations\" };\n            if (!allowed.Contains(target)) throw new Exception($\"Setting '{target}' is not allowed.\");\n            if (!Regex.IsMatch(value, \"^[A-Za-z0-9_.\\\\- ]{0,64}$\")) throw new Exception(\"Invalid value.\");\n            await Rcon($\"{target} \\\"{value}\\\"\");\n            Globals.ReturnValue = new { ok = true, command = $\"{target} {value}\" };\n            break;\n        }\n        case \"kick\":\n        {\n            if (target == \"\") throw new Exception(\"Player name required.\");\n            var botIds = await GetBotNames();\n            var isBotTarget = botIds.ContainsKey(rawTarget);\n            // bot_kick does not exist in GMod; kick the bot by userid through Lua instead.\n            await Rcon(isBotTarget ? $\"lua_run local p=Player({botIds[rawTarget]}) if IsValid(p) then p:Kick() end\" : $\"kick \\\"{target}\\\" \\\"{value}\\\"\");\n            if (isBotTarget) { Globals.ReturnValue = new { ok = true, bot = true }; break; }\n            // The drop can take a server frame or two to show in `status`.\n            var stillConnected = true;\n            for (var attempt = 0; attempt < 4 && stillConnected; attempt++)\n            {\n                if (attempt > 0) await Task.Delay(250);\n                stillConnected = (await StatusRows()).Any(r => r.Name == target);\n            }\n            if (stillConnected)\n                throw new Exception($\"Kick sent, but '{target}' is still connected. The name may not match exactly - try again or use Ban.\");\n            Globals.ReturnValue = new { ok = true };\n            break;\n        }\n        case \"ban\":\n        {\n            if (target == \"\") throw new Exception(\"Player name required.\");\n            var rows = await StatusRows();\n            if (rows.Any(r => r.SteamId == \"BOT\" && r.Name == rawTarget)) throw new Exception(\"Bots cannot be banned. Use Kick instead.\");\n            var steamId = rows.Where(r => r.SteamId != \"BOT\" && r.Name == target).Select(r => r.SteamId).FirstOrDefault();\n            if (steamId == null) throw new Exception(\"Could not find the player's SteamID in the server status. Use Kick instead.\");\n            var minutes = Regex.IsMatch(value, \"^\\\\d{1,7}$\") ? value : \"0\";\n            await Rcon($\"banid {minutes} {steamId} kick\");\n            await Rcon(\"writeid\");\n            Globals.ReturnValue = new { ok = true, steamId, minutes };\n            break;\n        }\n        case \"say\":\n        {\n            if (value == \"\") throw new Exception(\"Message required.\");\n            await Rcon($\"say \\\"{value}\\\"\");\n            Globals.ReturnValue = new { ok = true };\n            break;\n        }\n        case \"addbot\":\n        {\n            if (rawTarget.Length < 1 || rawTarget.Length > 32) throw new Exception(\"Bot name must be 1-32 characters.\");\n            var luaName = rawTarget.Replace(\"\\\\\", \"\\\\\\\\\").Replace(\"\\\"\", \"\\\\\\\"\");\n            await Rcon($\"lua_run player.CreateNextBot(\\\"{luaName}\\\")\");\n            Globals.ReturnValue = new { ok = true, name = rawTarget };\n            break;\n        }\n        case \"convars\":\n        {\n            // srcds returns what lua_run prints as the command's RCON reply.\n            var output = await Rcon(\"lua_run for _,c in ipairs({\\\"sv_cheats\\\",\\\"sbox_godmode\\\",\\\"sbox_noclip\\\",\\\"sbox_weapons\\\",\\\"sbox_playershurtplayers\\\",\\\"sv_alltalk\\\",\\\"sv_gravity\\\",\\\"host_timescale\\\"}) do local v=GetConVar(c) if v then print(\\\"CVAR|\\\"..c..\\\"|\\\"..v:GetString()) end end\");\n            var cvList = new List<object>();\n            foreach (var line in Lines(output))\n            {\n                var cm = Regex.Match(line, \"^CVAR\\\\|([A-Za-z0-9_]+)\\\\|(.*?)\\\\s*$\");\n                if (cm.Success) cvList.Add(new { name = cm.Groups[1].Value, value = cm.Groups[2].Value });\n            }\n            Globals.ReturnValue = new { ok = true, convars = cvList };\n            break;\n        }\n        case \"maps\":\n        {\n            var found = new SortedSet<string>(StringComparer.OrdinalIgnoreCase);\n            foreach (var line in Lines(await Rcon(\"maps *\")))\n            {\n                var mm = Regex.Match(line, \"^(?:PENDING:)?\\\\s*\\\\(\\\\w+\\\\)\\\\s+(.+?)\\\\.bsp\\\\s*$\");\n                if (mm.Success) found.Add(mm.Groups[1].Value);\n            }\n            Globals.ReturnValue = new { ok = true, maps = found.ToArray() };\n            break;\n        }\n        case \"map\":\n        {\n            if (!Regex.IsMatch(target, \"^[A-Za-z0-9_\\\\-]{1,64}$\")) throw new Exception(\"Invalid map name.\");\n            try { await Rcon($\"changelevel {target}\"); }\n            // The server starts loading the map at once and may drop or stall the RCON reply.\n            catch (Exception ex) when (ex is RconException || ex is OperationCanceledException) { }\n            Globals.ReturnValue = new { ok = true };\n            break;\n        }\n        default:\n            throw new Exception($\"Unknown action '{action}'.\");\n    }\n}\nfinally\n{\n    if (rcon != null) await rcon.DisposeAsync();\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 3,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": null,
+        "scriptInputVariables": [
+          {
+            "variable": {
+              "name": "RconAction",
+              "defaultValue": null,
+              "required": false,
+              "requiredMessage": null,
+              "scriptParameter": true,
+              "commandlineParameter": false,
+              "saveScriptParameter": false,
+              "syncCommandlineParameter": false,
+              "template": "${RconAction}",
+              "editor": {
+                "maxLength": 0,
+                "lines": 1,
+                "denyCharacters": [],
+                "regExValidation": "",
+                "inputType": 0,
+                "id": "RconAction",
+                "defaultValue": null,
+                "label": "RCON tool action",
+                "description": "Action for the RCON web tool",
+                "required": false,
+                "valueType": "string",
+                "requiredMessage": null,
+                "parentId": null,
+                "parentValue": null,
+                "controlType": "DynamicTextBox",
+                "sm": 12,
+                "xs": 12,
+                "requiresAnyVisible": []
+              },
+              "createdDate": "2026-11-03T02:29:25.943477",
+              "modifiedDate": null,
+              "metadata": {},
+              "variableRoles": [
+                {
+                  "roleId": 2
+                },
+                {
+                  "roleId": 3
+                }
+              ]
+            },
+            "variableId": 5303
+          },
+          {
+            "variable": {
+              "name": "RconTarget",
+              "defaultValue": null,
+              "required": false,
+              "requiredMessage": null,
+              "scriptParameter": true,
+              "commandlineParameter": false,
+              "saveScriptParameter": false,
+              "syncCommandlineParameter": false,
+              "template": "${RconTarget}",
+              "editor": {
+                "maxLength": 0,
+                "lines": 1,
+                "denyCharacters": [],
+                "regExValidation": "",
+                "inputType": 0,
+                "id": "RconTarget",
+                "defaultValue": null,
+                "label": "RCON tool target",
+                "description": "Player name, convar or map for the RCON web tool",
+                "required": false,
+                "valueType": "string",
+                "requiredMessage": null,
+                "parentId": null,
+                "parentValue": null,
+                "controlType": "DynamicTextBox",
+                "sm": 12,
+                "xs": 12,
+                "requiresAnyVisible": []
+              },
+              "createdDate": "2026-11-03T02:29:27.188606",
+              "modifiedDate": null,
+              "metadata": {},
+              "variableRoles": [
+                {
+                  "roleId": 2
+                },
+                {
+                  "roleId": 3
+                }
+              ]
+            },
+            "variableId": 5304
+          },
+          {
+            "variable": {
+              "name": "RconValue",
+              "defaultValue": null,
+              "required": false,
+              "requiredMessage": null,
+              "scriptParameter": true,
+              "commandlineParameter": false,
+              "saveScriptParameter": false,
+              "syncCommandlineParameter": false,
+              "template": "${RconValue}",
+              "editor": {
+                "maxLength": 0,
+                "lines": 1,
+                "denyCharacters": [],
+                "regExValidation": "",
+                "inputType": 0,
+                "id": "RconValue",
+                "defaultValue": null,
+                "label": "RCON tool value",
+                "description": "Value, reason or message for the RCON web tool",
+                "required": false,
+                "valueType": "string",
+                "requiredMessage": null,
+                "parentId": null,
+                "parentValue": null,
+                "controlType": "DynamicTextBox",
+                "sm": 12,
+                "xs": 12,
+                "requiresAnyVisible": []
+              },
+              "createdDate": "2026-11-03T02:29:27.558834",
+              "modifiedDate": null,
+              "metadata": {},
+              "variableRoles": [
+                {
+                  "roleId": 2
+                },
+                {
+                  "roleId": 3
+                }
+              ]
+            },
+            "variableId": 5305
+          }
+        ],
+        "scriptRoles": [
+          {
+            "roleId": 2
+          },
+          {
+            "roleId": 3
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "b5763e82-83a9-435f-bc2d-cf4c6c5c9b00"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CustomPage",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "CustomServiceIcon"
+        ],
+        "name": "Source RCON Tool",
+        "description": "Graphical Source RCON tool: players, kick/ban, say, map change and one-click toggles.",
+        "code": "<style>\n  body{font-family:system-ui,sans-serif;color:var(--tca-text);background:var(--tca-background);margin:0;padding:16px}\n  .card{background:var(--tca-surface);border:1px solid var(--tca-divider);border-radius:10px;padding:14px;margin-bottom:14px}\n  h2{margin:0 0 10px;font-size:16px}\n  .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}\n  button{background:var(--tca-primary);color:#fff;border:0;border-radius:6px;padding:7px 12px;cursor:pointer;font-size:13px}\n  button.off{background:var(--tca-secondary)} button.danger{background:var(--tca-error)} button.warn{background:var(--tca-warning);color:#000}\n  button.on{background:var(--tca-success);color:#fff} button.offstate{background:var(--tca-error);color:#fff}\n  button:disabled{opacity:.5;cursor:wait}\n  .sw{position:relative;display:inline-block;width:42px;height:22px;cursor:pointer}\n  .sw input{opacity:0;width:0;height:0;position:absolute}\n  .sw .slider{position:absolute;inset:0;background:var(--tca-error);border-radius:22px;transition:background .15s}\n  .sw .slider:before{content:'';position:absolute;height:16px;width:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform .15s}\n  .sw input:checked + .slider{background:var(--tca-success)}\n  .sw input:checked + .slider:before{transform:translateX(20px)}\n  .sw input:focus-visible + .slider{outline:2px solid var(--tca-primary);outline-offset:2px}\n  .sw input:disabled + .slider{opacity:.5;cursor:not-allowed}\n  .tog.pending{opacity:.6}\n  .tog.pending button:disabled{cursor:not-allowed;filter:grayscale(1);opacity:.45}\n  input,select{background:var(--tca-background);color:var(--tca-text);border:1px solid var(--tca-divider);border-radius:6px;padding:7px;font-size:13px}\n  *{box-sizing:border-box} input,select{max-width:100%;min-width:0}\n  table{width:100%;border-collapse:collapse} th,td{text-align:left;padding:7px;border-bottom:1px solid var(--tca-divider);font-size:13px}\n  .tog{display:flex;align-items:center;gap:6px;padding:6px 10px}\n  .muted{color:var(--tca-text-secondary);font-size:12px}\n</style>\n\n<div class=\"card\">\n  <h2 id=\"title\">Server</h2>\n  <div class=\"muted\" id=\"info\">Loading…</div>\n  <div id=\"stoppedBanner\" style=\"display:none;margin-top:8px;color:var(--tca-error);font-weight:600\">⚠ The service is not running. All RCON controls are disabled until it starts again.</div>\n</div>\n\n<div class=\"card\">\n  <h2>Quick toggles</h2>\n  <div class=\"row\" id=\"toggles\"></div>\n  <div class=\"muted\" style=\"margin-top:6px\">Sends the setting live; it is not saved to server.cfg and resets on restart. Button state reflects what you last sent.</div>\n</div>\n\n<div class=\"card\">\n  <h2>Players <button id=\"refresh\" style=\"margin-left:8px\">Refresh</button></h2>\n  <table><thead><tr><th>Name</th><th>Score</th><th>Time</th><th>Actions</th></tr></thead><tbody id=\"players\"></tbody></table>\n</div>\n\n<div class=\"card\">\n  <h2>Broadcast message</h2>\n  <div class=\"row\"><input id=\"msg\" style=\"flex:1 1 200px;min-width:0;max-width:100%;box-sizing:border-box\" placeholder=\"Message to all players\"><button id=\"send\">Send</button></div>\n</div>\n\n<div class=\"card\">\n  <h2>Add bot</h2>\n  <div class=\"row\"><input id=\"botname\" maxlength=\"32\" placeholder=\"Bot name\"><button id=\"addbot\">Add bot</button></div>\n  <div class=\"muted\" style=\"margin-top:6px\">Up to 32 characters. Remove a bot with its Kick button.</div>\n</div>\n\n<div class=\"card\">\n  <h2>Change map</h2>\n  <div class=\"row\"><select id=\"map\"><option value=\"\">Loading maps…</option></select><button id=\"reloadmaps\" class=\"off\">Reload list</button><button id=\"chmap\" class=\"warn\">Change map</button></div>\n</div>\n\n<div class=\"card\">\n  <h2>Gravity / timescale</h2>\n  <div class=\"row\">\n    <input id=\"grav\" size=\"6\" placeholder=\"600\"><button id=\"setgrav\">Set sv_gravity</button>\n    <input id=\"ts\" size=\"6\" placeholder=\"1\"><button id=\"setts\">Set host_timescale</button>\n  </div>\n</div>\n\n<script>\n(function(){\n  const $ = id => document.getElementById(id);\n  const toggles = [\n    ['sv_cheats','Cheats'],['sbox_godmode','God mode'],['sbox_noclip','Noclip'],\n    ['sbox_weapons','Weapons'],['sbox_playershurtplayers','Players hurt players'],['sv_alltalk','All talk']\n  ];\n  const state = {};\n  let convarsLoaded=false;\n  let running=null; // null = unknown yet\n  let initDone=false;\n  const ctlIds=['send','addbot','chmap','setgrav','setts','reloadmaps','msg','botname','map','grav','ts'];\n  function applyRunning(){\n    const dis=(running!==true);\n    ctlIds.forEach(id=>{const e=$(id);if(e)e.disabled=dis;});\n    $('stoppedBanner').style.display=(running===false)?'block':'none';\n    document.querySelectorAll('#players button').forEach(b=>b.disabled=dis);\n    buildToggles();\n  }\n  let initGen=0;\n  function initData(){\n    const gen=++initGen;\n    initDone=true;convarsLoaded=false;Object.keys(state).forEach(k=>delete state[k]);buildToggles();\n    showLoading();\n    // Same order as the page: the toggles (convars) are enabled as soon as they load, then the map list.\n    loadConvars().catch(()=>{}).then(()=>{\n      if(gen!==initGen)return;\n      convarsLoaded=true;buildToggles();hideLoading();\n      return loadMaps();\n    }).catch(()=>{});\n  }\n  function setRunning(v){\n    const was=running;running=v;\n    if(v&&(!initDone||was===false))initData();\n    if(!v){initGen++;initDone=false;convarsLoaded=false;hideLoading();}\n    applyRunning();\n  }\n  async function askMinutes(title,message){\n    let msg=message;\n    for(;;){\n      const v=await TCAdmin.Dialog.Prompt(msg,'0',{title:title,okText:'Ban'});\n      if(v===null)return null;\n      const t=String(v).trim();\n      if(/^\\d{1,7}$/.test(t))return t;\n      msg='Enter a whole number (0 = permanent). '+message;\n    }\n  }\n  /* legacy dialog removed\n      if(o.numeric&&!/^\\d{1,7}$/.test(v)){er.textContent='Enter a whole number (0 = permanent).';return;}\n      done(v);\n    }\n    function key(e){\n      if(e.key==='Escape'){e.preventDefault();done(null);}\n      else if(e.key==='Enter'&&(hasIn||document.activeElement!==ca)){e.preventDefault();submit();}\n    }\n    ok.onclick=submit;ca.onclick=()=>done(null);ov.onclick=e=>{if(e.target===ov)done(null);};\n  */\n  function showLoading(){TCAdmin.Toast.Info('Loading server configuration');}\n  function hideLoading(){}\n  function toast(t, err){if(err)TCAdmin.Toast.Error(t);else TCAdmin.Toast.Success(t);}\n  async function call(inputs){\n    if(running!==true&&inputs.RconAction!=='status')return null;\n    const r = await TCAdmin.Script.Execute('SourceRconTool', inputs);\n    if(!r.success){const out=(r.output||[]).filter(o=>o.isError).map(o=>o.message).join(' ');toast(r.error||out||'Failed',true);return null;}\n    return r.returnValue||{ok:true};\n  }\n  function fmt(s){s=+s||0;const h=Math.floor(s/3600),m=Math.floor(s%3600/60);return h?h+'h '+m+'m':m+'m';}\n  function buildToggles(){\n    const box=$('toggles'); box.textContent='';\n    toggles.forEach(([cv,label])=>{\n      const d=document.createElement('div');d.className='tog'+((convarsLoaded&&running===true)?'':' pending');\n      const s=document.createElement('span');s.textContent=label;d.appendChild(s);\n      {\n        const lab=document.createElement('label');lab.className='sw';const b=document.createElement('input');b.type='checkbox';b.checked=(state[cv]==='1');const sl=document.createElement('span');sl.className='slider';lab.appendChild(b);lab.appendChild(sl);\n        \n        b.disabled=!convarsLoaded||running!==true;\n        \n        b.onchange=async()=>{const on=b.checked,v=on?'1':'0';b.disabled=true;\n          const r=await call({RconAction:'convar',RconTarget:cv,RconValue:v});\n          b.disabled=false; if(r){state[cv]=v;buildToggles();toast(label+': '+(on?'On':'Off'));}else{b.checked=!on;}};\n        d.appendChild(lab);\n      }\n      box.appendChild(d);\n    });\n  }\n  let busy=false,pending=false;\n  async function refresh(){if(busy){pending=true;return;}busy=true;try{await doRefresh();}finally{busy=false;if(pending){pending=false;refresh();}}}\n  function refreshSoon(){refresh();setTimeout(refresh,1500);setTimeout(refresh,4000);}\n  async function doRefresh(){\n    const r=await call({RconAction:'status'}); if(!r)return;\n    if(r.running===false){\n      setRunning(false);\n      $('title').textContent='Server';\n      $('info').textContent='Service is not running ('+(r.serviceStatus||'Stopped')+')';\n      const tb0=$('players');tb0.textContent='';\n      const tr0=document.createElement('tr');const td0=document.createElement('td');td0.colSpan=4;td0.className='muted';td0.textContent='Service not running';tr0.appendChild(td0);tb0.appendChild(tr0);\n      return;\n    }\n    setRunning(true);\n    $('title').textContent=r.hostname||'Server';\n    $('info').textContent=r.online+' · Map: '+r.map+' · Players: '+r.numPlayers+'/'+r.maxPlayers;\n    const tb=$('players');tb.textContent='';\n    (r.players||[]).filter(p=>p.name).forEach(p=>{\n      const tr=document.createElement('tr');\n      [(p.isBot?'🤖 ':'')+p.name,p.score,fmt(p.connectedSeconds)].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.appendChild(td);});\n      const td=document.createElement('td');td.className='row';\n      const k=document.createElement('button');k.textContent='Kick';k.className='warn';\n      k.onclick=async()=>{let reason='';if(p.isBot){if(!await TCAdmin.Dialog.Confirm('Are you sure you want to kick (remove) this bot?',{title:'Kick bot '+p.name,okText:'Kick'}))return;}else{reason=await TCAdmin.Dialog.Prompt('Are you sure you want to kick this player? Reason (optional):','',{title:'Kick '+p.name,okText:'Kick'});if(reason===null)return;reason=String(reason).trim();}toast('Kicking '+p.name+'…');\n        if(await call({RconAction:'kick',RconTarget:p.name,RconValue:reason})){toast('Kicked '+p.name);refreshSoon();}};\n      const b=document.createElement('button');b.textContent='Ban';b.className='danger';\n      b.onclick=async()=>{const m=await askMinutes('Ban '+p.name,'Are you sure you want to ban this player? Duration in minutes (0 = permanent):');if(m===null)return;\n        \n        if(await call({RconAction:'ban',RconTarget:p.name,RconValue:m})){toast('Banned '+p.name);refreshSoon();}};\n      td.appendChild(k);if(!p.isBot)td.appendChild(b);tr.appendChild(td);tb.appendChild(tr);\n    });\n    if(!tb.children.length){const tr=document.createElement('tr');const td=document.createElement('td');td.colSpan=4;td.className='muted';td.textContent='No players online';tr.appendChild(td);tb.appendChild(tr);}\n  }\n  $('refresh').onclick=refresh;\n  $('send').onclick=async()=>{const v=$('msg').value;if(!v)return;if(await call({RconAction:'say',RconValue:v})){toast('Sent');$('msg').value='';}};\n  $('addbot').onclick=async()=>{const v=$('botname').value.trim();if(!v)return;if(await call({RconAction:'addbot',RconTarget:v})){toast('Bot added: '+v);$('botname').value='';refreshSoon();}};\n  $('chmap').onclick=async()=>{const v=$('map').value;if(!v)return;if(!await TCAdmin.Dialog.Confirm('Change the map to '+v+'?',{title:'Change map',okText:'Change map'}))return;if(await call({RconAction:'map',RconTarget:v}))toast('Changing map…');};\n  $('setgrav').onclick=async()=>{const v=$('grav').value;if(v&&await call({RconAction:'convar',RconTarget:'sv_gravity',RconValue:v}))toast('Gravity set');};\n  $('setts').onclick=async()=>{const v=$('ts').value;if(v&&await call({RconAction:'convar',RconTarget:'host_timescale',RconValue:v}))toast('Timescale set');};\n  async function loadMaps(){\n    const sel=$('map'),prev=sel.value;\n    const r=await call({RconAction:'maps'});\n    sel.textContent='';\n    const list=(r&&r.maps)||[];\n    if(!list.length){const o=document.createElement('option');o.value='';o.textContent='No maps found';sel.appendChild(o);return;}\n    list.forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m;sel.appendChild(o);});\n    if(prev&&list.indexOf(prev)>=0)sel.value=prev;\n  }\n  $('reloadmaps').onclick=async()=>{const b=$('reloadmaps');b.disabled=true;await loadMaps();b.disabled=false;};\n  async function loadConvars(){\n    const r=await call({RconAction:'convars'});\n    if(!r||!r.convars)return;\n    r.convars.forEach(c=>{\n      if(c.name==='sv_gravity'){if(!$('grav').value)$('grav').value=c.value;}\n      else if(c.name==='host_timescale'){if(!$('ts').value)$('ts').value=c.value;}\n      else state[c.name]=(c.value==='0'||c.value==='')?'0':'1';\n    });\n    buildToggles();\n  }\n  buildToggles();applyRunning();refresh();setInterval(refresh,5000);\n})();\n</script>\n",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "<path d=\"M20 19V7H4v12h16m0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16M7 9l4 3-4 3V9m6 6h4v-1.5h-4V15z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "a67ae19c-2f7f-4802-95d3-d474cdbd06a9"
+      }
+    }
+  ],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 9,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "SingleIcon": false
+      }
+    },
+    {
+      "providerId": 2,
+      "gameId": 9,
+      "enabled": true,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "ShowDescription": true,
+        "AllowCollections": true,
+        "Private.UseSteamAPI": true,
+        "ShowAuthorAndRating": true,
+        "Private.OverrideApiKey": ""
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 9,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 9,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 5,
+      "gameId": 9,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 9,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 9,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    }
+  ],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-02-16T02:37:01.927266",
+  "modifiedDate": "2026-09-21T15:42:27.963868",
+  "metadata": {
+    "Notes": "",
+    "notes": "Game imported from plugin TCA.Games.GarrysMod version 1.0.1.Game imported from plugin TCA.Games.GarrysMod version 1.0.1.Game imported from plugin TCA.Games.GarrysMod version 1.0.2.Game imported from plugin TCA.Games.GarrysMod version 1.0.3.",
+    "PluginIdentifier": "TCA.Games.GarrysMod",
+    "PluginVersion": "1.0.3"
+  },
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Incremental",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": false,
+    "includedPaths": [
+      "garrysmod/cfg/**/",
+      "garrysmod/data/**/",
+      "garrysmod/settings/**/",
+      "garrysmod/sv.db",
+      "garrysmod/gamemodes/**/*.txt",
+      "garrysmod/lua/**/*.txt"
+    ],
+    "maxBackupCount": 5,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": false,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "Disable",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": false,
+    "slotDetectionAction": "None",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": false,
+    "privateDetectionAction": "None",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": false,
+    "brandDetectionAction": "None",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": true,
+    "brandedTextAddSpace": true,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": true,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": false,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": []
+  },
+  "environmentVariables": []
+}
