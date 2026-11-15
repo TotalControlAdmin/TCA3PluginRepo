@@ -1,0 +1,52 @@
+identifier: "Community.Games.Stationeers"
+name: "Stationeers"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Stationeers dedicated server (Windows / Linux) with a setting.xml form editor, save and world type in Command Lines, Steam Workshop mods, terminal console with save-and-quit stop (Windows) or live server log (Linux), RakNet status check and backups; starts out of the box"
+longDescription: |
+  # Stationeers
+  
+  ## Description
+  Stationeers dedicated server for Windows and Linux (Steam app 600760, anonymous download). Both configs run the native server; the host needs nothing else.
+  
+  ## Key Features
+  - **Windows and Linux** configs, both native.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box.** The first start creates a new world. On Linux a script makes the server binary executable (Steam downloads can lose the bit).
+  - **Save and world type** in Command Lines. The save name is the folder `saves/<name>`. A new name starts a new world of the chosen type (Moon, Mars, Europa, Mimas, Venus or Vulcan, Normal difficulty). An existing save keeps its own world.
+  - **Config editor** for `setting.xml`: server name, join password, server list, pause when empty, disconnect timeout, auto save (interval, saves kept) and the admin secret.
+  - **Steam Workshop mods.** The panel downloads the mod and copies it to `mods/workshop-<id>`. The server loads it at the next start. Uninstall deletes the folder.
+  - **Console:**
+    - Windows: the panel terminal, with input. Type `help` for the commands (`save`, `status`, `kick`, `ban`, `say`, `difficulty`, ...).
+    - Linux: the server log, live. The Linux server has no working console input, so the panel cannot send it commands.
+  - **Graceful stop (Windows):** the panel saves the world (`save`) and then quits the server. `quit` alone does not save.
+  - **Saving on Linux:** the server saves on its auto save interval and when the last player leaves, and it pauses when empty. A stop while players are online loses at most one auto save interval.
+  - **Status** from a RakNet ping on the game port. Stationeers has no Steam query, so the player count is not shown.
+  - **Log viewer** (Linux) for `server.log`. On Windows the log is the terminal.
+  - **Backups** of the saves, settings and mods. The server is stopped first (and saved first on Windows).
+  
+  ## Ports
+  - Game 27016 (UDP). The game binds the service IP (`LocalIpAddress` in `setting.xml`). There is no other port.
+  - IP and ports were checked on Windows and on Linux. With a non-default IP and port, the game port followed the service IP and port. The status check and a custom command line worked.
+  
+  ## Instructions
+  - Change the settings in Configuration Files while the server is stopped.
+  - To start a new world, set a new save name (and world type) in Command Lines and restart. The old save stays in `saves`.
+  - Remote admin from the game: set an admin secret in the config editor. Players who put the same secret in their game can run `serverrun <command>` in their console. On Linux this is the only way to run server commands.
+  - Mods: only content mods (XML, `GameData`) load on a vanilla server. Code mods (`.dll`) need a mod loader, which this config does not install. Players need the same mods.
+  - On Linux the install leaves out a mod's translation files (`GameData/Language`). The Linux server fails to load mods that have them (a game bug).
+  - The server lists itself on the game's own server list when "Listed in the server list" is on. Players can always join by address and port.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/544550/2111b7ad54c3d3ed9b4b1afed7d99336270c13e3.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/544550/38e0bf38001b3b0ef414744c8c04981060998895/ss_38e0bf38001b3b0ef414744c8c04981060998895.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Stationeers - Windows.json"
+    type: "GameConfig"
+  - path: "Stationeers - Linux.json"
+    type: "GameConfig"
