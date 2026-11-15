@@ -1,0 +1,955 @@
+{
+  "__TCA:ExportVersion": "3.13.62.0",
+  "__TCA:ExportedAt": "2026-07-21T06:17:36.5501538Z",
+  "name": "Multi Theft Auto",
+  "shortName": "MTA",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://avatars.githubusercontent.com/u/123869?s=280&v=4",
+  "backgroundImage": "https://cdn2.steamgriddb.com/file/sgdb-cdn/hero/6b5bf4d4122957763ce3b07201e4003e.png",
+  "minSlots": 2,
+  "maxSlots": 64,
+  "defaultSlots": 32,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml",
+    "*.conf"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": 2097152,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "eye",
+    "rconProtocol": "",
+    "privateRule": "_password",
+    "privateRuleValue": "1",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "mods/deathmatch/logs/server.log",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "shutdown",
+    "waitAfterStopCommand": 5000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": false
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 22003,
+        "expression": ""
+      },
+      {
+        "id": "RConPort",
+        "port": 22003,
+        "expression": ""
+      },
+      {
+        "id": "QueryPort",
+        "port": 22003,
+        "expression": ""
+      },
+      {
+        "id": "HTTPPort",
+        "port": 0,
+        "expression": "GamePort+1",
+        "description": "HTTP Port"
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "MTA Server.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "mta-windows",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": ""
+  },
+  "steamConfig": {
+    "steamUpdate": false,
+    "appId": 0,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "storeId": 0,
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {},
+  "commandlineConfig": {
+    "enableSelection": false,
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "gameVariables": [
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:23:11.414934",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T18:23:12.728537",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 7,
+      "relativePath": "mods/deathmatch/mtaserver.conf",
+      "description": "Main configuration file",
+      "template": "<config>\r\n\r\n    <!-- This parameter specifies the name the server will be visible as in the ingame server browser \r\n         and on Game-Monitor. It is a required parameter. -->\r\n\t<servername>${Hostname}</servername>\r\n    \r\n    <!-- This parameter specifies the contact email addresses for the owner(s) of this server.\r\n         The email addresses will not be publicly available, and only used by MTA administrators\r\n         to contact the server owner.\r\n         Note: Missing or incorrect owner_email_address can affect visibility in the master server list.\r\n         Values: Comma separated list of email addresses -->\r\n    <owner_email_address></owner_email_address>\r\n\r\n    <!-- ONLY USE THIS PARAMETER IF YOU ARE SURE OF WHAT YOU ARE DOING - it is generally only\r\n         needed for professional servers and should be left at the default value otherwise.\r\n         This parameter specifies the IP to use for servers that have multiple IP addresses. If set\r\n         to auto, it will automatically detect and use the server's standard local IP address.\r\n         Values: auto or x.x.x.x ; default value: auto -->\r\n    <!-- SERVERIP SHOULD BE LEFT SET TO auto UNLESS YOU ARE SURE OF WHAT YOU ARE DOING -->\r\n\t<serverip>${IPAddress}</serverip>\r\n    <!-- WARNING: SETTING serverip AND THEN ASKING FOR SUPPORT CAN CAUSE DEATH OR INJURY -->\r\n\r\n    <!-- This parameter specifies the UDP port on which the server will be accepting incoming player\r\n         connections; default value: 22003. It is a required parameter. -->\r\n\t<serverport>${GamePort}</serverport> \r\n    \r\n    <!-- This parameter specifies the number of maximum player slots available on the server; default\r\n         value: 32. It is a required parameter. -->\r\n\t<maxplayers>${Slots}</maxplayers>\r\n        \r\n    <!-- This parameter specifies the TCP port on which the server will be accepting incoming http\r\n         connections. It can be set to the same value as <serverport>. It is a required parameter\r\n         if <httpserver> is set to 1. -->\r\n\t<httpport>${HTTPPort}</httpport>\r\n    \r\n    <!-- If set, this parameter specifies the external URL from which clients will be able to download\r\n         needed resources ingame. If not set (or the external URL files are incorrect), resource downloads\r\n         are switched to the internal http server. -->\r\n    <httpdownloadurl></httpdownloadurl>\r\n\r\n    <!-- This parameter limits the number of http connections each client can make. Depending on the type\r\n         of http server that is used, a lower figure may reduce download timeouts.\r\n         Available range: 1 to 8. -->\r\n    <httpmaxconnectionsperclient>5</httpmaxconnectionsperclient>\r\n\r\n    <!-- This parameter limits the number http connections that an IP can initiate over a short period of time.\r\n         Available range: 1 to 100. default value: 20 -->\r\n    <httpdosthreshold>20</httpdosthreshold>\r\n\r\n    <!-- This parameter lists the IP addresses that are to be excluded from http dos threshold limits.\r\n         e.g. 88.11.22.33,101.2.3.4 -->\r\n    <http_dos_exclude></http_dos_exclude>\r\n\r\n    <!-- By default, the server will block the use of locally customized gta3.img player skins\r\n         This setting can be used to allow such mods. Not recommended for competitive servers.\r\n         Values: none, peds ; default value: none -->\r\n    <allow_gta3_img_mods>none</allow_gta3_img_mods>\r\n\r\n    <!-- By default, the server will block the use of customized GTA:SA data files. -->\r\n    <!-- To allow specific client files, add one or more of the following: -->\r\n    <!-- <client_file name=\"data/carmods.dat\" verify=\"0\"/> -->\r\n\r\n    <!-- Comma separated list of disabled anti-cheats.\r\n         For details see http://wiki.multitheftauto.com/wiki/Anti-cheat_guide\r\n         e.g. To disable anti-cheat #2 and #3, use: 2,3 -->\r\n    <disableac></disableac>\r\n\r\n    <!-- Comma separated list of enabled special detections.\r\n         A special detection is a type of anti-cheat for (usually) harmless game modifications.\r\n         Competitive servers may wish to enable certain special detections, but most servers should leave this setting on its default.\r\n         For details and SD codes, see http://wiki.multitheftauto.com/wiki/Anti-cheat_guide\r\n         Available values: special detection (SD) codes ; default value: 31,32 (e.g. enables special detections #31 and #32) -->\r\n    <enablesd>31,32</enablesd>\r\n\r\n    <!-- Minimum client version. Clients with a lower version will not be allowed to connect. After\r\n         disconnection, clients will be given an opportunity to download an update.\r\n         If left blank, this setting is disabled and there are no restrictions on who can connect.\r\n         Version numbers are described here: http://wiki.multitheftauto.com/wiki/GetPlayerVersion\r\n         and look like this: 1.1.0-9.03100.0 \r\n         Note that this setting only determines if the client should be prompted to update. The actual\r\n         build number they receive will be the highest available. See: http://nightly.mtasa.com/ver  -->\r\n    <minclientversion></minclientversion>\r\n\r\n    <!-- This parameter specifies if/when the <minclientversion> setting is automatically updated.\r\n         Keeping <minclientversion> updated can help reduce cheating.\r\n         Note: The instant setting (2) is only recommended for competitive servers.\r\n         Values: 0 - disabled, 1 - enabled (delayed by a few days), 2 - enabled (instant) ; default value: 1.  -->\r\n    <minclientversion_auto_update>1</minclientversion_auto_update>\r\n\r\n    <!-- Recommended client version. When connecting, if clients have a lower version, they will be given\r\n         the option to download an update. If left blank, this setting is disabled.\r\n         Note that this setting only determines if the client should be prompted to update. The actual\r\n         build number they receive will be the highest available. See: http://nightly.mtasa.com/ver  -->\r\n    <recommendedclientversion></recommendedclientversion>\r\n\r\n    <!-- This parameter can be used to make the server report to Game-Monitor master servers, allowing it to\r\n         be visible in the ingame server browser. An additional UDP port needs to be available for this to\r\n         work (value from <serverport> + 123 , so on a default <serverport> value 22003 the right port\r\n         will be 22126 ). Available values: 0 - disabled , 1 - enabled. Optional parameter, defaults to 0. -->\r\n    <ase>1</ase>\r\n\r\n    <!-- This parameter allows you to disable LAN broadcasting. --> \r\n    <donotbroadcastlan>0</donotbroadcastlan>\r\n\r\n    <!-- If set, players will have to provide a password specified below, before they can connect to the\r\n         server. If left blank, server doesn't require a password from them. -->\r\n\t<password>${PrivatePassword}</password> \r\n\r\n    <!-- This parameter reduces the server's bandwidth usage by using various optimizations.\r\n         Values: none, medium or maximum ; default value: medium -->\r\n    <bandwidth_reduction>medium</bandwidth_reduction> \r\n\r\n    <!-- The following ???_sync_interval parameters determine the time in milliseconds between certain\r\n         network packets being sent. More information on how each settings works is available here:\r\n         http://wiki.multitheftauto.com/wiki/Server_mtaserver.conf -->\r\n    <!-- Player sync interval. Default: 100 -->\r\n    <player_sync_interval>100</player_sync_interval>\r\n    <!-- Lightweight (player) sync interval. Used when players are far apart. Default: 1500 -->\r\n    <lightweight_sync_interval>1500</lightweight_sync_interval> \r\n    <!-- Camera sync interval. Default: 500 -->\r\n    <camera_sync_interval>500</camera_sync_interval> \r\n    <!-- Ped sync interval. Default: 400 -->\r\n    <ped_sync_interval>400</ped_sync_interval> \r\n    <!-- Unoccupied_vehicle sync interval. Default: 400 -->\r\n    <unoccupied_vehicle_sync_interval>400</unoccupied_vehicle_sync_interval> \r\n    <!-- Keysync mouse rotation sync interval. For limiting key sync packets due to mouse movement. Default: 100 -->\r\n    <keysync_mouse_sync_interval>100</keysync_mouse_sync_interval> \r\n    <!-- Keysync analog movement sync interval. For limiting key sync packets due to joystick movement. Default: 100 -->\r\n    <keysync_analog_sync_interval>100</keysync_analog_sync_interval> \r\n\r\n    <!-- This parameter can improve the reliability of shots when using certain weapons. However, it uses more bandwidth.\r\n         Values: 0 - disabled , 1 - enabled ; default value: 1. -->\r\n    <bullet_sync>1</bullet_sync> \r\n\r\n    <!-- This parameter sets the amount of extrapolation that clients will apply to remote vehicles. This can reduce\r\n         some of the latency induced location disparency by predicting where the remote vehicles will probably be.\r\n         Depending on the gamemode, an incorrect prediction may have a negative effect. Therefore this setting\r\n         should be considered experimental.\r\n         Available range: 0 to 100.  Default - 0 -->\r\n    <vehext_percent>0</vehext_percent>\r\n\r\n    <!-- This parameter places a limit on how much time (in milliseconds) the vehicle extrapolation will attempt to\r\n         compensate for.\r\n         Only relevant if <vehext_percent> is greater than zero.\r\n         Available range: 50 to 500.  Default - 150 -->\r\n    <vehext_ping_limit>150</vehext_ping_limit>\r\n\r\n    <!-- This parameter can reduce the delay of player actions appearing on remote clients by 2 frames (approx 50ms).\r\n         Due to the impact this may have on shot lag compensation, it should be considered experimental.\r\n         Values: 0 - disabled , 1 - enabled ; default value: 0. -->\r\n    <latency_reduction>0</latency_reduction>\r\n\r\n    <!-- Specifies the location and file name of this servers unique private key.\r\n         This is used to prevent private files saved on the client from being read by other servers.\r\n         More infomation about client private files can be found here: http://wiki.multitheftauto.com/wiki/Filepath\r\n         Keep a backup of this file in a safe place. Default value: server-id.keys-->\r\n    <idfile>server-id.keys</idfile> \r\n\r\n    <!-- Specifies the location and name of the main server log file. If left blank, server won't be saving this file. -->\r\n    <logfile>logs/server.log</logfile>\r\n\r\n    <!-- As well as the main log file, login successes and failures are logged here for easy reviewing of security issues.\r\n         If left blank, this file is not used -->\r\n    <authfile>logs/server_auth.log</authfile>\r\n\r\n    <!-- Specifies the location and name of the file used to log database queries.\r\n         The server command 'debugdb' sets the amount of logging. -->\r\n    <dbfile>logs/db.log</dbfile>\r\n\r\n    <!-- Specifies the location and name of the file used to log loadstring function calls.\r\n         If left blank or not set, no logging is done. -->\r\n    <!-- <loadstringfile>logs/loadstring.log</loadstringfile> -->\r\n    \r\n    <!-- This parameter specifies the location and name of the Access Control List settings file. If left\r\n         blank, server will use acl.xml file, located in the same folder as this configuration file. -->\r\n    <acl>acl.xml</acl> \r\n\r\n    <!-- Specifies the location and name of the debugscript log file. If left blank, server won't be saving this file. -->\r\n    <scriptdebuglogfile>logs/scripts.log</scriptdebuglogfile>\r\n\r\n    <!-- Specifies the level of the debugscript log file. Available values: 0, 1, 2, 3. When not set, defaults to 0. -->\r\n    <scriptdebugloglevel>0</scriptdebugloglevel>\r\n\r\n    <!-- Specifies the level of the html debug. Available values: 0, 1, 2, 3. When not set, defaults to 0. -->\r\n    <htmldebuglevel>0</htmldebuglevel>\r\n\r\n    <!-- Specifies whether or not duplicate log lines should be filtered. Available values: 0 or 1, defaults to 1. -->\r\n    <filter_duplicate_log_lines>1</filter_duplicate_log_lines>\r\n\r\n    <!-- Specifies the frame rate limit that will be applied to connecting clients.\r\n         Available range: 25 to 100. Default: 36. -->\r\n    <fpslimit>36</fpslimit>\r\n\r\n    <!-- This parameter specifies whether or not to enable player voice chat in-game\r\n         Values: 0 - disabled , 1 - enabled -->\r\n    <voice>0</voice>\r\n    \r\n    <!-- This parameter specifies the sample rate for voice chat.  'voice' parameter must be set to 1 for this to be effective.\r\n         Higher settings use more bandwidth and increase the sampling quality of voice chat\r\n         Values: 0 - Narrowband (8kHz), 1 - Wideband (16kHz), 2 - Ultrawideband (32kHz).  Default - 1 -->\r\n    <voice_samplerate>1</voice_samplerate>\r\n    \r\n    <!-- This parameter specifies the voice quality for voice chat.  'voice' parameter must be set to 1 for this to be effective.\r\n         Higher settings use more bandwidth and increase the the overall quality of voice chat\r\n         Available range: 0 to 10.  Default - 4 -->\r\n    <voice_quality>4</voice_quality>\r\n\r\n    <!-- Specifies the voice bitrate, in bps. This optional parameter overrides the previous two settings. \r\n         If not set, MTA handles this automatically.  Use with care. -->\r\n    <!-- <voice_bitrate>24600</voice_bitrate> -->\r\n\r\n    <!-- This parameter specifies the path to use for a basic backup of some server files.\r\n         Note that basic backups are only made during server startup. Default value: backups -->\r\n    <backup_path>backups</backup_path>\r\n\r\n    <!-- This parameter specifies the number of days between each basic backup.\r\n         Backups are only made during server startup, so the actual interval may be much longer.\r\n         Setting backup_interval to 0 will disable backups\r\n         Available range: 0 to 30.  Default - 3 -->\r\n    <backup_interval>3</backup_interval>\r\n\r\n    <!-- This parameter specifies the maximum number of backup copies to keep.\r\n         Setting backup_copies to 0 will disable backups\r\n         Available range: 0 to 100.  Default - 5 -->\r\n    <backup_copies>5</backup_copies>\r\n\r\n    <!-- This parameter specifies when the internal sqlite databases should be defragmented.\r\n         http://www.sqlite.org/lang_vacuum.html\r\n         Values: 0 - Never, 1 - On server start only after basic backup, 2 - On server start always.  Default - 1 -->\r\n    <compact_internal_databases>1</compact_internal_databases>\r\n\r\n    <!-- This parameter specifies whether server crash dump files should be sent to MTA HQ.\r\n         Values: 0 - Off, 1 - On. Default - 1 -->\r\n    <crash_dump_upload>1</crash_dump_upload>\r\n\r\n    <!-- This parameter lists the ACL groups that are protected by serial authorization.\r\n         Login attempts to a protected account from a second serial are blocked until the serial is manually authorized via\r\n         the authserial command.\r\n         For more info see: https://mtasa.com/authserial\r\n         Note: This is security critical feature and disabling auth_serial_groups can affect visibility in the master server list.\r\n         Values: Comma separated list of ACL groups.  Default - Admin -->\r\n    <auth_serial_groups>Admin</auth_serial_groups>\r\n\r\n    <!-- This parameter specifies if the authorized serial login checks should also apply to the http interface.\r\n         Protected account login attempts to the http interface will only succeed if the IP address matches one\r\n         recently used by the account holder in-game\r\n         For more info see: https://mtasa.com/authserialhttp\r\n         Note: This is security critical feature and disabling auth_serial_http can affect visibility in the master server list.\r\n         Values: 0 - Off, 1 - Enabled.  Default - 1 -->\r\n    <auth_serial_http>1</auth_serial_http>\r\n\r\n    <!-- This parameter specifies which IP addresses should always pass auth_serial_http checks.\r\n         Values: Comma separated list of IP addresses -->\r\n    <auth_serial_http_ip_exceptions>127.0.0.1</auth_serial_http_ip_exceptions>\r\n\r\n    <!-- This parameter specifies if extra security measures are applied to resources which use dbConnect with mysql.\r\n         The extra measures are:\r\n           - Script files cannot be accessed with fileOpen()\r\n           - meta.xml is read only\r\n         *NOTE* This only protects resources which use dbConnect with mysql\r\n         Values: 0 - Off, 1 - Enabled.  Default - 1 -->\r\n    <database_credentials_protection>1</database_credentials_protection>\r\n\r\n    <!-- Specifies the module(s) which are loaded with the server. To load several modules, add more <module>\r\n         parameter(s). Optional parameter. -->\r\n    <!-- <module src=\"sample_win32.dll\"/> -->\r\n    <!-- <module src=\"sample_linux.so\"/> -->\r\n    \r\n    <!-- Specifies resources that are loaded when the server starts and/or which are protected from being stopped.\r\n         To specify several resources, add more <resource> parameter(s). -->\r\n\r\n    <resource src=\"admin\" startup=\"1\" protected=\"0\"/>\r\n    <resource src=\"defaultstats\" startup=\"1\" protected=\"0\"/>\r\n    <resource src=\"helpmanager\" startup=\"1\" protected=\"0\"/>\r\n    <resource src=\"joinquit\" startup=\"1\" protected=\"0\"/>\r\n    <resource src=\"mapcycler\" startup=\"1\" protected=\"0\"/>\r\n    <resource src=\"mapmanager\" startup=\"1\" protected=\"0\"/>\r\n    <resource src=\"parachute\" startup=\"1\" protected=\"0\"/>\r\n    <resource src=\"performancebrowser\" startup=\"1\" protected=\"0\"/>\r\n    <resource src=\"reload\" startup=\"1\" protected=\"0\"/>\r\n    <resource src=\"resourcebrowser\" startup=\"1\" protected=\"1\" default=\"true\"/>\r\n    <resource src=\"resourcemanager\" startup=\"1\" protected=\"1\"/>\r\n    <resource src=\"scoreboard\" startup=\"1\" protected=\"0\"/>\r\n    <resource src=\"spawnmanager\" startup=\"1\" protected=\"0\"/>\r\n    <resource src=\"voice\" startup=\"1\" protected=\"0\" />\r\n    <resource src=\"votemanager\" startup=\"1\" protected=\"0\"/>\r\n    <resource src=\"webadmin\" startup=\"1\" protected=\"0\"/>\r\n    \r\n    <!-- play is the default freeroam gamemode. Remove the following line to prevent it from starting. -->       \r\n    <resource src=\"play\" startup=\"1\" protected=\"0\"/>\r\n    \r\n\r\n</config>",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "id": "Header-16312",
+          "label": "mtaserver.conf",
+          "description": "extra info here",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "label": "Hostname",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicTextBox",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "label": "Private Password",
+          "description": "Server access password.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicTextBox",
+          "sm": 4,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "skipListingSecurityCheck": false,
+        "additionalPermissions": []
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "skipListingSecurityCheck": false,
+        "additionalPermissions": []
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "DownloadGameFiles"
+        ],
+        "name": "Download Windows game files",
+        "code": "using System.Runtime.CompilerServices;\r\nusing System.IO;\r\nusing System.IO.Compression;\r\nusing System.Net.Http;\r\nusing TCAdmin.SDK.Misc.Extensions;\r\n\r\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGlobals(); // DO NOT MODIFY THIS LINE\r\n\r\nvar gameFilesPath = Path.Combine(Globals.ThisServer.Configuration.GameFilesPath, Globals.ThisGame.FileAndDirectoryConfig.AutoSetupFolderName);\r\nvar zipFile = Path.Combine(gameFilesPath, \"mta-files.zip\");\r\nif(!Directory.Exists(gameFilesPath)) Directory.CreateDirectory(gameFilesPath);\r\n\r\n\r\n\r\nusing(HttpClient downloadClient = new HttpClient())\r\n{\r\n await downloadClient.DownloadFile(\"http://downloads.tcadmin.com/games/mta-windows.aspx\", zipFile, Globals.ThisCancellationToken);   \r\n}\r\n\r\nusing(ZipArchive archive = ZipFile.OpenRead(zipFile))\r\n{\r\n    foreach (ZipArchiveEntry entry in archive.Entries)\r\n    {\r\n        string destinationPath = Path.Combine(gameFilesPath, entry.FullName);\r\n\r\n        // Create directories if necessary\r\n        Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));\r\n\r\n        // Extract file if it's not a directory\r\n        if (!entry.FullName.EndsWith(\"/\"))\r\n        {\r\n            entry.ExtractToFile(destinationPath, overwrite: true);\r\n        }\r\n    }\r\n}\r\n\r\nFile.Delete(zipFile);",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 0,
+        "icon": "<g><rect fill=\"none\" height=\"24\" width=\"24\"/></g><g><path d=\"M12,2C6.49,2,2,6.49,2,12s4.49,10,10,10s10-4.49,10-10S17.51,2,12,2z M11,10V6h2v4h3l-4,4l-4-4H11z M17,17H7v-2h10V17z\"/></g>",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "0c342d81-6b79-444a-a232-de0346367a61"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "DownloadGameFiles"
+        ],
+        "name": "Download Linux game files",
+        "code": "//refAssemblies: TCAdmin.SDK.dll, TCAdmin.GameHosting.SDK.dll, TCAdmin.Scripting.dll, TCAdmin.Monitor.dll, System.IO.Compression.dll, System.Formats.Tar.dll\r\nusing System.Formats.Tar;\r\nusing System.Threading;\r\nusing System.Threading.Tasks;\r\nusing System.IO;\r\nusing System.IO.Compression;\r\nusing System.Net.Http;\r\nusing TCAdmin.SDK.Misc.Extensions;\r\n\r\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGlobals(); // DO NOT MODIFY THIS LINE\r\n\r\nasync Task DownloadAndExtractTgz(string url, string extractPath, CancellationToken cancellationToken)\r\n{\r\n    using(HttpClient downloadClient = new HttpClient())\r\n    {\r\n        var tgzFile = Path.Combine(extractPath, \"tmp.tar.gz\");\r\n        var tFile = Path.Combine(extractPath, \"tmp.tar\");\r\n        await downloadClient.DownloadFile(url, tgzFile, cancellationToken);\r\n\r\n        using (FileStream compressedFileStream = File.OpenRead(tgzFile))\r\n        using (FileStream outputFileStream = File.Create(tFile))\r\n        using (GZipStream decompressionStream = new GZipStream(compressedFileStream, CompressionMode.Decompress, false))\r\n        {\r\n            decompressionStream.CopyTo(outputFileStream);\r\n        }\r\n\r\n        Directory.CreateDirectory(extractPath);\r\n        TarFile.ExtractToDirectory(tFile, extractPath, true);\r\n\r\n        File.Delete(tFile);\r\n        File.Delete(tgzFile);\r\n    }\r\n}\r\n\r\nasync Task DownloadAndExtractZip(string url, string extractPath, CancellationToken cancellationToken)\r\n{\r\n    Directory.CreateDirectory(extractPath);\r\n    using(HttpClient downloadClient = new HttpClient())\r\n    {\r\n        var zipFile = Path.Combine(extractPath, \"tmp.zip\");\r\n        await downloadClient.DownloadFile(url, zipFile, cancellationToken);\r\n\r\n        using(ZipArchive archive = ZipFile.OpenRead(zipFile))\r\n        {\r\n            foreach (ZipArchiveEntry entry in archive.Entries)\r\n            {\r\n                string destinationPath = Path.Combine(extractPath, entry.FullName);\r\n\r\n                // Create directories if necessary\r\n                Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));\r\n\r\n                // Extract file if it's not a directory\r\n                if (!entry.FullName.EndsWith(\"/\"))\r\n                {\r\n                entry.ExtractToFile(destinationPath, overwrite: true);\r\n                }\r\n            }\r\n        }\r\n\r\n        File.Delete(zipFile);\r\n    }\r\n}\r\n\r\npublic static void MoveFilesToParentFolder(string folderPath)\r\n{\r\n    if (string.IsNullOrWhiteSpace(folderPath) || !Directory.Exists(folderPath))\r\n    {\r\n        return;\r\n    }\r\n\r\n    string parentFolder = Directory.GetParent(folderPath)?.FullName;\r\n    if (string.IsNullOrWhiteSpace(parentFolder))\r\n    {\r\n        return;\r\n    }\r\n\r\n    string[] files = Directory.GetFiles(folderPath);\r\n    foreach (string file in files)\r\n    {\r\n        string destinationPath = Path.Combine(parentFolder, Path.GetFileName(file));\r\n\r\n        // Ensure the file doesn't exist in the destination, otherwise rename it\r\n        string uniqueDestinationPath = destinationPath;\r\n        int counter = 1;\r\n        while (File.Exists(uniqueDestinationPath))\r\n        {\r\n            string fileNameWithoutExt = Path.GetFileNameWithoutExtension(file);\r\n            string extension = Path.GetExtension(file);\r\n            uniqueDestinationPath = Path.Combine(parentFolder, $\"{fileNameWithoutExt}({counter}){extension}\");\r\n            counter++;\r\n        }\r\n\r\n        File.Move(file, uniqueDestinationPath);\r\n    }\r\n}\r\n\r\n// download multitheftauto_linux_x64\r\nawait DownloadAndExtractTgz(\"https://linux.mtasa.com/dl/multitheftauto_linux_x64.tar.gz\", Globals.ThisServer.Configuration.GameFilesPath, Globals.ThisCancellationToken);\r\nGlobals.ScriptConsole.WriteLine(\"Extraction of multitheftauto_linux_x64 completed successfully!\");\r\n\r\n// download base config\r\nvar deathMatchDir = Path.Combine(Globals.ThisServer.Configuration.GameFilesPath, \"multitheftauto_linux_x64\", \"mods\", \"deathmatch\");\r\nawait DownloadAndExtractTgz(\"https://linux.mtasa.com/dl/baseconfig.tar.gz\", deathMatchDir, Globals.ThisCancellationToken);\r\nvar baseConfig = Path.Combine(deathMatchDir, \"baseconfig\");\r\nMoveFilesToParentFolder(baseConfig);\r\nDirectory.Delete(baseConfig);\r\nGlobals.ScriptConsole.WriteLine(\"Extraction of baseconfig completed successfully!\");\r\n\r\n// download resources\r\nvar resourcesDir = Path.Combine(deathMatchDir, \"resources\");\r\nawait DownloadAndExtractZip(\"http://mirror.mtasa.com/mtasa/resources/mtasa-resources-latest.zip\", resourcesDir, Globals.ThisCancellationToken);\r\nGlobals.ScriptConsole.WriteLine(\"Extraction of resources completed successfully!\");",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "order": 0,
+        "icon": "<g><rect fill=\"none\" height=\"24\" width=\"24\"/></g><g><path d=\"M12,2C6.49,2,2,6.49,2,12s4.49,10,10,10s10-4.49,10-10S17.51,2,12,2z M11,10V6h2v4h3l-4,4l-4-4H11z M17,17H7v-2h10V17z\"/></g>",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "efa7dc22-4183-4e32-b467-2df14f262ef7"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2025-12-28T02:54:22.822607",
+  "modifiedDate": "2026-06-20T15:14:57.307331",
+  "metadata": {
+    "Notes": "Game imported from plugin TCA.Games.MTA version 1.0.1.",
+    "notes": "Game imported from plugin TCA.Games.MTA version 1.0.2.Game imported from plugin TCA.Games.MTA version 1.0.2.Game imported from plugin TCA.Games.MTA version 1.0.3.Game imported from plugin TCA.Games.MTA version 1.0.5.Game imported from plugin TCA.Games.MTA version 1.0.6.",
+    "PluginVersion": "1.0.6",
+    "PluginIdentifier": "TCA.Games.MTA"
+  },
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Incremental",
+    "compressBackup": true,
+    "includedPaths": [
+      "mods/deathmatch/*.xml",
+      "mods/deathmatch/*.conf",
+      "mods/deathmatch/*.db",
+      "mods/deathmatch/*.keys",
+      "mods/deathmatch/databases/**/",
+      "mods/deathmatch/resources/**/",
+      "mods/deathmatch/resource-cache/**/"
+    ],
+    "maxBackupCount": 5
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": false,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "Disable",
+    "logActivityOnFailure": true,
+    "slotDetectionEnabled": false,
+    "slotDetectionAction": "None",
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": false,
+    "privateDetectionAction": "None",
+    "brandDetectionEnabled": false,
+    "brandDetectionAction": "None",
+    "brandedText": "",
+    "brandedTextAtEnd": true,
+    "brandedTextAddSpace": true,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": true,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": false,
+    "compression": "None",
+    "requiresHttps": false,
+    "stripPaths": []
+  },
+  "environmentVariables": []
+}
