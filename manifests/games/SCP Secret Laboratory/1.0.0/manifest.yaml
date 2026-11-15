@@ -1,0 +1,48 @@
+identifier: "Community.Games.SCPSecretLaboratory"
+name: "SCP: Secret Laboratory"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "SCP: Secret Laboratory dedicated server (Windows / Linux) on LocalAdmin, with A2S query, console, graceful stop, config editor and backups; starts out of the box"
+longDescription: |
+  # SCP: Secret Laboratory
+  
+  ## Description
+  SCP: Secret Laboratory dedicated server for Windows and Linux (Steam app 996560, anonymous download), run through Northwood's LocalAdmin.
+  
+  ## Key Features
+  - **Windows and Linux** configs on LocalAdmin, which restarts the game after a crash and logs every session.
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S on the game port).
+  - **Console** in the Terminal with LocalAdmin and game commands (`help`, `players`, `roundrestart`, `ban`, ...).
+  - **Graceful stop** with `exit`.
+  - **Starts out of the box:** the EULA is accepted on the command line, LocalAdmin's first-run wizard is skipped with a ready configuration, and `hoster_policy.txt` keeps every server config in the service folder (`AppData/config/<port>`) instead of the user profile. On Linux a start script makes the server binaries executable.
+  - **Config editor** for `config_gameplay.txt`: server name, contact e-mail, server info Pastebin id and whitelist mode. `config_remoteadmin.txt` (admin roles and members) is listed as a config file too.
+  - **Backups** of all server configs (bans, whitelist, reserved slots, admins and settings).
+  - **Log viewer** for the LocalAdmin and round logs.
+  
+  ## Ports
+  - Game and query 7777 (UDP): one socket on the service IP (`ipv4_bind_ip` in `hoster_policy.txt`, which wins over `config_gameplay.txt`). The A2S server-browser query answers on the same port.
+  - IPv6: the game's IPv6 socket is bound to `::1` only (`ipv6_bind_ip`), because the panel assigns IPv4 addresses.
+  - Optional TCP query (`enable_query` in `config_gameplay.txt`, off by default, needs a `query_administrator_password` of 8 or more characters): game port + `query_port_shift` (TCP), on the service IP only. The panel's firewall rule covers the UDP game port only.
+  - LocalAdmin also opens a TCP port with a random number on 127.0.0.1 to talk to the game. It cannot be set and is not reachable from outside.
+  - `server_ip` stays `auto`: the server lists itself with the address it detects for outgoing traffic. On a server with several public IPs, set `server_ip` in `config_gameplay.txt` to the service IP.
+  - IP and port check run on Windows (127.0.0.1:7777, then 154.38.182.85:8777: game, query and TCP query on the assigned IP and port). Linux uses the same templates and command line and was only previewed (custom command line).
+  
+  ## Instructions
+  - To be listed publicly, set the contact e-mail and follow Northwood's verification steps (see the console after the first start).
+  - Add yourself as owner in `config_remoteadmin.txt` (members section) with your Steam id, e.g. `- 76561198000000000@steam: owner`.
+  - The configs are kept per port (`AppData/config/<port>`) and `hoster_policy.txt` holds the service IP. The panel writes them only when the service is created or reinstalled: after an IP or port change, set `ipv4_bind_ip` in `hoster_policy.txt` to the new IP and copy `AppData/config/<old port>` to `AppData/config/<new port>`, or the next start binds the old IP and creates default configs for the new port.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/700330/c61fb24a5e0d348a922ec6b5ea1095c9bcf7ecd0.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/700330/6daa13a67cb1f27b3ec6c553e62748fc043a30f3/ss_6daa13a67cb1f27b3ec6c553e62748fc043a30f3.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "SCP Secret Laboratory - Windows.json"
+    type: "GameConfig"
+  - path: "SCP Secret Laboratory - Linux.json"
+    type: "GameConfig"
