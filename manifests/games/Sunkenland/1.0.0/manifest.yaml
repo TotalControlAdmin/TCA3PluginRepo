@@ -1,0 +1,53 @@
+identifier: "Community.Games.Sunkenland"
+name: "Sunkenland"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Sunkenland dedicated server (Windows / Linux with Wine) with a world-settings form, predefined command line, Server ID query, autosave-aware stop and backups; creates its own world and starts out of the box"
+longDescription: |
+  # Sunkenland
+  
+  ## Description
+  Sunkenland dedicated server (Steam app 2667530, anonymous download). There is no Linux server build, so the Linux config runs the Windows server under Wine.
+  
+  ## Key Features
+  - **Windows and Linux (Wine)** configs.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box.** The dedicated server cannot create a world, so a start script creates a new, empty world of the installed game version when there is none. On Linux a script installs wine, winetricks, Xvfb and xdotool when the host does not have them (apt, dnf or yum) and prepares the Wine prefix.
+  - **Saves in the service folder.** The game keeps its worlds in the user profile (`AppData/LocalLow/Vector3 Studio/Sunkenland`). The start script links that folder to `SaveData` in the service root, so the file manager and backups see the worlds. On Windows every service runs as its own user, so two servers never share a profile.
+  - **Config editor** for the world settings: server name, description, enemy, garrison, raid and survival difficulty, death penalties, friendly fire, shared research, map, flags and spawn points, respawn time and loot respawn.
+  - **Predefined command line** for the World GUID, region, password, session visibility, autosave interval and administrator Steam IDs.
+  - **Query:** the server has no server-browser query (players join through the game's matchmaking). The query reports the server online when its port is bound and its log says it started, and shows the **Server ID** players join with (it changes at every start) and the player count.
+  - **Stop:** the server has no save command and does not save when it is closed; it saves with its autosave while players are online. Before a stop, a script lets a running save finish and, with players online, waits for the next autosave.
+  - **Console output** from the server's console on Windows, from the server log on Linux. The server reads no console commands.
+  - **Log viewer** for the server log (on Windows, the last 10 runs).
+  - **IP and ports:** the server binds the service's IP and game port (`-ip`, `-port`). Checked on Linux (Wine) with a moved IP and port; Windows uses the same arguments and was previewed.
+  - **Validated settings:** the panel refuses a World GUID that is not a GUID, a password with other characters than letters and digits, and server names or descriptions that would break the world settings file. The start script never follows a symbolic link in the service folder.
+  - **Backups** of `SaveData` and the world settings. The server is stopped first.
+  - **Query monitoring:** a server that lost its matchmaking session (`PhotonCloudTimeout`) keeps running but reports offline, so the panel restarts it.
+  - No RCON and no mod support in the game.
+  
+  ## Ports
+  - Game 27015 (UDP), bound to the service IP. It is the server's own socket for players who connect directly; players who cannot reach it connect through Photon's relay.
+  - The server also keeps an outgoing connection to Photon's cloud (matchmaking and relay). It opens no other listening port.
+  
+  ## Instructions
+  - Players join from the session list (pick the same region as the server) or with the Server ID shown in the query.
+  - The server name is the world's name in the session list. Change it in Config Files > World settings, then restart.
+  - To host a world from your PC, upload its folder (`AppData/LocalLow/Vector3 Studio/Sunkenland/Worlds/<name>~<GUID>`) to `SaveData/Worlds` and set its GUID in Command Lines. A GUID without a world starts a new one.
+  - Administrators: Steam IDs in Command Lines, or one SteamID64 per line in `AdminSteamIDs.txt` in the world folder. Bans: `BanSteamIDs.txt` in the world folder.
+  - The password can have up to 8 letters or digits.
+  - The server uses about 4 to 6 GB of memory.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2080690/95b7e6a119fc7f3bce8b72ca7fae345b65c9da3f.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2080690/ss_0d70acebd7b63e3ceb4cf94351b48e115284ac61.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Wine"
+files:
+  - path: "Sunkenland - Windows.json"
+    type: "GameConfig"
+  - path: "Sunkenland - Linux Wine.json"
+    type: "GameConfig"

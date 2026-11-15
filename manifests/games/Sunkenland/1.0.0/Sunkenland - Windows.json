@@ -1,0 +1,2218 @@
+{
+  "__TCA:ExportVersion": "3.23.46.17810",
+  "__TCA:ExportedAt": "2026-11-11T23:24:33.3185406Z",
+  "name": "Sunkenland",
+  "shortName": "Sunkenland",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/2080690/95b7e6a119fc7f3bce8b72ca7fae345b65c9da3f.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2080690/ss_0d70acebd7b63e3ceb4cf94351b48e115284ac61.1920x1080.jpg",
+  "minSlots": 3,
+  "maxSlots": 15,
+  "defaultSlots": 10,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".json",
+    ".txt"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "custom_script",
+    "rconProtocol": "",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "ConsoleWrapper",
+    "logFile": "",
+    "inputSource": "None",
+    "printRconResponse": false,
+    "outputFilters": "No mesh data available\nis not supported on this GPU\nBoxCollider does not support negative\nThe effective box size has been forced\nIf you absolutely need to use negative scaling\nUIQuickSlot: No Global found\nThere is no texture data available to upload\nWARNING: Shader\nHelmetDataChanged\nInGameTime: Day\nWorldName:.*Current/MaxPlayer\nInvalid pass number .* for Graphics.Blit",
+    "stopCommand": "",
+    "waitAfterStopCommand": 10000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 27015,
+        "expression": "",
+        "description": "Game (UDP)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "Sunkenland-DedicatedServer.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "sunkenland",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 2667530,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 2080690,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "-batchmode -nographics ${WorldGuid} ${Region} ${ServerPassword} -maxPlayerCapacity ${Slots} -ip ${IPAddress} -port ${GamePort} ${Invisible} ${AutoSaveInterval} ${AdminSteamIds}",
+    "defaultCustomCommandline": "-batchmode -nographics ${WorldGuid} ${Region} ${ServerPassword} -maxPlayerCapacity ${Slots} -ip ${IPAddress} -port ${GamePort} ${Invisible} ${AutoSaveInterval} ${AdminSteamIds}",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "-batchmode -nographics ${WorldGuid} ${Region} ${ServerPassword} -maxPlayerCapacity ${Slots} -ip ${IPAddress} -port ${GamePort} ${Invisible} ${AutoSaveInterval} ${AdminSteamIds}"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "OperatingSystemUserPerService",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": true,
+    "elevated": false
+  },
+  "identifier": "1f2d99b0-d858-5677-8d87-67616ee61171",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "WorldGuid",
+      "defaultValue": "5a1c7e3d-2b9f-4c61-8e0a-7d3f9b1c2e45",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "-worldGuid ${WorldGuid}",
+      "editor": {
+        "maxLength": 36,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$",
+        "inputType": 0,
+        "id": "WorldGuid",
+        "defaultValue": "5a1c7e3d-2b9f-4c61-8e0a-7d3f9b1c2e45",
+        "label": "World GUID",
+        "description": "The world to run: the part after ~ in its folder name in SaveData/Worlds. To host a world from your PC, upload its folder (AppData/LocalLow/Vector3 Studio/Sunkenland/Worlds/<name>~<GUID>) to SaveData/Worlds and enter its GUID here. A GUID without a world starts a new one.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.184145",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Region",
+      "defaultValue": "eu",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "-region ${Region}",
+      "editor": {
+        "items": [
+          {
+            "text": "Asia",
+            "value": "asia"
+          },
+          {
+            "text": "Chinese Mainland",
+            "value": "cn"
+          },
+          {
+            "text": "Japan",
+            "value": "jp"
+          },
+          {
+            "text": "Europe",
+            "value": "eu"
+          },
+          {
+            "text": "South America",
+            "value": "sa"
+          },
+          {
+            "text": "South Korea",
+            "value": "kr"
+          },
+          {
+            "text": "USA, East",
+            "value": "us"
+          },
+          {
+            "text": "USA, West",
+            "value": "usw"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "Region",
+        "defaultValue": "eu",
+        "label": "Region",
+        "description": "Players must pick the same region to see and join the server.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.273549",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ServerPassword",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ServerPassword.ToString() == \"\" ? \"\" : \"-password \" + ServerPassword}",
+      "editor": {
+        "maxLength": 8,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[A-Za-z0-9]{0,8}$",
+        "inputType": 0,
+        "id": "ServerPassword",
+        "defaultValue": "",
+        "label": "Server password",
+        "description": "Up to 8 letters or digits, no spaces. Leave empty for a public server.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.309077",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Invisible",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Invisible.ToString() == \"true\" ? \"-makeSessionInvisible\" : \"\"}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "Invisible",
+        "defaultValue": "false",
+        "label": "Hide from the session list",
+        "description": "Players then join with the Server ID (shown in the query) or a Steam invite.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.30914",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AutoSaveInterval",
+      "defaultValue": "300",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "-autoSaveIntervalInSeconds ${AutoSaveInterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 60,
+        "maxValue": 3600,
+        "id": "AutoSaveInterval",
+        "defaultValue": "300",
+        "label": "Autosave interval (seconds)",
+        "description": "The server saves only while players are online. Stopping the server waits for the next save when players are online.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.315051",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AdminSteamIds",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AdminSteamIds.ToString().Trim() == \"\" ? \"\" : \"-adminSteamIDs \" + AdminSteamIds.ToString().Trim()}",
+      "editor": {
+        "maxLength": 400,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[0-9 ]*$",
+        "inputType": 0,
+        "id": "AdminSteamIds",
+        "defaultValue": "",
+        "label": "Administrator Steam IDs",
+        "description": "SteamID64s separated by spaces. Administrators can kick, ban and save the game. More can be listed in AdminSteamIDs.txt of the world.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.328737",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WorldName",
+      "defaultValue": "Sunkenland",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WorldName}",
+      "editor": {
+        "maxLength": 100,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[^~/\\\\:*?\"<>|\\x00-\\x1f]{1,100}$",
+        "inputType": 0,
+        "id": "WorldName",
+        "defaultValue": "Sunkenland",
+        "label": "Server name",
+        "description": "The name in the session list (it is the name of the world folder). At most 100 characters; do not use ~ / \\ : * ? \" < > |.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.32883",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WorldDescription",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WorldDescription}",
+      "editor": {
+        "maxLength": 200,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[^\"\\\\\\x00-\\x1f]{0,200}$",
+        "inputType": 0,
+        "id": "WorldDescription",
+        "defaultValue": "",
+        "label": "Description",
+        "description": "Shown with the world in the game. No double quotes or backslashes.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.328844",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnemyDifficulty",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnemyDifficulty}",
+      "editor": {
+        "items": [
+          {
+            "text": "Easy",
+            "value": "0"
+          },
+          {
+            "text": "Normal",
+            "value": "1"
+          },
+          {
+            "text": "Hard",
+            "value": "2"
+          },
+          {
+            "text": "Insane",
+            "value": "3"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "EnemyDifficulty",
+        "defaultValue": "1",
+        "label": "Enemies",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.328863",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnemyGarrisonDifficulty",
+      "defaultValue": "2",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnemyGarrisonDifficulty}",
+      "editor": {
+        "items": [
+          {
+            "text": "None",
+            "value": "0"
+          },
+          {
+            "text": "Low",
+            "value": "1"
+          },
+          {
+            "text": "Medium",
+            "value": "2"
+          },
+          {
+            "text": "High",
+            "value": "3"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "EnemyGarrisonDifficulty",
+        "defaultValue": "2",
+        "label": "Enemy garrisons",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.328898",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "EnemyRaidDifficulty",
+      "defaultValue": "2",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${EnemyRaidDifficulty}",
+      "editor": {
+        "items": [
+          {
+            "text": "None",
+            "value": "0"
+          },
+          {
+            "text": "Low",
+            "value": "1"
+          },
+          {
+            "text": "Medium",
+            "value": "2"
+          },
+          {
+            "text": "High",
+            "value": "3"
+          },
+          {
+            "text": "Very high",
+            "value": "4"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "EnemyRaidDifficulty",
+        "defaultValue": "2",
+        "label": "Raids on bases",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.328928",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SurvivalDifficulty",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SurvivalDifficulty}",
+      "editor": {
+        "items": [
+          {
+            "text": "Easy",
+            "value": "0"
+          },
+          {
+            "text": "Normal",
+            "value": "1"
+          },
+          {
+            "text": "Hard",
+            "value": "2"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "SurvivalDifficulty",
+        "defaultValue": "1",
+        "label": "Survival",
+        "description": "How fast hunger, thirst and health drop.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.328956",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "DeathPenalties",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${DeathPenalties}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "DeathPenalties",
+        "defaultValue": "true",
+        "label": "Death penalties",
+        "description": "Players drop their items when they die.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.328997",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FriendlyFire",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${FriendlyFire}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "FriendlyFire",
+        "defaultValue": "false",
+        "label": "Friendly fire",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.32905",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ResearchShared",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ResearchShared}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "ResearchShared",
+        "defaultValue": "true",
+        "label": "Shared research",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.329062",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MapShared",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MapShared}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "MapShared",
+        "defaultValue": "true",
+        "label": "Shared map",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.329092",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FlagShared",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${FlagShared}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "FlagShared",
+        "defaultValue": "true",
+        "label": "Shared flags",
+        "description": "Everyone can use the territory flags.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.329355",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SpawnPointShared",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SpawnPointShared}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "SpawnPointShared",
+        "defaultValue": "true",
+        "label": "Shared spawn points",
+        "description": "Everyone can respawn at the beds.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.329435",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RandomSpawnPoints",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RandomSpawnPoints}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "RandomSpawnPoints",
+        "defaultValue": "false",
+        "label": "Random spawn points",
+        "description": "New players start at a random place.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.329454",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RespawnTime",
+      "defaultValue": "10",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RespawnTime}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 10,
+        "maxValue": 60,
+        "id": "RespawnTime",
+        "defaultValue": "10",
+        "label": "Respawn time (seconds)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.329466",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "LootRespawnDays",
+      "defaultValue": "10",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${LootRespawnDays}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 30,
+        "id": "LootRespawnDays",
+        "defaultValue": "10",
+        "label": "Loot respawns every (in-game days)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T11:39:23.329521",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 718,
+      "relativePath": "Config\\WorldSetting.json",
+      "description": "World settings (copied into the world folder at every start)",
+      "template": "{\n\t\"ServerName\" : {\n\t\t\"__type\" : \"string\",\n\t\t\"value\" : \"${WorldName}\"\n\t},\n\t\"WorldSettingProfile\" : {\n\t\t\"__type\" : \"WorldSettingProfile,Assembly-CSharp\",\n\t\t\"value\" : {\n\t\t\t\"worldDescription\" : \"${WorldDescription}\",\n\t\t\t\"enemyDifficulty\" : ${EnemyDifficulty},\n\t\t\t\"enemyGarrisonDifficulty\" : ${EnemyGarrisonDifficulty},\n\t\t\t\"enemyRaidDifficulty\" : ${EnemyRaidDifficulty},\n\t\t\t\"survivalDifficulty\" : ${SurvivalDifficulty},\n\t\t\t\"isDeathPenaltiesEnabled\" : ${DeathPenalties},\n\t\t\t\"isFriendlyFireEnabled\" : ${FriendlyFire},\n\t\t\t\"isResearchShared\" : ${ResearchShared},\n\t\t\t\"isMapShared\" : ${MapShared},\n\t\t\t\"isFlagShared\" : ${FlagShared},\n\t\t\t\"isSpawnPointShared\" : ${SpawnPointShared},\n\t\t\t\"isUsingRandomSpawnPoints\" : ${RandomSpawnPoints},\n\t\t\t\"respawnTime\" : ${RespawnTime},\n\t\t\t\"lootRespawnIntervalInDays\" : ${LootRespawnDays}\n\t\t}\n\t}\n}\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_World",
+          "defaultValue": null,
+          "label": "World",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 100,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^~/\\\\:*?\"<>|\\x00-\\x1f]{1,100}$",
+          "inputType": 0,
+          "id": "WorldName",
+          "defaultValue": "Sunkenland",
+          "label": "Server name",
+          "description": "The name in the session list (it is the name of the world folder). At most 100 characters; do not use ~ / \\ : * ? \" < > |.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 200,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[^\"\\\\\\x00-\\x1f]{0,200}$",
+          "inputType": 0,
+          "id": "WorldDescription",
+          "defaultValue": "",
+          "label": "Description",
+          "description": "Shown with the world in the game. No double quotes or backslashes.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Difficulty",
+          "defaultValue": null,
+          "label": "Difficulty",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Easy",
+              "value": "0"
+            },
+            {
+              "text": "Normal",
+              "value": "1"
+            },
+            {
+              "text": "Hard",
+              "value": "2"
+            },
+            {
+              "text": "Insane",
+              "value": "3"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "EnemyDifficulty",
+          "defaultValue": "1",
+          "label": "Enemies",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "None",
+              "value": "0"
+            },
+            {
+              "text": "Low",
+              "value": "1"
+            },
+            {
+              "text": "Medium",
+              "value": "2"
+            },
+            {
+              "text": "High",
+              "value": "3"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "EnemyGarrisonDifficulty",
+          "defaultValue": "2",
+          "label": "Enemy garrisons",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "None",
+              "value": "0"
+            },
+            {
+              "text": "Low",
+              "value": "1"
+            },
+            {
+              "text": "Medium",
+              "value": "2"
+            },
+            {
+              "text": "High",
+              "value": "3"
+            },
+            {
+              "text": "Very high",
+              "value": "4"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "EnemyRaidDifficulty",
+          "defaultValue": "2",
+          "label": "Raids on bases",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Easy",
+              "value": "0"
+            },
+            {
+              "text": "Normal",
+              "value": "1"
+            },
+            {
+              "text": "Hard",
+              "value": "2"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "SurvivalDifficulty",
+          "defaultValue": "1",
+          "label": "Survival",
+          "description": "How fast hunger, thirst and health drop.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Gameplay",
+          "defaultValue": null,
+          "label": "Gameplay",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "DeathPenalties",
+          "defaultValue": "true",
+          "label": "Death penalties",
+          "description": "Players drop their items when they die.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "FriendlyFire",
+          "defaultValue": "false",
+          "label": "Friendly fire",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "ResearchShared",
+          "defaultValue": "true",
+          "label": "Shared research",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "MapShared",
+          "defaultValue": "true",
+          "label": "Shared map",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "FlagShared",
+          "defaultValue": "true",
+          "label": "Shared flags",
+          "description": "Everyone can use the territory flags.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "SpawnPointShared",
+          "defaultValue": "true",
+          "label": "Shared spawn points",
+          "description": "Everyone can respawn at the beds.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "RandomSpawnPoints",
+          "defaultValue": "false",
+          "label": "Random spawn points",
+          "description": "New players start at a random place.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 10,
+          "maxValue": 60,
+          "id": "RespawnTime",
+          "defaultValue": "10",
+          "label": "Respawn time (seconds)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 30,
+          "id": "LootRespawnDays",
+          "defaultValue": "10",
+          "label": "Loot respawns every (in-game days)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the world",
+        "description": "Links the game save folder to SaveData, renames the world folder after a name change, copies Config/WorldSetting.json into it and starts a new world when the folder has no save yet (the server cannot create one).",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll, System.Text.Json.dll, TCAdmin.Monitor.SDK.dll, Microsoft.Win32.Registry.dll, System.Security.Principal.Windows.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.Json;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Prepares the world before every start. The dedicated server cannot create a world: it loads\n// SaveData/Worlds/<world name>~<World GUID> and its newest World~<n>.json, and stops at \"Unable to get ApplicationVersion\"\n// without one. This script\n//  - keeps the game's save folder (AppData/LocalLow/Vector3 Studio/Sunkenland of the user the server runs as) in the\n//    service root as SaveData, so the file manager and backups see the worlds,\n//  - renames the world folder when the world name was changed (the name is the server name in the session list),\n//  - copies the world settings the panel keeps in Config/WorldSetting.json into the world folder,\n//  - starts a new world (an empty World~0.json of the installed game version) when the folder has no save yet.\nconst string DefaultWorldName = \"Sunkenland\";\nconst string DefaultWorldGuid = \"5a1c7e3d-2b9f-4c61-8e0a-7d3f9b1c2e45\";\n\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('/', '\\\\');\nvar saveData = Path.Combine(root, \"SaveData\");\nvar worlds = Path.Combine(saveData, \"Worlds\");\nvar settingsFile = Path.Combine(root, \"Config\", \"WorldSetting.json\");\nvar linux = System.OperatingSystem.IsLinux();\n\n// This script runs as the monitor (root on Linux) in a folder the customer can change over FTP/SFTP. A symbolic link\n// (or junction) anywhere from the service root down to a path the script reads or writes would point it at a file\n// outside the service, so the script stops instead of following one.\nvoid NoLink(string path)\n{\n    var cmp = linux ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase;\n    var full = Path.GetFullPath(path).TrimEnd('/', '\\\\');\n    if (!full.StartsWith(root + Path.DirectorySeparatorChar, cmp)) throw new Exception(path + \" is outside the service folder.\");\n    for (var p = full; p != null && p.Length > root.Length; p = Path.GetDirectoryName(p))\n        if (new FileInfo(p).LinkTarget != null)\n            throw new Exception(p.Substring(root.Length).TrimStart('/', '\\\\') + \" is a symbolic link. Replace it with a normal file or folder and start the server again.\");\n}\n\n// The world name: the ServerName key of the panel's world settings.\nvar worldName = DefaultWorldName;\nstring settings = null;\nNoLink(settingsFile);\nif (File.Exists(settingsFile))\n{\n    settings = File.ReadAllText(settingsFile);\n    try\n    {\n        using (var json = JsonDocument.Parse(settings))\n            if (json.RootElement.TryGetProperty(\"ServerName\", out var serverName) && serverName.TryGetProperty(\"value\", out var value)\n                && !string.IsNullOrWhiteSpace(value.GetString()))\n                worldName = value.GetString().Trim();\n    }\n    catch (JsonException ex)\n    {\n        throw new Exception(\"Config/WorldSetting.json is not valid JSON (\" + ex.Message + \"). Remove double quotes from the server name and the description (Config Files > World settings).\");\n    }\n}\nif (worldName.IndexOfAny(new[] { '~', '/', '\\\\', ':', '*', '?', '\"', '<', '>', '|' }) >= 0 || worldName.EndsWith(\".\")\n    || worldName.Any(char.IsControl) || worldName.Length > 100)\n    throw new Exception(\"The server name '\" + worldName + \"' cannot be used as a folder name. Use at most 100 characters and remove ~ / \\\\ : * ? \\\" < > | from it (Config Files > World settings).\");\n\n// The world GUID the server is started with (-worldGuid of the command line).\nvar guidText = DefaultWorldGuid;\nvar argument = Regex.Match(Convert.ToString(ThisService.Commandline) ?? \"\", \"-worldGuid\\\\s+\\\"?([^\\\\s\\\"]+)\", RegexOptions.IgnoreCase);\nif (argument.Success) guidText = argument.Groups[1].Value;\nif (!Guid.TryParse(guidText, out var guid))\n    throw new Exception(\"The World GUID '\" + guidText + \"' is not a GUID (Command Lines). It is the part after ~ in the world folder name.\");\n// The server compares the folder name with the lower-case GUID.\nvar id = guid.ToString();\n\nvoid Own(string path)\n{\n    if (linux)\n    {\n        // No shell: the path holds the customer's world name. -R never follows a symbolic link (-P), -h covers the top.\n        Chown(\"-R\", \"-h\", \"--reference=\" + root, \"--\", path);\n        return;\n    }\n    if (Directory.Exists(path)) Globals.OperatingSystem.SetDirectoryOwnerAutoDetect(path, true);\n    else Globals.OperatingSystem.SetFileOwnerAutoDetect(path);\n}\n\nvoid Ensure(string dir)\n{\n    if (Directory.Exists(dir)) return;\n    var parent = Path.GetDirectoryName(dir);\n    if (!Directory.Exists(parent)) Ensure(parent);\n    Directory.CreateDirectory(dir);\n    Own(dir);\n}\n\nNoLink(worlds);\nEnsure(worlds);\nif (linux) { NoLink(Path.Combine(root, \"Logs\")); Ensure(Path.Combine(root, \"Logs\")); } // the -logFile folder\n\n// The game's save folder -> SaveData in the service root.\nif (linux)\n{\n    // Wine keeps the Windows profile of the user that runs the server under drive_c/users/<user>.\n    var users = Path.Combine(root, \".wine\", \"drive_c\", \"users\");\n    if (Directory.Exists(users))\n    {\n        foreach (var profile in Directory.GetDirectories(users).Where(d => Path.GetFileName(d) != \"Public\"))\n        {\n            var company = Path.Combine(profile, \"AppData\", \"LocalLow\", \"Vector3 Studio\");\n            var link = Path.Combine(company, \"Sunkenland\");\n            var info = new DirectoryInfo(link);\n            if (info.LinkTarget == saveData) continue;\n            NoLink(company); // the link itself is replaced below, the folders above it must be real\n            if (!Directory.Exists(company))\n            {\n                Directory.CreateDirectory(company);\n                Chown(\"-h\", \"--reference=\" + profile, \"--\", company);\n            }\n            if (info.Exists && info.LinkTarget == null)\n            {\n                // Saves the server wrote before the folder was linked: keep them.\n                Merge(link, saveData, false);\n                Directory.Delete(link, true);\n            }\n            else if (info.Exists || info.LinkTarget != null) info.Delete();\n            Directory.CreateSymbolicLink(link, saveData);\n            Chown(\"-h\", \"--reference=\" + profile, \"--\", link);\n            ScriptConsole.WriteLine((object)(\"Linked the game's save folder to SaveData (\" + Path.GetFileName(profile) + \").\"));\n        }\n    }\n}\nelse\n{\n    // Windows: the Windows profile of the service's own user (the blueprint runs every service as its own user, so two\n    // servers never share the folder). A user that never ran anything has no profile yet: create it, the panel loads\n    // it when it starts the server.\n    var credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\n    var accountName = string.IsNullOrEmpty(credential.Domain) ? credential.UserName : credential.Domain + \"\\\\\" + credential.UserName;\n    var sid = ((System.Security.Principal.SecurityIdentifier)new System.Security.Principal.NTAccount(accountName)\n        .Translate(typeof(System.Security.Principal.SecurityIdentifier))).Value;\n    var profile = ProfilePath(sid);\n    if (profile == null || !Directory.Exists(profile))\n    {\n        var created = new StringBuilder(260);\n        var result = UserProfiles.CreateProfile(sid, credential.UserName, created, (uint)created.Capacity);\n        if (result != 0 && result != unchecked((int)0x800700B7))\n            throw new Exception(\"Could not create the Windows profile of \" + accountName + \" (0x\" + result.ToString(\"X8\") + \").\");\n        profile = ProfilePath(sid) ?? created.ToString();\n        ScriptConsole.WriteLine((object)(\"Created the Windows profile of \" + accountName + \": \" + profile));\n    }\n    var company = Path.Combine(profile, \"AppData\", \"LocalLow\", \"Vector3 Studio\");\n    var link = Path.Combine(company, \"Sunkenland\");\n    var info = new DirectoryInfo(link);\n    var pointsHere = info.Exists && info.LinkTarget != null\n        && string.Equals(Path.GetFullPath(info.LinkTarget).TrimEnd('\\\\'), saveData, StringComparison.OrdinalIgnoreCase);\n    if (!pointsHere)\n    {\n        Directory.CreateDirectory(company);\n        if (info.Exists && info.LinkTarget == null)\n        {\n            // Saves the server wrote before the folder was linked: keep them.\n            Merge(link, saveData, false);\n            Directory.Delete(link, true);\n        }\n        else if (info.LinkTarget != null) Directory.Delete(link);\n        // A directory junction needs no privilege and works for the service user (the junction inherits the\n        // profile's permissions; SaveData is the service user's folder).\n        using (var mklink = Process.Start(new ProcessStartInfo(\"cmd.exe\", \"/c mklink /J \\\"\" + link + \"\\\" \\\"\" + saveData + \"\\\"\")\n               { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false, CreateNoWindow = true }))\n        {\n            var error = mklink.StandardError.ReadToEnd();\n            mklink.StandardOutput.ReadToEnd();\n            mklink.WaitForExit();\n            if (mklink.ExitCode != 0) throw new Exception(\"Could not link \" + link + \" to SaveData: \" + error.Trim());\n        }\n        ScriptConsole.WriteLine((object)(\"Linked the game's save folder (\" + link + \") to SaveData.\"));\n    }\n}\n\n// Windows: the panel reads the server's output from its console and keeps a copy in .tca/console.log, which it\n// clears at every start. Keep the last 10 runs as Logs/server_<date>.log for the log viewer.\nif (!linux)\n{\n    var consoleCopy = Path.Combine(root, \".tca\", \"console.log\");\n    NoLink(consoleCopy);\n    if (File.Exists(consoleCopy) && new FileInfo(consoleCopy).Length > 0)\n    {\n        var logs = Path.Combine(root, \"Logs\");\n        NoLink(logs);\n        Ensure(logs);\n        var archived = Path.Combine(logs, \"server_\" + File.GetLastWriteTime(consoleCopy).ToString(\"yyyy-MM-dd_HH-mm-ss\") + \".log\");\n        NoLink(archived);\n        if (!File.Exists(archived))\n        {\n            string raw;\n            using (var stream = new FileStream(consoleCopy, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete))\n            using (var reader = new StreamReader(stream, Encoding.UTF8)) raw = reader.ReadToEnd();\n            // Without the console colour codes.\n            File.WriteAllText(archived, Regex.Replace(raw, \"\\u001b\\\\[[0-9;?]*[A-Za-z]\", \"\"), new UTF8Encoding(false));\n            Own(archived);\n        }\n        foreach (var old in Directory.GetFiles(logs, \"server_*.log\").OrderByDescending(f => f, StringComparer.Ordinal).Skip(10)) File.Delete(old);\n    }\n}\n\n// The world folder: <world name>~<GUID>. A folder of the same world under another name (the name was changed, or a\n// world was uploaded with its own name) is merged into it.\nvar target = Path.Combine(worlds, worldName + \"~\" + id);\nforeach (var other in Directory.GetDirectories(worlds))\n{\n    var folder = Path.GetFileName(other);\n    var separator = folder.LastIndexOf('~');\n    if (separator < 0 || !Guid.TryParse(folder.Substring(separator + 1), out var otherGuid) || otherGuid != guid) continue;\n    if (string.Equals(other, target, StringComparison.Ordinal)) continue;\n    NoLink(other);\n    NoLink(target);\n    if (!Directory.Exists(target))\n    {\n        Directory.Move(other, target);\n        ScriptConsole.WriteLine((object)(\"Renamed the world folder '\" + folder + \"' to '\" + Path.GetFileName(target) + \"'.\"));\n        continue;\n    }\n    Merge(other, target, true);\n    Directory.Delete(other, true);\n    ScriptConsole.WriteLine((object)(\"Moved the world '\" + folder + \"' to '\" + Path.GetFileName(target) + \"'.\"));\n}\nNoLink(target);\nEnsure(target);\n\nif (settings != null)\n{\n    var worldSettings = Path.Combine(target, \"WorldSetting.json\");\n    NoLink(worldSettings);\n    if (!File.Exists(worldSettings) || File.ReadAllText(worldSettings) != settings)\n    {\n        File.WriteAllText(worldSettings, settings, new UTF8Encoding(false));\n        Own(worldSettings);\n    }\n}\n\nif (!Directory.GetFiles(target, \"World~*.json\").Any(f => Regex.IsMatch(Path.GetFileName(f), \"^World~[0-9]+\\\\.json$\")))\n{\n    var version = GameVersion();\n    if (version == null) throw new Exception(\"Could not read the version of the installed server from Sunkenland-DedicatedServer_Data/globalgamemanagers.\");\n    var save = Path.Combine(target, \"World~0.json\");\n    NoLink(save);\n    File.WriteAllText(save, \"{\\n\\t\\\"ApplicationVersion\\\" : {\\n\\t\\t\\\"__type\\\" : \\\"string\\\",\\n\\t\\t\\\"value\\\" : \\\"\" + version + \"\\\"\\n\\t}\\n}\\n\", new UTF8Encoding(false));\n    Own(save);\n    ScriptConsole.WriteLine((object)(\"Started a new world '\" + worldName + \"' (\" + id + \", game version \" + version + \").\"));\n}\n\n// Merges a folder into another: anything keeps the newer file (WorldSetting.json is replaced from Config/ anyway).\n// A linked folder inside is refused (following it would move files from outside the service folder into it); a linked\n// file is moved as the link itself.\nvoid Merge(string from, string to, bool keepPanelFiles)\n{\n    if (new DirectoryInfo(from).LinkTarget != null || new DirectoryInfo(to).LinkTarget != null)\n        throw new Exception(\"Cannot merge \" + from + \" into \" + to + \": one of them is a symbolic link. Replace it with a normal folder.\");\n    Directory.CreateDirectory(to);\n    foreach (var dir in Directory.GetDirectories(from))\n        Merge(dir, Path.Combine(to, Path.GetFileName(dir)), false);\n    foreach (var file in Directory.GetFiles(from))\n    {\n        var dest = Path.Combine(to, Path.GetFileName(file));\n        if (File.Exists(dest))\n        {\n            if (keepPanelFiles && string.Equals(Path.GetFileName(file), \"WorldSetting.json\", StringComparison.OrdinalIgnoreCase)) continue;\n            if (File.GetLastWriteTimeUtc(dest) >= File.GetLastWriteTimeUtc(file)) continue;\n            File.Delete(dest);\n        }\n        File.Move(file, dest);\n    }\n    Own(to);\n}\n\n// The game version (Application.version) is the only length-prefixed \"x.y.z\" string in globalgamemanagers.\nstring GameVersion()\n{\n    var file = Path.Combine(root, \"Sunkenland-DedicatedServer_Data\", \"globalgamemanagers\");\n    if (!File.Exists(file)) return null;\n    var text = Encoding.Latin1.GetString(File.ReadAllBytes(file));\n    foreach (Match match in Regex.Matches(text, \"([\\\\x03-\\\\x10])\\\\x00\\\\x00\\\\x00([0-9]{1,3}\\\\.[0-9]{1,3}\\\\.[0-9]{1,4})\"))\n        if (match.Groups[2].Value.Length == match.Groups[1].Value[0]) return match.Groups[2].Value;\n    return null;\n}\n\n// chown without a shell (arguments are passed as they are).\nvoid Chown(params string[] arguments)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\"chown\", arguments) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        var error = process.StandardError.ReadToEndAsync();\n        process.StandardOutput.ReadToEnd();\n        process.WaitForExit();\n        if (process.ExitCode != 0) ScriptConsole.WriteLine((object)(\"chown \" + string.Join(\" \", arguments) + \": \" + error.Result.Trim()));\n    }\n}\n\nstring ProfilePath(string sid)\n{\n    using (var key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@\"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList\\\" + sid))\n    {\n        var path = key?.GetValue(\"ProfileImagePath\") as string;\n        return path == null ? null : Environment.ExpandEnvironmentVariables(path);\n    }\n}\n\nstatic class UserProfiles\n{\n    [System.Runtime.InteropServices.DllImport(\"userenv.dll\", CharSet = System.Runtime.InteropServices.CharSet.Unicode)]\n    public static extern int CreateProfile(string sid, string userName, StringBuilder profilePath, uint length);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "325c1041-6b31-58a4-8f12-23b4ecd56177"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStopped"
+        ],
+        "name": "Wait for the autosave",
+        "description": "Before a stop: lets a save in progress finish and, with players online, waits for the next autosave (the server does not save when it is closed).",
+        "code": "//refAssemblies: System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.IO;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing System.Text;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// The server has no save command and does not save when it is closed: the world is saved by its autosave only\n// (every \"Autosave interval\" seconds, and only while players are online - the world is paused when it is empty).\n// Before the panel stops the server this script lets a save that is being written finish, and when players are\n// online it waits for the next autosave, so the last minutes of play are not lost.\nconst int DefaultInterval = 300;\nconst int MaxWaitSeconds = 330;\n\n// The server log: the -logFile of the command line (Wine), else the copy of the console the panel keeps.\nvar logArgument = Regex.Match(Convert.ToString(ThisService.Commandline) ?? \"\", \"-logFile\\\\s+\\\"?(?:Z:)?([^\\\"]+?)\\\"?(\\\\s+-|$)\", RegexOptions.IgnoreCase);\nvar log = logArgument.Success ? logArgument.Groups[1].Value.Trim()\n    : Path.Combine((string)ThisService.RootDirectory, \".tca\", \"console.log\");\nif (System.OperatingSystem.IsLinux()) log = log.Replace('\\\\', '/');\n// This script runs as the monitor (root on Linux) and the command line can be the customer's: read only a file in the\n// service folder with no symbolic link on the way (never a device or a file outside the service).\nif (!InServiceFolder(log)) log = Path.Combine((string)ThisService.RootDirectory, System.OperatingSystem.IsLinux() ? \"Logs/server.log\" : \".tca/console.log\");\nif (!InServiceFolder(log))\n{\n    ScriptConsole.WriteLine((object)\"The server log is a symbolic link or outside the service folder: not waiting for a save.\");\n    return;\n}\nint port = ThisService.GamePort;\nbool Running() => IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners().Any(l => l.Port == port);\nif (!File.Exists(log) || !Running())\n{\n    ScriptConsole.WriteLine((object)\"The server is not running.\");\n    return;\n}\n\nstring Read(long from)\n{\n    using (var stream = new FileStream(log, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete))\n    {\n        if (from < 0) from = Math.Max(0, stream.Length - 512 * 1024);\n        if (from > stream.Length) from = 0; // the log was started again\n        stream.Seek(from, SeekOrigin.Begin);\n        using (var reader = new StreamReader(stream, Encoding.UTF8))\n            return logArgument.Success ? reader.ReadToEnd() : Unwrap(reader.ReadToEnd());\n    }\n}\nbool Saving(string text)\n{\n    var started = text.LastIndexOf(\" Saving Game\\n\", StringComparison.Ordinal);\n    if (started < 0) started = text.LastIndexOf(\" Saving Game\\r\\n\", StringComparison.Ordinal);\n    return started >= 0 && text.IndexOf(\" Saving Game Finished\", started, StringComparison.Ordinal) < 0;\n}\n\n// The interval the server runs with (-autoSaveIntervalInSeconds; the server uses at least 60, and 600 without it).\nvar interval = DefaultInterval;\nvar argument = Regex.Match(Convert.ToString(ThisService.Commandline) ?? \"\", \"-autoSaveIntervalInSeconds\\\\s+([0-9.]+)\", RegexOptions.IgnoreCase);\nif (!argument.Success) interval = 600;\nelse if (double.TryParse(argument.Groups[1].Value, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out var configured))\n    interval = configured <= 0 ? 600 : (int)Math.Max(60, configured);\n\nvar length = new FileInfo(log).Length;\nvar tail = Read(-1);\nvar status = Regex.Matches(tail, \"Current/MaxPlayer ([0-9]+)/[0-9]+\");\nvar players = status.Count > 0 ? int.Parse(status[status.Count - 1].Groups[1].Value) : 0;\n// The server writes its status every 5 seconds while the world runs; an old line means the world is paused (empty).\nvar fresh = (DateTime.UtcNow - File.GetLastWriteTimeUtc(log)).TotalSeconds < 30;\n\nint wait;\nstring reason;\nif (Saving(tail)) { wait = 60; reason = \"the world is being saved\"; }\nelse if (players > 0 && fresh) { wait = Math.Min(interval + 30, MaxWaitSeconds); reason = players + \" player(s) online, waiting for the next autosave\"; }\nelse\n{\n    ScriptConsole.WriteLine((object)\"No players online and no save in progress: the world on disk is up to date.\");\n    return;\n}\n\nScriptConsole.WriteLine((object)(\"Stopping after the next save (\" + reason + \", at most \" + wait + \" s).\"));\nfor (var second = 1; second <= wait; second++)\n{\n    await Task.Delay(1000, ThisCancellationToken);\n    if (!Running()) { ScriptConsole.WriteLine((object)\"The server exited.\"); return; }\n    if (Read(length).Contains(\" Saving Game Finished\"))\n    {\n        ScriptConsole.WriteLine((object)(\"The world was saved after \" + second + \" s.\"));\n        return;\n    }\n}\nScriptConsole.WriteLine((object)(\"No save within \" + wait + \" s; the panel stops the server now.\"));\n\nbool InServiceFolder(string path)\n{\n    try\n    {\n        var cmp = System.OperatingSystem.IsLinux() ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase;\n        var root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('/', '\\\\');\n        var full = Path.GetFullPath(path).TrimEnd('/', '\\\\');\n        if (!full.StartsWith(root + Path.DirectorySeparatorChar, cmp)) return false;\n        for (var p = full; p != null && p.Length > root.Length; p = Path.GetDirectoryName(p))\n            if (new FileInfo(p).LinkTarget != null) return false;\n        return true;\n    }\n    catch { return false; }\n}\n\n// The panel's console copy (.tca/console.log) holds the console rows: colour codes, and long lines broken at the console\n// width. Remove the codes and join the rows that fill the whole width with the row after them.\nstring Unwrap(string raw)\n{\n    var rows = raw.Split('\\n').Select(r => Regex.Replace(r, \"\\u001b\\\\[[0-9;?]*[A-Za-z]\", \"\").TrimEnd('\\r')).ToArray();\n    var width = rows.Length == 0 ? 0 : rows.Max(r => r.Length);\n    var joined = new StringBuilder(raw.Length);\n    foreach (var row in rows)\n    {\n        joined.Append(row);\n        if (width < 80 || row.Length != width) joined.Append('\\n');\n    }\n    return joined.ToString();\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "f8004708-57b9-5bd0-b97d-4f9704ad1c6b"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "CustomQueryProtocol"
+        ],
+        "name": "Sunkenland query",
+        "description": "Online while the game port is bound and the log says the server started; reports the Server ID players join with and the player count.",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.IO;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing System.Text;\nusing System.Text.RegularExpressions;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Sunkenland has no server query: players find the server through the game's matchmaking service (session list, or the\n// Server ID). The query runs on the monitor of the server that hosts the service and reads no network traffic: the\n// server is online when its local UDP port is bound and its log says \"Server Start Complete\". The log also gives the\n// Server ID players join with (it changes at every start) and the player count.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\nint port = Convert.ToInt32(Dynamic.Port);\nif (port <= 0) port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    bool Matches(IPAddress bound)\n    {\n        if (bound.IsIPv4MappedToIPv6) bound = bound.MapToIPv4();\n        return ip == null || bound.Equals(ip) || bound.Equals(IPAddress.Any) || bound.Equals(IPAddress.IPv6Any);\n    }\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners().Any(l => l.Port == port && Matches(l.Address));\n    string serverId = null, worldName = null, lost = null;\n    int players = 0, maxPlayers = ThisService.Slots;\n    if (listening)\n    {\n        // The server log: the -logFile of the command line (Wine), else the copy of the console the panel keeps.\n        var logArgument = Regex.Match(Convert.ToString(ThisService.Commandline) ?? \"\", \"-logFile\\\\s+\\\"?(?:Z:)?([^\\\"]+?)\\\"?(\\\\s+-|$)\", RegexOptions.IgnoreCase);\n        var log = logArgument.Success ? logArgument.Groups[1].Value.Trim()\n            : Path.Combine((string)ThisService.RootDirectory, \".tca\", \"console.log\");\n        if (System.OperatingSystem.IsLinux()) log = log.Replace('\\\\', '/');\n        // The query runs as the monitor (root on Linux) and the command line can be the customer's: read only a file in\n        // the service folder with no symbolic link on the way (never a device or a file outside the service).\n        if (!InServiceFolder(log)) log = Path.Combine((string)ThisService.RootDirectory, System.OperatingSystem.IsLinux() ? \"Logs/server.log\" : \".tca/console.log\");\n        if (InServiceFolder(log) && File.Exists(log))\n        {\n            // The start-up messages are about 300 KB; while players are online two lines are added every 5 seconds.\n            string text;\n            using (var stream = new FileStream(log, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete))\n            {\n                const int window = 512 * 1024;\n                if (stream.Length > window) stream.Seek(-window, SeekOrigin.End);\n                using (var reader = new StreamReader(stream, Encoding.UTF8)) text = reader.ReadToEnd();\n            }\n            if (!logArgument.Success) text = Unwrap(text);\n            var started = Regex.Matches(text, \"Server Start Complete, Ready for Clients to Join\\\\. ServerID is '([^']+)'\");\n            if (started.Count > 0) serverId = started[started.Count - 1].Groups[1].Value;\n            // The session ends when the server loses the matchmaking service (\"OnShutdown: PhotonCloudTimeout\"), but the\n            // process keeps running: report it offline so the panel's query monitoring restarts it.\n            var shutdown = text.LastIndexOf(\"OnShutdown: \", StringComparison.Ordinal);\n            if (shutdown >= 0 && (started.Count == 0 || shutdown > started[started.Count - 1].Index))\n            {\n                lost = text.Substring(shutdown + 12, Math.Min(60, text.Length - shutdown - 12)).Split('\\n')[0].Trim();\n                serverId = null;\n            }\n            var status = Regex.Matches(text, \"WorldName:(.*), ServerID:([^,]+), Region:[^,]*, IsPublic:[^,]*, Current/MaxPlayer ([0-9]+)/([0-9]+)\");\n            if (status.Count > 0 && lost == null)\n            {\n                var last = status[status.Count - 1];\n                worldName = last.Groups[1].Value;\n                serverId = serverId ?? last.Groups[2].Value;\n                players = int.Parse(last.Groups[3].Value);\n                maxPlayers = int.Parse(last.Groups[4].Value);\n            }\n        }\n    }\n    Globals.ReturnValue = listening && serverId != null\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \"online\",\n            Protocol = \"custom_script\",\n            Address = address,\n            Hostname = string.IsNullOrEmpty(worldName) ? ThisService.Name : worldName,\n            Name = string.IsNullOrEmpty(worldName) ? ThisService.Name : worldName,\n            GameType = \"Sunkenland\",\n            Map = \"Server ID \" + serverId,\n            NumPlayers = players,\n            MaxPlayers = maxPlayers,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\",\n            lost != null ? \"The server lost its matchmaking session (\" + lost + \").\"\n            : listening ? \"The server is still starting.\" : $\"Nothing is listening on UDP port {port} of {address}.\");\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", ex.Message);\n}\n\nbool InServiceFolder(string path)\n{\n    try\n    {\n        var linux = System.OperatingSystem.IsLinux();\n        var cmp = linux ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase;\n        var root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd('/', '\\\\');\n        var full = Path.GetFullPath(path).TrimEnd('/', '\\\\');\n        if (!full.StartsWith(root + Path.DirectorySeparatorChar, cmp)) return false;\n        for (var p = full; p != null && p.Length > root.Length; p = Path.GetDirectoryName(p))\n            if (new FileInfo(p).LinkTarget != null) return false;\n        return true;\n    }\n    catch { return false; }\n}\n\n// The panel's console copy (.tca/console.log) holds the console rows: colour codes, and long lines broken at the console\n// width. Remove the codes and join the rows that fill the whole width with the row after them.\nstring Unwrap(string raw)\n{\n    var rows = raw.Split('\\n').Select(r => Regex.Replace(r, \"\\u001b\\\\[[0-9;?]*[A-Za-z]\", \"\").TrimEnd('\\r')).ToArray();\n    var width = rows.Length == 0 ? 0 : rows.Max(r => r.Length);\n    var joined = new StringBuilder(raw.Length);\n    foreach (var row in rows)\n    {\n        joined.Append(row);\n        if (width < 80 || row.Length != width) joined.Append('\\n');\n    }\n    return joined.ToString();\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "cd8e8320-ad23-588a-9ecd-dda4a34f2215"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-11T11:39:22.936229",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "SaveData/**/*",
+      "Config/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:02:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
