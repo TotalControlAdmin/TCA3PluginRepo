@@ -1,0 +1,52 @@
+identifier: "Community.Games.Necesse"
+name: "Necesse"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Necesse dedicated server (Windows / Linux) with a server.cfg form editor, command-line world settings, Steam Workshop mods, terminal console, graceful save-and-stop and backups; starts out of the box"
+longDescription: |
+  # Necesse
+  
+  ## Description
+  Necesse dedicated server for Windows and Linux (Steam app 1169370, anonymous download). The server is Java and ships its own Java runtime, so the host needs nothing else.
+  
+  ## Key Features
+  - **Windows and Linux** configs, both native.
+  - **Steam update** on install and from the panel.
+  - **Starts out of the box.** On Linux a script makes the bundled Java runtime executable (Steam downloads can lose the bit).
+  - **Settings, saves, logs and mods in the service folder** (`-localdir`), not in the user profile.
+  - **Config editor** for `cfg/server.cfg`: join password, pause when empty, strict server authority (anti-cheat), max client latency, compressed saves, level unload time, dropped item lifetime, settlement unloading and limits.
+  - **Command Lines manager:** world name, owner player name, message of the day and Java memory. The values are checked before they are saved.
+  - **Steam Workshop mods.** Install a mod from the Steam Workshop page; a script copies its `.jar` to `mods/workshop-<id>.jar` and the server loads it at the next start. Uninstalling deletes the file.
+  - **Console** in the panel terminal, with console commands (`help`, `players`, `save`, `kick`, `settings`, ...).
+  - **Graceful stop:** the panel sends `stop`, so the server saves the world before it exits.
+  - **Status:** Necesse has no query protocol. The status check reports the server online while its game port is bound.
+  - **Log viewer** for `latest-server-log.txt` and the per-session logs in `logs`.
+  - **Backups** of the saves, settings and mods. The server is stopped first.
+  
+  ## Ports
+  - Game 14159 (UDP), bound to the service IP (`-ip`).
+  - The server also opens its LAN discovery port 55169 (UDP) on every address. The game has no setting for it; a second server on the same host uses another free port. It does not need to be opened in a firewall.
+  - IP and ports checked on Windows and on Linux: with a non-default IP and port the game port follows the service IP and port, and the status check, the console and a custom command line work.
+  
+  ## Instructions
+  - Players join by IP and port.
+  - Change the server settings in Configuration Files and the world, owner, message of the day and memory in Command Lines, then restart the server.
+  - The world is `saves/worlds/<world name>.zip`. A missing world is created when the server starts.
+  - The owner player name gets owner permissions (commands in the chat).
+  - The message of the day, world name and owner name cannot contain hyphens (-): the server would read text after a hyphen as a launch option.
+  - On Windows, stop the server before you uninstall a Workshop mod (the running server keeps the mod file open).
+  - Players need the same mods as the server; the game offers to download them when they join.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/1169040/b9e3becff5c706c4e57db3699ab7451cd178394e.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1169040/8e73418f3635e6f80474a64080553123cc787eb1/ss_8e73418f3635e6f80474a64080553123cc787eb1.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Necesse - Windows.json"
+    type: "GameConfig"
+  - path: "Necesse - Linux.json"
+    type: "GameConfig"
