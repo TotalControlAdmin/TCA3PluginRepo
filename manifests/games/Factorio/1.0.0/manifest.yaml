@@ -1,0 +1,41 @@
+identifier: "Community.Games.Factorio"
+name: "Factorio"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Factorio headless server (Linux) installed and updated from factorio.com, with RCON, console, graceful save-and-stop, settings editor and backups"
+longDescription: |
+  # Factorio
+  
+  ## Description
+  Factorio headless dedicated server for Linux, downloaded from factorio.com (no account needed). Factorio has no headless build for Windows.
+  
+  ## Key Features
+  - **Install and update from factorio.com:** the newest stable headless release is downloaded on install, and an **Update Factorio** button (also available as a scheduled task) installs a newer release, keeping saves, mods and settings. The server is stopped for the update and started again.
+  - **Starts out of the box:** a new map is created on the first start (`saves/<save name>.zip`).
+  - **Console** in the Terminal, with Factorio's console commands (`/players`, `/admins`, `/promote`, `/ban` ...) and chat.
+  - **RCON** (Source RCON protocol) on its own port, protected by the service's RCON password.
+  - **Graceful stop** with `/quit`, which saves the map.
+  - **Status:** the server shows online while its game port is open (Factorio has no server-browser query).
+  - **Config editor** for `server-settings.json`: name, description, password, save name, user verification, auto-pause, autosave interval and slots, idle kick, and the public server list (factorio.com username and token).
+  - **Backups** of the saves, mods and the server, admin, ban and whitelist settings. The server is stopped first.
+  
+  ## Ports
+  - Game 34197 (UDP), RCON = game port + 1 (TCP).
+  - IP and ports: the game binds the service's IP and game port (`--bind`) and RCON binds the service's IP and RCON port (`--rcon-bind`); nothing listens on 0.0.0.0. Tested on Linux with the IP and every port changed. The status check uses the game port (Factorio has no separate query port). LAN announcements are off (`"lan": false`), because they open an extra UDP socket on all addresses.
+  
+  ## Instructions
+  - To list the server publicly, enable it in the config editor and enter your factorio.com username and token (factorio.com/profile).
+  - To start a new map, change the save name; a missing save is created on the next start.
+  - Mods go in the `mods` folder (`mod-list.json` turns them on or off). Space Age is enabled by default; players then need the expansion.
+  - Logs: `factorio-current.log`.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/427520/267f5a89f36ab287e600a4e7d4e73d3d11f0fd7d.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_192864c00fc38b5ef97b97ca7fa655a9aed7c0da.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Linux"
+files:
+  - path: "Factorio - Linux.json"
+    type: "GameConfig"

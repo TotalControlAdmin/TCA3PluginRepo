@@ -1,0 +1,1734 @@
+{
+  "__TCA:ExportVersion": "3.23.46.17810",
+  "__TCA:ExportedAt": "2026-11-11T18:07:43.4522171Z",
+  "name": "Factorio",
+  "shortName": "Factorio",
+  "description": "",
+  "operatingSystem": "Linux",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/427520/267f5a89f36ab287e600a4e7d4e73d3d11f0fd7d.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_192864c00fc38b5ef97b97ca7fa655a9aed7c0da.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 255,
+  "defaultSlots": 16,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".json",
+    ".cfg",
+    ".txt",
+    ".ini"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "custom_script",
+    "rconProtocol": "source",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "Terminal",
+    "logFile": "factorio-current.log",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": false,
+    "outputFilters": "",
+    "stopCommand": "/quit",
+    "waitAfterStopCommand": 60000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 34197,
+        "expression": "",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 34197,
+        "expression": "GamePort",
+        "description": null,
+        "uriTemplate": null
+      },
+      {
+        "id": "RConPort",
+        "port": 34198,
+        "expression": "GamePort + 1",
+        "description": null,
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "bin/x64/factorio",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "factorio-linux",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": false,
+    "appId": 427520,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 427520,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": false,
+    "defaultCommandline": "--start-server saves/${SaveName}.zip --server-settings server-settings.json --bind ${IPAddress}:${GamePort} --rcon-bind ${IPAddress}:${RConPort} --rcon-password ${RconPassword}",
+    "defaultCustomCommandline": "--start-server saves/${SaveName}.zip --server-settings server-settings.json --bind ${IPAddress}:${GamePort} --rcon-bind ${IPAddress}:${RConPort} --rcon-password ${RconPassword}",
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "c215b441-3886-4ab4-a883-d034985419b1",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "Description",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Description}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "Description",
+        "defaultValue": "",
+        "label": "Description",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T14:31:47.354022",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SaveName",
+      "defaultValue": "world",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SaveName}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "^[A-Za-z0-9_-]{1,64}$",
+        "inputType": 0,
+        "id": "SaveName",
+        "defaultValue": "world",
+        "label": "Save name",
+        "description": "The game is saves/<name>.zip; a missing save is created with a new map. Use 1-64 letters, digits, - or _.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T14:31:47.37963",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RequireVerification",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RequireVerification}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "RequireVerification",
+        "defaultValue": "true",
+        "label": "Only players with a factorio.com account",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T14:31:47.379737",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AutoPause",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AutoPause}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "AutoPause",
+        "defaultValue": "true",
+        "label": "Pause when nobody is online",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T14:31:47.38514",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AutosaveInterval",
+      "defaultValue": "10",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AutosaveInterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 120,
+        "id": "AutosaveInterval",
+        "defaultValue": "10",
+        "label": "Autosave every (minutes)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T14:31:47.385182",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AutosaveSlots",
+      "defaultValue": "5",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AutosaveSlots}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 50,
+        "id": "AutosaveSlots",
+        "defaultValue": "5",
+        "label": "Autosave slots",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T14:31:47.390571",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AfkKick",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AfkKick}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 240,
+        "id": "AfkKick",
+        "defaultValue": "0",
+        "label": "Kick idle players after (minutes, 0 = never)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T14:31:47.390633",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PublicListing",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PublicListing}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "true",
+        "uncheckedValue": "false",
+        "id": "PublicListing",
+        "defaultValue": "false",
+        "label": "List on the public server browser",
+        "description": "Needs the factorio.com username and token below.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T14:31:47.390648",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FactorioUsername",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${FactorioUsername}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "FactorioUsername",
+        "defaultValue": "",
+        "label": "factorio.com username",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T14:31:47.390688",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FactorioToken",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${FactorioToken}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "FactorioToken",
+        "defaultValue": "",
+        "label": "factorio.com token",
+        "description": "From factorio.com/profile.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-10T14:31:47.390713",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:41:10.283092",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A(?!-)[A-Za-z0-9._@:+=,/-]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters: letters, digits and . _ @ : + = , / - only, not starting with -.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:41:11.517095",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:41:12.806875",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 408,
+      "relativePath": "server-settings.json",
+      "description": "Server settings (server-settings.json)",
+      "template": "{\n  \"name\": \"${Hostname}\",\n  \"description\": \"${Description}\",\n  \"tags\": [],\n  \"max_players\": ${Slots},\n  \"visibility\": {\n    \"public\": ${PublicListing},\n    \"lan\": false\n  },\n  \"username\": \"${FactorioUsername}\",\n  \"password\": \"\",\n  \"token\": \"${FactorioToken}\",\n  \"game_password\": \"${PrivatePassword}\",\n  \"require_user_verification\": ${RequireVerification},\n  \"max_upload_in_kilobytes_per_second\": 0,\n  \"max_upload_slots\": 5,\n  \"minimum_latency_in_ticks\": 0,\n  \"max_heartbeats_per_second\": 60,\n  \"ignore_player_limit_for_returning_players\": false,\n  \"allow_commands\": \"admins-only\",\n  \"autosave_interval\": ${AutosaveInterval},\n  \"autosave_slots\": ${AutosaveSlots},\n  \"afk_autokick_interval\": ${AfkKick},\n  \"auto_pause\": ${AutoPause},\n  \"auto_pause_when_players_connect\": false,\n  \"only_admins_can_pause_the_game\": true,\n  \"autosave_only_on_server\": true,\n  \"non_blocking_saving\": false,\n  \"minimum_segment_size\": 25,\n  \"minimum_segment_size_peer_count\": 20,\n  \"maximum_segment_size\": 100,\n  \"maximum_segment_size_peer_count\": 10\n}\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Server",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Password",
+          "description": "Leave empty for a public server.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Description",
+          "defaultValue": "",
+          "label": "Description",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "^[A-Za-z0-9_-]{1,64}$",
+          "inputType": 0,
+          "id": "SaveName",
+          "defaultValue": "world",
+          "label": "Save name",
+          "description": "The game is saves/<name>.zip; a missing save is created with a new map. Use 1-64 letters, digits, - or _.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "RequireVerification",
+          "defaultValue": "true",
+          "label": "Only players with a factorio.com account",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "AutoPause",
+          "defaultValue": "true",
+          "label": "Pause when nobody is online",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 120,
+          "id": "AutosaveInterval",
+          "defaultValue": "10",
+          "label": "Autosave every (minutes)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 50,
+          "id": "AutosaveSlots",
+          "defaultValue": "5",
+          "label": "Autosave slots",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 240,
+          "id": "AfkKick",
+          "defaultValue": "0",
+          "label": "Kick idle players after (minutes, 0 = never)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Public",
+          "defaultValue": null,
+          "label": "Public server list",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "true",
+          "uncheckedValue": "false",
+          "id": "PublicListing",
+          "defaultValue": "false",
+          "label": "List on the public server browser",
+          "description": "Needs the factorio.com username and token below.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "FactorioUsername",
+          "defaultValue": "",
+          "label": "factorio.com username",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "FactorioToken",
+          "defaultValue": "",
+          "label": "factorio.com token",
+          "description": "From factorio.com/profile.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "DownloadGameFiles"
+        ],
+        "name": "Download Factorio",
+        "description": "Downloads the newest stable Factorio headless server into the game files folder.",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll, System.Net.Http.dll, System.Text.Json.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGlobals(); // DO NOT MODIFY THIS LINE\n\n// The headless server is not on Steam; fetch the latest stable release into this server's game files folder\n// (the create task copies it into the new service from there).\nvar target = Path.Combine(ThisServer.Configuration.GameFilesPath, ThisGame.FileAndDirectoryConfig.AutoSetupFolderName);\nvar http = new HttpClient();\nawait InstallHeadless(http, await LatestHeadless(http), target);\n// Shared body of the Factorio install/update scripts: the headless server from factorio.com (Linux only), a tar.xz\n// whose files sit under factorio/; extracted with the host's tar, which handles xz.\nasync Task<string> LatestHeadless(HttpClient http)\n{\n    using (var doc = JsonDocument.Parse(await http.GetStringAsync(\"https://factorio.com/api/latest-releases\")))\n        return doc.RootElement.GetProperty(\"stable\").GetProperty(\"headless\").GetString();\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() + process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n\nasync Task InstallHeadless(HttpClient http, string version, string target)\n{\n    Directory.CreateDirectory(target);\n    var archive = Path.Combine(target, \"factorio-headless.tar.xz\");\n    using (var response = await http.GetAsync(\"https://www.factorio.com/get-download/\" + version + \"/headless/linux64\", HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n    {\n        response.EnsureSuccessStatusCode();\n        using (var file = File.Create(archive)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n    }\n    if (!Shell(\"tar -xJf '\" + archive + \"' --strip-components=1 -C '\" + target + \"'\", out var tarOutput))\n        throw new Exception(\"Extracting Factorio \" + version + \" failed (is xz-utils installed?): \" + tarOutput);\n    File.Delete(archive);\n    File.WriteAllText(Path.Combine(target, \"factorio-version.txt\"), version);\n    ScriptConsole.WriteLine((object)(\"Installed Factorio \" + version + \".\"));\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "17b59b4c-00f5-402a-bb3e-c20d7db02146"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomServiceIcon",
+          "ScheduledTask"
+        ],
+        "name": "Update Factorio",
+        "description": "Installs the newest stable Factorio headless server. Saves, mods and settings are kept.",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll, System.Net.Http.dll, System.Text.Json.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Installs the newest stable headless server over this service's files. Saves, mods and settings are not in the\n// archive, so they are kept. The server is stopped for the update and started again if it was running.\nvar root = (string)ThisService.RootDirectory;\nvar http = new HttpClient();\nvar latest = await LatestHeadless(http);\nvar versionFile = Path.Combine(root, \"factorio-version.txt\");\nvar installed = File.Exists(versionFile) ? File.ReadAllText(versionFile).Trim() : \"\";\nif (installed == latest)\n{\n    ScriptConsole.WriteLine((object)(\"The server is up to date (\" + latest + \").\"));\n    return;\n}\nScriptConsole.WriteLine((object)(\"Updating \" + (installed == \"\" ? \"the server\" : installed) + \" to \" + latest + \".\"));\nvar status = (await ServiceManagerService.GetServiceStatus(ThisService.ServiceId)).Status.ToString();\nvar wasRunning = status == \"Started\" || status == \"Starting\";\nif (wasRunning)\n{\n    ScriptConsole.WriteLine((object)\"Stopping the server.\");\n    await ServiceManagerService.StopService(ThisService.ServiceId);\n}\nawait InstallHeadless(http, latest, root);\nvar credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\nGlobals.OperatingSystem.SetDirectoryOwner(root, credential.Domain, credential.UserName, true);\nif (wasRunning)\n{\n    ScriptConsole.WriteLine((object)\"Starting the server.\");\n    await ServiceManagerService.StartService(ThisService.ServiceId);\n}\n// Shared body of the Factorio install/update scripts: the headless server from factorio.com (Linux only), a tar.xz\n// whose files sit under factorio/; extracted with the host's tar, which handles xz.\nasync Task<string> LatestHeadless(HttpClient http)\n{\n    using (var doc = JsonDocument.Parse(await http.GetStringAsync(\"https://factorio.com/api/latest-releases\")))\n        return doc.RootElement.GetProperty(\"stable\").GetProperty(\"headless\").GetString();\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() + process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n\nasync Task InstallHeadless(HttpClient http, string version, string target)\n{\n    Directory.CreateDirectory(target);\n    var archive = Path.Combine(target, \"factorio-headless.tar.xz\");\n    using (var response = await http.GetAsync(\"https://www.factorio.com/get-download/\" + version + \"/headless/linux64\", HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n    {\n        response.EnsureSuccessStatusCode();\n        using (var file = File.Create(archive)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n    }\n    if (!Shell(\"tar -xJf '\" + archive + \"' --strip-components=1 -C '\" + target + \"'\", out var tarOutput))\n        throw new Exception(\"Extracting Factorio \" + version + \" failed (is xz-utils installed?): \" + tarOutput);\n    File.Delete(archive);\n    File.WriteAllText(Path.Combine(target, \"factorio-version.txt\"), version);\n    ScriptConsole.WriteLine((object)(\"Installed Factorio \" + version + \".\"));\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "<path d=\"M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79s7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.47 12.65 0L21 3v7.12zM12.5 8v4.25l3.5 2.08-.72 1.21L11 13V8h1.5z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "9034f04f-0058-4da1-9e0d-5bcf21863295"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server",
+        "description": "Creates the map on the first start.",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Diagnostics.Process.dll, System.Net.Http.dll, System.Text.Json.dll\nusing System;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// --start-server needs an existing save. Create the map on the first start (or after the save name changed).\n// The save name comes from the active command line, because a customer's custom or predefined command line keeps\n// its own SaveName value; the SaveName variable is the fallback.\nvar root = Path.GetFullPath((string)ThisService.RootDirectory);\nvar saveName = \"\";\nvar saveMatch = System.Text.RegularExpressions.Regex.Match(Convert.ToString(ThisService.Commandline) ?? \"\", @\"--start-server\\s+saves/(\\S+?)\\.zip(\\s|$)\");\nif (saveMatch.Success) saveName = saveMatch.Groups[1].Value;\nelse if (ThisService.Variables.ContainsKey(\"SaveName\")) saveName = Convert.ToString(ThisService.Variables[\"SaveName\"]);\nif (string.IsNullOrWhiteSpace(saveName)) saveName = \"world\";\nif (!System.Text.RegularExpressions.Regex.IsMatch(saveName, \"^[A-Za-z0-9_-]{1,64}$\"))\n    throw new Exception(\"Invalid save name '\" + saveName + \"': use 1-64 letters, digits, '-' or '_'.\");\nvar savesDir = Path.Combine(root, \"saves\");\nvar save = Path.Combine(savesDir, saveName + \".zip\");\nif (!File.Exists(save))\n{\n    ScriptConsole.WriteLine((object)(\"Creating a new map: saves/\" + saveName + \".zip\"));\n    var credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\n    if (!Directory.Exists(savesDir))\n    {\n        Directory.CreateDirectory(savesDir);\n        Globals.OperatingSystem.SetDirectoryOwner(savesDir, credential.Domain, credential.UserName, false);\n    }\n    // The map is created by the service user and without a shell (the save name is customer input).\n    var runuser = File.Exists(\"/usr/sbin/runuser\") ? \"/usr/sbin/runuser\" : \"/sbin/runuser\";\n    var startInfo = new ProcessStartInfo(runuser) { WorkingDirectory = root, RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false };\n    foreach (var argument in new[] { \"-u\", (string)credential.UserName, \"--\", Path.Combine(root, \"bin\", \"x64\", \"factorio\"), \"--create\", \"saves/\" + saveName + \".zip\" })\n        startInfo.ArgumentList.Add(argument);\n    string createOutput;\n    int exitCode;\n    using (var process = Process.Start(startInfo))\n    {\n        var stdout = process.StandardOutput.ReadToEndAsync();\n        var stderr = process.StandardError.ReadToEndAsync();\n        process.WaitForExit();\n        createOutput = stdout.Result + stderr.Result;\n        exitCode = process.ExitCode;\n    }\n    if (exitCode != 0 || !File.Exists(save))\n        throw new Exception(\"Creating the map failed (exit \" + exitCode + \"): \" + createOutput);\n}\n// Shared body of the Factorio install/update scripts: the headless server from factorio.com (Linux only), a tar.xz\n// whose files sit under factorio/; extracted with the host's tar, which handles xz.\nasync Task<string> LatestHeadless(HttpClient http)\n{\n    using (var doc = JsonDocument.Parse(await http.GetStringAsync(\"https://factorio.com/api/latest-releases\")))\n        return doc.RootElement.GetProperty(\"stable\").GetProperty(\"headless\").GetString();\n}\n\nbool Shell(string command, out string output)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\"/bin/sh\", new[] { \"-c\", command }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        output = process.StandardOutput.ReadToEnd() + process.StandardError.ReadToEnd();\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n\nasync Task InstallHeadless(HttpClient http, string version, string target)\n{\n    Directory.CreateDirectory(target);\n    var archive = Path.Combine(target, \"factorio-headless.tar.xz\");\n    using (var response = await http.GetAsync(\"https://www.factorio.com/get-download/\" + version + \"/headless/linux64\", HttpCompletionOption.ResponseHeadersRead, ThisCancellationToken))\n    {\n        response.EnsureSuccessStatusCode();\n        using (var file = File.Create(archive)) await response.Content.CopyToAsync(file, ThisCancellationToken);\n    }\n    if (!Shell(\"tar -xJf '\" + archive + \"' --strip-components=1 -C '\" + target + \"'\", out var tarOutput))\n        throw new Exception(\"Extracting Factorio \" + version + \" failed (is xz-utils installed?): \" + tarOutput);\n    File.Delete(archive);\n    File.WriteAllText(Path.Combine(target, \"factorio-version.txt\"), version);\n    ScriptConsole.WriteLine((object)(\"Installed Factorio \" + version + \".\"));\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "10ce0e26-6392-4c32-8cca-833e1ba3429e"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Linux"
+        ],
+        "scriptEvents": [
+          "CustomQueryProtocol"
+        ],
+        "name": "Factorio query",
+        "description": "Reports the server online while its game port is bound (Factorio has no server-browser query).",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll, System.Net.NetworkInformation.dll, System.Net.Primitives.dll\nusing System;\nusing System.Linq;\nusing System.Net;\nusing System.Net.NetworkInformation;\nusing TCAdmin.SDK.Hubs.Models.GameQuery;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Factorio has no server-browser query on its game port, and every RCON login is written to the game console\n// (\"New RCON connection from ...\"), so querying through RCON every few seconds would flood it. The query runs on the\n// monitor of the server that hosts the service, so it checks that the game's UDP port is bound on this machine.\nstring address = Convert.ToString(Dynamic.Address);\nif (string.IsNullOrEmpty(address)) address = ThisService.IPAddress;\n// Factorio answers on its game port only; the panel's query port is ignored so a changed QueryPort cannot break the status.\nint port = ThisService.GamePort;\n\ntry\n{\n    IPAddress.TryParse(address, out var ip);\n    var listening = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners()\n        .Any(l => l.Port == port && (ip == null || l.Address.Equals(ip) || l.Address.Equals(IPAddress.Any) || l.Address.Equals(IPAddress.IPv6Any)));\n    Globals.ReturnValue = listening\n        ? new GameQueryResponse\n        {\n            Success = true,\n            Status = \"online\",\n            Protocol = \"custom_script\",\n            Address = address,\n            Hostname = $\"{address}:{port}\",\n            Name = ThisService.Name,\n            GameType = \"Factorio\",\n            Map = \"\",\n            NumPlayers = 0,\n            MaxPlayers = ThisService.Slots,\n            NumSpectators = 0,\n            MaxSpectators = 0,\n            Retries = 0\n        }\n        : GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", $\"Nothing is listening on {address}:{port} (UDP).\");\n}\ncatch (Exception ex)\n{\n    Globals.ReturnValue = GameQueryResponse.DefaultOfflineResponse(address, \"custom_script\", ex.Message);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "c18916cf-ca3c-4415-a10d-b2a85fd63f0c"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-10T14:31:47.443443",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "saves/**/*",
+      "mods/**/*",
+      "server-settings.json",
+      "server-adminlist.json",
+      "server-banlist.json",
+      "server-whitelist.json"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
