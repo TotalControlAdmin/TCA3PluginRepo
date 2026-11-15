@@ -1,0 +1,39 @@
+identifier: "Community.Games.HalfLifeTeamFortressClassic"
+name: "Half Life - Team Fortress Classic"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Team Fortress Classic (HLDS) dedicated server (Windows / Linux) with Steam update, console and graceful stop"
+longDescription: |
+  # Half Life - Team Fortress Classic
+  
+  ## Description
+  Team Fortress Classic (GoldSrc) dedicated server for Windows and Linux (HLDS, Steam app 90, anonymous download).
+  
+  ## Key Features
+  - **Windows and Linux** configs (`hlds.exe` / `hlds_run`).
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S).
+  - **Console:** Terminal on Linux, the console wrapper on Windows. Console commands work on both.
+  - **Graceful stop** with `quit`. The command line includes `-norestart`, so `hlds_run` doesn't relaunch the server on stop.
+  - **Config editor** for `tfc/server.cfg`, `tfc/mapcycle.txt` and `tfc/motd.txt`.
+  - On Linux a start script writes `steam_appid.txt` (20), so a new server can reach Steam on its first start.
+  - **Backups** with the panel's backup feature: the configs and text files in `tfc` (server.cfg, map cycle, MOTD, bans) and `tfc/addons` (AMX Mod X / Metamod).
+  
+  ## Ports
+  - Game, query and RCON share one port (default 27015).
+  
+  ## Instructions
+  - On Linux, `hlds_linux` exits with code 139 when it quits. That's a long-standing GoldSrc quirk, not a crash on stop.
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/20/38ea7ebe3c1abbbbf4eabdbef174c41a972102b9.jpg"
+images:
+  - "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/20/0000000165.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "TFC - Windows.json"
+    type: "GameConfig"
+  - path: "TFC - Linux.json"
+    type: "GameConfig"
