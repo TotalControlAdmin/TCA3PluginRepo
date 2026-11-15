@@ -1,0 +1,4342 @@
+{
+  "__TCA:ExportVersion": "3.23.46.17810",
+  "__TCA:ExportedAt": "2026-11-11T22:31:22.3607005Z",
+  "name": "VEIN",
+  "shortName": "VEIN",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/1857950/f877b7a16e93b3ece155ce04f6487bebff5b8f8f.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1857950/e2c2e1f3a9e6e50f4f20bb7d1563aa0d113e557c/ss_e2c2e1f3a9e6e50f4f20bb7d1563aa0d113e557c.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 64,
+  "defaultSlots": 16,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".ini",
+    ".txt",
+    ".json"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "custom_script",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "MemoryWrapper",
+    "logFile": "",
+    "inputSource": "RconProtocol",
+    "printRconResponse": true,
+    "outputFilters": "",
+    "stopCommand": "",
+    "waitAfterStopCommand": 30000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": true,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 7777,
+        "expression": "",
+        "description": "Game (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 27015,
+        "expression": "",
+        "description": "Steam query and server list (UDP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "HttpPort",
+        "port": 8080,
+        "expression": "",
+        "description": "HTTP API (TCP): status, players, save",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "Vein\\Binaries\\Win64\\VeinServer-Win64-Test.exe",
+    "relativeWorkingDirectory": "Vein\\Binaries\\Win64",
+    "autoSetupFolderName": "vein",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 2131400,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 1857950,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": false,
+    "defaultCommandline": "Vein -Port=${GamePort} -QueryPort=${QueryPort} -multihome=${IPAddress} -log -noexclusivelockonwrite",
+    "defaultCustomCommandline": "Vein -Port=${GamePort} -QueryPort=${QueryPort} -multihome=${IPAddress} -log -noexclusivelockonwrite",
+    "predefinedCommandlines": []
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": true,
+    "elevated": false
+  },
+  "identifier": "1dd8172e-34c5-55af-94a8-ad3575f12a60",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "ServerDescription",
+      "defaultValue": "A VEIN server.",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ServerDescription}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "ServerDescription",
+        "defaultValue": "A VEIN server.",
+        "label": "Description",
+        "description": "Shown when a player selects the server in the browser: rules, play style, a message of the day.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.939325",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Public",
+      "defaultValue": "True",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Public}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "Public",
+        "defaultValue": "True",
+        "label": "List in the server browser",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.952861",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SuperAdminSteamIDs",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SuperAdminSteamIDs}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "SuperAdminSteamIDs",
+        "defaultValue": "",
+        "label": "Super admin (SteamID64)",
+        "description": "The 17-digit SteamID64 of the server owner. Super admins open the admin menu with \\ and can make other players admins in the game. More admins: add +AdminSteamIDs=<id> lines in the text editor.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.955273",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "VACEnabled",
+      "defaultValue": "False",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${VACEnabled}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "True",
+        "uncheckedValue": "False",
+        "id": "VACEnabled",
+        "defaultValue": "False",
+        "label": "Valve Anti-Cheat (VAC)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.955334",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ScoreboardBadges",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ScoreboardBadges}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "ScoreboardBadges",
+        "defaultValue": "1",
+        "label": "Show admin badges on the scoreboard",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.955349",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "DiscordChatWebhookURL",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${DiscordChatWebhookURL}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "DiscordChatWebhookURL",
+        "defaultValue": "",
+        "label": "Discord chat webhook URL",
+        "description": "Optional. The in-game chat is posted to this Discord webhook.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.95541",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "HungerMultiplier",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${HungerMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 10,
+        "id": "HungerMultiplier",
+        "defaultValue": "1",
+        "label": "Hunger multiplier",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.955426",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ThirstMultiplier",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ThirstMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 10,
+        "id": "ThirstMultiplier",
+        "defaultValue": "1",
+        "label": "Thirst multiplier",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.9616",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TiredMultiplier",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TiredMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 10,
+        "id": "TiredMultiplier",
+        "defaultValue": "1",
+        "label": "Tiredness multiplier",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.961666",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxThirdPersonDistance",
+      "defaultValue": "400",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxThirdPersonDistance}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 2000,
+        "id": "MaxThirdPersonDistance",
+        "defaultValue": "400",
+        "label": "Third-person camera distance",
+        "description": "How far the third-person camera may be from the character.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.96168",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TimeMultiplier",
+      "defaultValue": "16",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TimeMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0.1,
+        "maxValue": 1000,
+        "id": "TimeMultiplier",
+        "defaultValue": "16",
+        "label": "Time speed",
+        "description": "How fast the game world runs compared to real time.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.961694",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "NightTimeMultiplier",
+      "defaultValue": "3",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${NightTimeMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0.1,
+        "maxValue": 100,
+        "id": "NightTimeMultiplier",
+        "defaultValue": "3",
+        "label": "Night speed",
+        "description": "How much faster than daytime the night runs.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.961706",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "TimeContinueEmpty",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${TimeContinueEmpty}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "TimeContinueEmpty",
+        "defaultValue": "0",
+        "label": "Time runs while the server is empty",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.961726",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SleepAdvanceTime",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SleepAdvanceTime}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "SleepAdvanceTime",
+        "defaultValue": "0",
+        "label": "Sleeping advances the time",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.961752",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "StartOffsetDays",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${StartOffsetDays}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 365,
+        "id": "StartOffsetDays",
+        "defaultValue": "0",
+        "label": "Start a new world on day",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.961762",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "WaterShutoffDays",
+      "defaultValue": "30",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${WaterShutoffDays}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 10000,
+        "id": "WaterShutoffDays",
+        "defaultValue": "30",
+        "label": "Water shut off after (days)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.961774",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ElectricalShutoffDays",
+      "defaultValue": "46",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ElectricalShutoffDays}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 10000,
+        "id": "ElectricalShutoffDays",
+        "defaultValue": "46",
+        "label": "Power shut off after (days)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.961793",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ScarcityDifficulty",
+      "defaultValue": "2",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ScarcityDifficulty}",
+      "editor": {
+        "items": [
+          {
+            "text": "No loot",
+            "value": "0"
+          },
+          {
+            "text": "More loot",
+            "value": "1"
+          },
+          {
+            "text": "Standard",
+            "value": "2"
+          },
+          {
+            "text": "Less loot",
+            "value": "3"
+          },
+          {
+            "text": "Impossible",
+            "value": "4"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "ScarcityDifficulty",
+        "defaultValue": "2",
+        "label": "Loot",
+        "description": "",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.961809",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ContainersRespawn",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ContainersRespawn}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "ContainersRespawn",
+        "defaultValue": "1",
+        "label": "Empty containers respawn loot",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966771",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ContainersRespawnInterval",
+      "defaultValue": "10800",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ContainersRespawnInterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 60,
+        "maxValue": 1000000,
+        "id": "ContainersRespawnInterval",
+        "defaultValue": "10800",
+        "label": "Container respawn (seconds)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966821",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ItemSpawnersRespawn",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ItemSpawnersRespawn}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "ItemSpawnersRespawn",
+        "defaultValue": "1",
+        "label": "World items respawn",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.96685",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ItemSpawnerInterval",
+      "defaultValue": "3600",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ItemSpawnerInterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 60,
+        "maxValue": 1000000,
+        "id": "ItemSpawnerInterval",
+        "defaultValue": "3600",
+        "label": "World item respawn (seconds)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.96686",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "FurnitureRespawns",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${FurnitureRespawns}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "FurnitureRespawns",
+        "defaultValue": "1",
+        "label": "Furniture respawns",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966869",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "XPMultiplier",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${XPMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "XPMultiplier",
+        "defaultValue": "1",
+        "label": "XP multiplier",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966876",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PvP",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PvP}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "PvP",
+        "defaultValue": "1",
+        "label": "Player vs player",
+        "description": "Players can damage other players.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966887",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AllowPickpocketing",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AllowPickpocketing}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "AllowPickpocketing",
+        "defaultValue": "1",
+        "label": "Pickpocketing",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966895",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Permadeath",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Permadeath}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "Permadeath",
+        "defaultValue": "0",
+        "label": "Permadeath",
+        "description": "Players cannot respawn.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966903",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RetainItemsOnDeath",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RetainItemsOnDeath}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "RetainItemsOnDeath",
+        "defaultValue": "0",
+        "label": "Keep items on death",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966911",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AlwaysBecomeZombie",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AlwaysBecomeZombie}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "AlwaysBecomeZombie",
+        "defaultValue": "0",
+        "label": "Dead characters always become zombies",
+        "description": "Regardless of infection.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966919",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ZombieInfectionChance",
+      "defaultValue": "0.01",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ZombieInfectionChance}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.01,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 1,
+        "id": "ZombieInfectionChance",
+        "defaultValue": "0.01",
+        "label": "Infection chance per zombie hit",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966927",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "HeadshotDamageMultiplier",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${HeadshotDamageMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "HeadshotDamageMultiplier",
+        "defaultValue": "1",
+        "label": "Headshot damage multiplier",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966937",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PersistentCorpses",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PersistentCorpses}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "PersistentCorpses",
+        "defaultValue": "1",
+        "label": "Persistent corpses",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966945",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "VehicleDamage",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${VehicleDamage}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "VehicleDamage",
+        "defaultValue": "1",
+        "label": "Vehicles damage the players they hit",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966954",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ClothingHideable",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ClothingHideable}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "ClothingHideable",
+        "defaultValue": "0",
+        "label": "Players can hide their clothes (roleplay)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966962",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxCharacters",
+      "defaultValue": "100",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxCharacters}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 1000,
+        "id": "MaxCharacters",
+        "defaultValue": "100",
+        "label": "Characters per player",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966969",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "BaseDamage",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BaseDamage}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "BaseDamage",
+        "defaultValue": "1",
+        "label": "Bases can be damaged",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966979",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "BuildObjectPvP",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BuildObjectPvP}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "BuildObjectPvP",
+        "defaultValue": "1",
+        "label": "Players can damage other players' bases",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966987",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "OfflineRaidProtection",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${OfflineRaidProtection}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "OfflineRaidProtection",
+        "defaultValue": "0",
+        "label": "Offline raid protection",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.966994",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "CabinetAllowRaiding",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${CabinetAllowRaiding}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "CabinetAllowRaiding",
+        "defaultValue": "1",
+        "label": "Utility cabinets can be raided",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.967002",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "BuildObjectDecay",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${BuildObjectDecay}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "BuildObjectDecay",
+        "defaultValue": "1",
+        "label": "Bases decay without a utility cabinet",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.967009",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxUtilityCabinets",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxUtilityCabinets}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 1000,
+        "id": "MaxUtilityCabinets",
+        "defaultValue": "0",
+        "label": "Utility cabinets per player",
+        "description": "0 = no limit.",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.967016",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AISpawn",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AISpawn}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "AISpawn",
+        "defaultValue": "1",
+        "label": "Zombies and animals spawn",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.967026",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SpawnCapMultiplierZombie",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SpawnCapMultiplierZombie}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 10,
+        "id": "SpawnCapMultiplierZombie",
+        "defaultValue": "1",
+        "label": "Zombie amount multiplier",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.967033",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ZombieHealth",
+      "defaultValue": "40",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ZombieHealth}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 10000,
+        "id": "ZombieHealth",
+        "defaultValue": "40",
+        "label": "Zombie health",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.967042",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ZombieDamageMultiplier",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ZombieDamageMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "ZombieDamageMultiplier",
+        "defaultValue": "1",
+        "label": "Zombie damage multiplier",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.967052",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ZombieSpeedMultiplier",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ZombieSpeedMultiplier}",
+      "editor": {
+        "decimals": 2,
+        "step": 0.1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 10,
+        "id": "ZombieSpeedMultiplier",
+        "defaultValue": "1",
+        "label": "Zombie speed multiplier",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.96706",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ZombieHeadshotOnly",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ZombieHeadshotOnly}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "ZombieHeadshotOnly",
+        "defaultValue": "0",
+        "label": "Zombies die only from headshots",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.967068",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ZombieCanClimb",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ZombieCanClimb}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "ZombieCanClimb",
+        "defaultValue": "1",
+        "label": "Zombies can climb",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.967077",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hordes",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hordes}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "Hordes",
+        "defaultValue": "1",
+        "label": "Hordes",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.967086",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Autosave",
+      "defaultValue": "1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Autosave}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "1",
+        "uncheckedValue": "0",
+        "id": "Autosave",
+        "defaultValue": "1",
+        "label": "Autosave",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.967099",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AutosaveInterval",
+      "defaultValue": "300",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AutosaveInterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 30,
+        "maxValue": 86400,
+        "id": "AutosaveInterval",
+        "defaultValue": "300",
+        "label": "Autosave interval (seconds)",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.967117",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AutosaveMax",
+      "defaultValue": "10",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AutosaveMax}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 100,
+        "id": "AutosaveMax",
+        "defaultValue": "10",
+        "label": "Autosaves to keep",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-11T13:27:59.967132",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:58:42.685974",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:58:43.890332",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 729,
+      "relativePath": "Vein\\Saved\\Config\\WindowsServer\\Game.ini",
+      "description": "Server settings (Game.ini)",
+      "template": "[/Script/Engine.GameSession]\nMaxPlayers=${Slots}\n\n[/Script/Vein.VeinGameSession]\nServerName=${Hostname}\nServerDescription=${ServerDescription}\nPassword=${PrivatePassword}\nbPublic=${Public}\nSuperAdminSteamIDs=${SuperAdminSteamIDs}\nBindAddr=${IPAddress}\nHeartbeatInterval=5.0\nHTTPPort=${HttpPort}\n\n[OnlineSubsystemSteam]\nGameServerQueryPort=${QueryPort}\nbVACEnabled=${VACEnabled}\n\n[/Script/Vein.ServerSettings]\nGS_ShowScoreboardBadges=${ScoreboardBadges}\nDiscordChatWebhookURL=${DiscordChatWebhookURL}\nGS_HungerMultiplier=${HungerMultiplier}\nGS_ThirstMultiplier=${ThirstMultiplier}\nGS_TiredMultiplier=${TiredMultiplier}\nGS_MaxThirdPersonDistance=${MaxThirdPersonDistance}\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_Server",
+          "defaultValue": null,
+          "label": "Server",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": "",
+          "label": "Server name",
+          "description": "Shown in the server browser.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "ServerDescription",
+          "defaultValue": "A VEIN server.",
+          "label": "Description",
+          "description": "Shown when a player selects the server in the browser: rules, play style, a message of the day.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": "",
+          "label": "Password",
+          "description": "Leave empty for a public server. 4 to 32 letters, numbers, dashes and underscores (case-sensitive).",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "Public",
+          "defaultValue": "True",
+          "label": "List in the server browser",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "SuperAdminSteamIDs",
+          "defaultValue": "",
+          "label": "Super admin (SteamID64)",
+          "description": "The 17-digit SteamID64 of the server owner. Super admins open the admin menu with \\ and can make other players admins in the game. More admins: add +AdminSteamIDs=<id> lines in the text editor.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "True",
+          "uncheckedValue": "False",
+          "id": "VACEnabled",
+          "defaultValue": "False",
+          "label": "Valve Anti-Cheat (VAC)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "ScoreboardBadges",
+          "defaultValue": "1",
+          "label": "Show admin badges on the scoreboard",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "DiscordChatWebhookURL",
+          "defaultValue": "",
+          "label": "Discord chat webhook URL",
+          "description": "Optional. The in-game chat is posted to this Discord webhook.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Survival",
+          "defaultValue": null,
+          "label": "Survival",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 10,
+          "id": "HungerMultiplier",
+          "defaultValue": "1",
+          "label": "Hunger multiplier",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 10,
+          "id": "ThirstMultiplier",
+          "defaultValue": "1",
+          "label": "Thirst multiplier",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 10,
+          "id": "TiredMultiplier",
+          "defaultValue": "1",
+          "label": "Tiredness multiplier",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 2000,
+          "id": "MaxThirdPersonDistance",
+          "defaultValue": "400",
+          "label": "Third-person camera distance",
+          "description": "How far the third-person camera may be from the character.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 730,
+      "relativePath": "Vein\\Saved\\Config\\WindowsServer\\Engine.ini",
+      "description": "Gameplay settings (console variables in Engine.ini)",
+      "template": "[HTTPServer.Listeners]\nDefaultBindAddress=127.0.0.1\n\n[URL]\nPort=${GamePort}\n\n[ConsoleVariables]\nvein.Time.TimeMultiplier=${TimeMultiplier}\nvein.Time.NightTimeMultiplier=${NightTimeMultiplier}\nvein.Time.ContinueWithNoPlayers=${TimeContinueEmpty}\nvein.Sleep.AdvanceTime=${SleepAdvanceTime}\nvein.Time.StartOffsetDays=${StartOffsetDays}\nvein.Calendar.WaterShutoffTimeDays=${WaterShutoffDays}\nvein.Calendar.ElectricalShutoffTimeDays=${ElectricalShutoffDays}\nvein.Scarcity.Difficulty=${ScarcityDifficulty}\nvein.ContainersRespawn.Enabled=${ContainersRespawn}\nvein.ContainersRespawn.Interval=${ContainersRespawnInterval}\nvein.ItemActorSpawner.Respawns=${ItemSpawnersRespawn}\nvein.ItemActorSpawner.RespawnInterval=${ItemSpawnerInterval}\nvein.Furniture.Respawns=${FurnitureRespawns}\nvein.Stats.XPMultiplier=${XPMultiplier}\nvein.PvP=${PvP}\nvein.AllowPickpocketing=${AllowPickpocketing}\nvein.Permadeath=${Permadeath}\nvein.RetainItemsOnDeath=${RetainItemsOnDeath}\nvein.AlwaysBecomeZombie=${AlwaysBecomeZombie}\nvein.ZombieInfectionChance=${ZombieInfectionChance}\nvein.HeadshotDamageMultiplier=${HeadshotDamageMultiplier}\nvein.PersistentCorpses=${PersistentCorpses}\nvein.Vehicles.Damage.OutgoingPlayerDamage=${VehicleDamage}\nvein.ClothingHideable=${ClothingHideable}\nvein.Characters.Max=${MaxCharacters}\nvein.BaseDamage=${BaseDamage}\nvein.BuildObjectPvP=${BuildObjectPvP}\nvein.OfflineRaidProtection=${OfflineRaidProtection}\nvein.UtilityCabinet.AllowRaiding=${CabinetAllowRaiding}\nvein.BuildObjectDecay=${BuildObjectDecay}\nvein.Placement.MaxUtilityCabinets=${MaxUtilityCabinets}\nvein.AISpawner.Enabled=${AISpawn}\nvein.AISpawner.SpawnCapMultiplierZombie=${SpawnCapMultiplierZombie}\nvein.Zombies.Health=${ZombieHealth}\nvein.Zombies.DamageMultiplier=${ZombieDamageMultiplier}\nvein.Zombies.SpeedMultiplier=${ZombieSpeedMultiplier}\nvein.Zombies.HeadshotOnly=${ZombieHeadshotOnly}\nvein.Zombies.CanClimb=${ZombieCanClimb}\nvein.AISpawner.Hordes.Enabled=${Hordes}\nvein.Autosave.Enabled=${Autosave}\nvein.Autosave.Interval=${AutosaveInterval}\nvein.Autosave.MaxQuantity=${AutosaveMax}\n\n[Core.Log]\nLogOnlineSession=Warning\nLogOnline=Warning\n",
+      "order": 2,
+      "enableEditor": true,
+      "editor": [
+        {
+          "icon": null,
+          "id": "Header_World",
+          "defaultValue": null,
+          "label": "World",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0.1,
+          "maxValue": 1000,
+          "id": "TimeMultiplier",
+          "defaultValue": "16",
+          "label": "Time speed",
+          "description": "How fast the game world runs compared to real time.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0.1,
+          "maxValue": 100,
+          "id": "NightTimeMultiplier",
+          "defaultValue": "3",
+          "label": "Night speed",
+          "description": "How much faster than daytime the night runs.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "TimeContinueEmpty",
+          "defaultValue": "0",
+          "label": "Time runs while the server is empty",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "SleepAdvanceTime",
+          "defaultValue": "0",
+          "label": "Sleeping advances the time",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 365,
+          "id": "StartOffsetDays",
+          "defaultValue": "0",
+          "label": "Start a new world on day",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 10000,
+          "id": "WaterShutoffDays",
+          "defaultValue": "30",
+          "label": "Water shut off after (days)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 10000,
+          "id": "ElectricalShutoffDays",
+          "defaultValue": "46",
+          "label": "Power shut off after (days)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "No loot",
+              "value": "0"
+            },
+            {
+              "text": "More loot",
+              "value": "1"
+            },
+            {
+              "text": "Standard",
+              "value": "2"
+            },
+            {
+              "text": "Less loot",
+              "value": "3"
+            },
+            {
+              "text": "Impossible",
+              "value": "4"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "ScarcityDifficulty",
+          "defaultValue": "2",
+          "label": "Loot",
+          "description": "",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "ContainersRespawn",
+          "defaultValue": "1",
+          "label": "Empty containers respawn loot",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 60,
+          "maxValue": 1000000,
+          "id": "ContainersRespawnInterval",
+          "defaultValue": "10800",
+          "label": "Container respawn (seconds)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "ItemSpawnersRespawn",
+          "defaultValue": "1",
+          "label": "World items respawn",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 60,
+          "maxValue": 1000000,
+          "id": "ItemSpawnerInterval",
+          "defaultValue": "3600",
+          "label": "World item respawn (seconds)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "FurnitureRespawns",
+          "defaultValue": "1",
+          "label": "Furniture respawns",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "XPMultiplier",
+          "defaultValue": "1",
+          "label": "XP multiplier",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Players",
+          "defaultValue": null,
+          "label": "Players",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "PvP",
+          "defaultValue": "1",
+          "label": "Player vs player",
+          "description": "Players can damage other players.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "AllowPickpocketing",
+          "defaultValue": "1",
+          "label": "Pickpocketing",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "Permadeath",
+          "defaultValue": "0",
+          "label": "Permadeath",
+          "description": "Players cannot respawn.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "RetainItemsOnDeath",
+          "defaultValue": "0",
+          "label": "Keep items on death",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "AlwaysBecomeZombie",
+          "defaultValue": "0",
+          "label": "Dead characters always become zombies",
+          "description": "Regardless of infection.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.01,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 1,
+          "id": "ZombieInfectionChance",
+          "defaultValue": "0.01",
+          "label": "Infection chance per zombie hit",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "HeadshotDamageMultiplier",
+          "defaultValue": "1",
+          "label": "Headshot damage multiplier",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "PersistentCorpses",
+          "defaultValue": "1",
+          "label": "Persistent corpses",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "VehicleDamage",
+          "defaultValue": "1",
+          "label": "Vehicles damage the players they hit",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "ClothingHideable",
+          "defaultValue": "0",
+          "label": "Players can hide their clothes (roleplay)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 1000,
+          "id": "MaxCharacters",
+          "defaultValue": "100",
+          "label": "Characters per player",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Bases",
+          "defaultValue": null,
+          "label": "Bases",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "BaseDamage",
+          "defaultValue": "1",
+          "label": "Bases can be damaged",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "BuildObjectPvP",
+          "defaultValue": "1",
+          "label": "Players can damage other players' bases",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "OfflineRaidProtection",
+          "defaultValue": "0",
+          "label": "Offline raid protection",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "CabinetAllowRaiding",
+          "defaultValue": "1",
+          "label": "Utility cabinets can be raided",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "BuildObjectDecay",
+          "defaultValue": "1",
+          "label": "Bases decay without a utility cabinet",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 1000,
+          "id": "MaxUtilityCabinets",
+          "defaultValue": "0",
+          "label": "Utility cabinets per player",
+          "description": "0 = no limit.",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Zombies",
+          "defaultValue": null,
+          "label": "Zombies",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "AISpawn",
+          "defaultValue": "1",
+          "label": "Zombies and animals spawn",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 10,
+          "id": "SpawnCapMultiplierZombie",
+          "defaultValue": "1",
+          "label": "Zombie amount multiplier",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 10000,
+          "id": "ZombieHealth",
+          "defaultValue": "40",
+          "label": "Zombie health",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "ZombieDamageMultiplier",
+          "defaultValue": "1",
+          "label": "Zombie damage multiplier",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 2,
+          "step": 0.1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 10,
+          "id": "ZombieSpeedMultiplier",
+          "defaultValue": "1",
+          "label": "Zombie speed multiplier",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "ZombieHeadshotOnly",
+          "defaultValue": "0",
+          "label": "Zombies die only from headshots",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "ZombieCanClimb",
+          "defaultValue": "1",
+          "label": "Zombies can climb",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "Hordes",
+          "defaultValue": "1",
+          "label": "Hordes",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "icon": null,
+          "id": "Header_Saves",
+          "defaultValue": null,
+          "label": "Saves",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "valueType": "bool",
+          "checkedValue": "1",
+          "uncheckedValue": "0",
+          "id": "Autosave",
+          "defaultValue": "1",
+          "label": "Autosave",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicCheckBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 30,
+          "maxValue": 86400,
+          "id": "AutosaveInterval",
+          "defaultValue": "300",
+          "label": "Autosave interval (seconds)",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 100,
+          "id": "AutosaveMax",
+          "defaultValue": "10",
+          "label": "Autosaves to keep",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "CustomRconProtocol"
+        ],
+        "name": "Console commands",
+        "description": "Runs the console commands typed in the panel against the server's HTTP API (status, players, say <message>, save): the server reads no console input and has no RCON.",
+        "code": "//refAssemblies: System.Net.Http.dll, System.Net.Primitives.dll, System.Text.Json.dll\nusing System;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Console input for VEIN: the server reads no console input and has no RCON, so the commands typed in the panel's\n// console go to its HTTP API (status, players, messages to the players, save).\n// The server's HTTP API (Game.ini HTTPPort): it listens on the loopback address only, so the panel reaches it from the monitor\n// of the server that hosts the service. Routes: GET /status /players /players/<id> /characters/<id> /time /weather,\n// POST /notification {\"Message\": ...} /save /saveandexit.\nasync Task<(int Status, string Body)> VeinHttp(string method, string path, string json, int timeoutMs)\n{\n    int port;\n    try { port = Convert.ToInt32(ThisService.Ports[\"HttpPort\"]); }\n    catch { throw new Exception(\"The service has no HttpPort.\"); }\n    using (var http = new HttpClient { Timeout = TimeSpan.FromMilliseconds(timeoutMs) })\n    {\n        var url = \"http://\" + System.Net.IPAddress.Loopback + \":\" + port + \"/\" + path.TrimStart('/');\n        var request = new HttpRequestMessage(method == \"POST\" ? HttpMethod.Post : HttpMethod.Get, url);\n        if (method == \"POST\")\n        {\n            // The server reads a JSON body as a C string: without a terminating NUL it answers {\"error\": \"bad_body\"}.\n            var content = new ByteArrayContent(Encoding.UTF8.GetBytes(string.IsNullOrEmpty(json) ? \"\" : json + \"\\0\"));\n            content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(\"application/json\");\n            request.Content = content;\n        }\n        using (var response = await http.SendAsync(request, ThisCancellationToken))\n            return ((int)response.StatusCode, await response.Content.ReadAsStringAsync());\n    }\n}\n\n\nconst string help = \"Commands: status | players | player <SteamID64> | character <id> | time | weather | say <message> | save | saveandexit\";\n\nstring Pretty(string body)\n{\n    try { return JsonSerializer.Serialize(JsonDocument.Parse(body).RootElement, new JsonSerializerOptions { WriteIndented = true }); }\n    catch { return body; }\n}\n\nstring result;\ntry\n{\n    var line = (Globals.Variables.Parse<string>(\"Command\") ?? string.Empty).Trim();\n    var space = line.IndexOf(' ');\n    var verb = (space < 0 ? line : line.Substring(0, space)).ToLowerInvariant();\n    var arg = space < 0 ? \"\" : line.Substring(space + 1).Trim();\n    (int Status, string Body) reply;\n    switch (verb)\n    {\n        case \"\":\n            result = string.Empty;\n            break;\n        case \"help\":\n        case \"?\":\n            result = help;\n            break;\n        case \"status\":\n        case \"players\":\n        case \"time\":\n        case \"weather\":\n            reply = await VeinHttp(\"GET\", verb, null, 8000);\n            result = reply.Status == 200 ? Pretty(reply.Body) : \"HTTP \" + reply.Status + \" \" + reply.Body;\n            break;\n        case \"player\":\n        case \"character\":\n            if (arg.Length == 0) { result = \"Usage: \" + verb + \" <id>\"; break; }\n            reply = await VeinHttp(\"GET\", (verb == \"player\" ? \"players/\" : \"characters/\") + Uri.EscapeDataString(arg), null, 8000);\n            result = reply.Status == 200 ? Pretty(reply.Body) : \"HTTP \" + reply.Status + \" \" + reply.Body;\n            break;\n        case \"say\":\n        case \"notify\":\n        case \"broadcast\":\n            if (arg.Length == 0) { result = \"Usage: say <message>\"; break; }\n            reply = await VeinHttp(\"POST\", \"notification\", JsonSerializer.Serialize(new { Message = arg }), 8000);\n            result = reply.Status < 300 ? \"Sent to the players: \" + arg : \"HTTP \" + reply.Status + \" \" + reply.Body;\n            break;\n        case \"save\":\n            reply = await VeinHttp(\"POST\", \"save\", \"\", 60000);\n            result = reply.Status < 300 ? \"The world is being saved.\" : \"HTTP \" + reply.Status + \" \" + reply.Body;\n            break;\n        case \"saveandexit\":\n            reply = await VeinHttp(\"POST\", \"saveandexit\", \"\", 60000);\n            result = reply.Status < 300 ? \"The server saves the world and exits.\" : \"HTTP \" + reply.Status + \" \" + reply.Body;\n            break;\n        default:\n            result = \"Unknown command '\" + verb + \"'. \" + help;\n            break;\n    }\n}\ncatch (Exception ex)\n{\n    result = \"The server's HTTP API did not answer (\" + ex.Message + \"). It starts after the map has loaded.\";\n}\nGlobals.ReturnValue = result;\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "84dd3bb1-f081-5ef6-bf68-d32c0f4f0979"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStopped"
+        ],
+        "name": "Save the world and shut down",
+        "description": "Asks the server to save the world and exit (HTTP API /saveandexit, SIGINT on Linux when the API does not answer) and waits until it exits.",
+        "code": "//refAssemblies: System.Net.Http.dll, System.Net.Primitives.dll, System.Diagnostics.Process.dll, System.Text.Json.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text;\nusing System.Text.Json;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Graceful stop: asks the server to save the world and exit (HTTP API POST /saveandexit) and waits until it is gone.\n// When the API does not answer (the map is still loading: nothing to save yet), Linux gets a SIGINT, which makes the\n// engine exit cleanly without saving.\n// Then the config settings edited in the panel while the server ran are written again (the server overwrites its\n// ini files on exit). Only the server process of THIS service is touched.\n// The server's HTTP API (Game.ini HTTPPort): it listens on the loopback address only, so the panel reaches it from the monitor\n// of the server that hosts the service. Routes: GET /status /players /players/<id> /characters/<id> /time /weather,\n// POST /notification {\"Message\": ...} /save /saveandexit.\nasync Task<(int Status, string Body)> VeinHttp(string method, string path, string json, int timeoutMs)\n{\n    int port;\n    try { port = Convert.ToInt32(ThisService.Ports[\"HttpPort\"]); }\n    catch { throw new Exception(\"The service has no HttpPort.\"); }\n    using (var http = new HttpClient { Timeout = TimeSpan.FromMilliseconds(timeoutMs) })\n    {\n        var url = \"http://\" + System.Net.IPAddress.Loopback + \":\" + port + \"/\" + path.TrimStart('/');\n        var request = new HttpRequestMessage(method == \"POST\" ? HttpMethod.Post : HttpMethod.Get, url);\n        if (method == \"POST\")\n        {\n            // The server reads a JSON body as a C string: without a terminating NUL it answers {\"error\": \"bad_body\"}.\n            var content = new ByteArrayContent(Encoding.UTF8.GetBytes(string.IsNullOrEmpty(json) ? \"\" : json + \"\\0\"));\n            content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(\"application/json\");\n            request.Content = content;\n        }\n        using (var response = await http.SendAsync(request, ThisCancellationToken))\n            return ((int)response.StatusCode, await response.Content.ReadAsStringAsync());\n    }\n}\n\n// The server writes its Game.ini and Engine.ini (console variables) back from memory when it exits, so a config edit\n// made while it runs would be lost. While the server runs, the config-file write events record what each panel edit\n// changed (.tca/vein-pending-<file>.json); after the server has exited, the stop script writes those keys again.\nconst string veinBinaryLinux = \"VeinServer-Linux-Test\";\nconst string veinBinaryWindows = \"VeinServer-Win64-Test\";\n\nstring VeinRoot() => Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;\n\nList<int> VeinServerPids()\n{\n    var root = VeinRoot();\n    var pids = new List<int>();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var p in Process.GetProcessesByName(veinBinaryWindows))\n        {\n            try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) pids.Add(p.Id); }\n            catch { } // exited meanwhile\n        }\n        return pids;\n    }\n    foreach (var dir in Directory.EnumerateDirectories(\"/proc\"))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var exe = new FileInfo(Path.Combine(dir, \"exe\")).LinkTarget ?? \"\";\n            if (exe.StartsWith(root, StringComparison.Ordinal) && Path.GetFileName(exe) == veinBinaryLinux) pids.Add(pid);\n        }\n        catch { } // processes of other users, or gone meanwhile\n    }\n    pids.Sort();\n    return pids;\n}\n\nstring VeinStateDir() => Path.Combine(VeinRoot(), \".tca\");\nstring VeinPendingPath(string configFile) => Path.Combine(VeinStateDir(), \"vein-pending-\" + Path.GetFileName(configFile) + \".json\");\nstring VeinBeforePath(string configFile) => Path.Combine(VeinStateDir(), \"vein-before-\" + Path.GetFileName(configFile));\nstring[] VeinConfigFiles()\n{\n    var folder = Path.Combine(VeinRoot(), \"Vein\", \"Saved\", \"Config\", System.OperatingSystem.IsWindows() ? \"WindowsServer\" : \"LinuxServer\");\n    return new[] { Path.Combine(folder, \"Game.ini\"), Path.Combine(folder, \"Engine.ini\") };\n}\n\n// \"Section|Key\" of an ini line (\"\" for blank lines, comments and section headers). +Key/-Key/.Key/!Key (array\n// operations) belong to Key.\nstring IniKey(string section, string line)\n{\n    var t = line.Trim();\n    if (t.Length == 0 || t[0] == ';' || t[0] == '#' || t[0] == '[') return \"\";\n    var eq = t.IndexOf('=');\n    var key = (eq < 0 ? t : t.Substring(0, eq)).Trim().TrimStart('+', '-', '.', '!').Trim();\n    return key.Length == 0 ? \"\" : section + \"|\" + key;\n}\n\nstring IniSection(string line)\n{\n    var t = line.Trim();\n    return t.Length > 2 && t[0] == '[' && t[t.Length - 1] == ']' ? t.Substring(1, t.Length - 2).Trim() : null;\n}\n\nList<string> IniLines(string text) => text.Replace(\"\\r\\n\", \"\\n\").Split('\\n').ToList();\n\n// Every key with all of its lines, in file order.\nDictionary<string, List<string>> IniEntries(string text)\n{\n    var entries = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);\n    var section = \"\";\n    foreach (var line in IniLines(text))\n    {\n        var s = IniSection(line);\n        if (s != null) { section = s; continue; }\n        var key = IniKey(section, line);\n        if (key == \"\") continue;\n        if (!entries.TryGetValue(key, out var list)) entries[key] = list = new List<string>();\n        list.Add(line.Trim());\n    }\n    return entries;\n}\n\n// Replaces the lines of each key in the file with the given lines (an empty list removes the key).\nstring IniApply(string text, Dictionary<string, List<string>> changes)\n{\n    var lines = IniLines(text);\n    foreach (var change in changes)\n    {\n        var want = change.Key.Substring(0, change.Key.IndexOf('|'));\n        var section = \"\";\n        var matches = new List<int>();\n        var lastInSection = -1;\n        var header = -1;\n        for (var i = 0; i < lines.Count; i++)\n        {\n            var s = IniSection(lines[i]);\n            if (s != null)\n            {\n                section = s;\n                if (header < 0 && s.Equals(want, StringComparison.OrdinalIgnoreCase)) header = i;\n                continue;\n            }\n            if (!section.Equals(want, StringComparison.OrdinalIgnoreCase)) continue;\n            if (lines[i].Trim().Length > 0) lastInSection = i;\n            if (string.Equals(IniKey(section, lines[i]), change.Key, StringComparison.OrdinalIgnoreCase)) matches.Add(i);\n        }\n        if (matches.Count > 0)\n        {\n            for (var m = matches.Count - 1; m >= 0; m--) lines.RemoveAt(matches[m]);\n            lines.InsertRange(matches[0], change.Value);\n        }\n        else if (change.Value.Count == 0) continue;\n        else if (lastInSection >= 0) lines.InsertRange(lastInSection + 1, change.Value);\n        else if (header >= 0) lines.InsertRange(header + 1, change.Value);\n        else\n        {\n            while (lines.Count > 0 && lines[lines.Count - 1].Trim().Length == 0) lines.RemoveAt(lines.Count - 1);\n            lines.Add(\"\");\n            lines.Add(\"[\" + want + \"]\");\n            lines.AddRange(change.Value);\n            lines.Add(\"\");\n        }\n    }\n    return string.Join(Environment.NewLine, lines);\n}\n\nDictionary<string, List<string>> VeinReadPending(string configFile)\n{\n    var path = VeinPendingPath(configFile);\n    if (!File.Exists(path)) return new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);\n    var read = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(File.ReadAllText(path));\n    return new Dictionary<string, List<string>>(read ?? new Dictionary<string, List<string>>(), StringComparer.OrdinalIgnoreCase);\n}\n\n// After the server exited: writes the keys edited while it ran into the file it wrote on exit.\nvoid VeinApplyPending()\n{\n    foreach (var file in VeinConfigFiles())\n    {\n        var pendingPath = VeinPendingPath(file);\n        if (!File.Exists(pendingPath)) continue;\n        var pending = VeinReadPending(file);\n        if (pending.Count > 0 && File.Exists(file))\n        {\n            File.WriteAllText(file, IniApply(File.ReadAllText(file), pending));\n            ScriptConsole.WriteLine((object)(\"Applied \" + pending.Count + \" setting(s) edited while the server was running to \" + Path.GetFileName(file) + \".\"));\n        }\n        File.Delete(pendingPath);\n    }\n}\n\nvoid VeinClearPending()\n{\n    foreach (var file in VeinConfigFiles())\n    {\n        if (File.Exists(VeinPendingPath(file))) File.Delete(VeinPendingPath(file));\n        if (File.Exists(VeinBeforePath(file))) File.Delete(VeinBeforePath(file));\n    }\n}\n\n\nconst int maxWaitSeconds = 120;\n\nvar targets = VeinServerPids();\nif (targets.Count == 0)\n{\n    ScriptConsole.WriteLine((object)\"The server is not running.\");\n    VeinApplyPending();\n    return;\n}\n\nvar asked = false;\ntry\n{\n    var reply = await VeinHttp(\"POST\", \"saveandexit\", \"\", 30000);\n    asked = reply.Status < 300;\n    ScriptConsole.WriteLine((object)(asked ? \"Asked the server to save the world and exit.\" : \"The HTTP API answered \" + reply.Status + \".\"));\n}\ncatch (Exception ex)\n{\n    ScriptConsole.WriteLine((object)(\"The server's HTTP API did not answer (\" + ex.Message + \").\"));\n}\nif (!asked && !System.OperatingSystem.IsWindows())\n{\n    using (var kill = Process.Start(new ProcessStartInfo(\"kill\", new[] { \"-INT\", targets[0].ToString() }) { UseShellExecute = false }))\n        kill.WaitForExit();\n    ScriptConsole.WriteLine((object)\"Sent SIGINT to the server.\");\n    asked = true;\n}\nif (!asked) return;\n\nfor (var second = 1; second <= maxWaitSeconds; second++)\n{\n    await Task.Delay(1000, ThisCancellationToken);\n    if (!VeinServerPids().Any(targets.Contains))\n    {\n        ScriptConsole.WriteLine((object)(\"The server exited after \" + second + \" s.\"));\n        VeinApplyPending();\n        return;\n    }\n}\nScriptConsole.WriteLine((object)(\"The server did not exit within \" + maxWaitSeconds + \" s; the panel stops it now.\"));\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "7179b024-4f12-5905-a8e9-fe19fc86d781"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "CustomServiceAction"
+        ],
+        "name": "Save the world",
+        "description": "Saves the world now.",
+        "code": "//refAssemblies: System.Net.Http.dll, System.Net.Primitives.dll\nusing System;\nusing System.Net.Http;\nusing System.Text;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Saves the world now (HTTP API POST /save).\n// The server's HTTP API (Game.ini HTTPPort): it listens on the loopback address only, so the panel reaches it from the monitor\n// of the server that hosts the service. Routes: GET /status /players /players/<id> /characters/<id> /time /weather,\n// POST /notification {\"Message\": ...} /save /saveandexit.\nasync Task<(int Status, string Body)> VeinHttp(string method, string path, string json, int timeoutMs)\n{\n    int port;\n    try { port = Convert.ToInt32(ThisService.Ports[\"HttpPort\"]); }\n    catch { throw new Exception(\"The service has no HttpPort.\"); }\n    using (var http = new HttpClient { Timeout = TimeSpan.FromMilliseconds(timeoutMs) })\n    {\n        var url = \"http://\" + System.Net.IPAddress.Loopback + \":\" + port + \"/\" + path.TrimStart('/');\n        var request = new HttpRequestMessage(method == \"POST\" ? HttpMethod.Post : HttpMethod.Get, url);\n        if (method == \"POST\")\n        {\n            // The server reads a JSON body as a C string: without a terminating NUL it answers {\"error\": \"bad_body\"}.\n            var content = new ByteArrayContent(Encoding.UTF8.GetBytes(string.IsNullOrEmpty(json) ? \"\" : json + \"\\0\"));\n            content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(\"application/json\");\n            request.Content = content;\n        }\n        using (var response = await http.SendAsync(request, ThisCancellationToken))\n            return ((int)response.StatusCode, await response.Content.ReadAsStringAsync());\n    }\n}\n\n\ntry\n{\n    var reply = await VeinHttp(\"POST\", \"save\", \"\", 60000);\n    ScriptConsole.WriteLine((object)(reply.Status < 300 ? \"The world is being saved.\" : \"The server answered HTTP \" + reply.Status + \": \" + reply.Body));\n}\ncatch (Exception ex)\n{\n    throw new Exception(\"The server did not answer (\" + ex.Message + \"). Is it running and has the map loaded?\");\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "<path d=\"M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z\"/>",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "e185095d-2e6c-55b0-9b21-ab4f1fec3c62"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceConfigFileWritten"
+        ],
+        "name": "Keep config edits made while running (before write)",
+        "description": "While the server runs, keeps a copy of a config file before the panel writes it (the server overwrites Game.ini and Engine.ini from memory when it exits).",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll, System.Text.Json.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Text.Json;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Before a config file is written while the server runs: keeps a copy of the file, so the after-write script can tell\n// which settings the edit changed. Never denies the write.\n// The server writes its Game.ini and Engine.ini (console variables) back from memory when it exits, so a config edit\n// made while it runs would be lost. While the server runs, the config-file write events record what each panel edit\n// changed (.tca/vein-pending-<file>.json); after the server has exited, the stop script writes those keys again.\nconst string veinBinaryLinux = \"VeinServer-Linux-Test\";\nconst string veinBinaryWindows = \"VeinServer-Win64-Test\";\n\nstring VeinRoot() => Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;\n\nList<int> VeinServerPids()\n{\n    var root = VeinRoot();\n    var pids = new List<int>();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var p in Process.GetProcessesByName(veinBinaryWindows))\n        {\n            try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) pids.Add(p.Id); }\n            catch { } // exited meanwhile\n        }\n        return pids;\n    }\n    foreach (var dir in Directory.EnumerateDirectories(\"/proc\"))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var exe = new FileInfo(Path.Combine(dir, \"exe\")).LinkTarget ?? \"\";\n            if (exe.StartsWith(root, StringComparison.Ordinal) && Path.GetFileName(exe) == veinBinaryLinux) pids.Add(pid);\n        }\n        catch { } // processes of other users, or gone meanwhile\n    }\n    pids.Sort();\n    return pids;\n}\n\nstring VeinStateDir() => Path.Combine(VeinRoot(), \".tca\");\nstring VeinPendingPath(string configFile) => Path.Combine(VeinStateDir(), \"vein-pending-\" + Path.GetFileName(configFile) + \".json\");\nstring VeinBeforePath(string configFile) => Path.Combine(VeinStateDir(), \"vein-before-\" + Path.GetFileName(configFile));\nstring[] VeinConfigFiles()\n{\n    var folder = Path.Combine(VeinRoot(), \"Vein\", \"Saved\", \"Config\", System.OperatingSystem.IsWindows() ? \"WindowsServer\" : \"LinuxServer\");\n    return new[] { Path.Combine(folder, \"Game.ini\"), Path.Combine(folder, \"Engine.ini\") };\n}\n\n// \"Section|Key\" of an ini line (\"\" for blank lines, comments and section headers). +Key/-Key/.Key/!Key (array\n// operations) belong to Key.\nstring IniKey(string section, string line)\n{\n    var t = line.Trim();\n    if (t.Length == 0 || t[0] == ';' || t[0] == '#' || t[0] == '[') return \"\";\n    var eq = t.IndexOf('=');\n    var key = (eq < 0 ? t : t.Substring(0, eq)).Trim().TrimStart('+', '-', '.', '!').Trim();\n    return key.Length == 0 ? \"\" : section + \"|\" + key;\n}\n\nstring IniSection(string line)\n{\n    var t = line.Trim();\n    return t.Length > 2 && t[0] == '[' && t[t.Length - 1] == ']' ? t.Substring(1, t.Length - 2).Trim() : null;\n}\n\nList<string> IniLines(string text) => text.Replace(\"\\r\\n\", \"\\n\").Split('\\n').ToList();\n\n// Every key with all of its lines, in file order.\nDictionary<string, List<string>> IniEntries(string text)\n{\n    var entries = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);\n    var section = \"\";\n    foreach (var line in IniLines(text))\n    {\n        var s = IniSection(line);\n        if (s != null) { section = s; continue; }\n        var key = IniKey(section, line);\n        if (key == \"\") continue;\n        if (!entries.TryGetValue(key, out var list)) entries[key] = list = new List<string>();\n        list.Add(line.Trim());\n    }\n    return entries;\n}\n\n// Replaces the lines of each key in the file with the given lines (an empty list removes the key).\nstring IniApply(string text, Dictionary<string, List<string>> changes)\n{\n    var lines = IniLines(text);\n    foreach (var change in changes)\n    {\n        var want = change.Key.Substring(0, change.Key.IndexOf('|'));\n        var section = \"\";\n        var matches = new List<int>();\n        var lastInSection = -1;\n        var header = -1;\n        for (var i = 0; i < lines.Count; i++)\n        {\n            var s = IniSection(lines[i]);\n            if (s != null)\n            {\n                section = s;\n                if (header < 0 && s.Equals(want, StringComparison.OrdinalIgnoreCase)) header = i;\n                continue;\n            }\n            if (!section.Equals(want, StringComparison.OrdinalIgnoreCase)) continue;\n            if (lines[i].Trim().Length > 0) lastInSection = i;\n            if (string.Equals(IniKey(section, lines[i]), change.Key, StringComparison.OrdinalIgnoreCase)) matches.Add(i);\n        }\n        if (matches.Count > 0)\n        {\n            for (var m = matches.Count - 1; m >= 0; m--) lines.RemoveAt(matches[m]);\n            lines.InsertRange(matches[0], change.Value);\n        }\n        else if (change.Value.Count == 0) continue;\n        else if (lastInSection >= 0) lines.InsertRange(lastInSection + 1, change.Value);\n        else if (header >= 0) lines.InsertRange(header + 1, change.Value);\n        else\n        {\n            while (lines.Count > 0 && lines[lines.Count - 1].Trim().Length == 0) lines.RemoveAt(lines.Count - 1);\n            lines.Add(\"\");\n            lines.Add(\"[\" + want + \"]\");\n            lines.AddRange(change.Value);\n            lines.Add(\"\");\n        }\n    }\n    return string.Join(Environment.NewLine, lines);\n}\n\nDictionary<string, List<string>> VeinReadPending(string configFile)\n{\n    var path = VeinPendingPath(configFile);\n    if (!File.Exists(path)) return new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);\n    var read = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(File.ReadAllText(path));\n    return new Dictionary<string, List<string>>(read ?? new Dictionary<string, List<string>>(), StringComparer.OrdinalIgnoreCase);\n}\n\n// After the server exited: writes the keys edited while it ran into the file it wrote on exit.\nvoid VeinApplyPending()\n{\n    foreach (var file in VeinConfigFiles())\n    {\n        var pendingPath = VeinPendingPath(file);\n        if (!File.Exists(pendingPath)) continue;\n        var pending = VeinReadPending(file);\n        if (pending.Count > 0 && File.Exists(file))\n        {\n            File.WriteAllText(file, IniApply(File.ReadAllText(file), pending));\n            ScriptConsole.WriteLine((object)(\"Applied \" + pending.Count + \" setting(s) edited while the server was running to \" + Path.GetFileName(file) + \".\"));\n        }\n        File.Delete(pendingPath);\n    }\n}\n\nvoid VeinClearPending()\n{\n    foreach (var file in VeinConfigFiles())\n    {\n        if (File.Exists(VeinPendingPath(file))) File.Delete(VeinPendingPath(file));\n        if (File.Exists(VeinBeforePath(file))) File.Delete(VeinBeforePath(file));\n    }\n}\n\n\nvar path = Globals.Variables.Parse<string>(\"ConfigFilePath\");\nif (!string.IsNullOrEmpty(path) && File.Exists(path) && VeinServerPids().Count > 0)\n{\n    Directory.CreateDirectory(VeinStateDir());\n    File.Copy(path, VeinBeforePath(path), true);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "ea0e78f4-49f2-5cd4-922b-7a4975fb9445"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterServiceConfigFileWritten"
+        ],
+        "name": "Keep config edits made while running (after write)",
+        "description": "While the server runs, records the settings a panel edit changed; the stop script writes them again after the server has exited.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll, System.Text.Json.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\nusing System.Text.Json;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// After a config file was written while the server runs: records the settings the edit changed. The server writes\n// the file from memory when it exits, and the stop script then writes these settings again.\n// The server writes its Game.ini and Engine.ini (console variables) back from memory when it exits, so a config edit\n// made while it runs would be lost. While the server runs, the config-file write events record what each panel edit\n// changed (.tca/vein-pending-<file>.json); after the server has exited, the stop script writes those keys again.\nconst string veinBinaryLinux = \"VeinServer-Linux-Test\";\nconst string veinBinaryWindows = \"VeinServer-Win64-Test\";\n\nstring VeinRoot() => Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;\n\nList<int> VeinServerPids()\n{\n    var root = VeinRoot();\n    var pids = new List<int>();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var p in Process.GetProcessesByName(veinBinaryWindows))\n        {\n            try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) pids.Add(p.Id); }\n            catch { } // exited meanwhile\n        }\n        return pids;\n    }\n    foreach (var dir in Directory.EnumerateDirectories(\"/proc\"))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var exe = new FileInfo(Path.Combine(dir, \"exe\")).LinkTarget ?? \"\";\n            if (exe.StartsWith(root, StringComparison.Ordinal) && Path.GetFileName(exe) == veinBinaryLinux) pids.Add(pid);\n        }\n        catch { } // processes of other users, or gone meanwhile\n    }\n    pids.Sort();\n    return pids;\n}\n\nstring VeinStateDir() => Path.Combine(VeinRoot(), \".tca\");\nstring VeinPendingPath(string configFile) => Path.Combine(VeinStateDir(), \"vein-pending-\" + Path.GetFileName(configFile) + \".json\");\nstring VeinBeforePath(string configFile) => Path.Combine(VeinStateDir(), \"vein-before-\" + Path.GetFileName(configFile));\nstring[] VeinConfigFiles()\n{\n    var folder = Path.Combine(VeinRoot(), \"Vein\", \"Saved\", \"Config\", System.OperatingSystem.IsWindows() ? \"WindowsServer\" : \"LinuxServer\");\n    return new[] { Path.Combine(folder, \"Game.ini\"), Path.Combine(folder, \"Engine.ini\") };\n}\n\n// \"Section|Key\" of an ini line (\"\" for blank lines, comments and section headers). +Key/-Key/.Key/!Key (array\n// operations) belong to Key.\nstring IniKey(string section, string line)\n{\n    var t = line.Trim();\n    if (t.Length == 0 || t[0] == ';' || t[0] == '#' || t[0] == '[') return \"\";\n    var eq = t.IndexOf('=');\n    var key = (eq < 0 ? t : t.Substring(0, eq)).Trim().TrimStart('+', '-', '.', '!').Trim();\n    return key.Length == 0 ? \"\" : section + \"|\" + key;\n}\n\nstring IniSection(string line)\n{\n    var t = line.Trim();\n    return t.Length > 2 && t[0] == '[' && t[t.Length - 1] == ']' ? t.Substring(1, t.Length - 2).Trim() : null;\n}\n\nList<string> IniLines(string text) => text.Replace(\"\\r\\n\", \"\\n\").Split('\\n').ToList();\n\n// Every key with all of its lines, in file order.\nDictionary<string, List<string>> IniEntries(string text)\n{\n    var entries = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);\n    var section = \"\";\n    foreach (var line in IniLines(text))\n    {\n        var s = IniSection(line);\n        if (s != null) { section = s; continue; }\n        var key = IniKey(section, line);\n        if (key == \"\") continue;\n        if (!entries.TryGetValue(key, out var list)) entries[key] = list = new List<string>();\n        list.Add(line.Trim());\n    }\n    return entries;\n}\n\n// Replaces the lines of each key in the file with the given lines (an empty list removes the key).\nstring IniApply(string text, Dictionary<string, List<string>> changes)\n{\n    var lines = IniLines(text);\n    foreach (var change in changes)\n    {\n        var want = change.Key.Substring(0, change.Key.IndexOf('|'));\n        var section = \"\";\n        var matches = new List<int>();\n        var lastInSection = -1;\n        var header = -1;\n        for (var i = 0; i < lines.Count; i++)\n        {\n            var s = IniSection(lines[i]);\n            if (s != null)\n            {\n                section = s;\n                if (header < 0 && s.Equals(want, StringComparison.OrdinalIgnoreCase)) header = i;\n                continue;\n            }\n            if (!section.Equals(want, StringComparison.OrdinalIgnoreCase)) continue;\n            if (lines[i].Trim().Length > 0) lastInSection = i;\n            if (string.Equals(IniKey(section, lines[i]), change.Key, StringComparison.OrdinalIgnoreCase)) matches.Add(i);\n        }\n        if (matches.Count > 0)\n        {\n            for (var m = matches.Count - 1; m >= 0; m--) lines.RemoveAt(matches[m]);\n            lines.InsertRange(matches[0], change.Value);\n        }\n        else if (change.Value.Count == 0) continue;\n        else if (lastInSection >= 0) lines.InsertRange(lastInSection + 1, change.Value);\n        else if (header >= 0) lines.InsertRange(header + 1, change.Value);\n        else\n        {\n            while (lines.Count > 0 && lines[lines.Count - 1].Trim().Length == 0) lines.RemoveAt(lines.Count - 1);\n            lines.Add(\"\");\n            lines.Add(\"[\" + want + \"]\");\n            lines.AddRange(change.Value);\n            lines.Add(\"\");\n        }\n    }\n    return string.Join(Environment.NewLine, lines);\n}\n\nDictionary<string, List<string>> VeinReadPending(string configFile)\n{\n    var path = VeinPendingPath(configFile);\n    if (!File.Exists(path)) return new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);\n    var read = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(File.ReadAllText(path));\n    return new Dictionary<string, List<string>>(read ?? new Dictionary<string, List<string>>(), StringComparer.OrdinalIgnoreCase);\n}\n\n// After the server exited: writes the keys edited while it ran into the file it wrote on exit.\nvoid VeinApplyPending()\n{\n    foreach (var file in VeinConfigFiles())\n    {\n        var pendingPath = VeinPendingPath(file);\n        if (!File.Exists(pendingPath)) continue;\n        var pending = VeinReadPending(file);\n        if (pending.Count > 0 && File.Exists(file))\n        {\n            File.WriteAllText(file, IniApply(File.ReadAllText(file), pending));\n            ScriptConsole.WriteLine((object)(\"Applied \" + pending.Count + \" setting(s) edited while the server was running to \" + Path.GetFileName(file) + \".\"));\n        }\n        File.Delete(pendingPath);\n    }\n}\n\nvoid VeinClearPending()\n{\n    foreach (var file in VeinConfigFiles())\n    {\n        if (File.Exists(VeinPendingPath(file))) File.Delete(VeinPendingPath(file));\n        if (File.Exists(VeinBeforePath(file))) File.Delete(VeinBeforePath(file));\n    }\n}\n\n\nvar path = Globals.Variables.Parse<string>(\"ConfigFilePath\");\nif (string.IsNullOrEmpty(path) || !File.Exists(path)) return;\nvar beforePath = VeinBeforePath(path);\nif (VeinServerPids().Count == 0)\n{\n    if (File.Exists(beforePath)) File.Delete(beforePath);\n    return;\n}\nvar before = File.Exists(beforePath) ? IniEntries(File.ReadAllText(beforePath)) : new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);\nvar after = IniEntries(File.ReadAllText(path));\nvar pending = VeinReadPending(path);\nvar changed = 0;\nforeach (var key in before.Keys.Union(after.Keys, StringComparer.OrdinalIgnoreCase))\n{\n    before.TryGetValue(key, out var was);\n    after.TryGetValue(key, out var now);\n    was ??= new List<string>();\n    now ??= new List<string>();\n    if (was.SequenceEqual(now)) continue;\n    pending[key] = now;\n    changed++;\n}\nif (File.Exists(beforePath)) File.Delete(beforePath);\nif (changed == 0) return;\nDirectory.CreateDirectory(VeinStateDir());\nFile.WriteAllText(VeinPendingPath(path), JsonSerializer.Serialize(pending));\nScriptConsole.WriteLine((object)(\"The server is running: \" + changed + \" changed setting(s) in \" + Path.GetFileName(path) + \" are applied again after it stops (it writes this file when it exits). Restart the server to use them.\"));\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "7376be37-8328-5a0f-954e-5258ab16261e"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterServiceCreated",
+          "AfterServiceReinstalled",
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server",
+        "description": "Clears config edits recorded during the previous run. Linux: makes the server binaries executable (the Steam download drops the exec bit) and installs steamclient.so in ~/.steam/sdk64 (the Steam game server API needs it).",
+        "code": "//refAssemblies: TCAdmin.Monitor.SDK.dll, System.Net.Http.dll, System.IO.Compression.dll, System.Security.Cryptography.dll, System.Diagnostics.Process.dll, System.Text.Json.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.IO.Compression;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Security.Cryptography;\nusing System.Text.Json;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Linux: makes the server binaries executable (the Steam download drops the exec bit; VeinServer.sh would chmod the\n// server, the panel starts it directly) and gives the Steam game server API its steamclient.so in ~/.steam/sdk64 (the\n// service root is the home directory). The server depot does not ship steamclient.so, and without it the server\n// logs \"Steam Dedicated Server API failed to initialize\" and is not listed. The library comes from Valve's SteamCMD\n// binaries package (the same file a SteamCMD install has in linux64/), checked against the manifest's SHA-256.\n// The server writes its Game.ini and Engine.ini (console variables) back from memory when it exits, so a config edit\n// made while it runs would be lost. While the server runs, the config-file write events record what each panel edit\n// changed (.tca/vein-pending-<file>.json); after the server has exited, the stop script writes those keys again.\nconst string veinBinaryLinux = \"VeinServer-Linux-Test\";\nconst string veinBinaryWindows = \"VeinServer-Win64-Test\";\n\nstring VeinRoot() => Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;\n\nList<int> VeinServerPids()\n{\n    var root = VeinRoot();\n    var pids = new List<int>();\n    if (System.OperatingSystem.IsWindows())\n    {\n        foreach (var p in Process.GetProcessesByName(veinBinaryWindows))\n        {\n            try { if (p.MainModule.FileName.StartsWith(root, StringComparison.OrdinalIgnoreCase)) pids.Add(p.Id); }\n            catch { } // exited meanwhile\n        }\n        return pids;\n    }\n    foreach (var dir in Directory.EnumerateDirectories(\"/proc\"))\n    {\n        if (!int.TryParse(Path.GetFileName(dir), out var pid)) continue;\n        try\n        {\n            var exe = new FileInfo(Path.Combine(dir, \"exe\")).LinkTarget ?? \"\";\n            if (exe.StartsWith(root, StringComparison.Ordinal) && Path.GetFileName(exe) == veinBinaryLinux) pids.Add(pid);\n        }\n        catch { } // processes of other users, or gone meanwhile\n    }\n    pids.Sort();\n    return pids;\n}\n\nstring VeinStateDir() => Path.Combine(VeinRoot(), \".tca\");\nstring VeinPendingPath(string configFile) => Path.Combine(VeinStateDir(), \"vein-pending-\" + Path.GetFileName(configFile) + \".json\");\nstring VeinBeforePath(string configFile) => Path.Combine(VeinStateDir(), \"vein-before-\" + Path.GetFileName(configFile));\nstring[] VeinConfigFiles()\n{\n    var folder = Path.Combine(VeinRoot(), \"Vein\", \"Saved\", \"Config\", System.OperatingSystem.IsWindows() ? \"WindowsServer\" : \"LinuxServer\");\n    return new[] { Path.Combine(folder, \"Game.ini\"), Path.Combine(folder, \"Engine.ini\") };\n}\n\n// \"Section|Key\" of an ini line (\"\" for blank lines, comments and section headers). +Key/-Key/.Key/!Key (array\n// operations) belong to Key.\nstring IniKey(string section, string line)\n{\n    var t = line.Trim();\n    if (t.Length == 0 || t[0] == ';' || t[0] == '#' || t[0] == '[') return \"\";\n    var eq = t.IndexOf('=');\n    var key = (eq < 0 ? t : t.Substring(0, eq)).Trim().TrimStart('+', '-', '.', '!').Trim();\n    return key.Length == 0 ? \"\" : section + \"|\" + key;\n}\n\nstring IniSection(string line)\n{\n    var t = line.Trim();\n    return t.Length > 2 && t[0] == '[' && t[t.Length - 1] == ']' ? t.Substring(1, t.Length - 2).Trim() : null;\n}\n\nList<string> IniLines(string text) => text.Replace(\"\\r\\n\", \"\\n\").Split('\\n').ToList();\n\n// Every key with all of its lines, in file order.\nDictionary<string, List<string>> IniEntries(string text)\n{\n    var entries = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);\n    var section = \"\";\n    foreach (var line in IniLines(text))\n    {\n        var s = IniSection(line);\n        if (s != null) { section = s; continue; }\n        var key = IniKey(section, line);\n        if (key == \"\") continue;\n        if (!entries.TryGetValue(key, out var list)) entries[key] = list = new List<string>();\n        list.Add(line.Trim());\n    }\n    return entries;\n}\n\n// Replaces the lines of each key in the file with the given lines (an empty list removes the key).\nstring IniApply(string text, Dictionary<string, List<string>> changes)\n{\n    var lines = IniLines(text);\n    foreach (var change in changes)\n    {\n        var want = change.Key.Substring(0, change.Key.IndexOf('|'));\n        var section = \"\";\n        var matches = new List<int>();\n        var lastInSection = -1;\n        var header = -1;\n        for (var i = 0; i < lines.Count; i++)\n        {\n            var s = IniSection(lines[i]);\n            if (s != null)\n            {\n                section = s;\n                if (header < 0 && s.Equals(want, StringComparison.OrdinalIgnoreCase)) header = i;\n                continue;\n            }\n            if (!section.Equals(want, StringComparison.OrdinalIgnoreCase)) continue;\n            if (lines[i].Trim().Length > 0) lastInSection = i;\n            if (string.Equals(IniKey(section, lines[i]), change.Key, StringComparison.OrdinalIgnoreCase)) matches.Add(i);\n        }\n        if (matches.Count > 0)\n        {\n            for (var m = matches.Count - 1; m >= 0; m--) lines.RemoveAt(matches[m]);\n            lines.InsertRange(matches[0], change.Value);\n        }\n        else if (change.Value.Count == 0) continue;\n        else if (lastInSection >= 0) lines.InsertRange(lastInSection + 1, change.Value);\n        else if (header >= 0) lines.InsertRange(header + 1, change.Value);\n        else\n        {\n            while (lines.Count > 0 && lines[lines.Count - 1].Trim().Length == 0) lines.RemoveAt(lines.Count - 1);\n            lines.Add(\"\");\n            lines.Add(\"[\" + want + \"]\");\n            lines.AddRange(change.Value);\n            lines.Add(\"\");\n        }\n    }\n    return string.Join(Environment.NewLine, lines);\n}\n\nDictionary<string, List<string>> VeinReadPending(string configFile)\n{\n    var path = VeinPendingPath(configFile);\n    if (!File.Exists(path)) return new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);\n    var read = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(File.ReadAllText(path));\n    return new Dictionary<string, List<string>>(read ?? new Dictionary<string, List<string>>(), StringComparer.OrdinalIgnoreCase);\n}\n\n// After the server exited: writes the keys edited while it ran into the file it wrote on exit.\nvoid VeinApplyPending()\n{\n    foreach (var file in VeinConfigFiles())\n    {\n        var pendingPath = VeinPendingPath(file);\n        if (!File.Exists(pendingPath)) continue;\n        var pending = VeinReadPending(file);\n        if (pending.Count > 0 && File.Exists(file))\n        {\n            File.WriteAllText(file, IniApply(File.ReadAllText(file), pending));\n            ScriptConsole.WriteLine((object)(\"Applied \" + pending.Count + \" setting(s) edited while the server was running to \" + Path.GetFileName(file) + \".\"));\n        }\n        File.Delete(pendingPath);\n    }\n}\n\nvoid VeinClearPending()\n{\n    foreach (var file in VeinConfigFiles())\n    {\n        if (File.Exists(VeinPendingPath(file))) File.Delete(VeinPendingPath(file));\n        if (File.Exists(VeinBeforePath(file))) File.Delete(VeinBeforePath(file));\n    }\n}\n\n\n// Config edits recorded during the previous run were applied when it stopped (or are already in the files when the\n// server did not write them on exit).\nVeinClearPending();\n\n// Every start leaves a CrashReportClient/UECC-<platform>-<id> folder behind; keep the config folder tidy.\nvar crashConfig = Path.Combine(VeinRoot(), \"Vein\", \"Saved\", \"Config\", \"CrashReportClient\");\nif (Directory.Exists(crashConfig))\n    foreach (var dir in Directory.GetDirectories(crashConfig, \"UECC-*\"))\n        try { Directory.Delete(dir, true); } catch { }\n\nif (!System.OperatingSystem.IsLinux()) return;\nvar root = (string)ThisService.RootDirectory;\n// crashpad_handler (the Sentry crash reporter) needs it too: when the server cannot start it, the forked child\n// deadlocks in the engine's crash handler and the server hangs at startup, before the map loads.\nforeach (var binary in new[] { Path.Combine(root, \"Vein\", \"Binaries\", \"Linux\", \"VeinServer-Linux-Test\"),\n                               Path.Combine(root, \"Vein\", \"Plugins\", \"Sentry\", \"Binaries\", \"Linux\", \"crashpad_handler\") })\n{\n    if (!File.Exists(binary)) continue;\n    var mode = File.GetUnixFileMode(binary);\n    var wanted = mode | UnixFileMode.UserExecute | UnixFileMode.GroupExecute;\n    if (mode != wanted)\n    {\n        File.SetUnixFileMode(binary, wanted);\n        ScriptConsole.WriteLine((object)(\"Made \" + Path.GetFileName(binary) + \" executable.\"));\n    }\n}\n\nvar steamDir = Path.Combine(root, \".steam\");\nvar sdk = Path.Combine(steamDir, \"sdk64\");\nvar target = Path.Combine(sdk, \"steamclient.so\");\nif (File.Exists(target) && new FileInfo(target).Length > 1000000) return;\n\nconst string cdn = \"https://media.steampowered.com/client/\";\nusing (var http = new HttpClient { Timeout = TimeSpan.FromMinutes(10) })\n{\n    var manifest = await http.GetStringAsync(cdn + \"steam_cmd_linux\", ThisCancellationToken);\n    var block = Regex.Match(manifest, \"\\\"steamcmd_bins_linux\\\"\\\\s*\\\\{(?<b>[^}]*)\\\\}\");\n    var file = Regex.Match(block.Groups[\"b\"].Value, \"\\\"file\\\"\\\\s*\\\"(?<v>[^\\\"]+)\\\"\").Groups[\"v\"].Value;\n    var sha = Regex.Match(block.Groups[\"b\"].Value, \"\\\"sha2\\\"\\\\s*\\\"(?<v>[0-9a-fA-F]{64})\\\"\").Groups[\"v\"].Value;\n    if (file == \"\" || sha == \"\") throw new Exception(\"The SteamCMD package list has no steamcmd_bins_linux entry; copy a SteamCMD linux64/steamclient.so to .steam/sdk64/ in the service folder.\");\n\n    ScriptConsole.WriteLine((object)\"Downloading steamclient.so (SteamCMD binaries, about 40 MB)...\");\n    var zipBytes = await http.GetByteArrayAsync(cdn + file, ThisCancellationToken);\n    if (!Convert.ToHexString(SHA256.HashData(zipBytes)).Equals(sha, StringComparison.OrdinalIgnoreCase))\n        throw new Exception(\"The downloaded SteamCMD package does not match its checksum.\");\n    using (var zip = new ZipArchive(new MemoryStream(zipBytes)))\n    {\n        var entry = zip.GetEntry(\"linux64/steamclient.so\") ?? throw new Exception(\"linux64/steamclient.so is not in the SteamCMD package.\");\n        Directory.CreateDirectory(sdk);\n        var temp = target + \".tmp\";\n        entry.ExtractToFile(temp, true);\n        File.Move(temp, target, true);\n    }\n}\nvar credential = ServiceManagerService.GetServiceCredential(ThisService.ServiceId);\nGlobals.OperatingSystem.SetDirectoryOwner(steamDir, credential.Domain, credential.UserName, true);\nScriptConsole.WriteLine((object)\"Installed steamclient.so in .steam/sdk64.\");\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "b046d6dd-3a8d-5403-83d4-adb674e66a30"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-11T13:28:00.023391",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": true,
+    "includedPaths": [
+      "Vein/Saved/SaveGames/**/*",
+      "Vein/Saved/Config/WindowsServer/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
