@@ -1,0 +1,41 @@
+identifier: "Community.Games.ProjectZomboid"
+name: "Project Zomboid"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Project Zomboid Build 42 dedicated server (Windows x64 / Linux x64) with Steam Workshop mod support"
+longDescription: |
+  # Project Zomboid
+  
+  ## Description
+  Project Zomboid dedicated server (Build 42) for Windows and Linux. The server launches Java directly, so the heap size is a panel setting instead of the 16 GB hard-coded in StartServer64.bat, and all saves and settings stay inside the service folder.
+  
+  ## Key Features
+  - **Windows and Linux** configs (Steam app 380870).
+  - **Steam Workshop mods** from the service's Mods page. Installing a mod adds its Workshop id to `WorkshopItems` and its mod ids to `Mods` in `servertest.ini`, requirements first. Sub-mods whose requirements are not installed are skipped with a message. Uninstalling removes them again. Changes apply on the next start.
+  - **Server-browser query** (A2S on the game port) and **Source RCON**.
+  - **Config editor** for `servertest.ini`: public name, description, password, slots, PVP, pause when empty, VAC, welcome message, Workshop items and mod ids.
+  - **Graceful stop** with the `quit` command.
+  
+  ## Ports
+  - Game port (UDP) 16261, also answers server-browser queries.
+  - UDP port: game port + 1.
+  - RCON (TCP) 27015.
+  
+  ## Instructions
+  - **Java memory** (admin-only, default 4096 MB) sets `-Xms`/`-Xmx`. Leave about 1 GB of headroom on the host: Java commits the whole heap at start, and a host without enough free RAM or swap kills it during startup.
+  - The first start takes 2 to 3 minutes while the world is generated.
+  - Never register `servertest_SandboxVars.lua` as a config file. The server generates it, and an empty one stops it from starting.
+  - A Workshop mod with Lua errors can stop the world from loading ("World loading could not proceed"). Check `Zomboid/server-console.txt`.
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/108600/2bd4642ae337e378e7b04a19d19683425c5f81a4.jpg"
+images:
+  - "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/108600/4c8860818ac52c685bbe0988aa137d52bad4aac5/ss_4c8860818ac52c685bbe0988aa137d52bad4aac5.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "PZ - Windows.json"
+    type: "GameConfig"
+  - path: "PZ - Linux.json"
+    type: "GameConfig"
