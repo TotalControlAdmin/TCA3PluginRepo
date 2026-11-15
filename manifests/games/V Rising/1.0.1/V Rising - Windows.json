@@ -1,0 +1,2658 @@
+{
+  "__TCA:ExportVersion": "3.11.24.0",
+  "__TCA:ExportedAt": "2026-06-21T06:31:39.7076265Z",
+  "name": "V Rising",
+  "shortName": "V Rising",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/1604030/d18204000a839feb84393b3d860c17cd4a4b269c.jpg",
+  "backgroundImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1604030/227d19e9aedac1933bffcdb373ccdbd9250a6bdc/ss_227d19e9aedac1933bffcdb373ccdbd9250a6bdc.jpg",
+  "minSlots": 8,
+  "maxSlots": 100,
+  "defaultSlots": 8,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".xml"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "source",
+    "privateRule": "",
+    "privateRuleValue": "",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "LogFile",
+    "logFile": "logs\\VRisingServer.log",
+    "inputSource": "RconProtocol",
+    "printRconResponse": true,
+    "outputFilters": "",
+    "stopCommand": "shutdown 0 \"Server is shutting down now.\"",
+    "waitAfterStopCommand": 5000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 28015,
+        "expression": ""
+      },
+      {
+        "id": "QueryPort",
+        "port": 28016,
+        "expression": ""
+      },
+      {
+        "id": "RConPort",
+        "port": 28017,
+        "expression": ""
+      },
+      {
+        "id": "CustomPort1",
+        "port": 28020,
+        "expression": ""
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "VRisingServer.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "v-rising",
+    "failOnMissingExecutable": false,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": ""
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 1829350,
+    "runAsServiceUser": true,
+    "branch": "public",
+    "storeId": 1604030,
+    "extraParameters": "",
+    "steamUsername": "",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "-persistentDataPath ${RootDirectory}\\ -bindAddress ${IPAddress} -gamePort ${GamePort} -queryPort ${QueryPort} -rconBindAddress \"${IPAddress}\" -rconPort ${RConPort} -logFile \".\\logs\\VRisingServer.log\"",
+    "defaultCustomCommandline": "",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": ""
+      },
+      {
+        "id": 2,
+        "name": "Default",
+        "commandLine": "-persistentDataPath ${RootDirectory}\\ -bindAddress ${IPAddress} -gamePort ${GamePort} -queryPort ${QueryPort} -rconBindAddress \"${IPAddress}\" -rconPort ${RConPort} -logFile \".\\logs\\VRisingServer.log\""
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "OperatingSystemUserPerService",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": true,
+    "elevated": false
+  },
+  "gameVariables": [
+    {
+      "name": "AdminOnlyDebugEvents",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AdminOnlyDebugEvents}",
+      "editor": {
+        "items": [
+          {
+            "text": "True",
+            "value": "true"
+          },
+          {
+            "text": "False",
+            "value": "false"
+          }
+        ],
+        "id": "AdminOnlyDebugEvents",
+        "defaultValue": "true",
+        "label": "Admin debug",
+        "description": "Enables debugging for admins",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.341942",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "APIEnabled",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${APIEnabled}",
+      "editor": {
+        "items": [
+          {
+            "text": "False",
+            "value": "false"
+          },
+          {
+            "text": "True",
+            "value": "true"
+          }
+        ],
+        "id": "APIEnabled",
+        "defaultValue": "false",
+        "label": "Enable API Metrics",
+        "description": "Enable this to send Metric data to v rising",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.343105",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AutoSaveCount",
+      "defaultValue": "50",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AutoSaveCount}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 50,
+        "id": "AutoSaveCount",
+        "defaultValue": "50",
+        "label": "Number of auto saves",
+        "description": "Number of autosaves to keep",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.344553",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AutoSaveInterval",
+      "defaultValue": "300",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AutoSaveInterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 65535,
+        "id": "AutoSaveInterval",
+        "defaultValue": "300",
+        "label": "Auto Save Interval",
+        "description": "Interval in seconds between each auto save",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.344823",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "DayOfReset",
+      "defaultValue": "Any",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${DayOfReset}",
+      "editor": {
+        "items": [
+          {
+            "text": " Any",
+            "value": "Any"
+          },
+          {
+            "text": "Monday",
+            "value": "Monday"
+          },
+          {
+            "text": "Tuesday",
+            "value": "Tuesday"
+          },
+          {
+            "text": "Wednesday",
+            "value": "Wednesday"
+          },
+          {
+            "text": "Thursday",
+            "value": "Thursday"
+          },
+          {
+            "text": "Friday",
+            "value": "Friday"
+          },
+          {
+            "text": "Saturday",
+            "value": "Saturday"
+          },
+          {
+            "text": "Sunday",
+            "value": "Sunday"
+          }
+        ],
+        "id": "DayOfReset",
+        "defaultValue": "Any",
+        "label": "Day of Reset",
+        "description": "The day of the week that the wipe will take place.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.345176",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Description",
+      "defaultValue": "A hyperlayer.net hosted server",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Description}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 0,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "Description",
+        "defaultValue": "A hyperlayer.net hosted server",
+        "label": "Description",
+        "description": "Short description of server purpose, rules, message of the day",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.346075",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "DisableDebugEvents",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${DisableDebugEvents}",
+      "editor": {
+        "items": [
+          {
+            "text": "False",
+            "value": "false"
+          },
+          {
+            "text": "True",
+            "value": "true"
+          }
+        ],
+        "id": "DisableDebugEvents",
+        "defaultValue": "false",
+        "label": "Disable debug events",
+        "description": "Disables debug events for everyone",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.346375",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "GameSettingsPreset",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${GameSettingsPreset}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "GameSettingsPreset",
+        "defaultValue": "",
+        "label": "Game Settings Preset",
+        "description": "<ul>\n\t<li>Name of a GameSettings preset found in the GameSettingPresets folder</li>\n\t<li>Gaming presets can be found in: VRisingServer_Data > StreamingAssets > GameSettingPresets</li>\n</ul>",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.346591",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ListOnEOS",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ListOnEOS}",
+      "editor": {
+        "items": [
+          {
+            "text": "True",
+            "value": "true"
+          },
+          {
+            "text": "False",
+            "value": "false"
+          }
+        ],
+        "id": "ListOnEOS",
+        "defaultValue": "true",
+        "label": "ListOnEOS",
+        "description": "List Server in the in game browser",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.346895",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ListOnSteam",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ListOnSteam}",
+      "editor": {
+        "items": [
+          {
+            "text": "True",
+            "value": "true"
+          },
+          {
+            "text": "False",
+            "value": "false"
+          }
+        ],
+        "id": "ListOnSteam",
+        "defaultValue": "true",
+        "label": "List server on Steam",
+        "description": "Displays your server on steam",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.347153",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxConnectedAdmins",
+      "defaultValue": "4",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxConnectedAdmins}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 100,
+        "id": "MaxConnectedAdmins",
+        "defaultValue": "4",
+        "label": "Max concurrent Admins",
+        "description": "Max number of admins to allow connect even when server is full",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.347344",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "MaxConnectedUsers",
+      "defaultValue": "8",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${MaxConnectedUsers}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "MaxConnectedUsers",
+        "defaultValue": "8",
+        "label": "",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.347643",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Password",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Password}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "Password",
+        "defaultValue": "",
+        "label": "Server Password",
+        "description": "Set a password or leave empty",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.347879",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ResetDaysInterval",
+      "defaultValue": "0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ResetDaysInterval}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 65535,
+        "id": "ResetDaysInterval",
+        "defaultValue": "0",
+        "label": "Reset Day Interval",
+        "description": "Number of real-life days before a wipe takes place. (0(ZERO) is disabled)",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.348205",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "SaveName",
+      "defaultValue": "world1",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${SaveName}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "SaveName",
+        "defaultValue": "world1",
+        "label": "Save Name",
+        "description": "Name of save file/directory",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.348375",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Secure",
+      "defaultValue": "true",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Secure}",
+      "editor": {
+        "items": [
+          {
+            "text": "True",
+            "value": "true"
+          },
+          {
+            "text": "False",
+            "value": "false"
+          }
+        ],
+        "id": "Secure",
+        "defaultValue": "true",
+        "label": "Secure",
+        "description": "Enables VAC (Valve anti cheat)",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.34858",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ServerFps",
+      "defaultValue": "30",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ServerFps}",
+      "editor": {
+        "decimals": 0,
+        "step": 1,
+        "spinner": false,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 250,
+        "id": "ServerFps",
+        "defaultValue": "30",
+        "label": "Server FPS",
+        "description": "Sets the max number of server frames",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicNumericTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.34876",
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "VOIPAPIEndpoint",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${VOIPAPIEndpoint}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "VOIPAPIEndpoint",
+        "defaultValue": "",
+        "label": "VOIP API Endpoint",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.349001",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "VOIPAppUserId",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${VOIPAppUserId}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "VOIPAppUserId",
+        "defaultValue": "",
+        "label": "Voip App User ID",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.349226",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "VOIPAppUserPwd",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${VOIPAppUserPwd}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "VOIPAppUserPwd",
+        "defaultValue": "",
+        "label": "VOIP App User Password",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.349464",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "VOIPAudibleDistance",
+      "defaultValue": "40",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${VOIPAudibleDistance}",
+      "editor": {
+        "step": 1,
+        "valueLabel": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 300,
+        "id": "VOIPAudibleDistance",
+        "defaultValue": "40",
+        "label": "VOIP Audible Distance",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicSlider",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.350135",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "VOIPConversationalDistance",
+      "defaultValue": "14",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${VOIPConversationalDistance}",
+      "editor": {
+        "step": 1,
+        "valueLabel": true,
+        "valueType": "double",
+        "minValue": 0,
+        "maxValue": 300,
+        "id": "VOIPConversationalDistance",
+        "defaultValue": "14",
+        "label": "VOIP Conversational Distance",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicSlider",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.35042",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "VOIPEnabled",
+      "defaultValue": "false",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${VOIPEnabled}",
+      "editor": {
+        "items": [
+          {
+            "text": "False",
+            "value": "false"
+          },
+          {
+            "text": "True",
+            "value": "true"
+          }
+        ],
+        "id": "VOIPEnabled",
+        "defaultValue": "false",
+        "label": "Enable VOIP",
+        "description": "VOIP is disabled by default for V Rising",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.350659",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "VOIPFadeIntensity",
+      "defaultValue": "2.0",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${VOIPFadeIntensity}",
+      "editor": {
+        "step": 1,
+        "valueLabel": true,
+        "valueType": "double",
+        "minValue": 1,
+        "maxValue": 65535,
+        "id": "VOIPFadeIntensity",
+        "defaultValue": "2.0",
+        "label": "VOIP Fade Intensity",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "controlType": "DynamicSlider",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.350975",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "VOIPIssuer",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${VOIPIssuer}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "VOIPIssuer",
+        "defaultValue": "",
+        "label": "VOIP Issuer",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.351277",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "VOIPSecret",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${VOIPSecret}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "VOIPSecret",
+        "defaultValue": "",
+        "label": "VOIP Secret",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.351614",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "VOIPVivoxDomain",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${VOIPVivoxDomain}",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "VOIPVivoxDomain",
+        "defaultValue": "",
+        "label": "Vivox Domain",
+        "description": "",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "",
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-06-20T16:36:27.35189",
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:01:33.430225",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\"\\\\]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-12T19:01:34.731147",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 1286,
+      "relativePath": "Settings\\adminlist.txt",
+      "description": "Admin list",
+      "template": "",
+      "order": 0,
+      "enableEditor": false,
+      "editor": []
+    },
+    {
+      "id": 1287,
+      "relativePath": "Settings\\banlist.txt",
+      "description": "Ban list",
+      "template": "",
+      "order": 0,
+      "enableEditor": false,
+      "editor": []
+    },
+    {
+      "id": 1288,
+      "relativePath": "VRisingServer_Data\\StreamingAssets\\Settings\\ServerGameSettings.json",
+      "description": "Server Game Settings",
+      "template": "{\n  \"GameDifficulty\": \"Normal\",\n  \"GameModeType\": \"PvP\",\n  \"CastleDamageMode\": \"Never\",\n  \"SiegeWeaponHealth\": \"Normal\",\n  \"PlayerDamageMode\": \"Always\",\n  \"CastleHeartDamageMode\": \"CanBeDestroyedByPlayers\",\n  \"PvPProtectionMode\": \"Medium\",\n  \"DeathContainerPermission\": \"Anyone\",\n  \"RelicSpawnType\": \"Unique\",\n  \"CanLootEnemyContainers\": true,\n  \"BloodBoundEquipment\": true,\n  \"TeleportBoundItems\": true,\n  \"BatBoundItems\": false,\n  \"AllowGlobalChat\": true,\n  \"AllWaypointsUnlocked\": false,\n  \"FreeCastleRaid\": false,\n  \"FreeCastleClaim\": false,\n  \"FreeCastleDestroy\": false,\n  \"InactivityKillEnabled\": true,\n  \"InactivityKillTimeMin\": 3600,\n  \"InactivityKillTimeMax\": 604800,\n  \"InactivityKillSafeTimeAddition\": 172800,\n  \"InactivityKillTimerMaxItemLevel\": 84,\n  \"StartingProgressionLevel\": 0,\n  \"DisableDisconnectedDeadEnabled\": true,\n  \"DisableDisconnectedDeadTimer\": 60,\n  \"DisconnectedSunImmunityTime\": 300.0,\n  \"InventoryStacksModifier\": 1.0,\n  \"DropTableModifier_General\": 1.0,\n  \"DropTableModifier_Missions\": 1.0,\n  \"MaterialYieldModifier_Global\": 1.0,\n  \"BloodEssenceYieldModifier\": 1.0,\n  \"JournalVBloodSourceUnitMaxDistance\": 25.0,\n  \"PvPVampireRespawnModifier\": 1.0,\n  \"CastleMinimumDistanceInFloors\": 2,\n  \"ClanSize\": 4,\n  \"BloodDrainModifier\": 1.0,\n  \"DurabilityDrainModifier\": 1.0,\n  \"GarlicAreaStrengthModifier\": 1.0,\n  \"HolyAreaStrengthModifier\": 1.0,\n  \"SilverStrengthModifier\": 1.0,\n  \"SunDamageModifier\": 1.0,\n  \"CastleDecayRateModifier\": 1.0,\n  \"CastleBloodEssenceDrainModifier\": 1.0,\n  \"CastleSiegeTimer\": 420.0,\n  \"CastleUnderAttackTimer\": 60.0,\n  \"CastleRaidTimer\": 600.0,\n  \"CastleRaidProtectionTime\": 1800.0,\n  \"CastleExposedFreeClaimTimer\": 300.0,\n  \"CastleRelocationCooldown\": 10800.0,\n  \"CastleRelocationEnabled\": true,\n  \"AnnounceSiegeWeaponSpawn\": true,\n  \"ShowSiegeWeaponMapIcon\": false,\n  \"BuildCostModifier\": 1.0,\n  \"RecipeCostModifier\": 1.0,\n  \"CraftRateModifier\": 1.0,\n  \"ResearchCostModifier\": 1.0,\n  \"RefinementCostModifier\": 1.0,\n  \"RefinementRateModifier\": 1.0,\n  \"ResearchTimeModifier\": 1.0,\n  \"DismantleResourceModifier\": 1.0,\n  \"ServantConvertRateModifier\": 1.0,\n  \"RepairCostModifier\": 1.0,\n  \"Death_DurabilityFactorLoss\": 0.125,\n  \"Death_DurabilityLossFactorAsResources\": 1.0,\n  \"StarterEquipmentId\": 0,\n  \"StarterResourcesId\": 0,\n  \"VBloodUnitSettings\": [],\n  \"UnlockedAchievements\": [],\n  \"UnlockedResearchs\": [],\n  \"GameTimeModifiers\": {\n    \"DayDurationInSeconds\": 1080.0,\n    \"DayStartHour\": 9,\n    \"DayStartMinute\": 0,\n    \"DayEndHour\": 17,\n    \"DayEndMinute\": 0,\n    \"BloodMoonFrequency_Min\": 10,\n    \"BloodMoonFrequency_Max\": 18,\n    \"BloodMoonBuff\": 0.2\n  },\n  \"VampireStatModifiers\": {\n    \"MaxHealthModifier\": 1.0,\n    \"PhysicalPowerModifier\": 1.0,\n    \"SpellPowerModifier\": 1.0,\n    \"ResourcePowerModifier\": 1.0,\n    \"SiegePowerModifier\": 1.0,\n    \"DamageReceivedModifier\": 1.0,\n    \"ReviveCancelDelay\": 5.0\n  },\n  \"UnitStatModifiers_Global\": {\n    \"MaxHealthModifier\": 1.0,\n    \"PowerModifier\": 1.0,\n    \"LevelIncrease\": 0\n  },\n  \"UnitStatModifiers_VBlood\": {\n    \"MaxHealthModifier\": 1.0,\n    \"PowerModifier\": 1.0,\n    \"LevelIncrease\": 0\n  },\n  \"EquipmentStatModifiers_Global\": {\n    \"MaxHealthModifier\": 1.0,\n    \"ResourceYieldModifier\": 1.0,\n    \"PhysicalPowerModifier\": 1.0,\n    \"SpellPowerModifier\": 1.0,\n    \"SiegePowerModifier\": 1.0,\n    \"MovementSpeedModifier\": 1.0\n  },\n  \"CastleStatModifiers_Global\": {\n    \"TickPeriod\": 5.0,\n    \"SafetyBoxLimit\": 1,\n    \"EyeStructuresLimit\": 1,\n    \"TombLimit\": 12,\n    \"VerminNestLimit\": 4,\n    \"PrisonCellLimit\": 16,\n    \"HeartLimits\": {\n      \"Level1\": {\n        \"FloorLimit\": 50,\n        \"ServantLimit\": 4,\n        \"BuildLimits\": 2,\n        \"HeightLimit\": 3\n      },\n      \"Level2\": {\n        \"FloorLimit\": 140,\n        \"ServantLimit\": 5,\n        \"BuildLimits\": 2,\n        \"HeightLimit\": 3\n      },\n      \"Level3\": {\n        \"FloorLimit\": 240,\n        \"ServantLimit\": 6,\n        \"BuildLimits\": 2,\n        \"HeightLimit\": 3\n      },\n      \"Level4\": {\n        \"FloorLimit\": 360,\n        \"ServantLimit\": 7,\n        \"BuildLimits\": 2,\n        \"HeightLimit\": 3\n      },\n      \"Level5\": {\n        \"FloorLimit\": 550,\n        \"ServantLimit\": 8,\n        \"BuildLimits\": 2,\n        \"HeightLimit\": 3\n      }\n    },\n    \"CastleLimit\": 2,\n    \"NetherGateLimit\": 1,\n    \"ThroneOfDarknessLimit\": 1\n  },\n  \"PlayerInteractionSettings\": {\n    \"TimeZone\": \"Local\",\n    \"VSPlayerWeekdayTime\": {\n      \"StartHour\": 20,\n      \"StartMinute\": 0,\n      \"EndHour\": 22,\n      \"EndMinute\": 0\n    },\n    \"VSPlayerWeekendTime\": {\n      \"StartHour\": 20,\n      \"StartMinute\": 0,\n      \"EndHour\": 22,\n      \"EndMinute\": 0\n    },\n    \"VSCastleWeekdayTime\": {\n      \"StartHour\": 20,\n      \"StartMinute\": 0,\n      \"EndHour\": 22,\n      \"EndMinute\": 0\n    },\n    \"VSCastleWeekendTime\": {\n      \"StartHour\": 20,\n      \"StartMinute\": 0,\n      \"EndHour\": 22,\n      \"EndMinute\": 0\n    }\n  },\n  \"TraderModifiers\": {\n    \"StockModifier\": 1.0,\n    \"PriceModifier\": 1.0,\n    \"RestockTimerModifier\": 1.0\n  },\n  \"WarEventGameSettings\": {\n    \"Interval\": 1,\n    \"MajorDuration\": 1,\n    \"MinorDuration\": 1,\n    \"WeekdayTime\": {\n      \"StartHour\": 0,\n      \"StartMinute\": 0,\n      \"EndHour\": 23,\n      \"EndMinute\": 59\n    },\n    \"WeekendTime\": {\n      \"StartHour\": 0,\n      \"StartMinute\": 0,\n      \"EndHour\": 23,\n      \"EndMinute\": 59\n    },\n    \"ScalingPlayers1\": {\n      \"PointsModifier\": 1.0,\n      \"DropModifier\": 1.0\n    },\n    \"ScalingPlayers2\": {\n      \"PointsModifier\": 0.5,\n      \"DropModifier\": 0.5\n    },\n    \"ScalingPlayers3\": {\n      \"PointsModifier\": 0.25,\n      \"DropModifier\": 0.25\n    },\n    \"ScalingPlayers4\": {\n      \"PointsModifier\": 0.25,\n      \"DropModifier\": 0.25\n    }\n  }\n}",
+      "order": 0,
+      "enableEditor": false,
+      "editor": []
+    },
+    {
+      "id": 1289,
+      "relativePath": "VRisingServer_Data\\StreamingAssets\\Settings\\ServerHostSettings.json",
+      "description": "Server Host Settings",
+      "template": "{\n  \"Name\": \"${Hostname}\",\n  \"Description\": \"${Description}\",\n  \"MaxConnectedUsers\": \"${Slots}\",\n  \"MaxConnectedAdmins\": \"${MaxConnectedAdmins}\",\n  \"ServerFps\": \"${ServerFps}\",\n  \"SaveName\": \"${SaveName}\",\n  \"Password\": \"${Password}\",\n  \"Secure\": \"${Secure}\",\n  \"ListOnSteam\": \"${ListOnSteam}\",\n  \"ListOnEOS\": \"${ListOnEOS}\",\n  \"AutoSaveCount\": \"${AutoSaveCount}\",\n  \"AutoSaveInterval\": \"${AutoSaveInterval}\",\n  \"GameSettingsPreset\": \"${GameSettingsPreset}\",\n  \"AdminOnlyDebugEvents\": \"${AdminOnlyDebugEvents}\",\n  \"DisableDebugEvents\": \"${DisableDebugEvents}\",\n  \"ResetDaysInterval\": \"${ResetDaysInterval}\",\n  \"DayOfReset\": \"${DayOfReset}\",\n  \"API\": {\n    \"Enabled\": ${APIEnabled},\n    \"BindPort\": ${CustomPort1}\n  },\n  \"Rcon\": {\n    \"Enabled\": true,\n    \"Password\": \"${RconPassword}\"\n  }\n}\n",
+      "order": 0,
+      "enableEditor": true,
+      "editor": [
+        {
+          "id": "Header_1",
+          "label": "BASIC SETTINGS",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "label": "Hostname",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 0,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Description",
+          "defaultValue": "A hyperlayer.net hosted server",
+          "label": "Description",
+          "description": "Short description of server purpose, rules, message of the day",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 250,
+          "id": "ServerFps",
+          "defaultValue": "30",
+          "label": "Server FPS",
+          "description": "Sets the max number of server frames",
+          "required": false,
+          "requiredMessage": "",
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 100,
+          "id": "MaxConnectedAdmins",
+          "defaultValue": "4",
+          "label": "Max concurrent Admins",
+          "description": "Max number of admins to allow connect even when server is full",
+          "required": false,
+          "requiredMessage": "",
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "SaveName",
+          "defaultValue": "world1",
+          "label": "Save Name",
+          "description": "Name of save file/directory",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Password",
+          "defaultValue": "",
+          "label": "Server Password",
+          "description": "Set a password or leave empty",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "RconPassword",
+          "label": "RCON Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "id": "Header_9",
+          "label": "ADVANCED SETTINGS",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "True",
+              "value": "true"
+            },
+            {
+              "text": "False",
+              "value": "false"
+            }
+          ],
+          "id": "Secure",
+          "defaultValue": "true",
+          "label": "Secure",
+          "description": "Enables VAC (Valve anti cheat)",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "True",
+              "value": "true"
+            },
+            {
+              "text": "False",
+              "value": "false"
+            }
+          ],
+          "id": "ListOnSteam",
+          "defaultValue": "true",
+          "label": "List server on Steam",
+          "description": "Displays your server on steam",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "True",
+              "value": "true"
+            },
+            {
+              "text": "False",
+              "value": "false"
+            }
+          ],
+          "id": "ListOnEOS",
+          "defaultValue": "true",
+          "label": "ListOnEOS",
+          "description": "List Server in the in game browser",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 50,
+          "id": "AutoSaveCount",
+          "defaultValue": "50",
+          "label": "Number of auto saves",
+          "description": "Number of autosaves to keep",
+          "required": false,
+          "requiredMessage": "",
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 65535,
+          "id": "AutoSaveInterval",
+          "defaultValue": "300",
+          "label": "Auto Save Interval",
+          "description": "Interval in seconds between each auto save",
+          "required": false,
+          "requiredMessage": "",
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "GameSettingsPreset",
+          "defaultValue": "",
+          "label": "Game Settings Preset",
+          "description": "<ul>\n\t<li>Name of a GameSettings preset found in the GameSettingPresets folder</li>\n\t<li>Gaming presets can be found in: VRisingServer_Data > StreamingAssets > GameSettingPresets</li>\n</ul>",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "decimals": 0,
+          "step": 1,
+          "spinner": false,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 65535,
+          "id": "ResetDaysInterval",
+          "defaultValue": "0",
+          "label": "Reset Day Interval",
+          "description": "Number of real-life days before a wipe takes place. (0(ZERO) is disabled)",
+          "required": false,
+          "requiredMessage": "",
+          "controlType": "DynamicNumericTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": " Any",
+              "value": "Any"
+            },
+            {
+              "text": "Monday",
+              "value": "Monday"
+            },
+            {
+              "text": "Tuesday",
+              "value": "Tuesday"
+            },
+            {
+              "text": "Wednesday",
+              "value": "Wednesday"
+            },
+            {
+              "text": "Thursday",
+              "value": "Thursday"
+            },
+            {
+              "text": "Friday",
+              "value": "Friday"
+            },
+            {
+              "text": "Saturday",
+              "value": "Saturday"
+            },
+            {
+              "text": "Sunday",
+              "value": "Sunday"
+            }
+          ],
+          "id": "DayOfReset",
+          "defaultValue": "Any",
+          "label": "Day of Reset",
+          "description": "The day of the week that the wipe will take place.",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "True",
+              "value": "true"
+            },
+            {
+              "text": "False",
+              "value": "false"
+            }
+          ],
+          "id": "AdminOnlyDebugEvents",
+          "defaultValue": "true",
+          "label": "Admin debug",
+          "description": "Enables debugging for admins",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "False",
+              "value": "false"
+            },
+            {
+              "text": "True",
+              "value": "true"
+            }
+          ],
+          "id": "DisableDebugEvents",
+          "defaultValue": "false",
+          "label": "Disable debug events",
+          "description": "Disables debug events for everyone",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "False",
+              "value": "false"
+            },
+            {
+              "text": "True",
+              "value": "true"
+            }
+          ],
+          "id": "APIEnabled",
+          "defaultValue": "false",
+          "label": "Enable API Metrics",
+          "description": "Enable this to send Metric data to v rising",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    },
+    {
+      "id": 1290,
+      "relativePath": "VRisingServer_Data\\StreamingAssets\\Settings\\ServerVoipSettings.json",
+      "description": "Server VOIP settings",
+      "template": "{\n \"VOIPEnabled\": ${VOIPEnabled},\n \"VOIPIssuer\": \"${VOIPIssuer}\",\n \"VOIPSecret\": \"${VOIPSecret}\",\n \"VOIPAppUserId\": \"${VOIPAppUserId}\",\n \"VOIPAppUserPwd\": \"${VOIPAppUserPwd}\",\n \"VOIPVivoxDomain\": \"${VOIPVivoxDomain}\",\n \"VOIPAPIEndpoint\": \"${VOIPAPIEndpoint}\",\n \"VOIPConversationalDistance\": ${VOIPConversationalDistance},\n \"VOIPAudibleDistance\": ${VOIPAudibleDistance},\n \"VOIPFadeIntensity\": ${VOIPFadeIntensity}\n}",
+      "order": 0,
+      "enableEditor": true,
+      "editor": [
+        {
+          "id": "Header_1",
+          "label": "VIVOX VOIP SETTINGS",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicHeader",
+          "sm": 12,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "id": "LineBreak_2",
+          "label": "",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "controlType": "DynamicLineBreak",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "False",
+              "value": "false"
+            },
+            {
+              "text": "True",
+              "value": "true"
+            }
+          ],
+          "id": "VOIPEnabled",
+          "defaultValue": "false",
+          "label": "Enable VOIP",
+          "description": "VOIP is disabled by default for V Rising",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "VOIPIssuer",
+          "defaultValue": "",
+          "label": "VOIP Issuer",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "VOIPSecret",
+          "defaultValue": "",
+          "label": "VOIP Secret",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "VOIPAppUserId",
+          "defaultValue": "",
+          "label": "Voip App User ID",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "VOIPAppUserPwd",
+          "defaultValue": "",
+          "label": "VOIP App User Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "VOIPVivoxDomain",
+          "defaultValue": "",
+          "label": "Vivox Domain",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "VOIPAPIEndpoint",
+          "defaultValue": "",
+          "label": "VOIP API Endpoint",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "",
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "step": 1,
+          "valueLabel": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 300,
+          "id": "VOIPConversationalDistance",
+          "defaultValue": "14",
+          "label": "VOIP Conversational Distance",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "controlType": "DynamicSlider",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "step": 1,
+          "valueLabel": true,
+          "valueType": "double",
+          "minValue": 0,
+          "maxValue": 300,
+          "id": "VOIPAudibleDistance",
+          "defaultValue": "40",
+          "label": "VOIP Audible Distance",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "controlType": "DynamicSlider",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "step": 1,
+          "valueLabel": true,
+          "valueType": "double",
+          "minValue": 1,
+          "maxValue": 65535,
+          "id": "VOIPFadeIntensity",
+          "defaultValue": "2.0",
+          "label": "VOIP Fade Intensity",
+          "description": "",
+          "required": false,
+          "requiredMessage": "",
+          "controlType": "DynamicSlider",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Move Logs",
+        "description": "Move Logs",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nstring logDir = Path.Combine(ThisService.RootDirectory, \"logs\");\nif (!Directory.Exists(logDir))\n    Directory.CreateDirectory(logDir);\n\nstring logFile = Path.Combine(logDir, \"VRisingServer.log\");\nif (File.Exists(logFile))\n{\n    DateTime now = DateTime.Now;\n    string ts = $\"{now.Year}-{now.Month}-{now.Day}__{now.Hour}-{now.Minute}-{now.Second}\";\n    string dest = Path.Combine(logDir, $\"VRisingServer_{ts}.log\");\n    File.Move(logFile, dest, true);\n}\n",
+        "runImpersonated": true,
+        "stopService": false,
+        "ignoreErrors": true,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "0d5f0faa-704b-4f60-919d-6a0c0845168b"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows",
+          "Linux"
+        ],
+        "scriptEvents": [
+          "AfterServiceCreated",
+          "AfterServiceReinstalled",
+          "BeforeServiceStarted"
+        ],
+        "name": "Install Wine dependencies (VC++)",
+        "description": "",
+        "code": "//refAssemblies: TCAdmin.Web.Shared.dll\nusing System;\nusing System.IO;\nusing System.Diagnostics;\nusing System.Threading.Tasks;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY\n\n// Wine dependency provisioning. The script must be marked Windows (the game's OS) so the script\n// DB-filter (which keys on the GAME OS) fetches it at all; we then gate on the HOST being Linux so\n// winetricks only runs on the Wine path and is a no-op on native Windows hosts.\n// Bound to AfterServiceCreated / AfterServiceReinstalled (runs inside the create/reinstall task, no\n// start timeout) AND BeforeServiceStarted (safety net). Idempotent via a marker. Installs the VC++ /\n// D3D runtimes the game needs into the wine prefix via winetricks, run as the prefix's owning user.\n// winetricks creates the prefix (wineboot) if it doesn't exist yet (create-time); EnsurePrefixAsync\n// at first start then reuses it. The marker is stamped by the shell after winetricks so it survives a\n// cancelled/slow start.\n\nif (!System.OperatingSystem.IsLinux())\n{\n    ScriptConsole.WriteLine(\"[wine-deps] Native Windows host â€” runtimes installed by the OS installer; skipping winetricks.\");\n    return;\n}\n\nstring root = ThisService.RootDirectory;\nstring prefix = Path.Combine(root, \".wine\");\nstring marker = Path.Combine(prefix, \".tcadmin-winedeps\");\n\nif (File.Exists(marker))\n{\n    ScriptConsole.WriteLine(\"[wine-deps] Runtimes already installed in the wine prefix.\");\n    return;\n}\n\nScriptConsole.WriteLine(\"[wine-deps] Installing VC++/D3D runtimes into the wine prefix via winetricks (can take a few minutes)...\");\n\n// Owner is taken from the service ROOT (always present and chowned to the service user by the create's\n// file-permission pass) â€” the .wine prefix may not exist yet at create-time. winetricks creates it.\nstring b = string.Join(\" \",\n    \"set -e;\",\n    $\"ROOT='{root}';\",\n    \"PREFIX=\\\"$ROOT/.wine\\\";\",\n    \"MARKER=\\\"$PREFIX/.tcadmin-winedeps\\\";\",\n    \"OWNER=$(stat -c '%U' \\\"$ROOT\\\");\",\n    \"echo \\\"[wine-deps] service user: $OWNER\\\";\",\n    \"RT=\\\"$ROOT/.tca/xdg-runtime\\\"; mkdir -p \\\"$RT\\\"; chmod 700 \\\"$RT\\\"; chown \\\"$OWNER\\\" \\\"$RT\\\";\",\n    \"runuser -u \\\"$OWNER\\\" -- env WINEPREFIX=\\\"$PREFIX\\\" HOME=\\\"$ROOT\\\" XDG_RUNTIME_DIR=\\\"$RT\\\" WINEDEBUG=-all WINEDLLOVERRIDES='mscoree=;mshtml=' xvfb-run -a winetricks -q vcrun2019 d3dcompiler_47;\",\n    \"touch \\\"$MARKER\\\"; chown \\\"$OWNER\\\" \\\"$MARKER\\\";\",\n    \"echo '[wine-deps] winetricks finished';\");\n\nvar psi = new ProcessStartInfo\n{\n    FileName = \"/bin/bash\",\n    UseShellExecute = false,\n    RedirectStandardOutput = true,\n    RedirectStandardError = true,\n};\npsi.ArgumentList.Add(\"-c\");\npsi.ArgumentList.Add(b);\n\nusing (var p = Process.Start(psi))\n{\n    string outText = await p.StandardOutput.ReadToEndAsync();\n    string errText = await p.StandardError.ReadToEndAsync();\n    await p.WaitForExitAsync();\n    if (!string.IsNullOrWhiteSpace(outText))\n        ScriptConsole.WriteLine(outText.Length > 2500 ? outText.Substring(outText.Length - 2500) : outText);\n    if (!string.IsNullOrWhiteSpace(errText))\n        ScriptConsole.WriteLine(\"[wine-deps stderr] \" + (errText.Length > 1200 ? errText.Substring(errText.Length - 1200) : errText));\n    ScriptConsole.WriteLine($\"[wine-deps] winetricks exit code: {p.ExitCode}\");\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "order": 0,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "identifier": "81a4ce7b-9ecb-4f3e-bf6f-96f0a5fd65f6"
+      }
+    }
+  ],
+  "customModProviderConfigs": [],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-06-21T05:26:09.137236",
+  "modifiedDate": "2026-06-21T05:26:09.830115",
+  "metadata": {
+    "notes": "Game imported from plugin Community.Games.VRising version 1.0.0.",
+    "PluginVersion": "1.0.0",
+    "PluginIdentifier": "Community.Games.VRising"
+  },
+  "backupConfig": {
+    "enabled": false,
+    "backupType": "Full",
+    "compressBackup": true,
+    "includedPaths": []
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "None",
+    "maxFailureAction": "None",
+    "logActivityOnFailure": true,
+    "slotDetectionEnabled": false,
+    "slotDetectionAction": "None",
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "",
+    "urlExpression": "${FastDownloadBaseUrl}/",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": false,
+    "compression": "None",
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}
