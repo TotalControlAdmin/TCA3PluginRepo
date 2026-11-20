@@ -1,0 +1,1975 @@
+{
+  "__TCA:ExportVersion": "3.24.1.36413",
+  "__TCA:ExportedAt": "2026-11-16T05:31:02.9166756Z",
+  "name": "Contagion (Linux / Wine)",
+  "shortName": "Contagion",
+  "description": "",
+  "operatingSystem": "Windows",
+  "iconImage": "https://shared.fastly.steamstatic.com/community_assets/images/apps/238430/5b4f22ca04d338866b0c904af3166d9e939027f2.jpg",
+  "backgroundImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238430/ss_fa25d32350161367c0dc7411ec5ec1b8bfa5cef0.1920x1080.jpg",
+  "minSlots": 1,
+  "maxSlots": 16,
+  "defaultSlots": 8,
+  "startedUntilResponding": false,
+  "startingTimeout": "00:00:00",
+  "defaultDiskSpace": null,
+  "categoryId": 1,
+  "editableExtensions": [
+    ".txt",
+    ".cfg",
+    ".json",
+    ".ini",
+    ".xml"
+  ],
+  "logExtensions": [
+    ".log"
+  ],
+  "maxEditableSize": null,
+  "maxConcurrentScriptRuns": 5,
+  "queryRconProtocolConfig": {
+    "queryProtocol": "a2s",
+    "rconProtocol": "source",
+    "privateRule": "password",
+    "privateRuleValue": "1",
+    "hiddenRules": [],
+    "eosClientId": "",
+    "eosClientSecret": "",
+    "eosDeploymentId": "",
+    "eosGrantType": ""
+  },
+  "consoleConfig": {
+    "enabled": true,
+    "outputSource": "LogFile",
+    "logFile": "contagion/console.log",
+    "inputSource": "ConsoleCommands",
+    "printRconResponse": true,
+    "outputFilters": "",
+    "stopCommand": "quit",
+    "waitAfterStopCommand": 15000,
+    "screenCaptureTitleBar": false,
+    "screenCaptureQuality": 25,
+    "screenCaptureFPS": 10,
+    "screenCaptureAllowMouse": false,
+    "screenCaptureAllowKeys": false,
+    "screenCaptureMouseHardware": true
+  },
+  "ipPortAllocationConfig": {
+    "usePrimaryIpOnly": false,
+    "useDefaultPortsOnly": false,
+    "supportsIpv6": false,
+    "uniquePort": "ServerIp",
+    "customPorts": [
+      {
+        "id": "GamePort",
+        "port": 27015,
+        "expression": "",
+        "description": "Game, query and RCON (UDP \u002B TCP)",
+        "uriTemplate": null
+      },
+      {
+        "id": "QueryPort",
+        "port": 27015,
+        "expression": "GamePort",
+        "description": "Steam query (UDP, same as the game port)",
+        "uriTemplate": null
+      },
+      {
+        "id": "RConPort",
+        "port": 27015,
+        "expression": "GamePort",
+        "description": "RCON (TCP, same as the game port)",
+        "uriTemplate": null
+      },
+      {
+        "id": "ClientPort",
+        "port": 27016,
+        "expression": "GamePort \u002B 1",
+        "description": "Client port (UDP)",
+        "uriTemplate": null
+      }
+    ],
+    "portIncrement": 10
+  },
+  "fileAndDirectoryConfig": {
+    "relativeExecutable": "contagionds.exe",
+    "relativeWorkingDirectory": "",
+    "autoSetupFolderName": "contagion-wine",
+    "failOnMissingExecutable": true,
+    "externalDownloadEnable": false,
+    "externalDownloadUrl": "",
+    "externalDownloadFileName": null
+  },
+  "steamConfig": {
+    "steamUpdate": true,
+    "appId": 293030,
+    "runAsServiceUser": false,
+    "branch": "public",
+    "branchPassword": null,
+    "storeId": 238430,
+    "extraParameters": "",
+    "steamUsername": "anonymous",
+    "steamPassword": "",
+    "steamDownloadRetries": 5,
+    "updateAfterCreateOrReinstall": false,
+    "verifyAll": false,
+    "steamTool": "DepotDownloader"
+  },
+  "gameCommandlineConfig": {
+    "privateCommandline": "",
+    "privateCustomCommandline": ""
+  },
+  "commandlineConfig": {
+    "enableSelection": true,
+    "defaultCommandline": "-console -game contagion -norestart -condebug \u002Bmaxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} \u002Bclientport ${ClientPort} ${StartupMap}",
+    "defaultCustomCommandline": "-console -game contagion -norestart -condebug \u002Bmaxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} \u002Bclientport ${ClientPort} ${ConfigFile} ${Insecure} ${StartupMap}",
+    "predefinedCommandlines": [
+      {
+        "id": 1,
+        "name": "Default",
+        "commandLine": "-console -game contagion -norestart -condebug \u002Bmaxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} \u002Bclientport ${ClientPort} ${StartupMap}"
+      },
+      {
+        "id": 2,
+        "name": "Advanced",
+        "commandLine": "-console -game contagion -norestart -condebug \u002Bmaxplayers ${Slots} -ip ${IPAddress} -port ${GamePort} \u002Bclientport ${ClientPort} ${ConfigFile} ${Insecure} ${StartupMap}"
+      }
+    ]
+  },
+  "runAsConfig": {
+    "runAs": "TCAGame",
+    "specificUsername": "",
+    "specificPassword": "",
+    "interactWithDesktop": false,
+    "elevated": false
+  },
+  "identifier": "080f105a-0794-5d33-a633-5297a067b800",
+  "hostingConfig": {
+    "role": "None",
+    "hostedGameIds": [],
+    "pendingHostedGames": [],
+    "maxHostedServices": 0
+  },
+  "hostedGames": [],
+  "hostedGameNames": [],
+  "gameVariables": [
+    {
+      "name": "ConfigFile",
+      "defaultValue": "server.cfg",
+      "required": true,
+      "requiredMessage": "Enter a config file name.",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "\u002Bexec \u0022${ConfigFile}\u0022",
+      "editor": {
+        "maxLength": 0,
+        "lines": 1,
+        "denyCharacters": [
+          "\u002B",
+          "\u0022"
+        ],
+        "regExValidation": "",
+        "inputType": 0,
+        "id": "ConfigFile",
+        "defaultValue": "server.cfg",
+        "label": "Server Config:",
+        "description": "The name of the configuration file to execute when the game server is started.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Enter a config file name.",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-16T05:26:46.230489",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Insecure",
+      "defaultValue": "",
+      "required": false,
+      "requiredMessage": "",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Insecure}",
+      "editor": {
+        "valueType": "bool",
+        "checkedValue": "-insecure",
+        "uncheckedValue": "",
+        "id": "Insecure",
+        "defaultValue": "",
+        "label": "Insecure",
+        "description": "",
+        "required": false,
+        "requiredMessage": "",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicCheckBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-16T05:26:46.243418",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": []
+    },
+    {
+      "name": "StartupMap",
+      "defaultValue": "ce_barlowe",
+      "required": true,
+      "requiredMessage": "Select a map.",
+      "scriptParameter": false,
+      "commandlineParameter": true,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "\u002Bmap ${StartupMap}",
+      "editor": {
+        "items": [
+          {
+            "text": "Escape: ce_barlowe",
+            "value": "ce_barlowe"
+          },
+          {
+            "text": "Escape: ce_barlowe_02",
+            "value": "ce_barlowe_02"
+          },
+          {
+            "text": "Escape: ce_barlowe_02_christmas",
+            "value": "ce_barlowe_02_christmas"
+          },
+          {
+            "text": "Escape: ce_barlowe_christmas",
+            "value": "ce_barlowe_christmas"
+          },
+          {
+            "text": "Escape: ce_biotec",
+            "value": "ce_biotec"
+          },
+          {
+            "text": "Escape: ce_biotec_christmas",
+            "value": "ce_biotec_christmas"
+          },
+          {
+            "text": "Escape: ce_campwhitner",
+            "value": "ce_campwhitner"
+          },
+          {
+            "text": "Escape: ce_campwhitner_halloween",
+            "value": "ce_campwhitner_halloween"
+          },
+          {
+            "text": "Escape: ce_downtown_01",
+            "value": "ce_downtown_01"
+          },
+          {
+            "text": "Escape: ce_downtown_02",
+            "value": "ce_downtown_02"
+          },
+          {
+            "text": "Escape: ce_downtown_03",
+            "value": "ce_downtown_03"
+          },
+          {
+            "text": "Escape: ce_downtown_finale",
+            "value": "ce_downtown_finale"
+          },
+          {
+            "text": "Escape: ce_harvest",
+            "value": "ce_harvest"
+          },
+          {
+            "text": "Escape: ce_harvest_halloween",
+            "value": "ce_harvest_halloween"
+          },
+          {
+            "text": "Escape: ce_laststop",
+            "value": "ce_laststop"
+          },
+          {
+            "text": "Escape: ce_laststop_02",
+            "value": "ce_laststop_02"
+          },
+          {
+            "text": "Escape: ce_laststop_03",
+            "value": "ce_laststop_03"
+          },
+          {
+            "text": "Escape: ce_laststop_04",
+            "value": "ce_laststop_04"
+          },
+          {
+            "text": "Escape: ce_laststop_04b",
+            "value": "ce_laststop_04b"
+          },
+          {
+            "text": "Escape: ce_laststop_05",
+            "value": "ce_laststop_05"
+          },
+          {
+            "text": "Escape: ce_laststop_05b",
+            "value": "ce_laststop_05b"
+          },
+          {
+            "text": "Escape: ce_laststop_06",
+            "value": "ce_laststop_06"
+          },
+          {
+            "text": "Escape: ce_laststop_07",
+            "value": "ce_laststop_07"
+          },
+          {
+            "text": "Escape: ce_laststop_08",
+            "value": "ce_laststop_08"
+          },
+          {
+            "text": "Escape: ce_laststop_09",
+            "value": "ce_laststop_09"
+          },
+          {
+            "text": "Escape: ce_laststop_10",
+            "value": "ce_laststop_10"
+          },
+          {
+            "text": "Escape: ce_laststop_finale",
+            "value": "ce_laststop_finale"
+          },
+          {
+            "text": "Escape: ce_montclair",
+            "value": "ce_montclair"
+          },
+          {
+            "text": "Escape: ce_montclair_partb",
+            "value": "ce_montclair_partb"
+          },
+          {
+            "text": "Escape: ce_roanokepd",
+            "value": "ce_roanokepd"
+          },
+          {
+            "text": "Escape: ce_roanokepd_halloween",
+            "value": "ce_roanokepd_halloween"
+          },
+          {
+            "text": "Escape: ce_stonecreek",
+            "value": "ce_stonecreek"
+          },
+          {
+            "text": "Horde: chm_auroraestates",
+            "value": "chm_auroraestates"
+          },
+          {
+            "text": "Horde: chm_barlowesquare",
+            "value": "chm_barlowesquare"
+          },
+          {
+            "text": "Horde: chm_biotec",
+            "value": "chm_biotec"
+          },
+          {
+            "text": "Horde: chm_broadway",
+            "value": "chm_broadway"
+          },
+          {
+            "text": "Horde: chm_cypruspark",
+            "value": "chm_cypruspark"
+          },
+          {
+            "text": "Horde: chm_flowerfieldmansion",
+            "value": "chm_flowerfieldmansion"
+          },
+          {
+            "text": "Horde: chm_harvest",
+            "value": "chm_harvest"
+          },
+          {
+            "text": "Horde: chm_lakeland",
+            "value": "chm_lakeland"
+          },
+          {
+            "text": "Horde: chm_losmuertos",
+            "value": "chm_losmuertos"
+          },
+          {
+            "text": "Horde: chm_roanokepd",
+            "value": "chm_roanokepd"
+          },
+          {
+            "text": "Hunted: ch_auroraestates",
+            "value": "ch_auroraestates"
+          },
+          {
+            "text": "Hunted: ch_barlowesquare",
+            "value": "ch_barlowesquare"
+          },
+          {
+            "text": "Hunted: ch_biotec",
+            "value": "ch_biotec"
+          },
+          {
+            "text": "Hunted: ch_campwhitner",
+            "value": "ch_campwhitner"
+          },
+          {
+            "text": "Hunted: ch_cypruspark",
+            "value": "ch_cypruspark"
+          },
+          {
+            "text": "Hunted: ch_cypruspark_night",
+            "value": "ch_cypruspark_night"
+          },
+          {
+            "text": "Hunted: ch_deathtrain",
+            "value": "ch_deathtrain"
+          },
+          {
+            "text": "Hunted: ch_flowerfieldmansion",
+            "value": "ch_flowerfieldmansion"
+          },
+          {
+            "text": "Hunted: ch_harvest",
+            "value": "ch_harvest"
+          },
+          {
+            "text": "Hunted: ch_lakeland",
+            "value": "ch_lakeland"
+          },
+          {
+            "text": "Hunted: ch_lakeland_christmas",
+            "value": "ch_lakeland_christmas"
+          },
+          {
+            "text": "Hunted: ch_montclair",
+            "value": "ch_montclair"
+          },
+          {
+            "text": "Hunted: ch_pioneerexpress",
+            "value": "ch_pioneerexpress"
+          },
+          {
+            "text": "Hunted: ch_roanokepd",
+            "value": "ch_roanokepd"
+          },
+          {
+            "text": "Hunted: ch_stonecreek",
+            "value": "ch_stonecreek"
+          },
+          {
+            "text": "Hunted: ch_unionstation",
+            "value": "ch_unionstation"
+          },
+          {
+            "text": "Extraction: cx_auroraestates",
+            "value": "cx_auroraestates"
+          },
+          {
+            "text": "Extraction: cx_auroraestates_christmas",
+            "value": "cx_auroraestates_christmas"
+          },
+          {
+            "text": "Extraction: cx_barlowesquare",
+            "value": "cx_barlowesquare"
+          },
+          {
+            "text": "Extraction: cx_biotec",
+            "value": "cx_biotec"
+          },
+          {
+            "text": "Extraction: cx_campwhitner",
+            "value": "cx_campwhitner"
+          },
+          {
+            "text": "Extraction: cx_lakeland",
+            "value": "cx_lakeland"
+          },
+          {
+            "text": "Extraction: cx_montclair",
+            "value": "cx_montclair"
+          },
+          {
+            "text": "Extraction: cx_stripmall",
+            "value": "cx_stripmall"
+          },
+          {
+            "text": "Panic: cp_broadway",
+            "value": "cp_broadway"
+          },
+          {
+            "text": "Panic: cp_montclair",
+            "value": "cp_montclair"
+          },
+          {
+            "text": "Panic: cp_passenger",
+            "value": "cp_passenger"
+          },
+          {
+            "text": "Panic: cp_pioneerexpress",
+            "value": "cp_pioneerexpress"
+          },
+          {
+            "text": "Panic: cp_roanokepd",
+            "value": "cp_roanokepd"
+          },
+          {
+            "text": "Flatline: cf_campwhitner",
+            "value": "cf_campwhitner"
+          },
+          {
+            "text": "Flatline: cf_clocktower",
+            "value": "cf_clocktower"
+          },
+          {
+            "text": "Flatline: cf_clocktower_halloween",
+            "value": "cf_clocktower_halloween"
+          },
+          {
+            "text": "Flatline: cf_harvest",
+            "value": "cf_harvest"
+          },
+          {
+            "text": "Flatline: cf_johantower",
+            "value": "cf_johantower"
+          },
+          {
+            "text": "Flatline: cf_losmuertos",
+            "value": "cf_losmuertos"
+          },
+          {
+            "text": "Flatline: cf_montclair",
+            "value": "cf_montclair"
+          },
+          {
+            "text": "Flatline: cf_sewage",
+            "value": "cf_sewage"
+          },
+          {
+            "text": "Flatline: cf_southwestbank",
+            "value": "cf_southwestbank"
+          },
+          {
+            "text": "Flatline: cf_stonecreek",
+            "value": "cf_stonecreek"
+          },
+          {
+            "text": "Flatline: cf_underground",
+            "value": "cf_underground"
+          },
+          {
+            "text": "Flatline: cf_unionstation",
+            "value": "cf_unionstation"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "StartupMap",
+        "defaultValue": "ce_barlowe",
+        "label": "Startup map",
+        "description": "The map the server starts on. The map prefix sets the game mode: ce_ Escape, ch_ Hunted, cx_ Extraction, cp_ Panic, cf_ Flatline.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Select a map.",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-16T05:26:46.246573",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${Hostname}",
+      "editor": {
+        "maxLength": 64,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\u0022\\\\;]{1,64}\\z",
+        "inputType": 0,
+        "id": "Hostname",
+        "defaultValue": null,
+        "label": "Hostname",
+        "description": "Up to 64 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-16T05:26:46.258278",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "RconPassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${RconPassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\u0022\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "RconPassword",
+        "defaultValue": null,
+        "label": "RCON Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-16T05:26:46.258563",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "PrivatePassword",
+      "defaultValue": null,
+      "required": false,
+      "requiredMessage": "Value is required",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${PrivatePassword}",
+      "editor": {
+        "maxLength": 32,
+        "lines": 1,
+        "denyCharacters": [],
+        "regExValidation": "\\A[^\\r\\n\u0022\\\\;]{1,32}\\z",
+        "inputType": 0,
+        "id": "PrivatePassword",
+        "defaultValue": null,
+        "label": "Private Password",
+        "description": "Up to 32 characters. Not allowed: double quotes, backslashes, semicolons, line breaks.",
+        "required": false,
+        "valueType": "string",
+        "requiredMessage": "Value is required",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicTextBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-16T05:26:46.258604",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AllTalk",
+      "defaultValue": "0",
+      "required": true,
+      "requiredMessage": "Select a value.",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AllTalk}",
+      "editor": {
+        "items": [
+          {
+            "text": "Team only",
+            "value": "0"
+          },
+          {
+            "text": "Everyone (mic icons hidden)",
+            "value": "1"
+          },
+          {
+            "text": "Everyone (mic icons shown)",
+            "value": "2"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "AllTalk",
+        "defaultValue": "0",
+        "label": "Voice chat",
+        "description": "Who hears whom on voice chat.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Select a value.",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-16T05:26:46.258641",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "AllowDownload",
+      "defaultValue": "1",
+      "required": true,
+      "requiredMessage": "Select a value.",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${AllowDownload}",
+      "editor": {
+        "items": [
+          {
+            "text": "Off",
+            "value": "0"
+          },
+          {
+            "text": "On",
+            "value": "1"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "AllowDownload",
+        "defaultValue": "1",
+        "label": "Allow file downloads",
+        "description": "Lets players download custom maps and content from the server.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Select a value.",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-16T05:26:46.258687",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "ZombieAiOnly",
+      "defaultValue": "0",
+      "required": true,
+      "requiredMessage": "Select a value.",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${ZombieAiOnly}",
+      "editor": {
+        "items": [
+          {
+            "text": "Off",
+            "value": "0"
+          },
+          {
+            "text": "On",
+            "value": "1"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "ZombieAiOnly",
+        "defaultValue": "0",
+        "label": "AI zombies only",
+        "description": "No player zombies: a player who dies spectates until the next round.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Select a value.",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-16T05:26:46.258716",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    },
+    {
+      "name": "InfectionDisabled",
+      "defaultValue": "0",
+      "required": true,
+      "requiredMessage": "Select a value.",
+      "scriptParameter": false,
+      "commandlineParameter": false,
+      "saveScriptParameter": false,
+      "syncCommandlineParameter": false,
+      "template": "${InfectionDisabled}",
+      "editor": {
+        "items": [
+          {
+            "text": "Off",
+            "value": "0"
+          },
+          {
+            "text": "On",
+            "value": "1"
+          }
+        ],
+        "itemSource": "CustomList",
+        "fileSystemSource": null,
+        "id": "InfectionDisabled",
+        "defaultValue": "0",
+        "label": "Disable infection",
+        "description": "Players never become infected.",
+        "required": true,
+        "valueType": "string",
+        "requiredMessage": "Select a value.",
+        "parentId": null,
+        "parentValue": null,
+        "controlType": "DynamicComboBox",
+        "sm": 6,
+        "xs": 12,
+        "requiresAnyVisible": []
+      },
+      "createdDate": "2026-11-16T05:26:46.258735",
+      "modifiedDate": null,
+      "metadata": {},
+      "variableRoles": [
+        {
+          "roleId": 2
+        },
+        {
+          "roleId": 3
+        }
+      ]
+    }
+  ],
+  "configFiles": [
+    {
+      "id": 381,
+      "relativePath": "contagion/cfg/server.cfg",
+      "description": "Server settings (server.cfg)",
+      "template": "//----------------------------\n// Base settings\n//----------------------------\n\n// Server name\nhostname \u0022${Hostname}\u0022\n\n// Join password (empty = public)\nsv_password \u0022${PrivatePassword}\u0022\n\n// Remote console password\nrcon_password \u0022${RconPassword}\u0022\n\n// Cheats (enabling them disables stats and achievements)\nsv_cheats 0\n\n// Voice: 0 = team only, 1 = everyone hears everyone (mic icons hidden), 2 = everyone, mic icons shown\nsv_alltalk ${AllTalk}\n\n// Allow clients to download files (maps, textures) from the server\nsv_allowdownload ${AllowDownload}\nnet_maxfilesize 64\n\n//----------------------------\n// Contagion settings\n//----------------------------\n\n// 1 = only AI zombies: no player zombies, players who die spectate\ncg_zombie_ai_only ${ZombieAiOnly}\n\n// 1 = becoming infected is disabled\ncg_infection_disabled ${InfectionDisabled}\n\n//----------------------------\n// Logging and ban lists\n//----------------------------\nlog on\nsv_logfile 1\nsv_logecho 0\nsv_logbans 1\nwriteip\nwriteid\n",
+      "order": 1,
+      "enableEditor": true,
+      "editor": [
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "Hostname",
+          "defaultValue": null,
+          "label": "Hostname",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "RconPassword",
+          "defaultValue": null,
+          "label": "RCON Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "maxLength": 0,
+          "lines": 1,
+          "denyCharacters": [],
+          "regExValidation": "",
+          "inputType": 0,
+          "id": "PrivatePassword",
+          "defaultValue": null,
+          "label": "Private Password",
+          "description": "",
+          "required": false,
+          "valueType": "string",
+          "requiredMessage": "Value is required",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicTextBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Team only",
+              "value": "0"
+            },
+            {
+              "text": "Everyone (mic icons hidden)",
+              "value": "1"
+            },
+            {
+              "text": "Everyone (mic icons shown)",
+              "value": "2"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "AllTalk",
+          "defaultValue": "0",
+          "label": "Voice chat",
+          "description": "Who hears whom on voice chat.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "Select a value.",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Off",
+              "value": "0"
+            },
+            {
+              "text": "On",
+              "value": "1"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "AllowDownload",
+          "defaultValue": "1",
+          "label": "Allow file downloads",
+          "description": "Lets players download custom maps and content from the server.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "Select a value.",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Off",
+              "value": "0"
+            },
+            {
+              "text": "On",
+              "value": "1"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "ZombieAiOnly",
+          "defaultValue": "0",
+          "label": "AI zombies only",
+          "description": "No player zombies: a player who dies spectates until the next round.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "Select a value.",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        },
+        {
+          "items": [
+            {
+              "text": "Off",
+              "value": "0"
+            },
+            {
+              "text": "On",
+              "value": "1"
+            }
+          ],
+          "itemSource": "CustomList",
+          "fileSystemSource": null,
+          "id": "InfectionDisabled",
+          "defaultValue": "0",
+          "label": "Disable infection",
+          "description": "Players never become infected.",
+          "required": true,
+          "valueType": "string",
+          "requiredMessage": "Select a value.",
+          "parentId": null,
+          "parentValue": null,
+          "controlType": "DynamicComboBox",
+          "sm": 6,
+          "xs": 12,
+          "requiresAnyVisible": []
+        }
+      ]
+    }
+  ],
+  "fileSystemPermissions": [
+    {
+      "roleId": 2,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    },
+    {
+      "roleId": 3,
+      "rootPermission": {
+        "permissionMode": "Basic",
+        "defaultPermissions": "Write, Read, Delete",
+        "additionalPermissions": [],
+        "customRootFolder": null
+      }
+    }
+  ],
+  "gamesScripts": [
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceCreated",
+          "BeforeServiceReinstalled",
+          "AfterServiceCreated",
+          "AfterServiceReinstalled"
+        ],
+        "name": "Install Wine and its dependencies",
+        "description": "Installs wine, winetricks, Xvfb and xdotool on the host (apt, dnf or yum) and creates the Wine prefix of the server. Skips what is already installed.",
+        "code": "//refAssemblies: System.Diagnostics.Process.dll, TCAdmin.Monitor.SDK.dll\nusing System;\nusing System.Collections.Generic;\nusing System.Diagnostics;\nusing System.IO;\nusing System.Linq;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Wine (Linux host) only: installs what the panel needs to run this Windows server - wine, winetricks, Xvfb and\n// xdotool - with apt (Debian/Ubuntu) or dnf/yum (Red Hat), creates the service\u0027s Wine prefix and installs the\n// Windows runtimes listed in Verbs into it. Idempotent: anything already present is skipped. Runs before the\n// create/reinstall (host packages, so the panel\u0027s Wine check passes) and after it (the prefix, once the service user\n// and the files exist).\nif (!System.OperatingSystem.IsLinux()) return;\n\n// Windows runtimes (winetricks verbs) the server needs inside the prefix.\nvar verbs = new string[] {  };\nconst string Executable = \u0022contagionds.exe\u0022;\n\nvar tools = new (string Command, string[] Apt, string[] Rpm)[]\n{\n    (\u0022wine\u0022, new[] { \u0022wine\u0022, \u0022wine64\u0022 }, new[] { \u0022wine\u0022 }),\n    (\u0022wineserver\u0022, new[] { \u0022wine\u0022, \u0022wine64\u0022 }, new[] { \u0022wine\u0022 }),\n    (\u0022winetricks\u0022, new[] { \u0022winetricks\u0022 }, new[] { \u0022winetricks\u0022 }),\n    (\u0022cabextract\u0022, new[] { \u0022cabextract\u0022 }, new[] { \u0022cabextract\u0022 }),\n    (\u0022Xvfb\u0022, new[] { \u0022xvfb\u0022 }, new[] { \u0022xorg-x11-server-Xvfb\u0022, \u0022xorg-x11-server-Xvfb.x86_64\u0022 }),\n    (\u0022xdotool\u0022, new[] { \u0022xdotool\u0022 }, new[] { \u0022xdotool\u0022 }),\n};\nvar apt = Shell(\u0022command -v apt-get\u0022, out _);\nvar installer = apt ? \u0022DEBIAN_FRONTEND=noninteractive apt-get install -y \u0022 : Shell(\u0022command -v dnf\u0022, out _) ? \u0022dnf install -y \u0022 : \u0022yum install -y \u0022;\nvar updated = false;\nforeach (var tool in tools)\n{\n    if (Shell(\u0022command -v \u0022 \u002B tool.Command, out _)) continue;\n    var names = apt ? tool.Apt : tool.Rpm;\n    ScriptConsole.WriteLine((object)(tool.Command \u002B \u0022 is missing on this host; installing \u0022 \u002B string.Join(\u0022 or \u0022, names) \u002B \u0022.\u0022));\n    var installed = names.Any(p =\u003E Shell(installer \u002B p, out _));\n    if (!installed \u0026\u0026 apt \u0026\u0026 !updated)\n    {\n        updated = Shell(\u0022DEBIAN_FRONTEND=noninteractive apt-get update\u0022, out _);\n        installed = names.Any(p =\u003E Shell(installer \u002B p, out _));\n    }\n    if (!installed || !Shell(\u0022command -v \u0022 \u002B tool.Command, out _))\n        throw new Exception(tool.Command \u002B \u0022 is missing and could not be installed. Install one of these packages on the host: \u0022 \u002B string.Join(\u0022, \u0022, names));\n}\nShell(\u0022wine --version\u0022, out var wineVersion);\nScriptConsole.WriteLine((object)(\u0022Wine on this host: \u0022 \u002B wineVersion.Trim()));\n\nvar root = Path.GetFullPath((string)ThisService.RootDirectory).TrimEnd(\u0027/\u0027);\nvar exePath = Path.Combine(root, Executable);\n// Before the create/reinstall the service files and its run-as configuration do not exist yet.\nstring user = null;\nif (File.Exists(exePath))\n{\n    try { user = ServiceManagerService.GetServiceCredential(ThisService.ServiceId)?.UserName; }\n    catch (FileNotFoundException) { }\n}\nif (string.IsNullOrEmpty(user) || !Shell(\u0022id -u \u0027\u0022 \u002B user \u002B \u0022\u0027\u0022, out _))\n{\n    ScriptConsole.WriteLine((object)\u0022The service is not created yet; the Wine prefix is prepared after the files are installed.\u0022);\n    return;\n}\n\n// The panel starts the server with the prefix architecture of the executable (PE header): use the same one, or the\n// panel\u0027s start would find a prefix of the other architecture.\nvar arch = PeArchitecture(exePath);\nvar prefix = Path.Combine(root, \u0022.wine\u0022);\n// Every Wine call as the service user with the environment the panel starts the server with (root would leave\n// root-owned files in the prefix).\nvar wineEnv = \u0022runuser -u \u0027\u0022 \u002B user \u002B \u0022\u0027 -- env WINEPREFIX=\u0027\u0022 \u002B prefix \u002B \u0022\u0027 HOME=\u0027\u0022 \u002B root\n              \u002B \u0022\u0027 WINEARCH=\u0022 \u002B arch \u002B \u0022 WINEDEBUG=-all WINEDLLOVERRIDES=\u0027mscoree=;mshtml=\u0027 \u0022;\n\n// The first start creates the Wine prefix (about a minute), longer than the panel waits for the start that follows\n// the create. Create the prefix here; the panel skips it when its marker file is present.\nvar marker = Path.Combine(prefix, \u0022.tcadmin-initialized\u0022);\nif (!File.Exists(marker))\n{\n    ScriptConsole.WriteLine((object)(\u0022Creating the Wine prefix (\u0022 \u002B arch \u002B \u0022, about a minute).\u0022));\n    if (!Shell(wineEnv \u002B \u0022wineboot -u\u0022, out var bootOutput))\n        throw new Exception(\u0022wineboot failed: \u0022 \u002B string.Join(\u0022\\n\u0022, bootOutput.Split(\u0027\\n\u0027).TakeLast(15)));\n    Shell(wineEnv \u002B \u0022wineserver -w\u0022, out _);\n    Shell(\u0022runuser -u \u0027\u0022 \u002B user \u002B \u0022\u0027 -- sh -c \\\u0022date -u \u002B%Y-%m-%dT%H:%M:%SZ \u003E \u0027\u0022 \u002B marker \u002B \u0022\u0027\\\u0022\u0022, out _);\n    ScriptConsole.WriteLine((object)\u0022The Wine prefix is ready.\u0022);\n}\n\nif (verbs.Length == 0) return;\n// winetricks records every verb it installed in the prefix.\nvar log = Path.Combine(prefix, \u0022winetricks.log\u0022);\nvar done = File.Exists(log) ? File.ReadAllLines(log).Select(l =\u003E l.Trim()).ToHashSet() : new HashSet\u003Cstring\u003E();\nvar todo = verbs.Where(v =\u003E !done.Contains(v)).ToList();\nif (todo.Count == 0)\n{\n    ScriptConsole.WriteLine((object)(\u0022Windows runtimes already installed: \u0022 \u002B string.Join(\u0022, \u0022, verbs) \u002B \u0022.\u0022));\n    return;\n}\nScriptConsole.WriteLine((object)(\u0022Installing \u0022 \u002B string.Join(\u0022, \u0022, todo) \u002B \u0022 into the Wine prefix (a few minutes).\u0022));\nif (!Shell(wineEnv \u002B \u0022winetricks -q \u0022 \u002B string.Join(\u0022 \u0022, todo), out var output))\n    throw new Exception(\u0022winetricks failed: \u0022 \u002B string.Join(\u0022\\n\u0022, output.Split(\u0027\\n\u0027).TakeLast(15)));\nShell(wineEnv \u002B \u0022wineserver -w\u0022, out _);\nScriptConsole.WriteLine((object)\u0022Windows runtimes installed.\u0022);\n\nstatic string PeArchitecture(string path)\n{\n    using (var stream = File.OpenRead(path))\n    using (var reader = new BinaryReader(stream))\n    {\n        stream.Seek(0x3C, SeekOrigin.Begin);\n        var peOffset = reader.ReadInt32();\n        stream.Seek(peOffset \u002B 4, SeekOrigin.Begin);\n        return reader.ReadUInt16() == 0x14c ? \u0022win32\u0022 : \u0022win64\u0022;\n    }\n}\n\nbool Shell(string cmd, out string text)\n{\n    using (var process = Process.Start(new ProcessStartInfo(\u0022/bin/sh\u0022, new[] { \u0022-c\u0022, cmd }) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false }))\n    {\n        var stderr = process.StandardError.ReadToEndAsync();\n        text = process.StandardOutput.ReadToEnd() \u002B stderr.Result;\n        process.WaitForExit();\n        return process.ExitCode == 0;\n    }\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 1,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "c832ed0a-03a5-5833-bc1e-8d154be6f539"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeServiceStarted"
+        ],
+        "name": "Prepare the server",
+        "description": "Writes steam_appid.txt so the first start connects to Steam (otherwise LAN only) and keeps the previous console log as console.previous.log.",
+        "code": "using System;\nusing System.IO;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\nvar root = (string)ThisService.RootDirectory;\n\n// The server writes steam_appid.txt next to itself only during its first run, which therefore starts without Steam\n// (LAN only). Writing it before every start makes the first one work.\nvar appIdFile = Path.Combine(root, \u0022steam_appid.txt\u0022);\nif (!File.Exists(appIdFile) || File.ReadAllText(appIdFile).Trim(\u0027\\0\u0027, \u0027\\r\u0027, \u0027\\n\u0027, \u0027 \u0027) != \u0022238430\u0022)\n{\n    File.WriteAllText(appIdFile, \u0022238430\\n\u0022);\n    ScriptConsole.WriteLine((object)\u0022Wrote steam_appid.txt (238430).\u0022);\n}\n// Scripts run as root on Linux (Wine): give the file to the service user (same owner as the service root), otherwise\n// the file manager hides it.\nif (System.OperatingSystem.IsLinux())\n{\n    Globals.OperatingSystem.SetFileOwnerAutoDetect(appIdFile);\n}\n\n// -condebug appends to console.log forever; keep only the previous run next to the new one.\nvar log = Path.Combine(root, \u0022contagion\u0022, \u0022console.log\u0022);\nif (File.Exists(log))\n{\n    File.Move(log, Path.Combine(Path.GetDirectoryName(log), \u0022console.previous.log\u0022), true);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": true,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 2,
+        "icon": "",
+        "scriptInputVariables": [],
+        "scriptRoles": [],
+        "editor": [],
+        "translations": [],
+        "identifier": "28524c8a-84b1-5214-8b4a-72068de560ac"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "AfterCustomModInstalled"
+        ],
+        "name": "Install the Workshop add-on",
+        "description": "Moves the downloaded Workshop item\u0027s .vpk files to contagion/addons (named \u003Cid\u003E_\u003Cfile\u003E.vpk), where the server mounts them when it starts, and lists the maps they contain.",
+        "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Text;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Contagion Workshop items are .vpk add-ons (maps, weapons, models). The panel downloaded the item; this moves its\n// .vpk files to contagion/addons as \u0022\u003Cid\u003E_\u003Cfile\u003E.vpk\u0022, where the server mounts them when it starts. (An update first runs\n// the uninstall script, which stops a running server: Windows locks mounted add-ons.)\n// (The server\u0027s own Workshop list, contagion/collection.txt, is not used: the server queues it before it is logged on\n// to Steam, and it reads ids above 2147483647 as 2147483647.)\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \u0022^[0-9]{1,20}$\u0022)) throw new Exception(\u0022Unexpected Workshop id: \u0022 \u002B fileId);\nstring downloaded = Convert.ToString(Dynamic.InstallPath);\nif (string.IsNullOrEmpty(downloaded) || !Directory.Exists(downloaded))\n    throw new Exception(\u0022The Workshop item was not downloaded (\u0022 \u002B downloaded \u002B \u0022).\u0022);\n\nvar root = Path.GetFullPath((string)ThisService.RootDirectory);\nvar game = Path.Combine(root, \u0022contagion\u0022);\nNoLink(game);\nvar addons = Path.Combine(game, \u0022addons\u0022);\nNoLink(addons);\nvar createdAddons = !Directory.Exists(addons);\nDirectory.CreateDirectory(addons);\nif (createdAddons \u0026\u0026 System.OperatingSystem.IsLinux()) Globals.OperatingSystem.SetDirectoryOwnerAutoDetect(addons, false);\n\nNoLinkInside(downloaded);\nvar packages = Directory.GetFiles(downloaded, \u0022*.vpk\u0022, SearchOption.AllDirectories)\n    .Where(f =\u003E !f.Contains(Path.DirectorySeparatorChar \u002B \u0022.DepotDownloader\u0022 \u002B Path.DirectorySeparatorChar)).ToList();\nif (packages.Count == 0) throw new Exception(\u0022Workshop item \u0022 \u002B fileId \u002B \u0022 has no .vpk file; Contagion loads Workshop items only as .vpk add-ons.\u0022);\n\n// An update replaces the previous files of this item.\nforeach (var old in Directory.GetFiles(addons, fileId \u002B \u0022_*.vpk\u0022)) File.Delete(old);\nvar maps = new List\u003Cstring\u003E();\nforeach (var package in packages)\n{\n    var target = Path.Combine(addons, fileId \u002B \u0022_\u0022 \u002B Regex.Replace(Path.GetFileName(package), \u0022[^A-Za-z0-9._()-]\u0022, \u0022_\u0022));\n    File.Move(package, target, true);\n    if (System.OperatingSystem.IsLinux()) Globals.OperatingSystem.SetFileOwnerAutoDetect(target);\n    maps.AddRange(MapsIn(target));\n    ScriptConsole.WriteLine((object)(\u0022Installed \u0022 \u002B Path.GetFileName(target) \u002B \u0022 in contagion/addons.\u0022));\n}\n// The download folder is only the panel\u0027s staging copy.\nDeleteTree(downloaded);\n\nif (maps.Count \u003E 0)\n    ScriptConsole.WriteLine((object)(\u0022Maps: \u0022 \u002B string.Join(\u0022, \u0022, maps) \u002B \u0022. Restart the server to load the add-on, then change to a map with: changelevel \u0022 \u002B maps[0] \u002B\n        \u0022 (or pick it as the startup map in a custom command line). The map prefix sets the game mode.\u0022));\nelse\n    ScriptConsole.WriteLine((object)\u0022Restart the server to load the add-on.\u0022);\n\n// Map names in a VPK directory (maps/\u003Cname\u003E.bsp).\nList\u003Cstring\u003E MapsIn(string vpk)\n{\n    var found = new List\u003Cstring\u003E();\n    try\n    {\n        using (var r = new BinaryReader(File.OpenRead(vpk)))\n        {\n            if (r.ReadUInt32() != 0x55aa1234) return found;\n            var version = r.ReadUInt32(); r.ReadUInt32();\n            if (version == 2) r.ReadBytes(16);\n            string Str() { var b = new List\u003Cbyte\u003E(); byte c; while ((c = r.ReadByte()) != 0) b.Add(c); return Encoding.UTF8.GetString(b.ToArray()); }\n            while (true)\n            {\n                var ext = Str(); if (ext == \u0022\u0022) break;\n                while (true)\n                {\n                    var dir = Str(); if (dir == \u0022\u0022) break;\n                    while (true)\n                    {\n                        var name = Str(); if (name == \u0022\u0022) break;\n                        r.ReadUInt32(); var preload = r.ReadUInt16(); r.ReadBytes(12);\n                        if (preload \u003E 0) r.ReadBytes(preload);\n                        if (ext == \u0022bsp\u0022 \u0026\u0026 dir.Equals(\u0022maps\u0022, StringComparison.OrdinalIgnoreCase)) found.Add(name);\n                    }\n                }\n            }\n        }\n    }\n    catch (EndOfStreamException) { }\n    return found;\n}\n\nvoid NoLink(string p)\n{\n    var info = new FileInfo(p);\n    if ((info.Exists || Directory.Exists(p)) \u0026\u0026 info.Attributes.HasFlag(FileAttributes.ReparsePoint))\n        throw new Exception(p \u002B \u0022 is a link; refusing to write through it.\u0022);\n}\n\n// The download must not contain links (walked by hand: never descends into one).\nvoid NoLinkInside(string dir)\n{\n    NoLink(dir);\n    foreach (var e in new DirectoryInfo(dir).EnumerateFileSystemInfos())\n    {\n        if (e.Attributes.HasFlag(FileAttributes.ReparsePoint)) throw new Exception(e.FullName \u002B \u0022 is a link; refusing to install the item.\u0022);\n        if (e is DirectoryInfo) NoLinkInside(e.FullName);\n    }\n}\n\n// Deletes a folder without following links inside it (a link is removed, never its target).\nvoid DeleteTree(string path)\n{\n    foreach (var entry in new DirectoryInfo(path).EnumerateFileSystemInfos())\n    {\n        if (entry.Attributes.HasFlag(FileAttributes.ReparsePoint) || entry is FileInfo) entry.Delete();\n        else DeleteTree(entry.FullName);\n    }\n    Directory.Delete(path);\n}\n",
+        "runImpersonated": false,
+        "stopService": false,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 3,
+        "icon": "\u003Cpath d=\u0022M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "d84aecaa-b943-56ae-bbe8-157d3315003c"
+      }
+    },
+    {
+      "script": {
+        "allGames": false,
+        "global": false,
+        "scriptEngine": "CSharp",
+        "operatingSystem": [
+          "Windows"
+        ],
+        "scriptEvents": [
+          "BeforeCustomModUninstalled"
+        ],
+        "name": "Remove the Workshop add-on",
+        "description": "Deletes the Workshop item\u0027s .vpk files (contagion/addons/\u003Cid\u003E_*.vpk). A running server is stopped first (Windows locks mounted add-ons) and started again after.",
+        "code": "using System;\nusing System.IO;\nusing System.Text.RegularExpressions;\n\nvar Globals = new TCAdmin.Scripting.Engines.Addons.CSharpGameGlobals(); // DO NOT MODIFY THIS LINE\n\n// Deletes the Workshop item\u0027s add-ons (contagion/addons/\u003Cid\u003E_*.vpk). The script is marked \u0022stop the service\u0022: Windows locks\n// mounted add-ons, so the panel stops a running server before this runs and starts it again after.\nstring fileId = Convert.ToString(Dynamic.FileId).Trim();\nif (!Regex.IsMatch(fileId, \u0022^[0-9]{1,20}$\u0022)) throw new Exception(\u0022Unexpected Workshop id: \u0022 \u002B fileId);\n\nvar root = Path.GetFullPath((string)ThisService.RootDirectory);\nvar addons = Path.Combine(root, \u0022contagion\u0022, \u0022addons\u0022);\nforeach (var p in new[] { Path.Combine(root, \u0022contagion\u0022), addons })\n{\n    var info = new DirectoryInfo(p);\n    if (info.Exists \u0026\u0026 info.Attributes.HasFlag(FileAttributes.ReparsePoint)) throw new Exception(p \u002B \u0022 is a link; refusing to touch it.\u0022);\n}\nvar removed = 0;\nif (Directory.Exists(addons))\n{\n    foreach (var file in Directory.GetFiles(addons, fileId \u002B \u0022_*.vpk\u0022))\n    {\n        File.Delete(file);\n        removed\u002B\u002B;\n        ScriptConsole.WriteLine((object)(\u0022Deleted contagion/addons/\u0022 \u002B Path.GetFileName(file) \u002B \u0022.\u0022));\n    }\n}\nScriptConsole.WriteLine((object)(removed == 0 ? \u0022No add-on of Workshop item \u0022 \u002B fileId \u002B \u0022 was installed.\u0022 : \u0022The server no longer loads it.\u0022));\n",
+        "runImpersonated": false,
+        "stopService": true,
+        "ignoreErrors": false,
+        "runInBackground": false,
+        "inputTimeoutMinutes": 15,
+        "maxConcurrentRuns": 1,
+        "logApiExecutions": false,
+        "order": 4,
+        "icon": "\u003Cpath d=\u0022M19 13H5v-2h14v2z\u0022/\u003E",
+        "scriptInputVariables": [],
+        "scriptRoles": [
+          {
+            "roleId": 3
+          },
+          {
+            "roleId": 2
+          }
+        ],
+        "editor": [],
+        "translations": [],
+        "identifier": "b16770bd-8579-530c-ad5a-b2925b235c0c"
+      }
+    }
+  ],
+  "customModProviderConfigs": [
+    {
+      "providerId": 1,
+      "gameId": 167,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 2,
+      "gameId": 167,
+      "enabled": true,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {
+        "AllowCollections": true,
+        "ShowDescription": true,
+        "ShowAuthorAndRating": true,
+        "Private.UseSteamAPI": false,
+        "SkipDownload": false
+      }
+    },
+    {
+      "providerId": 3,
+      "gameId": 167,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 4,
+      "gameId": 167,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 5,
+      "gameId": 167,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 6,
+      "gameId": 167,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    },
+    {
+      "providerId": 7,
+      "gameId": 167,
+      "enabled": false,
+      "customName": null,
+      "customIcon": null,
+      "configuration": {}
+    }
+  ],
+  "gamesCustomLinks": [],
+  "updates": [],
+  "createdDate": "2026-11-16T05:26:46.199853",
+  "modifiedDate": null,
+  "metadata": {},
+  "backupConfig": {
+    "enabled": true,
+    "backupType": "Full",
+    "compressBackup": true,
+    "stopServiceBeforeBackup": false,
+    "includedPaths": [
+      "contagion/cfg/**/*",
+      "contagion/addons/**/*",
+      "contagion/*.dt",
+      "contagion/mapcycle.txt",
+      "contagion/collection.txt",
+      "contagion/default_plugins.json",
+      "contagion/data/custom/**/*",
+      "contagion/data/plugins/**/*"
+    ],
+    "maxBackupCount": null,
+    "maxBackupSpace": null
+  },
+  "rolePermissions": [
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 2,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PredefCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomCmdlines",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CpuStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FileManager",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FTP",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "LiveStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Logs",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "MemoryStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "PlayerStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ScheduledTasks",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "SteamUpdate",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Console",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-CreateFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Compress",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SendCommand",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-WebRequest",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Control",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-Extract",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ConfigFiles",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "CustomScripts",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-ServiceControl",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Backups",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "KillService",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFolder",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DeleteFile",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-DiscordWebhook",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceActivity",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-FtpUpload",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "NetworkStats",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Databases",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Block-SetVariable",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Create",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Delete",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Detach",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "FastDL",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Mods",
+      "moduleData": "",
+      "granted": true
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Reinstall",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Repair",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "ServiceSettings",
+      "moduleData": "",
+      "granted": false
+    },
+    {
+      "roleId": 3,
+      "module": "BpFeature",
+      "permission": "Updates",
+      "moduleData": "",
+      "granted": false
+    }
+  ],
+  "mods": [],
+  "queryMonitoringConfig": {
+    "enabled": true,
+    "checkInterval": "00:05:00",
+    "startupGracePeriod": "00:10:00",
+    "retryDelay": "00:00:30",
+    "failureThreshold": 3,
+    "failureAction": "Restart",
+    "maxFailureAction": "None",
+    "failureEmailTemplateKey": null,
+    "maxFailureEmailTemplateKey": null,
+    "logActivityOnFailure": true,
+    "autoRestartOnExit": true,
+    "autoRestartDelay": "00:00:05",
+    "autoRestartMaxAttempts": 3,
+    "autoRestartWindow": "00:05:00",
+    "logUnexpectedExit": true,
+    "slotDetectionEnabled": true,
+    "slotDetectionAction": "Stop",
+    "slotDetectionEmailTemplateKey": null,
+    "additionalAllowedSlots": 0,
+    "privateDetectionEnabled": true,
+    "privateDetectionAction": "Stop",
+    "privateDetectionEmailTemplateKey": null,
+    "brandDetectionEnabled": true,
+    "brandDetectionAction": "Stop",
+    "brandDetectionEmailTemplateKey": null,
+    "brandedText": "",
+    "brandedTextAtEnd": false,
+    "brandedTextAddSpace": false,
+    "brandRegex": "",
+    "brandRegexCaseInsensitive": false,
+    "rules": []
+  },
+  "fastDLConfig": {
+    "enabled": false,
+    "relativeRoot": "contagion/",
+    "urlExpression": "${FastDownloadBaseUrl}",
+    "includePatterns": [],
+    "excludePatterns": [],
+    "syncOnServiceCreate": false,
+    "autoSyncOnFileChange": true,
+    "compression": "None",
+    "maxCompressSizeKB": null,
+    "diskQuotaMB": null,
+    "requiresHttps": false,
+    "stripPaths": [
+      "addons/"
+    ]
+  },
+  "environmentVariables": []
+}

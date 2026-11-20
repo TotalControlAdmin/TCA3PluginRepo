@@ -1,0 +1,60 @@
+identifier: "Community.Games.Contagion"
+name: "Contagion"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Contagion dedicated server (Windows / Linux via Wine) with A2S query, RCON, console, graceful stop, game mode and map selection, Steam Workshop add-ons, and backups"
+longDescription: |
+  # Contagion
+  
+  ## Description
+  Contagion dedicated server for Windows, and for Linux under Wine (Steam app 293030, anonymous download, about 17 GB).
+  
+  ## Key Features
+  - **Windows and Linux (Wine)** configs. Contagion has no native Linux server: the Linux depot holds only a launcher stub, no engine or server libraries. The Linux config runs the Windows server under Wine.
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S) and **Source RCON** on the game port.
+  - **Console:** the console wrapper (MemoryWrapper) on Windows, the server's `console.log` on Linux (Wine), with console commands on both.
+  - **Graceful stop** with the `quit` command.
+  - **Startup map** from all 84 stock maps, labelled by game mode. The map prefix sets the mode: `ce_` Escape, `chm_` Horde, `ch_` Hunted, `cx_` Extraction, `cp_` Panic, `cf_` Flatline.
+  - **Config editor** for `contagion/cfg/server.cfg`: server name, join and RCON passwords, voice chat, file downloads, AI zombies only, infection on or off.
+  - **Steam Workshop:** install items from the panel. The panel downloads the item and puts its `.vpk` files in `contagion/addons` (`<id>_<file>.vpk`), where the server mounts them. The install log lists the maps the item contains. Collections are supported.
+  - **Start script:** writes `steam_appid.txt` so the first start connects to Steam, and keeps the previous console log as `console.previous.log`.
+  - **Wine setup (Linux):** a script installs wine, winetricks, Xvfb and xdotool on the host (apt, dnf or yum) and creates the server's Wine prefix on create and reinstall.
+  - **Backups** of the configs, add-ons, admin and ban lists, map cycle and plugin data (no stop needed).
+  - **Command lines:** a Default and an Advanced (config file, insecure) predefined line, and custom lines.
+  
+  ## Ports
+  - Game, query and RCON: 27015 (UDP + TCP).
+  - Client port: 27016 (passed as `+clientport`; the dedicated server does not open it).
+  
+  ## Instructions
+  - Change to a Workshop map with `changelevel <map>` after a restart, or set it as the startup map in a custom command line.
+  - The server's own Workshop list (`contagion/collection.txt`) is not used. The server queues those downloads before it has logged on to Steam, so they fail. It also reads ids above 2147483647 as 2147483647.
+  - Angelscript server plugins go in `contagion/data/plugins/scripts` and are enabled in `contagion/default_plugins.json`.
+  - Players who join need the Workshop items too (subscribe in the Steam Workshop).
+  
+  ## IP and ports
+  Checked on both Windows and Linux (Wine); both were run, not only previewed.
+  - The game, query and RCON port binds the service IP through `-ip` (UDP + TCP). Query and RCON always use the game port.
+  - Each test service started on 127.0.0.1 with the default ports, then moved to its server's public IP with new ports (game +1000/+1030, client port +1300/+1330). The game port then listened on the new IP and port, the query answered with the edited server name, RCON connected, and a custom command line saved (Preview 200) and started.
+  - The server does not answer A2S queries on 127.0.0.1; it answers on a real IP.
+  - The server also opens one TCP port on 127.0.0.1 with a random number. It cannot be set and is not reachable from outside.
+  - Under Wine the UDP game port shows as bound to the network interface (`0.0.0.0%eth0`) rather than the single address; TCP binds the service IP. This is Wine's socket handling, not a server setting.
+  - The dedicated server does not open the client port (its log shows `0 CL`); it is kept reserved.
+  
+  ## Linux (Wine)
+  Contagion's Linux depot has no server binaries, so the Linux config runs the Windows server under Wine, following the rule for games without a native Linux server. It is tagged Wine, not Linux.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/238430/5b4f22ca04d338866b0c904af3166d9e939027f2.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238430/ss_fa25d32350161367c0dc7411ec5ec1b8bfa5cef0.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Wine"
+files:
+  - path: "Contagion - Windows.json"
+    type: "GameConfig"
+  - path: "Contagion - Linux Wine.json"
+    type: "GameConfig"
