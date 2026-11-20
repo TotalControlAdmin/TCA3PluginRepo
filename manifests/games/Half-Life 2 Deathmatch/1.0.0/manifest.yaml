@@ -1,0 +1,47 @@
+identifier: "Community.Games.HalfLife2Deathmatch"
+name: "Half-Life 2: Deathmatch"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Half-Life 2: Deathmatch dedicated server (Windows / Linux) with A2S query, RCON, console, graceful stop, config editor, game mode and map selection, and backups"
+longDescription: |
+  # Half-Life 2: Deathmatch
+  
+  ## Description
+  Half-Life 2: Deathmatch dedicated server for Windows and Linux (Steam app 232370, anonymous download), the Source engine deathmatch game with the gravity gun.
+  
+  ## Key Features
+  - **Windows and Linux** configs on srcds.
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S on the game port) and **Source RCON** on the game port.
+  - **Console** with all server commands: Terminal on Linux, the console window on Windows.
+  - **Graceful stop** with `quit`.
+  - **Starts out of the box:** a start script writes `steam_appid.txt`, so the first start connects to Steam (VAC secure, listed on the master server). It also keeps the previous `console.log` as `console.previous.log`.
+  - **Config editor** for `server.cfg`: server name, join and RCON passwords, game mode (deathmatch or team deathmatch), time limit and frag limit.
+  - **Command lines:** a startup map picker with every official map, and an Advanced line with config file, `-insecure` and fps limit.
+  - **Backups** of `hl2mp/cfg`, `hl2mp/custom` and `hl2mp/addons`. The server keeps running.
+  - **Log viewer** for the console and server logs.
+  - HL2:DM has no Steam Workshop. Upload custom maps and content to `hl2mp` with the file manager.
+  
+  ## Ports
+  - Game, query and RCON 27015 (UDP and TCP).
+  - Client port 27016 (UDP).
+  
+  All ports bind to the service IP (`-ip`, `-port`, `+clientport`). SourceTV is off (`-nohltv`). The IP and port check passed on both Windows and Linux: after moving a service to a new IP and new ports, every port listened on the assigned IP and port, and the query, RCON and a custom command line worked. Query and RCON share the game port (srcds has no separate query port). The server does not answer A2S queries when the service IP is 127.0.0.1, so give the service a real IP. srcds also opens a TCP port on 127.0.0.1 with a random number. It cannot be set and is not reachable from outside.
+  
+  ## Instructions
+  - The game mode applies from the next map (`changelevel <map>` or a restart).
+  - To keep the same server id across restarts, set a game server login token with `sv_setsteamaccount` (Steam app 320) in `server.cfg`.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/320/795e85364189511f4990861b578084deef086cb1.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/320/ss_0312ff64a5839736a7dfa4c4f735f8d48843739e.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Half-Life 2 Deathmatch - Windows.json"
+    type: "GameConfig"
+  - path: "Half-Life 2 Deathmatch - Linux.json"
+    type: "GameConfig"
