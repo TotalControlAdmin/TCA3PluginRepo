@@ -1,0 +1,56 @@
+identifier: "Community.Games.Left4Dead"
+name: "Left 4 Dead"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Left 4 Dead dedicated server (Windows / Linux) with A2S query, RCON, console, graceful stop, game mode and map selection, and backups"
+longDescription: |
+  # Left 4 Dead
+  
+  ## Description
+  Left 4 Dead dedicated server for Windows and Linux (Steam app 222840, anonymous download).
+  
+  ## Key Features
+  - **Windows and Linux** configs on the Source dedicated server (`srcds`).
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S) and **Source RCON** on the game port.
+  - **Console:** the console wrapper on Windows, Terminal on Linux, with console commands.
+  - **Graceful stop** with the `quit` command.
+  - **Game mode and map:** campaign (co-op), versus or survival. Start maps for No Mercy, Death Toll, Dead Air, Blood Harvest and Crash Course, their versus versions, and The Last Stand (survival).
+  - **Config editor** for `left4dead/cfg/server.cfg` (server name, RCON password, join password). Direct connections are allowed, not only lobby matchmaking.
+  - **Start script:** writes `steam_appid.txt` so even the very first start connects to Steam (otherwise the server runs in LAN mode), and keeps the previous console log as `console.previous.log`.
+  - **Backups** of `left4dead/cfg` and `left4dead/addons` (no stop needed).
+  - **Command lines:** a Default and an Advanced (config file, insecure, fps) predefined line, and custom lines.
+  
+  ## Ports
+  - Game, query and RCON: 27015 (UDP + TCP).
+  - Steam port: 27016 (reserved; the server passes it as `-steamport`).
+  - All ports bind to the service IP.
+  
+  ## Instructions
+  - The player limit is 4 in co-op and survival and 8 in versus.
+  - Versus needs a versus map (`l4d_vs_...`). Crash Course works in every mode. The Last Stand is survival only.
+  - Set the difficulty with `z_difficulty` in `server.cfg` (Easy, Normal, Hard, Impossible).
+  - Left 4 Dead has no Steam Workshop. Upload add-ons (`.vpk`) to `left4dead/addons` with the file manager.
+  - The Sacrifice campaign is not part of the dedicated server download.
+  
+  ## IP and ports
+  Checked on both Windows and Linux (both were run, not only previewed).
+  - The game, query and RCON port binds the service IP through `-ip` (UDP + TCP).
+  - Moved each test service from 127.0.0.1 to its server's public IP with new ports (game +1000/+1020, Steam port +1100/+1120). The game port then listened on the new IP and port, the query answered, RCON connected, the Steam master server listed the server (secure, not LAN), and a custom command line saved (Preview 200) and started.
+  - The server does not answer A2S queries on 127.0.0.1; it answers on a real IP.
+  - srcds also opens one TCP port on 127.0.0.1 with a random number (the Steam client's local port). It cannot be set and is not reachable from outside.
+  - Nothing listens on the Steam port in this game version; it is kept reserved.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/500/428df26bc35b09319e31b1ffb712487b20b3245c.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/500/0000006035.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Left 4 Dead - Windows.json"
+    type: "GameConfig"
+  - path: "Left 4 Dead - Linux.json"
+    type: "GameConfig"
