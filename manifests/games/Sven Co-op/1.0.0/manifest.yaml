@@ -1,0 +1,55 @@
+identifier: "Community.Games.SvenCoop"
+name: "Sven Co-op"
+version: "1.0.0"
+minimumApplicationVersion: "3.23"
+author: "TCAdmin"
+shortDescription: "Sven Co-op dedicated server (Windows / Linux) with A2S query, console, graceful stop, map and difficulty selection, and backups"
+longDescription: |
+  # Sven Co-op
+  
+  ## Description
+  Sven Co-op dedicated server for Windows and Linux (Steam tool 276060, anonymous download).
+  
+  ## Key Features
+  - **Windows and Linux** configs on the Sven Co-op dedicated server (`svends`).
+  - **Steam update** on install and from the panel.
+  - **Server-browser query** (A2S) on the game port.
+  - **Console:** the console wrapper on Windows, Terminal on Linux, with console commands.
+  - **Graceful stop** with the `quit` command (`-norestart` keeps the launcher from relaunching).
+  - **Startup map:** the stock co-op maps, including the Half-Life campaign (`hl_c00`) and the three They Hunger episodes.
+  - **Start script (Linux):** makes the server binaries executable (the Steam download drops the exec bit, so the server would not start), writes `steam_appid.txt` and keeps the previous console log as `qconsole.previous.log`.
+  - **Config editor** for `svencoop/server.cfg` (server name, RCON password, join password, difficulty, survival mode, time limit).
+  - **Backups** of the server configs, `svencoop/scripts/plugins` and `svencoop_addon` (no stop needed).
+  - **Command lines:** a Default and an Advanced (config file, insecure) predefined line, and custom lines.
+  
+  ## Ports
+  - Game and query: 27015 (UDP).
+  - Steam port: 26900 (UDP, `-sport`, follows the game port). Used on Windows; the Linux server opens no separate Steam socket.
+  - All ports bind to the service IP.
+  
+  ## Instructions
+  - Sven Co-op has no Steam Workshop. Upload custom maps and content to `svencoop_addon` and AngelScript plugins to `svencoop/scripts/plugins` (list them in `svencoop/default_plugins.txt`) with the file manager.
+  - Change the map rotation in `svencoop/mapcycle.txt`.
+  - Opposing Force and Blue Shift campaign maps are not part of the dedicated server download.
+  - Remote RCON is off: the server rejects remote RCON logins (see below). Use the panel console instead.
+  
+  ## IP and ports
+  Checked on both Windows and Linux (both were run, not only previewed). The port list was read from the server process (netstat on Windows, ss on Linux).
+  - Linux: moved the test service from 127.0.0.1 to the public IP with new ports (game +2000, Steam port +2300). The game port then listened on the new IP and port, the query answered, the server connected to Steam (secure), and a custom command line saved (Preview 200) and started.
+  - Windows: moved the test service from 127.0.0.1 to the public IP with new ports (game +1000, Steam port +1300). Both ports then listened on the new IP and port, the query answered on the new port, and a custom command line saved (Preview 200) and started.
+  - Windows, without `-sport`: the server opened the Steam port 26900 on the service IP even when it ran on another game port, so two services on one IP would clash. The port is now assigned per service.
+  - Windows, on 127.0.0.1: the Steam socket binds a random port on 0.0.0.0 instead (outgoing only).
+  - RCON: Sven Co-op 5.0.1.8 answers every remote GoldSrc RCON command with "Bad rcon_password." even with the right password, on both Windows and Linux, so the RCON protocol is not set. The panel console works without it.
+  
+icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/225840/b552055c69f4b4b05195b72805ed0bff09cf1e93.jpg"
+images:
+  - "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/225840/ss_fb39db9eef7b305d7da85e019392ab646271ed9c.1920x1080.jpg"
+tags:
+  - "Game"
+  - "Windows"
+  - "Linux"
+files:
+  - path: "Sven Co-op - Windows.json"
+    type: "GameConfig"
+  - path: "Sven Co-op - Linux.json"
+    type: "GameConfig"
