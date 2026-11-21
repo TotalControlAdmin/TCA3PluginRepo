@@ -1,0 +1,23 @@
+identifier: "Community.DockerBlueprints.PhpMyAdmin"
+name: "phpMyAdmin"
+version: "1.0.1"
+author: "TCAdmin"
+shortDescription: "phpMyAdmin"
+longDescription: |
+  # phpMyAdmin
+  
+  ## Description
+  phpMyAdmin with configurable options
+  
+  ## What's new in 1.0.1
+  - Customers and sub-administrators can now use the service: they get the usual features (Config Files, Console, Control, File Manager, FTP, Logs, stats, Scheduled Tasks and Service Activity, and Reinstall for sub-administrators) and read/write access to the service's files.
+  - They can change Max import size, PHP memory limit and Max execution time. The database connection, host and port and "Allow blank-password logins" stay admin-only.
+  
+icon: "https://upload.wikimedia.org/wikipedia/commons/9/95/PhpMyAdmin_logo.png"
+images:
+  - "https://upload.wikimedia.org/wikipedia/commons/1/13/PhpMyAdmin-main-en.png"
+tags:
+  - "Docker"
+files:
+  - path: "phpMyAdmin.json"
+    type: "DockerConfig"
